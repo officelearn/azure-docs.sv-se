@@ -14,7 +14,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74215576"
 ---
-# <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera python-miljön på ett säkert sätt i Azure HDInsight med skript åtgärd
+# <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
 > [!div class="op_single_selector"]
 > * [Använda cell Magic](apache-spark-jupyter-notebook-use-external-packages.md)

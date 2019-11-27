@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Cloudyn in Azure | Microsoft Docs
-description: This article provides answers to some of the common questions about Cloudyn.
+title: Vanliga frågor om Cloudyn i Azure | Microsoft Docs
+description: Den här artikeln innehåller svar på några vanliga frågor om Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,17 +17,17 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230101"
 ---
-# <a name="frequently-asked-questions-for-cloudyn"></a>Frequently asked questions for Cloudyn
+# <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor om Cloudyn
 
-This article addresses some common questions about Cloudyn. If you have questions about Cloudyn, you can ask them at [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
+Den här artikeln tar upp några vanliga frågor om Cloudyn. Om du har frågor om Cloudyn kan du ställa dem i [vanliga frågor och svar om Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
 
-## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>How can I resolve common indirect enterprise setup problems?
+## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Hur kan jag för att lösa vanliga problem med klientinstallationen indirekt enterprise?
 
 När du använder Cloudyn-portalen första gången kan du se följande meddelanden, om du har ett Enterprise-avtal eller är en molnlösningsleverantör:
 
-- "The specified API key is not a top level enrollment key" displayed in the **Set Up Cloudyn** wizard.
-- "Direct Enrollment – No" displayed in the Enterprise Agreement portal.
-- "No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account" displayed in the Cloudyn portal.
+- "Den angivna API-nyckeln är inte en registrerings nyckel på högsta nivån som visas i guiden **Konfigurera Cloudyn** .
+- ”Direktregistrering – inte” visas i portalen för Enterprise-avtal.
+- ”Inga användningsdata hittades för de senaste 30 dagarna. Kontakta din återförsäljare för att försäkra markup har aktiverats för ditt Azure-konto ”visas i Cloudyn-portalen.
 
 Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller molntjänstleverantören måste aktivera _pålägg_ för ditt Azure-konto för att du ska kunna se dina data i Cloudyn.
 
@@ -35,7 +35,7 @@ Så här löser du problemen:
 
 1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn. For instructions, see [Adding Your Azure EA](quick-register-ea.md#register-with-cloudyn) or [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig).
+2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn. Instruktioner finns i [lägga till ditt Azure EA](quick-register-ea.md#register-with-cloudyn) eller [så hittar du ditt EA-registrerings-ID och API-nyckel](https://youtu.be/u_phLs_udig).
 
 Det är bara Azure-tjänstadministratörer som kan aktivera Cloudyn. Det räcker inte att vara medadministratör.
 
@@ -47,115 +47,115 @@ Innan du kan generera API-nyckeln för Azures Enterprise-avtal för att konfigur
 
 Du kanske även behöver ge avdelningsadministratörer, kontoägare och Enterprise-administratörer behörigheter att _visa debiteringar_ med fakturerings-API:et.
 
-## <a name="why-dont-i-see-optimizer-recommendations"></a>Why don’t I see Optimizer recommendations?
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Varför ser jag optimering rekommendationer?
 
-Recommendation information is only available for accounts that are activated. You will not see any recommendation information in **Optimizer** report categories for accounts that are *unactivated*, including:
+Rekommendationen information är bara tillgänglig för konton som är aktiverade. Du kan inte se någon rekommendations information i **optimerings** rapport kategorier för konton som är *inaktiverade*, inklusive:
 
-- Optimization Manager
-- Sizing Optimization
-- Inefficiencies
+- Optimering Manager
+- Storleksoptimering
+- Ineffektivitet
 
-If you cannot view any Optimizer recommendation data, then most likely, you have accounts that are unactivated. To activate an account, you need to register it with your Azure credentials.
+Om du inte ser några data för optimering rekommendation, är förmodligen ha du konton som är inaktiverade. Om du vill aktivera ett konto som du behöver registrera den med dina autentiseringsuppgifter för Azure.
 
-To activate an account:
+Aktivera ett konto:
 
 1.  Klicka på **Settings** (Inställningar) uppe till höger i Cloudyn-portalen och välj **Cloud Accounts** (Molnkonton).
-2.  On the Microsoft Azure Accounts tab, look for accounts that have an **unactivated** subscription.
-3.  To the right of an unactivated account, click the **edit** symbol that resembles a pencil.
-4.  Your tenant ID and rate ID is automatically detected. Klicka på **Next**.
-5.  You’re redirected to the Azure portal. Sign in to the portal and authorize Cloudyn Collector to access your Azure data.
-6.  Next, you’re redirected to the Cloudyn Accounts management page and your subscription is updated with **active** Account Status. It shows a green check mark symbol.
-7.  If you don’t see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create a reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat steps 3 and 4.  
+2.  På fliken Microsoft Azure konton letar du efter konton som har en **inaktive rad** prenumeration.
+3.  Till höger om ett konto som inte har inaktiverats klickar du på **redigerings** symbolen som liknar en penna.
+4.  Din klient-ID och tariff-ID identifieras automatiskt. Klicka på **Nästa**.
+5.  Du är omdirigeras till Azure-portalen. Logga in på portalen och godkänna Cloudyn insamlaren för att få åtkomst till dina Azure-data.
+6.  Sedan omdirigeras du till sidan Cloudyn Accounts Management och din prenumeration har uppdaterats med statusen **aktiv** konto. Den visar en grön bock symbol.
+7.  Om du inte ser en grön bockmarkering symbol för en eller flera prenumerationer, betyder det att du inte har behörighet att skapa en reader-appen (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste du upprepa steg 3 och 4.  
 
-After you complete the preceding steps, you can view Optimizer recommendations within one to two days. However, it can take up to five days before full optimization data is available.
+När du har slutfört föregående steg kan du visa rekommendationer för optimering inom en till två dagar. Dock kan det ta upp till fem dagar innan fullständig optimering data är tillgängliga.
 
 
-## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>How do I enable suspended or locked-out users?
+## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Hur aktiverar jag pausat eller utelåst användare?
 
-First, let's look at the most common scenario that causes user accounts to get *initiallySuspended*.
+Först ska vi titta på det vanligaste scenariot som gör det möjligt för användar konton att hämta *initiallySuspended*.
 
-> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  He registers through the Azure portal and signs into the Cloudyn portal. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. Admin1 does not create any user accounts. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
+> Admin1 kan vara en provider för Microsoft Cloud lösning eller Enterprise-avtal användare. Organisationen är redo att börja använda Cloudyn.  Han registreras via Azure portal och loggar in på Cloudyn-portalen. När den person som registrerar Cloudyn-tjänsten och loggar in på Cloudyn-portalen blir admin1 *primär administratör*. Admin1 skapar inte alla användarkonton. Med hjälp av Cloudyn-portalen skapar de dock Azure-konton och konfigurerar en hierarki. Admin1 informerar admin2, en innehavaradministratör, som de behöver registrera med Cloudyn och logga in på Cloudyn-portalen.
 >
-> Admin2 registers through the Azure portal. However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. The primary administrator, Admin1, is notified of the account suspension. Admin1 needs to activate Admin2’s account and grant *admin entity access* for the appropriate entities and allows user management access and active the user account.
+> Admin2 registreras via Azure portal. Men när de försöker logga in på Cloudyn-portalen, får de ett fel meddelande om att deras konto har **pausats**. Den primära administratörskonto Admin1, är ett meddelande om detta konto. Admin1 måste aktivera Admin2's-konto och bevilja *åtkomst till administratörs entiteten* för lämpliga entiteter och ger användar hanterings åtkomst och aktiva användar kontot.
 
 
-If you receive an alert with a request to allow access for a user, you need to activate the user account.
+Om du får en avisering med en begäran om att tillåta åtkomst för en användare måste du aktivera användarkontot.
 
-To activate the user account:
+Aktivera användarkontot:
 
-1. Sign in to Cloudyn by using the Azure administrative user account that you used to set up Cloudyn. Or, sign in with a user account that was granted administrator access.
-2. Select the gear symbol in the upper right, and select **User Management**.
-3. Find the user, select the pencil symbol, and then edit the user.
-4. Under **User status**, change the status from **Suspended** to **Active**.
+1. Logga in på Cloudyn genom att använda Azure administrativa användarkontot som du använde för att ställa in Cloudyn. Eller logga in med ett användarkonto som har beviljats administratörsbehörighet.
+2. Välj kugg hjuls symbolen i det övre högra hörnet och välj **användar hantering**.
+3. Hitta användaren, Välj pennan och sedan redigera användaren.
+4. Under **användar status**ändrar du status från **inaktive rad till** **aktiv**.
 
-Cloudyn user accounts connect by using single sign-on from Azure. If a user mistypes their password, they might get locked out of Cloudyn, even though they can still access Azure.
+Cloudyn-användarkontot ansluta med hjälp av enkel inloggning från Azure. Om en användare mistypes sitt lösenord, kanske de blir utelåst från Cloudyn, även om de har fortfarande åtkomst till Azure.
 
-If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." If your user account is locked out, contact an alternate administrator to reset your account.
+Om du ändrar din e-postadress i Cloudyn från standard adressen i Azure kan ditt konto bli utelåst. Det kan Visa "status initiallySuspended". Kontakta en annan administratör om du vill återställa ditt konto om ditt konto är låst.
 
-We recommend that you create at least two Cloudyn administrator accounts in case one of the accounts gets locked out.
+Vi rekommenderar att du skapar minst två Cloudyn-administratörskonton om något av konton som hämtar utelåsta.
 
-If you can't sign in to the Cloudyn portal, ensure that you're using the correct URL to sign in to Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Om du inte logga in på Cloudyn-portalen, kontrollerar du att du använder rätt Webbadress för att logga in på Cloudyn. Använd [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Avoid using the Cloudyn direct URL https://app.cloudyn.com.
+Undvik att använda Cloudyn Direct URL https://app.cloudyn.com.
 
-## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>How do I activate unactivated accounts with Azure credentials?
+## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Hur aktiverar jag inaktiverade konton med autentiseringsuppgifter för Azure?
 
-As soon as your Azure accounts are discovered by Cloudyn, cost data is immediately provided in cost-based reports. However, for Cloudyn to provide usage and performance data, you need to register your Azure credentials for the accounts. For instructions, see [Add an account or update a subscription](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
+När dina Azure-konton har identifierats av Cloudyn, tillhandahålla kostnadsdata direkt i rapporter baserade på kostnaden. Men för Cloudyn att tillhandahålla data för användning och prestanda behöver du registrera dina Azure-autentiseringsuppgifter för konton. Instruktioner finns i [lägga till ett konto eller uppdatera en prenumeration](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
 
-To add Azure credentials for an account, in the Cloudyn portal, select the edit symbol to the right of the account name, not the subscription.
+Välj Redigera symbolen till höger om namnet på kontot, inte prenumerationen för att lägga till Azure-autentiseringsuppgifter för ett konto i Cloudyn-portalen.
 
-Until your Azure credentials are added to Cloudyn, the account appears as _un-activated_.
+Innan dina Azure-autentiseringsuppgifter har lagts till i Cloudyn visas kontot som _avaktiverat_.
 
-## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>How do I add multiple accounts and entities to an existing subscription?
+## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>Hur lägger jag till flera konton och entiteter i en befintlig prenumeration?
 
-Additional entities are used to add additional Enterprise Agreements to a Cloudyn subscription. For more information, see [Create and manage entities](tutorial-user-access.md#create-and-manage-entities).
+Ytterligare enheter används för att lägga till ytterligare Enterprise-avtal i en Cloudyn-prenumeration. Mer information finns i [skapa och hantera entiteter](tutorial-user-access.md#create-and-manage-entities).
 
-For CSPs:
+För CSP: er:
 
-To add additional CSP accounts to an entity, select **MSP Access** instead of **Enterprise** when you create the new entity. If your account is registered as an Enterprise Agreement and you want to add CSP credentials, Cloudyn support personnel might need to modify your account settings. If you're a paid Azure subscriber, you can create a new support request in the Azure portal. Select **Help + support**, and then select **New support request**.
+Om du vill lägga till ytterligare CSP-konton till en entitet väljer du **MSP-åtkomst** i stället för **Enterprise** när du skapar den nya entiteten. Om ditt konto registreras som ett Enterprise-avtal och du vill lägga till CSP-autentiseringsuppgifter, kan Cloudyn supportpersonal behöva ändra inställningarna för ditt konto. Om du är en betald Azure-prenumerant kan skapa du en ny supportbegäran i Azure-portalen. Välj **Hjälp + Support**och välj sedan **nytt support ärende**.
 
-## <a name="currency-symbols-in-cloudyn-reports"></a>Currency symbols in Cloudyn reports
+## <a name="currency-symbols-in-cloudyn-reports"></a>Valutasymboler i Cloudyn-rapporter
 
-You might have multiple Azure accounts using different currencies. However, cost reports in Cloudyn do not show more than one currency type per report.
+Du kan ha flera Azure-konton med hjälp av olika valutor. Kostnad-rapporter i Cloudyn visa men inte mer än en valutatyp per rapport.
 
-If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed in USD **$** . Our suggested best practice is to avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
+Om du har flera prenumerationer som använder olika valutor visas en överordnad entitet och dess underordnade entiteter-valutor i USD **$** . Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitetshierarki. Alla dina prenumerationer som är ordnade i en entitet kan med andra ord ska använda samma valuta.
 
-Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays USD **$** for CSP and web-direct Azure accounts.
+Cloudyn identifierar din Enterprise Agreement-prenumeration valuta automatiskt och visas korrekt i rapporter.  Cloudyn visar dock bara USD **$** för CSP-och webb-Direct Azure-konton.
 
-## <a name="what-are-cloudyn-data-refresh-timelines"></a>What are Cloudyn data refresh timelines?
+## <a name="what-are-cloudyn-data-refresh-timelines"></a>Vad är Cloudyn data Uppdatera tidslinjer?
 
-Cloudyn has the following data refresh timelines:
+Cloudyn innehåller följande datauppdatering tidslinjer:
 
-- **Initial**: After you set up, it can take up to 24 hours to view cost data in Cloudyn. It can also take up to 10 days for Cloudyn to collect enough data to display sizing recommendations.
-- **Daily**: From the tenth day to the end of each month, Cloudyn should show your data up to date from the previous day after about UTC+3 the next day.
-- **Monthly**: From the first day to the tenth day of each month, Cloudyn might show your data only through the end of the previous month.
+- **Initial**: när du har konfigurerat kan det ta upp till 24 timmar innan kostnads data visas i Cloudyn. Det kan också ta upp till 10 dagar för Cloudyn samlar in tillräckligt med data för att visa storleksrekommendationer.
+- **Dagligen**: från den tionde dagen till slutet av varje månad bör Cloudyn Visa dina data uppdaterade från föregående dag efter cirka UTC + 3 nästa dag.
+- **Varje månad: från**den första dagen till den tionde dagen i varje månad kan Cloudyn bara visa dina data i slutet av föregående månad.
 
-Cloudyn processes data for the previous day when full data from the previous day is available. The previous day's data is usually available in Cloudyn by about UTC+3 each day. Some data, such as tags, can take an additional 24 hours to process.
+Cloudyn bearbetar data om föregående dag då fullständiga data från föregående dag är tillgänglig. Föregående dags data är vanligtvis tillgängliga i Cloudyn genom om UTC + 3 varje dag. Vissa data, som taggar, kan det ta ytterligare 24 timmar att bearbeta.
 
-Data for the current month isn't available for collection at the beginning of every month. During the period, service providers finalize their billing for the previous month. The previous month's data appears in Cloudyn 5 to 10 days after the start of each month. During this time, you might see only amortized costs from the previous month. You might not see daily billing or usage data. When the data becomes available, Cloudyn processes it retroactively. After processing, all the monthly data is displayed between the fifth day and the tenth day of each month.
+Data för den aktuella månaden är inte tillgängligt för samlingen i början av varje månad. Under perioden Slutför tjänstleverantörer sin fakturering för den föregående månaden. Den föregående månadens data visas i Cloudyn-5 till 10 dagar efter början av varje månad. Du kan se bara amorterade kostnader från den föregående månaden under denna tid. Du kan inte se dagliga fakturering och data. När data blir tillgängligt bearbetar Cloudyn den retroaktivt. Efter bearbetning visas alla månatliga data mellan den femte och tionde dagen i varje månad.
 
-If there is a delay sending data from Azure to Cloudyn, data is still recorded in Azure. The data is transferred to Cloudyn when the connection is restored.
+Om det finns en fördröjning som skickar data från Azure till Cloudyn, registreras fortfarande data i Azure. Data överförs till Cloudyn när anslutningen återupprättas.
 
-## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Cost fluctuations in Cloudyn Cost Reports
+## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Kostnad variationer i Cloudyn-kostnadsrapporter
 
-Cost reports can show cost fluctuations whenever cloud service providers send updated billing files. Fluctuating costs occur when new files are received from a cloud service provider outside of the usual daily or monthly reporting schedule. Cost changes don't result from Cloudyn recalculation.
+Kostnadsrapporter kan visa kostnaden variationer när molntjänstleverantörer skickar uppdaterade filer för fakturering. Kostnaderna varierar inträffa när nya filer tas emot från en molntjänstleverantör utanför den vanliga dagliga och månatliga reporting schema. Kostnad ändringar inte beror på Cloudyn-omberäkning.
 
-Throughout the month, all billing files sent by your cloud service provider are an estimation of your daily costs. Sometimes data is updated frequently — occasionally multiple times per day. Updates are more frequent with AWS than Azure. Cost totals should remain stable when the billing calculation for the previous month is complete and the final billing file is received. Usually, by the 10th of the month.
+Under hela månaden är alla fakturering filer som skickas av din molntjänstleverantör en uppskattning av dina dagliga kostnader. Ibland data uppdateras ofta – ibland flera gånger per dag. Uppdateringarna är oftare med AWS än Azure. Kostnad summor hållas stabil när faktureringsberäkning för den föregående månaden är klar och den slutgiltiga fakturering filen tas emot. Vanligtvis av 10 i månaden.
 
-Changes occur when you receive cost adjustments from your cloud service provider. Receiving credits is one example. Changes can occur months after the relevant month was closed. Changes are shown whenever a recalculation is made by your cloud service provider. Cloudyn updates its historical data to make sure that all adjustments are recalculated. It also verifies that the costs are shown accurately in it reports.
+Ändringar sker när du får kostnadsjusteringar från din molntjänstleverantör. Ta emot krediter är ett exempel. Ändringar kan inträffa flera månader efter den relevanta månaden har stängts. Ändringarna visas varje gång en omberäkning görs av din molntjänstleverantör. Cloudyn uppdaterar dess historiska data för att se till att alla justeringar räknas. Den kontrollerar också att kostnaderna visas korrekt i den rapporterar.
 
-## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>How can a direct CSP configure Cloudyn access for indirect CSP customers or partners?
+## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Hur kan en direkt CSP konfigurerar Cloudyn-åtkomst för indirekta CSP-kunder eller partner?
 
-For instructions, see [Configure indirect CSP access in Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+Instruktioner finns i [Konfigurera indirekt CSP-åtkomst i Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
 
-## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>What causes the Optimizer menu item to appear?
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>Vad som orsakar menyalternativet optimering visas?
 
-After you add Azure Resource Manager access and data is collected, you should see the **Optimizer** option. To activate Azure Resource Manager access, see [How do I activate unactivated accounts with Azure credentials?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+När du har lagt till Azure Resource Manager åtkomst och data samlas in bör du se **optimerings** alternativet. Information om hur du aktiverar Azure Resource Manager åtkomst finns i [Hur gör jag för att aktivera inaktiverade konton med Azure-autentiseringsuppgifter?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
 
-## <a name="is-cloudyn-agent-based"></a>Is Cloudyn agent based?
+## <a name="is-cloudyn-agent-based"></a>Baseras Cloudyn-agenten?
 
-Nej. Agents are not used. Azure virtual machine metric data for VMs is gathered from the Microsoft Insights API. If you want to gather metric data from Azure VMs, they need to have diagnostics settings enabled.
+Nej. Agenter som inte används. Azure-dator måttdata för virtuella datorer har samlats in från Microsoft Insights-API. Om du vill samla in mått data från virtuella Azure-datorer som de behöver ha inställningarna för startdiagnostik aktiverat.
 
-## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Do Cloudyn reports show more than one AD tenant per report?
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Visar mer än en AD-klient per rapport i Cloudyn-rapporter?
 
-Ja. You can [create a corresponding cloud account entity](tutorial-user-access.md#create-and-manage-entities) for each AD tenant that you have. Then you can view all of your Azure AD tenant data and other cloud platform providers including Amazon Web Services and Google Cloud Platform.
+Ja. Du kan [skapa en motsvarande moln konto enhet](tutorial-user-access.md#create-and-manage-entities) för varje AD-klient som du har. Du kan visa alla dina data för Azure AD-klient och andra molnleverantörer för plattform som du har, inklusive Amazon Web Services och Google Cloud Platform.

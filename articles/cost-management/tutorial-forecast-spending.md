@@ -19,7 +19,7 @@ ms.locfileid: "74219085"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Självstudie: Skapa prognoser för framtida utgifter
 
-Cloudyn hjälper dig att förutse framtida kostnader med hjälp av förbrukningshistorik och information om utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här guiden får du lära dig att:
+Cloudyn hjälper dig att förutse framtida kostnader med hjälp av förbrukningshistorik och information om utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa prognoser för framtida utgifter
@@ -29,7 +29,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 
 ## <a name="forecast-future-spending"></a>Skapa prognoser för framtida utgifter
 

@@ -26,7 +26,7 @@ ms.locfileid: "74213205"
 
 Den här självstudien är del två i en serie. Här får du se hur du distribuerar ett Azure Service Fabric-program till ett nytt kluster i Azure.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett kluster.
 > * distribuera ett program till ett fjärrkluster med Visual Studio.
@@ -44,11 +44,11 @@ I den här självstudieserien får du lära du dig att:
 Innan du börjar den här självstudien:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Install Visual Studio 2019](https://www.visualstudio.com/), and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Installera Visual Studio 2019](https://www.visualstudio.com/)och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md).
 
 > [!NOTE]
-> A free account may not meet the requirements to create a virtual machine. This will prevent the completion of the tutorial. In addition, a non-work or non-school account may encounter permission issues while creating the certificate on the keyvault associated with the cluster. If you experience an error related to certificate creation use the Portal to create the cluster instead. 
+> Ett kostnads fritt konto kanske inte uppfyller kraven för att skapa en virtuell dator. På så sätt kan du inte slutföra självstudien. Dessutom kan ett icke-arbetskonto eller ett icke-skol konto drabbas av behörighets problem när du skapar certifikatet i det nyckel valv som är associerat med klustret. Om det uppstår ett fel som rör skapande av certifikat använder portalen för att skapa klustret i stället. 
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet för röstning
 
@@ -78,18 +78,18 @@ Klientwebbtjänsten för röstningsprogrammet lyssnar på en viss port (8080 om 
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Notera tjänstens slutpunkt, som krävs i ett senare steg.  If you're deploying to an existing cluster, open this port by creating a load-balancing rule and probe in the Azure load balancer using a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or via the load balancer for this cluster in the [Azure portal](https://portal.azure.com).
+Notera tjänstens slutpunkt, som krävs i ett senare steg.  Om du distribuerar till ett befintligt kluster öppnar du den här porten genom att skapa en regel för belastnings utjämning och avsökning i Azure Load Balancer med ett [PowerShell-skript](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) eller via belastningsutjämnaren för det här klustret i [Azure Portal](https://portal.azure.com).
 
 ### <a name="create-a-test-cluster-in-azure"></a>Skapa ett testkluster i Azure
 Högerklicka på **Voting** i Solution Explorer och välj **Publicera**.
 
-I **Connection Endpoint** (Anslutningsslutpunkt) väljer du **Skapa ett nytt kluster**.  If you're deploying to an existing cluster, select the cluster endpoint from the list.  Dialogrutan Skapa Service Fabric-kluster öppnas.
+I **Connection Endpoint** (Anslutningsslutpunkt) väljer du **Skapa ett nytt kluster**.  Om du distribuerar till ett befintligt kluster väljer du kluster slut punkten i listan.  Dialogrutan Skapa Service Fabric-kluster öppnas.
 
-På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Next**.
+På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Nästa**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Don't use a self-signed certificate for production clusters.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Next**.
+På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktions kluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Nästa**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

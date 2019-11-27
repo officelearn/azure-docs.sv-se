@@ -13,12 +13,12 @@ ms.locfileid: "74224439"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Maximum number of trusted IP addresses or ranges</a> per subscription |0 |50 |
-| Remember my devices, number of days |14 |60 |
-| Maximum number of app passwords |0 |Obegränsat |
+| Maximalt antal betrodda IP-adresser eller intervall</a> per prenumeration |0 |50 |
+| Kom ihåg mina enheter, antal dagar |14 |60 |
+| Maximalt antal applösenord |0 |Obegränsad |
 | Tillåt **X** försök under MFA-anrop |1 |99 |
-| Two-way text message timeout seconds |60 |600 |
-| Standard för engångsförbikopplingar i sekunder |300 |1,800 |
-| Lås användarkontot efter **X** på varandra följande MFA-nekanden i följd |Not set |99 |
-| Återställ räknaren för kontoutelåsning efter **X** minuter |Not set |9,999 |
-| Återställ konto efter **X** minuter |Not set |9,999 |
+| Timeoutvärde för tvåvägs textmeddelande i sekunder |60 |600 |
+| Standard för engångsförbikopplingar i sekunder |300 |1 800 |
+| Lås användarkontot efter **X** på varandra följande MFA-nekanden i följd |Inte angivet |99 |
+| Återställ räknaren för kontoutelåsning efter **X** minuter |Inte angivet |9 999 |
+| Återställ konto efter **X** minuter |Inte angivet |9 999 |

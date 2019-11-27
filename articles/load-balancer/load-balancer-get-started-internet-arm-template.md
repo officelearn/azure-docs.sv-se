@@ -23,7 +23,7 @@ ms.locfileid: "74225353"
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Skapa en offentlig lastbalanserare med hjälp av en mall
 
 > [!div class="op_single_selector"]
-> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [Portalen](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-internet-arm-template.md)
@@ -56,7 +56,7 @@ Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av Po
 Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
 1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
-2. Kör kommandot **azure config mode** för att växla till Resource Manager-läge, som det visas nedan.
+2. Växla till Resource Manager-läge genom att köra kommandot **azure config mode** (se nedan).
 
     ```azurecli
     azure config mode arm

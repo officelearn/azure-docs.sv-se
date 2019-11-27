@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure geographic traffic routing with Azure Traffic Manager
-description: This tutorial explains how to configure the geographic traffic routing method using Azure Traffic Manager
+title: Självstudie – konfigurera geografisk trafik routning med Azure Traffic Manager
+description: I den här självstudien beskrivs hur du konfigurerar metoden för geografisk trafik cirkulation med hjälp av Azure Traffic Manager
 services: traffic-manager
 author: asudbring
 manager: kumudD
@@ -18,46 +18,46 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422794"
 ---
-# <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configure the geographic traffic routing method using Traffic Manager
+# <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Självstudie: Konfigurera den geografiska Traffic routing-metoden med hjälp av Traffic Manager
 
-The Geographic traffic routing method allows you to direct traffic to specific endpoints based on the geographic location where the requests originate. This tutorial shows you how to create a Traffic Manager profile with this routing method and configure the endpoints to receive traffic from specific geographies.
+Med metoden för geografisk trafik cirkulation kan du dirigera trafik till specifika slut punkter baserat på den geografiska plats där begär Anden kommer. Den här självstudien visar hur du skapar en Traffic Manager-profil med den här routningsmetod och konfigurerar slut punkterna för att ta emot trafik från vissa geografiska områden.
 
-## <a name="create-a-traffic-manager-profile"></a>Create a Traffic Manager Profile
+## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/).
 2. Klicka på **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
-4. In the **Create Traffic Manager profile**:
-    1. Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name `<profilename>.trafficmanager.net`.
-    2. Select the **Geographic** routing method.
-    3. Select the subscription you want to create this profile under.
-    4. Use an existing resource group or create a new resource group to place this profile under. If you choose to create a new resource group, use the **Resource Group location** dropdown to specify the location of the resource group. This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that's deployed globally.
-    5. After you click **Create**, your Traffic Manager profile is created and deployed globally.
+4. I **skapa Traffic Manager-profilen**:
+    1. Ange ett namn för din profil. Det här namnet måste vara unikt inom trafficmanager.net-zonen. För att få åtkomst till din Traffic Manager-profil använder du DNS-namnet `<profilename>.trafficmanager.net`.
+    2. Välj **geografisk** routningsmetod.
+    3. Välj den prenumeration som du vill skapa profilen under.
+    4. Använd en befintlig resurs grupp eller skapa en ny resurs grupp för att placera profilen under. Om du väljer att skapa en ny resurs grupp använder du List rutan **resurs grupps plats** för att ange platsen för resurs gruppen. Den här inställningen refererar till platsen för resurs gruppen och har ingen inverkan på den Traffic Manager profil som distribueras globalt.
+    5. När du har klickat på **skapa**skapas din Traffic Manager-profil och distribueras globalt.
 
 ![Skapa en Traffic Manager-profil](./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png)
 
-## <a name="add-endpoints"></a>Add endpoints
+## <a name="add-endpoints"></a>Lägg till slut punkter
 
-1. Search for the Traffic Manager profile name you created in the portal’s search bar and click on the result when it is shown.
-2. Navigate to **Settings** -> **Endpoints** in Traffic Manager.
-3. Click **Add** to show the **Add Endpoint**.
-3. Click **Add** and in the **Add endpoint** that is displayed, complete as follows:
-4. Select **Type** depending upon the type of endpoint you are adding. For geographic routing profiles used in production, we strongly recommend using nested endpoint types containing a child profile with more than one endpoint. For more details, see [FAQs about geographic traffic routing methods](traffic-manager-FAQs.md).
+1. Sök efter namnet på Traffic Manager profilen som du skapade i portalens Sök fält och klicka på resultatet när det visas.
+2. Navigera till **inställningar** -> **slut punkter** i Traffic Manager.
+3. Klicka på **Lägg till** för att visa **Lägg till slut punkt**.
+3. Klicka på **Lägg till** och i **Lägg till slut punkt** som visas, Slutför på följande sätt:
+4. Välj **typ** beroende på vilken typ av slut punkt du lägger till. För geografiska routnings profiler som används i produktion rekommenderar vi att du använder kapslade slut punkts typer som innehåller en underordnad profil med fler än en slut punkt. Mer information finns i [vanliga frågor och svar om metoder för geografisk trafik cirkulation](traffic-manager-FAQs.md).
 5. Ange ett **Namn** som du vill använda för att identifiera den här slutpunkten.
-6. Certain fields on this page depend on the type of endpoint you are adding:
-    1. If you are adding an Azure endpoint, select the **Target resource type** and the **Target** based on the resource you want to direct traffic to
-    2. If you are adding an **External** endpoint, provide the **Fully-qualified domain name (FQDN)** for your endpoint.
-    3. If you are adding a **Nested endpoint**, select the **Target resource** that corresponds to the child profile you want to use and specify the **Minimum child endpoints count**.
-7. In the Geo-mapping section, use the drop down to add the regions from where you want traffic to be sent to this endpoint. You must add at least one region, and you can have multiple regions mapped.
-8. Repeat this for all endpoints you want to add under this profile
+6. Vissa fält på den här sidan beror på vilken typ av slut punkt du lägger till:
+    1. Om du lägger till en Azure-slutpunkt väljer du **mål resurs typ** och **mål** baserat på den resurs som du vill dirigera trafiken till
+    2. Om du lägger till en **extern** slut punkt anger du slut punktens **fullständigt kvalificerade domän namn (FQDN)** .
+    3. Om du lägger till en **kapslad slut punkt**väljer du den **mål resurs** som motsvarar den underordnade profil som du vill använda och anger **antalet lägsta underordnade slut punkter**.
+7. I avsnittet geo-mappning använder du List rutan för att lägga till de regioner där du vill att trafiken ska skickas till den här slut punkten. Du måste lägga till minst en region och du kan ha flera mappade regioner.
+8. Upprepa detta för alla slut punkter som du vill lägga till under den här profilen
 
 ![Lägga till en Traffic Manager-slutpunkt](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
 
-## <a name="use-the-traffic-manager-profile"></a>Use the Traffic Manager profile
-1.  In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section and click on the traffic manager profile in the results that the displayed.
+## <a name="use-the-traffic-manager-profile"></a>Använd Traffic Manager profilen
+1.  I portalens sökfält söker du efter namnet på **Traffic Manager profilen** som du skapade i föregående avsnitt och klickar på Traffic Manager-profilen i resultaten som visas.
 2. Klicka på **Översikt**.
-3. **Traffic Manager-profilen** visar DNS-namnet på din nyligen skapade Traffic Manager-profil. This can be used by any clients (for example, by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type.  In the case of geographic routing, Traffic Manager looks at the source IP of the incoming request and determines the region from which it is originating. If that region is mapped to an endpoint, traffic is routed to there. If this region is not mapped to an endpoint, then Traffic Manager returns a NODATA query response.
+3. **Traffic Manager-profilen** visar DNS-namnet på din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till den högra slut punkten som fastställs av typen av routning.  Om det gäller geografisk routning Traffic Manager titta på käll-IP: en för den inkommande begäran och bestämmer den region från vilken den har sitt ursprung. Om regionen mappas till en slut punkt dirigeras trafiken till där. Om den här regionen inte är mappad till en slut punkt returnerar Traffic Manager svar på en nodata-fråga.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Learn more about [Geographic traffic routing method](traffic-manager-routing-methods.md#geographic).
-- Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
+- Lär dig mer om [routningsmetod för geografisk trafik](traffic-manager-routing-methods.md#geographic).
+- Lär dig hur du [testar Traffic Manager inställningar](traffic-manager-testing-settings.md).

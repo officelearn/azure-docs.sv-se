@@ -38,7 +38,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 
 ## <a name="create-a-user-with-admin-access"></a>Skapa en användare med administratörsåtkomst
 
@@ -110,7 +110,7 @@ Med åtkomstnivåer för entiteter tillsammans med en användares behörighet ka
 
 För att skapa en hierarki för kostnadsentiteter måste du ha ett konto med åtkomst av typen Enterprise eller Enterprise + kostnadsallokering.
 
-Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Trädet med **entiteter** visas i den vänstra rutan. Om det behövs expanderar du entitetsträdet så att du kan visa den entitet som du vill associera med ett konto.  Kontona för din molntjänstleverantör visas på flikarna i den högra rutan. Välj en flik och klicka och dra ett konto eller en prenumeration till entiteten. Rutan **Flytta** meddelar dig att kontot har skapats. Klicka på **OK**
+Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Trädet med **entiteter** visas i den vänstra rutan. Om det behövs expanderar du entitetsträdet så att du kan visa den entitet som du vill associera med ett konto.  Kontona för din molntjänstleverantör visas på flikarna i den högra rutan. Välj en flik och klicka och dra ett konto eller en prenumeration till entiteten. Rutan **Flytta** meddelar dig att kontot har skapats. Klicka på **OK**.
 
 Du kan också associera flera konton med en entitet. Markera kontona och klicka sedan på **Flytta**. I rutan Flytta konton väljer du den entitet som du vill flytta kontot till och klickar sedan på **Spara**. Rutan Flytta konton uppmanar dig att bekräfta att du vill flytta kontona. Klicka på **Ja** och sedan på **OK**.
 

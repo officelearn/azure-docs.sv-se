@@ -119,7 +119,7 @@ I föregående exempel innehåller enheten dubbla en `batteryLevel`-egenskap som
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel används den `telemetryConfig` enheten och de rapporterade egenskaperna som används av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Exempel:
+I föregående exempel används den `telemetryConfig` enheten och de rapporterade egenskaperna som används av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Till exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -295,7 +295,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över g
 
 IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetens dubbla önskade och rapporterade egenskaper. Tidsstämplar är UTC-formaterade och kodade i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -formatet `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Exempel:
+Till exempel:
 
 ```json
 {

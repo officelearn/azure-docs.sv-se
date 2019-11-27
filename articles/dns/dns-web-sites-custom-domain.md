@@ -16,7 +16,7 @@ ms.locfileid: "74211209"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
-Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. For example, you can create an Azure web app and have your users access it using either www\.contoso.com or contoso.com as a fully qualified domain name (FQDN).
+Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure-webbapp och låta användarna få åtkomst till den med hjälp av antingen www\.contoso.com eller contoso.com som ett fullständigt domän namn (FQDN).
 
 > [!NOTE]
 > Contoso.com används som exempel i den här självstudien. Använd ditt eget domännamn i stället för contoso.com.
@@ -29,7 +29,7 @@ Om du vill göra detta måste du skapa tre poster:
 
 Tänk på att om du skapar en A-post för en webbapp i Azure måste A-posten uppdateras manuellt om den underliggande IP-adressen för webbappen ändras.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en A- och TXT-post för den anpassade domänen
@@ -47,7 +47,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* You must have a domain name available to test with that you can host in Azure DNS . Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
+* Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 * [Skapa en App Service-app](../app-service/app-service-web-get-started-html.md), eller använd en app som du har skapat för en annan kurs.
 
 * Skapa en DNS-zon i Azure DNS och delegera zonen i registratorn till Azure DNS.
@@ -84,7 +84,7 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Den här posten används av App Services endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. Du kan ta bort den här TXT-posten när din anpassade domän har verifierats och konfigurerats i App Service.
 
 > [!NOTE]
-> If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
+> Om du vill verifiera domän namnet, men inte dirigera produktions trafik till webbappen, behöver du bara ange TXT-posten för verifierings steget.  Verifiering kräver inte en A-eller CNAME-post förutom TXT-posten.
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
@@ -173,9 +173,9 @@ set-AzWebApp `
 Öppna en webbläsare och gå till `http://www.<your domainname>` och `http://<you domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
+> Se till att du tar med `http://`-prefixet, annars kan webbläsaren försöka förutsäga en URL åt dig!
 
-Du bör se samma sida för båda URL:er. Exempel:
+Du bör se samma sida för båda URL:er. Till exempel:
 
 ![Contoso-apptjänst](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

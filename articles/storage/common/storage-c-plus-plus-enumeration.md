@@ -34,7 +34,7 @@ Var och en av dessa metoder visas med olika överbelastningar för olika scenari
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynkron jämfört med synkron
 
-Eftersom lagrings klient biblioteket för C++ är byggt ovanpå [ C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk)stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Exempel:
+Eftersom lagrings klient biblioteket för C++ är byggt ovanpå [ C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk)stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Till exempel:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

@@ -1,5 +1,5 @@
 ---
-title: Store unstructured data using Azure Cosmos DB and Functions
+title: Lagra ostrukturerade data med hjälp av Azure Cosmos DB och funktioner
 description: Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
 ms.topic: quickstart
 ms.date: 10/01/2018
@@ -24,7 +24,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 

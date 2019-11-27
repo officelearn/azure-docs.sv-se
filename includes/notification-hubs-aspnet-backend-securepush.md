@@ -11,10 +11,10 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260894"
 ---
-## <a name="webapi-project"></a>WebAPI Project
+## <a name="webapi-project"></a>WebAPI-projekt
 
-1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
-2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure portal](https://portal.azure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
+1. Öppna det **AppBackend** -projekt som du skapade i självstudien **meddela användare** i Visual Studio.
+2. I Notifications.cs ersätter du hela **meddelande** klassen med följande kod. Se till att ersätta plats hållarna med din anslutnings sträng (med fullständig åtkomst) för Notification Hub och hubbens namn. Du kan hämta dessa värden från [Azure Portal](https://portal.azure.com). Den här modulen representerar nu de olika säkra meddelanden som kommer att skickas. I en fullständig implementering kommer meddelandena att lagras i en databas. för enkelhetens skull lagrar vi dem i minnet.
    
    ```csharp
     public class Notification
@@ -56,7 +56,7 @@ ms.locfileid: "74260894"
     }
     ```
 
-1. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
+1. I NotificationsController.cs ersätter du koden inuti definitionen av **NotificationsController** -klassen med följande kod. Den här komponenten implementerar ett sätt för enheten att hämta meddelandet på ett säkert sätt och ger också ett sätt (i den här självstudien) att utlösa en säker push-överföring till dina enheter. Observera att när du skickar meddelandet till Notification Hub skickar vi bara ett RAW-meddelande med ID för meddelandet (och inget faktiskt meddelande):
    
    ```csharp
     public NotificationsController()
@@ -92,7 +92,7 @@ ms.locfileid: "74260894"
     }
     ```
 
-Note that the `Post` method now does not send a toast notification. It sends a raw notification that contains only the notification ID, and not any sensitive content. Also, make sure to comment the send operation for the platforms for which you do not have credentials configured on your notification hub, as they will result in errors.
+Observera att metoden `Post` nu inte skickar ett popup-meddelande. Den skickar ett RAW-meddelande som endast innehåller meddelande-ID och inte något känsligt innehåll. Se också till att kommentera sändnings åtgärden för de plattformar som du inte har konfigurerade autentiseringsuppgifter för i Notification Hub, eftersom de leder till fel.
 
-1. Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
-2. Select Azure Website as your publish target. Sign in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Klicka på **Publicera**.
+1. Nu kommer vi att omdistribuera den här appen till en Azure-webbplats för att göra den tillgänglig från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
+2. Välj Azure-webbplats som publicerings mål. Logga in med ditt Azure-konto och välj en befintlig eller ny webbplats och anteckna URL-egenskapen för **målet** på fliken **anslutning** . Vi kommer att referera till denna URL som *backend-slutpunkt* senare i den här självstudien. Klicka på **Publicera**.

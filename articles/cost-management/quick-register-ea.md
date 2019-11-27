@@ -39,7 +39,7 @@ Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Ma
    1. Logga in på webbplatsen för Azure Enterprise och klicka på **Rapporter**, klicka på **API-åtkomstnyckel** och kopiera sedan den primära nyckeln.  
     ![Exempel på en API-nyckel för EA på EA-portalen](./media/quick-register-ea/ea-key.png)
    3. Gå tillbaka till registreringssidan och klistra in API-nyckeln.
-6. Godkänn användningsvillkoren och validera sedan nyckeln. Klicka på **Nästa** för att tillåta att Cloudyn samlar in Azure-resursdata. Data som samlas in omfattar information om användning, prestanda, fakturering och taggar från dina prenumerationer.  
+6. Godkänn användningsvillkoren och validera sedan nyckeln. Klicka på **Nästa** för att tillåta att Cloudyn samlar in Azure-resursdata. Data som samlas in innefattar information om användning, prestanda, fakturering och taggar från dina prenumerationer.  
     ![Exempel på en lyckad validering av en API-nyckel för EA](./media/quick-register-ea/ea-key-validated.png)
 7. Under **Invite other stakeholders** (Bjud in andra intressenter) kan du lägga till användare genom att ange deras e-postadresser. Klicka på **Nästa** när du är klar. Beroende på storleken på Azure-registreringen kan det ta upp till 24 timmar innan all faktureringsinformation läggs till i Cloudyn.
 8. Klicka på **Go to Cloudyn** (Gå till Cloudyn) för att öppna Cloudyn-portalen. Nu ska din registrerade EA-kontoinformation visas på sidan **Cloud Accounts Management** (Hantering av molnkonton).
@@ -50,7 +50,7 @@ Om du vill se en självstudievideo om registrering av Enterprise-avtalet kan du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du din Azure Enterprise-avtalsinformation för att göra en registrering med Cloudyn. Du loggade också in på Cloudyn-portalen och började visa kostnadsdata. Om du vill veta mer om Cloudyn kan du fortsätta till självstudien för Cloudyn.
+I den här snabbstarten använde du din Azure Enterprise-avtalsinformation för att göra en registrering med Cloudyn. Du har också loggat in på Cloudyn-portalen och börjat visa kostnadsdata. Om du vill veta mer om Cloudyn kan du fortsätta till självstudien för Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Granska användning och kostnader](./tutorial-review-usage.md)

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Push update to geo-replicated registry
-description: Push an updated Docker image to your geo-replicated Azure container registry, then see the changes automatically deployed to web apps running in multiple regions. Del tre av en serie i tre delar.
+title: Självstudie – push-uppdatering till geo-replikerat register
+description: Push-överför en uppdaterad Docker-avbildning till ditt geo-replikerade Azure Container Registry och se sedan ändringarna automatiskt distribuerade till Web Apps som körs i flera regioner. Del tre av en serie i tre delar.
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74454701"
 ---
-# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Push an updated container image to a geo-replicated container registry for regional web app deployments
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Självstudie: push-överför en uppdaterad behållar avbildning till ett geo-replikerat behållar register för regionala webbappar-distributioner
 
 Det här är del tre i en serie självstudier i tre delar. I den [föregående kursen](container-registry-tutorial-deploy-app.md) konfigurerades geo-replikering för två olika regionala Web App-distributioner. I den här självstudiekursen modifierar du först programmet, skapar sedan en ny containeravbildning och push-överför den till ditt geo-replikerade register. Slutligen visar du ändringen, som distribuerats automatiskt med Azure Container Registry-webhookar i båda Web App-instanserna.
 

@@ -1,5 +1,5 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service using Node.js
+title: Registrera X. 509-enheter på Azure Device Provisioning-tjänsten med Node. js
 description: Den här snabbstarten använder gruppregistreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Node.js-tjänstens SDK
 author: wesmc7777
 ms.author: wesmc
@@ -111,13 +111,13 @@ Om du vill använda det här testverktyget för att generera certifikat utför d
 ## <a name="run-the-enrollment-group-sample"></a>Köra exemplet för registrering av grupp
  
 1. Om du vill köra exemplet behöver du anslutningssträngen för etableringstjänsten. 
-    1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service. 
-    2. Click **Shared access policies**, then select the access policy you want to use to open its properties. I fönstret **Åtkomstprincip** kopierar du och antecknar primärnyckelns anslutningssträng. 
+    1. Logga in på Azure Portal, Välj knappen **alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten. 
+    2. Klicka på **principer för delad åtkomst**och välj sedan den åtkomst princip som du vill använda för att öppna dess egenskaper. I fönstret **Åtkomstprincip** kopierar du och antecknar primärnyckelns anslutningssträng. 
 
        ![Hämta etableringsanslutningssträng från portalen](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. Som det står i [Förbereda testcertifikat](quick-enroll-device-x509-node.md#prepare-test-certificates) behöver du även en .pem-fil som innehåller ett mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat som har laddats upp tidigare och verifierats av din etableringstjänst. To check that your certificate has been uploaded and verified, on the Device Provisioning Service summary page in the Azure portal, select **Certificates**. Leta upp det certifikat du vill använda för gruppregistreringen och se till att statusvärdet är *verifierat*.
+3. Som det står i [Förbereda testcertifikat](quick-enroll-device-x509-node.md#prepare-test-certificates) behöver du även en .pem-fil som innehåller ett mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat som har laddats upp tidigare och verifierats av din etableringstjänst. Om du vill kontrol lera att certifikatet har laddats upp och verifierats på sidan Sammanfattning av enhets etablerings tjänsten i Azure Portal väljer du **certifikat**. Leta upp det certifikat du vill använda för gruppregistreringen och se till att statusvärdet är *verifierat*.
 
     ![Verifierat certifikat i portalen](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
@@ -136,14 +136,14 @@ Om du vill använda det här testverktyget för att generera certifikat utför d
     ![Egenskaper för registrering i portalen](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
 ## <a name="clean-up-resources"></a>Rensa resurser
-If you plan to explore the Node.js service samples, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all Azure resources created by this quickstart.
+Om du planerar att utforska service exempel för Node. js ska du inte rensa resurserna som skapades i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla Azure-resurser som skapats i den här snabb starten.
  
 1. Stäng utdatafönstret för Node.js på datorn.
-2. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the check box next to the *GROUP NAME* for the X.509 devices you enrolled using this quickstart, and press the **Delete** button at the top of the pane.    
-3. From your Device Provisioning service in the Azure portal, select **Certificates**, select the certificate you uploaded for this quickstart, and press the **Delete** button at the top of the **Certificate Details** window.  
+2. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Markera KRYSS rutan bredvid *grupp namnet* för de X. 509-enheter som du har registrerat med hjälp av den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.    
+3. Från enhets etablerings tjänsten i Azure Portal väljer du **certifikat**, väljer det certifikat som du laddade upp för den här snabb starten och klickar på knappen **ta bort** högst upp i fönstret **certifikat information** .  
  
 ## <a name="next-steps"></a>Nästa steg
-In this quickstart, you created a group enrollment for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
+I den här snabb starten har du skapat en grupp registrering för ett X. 509-mellanliggande eller rot certifikat utfärdares certifikat med hjälp av Azure IoT Hub Device Provisioning Service. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
  
 > [!div class="nextstepaction"]
 > [Självstudier om Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-cloud.md)

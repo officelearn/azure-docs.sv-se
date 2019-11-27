@@ -23,11 +23,11 @@ ms.locfileid: "74326346"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiera en ögonblicksbild av en hanterad disk i sammaprenumeration eller en annan prenumeration med PowerShell
 
-Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Use this script for the following scenarios:
+Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 
-1. Migrate a snapshot in Premium storage (Premium_LRS) to Standard storage (Standard_LRS or Standard_ZRS) to reduce your cost.
-1. Migrate a snapshot from locally redundant storage (Premium_LRS, Standard_LRS) to zone redundant storage (Standard_ZRS) to benefit from the higher reliability of ZRS storage.
-1. Move a snapshot to different subscription in the same region for longer retention.
+1. Migrera en ögonblicks bild i Premium Storage (Premium_LRS) till standard lagring (Standard_LRS eller Standard_ZRS) för att minska kostnaderna.
+1. Migrera en ögonblicks bild från lokalt redundant lagring (Premium_LRS Standard_LRS) till zonens redundanta lagring (Standard_ZRS) för att dra nytta av ZRS-lagringens högre tillförlitlighet.
+1. Flytta en ögonblicks bild till en annan prenumeration i samma region för längre kvarhållning.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 

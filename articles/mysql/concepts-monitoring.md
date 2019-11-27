@@ -1,6 +1,6 @@
 ---
-title: Monitoring in Azure Database for MySQL
-description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL, including CPU, storage, and connection statistics.
+title: Övervakning i Azure Database for MySQL
+description: Den här artikeln beskriver måtten för övervakning och aviseringar för Azure Database for MySQL, inklusive CPU, lagring och anslutnings statistik.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -13,54 +13,54 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74384049"
 ---
-# <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring in Azure Database for MySQL
-Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of your server.
+# <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
+Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i serverns beteende.
 
 ## <a name="metrics"></a>Mått
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Alla Azure-mått har en frekvens på en minut och varje mått ger 30 dagars historik. Du kan konfigurera aviseringar för måtten. Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-alert-on-metric.md). Andra uppgifter är att ställa in automatiserade åtgärder, utföra avancerad analys och lagrings historik. Mer information finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="list-of-metrics"></a>List of metrics
-These metrics are available for Azure Database for MySQL:
+### <a name="list-of-metrics"></a>Lista över mått
+De här måtten är tillgängliga för Azure Database for MySQL:
 
-|Mått|Metric Display Name|Enhet|Beskrivning|
+|Mått|Metrisk visningsnamn|Enhet|Beskrivning|
 |---|---|---|---|
-|cpu_percent|CPU percent|Procent|The percentage of CPU in use.|
-|memory_percent|Memory percent|Procent|The percentage of memory in use.|
-|io_consumption_percent|IO percent|Procent|The percentage of IO in use.|
-|storage_percent|Storage percentage|Procent|The percentage of storage used out of the server's maximum.|
-|storage_used|Använt lagringsutrymme|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
-|serverlog_storage_percent|Server Log storage percent|Procent|The percentage of server log storage used out of the server's maximum server log storage.|
-|serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
-|serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
-|storage_limit|Storage limit|Bytes|The maximum storage for this server.|
-|active_connections|Active Connections|Antal|The number of active connections to the server.|
-|connections_failed|Misslyckade anslutningar|Antal|The number of failed connections to the server.|
-|seconds_behind_master|Replication lag in seconds|Antal|The number of seconds the replica server is lagging against the master server.|
-|network_bytes_egress|Nätverk – utgående|Bytes|Network Out across active connections.|
-|network_bytes_ingress|Nätverk – inkommande|Bytes|Network In across active connections.|
-|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
+|cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
+|memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
+|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används.|
+|storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
+|storage_used|Använt lagringsutrymme|Byte|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
+|serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|
+|serverlog_storage_usage|Server logg lagring används|Byte|Mängden Server logg lagring som används.|
+|serverlog_storage_limit|Server logg lagrings gräns|Byte|Den maximala Server logg lagringen för den här servern.|
+|storage_limit|Lagrings gräns|Byte|Det maximala lagrings utrymmet för den här servern.|
+|active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Antal|Antalet misslyckade anslutningar till servern.|
+|seconds_behind_master|Fördröjning för replikering på några sekunder|Antal|Antalet sekunder som replik servern avbildar mot huvud servern.|
+|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
+|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Mängden lagring av säkerhets kopior som används.|
 
 ## <a name="server-logs"></a>Serverloggar
-You can enable slow query and audit logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [audit logs](concepts-audit-logs.md) and [slow query logs](concepts-server-logs.md) articles.
+Du kan aktivera långsam fråga och gransknings loggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor loggar, Event Hubs och lagrings konto. Mer information om loggning finns i artiklarna [gransknings loggar](concepts-audit-logs.md) och [långsam frågekörning](concepts-server-logs.md) .
 
 ## <a name="query-store"></a>Query Store
-[Query Store](concepts-query-store.md) is a feature that keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in the **mysql** schema. You can control the collection and storage of data via various configuration knobs.
+[Query Store](concepts-query-store.md) är en funktion som håller reda på frågans prestanda över tid, inklusive statistik för körning av frågor och vänta-händelser. Funktionen fortsätter att köra prestanda information om körningen i **MySQL** -schemat. Du kan styra insamling och lagring av data via olika konfigurations rattar.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
-[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible in the **Intelligent Performance** section of your Azure Database for MySQL server's portal page.
+[Query Performance Insight](concepts-query-performance-insight.md) arbetar tillsammans med Query Store för att tillhandahålla visualiseringar som är tillgängliga från Azure Portal. Med de här diagrammen kan du identifiera viktiga frågor som påverkar prestanda. Query Performance Insight är tillgängligt i avsnittet **intelligent prestanda** på Azure Database for MySQL servers Portal sida.
 
 ## <a name="performance-recommendations"></a>Prestandarekommendationer
-The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
+Funktionen [prestanda rekommendationer](concepts-performance-recommendations.md) identifierar möjligheter att förbättra arbets Belastningens prestanda. Prestanda rekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbets belastningar. För att skapa index rekommendationer tar funktionen hänsyn till olika databas egenskaper, inklusive schema och arbets belastningen som rapporteras av Frågearkivet. När du har implementerat en prestanda rekommendation bör kunderna testa prestanda för att utvärdera effekten av dessa ändringar.
 
-## <a name="service-health"></a>Service Health
-[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+## <a name="service-health"></a>Service Health:
+[Azure Service Health](../service-health/overview.md) ger en översikt över alla meddelanden om tjänst hälsa i din prenumeration. Du kan ställa in Service Health aviseringar för att meddela dig via önskade kommunikations kanaler när det finns problem eller ändringar som kan påverka de Azure-tjänster och regioner som du använder.
 
-You can view scheduled maintenance events for Azure Database for MySQL by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+Du kan visa schemalagda underhålls händelser för Azure Database for MySQL med hjälp av händelse typen **planerat underhåll** . Information om hur du skapar **tjänstens hälso aviseringar**finns i artikeln [skapa aktivitets aviseringar i tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md) .
 
 > [!IMPORTANT]
-> The planned maintenance notifications is available in preview for EAST US and UK South only.
+> De planerade underhålls aviseringarna finns i för hands version för USA och endast Storbritannien, södra.
 
 ## <a name="next-steps"></a>Nästa steg
-- See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-- Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).
+- Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.
+- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Läs vår blogg om [bästa praxis för att övervaka servern](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).

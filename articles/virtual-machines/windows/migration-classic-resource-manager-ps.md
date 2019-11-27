@@ -1,6 +1,6 @@
 ---
-title: Migrate to Resource Manager with PowerShell
-description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks, and storage accounts from classic to Azure Resource Manager by using Azure PowerShell commands
+title: Migrera till Resource Manager med PowerShell
+description: Den här artikeln beskriver den plattforms oberoende migreringen av IaaS-resurser, till exempel virtuella datorer, virtuella nätverk och lagrings konton från klassisk till Azure Resource Manager med hjälp av Azure PowerShell kommandon
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -21,102 +21,102 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484365"
 ---
-# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrate IaaS resources from classic to Azure Resource Manager by using PowerShell
-These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model.
+# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av PowerShell
+De här stegen visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell.
 
-If you want, you can also migrate resources by using the [Azure CLI](../linux/migration-classic-resource-manager-cli.md).
+Om du vill kan du även migrera resurser med hjälp av [Azure CLI](../linux/migration-classic-resource-manager-cli.md).
 
-* For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md).
-* For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md).
-* [Review the most common migration errors](migration-classic-resource-manager-errors.md).
+* Information om hur du migrerar scenarier som stöds finns i [plattforms stöd för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-overview.md).
+* Detaljerad vägledning och genom gång av migrering finns i [teknisk djupgående om migrering av plattformar som stöds från klassisk till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md).
+* [Granska de vanligaste migrerings felen](migration-classic-resource-manager-errors.md).
 
 <br>
-Here's a flowchart to identify the order in which steps need to be executed during a migration process.
+Här är ett flödes schema för att identifiera i vilken ordning stegen måste utföras under en migreringsprocessen.
 
 ![Skärmbild som visar migreringsstegen](media/migration-classic-resource-manager/migration-flow.png)
 
  
 
-## <a name="step-1-plan-for-migration"></a>Step 1: Plan for migration
-Here are a few best practices that we recommend as you evaluate whether to migrate IaaS resources from classic to Resource Manager:
+## <a name="step-1-plan-for-migration"></a>Steg 1: planera för migrering
+Här följer några bra metoder som vi rekommenderar när du utvärderar om du vill migrera IaaS-resurser från klassisk till Resource Manager:
 
-* Read through the [supported and unsupported features and configurations](migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, wait for the configuration or feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
-* If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
+* Läs igenom de [funktioner och konfigurationer som stöds och inte](migration-classic-resource-manager-overview.md)stöds. Om du har virtuella datorer som använder konfigurationer eller funktioner som inte stöds, väntar du tills konfigurationen eller funktions stödet har meddelats. Om den passar dina behov kan du ta bort den funktionen eller flytta ut från den konfigurationen för att aktivera migrering.
+* Om du har automatiserade skript som distribuerar din infrastruktur och dina program idag kan du försöka skapa en liknande test installation genom att använda dessa skript för migrering. Du kan också konfigurera exempel miljöer med hjälp av Azure Portal.
 
 > [!IMPORTANT]
-> Application gateways aren't currently supported for migration from classic to Resource Manager. To migrate a virtual network with an application gateway, remove the gateway before you run a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
+> Application gateways stöds för närvarande inte för migrering från klassisk till Resource Manager. Om du vill migrera ett virtuellt nätverk med en Application Gateway tar du bort gatewayen innan du kör en förberedelse åtgärd för att flytta nätverket. När du har slutfört migreringen ansluter du gatewayen i Azure Resource Manager.
 >
-> Azure ExpressRoute gateways that connect to ExpressRoute circuits in another subscription can't be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network, and re-create the gateway. For more information, see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../../expressroute/expressroute-migration-classic-resource-manager.md).
+> Azure ExpressRoute-gatewayer som ansluter till ExpressRoute-kretsar i en annan prenumeration kan inte migreras automatiskt. Ta i så fall bort ExpressRoute-gatewayen, migrera det virtuella nätverket och återskapa gatewayen. Mer information finns i [migrera ExpressRoute-kretsar och associerade virtuella nätverk från den klassiska distributions modellen till Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
-## <a name="step-2-install-the-latest-version-of-powershell"></a>Step 2: Install the latest version of PowerShell
-There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
+## <a name="step-2-install-the-latest-version-of-powershell"></a>Steg 2: installera den senaste versionen av PowerShell
+Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI tar emot månatliga uppdateringar. PowerShell-galleriet tar emot uppdateringar regelbundet. Den här artikeln baseras på Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+Installations anvisningar finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 <br>
 
-## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Step 3: Ensure that you're an administrator for the subscription
-To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
+## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Steg 3: kontrol lera att du är administratör för prenumerationen
+För att utföra den här migreringen måste du läggas till som en medadministratör för prenumerationen i [Azure Portal](https://portal.azure.com).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. On the **Hub** menu, select **Subscription**. If you don't see it, select **All services**.
-3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be _Account admin_.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. På menyn **hubb** väljer du **prenumeration**. Om du inte ser det väljer du **alla tjänster**.
+3. Hitta rätt prenumerations post och titta sedan i fältet **min roll** . För en-administratör ska värdet vara _konto administratör_.
 
-If you're not able to add a coadministrator, contact a service administrator or coadministrator for the subscription to get yourself added.
+Om du inte kan lägga till en-administratör kan du kontakta en tjänst administratör eller en samadministratör för prenumerationen för att få till gång till den.
 
-## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>Step 4: Set your subscription, and sign up for migration
-First, start a PowerShell prompt. For migration, set up your environment for both classic and Resource Manager.
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>Steg 4: Konfigurera din prenumeration och registrera dig för migrering
+Starta först en PowerShell-prompt. För migrering konfigurerar du din miljö för både klassisk och Resource Manager.
 
-Sign in to your account for the Resource Manager model.
+Logga in på ditt konto för Resource Manager-modellen.
 
 ```powershell
     Connect-AzAccount
 ```
 
-Get the available subscriptions by using the following command:
+Hämta tillgängliga prenumerationer med hjälp av följande kommando:
 
 ```powershell
     Get-AzSubscription | Sort Name | Select Name
 ```
 
-Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own.
+Ange din Azure-prenumeration för den aktuella sessionen. I det här exemplet anges standard prenumerations namnet för **min Azure-prenumeration**. Ersätt exempel prenumerations namnet med ditt eget.
 
 ```powershell
     Select-AzSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
-> Registration is a one-time step, but you must do it once before you attempt migration. Without registering, you see the following error message:
+> Registreringen är en engångs åtgärd, men du måste göra det en gång innan du försöker migrera. Utan registrering visas följande fel meddelande:
 >
-> *BadRequest : Subscription is not registered for migration.*
+> *BadRequest: prenumerationen har inte registrerats för migrering.*
 
-Register with the migration resource provider by using the following command:
+Registrera hos resurs leverantören för migrering med hjälp av följande kommando:
 
 ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
-Wait five minutes for the registration to finish. Check the status of the approval by using the following command:
+Vänta fem minuter tills registreringen är klar. Kontrol lera status för godkännandet med hjälp av följande kommando:
 
 ```powershell
     Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
-Make sure that RegistrationState is `Registered` before you proceed.
+Kontrol lera att RegistrationState är `Registered` innan du fortsätter.
 
-Now, sign in to your account for the classic deployment model.
+Logga nu in på ditt konto för den klassiska distributions modellen.
 
 ```powershell
     Add-AzureAccount
 ```
 
-Get the available subscriptions by using the following command:
+Hämta tillgängliga prenumerationer med hjälp av följande kommando:
 
 ```powershell
     Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 ```
 
-Set your Azure subscription for the current session. This example sets the default subscription to **My Azure Subscription**. Replace the example subscription name with your own.
+Ange din Azure-prenumeration för den aktuella sessionen. I det här exemplet anges standard prenumerationen för **min Azure-prenumeration**. Ersätt exempel prenumerations namnet med ditt eget.
 
 ```powershell
     Select-AzureSubscription –SubscriptionName "My Azure Subscription"
@@ -124,32 +124,32 @@ Set your Azure subscription for the current session. This example sets the defau
 
 <br>
 
-## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Step 5: Have enough Resource Manager VM vCPUs
-Make sure that you have enough Azure Resource Manager virtual machine vCPUs in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
+## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Steg 5: ha tillräckligt med VM-virtuella processorer för Resource Manager
+Se till att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller det virtuella nätverket. Du kan använda följande PowerShell-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Mer information om vCPU kvoter finns i [gränser och Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
-This example checks the availability in the **West US** region. Replace the example region name with your own.
+I det här exemplet kontrol leras tillgängligheten i regionen **USA, västra** . Ersätt exempel områdets namn med ditt eget.
 
 ```powershell
 Get-AzVMUsage -Location "West US"
 ```
 
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Step 6: Run commands to migrate your IaaS resources
-* [Migrate VMs in a cloud service (not in a virtual network)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Migrate VMs in a virtual network](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
-* [Migrate a storage account](#step-62-migrate-a-storage-account)
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Steg 6: kör kommandon för att migrera dina IaaS-resurser
+* [Migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migrera virtuella datorer i ett virtuellt nätverk](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migrera ett lagrings konto](#step-62-migrate-a-storage-account)
 
 > [!NOTE]
-> All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
+> Alla åtgärder som beskrivs här är idempotenta. Om du har problem med en funktion som inte stöds eller ett konfigurations fel rekommenderar vi att du gör om åtgärden för att förbereda, avbryta eller bekräfta. Plattformen försöker sedan utföra åtgärden igen.
 
 
-### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Step 6.1: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
-Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
+### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Steg 6,1: alternativ 1 – migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)
+Hämta listan över moln tjänster med hjälp av följande kommando. Välj sedan den moln tjänst som du vill migrera. Om de virtuella datorerna i moln tjänsten finns i ett virtuellt nätverk eller om de har webb-eller arbets roller, returnerar kommandot ett fel meddelande.
 
 ```powershell
     Get-AzureService | ft Servicename
 ```
 
-Get the deployment name for the cloud service. In this example, the service name is **My Service**. Replace the example service name with your own service name.
+Hämta distributions namnet för moln tjänsten. I det här exemplet är tjänst namnet **min tjänst**. Ersätt exempel tjänst namnet med ditt eget tjänst namn.
 
 ```powershell
     $serviceName = "My Service"
@@ -157,11 +157,11 @@ Get the deployment name for the cloud service. In this example, the service name
     $deploymentName = $deployment.DeploymentName
 ```
 
-Prepare the virtual machines in the cloud service for migration. You have two options to choose from.
+Förbered de virtuella datorerna i moln tjänsten för migrering. Du kan välja mellan två alternativ.
 
-* **Option 1: Migrate the VMs to a platform-created virtual network.**
+* **Alternativ 1: migrera de virtuella datorerna till ett plattforms skapat virtuellt nätverk.**
 
-    First, validate that you can migrate the cloud service by using the following commands:
+    Kontrol lera först att du kan migrera moln tjänsten med hjälp av följande kommandon:
 
     ```powershell
     $validate = Move-AzureService -Validate -ServiceName $serviceName `
@@ -169,15 +169,15 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     $validate.ValidationMessages
     ```
 
-    The following command displays any warnings and errors that block migration. If validation is successful, you can move on to the Prepare step.
+    Följande kommando visar eventuella varningar och fel som blockerar migreringen. Om verifieringen lyckas kan du gå vidare till förberedelse steget.
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
         -DeploymentName $deploymentName -CreateNewVirtualNetwork
     ```
-* **Option 2: Migrate to an existing virtual network in the Resource Manager deployment model.**
+* **Alternativ 2: migrera till ett befintligt virtuellt nätverk i distributions modellen för Resource Manager.**
 
-    This example sets the resource group name to **myResourceGroup**, the virtual network name to **myVirtualNetwork**, and the subnet name to **mySubNet**. Replace the names in the example with the names of your own resources.
+    I det här exemplet anges resurs gruppens namn till **myResourceGroup**, det virtuella nätverks namnet till **myVirtualNetwork**och under nätets namn till **under nätet**. Ersätt namnen i exemplet med namnen på dina egna resurser.
 
     ```powershell
     $existingVnetRGName = "myResourceGroup"
@@ -185,7 +185,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     $subnetName = "mySubNet"
     ```
 
-    First, validate that you can migrate the virtual network by using the following command:
+    Kontrol lera först att du kan migrera det virtuella nätverket med hjälp av följande kommando:
 
     ```powershell
     $validate = Move-AzureService -Validate -ServiceName $serviceName `
@@ -193,7 +193,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     $validate.ValidationMessages
     ```
 
-    The following command displays any warnings and errors that block migration. If validation is successful, you can proceed with the following Prepare step:
+    Följande kommando visar eventuella varningar och fel som blockerar migreringen. Om verifieringen lyckas kan du fortsätta med följande förberedelse steg:
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
@@ -201,9 +201,9 @@ Prepare the virtual machines in the cloud service for migration. You have two op
         -VirtualNetworkName $vnetName -SubnetName $subnetName
     ```
 
-After the Prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they're in the `Prepared` state.
+När förberedelse åtgärden har slutförts med något av föregående alternativ kan du fråga efter migreringen för de virtuella datorerna. Se till att de är i `Prepared`s tillstånd.
 
-This example sets the VM name to **myVM**. Replace the example name with your own VM name.
+I det här exemplet anges namnet på den virtuella datorn till **myVM**. Ersätt exempel namnet med ditt eget VM-namn.
 
 ```powershell
     $vmName = "myVM"
@@ -211,142 +211,142 @@ This example sets the VM name to **myVM**. Replace the example name with your ow
     $vm.VM.MigrationState
 ```
 
-Check the configuration for the prepared resources by using either PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, use the following command:
+Kontrol lera konfigurationen för de för beredda resurserna genom att använda antingen PowerShell eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando:
 
 ```powershell
     Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
+Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando:
 
 ```powershell
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Step 6.1: Option 2 - Migrate virtual machines in a virtual network
+### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Steg 6,1: alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
 
-To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate.
+Om du vill migrera virtuella datorer i ett virtuellt nätverk migrerar du det virtuella nätverket. De virtuella datorerna migreras automatiskt till det virtuella nätverket. Välj det virtuella nätverk som du vill migrera.
 > [!NOTE]
-> [Migrate a single virtual machine](migrate-single-classic-to-resource-manager.md) created using the classic deployment model by creating a new Resource Manager virtual machine with Managed Disks by using the VHD (OS and data) files of the virtual machine.
+> [Migrera en enskild virtuell dator](migrate-single-classic-to-resource-manager.md) som skapats med den klassiska distributions modellen genom att skapa en ny virtuell Resource Manager-dator med Managed disks med hjälp av VHD-filerna (OS och data) för den virtuella datorn.
 <br>
 
 > [!NOTE]
-> The virtual network name might be different from what is shown in the new portal. The new Azure portal displays the name as `[vnet-name]`, but the actual virtual network name is of type `Group [resource-group-name] [vnet-name]`. Before you start the migration, look up the actual virtual network name by using the command `Get-AzureVnetSite | Select -Property Name` or view it in the old Azure portal. 
+> Det virtuella nätverks namnet kan skilja sig från vad som visas i den nya portalen. Det nya Azure Portal visar namnet som `[vnet-name]`, men det faktiska virtuella nätverks namnet är av typen `Group [resource-group-name] [vnet-name]`. Innan du påbörjar migreringen ska du leta upp det faktiska namnet på det virtuella nätverket genom att använda kommandot `Get-AzureVnetSite | Select -Property Name` eller Visa det i det gamla Azure Portal. 
 
-This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own.
+I det här exemplet anges det virtuella nätverks namnet till **myVnet**. Ersätt namnet på det virtuella nätverket i exemplet med ditt eget.
 
 ```powershell
     $vnetName = "myVnet"
 ```
 
 > [!NOTE]
-> If the virtual network contains web or worker roles, or VMs with unsupported configurations, you get a validation error message.
+> Om det virtuella nätverket innehåller webb-eller arbets roller eller virtuella datorer med konfigurationer som inte stöds får du ett verifierings fel meddelande.
 
-First, validate that you can migrate the virtual network by using the following command:
+Kontrol lera först att du kan migrera det virtuella nätverket med hjälp av följande kommando:
 
 ```powershell
     Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 ```
 
-The following command displays any warnings and errors that block migration. If validation is successful, you can proceed with the following Prepare step:
+Följande kommando visar eventuella varningar och fel som blockerar migreringen. Om verifieringen lyckas kan du fortsätta med följande förberedelse steg:
 
 ```powershell
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 ```
 
-Check the configuration for the prepared virtual machines by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, use the following command:
+Kontrol lera konfigurationen för de för beredda virtuella datorerna genom att använda antingen Azure PowerShell eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando:
 
 ```powershell
     Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
 ```
 
-If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
+Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando:
 
 ```powershell
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### <a name="step-62-migrate-a-storage-account"></a>Step 6.2: Migrate a storage account
-After you're done migrating the virtual machines, perform the following prerequisite checks before you migrate the storage accounts.
+### <a name="step-62-migrate-a-storage-account"></a>Steg 6,2: Migrera ett lagrings konto
+När du har migrerat de virtuella datorerna utför du följande nödvändiga kontroller innan du migrerar lagrings kontona.
 
 > [!NOTE]
-> If your storage account has no associated disks or VM data, you can skip directly to the "Validate storage accounts and start migration" section.
+> Om ditt lagrings konto inte har några associerade diskar eller VM-data kan du gå direkt till avsnittet Verifiera lagrings konton och starta migrering.
 
-* Prerequisite checks if you migrated any VMs or your storage account has disk resources:
-    * Migrate virtual machines whose disks are stored in the storage account.
+* Krav kontroller om du har migrerat några virtuella datorer eller om ditt lagrings konto har disk resurser:
+    * Migrera virtuella datorer vars diskar lagras i lagrings kontot.
 
-        The following command returns RoleName and DiskName properties of all the VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If this command returns disks, then ensure that virtual machines to which these disks are attached are migrated before you migrate the storage account.
+        Följande kommando returnerar RoleName-och DiskName-egenskaperna för alla VM-diskar i lagrings kontot. RoleName är namnet på den virtuella dator som en disk är ansluten till. Om det här kommandot returnerar diskar ska du se till att de virtuella datorer som dessa diskar är anslutna till migreras innan du migrerar lagrings kontot.
         ```powershell
          $storageAccountName = 'yourStorageAccountName'
           Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
           DiskName | Format-List -Property RoleName, DiskName
 
         ```
-    * Delete unattached VM disks stored in the storage account.
+    * Ta bort ej anslutna virtuella dator diskar som lagras i lagrings kontot.
 
-        Find unattached VM disks in the storage account by using the following command:
+        Hitta ej anslutna virtuella dator diskar i lagrings kontot med hjälp av följande kommando:
 
         ```powershell
             $storageAccountName = 'yourStorageAccountName'
             Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
 
         ```
-        If the previous command returns disks, delete these disks by using the following command:
+        Om föregående kommando returnerar diskar tar du bort diskarna genom att använda följande kommando:
 
         ```powershell
            Remove-AzureDisk -DiskName 'yourDiskName'
         ```
-    * Delete VM images stored in the storage account.
+    * Ta bort VM-avbildningar som lagras i lagrings kontot.
 
-        The following command returns all the VM images with OS disks stored in the storage account.
+        Följande kommando returnerar alla VM-avbildningar med OS-diskar som lagras i lagrings kontot.
          ```powershell
             Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
                                     } | Select-Object -Property ImageName, ImageLabel
          ```
-         The following command returns all the VM images with data disks stored in the storage account.
+         Följande kommando returnerar alla VM-avbildningar med data diskar som lagras i lagrings kontot.
          ```powershell
 
             Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
                                              -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
                                             } | Select-Object -Property ImageName, ImageLabel
          ```
-        Delete all the VM images returned by the previous commands by using this command:
+        Ta bort alla VM-avbildningar som returneras av föregående kommandon med hjälp av det här kommandot:
         ```powershell
         Remove-AzureVMImage -ImageName 'yourImageName'
         ```
-* Validate storage accounts and start migration.
+* Verifiera lagrings konton och starta migreringen.
 
-    Validate each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account.
+    Verifiera varje lagrings konto för migrering med hjälp av följande kommando. I det här exemplet är lagrings kontots namn **myStorageAccount**. Ersätt exempel namnet med namnet på ditt eget lagrings konto.
 
     ```powershell
         $storageAccountName = "myStorageAccount"
         Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
     ```
 
-    The next step is to prepare the storage account for migration.
+    Nästa steg är att förbereda lagrings kontot för migrering.
 
     ```powershell
         $storageAccountName = "myStorageAccount"
         Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
     ```
 
-    Check the configuration for the prepared storage account by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, use the following command:
+    Kontrol lera konfigurationen för det för beredda lagrings kontot genom att antingen använda Azure PowerShell eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando:
 
     ```powershell
         Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
     ```
 
-    If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
+    Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando:
 
     ```powershell
         Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Översikt över migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Använd CLI för att migrera IaaS-resurser från klassisk till Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Granska de vanligaste migreringsfelen](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Granska de vanligaste frågorna om migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

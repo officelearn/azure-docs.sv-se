@@ -1,6 +1,6 @@
 ---
-title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
-description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
+title: Översikt över DNS-zoner och poster – Azure DNS | Microsoft Docs
+description: Översikt över stöd för DNS-zoner och-poster i Microsoft Azure DNS.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -22,132 +22,132 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74211004"
 ---
-# <a name="overview-of-dns-zones-and-records"></a>Overview of DNS zones and records
+# <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och-poster
 
-This page explains the key concepts of domains, DNS zones, and DNS records and record sets, and how they are supported in Azure DNS.
+Den här sidan förklarar viktiga begrepp för domäner, DNS-zoner och DNS-poster och post uppsättningar och hur de stöds i Azure DNS.
 
-## <a name="domain-names"></a>Domain names
+## <a name="domain-names"></a>Domän namn
 
-Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ” **.** ”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. The domains in the DNS hierarchy are globally distributed, hosted by DNS name servers around the world.
+Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ” **.** ”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. Domänerna i DNS-hierarkin distribueras globalt, värdbaserade av DNS-namnservrar runtom i världen.
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar may host the domain in its own name servers on your behalf, or allow you to specify alternative name servers.
+En domän namns registrator är en organisation som gör det möjligt att köpa ett domän namn, till exempel `contoso.com`.  Genom att köpa ett domän namn får du behörighet att kontrol lera DNS-hierarkin under det namnet, till exempel så att du kan dirigera namnet `www.contoso.com` till företagets webbplats. Registratorn kan vara värd för domänen på sina egna namnservrar åt dig, eller så kan du ange alternativa namnservrar.
 
-Azure DNS provides a globally distributed, high-availability name server infrastructure, which you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
+Azure DNS tillhandahåller en globalt distribuerad namn server infrastruktur med hög tillgänglighet, som du kan använda för att vara värd för din domän. Genom att vara värd för dina domäner i Azure DNS kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API: er, verktyg, fakturering och support som andra Azure-tjänster.
 
-Azure DNS does not currently support purchasing of domain names. If you want to purchase a domain name, you need to use a third-party domain name registrar. The registrar typically charges a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
+Azure DNS stöder för närvarande inte köp av domän namn. Om du vill köpa ett domän namn måste du använda en domän namns registrator från tredje part. Registratorn debiterar vanligt vis en liten års avgift. Domänerna kan sedan hanteras i Azure DNS för hantering av DNS-poster. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
 
-## <a name="dns-zones"></a>DNS zones
+## <a name="dns-zones"></a>DNS-zoner
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## <a name="dns-records"></a>DNS records
+## <a name="dns-records"></a>DNS-poster
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-### <a name="time-to-live"></a>Time-to-live
+### <a name="time-to-live"></a>Time-to-Live
 
-The time to live, or TTL, specifies how long each record is cached by clients before being requeried. In the above example, the TTL is 3600 seconds or 1 hour.
+TTL-värdet (Time to Live) eller TTL anger hur länge varje post cachelagras av klienter innan den omfrågas. I exemplet ovan är TTL 3600 sekunder eller 1 timme.
 
-In Azure DNS, the TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.  You can specify any TTL value between 1 and 2,147,483,647 seconds.
+I Azure DNS anges TTL-värdet för post uppsättningen, inte för varje post, så samma värde används för alla poster i den angivna post uppsättningen.  Du kan ange ett TTL-värde mellan 1 och 2 147 483 647 sekunder.
 
-### <a name="wildcard-records"></a>Wildcard records
+### <a name="wildcard-records"></a>Jokertecken poster
 
-Azure DNS stöder [poster med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records are returned in response to any query with a matching name (unless there is a closer match from a non-wildcard record set). Azure DNS supports wildcard record sets for all record types except NS and SOA.
+Azure DNS stöder [poster med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Jokertecken returneras som svar på en fråga med ett matchande namn (om det inte finns en närmare matchning från en post uppsättning som inte är jokertecken). Azure DNS stöder post uppsättningar med jokertecken för alla post typer utom NS och SOA.
 
-To create a wildcard record set, use the record set name '\*'. Alternatively, you can also use a name with '\*' as its left-most label, for example, '\*.foo'.
+Om du vill skapa en post uppsättning med jokertecken använder du post uppsättnings namnet\*. Du kan också använda ett namn med "\*" som sin vänstra etikett, till exempel "\*. foo".
 
-### <a name="caa-records"></a>CAA records
+### <a name="caa-records"></a>CAA-poster
 
-CAA records allow domain owners to specify which Certificate Authorities (CAs) are authorized to issue certificates for their domain. This allows CAs to avoid mis-issuing certificates in some circumstances. CAA records have three properties:
-* **Flags**: This is an integer between 0 and 255, used to represent the critical flag that has special meaning per the [RFC](https://tools.ietf.org/html/rfc6844#section-3)
-* **Tag**: an ASCII string that can be one of the following:
-    * **issue**: use this if you want to specify CAs that are permitted to issue certs (all types)
-    * **issuewild**: use this if you want to specify CAs that are permitted to issue certs (wildcard certs only)
-    * **iodef**: specify an email address or hostname to which CAs can notify for unauthorized cert issue requests
-* **Value**: the value for the specific Tag chosen
+CAA-poster låter domän ägare ange vilka certifikat utfärdare som har behörighet att utfärda certifikat för deras domän. Detta gör det möjligt för ca: er att undvika certifikat som utfärdas i vissa fall. CAA-poster har tre egenskaper:
+* **Flaggor**: Detta är ett heltal mellan 0 och 255 som används för att representera den kritiska flagga som har en särskild betydelse per [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Tagg**: en ASCII-sträng som kan vara något av följande:
+    * **problem**: Använd det här om du vill ange ca: er som tillåts utfärda certifikat (alla typer)
+    * **issuewild**: Använd det här om du vill ange ca: er som tillåts utfärda certifikat (endast certifikat för jokertecken)
+    * **iodef**: Ange en e-postadress eller ett värdnamn som certifikat utfärdare kan meddela om obehöriga problem med certifikat förfrågningar
+* **Värde**: värdet för en viss tagg som valts
 
-### <a name="cname-records"></a>CNAME records
+### <a name="cname-records"></a>CNAME-poster
 
-CNAME-postuppsättningar kan inte samexistera med andra postuppsättningar med samma namn. For example, you cannot create a CNAME record set with the relative name 'www' and an A record with the relative name 'www' at the same time.
+CNAME-postuppsättningar kan inte samexistera med andra postuppsättningar med samma namn. Du kan till exempel inte skapa en CNAME-postuppsättning med det relativa namnet "www" och en A-post med det relativa namnet "www" på samma gång.
 
-Because the zone apex (name = '\@') always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex.
+Eftersom zonens Apex (namn =\@) alltid innehåller NS-och SOA-postuppsättningar som skapades när zonen skapades, kan du inte skapa en CNAME-postuppsättning på zonens spetsiga nivå.
 
-These constraints arise from the DNS standards and are not limitations of Azure DNS.
+Dessa begränsningar uppstår i DNS-standarder och är inte begränsningar för Azure DNS.
 
-### <a name="ns-records"></a>NS records
+### <a name="ns-records"></a>NS-poster
 
-The NS record set at the zone apex (name '\@') is created automatically with each DNS zone, and is deleted automatically when the zone is deleted (it cannot be deleted separately).
+NS-postuppsättningen vid zonens Apex (namn\@) skapas automatiskt med varje DNS-zon och tas bort automatiskt när zonen tas bort (det går inte att ta bort den separat).
 
-This record set contains the names of the Azure DNS name servers assigned to the zone. You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers. 
+Den här post uppsättningen innehåller namnen på de Azure DNS namnservrar som har tilldelats zonen. Du kan lägga till fler namnservrar i den här NS-postuppsättningen för att stödja samvärdbaserade domäner med fler än en DNS-Provider. Du kan också ändra TTL och metadata för den här post uppsättningen. Du kan dock inte ta bort eller ändra de förifyllda Azure DNS namnservrarna. 
 
-This applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be created, modified, and deleted without constraint.
+Detta gäller endast NS-postuppsättningen i zonens Apex. Andra NAMNSERVER post uppsättningar i din zon (som används för att delegera underordnade zoner) kan skapas, ändras och tas bort utan begränsning.
 
-### <a name="soa-records"></a>SOA records
+### <a name="soa-records"></a>SOA-poster
 
-A SOA record set is created automatically at the apex of each zone (name = '\@'), and is deleted automatically when the zone is deleted.  SOA records cannot be created or deleted separately.
+En SOA-postuppsättning skapas automatiskt vid Apex för varje zon (namn =\@) och tas bort automatiskt när zonen tas bort.  Det går inte att skapa eller ta bort SOA-poster separat.
 
-You can modify all properties of the SOA record except for the 'host' property, which is pre-configured to refer to the primary name server name provided by Azure DNS.
+Du kan ändra alla egenskaper för SOA-posten förutom egenskapen Host, som är förkonfigurerad så att den refererar till det primära namn server namnet som tillhandahålls av Azure DNS.
 
-The zone serial number in the SOA record is not updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
+Zon serie numret i SOA-posten uppdateras inte automatiskt när ändringar görs i posterna i zonen. Den kan uppdateras manuellt genom att du redigerar SOA-posten, om det behövs.
 
-### <a name="spf-records"></a>SPF records
+### <a name="spf-records"></a>SPF-poster
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
-### <a name="srv-records"></a>SRV records
+### <a name="srv-records"></a>SRV-poster
 
-[SRV records](https://en.wikipedia.org/wiki/SRV_record) are used by various services to specify server locations. When specifying an SRV record in Azure DNS:
+[SRV-poster](https://en.wikipedia.org/wiki/SRV_record) används av olika tjänster för att ange server platser. När du anger en SRV-post i Azure DNS:
 
-* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '\@' in the record name, simply use the service and protocol, for example '\_sip.\_tcp'.
-* The *priority*, *weight*, *port*, and *target* are specified as parameters of each record in the record set.
+* *Tjänsten* och *protokollet* måste anges som en del av namnet på post uppsättningen, prefixet med under streck.  Till exempel "\_SIP.\_tcp.name '.  För en post i zonens Apex behöver du inte ange\@i post namnet. Använd bara tjänsten och protokollet, till exempel "\_SIP.\_TCP.
+* *Prioritet*, *vikt*, *port*och *mål* anges som parametrar för varje post i post uppsättningen.
 
-### <a name="txt-records"></a>TXT records
+### <a name="txt-records"></a>TXT-poster
 
-TXT records are used to map domain names to arbitrary text strings. They are used in multiple applications, in particular related to email configuration, such as the [Sender Policy Framework (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
+TXT-poster används för att mappa domän namn till godtyckliga text strängar. De används i flera program, särskilt relaterade till e-postkonfiguration, till exempel en [SPF-princip (Sender Policy Framework)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) och [DomainKeys-identifierad e-post (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
 
-The DNS standards permit a single TXT record to contain multiple strings, each of which may be up to 254 characters in length. Where multiple strings are used, they are concatenated by clients and treated as a single string.
+DNS-standarder tillåter att en enskild TXT-post innehåller flera strängar, som var och en kan vara upp till 254 tecken långa. Om flera strängar används sammanfogas de av klienterna och behandlas som en enskild sträng.
 
-When calling the Azure DNS REST API, you need to specify each TXT string separately.  When using the Azure portal, PowerShell or CLI interfaces you should specify a single string per record, which is automatically divided into 254-character segments if necessary.
+När du anropar Azure DNS REST API måste du ange varje TXT-sträng separat.  När du använder Azure Portal-, PowerShell-eller CLI-gränssnitt bör du ange en enskild sträng per post, som automatiskt delas upp i 254 tecken segment om det behövs.
 
-The multiple strings in a DNS record should not be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined).
+Flera strängar i en DNS-post ska inte förväxlas med flera TXT-poster i en TXT-postuppsättning.  En TXT-postuppsättning kan innehålla flera poster, *som var* och en kan innehålla flera strängar.  Azure DNS stöder en total sträng längd på upp till 1024 tecken i varje TXT-postuppsättning (i alla poster som kombineras).
 
-## <a name="tags-and-metadata"></a>Tags and metadata
+## <a name="tags-and-metadata"></a>Taggar och metadata
 
 ### <a name="tags"></a>Taggar
 
-Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources.  Azure Resource Manager uses tags to enable filtered views of your Azure bill, and also enables you to set a policy on which tags are required. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/resource-group-using-tags.md).
+Taggar är en lista över namn-värdepar och används av Azure Resource Manager för att märka resurser.  Azure Resource Manager använder taggar för att aktivera filtrerade vyer av din Azure-faktura och du kan också ange en princip för vilka taggar krävs. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/resource-group-using-tags.md).
 
-Azure DNS supports using Azure Resource Manager tags on DNS zone resources.  It does not support tags on DNS record sets, although as an alternative 'metadata' is supported on DNS record sets as explained below.
+Azure DNS stöder användning av Azure Resource Manager-taggar på resurser i DNS-zonen.  Det går inte att använda taggar i DNS-postuppsättningar, även om alternativa metadata stöds på DNS-postuppsättningar enligt beskrivningen nedan.
 
 ### <a name="metadata"></a>Metadata
 
-As an alternative to record set tags, Azure DNS supports annotating record sets using 'metadata'.  Similar to tags, metadata enables you to associate name-value pairs with each record set.  This can be useful, for example to record the purpose of each record set.  Unlike tags, metadata cannot be used to provide a filtered view of your Azure bill and cannot be specified in an Azure Resource Manager policy.
+Som ett alternativ till att registrera uppsättnings taggar, Azure DNS stöder anteckningar av post uppsättningar med "metadata".  På samma sätt som taggar kan du använda metadata för att associera namn-värdepar med varje post uppsättning.  Detta kan vara användbart, till exempel för att registrera syftet med varje post uppsättning.  Till skillnad från taggar kan metadata inte användas för att tillhandahålla en filtrerad vy av din Azure-faktura och den kan inte anges i en Azure Resource Manager princip.
 
-## <a name="etags"></a>Etags
+## <a name="etags"></a>ETags
 
-Suppose two people or two processes try to modify a DNS record at the same time. Which one wins? And does the winner know that they've overwritten changes created by someone else?
+Anta att två personer eller två processer försöker ändra en DNS-post på samma gång. Vilken är en WINS? Och vet vinnare att de har skrivit över ändringar som har skapats av någon annan?
 
-Azure DNS uses Etags to handle concurrent changes to the same resource safely. Etags are separate from [Azure Resource Manager 'Tags'](#tags). Each DNS resource (zone or record set) has an Etag associated with it. Whenever a resource is retrieved, its Etag is also retrieved. When updating a resource, you can choose to pass back the Etag so Azure DNS can verify that the Etag on the server matches. Since each update to a resource results in the Etag being regenerated, an Etag mismatch indicates a concurrent change has occurred. Etags can also be used when creating a new resource to ensure that the resource does not already exist.
+Azure DNS använder ETags för att hantera samtidiga ändringar till samma resurs säkert. ETags skiljer sig från [Azure Resource Manager Taggar](#tags). Varje DNS-resurs (zon eller post uppsättning) har en associerad etag. När en resurs hämtas, hämtas även dess etag. När du uppdaterar en resurs kan du välja att skicka tillbaka etag så Azure DNS kan verifiera att etag på servern matchar. Eftersom varje uppdatering av en resurs resulterar i att etag återskapas, indikerar en etag-matchning att en samtidig ändring har skett. ETags kan också användas när du skapar en ny resurs för att se till att resursen inte redan finns.
 
-By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional *-Overwrite* switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred are overwritten.
+Azure DNS PowerShell använder som standard ETags för att blockera samtidiga ändringar i zoner och post uppsättningar. Den valfria växeln kan användas för att dölja *etag-kontroller* , vilket innebär att alla samtidiga ändringar som har inträffat skrivs över.
 
-At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
+På nivån för Azure DNS REST API anges ETags med HTTP-huvuden.  Deras beteende anges i följande tabell:
 
 | Huvud | Beteende |
 | --- | --- |
-| Inget |PUT always succeeds (no Etag checks) |
-| If-match \<etag> |PUT only succeeds if resource exists and Etag matches |
-| If-match * |PUT only succeeds if resource exists |
-| If-none-match * |PUT only succeeds if resource does not exist |
+| Ingen |PLACERINGen lyckas (inga etag-kontroller) |
+| If-Match \<etag > |PLACERINGen lyckas endast om resursen finns och etag matchar |
+| If-Match * |PLACERINGen lyckas endast om resursen finns |
+| If-None-Match * |PLACERINGen lyckas endast om resursen inte finns |
 
 
 ## <a name="limits"></a>Begränsningar
 
-The following default limits apply when using Azure DNS:
+Följande standard gränser gäller när du använder Azure DNS:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* To start using Azure DNS, learn how to [create a DNS zone](dns-getstarted-create-dnszone-portal.md) and [create DNS records](dns-getstarted-create-recordset-portal.md).
-* To migrate an existing DNS zone, learn how to [import and export a DNS zone file](dns-import-export.md).
+* Om du vill börja använda Azure DNS kan du läsa om hur du [skapar en DNS-zon](dns-getstarted-create-dnszone-portal.md) och hur du [skapar DNS-poster](dns-getstarted-create-recordset-portal.md).
+* Om du vill migrera en befintlig DNS-zon, lär du dig att [Importera och exportera en DNS-zonfil](dns-import-export.md).

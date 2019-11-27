@@ -1,7 +1,7 @@
 ---
-title: Nested Traffic Manager Profiles in Azure
+title: Kapslade Traffic Manager profiler i Azure
 titleSuffix: Azure Traffic Manager
-description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
+description: I den här artikeln förklaras funktionen "nästlade profiler" i Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -22,98 +22,98 @@ ms.locfileid: "74227754"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Kapslade Traffic Manager-profiler
 
-Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
+Traffic Manager innehåller en mängd metoder för trafik dragning som gör att du kan styra hur Traffic Manager väljer vilken slut punkt som ska ta emot trafik från varje slutanvändare. Mer information finns i [Traffic Manager metoder för trafik dirigering](traffic-manager-routing-methods.md).
 
-Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
+Varje Traffic Manager profil anger en enda metod för trafik dirigering. Det finns dock scenarier som kräver mer avancerad trafikroutning än routningen som tillhandahålls av en enda Traffic Manager profil. Du kan kapsla Traffic Manager profiler för att kombinera fördelarna med mer än en metod för trafikroutning. Med kapslade profiler kan du åsidosätta standard Traffic Manager beteende som stöder större och mer komplexa program distributioner.
 
-The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
+I följande exempel visas hur du använder kapslade Traffic Manager profiler i olika scenarier.
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Example 1: Combining 'Performance' and 'Weighted' traffic routing
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exempel 1: kombinera "prestanda" och "viktad trafik routning"
 
-Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
+Anta att du har distribuerat ett program i följande Azure-regioner: västra USA, Västeuropa och Asien, östra. Du använder Traffic Manager ' prestanda Traffic-routningsmetod ' för att distribuera trafik till den region som är närmast användaren.
 
-![Single Traffic Manager profile][4]
+![Single Traffic Manager-profil][4]
 
-Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
+Anta nu att du vill testa en uppdatering av tjänsten innan du lyfter ut den mycket. Du vill använda metoden "viktad Traffic-routing" för att dirigera en liten procent andel av trafiken till test distributionen. Du ställer in test distributionen tillsammans med den befintliga produktions distributionen i Västeuropa.
 
-You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two West Europe endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
+Du kan inte kombinera både "viktad" och "prestanda trafik-routning i en enskild profil. För att stödja det här scenariot skapar du en Traffic Manager profil med hjälp av två Västeuropas slut punkter och "viktad" Traffic-routing-metod. Sedan lägger du till den här underordnade profilen som en slut punkt till den överordnade profilen. Den överordnade profilen använder fortfarande metoden för prestanda trafik-Routning och innehåller andra globala distributioner som slut punkter.
 
-The following diagram illustrates this example:
+Följande diagram illustrerar det här exemplet:
 
 ![Kapslade Traffic Manager-profiler][2]
 
-In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
+I den här konfigurationen distribuerar trafik som riktas via den överordnade profilen trafik mellan regioner normalt. I Europa Västeuropa distribuerar den kapslade profilen trafiken till produktions-och test slut punkterna enligt tilldelade vikter.
 
-When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance).
+När den överordnade profilen använder metoden "prestanda" för Traffic-routing måste varje slut punkt tilldelas en plats. Platsen tilldelas när du konfigurerar slut punkten. Välj den Azure-region som är närmast din distribution. Azure-regionerna är de plats värden som stöds av tabellen Internet latens. Mer information finns i [Traffic Manager "prestanda" för Traffic routing-metoden](traffic-manager-routing-methods.md#performance).
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Example 2: Endpoint monitoring in Nested Profiles
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exempel 2: slut punkts övervakning i kapslade profiler
 
-Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile uses this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](traffic-manager-FAQs.md#traffic-manager-nested-profiles) for full details on health monitoring of nested profiles.
+Traffic Manager aktivt övervakar hälsan för varje tjänst slut punkt. Om en slut punkt inte är felfri, Traffic Manager dirigerar användare till alternativa slut punkter för att bevara tjänstens tillgänglighet. Den här åtgärden för slut punkts övervakning och redundans gäller för alla metoder för trafik dirigering. Mer information finns i [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md). Slut punkts övervakning fungerar annorlunda för kapslade profiler. Med kapslade profiler utför inte den överordnade profilen hälso kontroller på den underordnade direkt. I stället används hälsan för den underordnade profilens slut punkter för att beräkna den övergripande hälsan för den underordnade profilen. Den här hälso informationen sprider den kapslade-hierarkin. Den överordnade profilen använder denna aggregerade hälsa för att avgöra om trafik ska dirigeras till den underordnade profilen. Se [vanliga frågor och svar](traffic-manager-FAQs.md#traffic-manager-nested-profiles) för all information om hälso övervakning av kapslade profiler.
 
-Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
+I föregående exempel, Antag att produktions distributionen i Västeuropa inte kan utföras. Som standard dirigerar profilen "underordnad" all trafik till test distributionen. Om test distributionen också Miss lyckas, avgör den överordnade profilen att den underordnade profilen inte ska ta emot trafik eftersom alla underordnade slut punkter inte är felfria. Sedan distribuerar den överordnade profilen trafik till de andra regionerna.
 
-![Nested Profile failover (default behavior)][3]
+![Redundansväxling av kapslad profil (standard beteende)][3]
 
-You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
+Du kanske är nöjd med den här ordningen. Eller så kanske du är bekymrad om att all trafik för Västeuropa i Europa nu kommer till test distributionen i stället för en begränsad del av trafik. Oavsett hälso tillståndet för test distributionen vill du växla över till de andra regionerna när produktions distributionen i Västeuropa upphör att fungera. Om du vill aktivera redundans kan du ange parametern "MinChildEndpoints" när du konfigurerar den underordnade profilen som en slut punkt i den överordnade profilen. Parametern bestämmer det minsta antalet tillgängliga slut punkter i den underordnade profilen. Standardvärdet är ' 1 '. I det här scenariot anger du MinChildEndpoints-värdet till 2. Under det här tröskelvärdet anser den överordnade profilen att hela den underordnade profilen inte är tillgänglig och dirigerar trafik till andra slut punkter.
 
-The following figure illustrates this configuration:
+Följande bild visar den här konfigurationen:
 
-![Nested Profile failover with 'MinChildEndpoints' = 2][4]
+![Redundansväxling av kapslad profil med ' MinChildEndpoints ' = 2][4]
 
 > [!NOTE]
-> The 'Priority' traffic-routing method distributes all traffic to a single endpoint. Thus there is little purpose in a MinChildEndpoints setting other than '1' for a child profile.
+> Metoden Priority Traffic-routing distribuerar all trafik till en enda slut punkt. Det finns därför ett litet syfte i en annan MinChildEndpoints än 1 för en underordnad profil.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Example 3: Prioritized failover regions in 'Performance' traffic routing
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exempel 3: prioriterade redundans i routning av prestanda trafik
 
-The default behavior for the 'Performance' traffic-routing method is when you have endpoints in different geographic locations the end users are routed to the "closest" endpoint in terms of the lowest network latency.
+Standard beteendet för Traffic-metoden för trafik överföring är när du har slut punkter på olika geografiska platser som slutanvändarna dirigeras till den "närmast" slut punkten i förhållande till den lägsta nätverks fördröjningen.
 
-However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
+Anta dock att du föredrar trafik växlingen i Västeuropa till västra USA, och endast direkt trafik till andra regioner när båda slut punkterna inte är tillgängliga. Du kan skapa den här lösningen med hjälp av en underordnad profil med Traffic-metoden Traffic-routing.
 
-!['Performance' traffic routing with preferential failover][6]
+![Trafikroutning av prestanda med genomdriven redundans][6]
 
-Since the West Europe endpoint has higher priority than the West US endpoint, all traffic is sent to the West Europe endpoint when both endpoints are online. If West Europe fails, its traffic is directed to West US. With the nested profile, traffic is directed to East Asia only when both West Europe and West US fail.
+Eftersom slut punkten för Västeuropa har högre prioritet än den västra amerikanska slut punkten skickas all trafik till slut punkten Västeuropa när båda slut punkterna är online. Om Europa Västeuropa Miss lyckas dirigeras trafiken till västra USA. Med den kapslade profilen dirigeras trafiken till Asien, östra endast när både Västeuropa och västra USA kraschar.
 
-You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
+Du kan upprepa det här mönstret för alla regioner. Ersätt alla tre slut punkterna i den överordnade profilen med tre underordnade profiler, som var och en ger en prioriterad redundansväxling.
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exempel 4: kontrol lera "prestanda" i trafik flödet mellan flera slut punkter i samma region
 
-Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
+Anta att metoden "prestanda" Traffic-routing används i en profil som har fler än en slut punkt i en viss region. Som standard fördelas trafik som är riktad till denna region jämnt över alla tillgängliga slut punkter i den regionen.
 
-!['Performance' traffic routing in-region traffic distribution (default behavior)][7]
+![Traffic routing Traffic routing in-region Traffic distribution (standard beteende)][7]
 
-Instead of adding multiple endpoints in West Europe, those endpoints are enclosed in a separate child profile. The child profile is added to the parent as the only endpoint in West Europe. The settings on the child profile can control the traffic distribution with West Europe by enabling priority-based or weighted traffic routing within that region.
+I stället för att lägga till flera slut punkter i Västeuropa, står dessa slut punkter i en separat underordnad profil. Den underordnade profilen läggs till i det överordnade objektet som den enda slut punkten i Västeuropa. Inställningarna i den underordnade profilen kan styra trafik distributionen med Västeuropa, Västeuropa genom att aktivera prioriterad eller viktad trafikroutning inom den regionen.
 
-!['Performance' traffic routing with custom in-region traffic distribution][8]
+![Trafikroutning av prestanda med anpassad trafik distribution][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>Example 5: Per-endpoint monitoring settings
+## <a name="example-5-per-endpoint-monitoring-settings"></a>Exempel 5: övervaknings inställningar per slut punkt
 
-Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
+Anta att du använder Traffic Manager för att smidigt migrera trafik från en äldre lokal webbplats till en ny molnbaserad version som finns i Azure. För den äldre platsen vill du använda Start sidans URI för att övervaka plats hälsan. Men för den nya molnbaserade versionen implementerar du en anpassad övervaknings sida (sökväg '/Monitor.aspx ') som innehåller ytterligare kontroller.
 
-![Traffic Manager endpoint monitoring (default behavior)][9]
+![Traffic Manager slut punkts övervakning (standard beteende)][9]
 
-The monitoring settings in a Traffic Manager profile apply to all endpoints within a single profile. With nested profiles, you use a different child profile per site to define different monitoring settings.
+Övervaknings inställningarna i en Traffic Manager profil gäller för alla slut punkter i samma profil. Med kapslade profiler använder du en annan underordnad profil per plats för att definiera olika övervaknings inställningar.
 
-![Traffic Manager endpoint monitoring with per-endpoint settings][10]
+![Traffic Manager slut punkts övervakning med inställningar per slut punkt][10]
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
-* [How do I configure nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [Hur gör jag för att konfigurera kapslade profiler?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
 
-* [How many layers of nesting does Traffic Manger support?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [Hur många kapslings nivåer stöder Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [Kan jag blanda andra slut punkts typer med kapslade underordnade profiler i samma Traffic Manager profil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [How does the billing model apply for Nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [Hur gäller fakturerings modellen för kapslade profiler?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [Is there a performance impact for nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [Påverkas prestandan för kapslade profiler?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
 
-* [How does Traffic Manager compute the health of a nested endpoint in a parent profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [Hur beräknar Traffic Manager hälsan för en kapslad slut punkt i en överordnad profil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about [Traffic Manager profiles](traffic-manager-overview.md)
+Läs mer om [Traffic Manager profiler](traffic-manager-overview.md)
 
-Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
+Lär dig hur du [skapar en Traffic Manager-profil](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

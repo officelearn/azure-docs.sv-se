@@ -26,7 +26,7 @@ I Cloudyn visas användning och kostnader så att du kan spåra trender, identif
 
 Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](overview-cost-mgt.md).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Spårar trender inom användning och kostnader
@@ -39,7 +39,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 
 ## <a name="open-the-cloudyn-portal"></a>Öppna Cloudyn-portalen
 
@@ -101,7 +101,7 @@ I det här exemplet används rapporten **Actual Cost Over Time** (Faktisk kostna
 2. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**.
 3. Längst upp till höger i rapporten väljer du **Åtgärder** och sedan **Schemalägg rapport**.
 4. Om du vill skicka e-post med rapporten till dig själv vid schemalagt intervall väljer du fliken **Schemaläggning** i rapportdialogrutan **Spara eller schemalägg den här**. Välj **Skicka via e-post**. Eventuella taggar samt den gruppering och filtrering du använde ingår i den rapport som du får via e-post.
-5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**.
+5. Välj fliken **tröskelvärde** och välj sedan **faktisk kostnad jämfört med tröskelvärde**.
    1. I tröskelrutan **Röd avisering** anger du 10000.
    2. I tröskelrutan **Gul avisering** anger du 9000.
    3. I rutan **Antal på varandra följande aviseringar** anger du det antal på varandra följande aviseringar som ska tas emot. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar.
@@ -109,7 +109,7 @@ I det här exemplet används rapporten **Actual Cost Over Time** (Faktisk kostna
 
 ![Exemplet visar röda och gula aviseringar baserat på tröskelvärden för utgifter](./media/tutorial-review-usage/schedule-alert01.png)
 
-You can also choose the **Cost Percentage vs. Budget** threshold metric to create alerts. På så sätt kan du ange tröskelvärden som procentandelar av budgeten i stället för valutavärden.
+Du kan också välja **kostnads procent jämfört med budget** tröskel mått för att skapa aviseringar. På så sätt kan du ange tröskelvärden som procentandelar av budgeten i stället för valutavärden.
 
 ## <a name="export-data"></a>Exportera data
 

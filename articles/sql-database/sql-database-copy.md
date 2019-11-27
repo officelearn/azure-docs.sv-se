@@ -1,6 +1,6 @@
 ---
 title: Kopiera en databas
-description: Create a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
+description: Skapa en transaktions konsekvent kopia av en befintlig Azure SQL-databas på antingen samma server eller en annan server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -18,50 +18,50 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74421343"
 ---
-# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copy a transactionally consistent copy of an Azure SQL database
+# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database ([single database](sql-database-single-database.md)) on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL.
+Azure SQL Database innehåller flera metoder för att skapa en transaktions konsekvent kopia av en befintlig Azure SQL-databas ([enkel databas](sql-database-single-database.md)) på samma server eller en annan server. Du kan kopiera en SQL-databas med hjälp av Azure Portal, PowerShell eller T-SQL.
 
 ## <a name="overview"></a>Översikt
 
-A database copy is a snapshot of the source database as of the time of the copy request. You can select the same server or a different server. Also you can choose to keep its service tier and compute size, or use a different compute size within the same service tier (edition). After the copy is complete, it becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently. The copy is created using the geo-replication technology and once seeding is completed the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](sql-database-active-geo-replication.md) for details.
+En databas kopia är en ögonblicks bild av käll databasen vid tidpunkten för kopierings förfrågan. Du kan välja samma server eller en annan server. Du kan också välja att behålla tjänst nivån och beräknings storleken, eller använda en annan beräknings storlek inom samma service nivå (utgåva). När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. I det här läget kan du uppgradera eller nedgradera det till vilken version som helst. Inloggningar, användare och behörigheter kan hanteras oberoende av varandra. Kopian skapas med hjälp av Geo-Replication-tekniken och när dirigeringen är klar avslutas geo-replikeringslänken automatiskt. Alla krav för att använda geo-replikering gäller för databas kopierings åtgärden. Mer information finns i [Översikt över aktiv geo-replikering](sql-database-active-geo-replication.md) .
 
 > [!NOTE]
-> [Automated database backups](sql-database-automated-backups.md) are used when you create a database copy.
+> [Automatiserade databas säkerhets kopieringar](sql-database-automated-backups.md) används när du skapar en databas kopia.
 
-## <a name="logins-in-the-database-copy"></a>Logins in the database copy
+## <a name="logins-in-the-database-copy"></a>Inloggningar i databas kopian
 
-When you copy a database to the same SQL Database server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
+När du kopierar en databas till samma SQL Database-Server kan samma inloggningar användas på båda databaserna. Säkerhets objekt som du använder för att kopiera databasen blir databas ägaren på den nya databasen. Alla databas användare, deras behörigheter och deras säkerhets identifierare (sid) kopieras till databas kopian.  
 
-When you copy a database to a different SQL Database server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
+När du kopierar en databas till en annan SQL Database Server blir säkerhetsobjektet på den nya servern databas ägaren på den nya databasen. Om du använder [inneslutna databas användare](sql-database-manage-logins.md) för data åtkomst ser du till att både den primära och sekundära databasen alltid har samma användarautentiseringsuppgifter, så att när kopieringen är klar kan du omedelbart komma åt den med samma autentiseringsuppgifter.
 
-If you use [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access might not work, because the logins do not exist on the new server. To learn about managing logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+Om du använder [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)kan du helt ta bort behovet av att hantera autentiseringsuppgifter i kopian. Men när du kopierar databasen till en ny server kanske den inloggnings åtkomsten inte fungerar, eftersom inloggningarna inte finns på den nya servern. Information om hur du hanterar inloggningar när du kopierar en databas till en annan SQL Database-Server finns i [så här hanterar du Azure SQL Database-säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
 
-After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database. To resolve logins after the copying operation is complete, see [Resolve logins](#resolve-logins).
+När kopieringen är klar och innan andra användare mappas om, så kan databas ägaren logga in på den nya databasen. Information om hur du löser inloggningar när kopieringen är klar finns i [lösa inloggningar](#resolve-logins).
 
-## <a name="copy-a-database-by-using-the-azure-portal"></a>Copy a database by using the Azure portal
+## <a name="copy-a-database-by-using-the-azure-portal"></a>Kopiera en databas med hjälp av Azure Portal
 
-To copy a database by using the Azure portal, open the page for your database, and then click **Copy**.
+Om du vill kopiera en databas med hjälp av Azure Portal öppnar du sidan för databasen och klickar sedan på **Kopiera**.
 
-   ![Database copy](./media/sql-database-copy/database-copy.png)
+   ![Databas kopia](./media/sql-database-copy/database-copy.png)
 
-## <a name="copy-a-database-by-using-powershell"></a>Copy a database by using PowerShell
+## <a name="copy-a-database-by-using-powershell"></a>Kopiera en databas med hjälp av PowerShell
 
-To copy a database, use the following examples.
+Använd följande exempel för att kopiera en databas.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-For PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet.
+För PowerShell använder du cmdleten [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) .
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> PowerShell-modulen Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
     -CopyResourceGroupName "myResourceGroup" -CopyServerName $targetserver -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
 
-The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+Databas kopieringen är en asynkron åtgärd, men mål databasen skapas direkt efter att begäran har godkänts. Om du vill avbryta kopieringen medan du fortfarande pågår släpper du mål databasen med hjälp av cmdleten [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -70,60 +70,60 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) command.
+Databas kopieringen är en asynkron åtgärd, men mål databasen skapas direkt efter att begäran har godkänts. Om du vill avbryta kopieringen medan du fortfarande pågår släpper du mål databasen med kommandot [AZ SQL DB Delete](/cli/azure/sql/db#az-sql-db-delete) .
 
 * * *
 
-For a complete sample script, see [Copy a database to a new server](scripts/sql-database-copy-database-to-new-server-powershell.md).
+Ett fullständigt exempel skript finns i [Kopiera en databas till en ny server](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-## <a name="rbac-roles-to-manage-database-copy"></a>RBAC roles to manage database copy
+## <a name="rbac-roles-to-manage-database-copy"></a>RBAC-roller för att hantera databas kopia
 
-To create a database copy, you will need to be in the following roles
+Om du vill skapa en databas kopia måste du ha följande roller
 
-- Subscription Owner or
-- SQL Server Contributor role or
-- Custom role on the source and target databases with following permission:
+- Prenumerations ägare eller
+- SQL Server deltagar roll eller
+- Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
+   Microsoft. SQL/Servers/databaser/läsa Microsoft. SQL/Servers/databaser/skriva
 
-To cancel a database copy, you will need to be in the following roles
+Om du vill avbryta en databas kopia måste du ha följande roller
 
-- Subscription Owner or
-- SQL Server Contributor role or
-- Custom role on the source and target databases with following permission:
+- Prenumerations ägare eller
+- SQL Server deltagar roll eller
+- Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
+   Microsoft. SQL/Servers/databaser/läsa Microsoft. SQL/Servers/databaser/skriva
 
-To manage database copy using Azure portal, you will also need the following permissions:
+Om du vill hantera databas kopiering med Azure Portal måste du också ha följande behörigheter:
 
-   Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
+   Microsoft. Resources/Subscriptions/resurser/Läs Microsoft. Resources/Subscriptions/Resources/Write Microsoft. Resources/Deployments/Read Microsoft. Resources/Deployments/Write Microsoft. Resources/operationstatuses/Read
 
-If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles:
+Om du vill se åtgärder under distributioner i resurs gruppen på portalen, så behöver du flera olika resurs leverantörer, inklusive SQL-åtgärder, du behöver dessa ytterligare RBAC-roller:
 
-   Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
+   Microsoft. Resources/Subscriptions/ResourceGroups/Deployments/Operations/Read Microsoft. Resources/Subscriptions/ResourceGroups/distributions/operationstatuses/Read
 
-## <a name="copy-a-database-by-using-transact-sql"></a>Copy a database by using Transact-SQL
+## <a name="copy-a-database-by-using-transact-sql"></a>Kopiera en databas med hjälp av Transact-SQL
 
-Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
+Logga in på huvud databasen med huvud inloggningen på server nivå eller den inloggning som skapade databasen som du vill kopiera. För att kopieringen av databasen ska lyckas måste inloggningar som inte är huvudobjektet på server nivå vara medlemmar i DBManager-rollen. Mer information om inloggningar och anslutning till-servern finns i [Hantera inloggningar](sql-database-manage-logins.md).
 
-Start copying the source database with the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. Executing this statement initiates the database copying process. Because copying a database is an asynchronous process, the CREATE DATABASE statement returns before the database copying is complete.
+Starta kopieringen av käll databasen med instruktionen [create Database](https://msdn.microsoft.com/library/ms176061.aspx) . Om du kör den här instruktionen initieras databas kopierings processen. Eftersom kopiering av en databas är en asynkron process returneras CREATE DATABASE-uttrycket innan databas kopieringen har slutförts.
 
-### <a name="copy-a-sql-database-to-the-same-server"></a>Copy a SQL database to the same server
+### <a name="copy-a-sql-database-to-the-same-server"></a>Kopiera en SQL-databas till samma server
 
-Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role.
+Logga in på huvud databasen med huvud inloggningen på server nivå eller den inloggning som skapade databasen som du vill kopiera. För att kopieringen av databasen ska lyckas måste inloggningar som inte är huvudobjektet på server nivå vara medlemmar i DBManager-rollen.
 
-This command copies Database1 to a new database named Database2 on the same server. Depending on the size of your database, the copying operation might take some time to complete.
+Detta kommando kopierar Databas1 till en ny databas med namnet Databas2 på samma server. Beroende på databasens storlek kan kopierings åtgärden ta lite tid att slutföra.
 
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
    ```
 
-### <a name="copy-a-sql-database-to-a-different-server"></a>Copy a SQL database to a different server
+### <a name="copy-a-sql-database-to-a-different-server"></a>Kopiera en SQL-databas till en annan server
 
-Log in to the master database of the destination server, the SQL Database server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source SQL Database server. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login.
+Logga in på mål serverns huvud databas, den SQL Database Server där den nya databasen ska skapas. Använd en inloggning som har samma namn och lösen ord som databas ägaren till käll databasen på käll SQL Databases servern. Inloggningen på mål servern måste också vara medlem i DBManager-rollen eller vara huvudsaklig inloggning på server nivå.
 
-This command copies Database1 on server1 to a new database named Database2 on server2. Depending on the size of your database, the copying operation might take some time to complete.
+Detta kommando kopierar Databas1 på Server1 till en ny databas med namnet Databas2 på Server2. Beroende på databasens storlek kan kopierings åtgärden ta lite tid att slutföra.
 
 ```sql
 -- Execute on the master database of the target server (server2) to start copying from Server1 to Server2
@@ -131,57 +131,57 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ```
 
 > [!IMPORTANT]
-> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL COPY command.
+> Båda servrarnas brand väggar måste konfigureras för att tillåta inkommande anslutning från IP-adressen för klienten som utfärdar T-SQL COPY-kommandot.
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copy a SQL database to a different subscription
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Kopiera en SQL-databas till en annan prenumeration
 
-You can use the steps described in the previous section to copy your database to a SQL Database server in a different subscription. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
-
-> [!NOTE]
-> The [Azure portal](https://portal.azure.com) does not support copy to a different subscription because Portal calls the ARM API and it uses the subscription certificates to access both servers involved in geo-replication.  
-
-### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitor the progress of the copying operation
-
-Monitor the copying process by querying the sys.databases and sys.dm_database_copies views. While the copying is in progress, the **state_desc** column of the sys.databases view for the new database is set to **COPYING**.
-
-* If the copying fails, the **state_desc** column of the sys.databases view for the new database is set to **SUSPECT**. Execute the DROP statement on the new database, and try again later.
-* If the copying succeeds, the **state_desc** column of the sys.databases view for the new database is set to **ONLINE**. The copying is complete, and the new database is a regular database that can be changed independent of the source database.
+Du kan använda stegen som beskrivs i föregående avsnitt för att kopiera databasen till en SQL Database-Server i en annan prenumeration. Se till att du använder en inloggning som har samma namn och lösen ord som databas ägaren till käll databasen och att den är medlem i DBManager-rollen eller är primär inloggning på server nivå. 
 
 > [!NOTE]
-> If you decide to cancel the copying while it is in progress, execute the [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) statement on the new database. Alternatively, executing the DROP DATABASE statement on the source database also cancels the copying process.
+> [Azure Portal](https://portal.azure.com) stöder inte kopiering till en annan prenumeration eftersom portalen anropar arm-API: et och använder prenumerations certifikat för att få åtkomst till båda servrarna som ingår i geo-replikering.  
+
+### <a name="monitor-the-progress-of-the-copying-operation"></a>Övervaka förloppet för kopierings åtgärden
+
+Övervaka kopierings processen genom att skicka frågor till vyerna sys. databases och sys. dm_database_copies. När kopieringen pågår är kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **kopia.**
+
+* Om kopieringen Miss lyckas är kolumnen **state_desc** i vyn sys. Databass för den nya databasen **misstänkt**. Kör DROP-instruktionen på den nya databasen och försök igen senare.
+* Om kopieringen lyckas anges kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **online**. Kopieringen är klar och den nya databasen är en vanlig databas som kan ändras oberoende av käll databasen.
+
+> [!NOTE]
+> Om du väljer att avbryta kopieringen medan den pågår kör du [Drop Database](https://msdn.microsoft.com/library/ms178613.aspx) -instruktionen på den nya databasen. Om du kör DROP DATABASE-instruktionen på käll databasen avbryts även kopierings processen.
 
 > [!IMPORTANT]
-> If you need to create a copy with a substantially smaller SLO than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL database using database backups](sql-database-recovery-using-backups.md#geo-restore) for more informaion.
+> Om du behöver skapa en kopia med ett betydligt mindre service nivå mål än källan, kanske mål databasen inte har tillräckligt med resurser för att slutföra initierings processen och det kan leda till att kopieringen Miss lyckas. I det här scenariot använder du en geo-Restore-begäran för att skapa en kopia på en annan server och/eller en annan region. Mer information finns i [återställa en Azure SQL-databas med hjälp av databas säkerhets kopior](sql-database-recovery-using-backups.md#geo-restore) .
 
-## <a name="resolve-logins"></a>Resolve logins
+## <a name="resolve-logins"></a>Lösa inloggningar
 
-After the new database is online on the destination server, use the [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) statement to remap the users from the new database to logins on the destination server. To resolve orphaned users, see [Troubleshoot Orphaned Users](https://msdn.microsoft.com/library/ms175475.aspx). See also [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+När den nya databasen är online på mål servern använder du instruktionen [Alter User](https://msdn.microsoft.com/library/ms176060.aspx) för att mappa om användarna från den nya databasen till inloggningar på mål servern. Information om hur du löser överblivna användare finns i [Felsöka överblivna användare](https://msdn.microsoft.com/library/ms175475.aspx). Se även [hur du hanterar Azure SQL Database-säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
 
-All users in the new database retain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database.
+Alla användare i den nya databasen behåller de behörigheter som de hade i käll databasen. Användaren som initierade databas kopian blir databas ägaren till den nya databasen och tilldelas en ny säkerhets identifierare (SID). När kopieringen är klar och innan andra användare mappas om, så kan databas ägaren logga in på den nya databasen.
 
-To learn about managing users and logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+Information om hur du hanterar användare och inloggningar när du kopierar en databas till en annan SQL Database-Server finns i [så här hanterar du Azure SQL Database-säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
 
-## <a name="database-copy-errors"></a>Database copy errors
+## <a name="database-copy-errors"></a>Databas kopierings fel
 
-The following errors can be encountered while copying a database in Azure SQL Database. Mer information finns i [Kopiera en Azure SQL Database](sql-database-copy.md).
+Följande fel kan uppstå när du kopierar en databas i Azure SQL Database. Mer information finns i [Kopiera en Azure SQL Database](sql-database-copy.md).
 
-| Felkod | Allvarsgrad | Beskrivning |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
-| 40635 |16 |Client with IP address '%.&#x2a;ls' is temporarily disabled. |
-| 40637 |16 |Create database copy is currently disabled. |
-| 40561 |16 |Database copy failed. Either the source or target database does not exist. |
-| 40562 |16 |Database copy failed. The source database has been dropped. |
-| 40563 |16 |Database copy failed. The target database has been dropped. |
-| 40564 |16 |Database copy failed due to an internal error. Please drop target database and try again. |
-| 40565 |16 |Database copy failed. No more than 1 concurrent database copy from the same source is allowed. Please drop target database and try again later. |
-| 40566 |16 |Database copy failed due to an internal error. Please drop target database and try again. |
-| 40567 |16 |Database copy failed due to an internal error. Please drop target database and try again. |
-| 40568 |16 |Database copy failed. Source database has become unavailable. Please drop target database and try again. |
-| 40569 |16 |Database copy failed. Target database has become unavailable. Please drop target database and try again. |
-| 40570 |16 |Database copy failed due to an internal error. Please drop target database and try again later. |
-| 40571 |16 |Database copy failed due to an internal error. Please drop target database and try again later. |
+| 40635 |16 |Klienten med IP-adressen (%.&#x2a;ls) är tillfälligt inaktiverad. |
+| 40637 |16 |Skapa databas kopiering har inaktiverats för tillfället. |
+| 40561 |16 |Databas kopieringen misslyckades. Käll-eller mål databasen finns inte. |
+| 40562 |16 |Databas kopieringen misslyckades. Käll databasen har släppts. |
+| 40563 |16 |Databas kopieringen misslyckades. Mål databasen har släppts. |
+| 40564 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen. |
+| 40565 |16 |Databas kopieringen misslyckades. Högst 1 samtidiga databas kopiering från samma källa tillåts. Släpp mål databasen och försök igen senare. |
+| 40566 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen. |
+| 40567 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen. |
+| 40568 |16 |Databas kopieringen misslyckades. Käll databasen är inte tillgänglig. Släpp mål databasen och försök igen. |
+| 40569 |16 |Databas kopieringen misslyckades. Mål databasen är inte tillgänglig. Släpp mål databasen och försök igen. |
+| 40570 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen senare. |
+| 40571 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen senare. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- For information about logins, see [Manage logins](sql-database-manage-logins.md) and [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
-- To export a database, see [Export the database to a BACPAC](sql-database-export.md).
+- Information om inloggningar finns i [Hantera inloggningar](sql-database-manage-logins.md) och [Hantera Azure SQL Database-säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
+- Information om hur du exporterar en databas finns i [Exportera databasen till en BACPAC](sql-database-export.md).

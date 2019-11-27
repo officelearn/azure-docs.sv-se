@@ -205,7 +205,7 @@ Du kan [skapa aviseringarna](https://docs.microsoft.com/azure/log-analytics/log-
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Antal resultat > 0   | När munstycket tar emot en långsam konsument avisering från loggregator skickar den **slowConsumerAlert** -ValueMetric till Azure Monitor loggar. |
 | Skriv = CF_CounterEvent_CL Job_s = munstycke Name_s = eventsLost Delta_d > 0              | Antal resultat > 0   | Om delta antalet förlorade händelser når ett tröskelvärde, innebär det att munstycket kan ha problem med att köra. |
 
-## <a name="scale"></a>Skala
+## <a name="scale"></a>Skalning
 
 Du kan skala munstycket och loggregator.
 

@@ -1,6 +1,6 @@
 ---
-title: Manage DNS records in Azure DNS using Azure PowerShell | Microsoft Docs
-description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records.
+title: Hantera DNS-poster i Azure DNS med Azure PowerShell | Microsoft Docs
+description: Hantering av DNS-postuppsättningar och poster på Azure DNS när du är värd för din domän på Azure DNS. Alla PowerShell-kommandon för åtgärder på post uppsättningar och poster.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -21,7 +21,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74211691"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Manage DNS records and recordsets in Azure DNS using Azure PowerShell
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och post uppsättningar i Azure DNS med Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
@@ -29,9 +29,9 @@ ms.locfileid: "74211691"
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-This article shows you how to manage DNS records for your DNS zone by using Azure PowerShell. DNS records can also be managed by using the cross-platform [Azure CLI](dns-operations-recordsets-cli.md) or the [Azure portal](dns-operations-recordsets-portal.md).
+Den här artikeln visar hur du hanterar DNS-poster för din DNS-zon med hjälp av Azure PowerShell. DNS-poster kan också hanteras med hjälp av plattforms oberoende [Azure CLI](dns-operations-recordsets-cli.md) eller [Azure Portal](dns-operations-recordsets-portal.md).
 
-The examples in this article assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-operations-dnszones.md).
+I exemplen i den här artikeln förutsätter vi att du redan har [installerat Azure PowerShell, loggat in och skapat en DNS-zon](dns-operations-dnszones.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -44,29 +44,29 @@ Innan du skapar DNS-poster i Azure DNS, måste du först förstå hur Azure DNS 
 Mer information om DNS-poster i Azure DNS finns i [DNS-zoner och poster](dns-zones-records.md).
 
 
-## <a name="create-a-new-dns-record"></a>Create a new DNS record
+## <a name="create-a-new-dns-record"></a>Skapa en ny DNS-post
 
-If your new record has the same name and type as an existing record, you need to [add it to the existing record set](#add-a-record-to-an-existing-record-set). If your new record has a different name and type to all existing records, you need to create a new record set. 
+Om den nya posten har samma namn och typ som en befintlig post måste du [lägga till den i den befintliga post uppsättningen](#add-a-record-to-an-existing-record-set). Om din nya post har ett annat namn och skriver till alla befintliga poster måste du skapa en ny post uppsättning. 
 
-### <a name="create-a-records-in-a-new-record-set"></a>Create 'A' records in a new record set
+### <a name="create-a-records-in-a-new-record-set"></a>Skapa poster i en ny post uppsättning
 
-Du skapar postuppsättningar med hjälp av cmdleten `New-AzDnsRecordSet`. When creating a record set, you need to specify the record set name, the zone, the time to live (TTL), the record type, and the records to be created.
+Du skapar postuppsättningar med hjälp av cmdleten `New-AzDnsRecordSet`. När du skapar en post uppsättning måste du ange post uppsättningens namn, zonen, TTL-värdet (Time to Live), post typen och de poster som ska skapas.
 
-Parametrarna för att lägga till poster i en postuppsättning varierar beroende på typen av postuppsättning. For example, when using a record set of type 'A', you need to specify the IP address using the parameter `-IPv4Address`. Other parameters are used for other record types. See Additional record type examples for details.
+Parametrarna för att lägga till poster i en postuppsättning varierar beroende på typen av postuppsättning. Om du till exempel använder en post uppsättning av typen A, måste du ange IP-adressen med hjälp av parametern `-IPv4Address`. Andra parametrar används för andra post typer. Se fler exempel på post typer för mer information.
 
-The following example creates a record set with the relative name 'www' in the DNS Zone 'contoso.com'. The fully-qualified name of the record set is 'www.contoso.com'. The record type is 'A', and the TTL is 3600 seconds. The record set contains a single record, with IP address '1.2.3.4'.
+I följande exempel skapas en post uppsättning med det relativa namnet "www" i DNS-zonen "contoso.com". Det fullständigt kvalificerade namnet på post uppsättningen är ' www.contoso.com '. Post typen är "A" och TTL är 3600 sekunder. Post uppsättningen innehåller en enda post med IP-adressen 1.2.3.4.
 
 ```powershell
 New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-To create a record set at the 'apex' of a zone (in this case, 'contoso.com'), use the record set name '\@' (excluding quotation marks):
+Om du vill skapa en post uppsättning i en zon (i det här fallet contoso.com) använder du post uppsättnings namnet\@(exklusive citat tecken):
 
 ```powershell
 New-AzDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-If you need to create a record set containing more than one record, first create a local array and add the records, then pass the array to `New-AzDnsRecordSet` as follows:
+Om du behöver skapa en post uppsättning som innehåller mer än en post måste du först skapa en lokal matris och lägga till posterna och sedan skicka matrisen till `New-AzDnsRecordSet` enligt följande:
 
 ```powershell
 $aRecords = @()
@@ -75,25 +75,25 @@ $aRecords += New-AzDnsRecordConfig -IPv4Address "2.3.4.5"
 New-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-[Record set metadata](dns-zones-records.md#tags-and-metadata) can be used to associate application-specific data with each record set, as key-value pairs. The following example shows how to create a record set with two metadata entries, 'dept=finance' and 'environment=production'.
+[Metadata för post uppsättningar](dns-zones-records.md#tags-and-metadata) kan användas för att associera programspecifika data med varje post uppsättning som nyckel/värde-par. I följande exempel visas hur du skapar en post uppsättning med två metadata-poster, Avd = ekonomi och miljö = produktion.
 
 ```powershell
 New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") -Metadata @{ dept="finance"; environment="production" } 
 ```
 
-Azure DNS also supports 'empty' record sets, which can act as a placeholder to reserve a DNS name before creating DNS records. Empty record sets are visible in the Azure DNS control plane, but do appear on the Azure DNS name servers. The following example creates an empty record set:
+Azure DNS stöder också tomma post uppsättningar, som kan fungera som plats hållare för att reservera ett DNS-namn innan DNS-poster skapas. Tomma post uppsättningar visas i Azure DNS kontroll planet, men visas på Azure DNS namnservrar. I följande exempel skapas en tom post uppsättning:
 
 ```powershell
 New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords @()
 ```
 
-## <a name="create-records-of-other-types"></a>Create records of other types
+## <a name="create-records-of-other-types"></a>Skapa poster av andra typer
 
-Having seen in detail how to create 'A' records, the following examples show how to create records of other record types supported by Azure DNS.
+I följande exempel visas hur du skapar poster med andra post typer som stöds av Azure DNS, om du har sett hur man skapar poster av typen A.
 
-In each case, we show how to create a record set containing a single record. The earlier examples for 'A' records can be adapted to create record sets of other types containing multiple records, with metadata, or to create empty record sets.
+I varje fall visar vi hur du skapar en post uppsättning som innehåller en enda post. De tidigare exemplen för "A"-poster kan anpassas för att skapa post uppsättningar av andra typer som innehåller flera poster, med metadata eller för att skapa tomma post uppsättningar.
 
-We do not give an example to create an SOA record set, since SOAs are created and deleted with each DNS zone and cannot be created or deleted separately. However, [the SOA can be modified, as shown in a later example](#to-modify-an-soa-record).
+Vi ger inget exempel på att skapa en SOA-postuppsättning eftersom SOAs skapas och tas bort med varje DNS-zon och inte kan skapas eller tas bort separat. [SOA kan dock ändras, vilket visas i ett senare exempel](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Skapa en AAAA-postuppsättning med en post
 
@@ -101,7 +101,7 @@ We do not give an example to create an SOA record set, since SOAs are created an
 New-AzDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ipv6Address "2607:f8b0:4009:1803::1005") 
 ```
 
-### <a name="create-a-caa-record-set-with-a-single-record"></a>Create a CAA record set with a single record
+### <a name="create-a-caa-record-set-with-a-single-record"></a>Skapa en CAA post uppsättning med en enda post
 
 ```powershell
 New-AzDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Caaflags 0 -CaaTag "issue" -CaaValue "ca1.contoso.com") 
@@ -110,9 +110,9 @@ New-AzDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com" -Res
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Skapa en CNAME-postuppsättning med en post
 
 > [!NOTE]
-> The DNS standards do not permit CNAME records at the apex of a zone (`-Name '@'`), nor do they permit record sets containing more than one record.
+> DNS-standarden tillåter inte CNAME-poster på toppen av en zon (`-Name '@'`), eller så tillåter de inte post uppsättningar som innehåller mer än en post.
 > 
-> For more information, see [CNAME records](dns-zones-records.md#cname-records).
+> Mer information finns i [CNAME-poster](dns-zones-records.md#cname-records).
 
 
 ```powershell
@@ -121,7 +121,7 @@ New-AzDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.com" 
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Skapa en MX-postuppsättning med en post
 
-In this example, we use the record set name '\@' to create an MX record at the zone apex (in this case, 'contoso.com').
+I det här exemplet använder vi post uppsättnings namnet\@för att skapa en MX-post i zonens Apex (i det här fallet "contoso.com").
 
 
 ```powershell
@@ -136,7 +136,7 @@ New-AzDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -Resou
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Skapa en PTR-postuppsättning med en post
 
-In this case, 'my-arpa-zone.com' represents the ARPA reverse lookup zone representing your IP range. Varje PTR-post som har angetts i den här zonen motsvarar en IP-adress i IP-intervallet. The record name '10' is the last octet of the IP address within this IP range represented by this record.
+I det här fallet representerar "my-arpa-zone.com" den zon för omvänd sökning som representerar ditt IP-intervall. Varje PTR-post som har angetts i den här zonen motsvarar en IP-adress i IP-intervallet. Post namnet 10 är den sista oktetten i IP-adressen i det här IP-intervallet som representeras av den här posten.
 
 ```powershell
 New-AzDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "myservice.contoso.com") 
@@ -144,153 +144,153 @@ New-AzDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -Resour
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Skapa en SRV-postuppsättning med en post
 
-When creating an [SRV record set](dns-zones-records.md#srv-records), specify the *\_service* and *\_protocol* in the record set name. There is no need to include '\@' in the record set name when creating an SRV record set at the zone apex.
+När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records)anger du *\_tjänst* och *\_protokoll* i post uppsättningens namn. Du behöver inte inkludera "\@" i post uppsättnings namnet när du skapar en SRV-postuppsättning på zonens Apex.
 
 ```powershell
 New-AzDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
 ```
 
 
-### <a name="create-a-txt-record-set-with-a-single-record"></a>Create a TXT record set with a single record
+### <a name="create-a-txt-record-set-with-a-single-record"></a>Skapa en TXT-postuppsättning med en enda post
 
-The following example shows how to create a TXT record. For more information about the maximum string length supported in TXT records, see [TXT records](dns-zones-records.md#txt-records).
+I följande exempel visas hur du skapar en TXT-post. Mer information om den maximala sträng längden som stöds i TXT-poster finns i [TXT-poster](dns-zones-records.md#txt-records).
 
 ```powershell
 New-AzDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Value "This is a TXT record") 
 ```
 
 
-## <a name="get-a-record-set"></a>Get a record set
+## <a name="get-a-record-set"></a>Hämta en post uppsättning
 
-To retrieve an existing record set, use `Get-AzDnsRecordSet`. This cmdlet returns a local object that represents the record set in Azure DNS.
+Använd `Get-AzDnsRecordSet`för att hämta en befintlig post uppsättning. Den här cmdleten returnerar ett lokalt objekt som representerar den angivna posten i Azure DNS.
 
-As with `New-AzDnsRecordSet`, the record set name given must be a *relative* name, meaning it must exclude the zone name. You also need to specify the record type, and the zone containing the record set.
+Precis som med `New-AzDnsRecordSet`måste det angivna namnet för post uppsättningen vara ett *relativt* namn, vilket innebär att det måste utesluta zon namnet. Du måste också ange post typen och zonen som innehåller post uppsättningen.
 
-The following example shows how to retrieve a record set. In this example, the zone is specified using the `-ZoneName` and `-ResourceGroupName` parameters.
+I följande exempel visas hur du hämtar en post uppsättning. I det här exemplet anges zonen med hjälp av parametrarna `-ZoneName` och `-ResourceGroupName`.
 
 ```powershell
 $rs = Get-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-Alternatively, you can also specify the zone using a zone object, passed using the `-Zone` parameter.
+Alternativt kan du också ange zonen med ett zon objekt, som skickas med `-Zone`-parametern.
 
 ```powershell
 $zone = Get-AzDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
 $rs = Get-AzDnsRecordSet -Name "www" -RecordType A -Zone $zone
 ```
 
-## <a name="list-record-sets"></a>List record sets
+## <a name="list-record-sets"></a>List post uppsättningar
 
-You can also use `Get-AzDnsZone` to list record sets in a zone, by omitting the `-Name` and/or `-RecordType` parameters.
+Du kan också använda `Get-AzDnsZone` för att lista post uppsättningar i en zon genom att utelämna parametrarna `-Name` och/eller `-RecordType`.
 
-The following example returns all record sets in the zone:
+I följande exempel returneras alla post uppsättningar i zonen:
 
 ```powershell
 $recordsets = Get-AzDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-The following example shows how all record sets of a given type can be retrieved by specifying the record type while omitting the record set name:
+I följande exempel visas hur alla post uppsättningar av en specifik typ kan hämtas genom att ange post typen och utelämna post uppsättnings namnet:
 
 ```powershell
 $recordsets = Get-AzDnsRecordSet -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-To retrieve all record sets with a given name, across record types, you need to retrieve all record sets and then filter the results:
+Om du vill hämta alla post uppsättningar med ett angivet namn, mellan post typer, måste du hämta alla post uppsättningar och sedan filtrera resultaten:
 
 ```powershell
 $recordsets = Get-AzDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | where {$_.Name.Equals("www")}
 ```
 
-In all the above examples, the zone can be specified either by using the `-ZoneName` and `-ResourceGroupName`parameters (as shown), or by specifying a zone object:
+I alla ovanstående exempel kan zonen anges antingen med hjälp av `-ZoneName` och `-ResourceGroupName`parametrar (som visas) eller genom att ange ett zon objekt:
 
 ```powershell
 $zone = Get-AzDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
 $recordsets = Get-AzDnsRecordSet -Zone $zone
 ```
 
-## <a name="add-a-record-to-an-existing-record-set"></a>Add a record to an existing record set
+## <a name="add-a-record-to-an-existing-record-set"></a>Lägga till en post i en befintlig post uppsättning
 
-To add a record to an existing record set, follow the following three steps:
+Om du vill lägga till en post i en befintlig post uppsättning följer du följande tre steg:
 
-1. Get the existing record set
+1. Hämta den befintliga post uppsättningen
 
     ```powershell
     $rs = Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
-2. Add the new record to the local record set. This is an off-line operation.
+2. Lägg till den nya posten i den lokala post uppsättningen. Detta är en offline-åtgärd.
 
     ```powershell
     Add-AzDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
-3. Commit the change back to the Azure DNS service. 
+3. Genomför ändringen tillbaka till Azure DNS tjänsten. 
 
     ```powershell
     Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-Using `Set-AzDnsRecordSet` *replaces* the existing record set in Azure DNS (and all records it contains) with the record set specified. [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
+Om du använder `Set-AzDnsRecordSet` *ersätts* den befintliga post uppsättningen i Azure DNS (och alla poster den innehåller) med den angivna post uppsättningen. [Etag-kontroller](dns-zones-records.md#etags) används för att säkerställa att samtidiga ändringar inte skrivs över. Du kan använda den valfria `-Overwrite` växeln för att ignorera de här kontrollerna.
 
-This sequence of operations can also be *piped*, meaning you pass the record set object by using the pipe rather than passing it as a parameter:
+Den här sekvensen av åtgärder kan också vara *skickas*, vilket innebär att du skickar post uppsättnings objektet med hjälp av pipe i stället för att skicka det som en parameter:
 
 ```powershell
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-The examples above show how to add an 'A' record to an existing record set of type 'A'. A similar sequence of operations is used to add records to record sets of other types, substituting the `-Ipv4Address` parameter of `Add-AzDnsRecordConfig` with other parameters specific to each record type. The parameters for each record type are the same as for the `New-AzDnsRecordConfig` cmdlet, as shown in Additional record type examples above.
+I exemplen ovan visas hur du lägger till en "A"-post i en befintlig post uppsättning av typen "A". En liknande sekvens med åtgärder används för att lägga till poster i post uppsättningar av andra typer, vilket ersätter `-Ipv4Address`-parametern för `Add-AzDnsRecordConfig` med andra parametrar som är speciella för varje posttyp. Parametrarna för varje posttyp är desamma som för `New-AzDnsRecordConfig`-cmdleten, som du ser i fler exempel på post typer ovan.
 
-Record sets of type 'CNAME' or 'SOA' cannot contain more than one record. This constraint arises from the DNS standards. It is not a limitation of Azure DNS.
+Post uppsättningar av typen CNAME eller SOA får inte innehålla fler än en post. Den här begränsningen uppstår i DNS-standarden. Det är inte en begränsning av Azure DNS.
 
-## <a name="remove-a-record-from-an-existing-record-set"></a>Remove a record from an existing record set
+## <a name="remove-a-record-from-an-existing-record-set"></a>Ta bort en post från en befintlig post uppsättning
 
-The process to remove a record from a record set is similar to the process to add a record to an existing record set:
+Processen för att ta bort en post från en post uppsättning liknar processen för att lägga till en post i en befintlig post uppsättning:
 
-1. Get the existing record set
+1. Hämta den befintliga post uppsättningen
 
     ```powershell
     $rs = Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
-2. Remove the record from the local record set object. This is an off-line operation. The record that's being removed must be an exact match with an existing record across all parameters.
+2. Ta bort posten från objektet lokal post uppsättning. Detta är en offline-åtgärd. Posten som tas bort måste vara en exakt matchning med en befintlig post för alla parametrar.
 
     ```powershell
     Remove-AzDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
-3. Commit the change back to the Azure DNS service. Use the optional `-Overwrite` switch to suppress [Etag checks](dns-zones-records.md#etags) for concurrent changes.
+3. Genomför ändringen tillbaka till Azure DNS tjänsten. Använd den valfria `-Overwrite` växeln för att utelämna [etag-kontroller](dns-zones-records.md#etags) för samtidiga ändringar.
 
     ```powershell
     Set-AzDnsRecordSet -RecordSet $Rs
     ```
 
-Using the above sequence to remove the last record from a record set does not delete the record set, rather it leaves an empty record set. To remove a record set entirely, see [Delete a record set](#delete-a-record-set).
+Om du använder ovanstående sekvens för att ta bort den sista posten från en post uppsättning, tas inte post uppsättningen bort, i stället lämnas en tom post uppsättning. Ta bort en post uppsättning helt i [ta bort en post uppsättning](#delete-a-record-set).
 
-Similarly to adding records to a record set, the sequence of operations to remove a record set can also be piped:
+På samma sätt som för att lägga till poster i en post uppsättning kan du också skickas:
 
 ```powershell
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Different record types are supported by passing the appropriate type-specific parameters to `Remove-AzDnsRecordSet`. The parameters for each record type are the same as for the `New-AzDnsRecordConfig` cmdlet, as shown in Additional record type examples above.
+Olika post typer stöds genom att de lämpliga typspecifika parametrarna skickas till `Remove-AzDnsRecordSet`. Parametrarna för varje posttyp är desamma som för `New-AzDnsRecordConfig`-cmdleten, som du ser i fler exempel på post typer ovan.
 
 
-## <a name="modify-an-existing-record-set"></a>Modify an existing record set
+## <a name="modify-an-existing-record-set"></a>Ändra en befintlig post uppsättning
 
-The steps for modifying an existing record set are similar to the steps you take when adding or removing records from a record set:
+Stegen för att ändra en befintlig post uppsättning liknar de steg du utför när du lägger till eller tar bort poster från en post uppsättning:
 
-1. Retrieve the existing record set by using `Get-AzDnsRecordSet`.
-2. Modify the local record set object by:
-    * Adding or removing records
-    * Changing the parameters of existing records
-    * Changing the record set metadata and time to live (TTL)
-3. Commit your changes by using the `Set-AzDnsRecordSet` cmdlet. This *replaces* the existing record set in Azure DNS with the record set specified.
+1. Hämta den befintliga post uppsättningen med hjälp av `Get-AzDnsRecordSet`.
+2. Ändra det lokala post uppsättnings objektet genom att:
+    * Lägga till eller ta bort poster
+    * Ändra parametrarna för befintliga poster
+    * Ändra metadata för post uppsättningen och TTL (Time to Live)
+3. Genomför ändringarna med hjälp av `Set-AzDnsRecordSet`-cmdleten. Detta *ersätter* den befintliga post uppsättningen i Azure DNS med den angivna post uppsättningen.
 
-When using `Set-AzDnsRecordSet`, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
+När du använder `Set-AzDnsRecordSet`används [etag-kontroller](dns-zones-records.md#etags) för att säkerställa att samtidiga ändringar inte skrivs över. Du kan använda den valfria `-Overwrite` växeln för att ignorera de här kontrollerna.
 
-### <a name="to-update-a-record-in-an-existing-record-set"></a>To update a record in an existing record set
+### <a name="to-update-a-record-in-an-existing-record-set"></a>Så här uppdaterar du en post i en befintlig post uppsättning
 
-In this example, we change the IP address of an existing 'A' record:
+I det här exemplet ändrar vi IP-adressen för en befintlig "A"-post:
 
 ```powershell
 $rs = Get-AzDnsRecordSet -name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -298,11 +298,11 @@ $rs.Records[0].Ipv4Address = "9.8.7.6"
 Set-AzDnsRecordSet -RecordSet $rs
 ```
 
-### <a name="to-modify-an-soa-record"></a>To modify an SOA record
+### <a name="to-modify-an-soa-record"></a>Ändra en SOA-post
 
-You cannot add or remove records from the automatically created SOA record set at the zone apex (`-Name "@"`, including quote marks). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
+Det går inte att lägga till eller ta bort poster från den automatiskt skapade SOA-postuppsättningen vid zonens Apex (`-Name "@"`, inklusive citat tecken). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "värd") och post uppsättningens TTL.
 
-The following example shows how to change the *Email* property of the SOA record:
+I följande exempel visas hur du ändrar *e-* postegenskapen för SOA-posten:
 
 ```powershell
 $rs = Get-AzDnsRecordSet -Name "@" -RecordType SOA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -310,15 +310,15 @@ $rs.Records[0].Email = "admin.contoso.com"
 Set-AzDnsRecordSet -RecordSet $rs
 ```
 
-### <a name="to-modify-ns-records-at-the-zone-apex"></a>To modify NS records at the zone apex
+### <a name="to-modify-ns-records-at-the-zone-apex"></a>Ändra NS-poster i zonen Apex
 
-The NS record set at the zone apex is automatically created with each DNS zone. It contains the names of the Azure DNS name servers assigned to the zone.
+NS-postuppsättningen på zon Apex skapas automatiskt med varje DNS-zon. Den innehåller namnen på de Azure DNS namnservrar som har tilldelats zonen.
 
-You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers.
+Du kan lägga till fler namnservrar i den här NS-postuppsättningen för att stödja samvärdbaserade domäner med fler än en DNS-Provider. Du kan också ändra TTL och metadata för den här post uppsättningen. Du kan dock inte ta bort eller ändra de förifyllda Azure DNS namnservrarna.
 
-Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be modified without constraint.
+Observera att detta endast gäller för NS-postuppsättningen i zonens Apex. Andra NS-postuppsättningar i din zon (som används för att delegera underordnade zoner) kan ändras utan begränsning.
 
-The following example shows how to add an additional name server to the NS record set at the zone apex:
+I följande exempel visas hur du lägger till ytterligare en namnserver i NS-postuppsättningen i zonen Apex:
 
 ```powershell
 $rs = Get-AzDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -326,11 +326,11 @@ Add-AzDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
 Set-AzDnsRecordSet -RecordSet $rs
 ```
 
-### <a name="to-modify-record-set-metadata"></a>To modify record set metadata
+### <a name="to-modify-record-set-metadata"></a>Ändra metadata för post uppsättning
 
-[Record set metadata](dns-zones-records.md#tags-and-metadata) can be used to associate application-specific data with each record set, as key-value pairs.
+[Metadata för post uppsättningar](dns-zones-records.md#tags-and-metadata) kan användas för att associera programspecifika data med varje post uppsättning som nyckel/värde-par.
 
-The following example shows how to modify the metadata of an existing record set:
+I följande exempel visas hur du ändrar metadata för en befintlig post uppsättning:
 
 ```powershell
 # Get the record set
@@ -347,36 +347,36 @@ Set-AzDnsRecordSet -RecordSet $rs
 ```
 
 
-## <a name="delete-a-record-set"></a>Delete a record set
+## <a name="delete-a-record-set"></a>Ta bort en post uppsättning
 
-Record sets can be deleted by using the `Remove-AzDnsRecordSet` cmdlet. Deleting a record set also deletes all records within the record set.
+Post uppsättningar kan tas bort med hjälp av `Remove-AzDnsRecordSet`-cmdleten. Om du tar bort en post uppsättning raderas även alla poster i post uppsättningen.
 
 > [!NOTE]
-> You cannot delete the SOA and NS record sets at the zone apex (`-Name '@'`).  Azure DNS created these automatically when the zone was created, and deletes them automatically when the zone is deleted.
+> Det går inte att ta bort SOA-och NS-postuppsättningarna i zonens Apex (`-Name '@'`).  Azure DNS skapade dessa automatiskt när zonen skapades och tar bort dem automatiskt när zonen tas bort.
 
-The following example shows how to delete a record set. In this example, the record set name, record set type, zone name, and resource group are each specified explicitly.
+I följande exempel visas hur du tar bort en post uppsättning. I det här exemplet anges post uppsättnings namnet, post uppsättnings typen, zon namnet och resurs gruppen uttryckligen.
 
 ```powershell
 Remove-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-Alternatively, the record set can be specified by name and type, and the zone specified using an object:
+Alternativt kan post uppsättningen anges efter namn och typ och zonen som anges med ett-objekt:
 
 ```powershell
 $zone = Get-AzDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
 Remove-AzDnsRecordSet -Name "www" -RecordType A -Zone $zone
 ```
 
-As a third option, the record set itself can be specified using a record set object:
+Som ett tredje alternativ kan själva post uppsättningen anges med ett post uppsättnings objekt:
 
 ```powershell
 $rs = Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 Remove-AzDnsRecordSet -RecordSet $rs
 ```
 
-When you specify the record set to be deleted by using a record set object, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not deleted. You can use the optional `-Overwrite` switch to suppress these checks.
+När du anger den post uppsättning som ska tas bort med hjälp av ett post uppsättnings objekt används [etag-kontroller](dns-zones-records.md#etags) för att säkerställa att samtidiga ändringar inte tas bort. Du kan använda den valfria `-Overwrite` växeln för att ignorera de här kontrollerna.
 
-The record set object can also be piped instead of being passed as a parameter:
+Objektet post uppsättning kan också vara skickas i stället för att skickas som en parameter:
 
 ```powershell
 Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzDnsRecordSet
@@ -386,7 +386,7 @@ Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGrou
 
 Cmdletarna `New-AzDnsRecordSet`, `Set-AzDnsRecordSet` och `Remove-AzDnsRecordSet` stöder alla bekräftelsemeddelanden.
 
-Each cmdlet prompts for confirmation if the `$ConfirmPreference` PowerShell preference variable has a value of `Medium` or lower. Since the default value for `$ConfirmPreference` is `High`, these prompts are not given when using the default PowerShell settings.
+Varje cmdlet uppmanas att bekräfta om variabeln `$ConfirmPreference` PowerShell har värdet `Medium` eller lägre. Eftersom standardvärdet för `$ConfirmPreference` är `High`får du inte dessa meddelanden när du använder standard-PowerShell-inställningarna.
 
 Du kan åsidosätta den aktuella `$ConfirmPreference`-inställningen med hjälp av parametern `-Confirm`. Om du anger `-Confirm` eller `-Confirm:$True`, så uppmanar cmdleten dig att bekräfta detta innan den körs. Om du anger `-Confirm:$False`, som ber cmdleten dig inte om bekräftelse. 
 
@@ -394,8 +394,8 @@ Mer information om `-Confirm` och `$ConfirmPreference` finns i [Om inställnings
 
 ## <a name="next-steps"></a>Nästa steg
 
-Learn more about [zones and records in Azure DNS](dns-zones-records.md).
+Läs mer om [zoner och poster i Azure DNS](dns-zones-records.md).
 <br>
-Learn how to [protect your zones and records](dns-protect-zones-recordsets.md) when using Azure DNS.
+Lär dig hur du [skyddar dina zoner och poster när du](dns-protect-zones-recordsets.md) använder Azure DNS.
 <br>
-Review the [Azure DNS PowerShell reference documentation](/powershell/module/az.dns).
+Läs [Azure DNS PowerShell Reference-dokumentationen](/powershell/module/az.dns).

@@ -1,7 +1,7 @@
 ---
-title: Create an internal Basic Load Balancer - Azure CLI
+title: Skapa en intern belastningsutjämnare – Azure CLI
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to create an internal load balancer using Azure CLI
+description: I den här artikeln får du lära dig hur du skapar en intern belastningsutjämnare med hjälp av Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -41,7 +41,7 @@ Följande exempel skapar en resursgrupp med namnet *myResourceGroupILB* på plat
 ```
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa det virtuella nätverket *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -54,13 +54,13 @@ Skapa det virtuella nätverket *myVnet* med undernätet *mySubnet* i *myResource
 
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
   - en klientdels-IP-konfiguration som tar emot inkommande nätverkstrafik i lastbalanseraren.
-  - en serverdels-IP-pool dit klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+  - en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
   - en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
   - en lastbalanseringsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
 ### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
 
-Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+Skapa en intern Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **myLoadBalancer** som innehåller en IP-konfiguration för klient delen med namnet **frontend**, en backend-pool med namnet **MYBACKENDPOOL** som är associerad med en privat IP-adress * * 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -72,7 +72,7 @@ Create an internal Load Balancer with [az network lb create](https://docs.micros
     --vnet-name myVnet \
     --subnet mySubnet      
   ```
-### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
+### <a name="create-the-health-probe"></a>Skapa hälsoavsökningen
 
 En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan ta emot nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 

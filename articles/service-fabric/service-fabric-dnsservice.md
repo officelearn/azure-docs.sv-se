@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric DNS service | Microsoft Docs
-description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
+title: Azure Service Fabric DNS-tjänst | Microsoft Docs
+description: Använd Service Fabricens DNS-tjänst för att identifiera mikrotjänster inifrån klustret.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -21,43 +21,43 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229296"
 ---
-# <a name="dns-service-in-azure-service-fabric"></a>DNS Service in Azure Service Fabric
-The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
+# <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänst i Azure Service Fabric
+DNS-tjänsten är en valfri system tjänst som du kan aktivera i klustret för att identifiera andra tjänster som använder DNS-protokollet. 
 
-Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. The DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portability of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than having to rewrite code to leverage the Naming Service. 
+Många tjänster, särskilt behållar tjänster, kan adresseras via en redan befintlig URL. Det är önskvärt att kunna matcha tjänsterna med hjälp av standard-DNS-protokollet i stället för Service Fabric Naming Service-protokollet. Med DNS-tjänsten kan du mappa DNS-namn till ett tjänst namn och därmed matcha slut punktens IP-adresser. Sådana funktioner upprätthåller portabiliteten i behållar tjänster på olika plattformar och kan göra "lyft och Shift"-scenarier enklare genom att låta dig använda befintliga tjänst webb adresser i stället för att behöva skriva om kod för att utnyttja Naming Service. 
 
-The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how the DNS service works for stateless services.
+DNS-tjänsten mappar DNS-namn till tjänst namn, som i sin tur löses av Naming Service för att returnera tjänst slut punkten. DNS-namnet för tjänsten tillhandahålls vid tidpunkten för skapandet. Följande diagram visar hur DNS-tjänsten fungerar för tillstånds lösa tjänster.
 
-![service endpoints](./media/service-fabric-dnsservice/stateless-dns.png)
+![tjänst slut punkter](./media/service-fabric-dnsservice/stateless-dns.png)
 
-Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP addresses using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
+Från och med Service Fabric version 6,3 har Service Fabric DNS-protokollet utökats till att omfatta ett schema för att adressera partitionerade tillstånds känsliga tjänster. Dessa tillägg gör det möjligt att lösa vissa partitions-IP-adresser med en kombination av tillstånds känsliga DNS-namn och partitionens namn. Alla tre partitionerings scheman stöds:
 
-- Named partitioning
-- Ranged partitioning
-- Singleton partitioning
+- Namngiven partitionering
+- Intervall partitionering
+- Singleton-partitionering
 
-The following diagram shows how the DNS service works for partitioned stateful services.
+Följande diagram visar hur DNS-tjänsten fungerar för partitionerade tillstånds känsliga tjänster.
 
-![stateful service endpoints](./media/service-fabric-dnsservice/stateful-dns.png)
+![tillstånds känsliga tjänst slut punkter](./media/service-fabric-dnsservice/stateful-dns.png)
 
-Dynamic ports are not supported by the DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
+Dynamiska portar stöds inte av DNS-tjänsten. Använd [tjänsten reverse proxy](./service-fabric-reverseproxy.md)för att lösa tjänster som exponeras på dynamiska portar.
 
-## <a name="enabling-the-dns-service"></a>Enabling the DNS service
+## <a name="enabling-the-dns-service"></a>Aktivera DNS-tjänsten
 > [!NOTE]
-> DNS service for Service Fabric services is not yet supported on Linux.
+> Det finns ännu inte stöd för DNS-tjänsten för Service Fabric-tjänster i Linux.
 
-When you create a cluster using the portal, the DNS service is enabled by default in the **Include DNS service** check box on the **Cluster configuration** menu:
+När du skapar ett kluster med hjälp av portalen aktive ras DNS-tjänsten som standard i kryss rutan **Inkludera DNS-tjänst** på **kluster konfigurations** menyn:
 
-![Enabling DNS service through the portal](./media/service-fabric-dnsservice/enable-dns-service.png)
+![Aktivera DNS-tjänsten via portalen](./media/service-fabric-dnsservice/enable-dns-service.png)
 
-If you're not using the portal to create your cluster or if you're updating an existing cluster, you'll need to enable the DNS service in a template:
+Om du inte använder portalen för att skapa klustret eller om du uppdaterar ett befintligt kluster måste du aktivera DNS-tjänsten i en mall:
 
-- To deploy a new cluster, you can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create your own Resource Manager template. 
-- To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
+- Om du vill distribuera ett nytt kluster kan du antingen använda [exempel-mallarna](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) eller skapa en egen Resource Manager-mall. 
+- Om du vill uppdatera ett befintligt kluster kan du gå till klustrets resurs grupp på portalen och klicka på **Automation-skript** för att arbeta med en mall som motsvarar klustrets aktuella tillstånd och andra resurser i gruppen. Mer information finns i [Exportera mallen från resurs gruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
-After you have a template, you can enable the DNS service with the following steps:
+När du har en mall kan du aktivera DNS-tjänsten med följande steg:
 
-1. Check that the `apiversion` is set to `2017-07-01-preview` or later for the `Microsoft.ServiceFabric/clusters` resource, and, if not, update it as shown in the following example:
+1. Kontrol lera att `apiversion` är inställt på `2017-07-01-preview` eller senare för `Microsoft.ServiceFabric/clusters` resursen, och uppdatera den, om inte, så att den visas i följande exempel:
 
     ```json
     {
@@ -69,9 +69,9 @@ After you have a template, you can enable the DNS service with the following ste
     }
     ```
 
-2. Now enable the DNS service in one of the following ways:
+2. Aktivera nu DNS-tjänsten på något av följande sätt:
 
-   - To enable the DNS service with default settings, add it to the `addonFeatures` section inside the `properties` section as shown in the following example:
+   - Om du vill aktivera DNS-tjänsten med standardinställningar lägger du till den i avsnittet `addonFeatures` i avsnittet `properties`, som du ser i följande exempel:
 
         ```json
           "properties": {
@@ -83,7 +83,7 @@ After you have a template, you can enable the DNS service with the following ste
           }
         ```
 
-   - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for the DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+   - Om du vill aktivera tjänsten med andra än standardinställningarna lägger du till en `DnsService`-sektion i avsnittet `fabricSettings` i avsnittet `properties`. I det här fallet behöver du inte lägga till DNS service i `addonFeatures`. Mer information om de egenskaper som kan anges för DNS-tjänsten finns i inställningar för [DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
            "properties": {
@@ -111,23 +111,23 @@ After you have a template, you can enable the DNS service with the following ste
               ]
             }
        ```
-3. Once you have updated the cluster template with your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
+3. När du har uppdaterat kluster mal len med ändringarna tillämpar du dem och låter uppgraderingen slutföras. När uppgraderingen är klar börjar DNS-systemtjänsten att köras i klustret. Tjänst namnet är `fabric:/System/DnsService`, och du hittar det under avsnittet **system** service i Service Fabric Explorer. 
 
 > [!NOTE]
-> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
+> När du uppgraderar DNS från inaktive rad till aktive rad kanske Service Fabric Explorer inte visar det nya läget. Lös problemet genom att starta om noderna genom att ändra UpgradePolicy i din Azure Resource Manager-mall. Mer information finns i [referensen för Service Fabric mal len](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
 
 > [!NOTE]
-> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
+> Att aktivera DNS-tjänsten när du utvecklar på en lokal dator åsidosätter vissa DNS-inställningar. Om du får problem med att ansluta till Internet kontrollerar du dina DNS-inställningar.
 
-## <a name="setting-the-dns-name-for-your-service"></a>Setting the DNS name for your service
-You can set a DNS name for your services either declaratively for default services in the ApplicationManifest.xml file or through PowerShell commands.
+## <a name="setting-the-dns-name-for-your-service"></a>Ange DNS-namnet för din tjänst
+Du kan ange ett DNS-namn för dina tjänster antingen i deklarativ form för standard tjänster i filen ApplicationManifest. XML eller via PowerShell-kommandon.
 
-The DNS name for your service is resolvable throughout the cluster so it is important to ensure the uniqueness of the DNS name across the cluster. 
+DNS-namnet för din tjänst kan matchas i hela klustret, så det är viktigt att säkerställa att DNS-namnet är unikt i klustret. 
 
-It is highly recommended that you use a naming scheme of `<ServiceDnsName>.<AppInstanceName>`; for example, `service1.application1`. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
+Vi rekommenderar starkt att du använder ett namngivnings schema för `<ServiceDnsName>.<AppInstanceName>`. till exempel `service1.application1`. Om ett program distribueras med hjälp av Docker Compos, tilldelas tjänster automatiskt DNS-namn med det här namngivnings schemat.
 
-### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Setting the DNS name for a default service in the ApplicationManifest.xml
-Open your project in Visual Studio, or your favorite editor, and open the ApplicationManifest.xml file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
+### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ange DNS-namnet för en standard tjänst i ApplicationManifest. XML
+Öppna projektet i Visual Studio eller din favorit redigerare och öppna filen ApplicationManifest. xml. Gå till avsnittet standard tjänster och Lägg till attributet `ServiceDnsName` för varje tjänst. I följande exempel visas hur du anger tjänstens DNS-namn till `service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -136,11 +136,11 @@ Open your project in Visual Studio, or your favorite editor, and open the Applic
       </StatelessService>
     </Service>
 ```
-Once the application is deployed, the service instance in the Service Fabric explorer shows the DNS name for this instance, as shown in the following figure: 
+När programmet har distribuerats visar tjänst instansen i Service Fabric Explorer DNS-namnet för den här instansen, som visas i följande figur: 
 
-![service endpoints](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![tjänst slut punkter](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+I följande exempel anges DNS-namnet för en tillstånds känslig tjänst att `statefulsvc.app`. Tjänsten använder ett namngivet partitionerings schema. Observera att partitionsnamnet är gemener. Detta är ett krav för partitioner som kommer att vara riktade till DNS-frågor. Mer information finns i [göra DNS-frågor på en tillstånds känslig tjänst partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -153,8 +153,8 @@ The following example sets the DNS name for a stateful service to `statefulsvc.a
     </Service>
 ```
 
-### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Setting the DNS name for a service using Powershell
-You can set the DNS name for a service when creating it using the `New-ServiceFabricService` Powershell command. The following example creates a new stateless service with the DNS name `service1.application1`
+### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Ange DNS-namnet för en tjänst med hjälp av PowerShell
+Du kan ange DNS-namnet för en tjänst när du skapar den med hjälp av `New-ServiceFabricService` PowerShell-kommandot. I följande exempel skapas en ny tillstånds lös tjänst med DNS-namnet `service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -167,41 +167,41 @@ You can set the DNS name for a service when creating it using the `New-ServiceFa
     -ServiceDnsName service1.application1
 ```
 
-## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Preview] Making DNS queries on a stateful service partition
-Beginning with Service Fabric version 6.3, the Service Fabric DNS service supports queries for service partitions.
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>Förhandsgranskningsvyn Göra DNS-frågor på en tillstånds känslig tjänst partition
+Från och med Service Fabric version 6,3 stöder DNS-tjänsten Service Fabric frågor för diskpartitioner.
 
-For partitions that will be used in DNS queries, the following naming restrictions apply:
+För partitioner som ska användas i DNS-frågor gäller följande namngivnings begränsningar:
 
-   - Partition names should be DNS-compliant.
-   - Multi-label partition names (that include dot, '.', in the name) should not be used.
-   - Partition names should be lower-case.
+   - Partitionsnamn ska vara DNS-kompatibla.
+   - Partition namn med flera etiketter (som innehåller punkt, ".", i namnet) ska inte användas.
+   - Partitionsnamn ska vara gemener.
 
-DNS queries that target a partition are formatted as follows:
+DNS-frågor som riktar sig mot en partition formateras enligt följande:
 
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Var:
+Där:
 
-- *First-Label-Of-Partitioned-Service-DNSName* is the first part of your service DNS name.
-- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "--". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
-- *Target-Partition-Name* is the name of the partition. 
-- *PartitionSuffix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
-- *Remaining-Partitioned-Service-DNSName* is the remaining part of your service DNS name.
+- Den första delen av *partitioned-service-DNSName* är den första delen av TJÄNSTens DNS-namn.
+- *PartitionPrefix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är "--". Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *Target-partition-Name* är namnet på partitionen. 
+- *PartitionSuffix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är en tom sträng. Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *Återstående partitionerade service-DNSName* är den återstående delen av tjänstens DNS-namn.
 
-The following examples show DNS queries for partitioned services running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`: 
+I följande exempel visas DNS-frågor om partitionerade tjänster som körs på ett kluster med standardinställningar för `PartitionPrefix` och `PartitionSuffix`: 
 
-- To resolve partition “0” of a service with DNS name `backendrangedschemesvc.application` that uses a ranged partitioning scheme, use `backendrangedschemesvc-0.application`.
-- To resolve partition “first” of a service with DNS name `backendnamedschemesvc.application` that uses a named partitioning scheme, use `backendnamedschemesvc-first.application`.
+- Använd `backendrangedschemesvc-0.application`om du vill matcha partitionen "0" i en tjänst med DNS-namn `backendrangedschemesvc.application` som använder ett intervall som har ett intervall.
+- Använd `backendnamedschemesvc-first.application`för att matcha partitionen "First" av en tjänst med DNS-namn `backendnamedschemesvc.application` som använder ett namngivet partitionerings schema.
 
-The DNS service returns the IP address of the primary replica of the partition. If no partition is specified, the service returns the IP address of the primary replica of a randomly selected partition.
+DNS-tjänsten returnerar IP-adressen för den primära repliken i partitionen. Om ingen partition anges returnerar tjänsten IP-adressen för den primära repliken av en slumpvis vald partition.
 
-## <a name="using-dns-in-your-services"></a>Using DNS in your services
-If you deploy more than one service, you can find the endpoints of other services to communicate with by using a DNS name. The DNS service works for stateless services, and, in Service Fabric version 6.3 and later, for stateful services. For stateful services running on versions of Service Fabric prior to 6.3, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for http calls to call a particular service partition. 
+## <a name="using-dns-in-your-services"></a>Använda DNS i dina tjänster
+Om du distribuerar fler än en tjänst kan du hitta slut punkterna för andra tjänster för att kommunicera med med hjälp av ett DNS-namn. DNS-tjänsten fungerar för tillstånds lösa tjänster och, i Service Fabric version 6,3 och senare, för tillstånds känsliga tjänster. För tillstånds känsliga tjänster som körs på versioner av Service Fabric före 6,3 kan du använda den inbyggda [tjänsten omvänd proxy](./service-fabric-reverseproxy.md) för HTTP-anrop för att anropa en viss tjänstmall. 
 
-Dynamic ports are not supported by the DNS service. You can use the reverse proxy service to resolve services that use dynamic ports.
+Dynamiska portar stöds inte av DNS-tjänsten. Du kan använda tjänsten reverse proxy för att lösa tjänster som använder dynamiska portar.
 
-The following code shows how to call a stateless service through DNS. It is simply a regular http call where you provide the DNS name, the port, and any optional path as part of the URL.
+Följande kod visar hur du anropar en tillstånds lös tjänst via DNS. Det är bara ett reguljärt http-anrop där du anger DNS-namn, port och valfri sökväg som en del av URL: en.
 
 ```csharp
 public class ValuesController : Controller
@@ -229,7 +229,7 @@ public class ValuesController : Controller
 }
 ```
 
-The following code shows a call on a specific partition of a stateful service. In this case, the DNS name contains the partition name (partition1). The call assumes a cluster with default values for `PartitionPrefix` and `PartitionSuffix`.
+Följande kod visar ett anrop till en speciell partition för en tillstånds känslig tjänst. I det här fallet innehåller DNS-namnet partitionens namn (partition1). Anropet förutsätter ett kluster med standardvärden för `PartitionPrefix` och `PartitionSuffix`.
 
 ```csharp
 public class ValuesController : Controller
@@ -258,10 +258,10 @@ public class ValuesController : Controller
 ```
 
 ## <a name="known-issues"></a>Kända problem
-* For Service Fabric versions 6.3 and higher, there is a problem with DNS lookups for service names containing a hyphen in the DNS name. For more information on this issue, please track the following [GitHub Issue](https://github.com/Azure/service-fabric-issues/issues/1197). A fix for this is coming in the next 6.3 update. 
+* För Service Fabric version 6,3 och högre, finns det ett problem med DNS-sökningar för tjänst namn som innehåller ett bindestreck i DNS-namnet. Om du vill ha mer information om det här problemet kan du följa nedanstående [GitHub-problem](https://github.com/Azure/service-fabric-issues/issues/1197). En korrigering för detta kommer i nästa 6,3-uppdatering. 
 
-* DNS service for Service Fabric services is not yet supported on Linux. DNS service is supported for containers on Linux. Manual resolution using Fabric Client/ServicePartitionResolver is the available alternative.
+* Det finns ännu inte stöd för DNS-tjänsten för Service Fabric-tjänster i Linux. DNS-tjänsten stöds för behållare i Linux. Manuell matchning med hjälp av Fabric client/ServicePartitionResolver är det tillgängliga alternativet.
 
 ## <a name="next-steps"></a>Nästa steg
-Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)
+Lär dig mer om tjänst kommunikation i klustret med [Anslut och kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Mallfunktioner
-description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
+description: Beskriver de funktioner som används i en Azure Resource Manager mall för att hämta värden, arbeta med strängar och siffror och hämta distributions information.
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: cf263bff72677778433d4ef2f3cee8135fe3ab06
@@ -10,11 +10,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224185"
 ---
-# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager template functions
+# <a name="azure-resource-manager-template-functions"></a>Funktioner för Azure Resource Manager mallar
 
-This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
+I den här artikeln beskrivs alla funktioner som du kan använda i en Azure Resource Manager-mall. Information om hur du använder funktioner i din mall finns i [syntax för mallar](template-expressions.md).
 
-To create your own functions, see [User-defined functions](resource-group-authoring-templates.md#functions).
+Information om hur du skapar dina egna funktioner finns i [användardefinierade funktioner](resource-group-authoring-templates.md#functions).
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -35,25 +35,25 @@ To create your own functions, see [User-defined functions](resource-group-author
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funktioner för matris och objekt
-Resource Manager provides several functions for working with arrays and objects.
+Resource Manager innehåller flera funktioner för att arbeta med matriser och objekt.
 
-* [array](resource-group-template-functions-array.md#array)
+* [lagringsmatriser](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
-* [contains](resource-group-template-functions-array.md#contains)
+* [ingår](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
-* [empty](resource-group-template-functions-array.md#empty)
-* [first](resource-group-template-functions-array.md#first)
-* [intersection](resource-group-template-functions-array.md#intersection)
-* [json](resource-group-template-functions-array.md#json)
-* [last](resource-group-template-functions-array.md#last)
-* [length](resource-group-template-functions-array.md#length)
-* [min](resource-group-template-functions-array.md#min)
-* [max](resource-group-template-functions-array.md#max)
-* [range](resource-group-template-functions-array.md#range)
-* [skip](resource-group-template-functions-array.md#skip)
-* [take](resource-group-template-functions-array.md#take)
-* [union](resource-group-template-functions-array.md#union)
+* [saknas](resource-group-template-functions-array.md#empty)
+* [förstagångskörningen](resource-group-template-functions-array.md#first)
+* [överlappning](resource-group-template-functions-array.md#intersection)
+* [utgör](resource-group-template-functions-array.md#json)
+* [pågå](resource-group-template-functions-array.md#last)
+* [krävande](resource-group-template-functions-array.md#length)
+* [minimum](resource-group-template-functions-array.md#min)
+* [bekräftat](resource-group-template-functions-array.md#max)
+* [intervall](resource-group-template-functions-array.md#range)
+* [Ignorera](resource-group-template-functions-array.md#skip)
+* [gå](resource-group-template-functions-array.md#take)
+* [Union](resource-group-template-functions-array.md#union)
 
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
@@ -62,25 +62,25 @@ Resource Manager provides several functions for working with arrays and objects.
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Jämförelsefunktioner
-Resource Manager provides several functions for making comparisons in your templates.
+Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
 
-* [equals](resource-group-template-functions-comparison.md#equals)
-* [less](resource-group-template-functions-comparison.md#less)
+* [är lika med](resource-group-template-functions-comparison.md#equals)
+* [minskad](resource-group-template-functions-comparison.md#less)
 * [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
-* [greater](resource-group-template-functions-comparison.md#greater)
-* [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
+* [störst](resource-group-template-functions-comparison.md#greater)
+* [Större](resource-group-template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
 
-## <a name="deployment-value-functions"></a>Deployment value functions
-Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
+## <a name="deployment-value-functions"></a>Funktioner för distributions värde
+Resource Manager innehåller följande funktioner för att hämta värden från avsnitt i mallen och värden som är relaterade till distributionen:
 
-* [deployment](resource-group-template-functions-deployment.md#deployment)
-* [environment](resource-group-template-functions-deployment.md#environment)
+* [spridningen](resource-group-template-functions-deployment.md#deployment)
+* [miljö](resource-group-template-functions-deployment.md#environment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [användarvariabler](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -89,13 +89,13 @@ Resource Manager provides the following functions for getting values from sectio
 <a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Logiska funktioner
-Resource Manager provides the following functions for working with logical conditions:
+Resource Manager innehåller följande funktioner för att arbeta med logiska villkor:
 
-* [and](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
+* [särskilt](resource-group-template-functions-logical.md#and)
+* [booleska](resource-group-template-functions-logical.md#bool)
+* [eventuella](resource-group-template-functions-logical.md#if)
+* [Ogiltigt](resource-group-template-functions-logical.md#not)
+* [eller](resource-group-template-functions-logical.md#or)
 
 <a id="add" aria-hidden="true" />
 <a id="copyindex" aria-hidden="true" />
@@ -109,18 +109,18 @@ Resource Manager provides the following functions for working with logical condi
 <a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Numeriska funktioner
-Resource Manager provides the following functions for working with integers:
+Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
-* [add](resource-group-template-functions-numeric.md#add)
+* [skapa](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
-* [div](resource-group-template-functions-numeric.md#div)
-* [float](resource-group-template-functions-numeric.md#float)
+* [tagg](resource-group-template-functions-numeric.md#div)
+* [flyta](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* [min](resource-group-template-functions-numeric.md#min)
-* [max](resource-group-template-functions-numeric.md#max)
-* [mod](resource-group-template-functions-numeric.md#mod)
+* [minimum](resource-group-template-functions-numeric.md#min)
+* [bekräftat](resource-group-template-functions-numeric.md#max)
+* [rest](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
-* [sub](resource-group-template-functions-numeric.md#sub)
+* [Build](resource-group-template-functions-numeric.md#sub)
 
 <a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
@@ -134,15 +134,15 @@ Resource Manager provides the following functions for working with integers:
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Resursfunktioner
-Resource Manager provides the following functions for getting resource values:
+Resource Manager tillhandahåller följande funktioner för att hämta resurs-värden:
 
 * [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
 * [listAccountSas](resource-group-template-functions-resource.md#list)
-* [listKeys](resource-group-template-functions-resource.md#listkeys)
+* [Listnycklar](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
-* [list*](resource-group-template-functions-resource.md#list)
-* [providers](resource-group-template-functions-resource.md#providers)
-* [reference](resource-group-template-functions-resource.md#reference)
+* [lista](resource-group-template-functions-resource.md#list)
+* [finansiär](resource-group-template-functions-resource.md#providers)
+* [förhållande](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [prenumeration](resource-group-template-functions-resource.md#subscription)
@@ -181,45 +181,45 @@ Resource Manager provides the following functions for getting resource values:
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Strängfunktioner
-Resource Manager provides the following functions for working with strings:
+Resource Manager innehåller följande funktioner för att arbeta med strängar:
 
-* [base64](resource-group-template-functions-string.md#base64)
+* [Base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
 * [concat](resource-group-template-functions-string.md#concat)
-* [contains](resource-group-template-functions-string.md#contains)
+* [ingår](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)
 * [dataUriToString](resource-group-template-functions-string.md#datauritostring)
-* [empty](resource-group-template-functions-string.md#empty)
+* [saknas](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
-* [first](resource-group-template-functions-string.md#first)
-* [format](resource-group-template-functions-string.md#format)
-* [guid](resource-group-template-functions-string.md#guid)
+* [förstagångskörningen](resource-group-template-functions-string.md#first)
+* [formatering](resource-group-template-functions-string.md#format)
+* [LED](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
-* [last](resource-group-template-functions-string.md#last)
+* [pågå](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
-* [length](resource-group-template-functions-string.md#length)
+* [krävande](resource-group-template-functions-string.md#length)
 * [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
-* [replace](resource-group-template-functions-string.md#replace)
-* [skip](resource-group-template-functions-string.md#skip)
+* [bytt](resource-group-template-functions-string.md#replace)
+* [Ignorera](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [string](resource-group-template-functions-string.md#string)
-* [substring](resource-group-template-functions-string.md#substring)
-* [take](resource-group-template-functions-string.md#take)
+* [nollängd](resource-group-template-functions-string.md#string)
+* [under sträng](resource-group-template-functions-string.md#substring)
+* [gå](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [trim](resource-group-template-functions-string.md#trim)
+* [reducera](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [uri](resource-group-template-functions-string.md#uri)
+* [URI](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](resource-group-authoring-templates.md)
+* Om du vill slå samman flera mallar, se [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md)
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md)
+* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](resource-group-template-deploy.md)

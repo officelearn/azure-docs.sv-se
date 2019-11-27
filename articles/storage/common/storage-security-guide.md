@@ -1,6 +1,6 @@
 ---
-title: Azure Storage security guide | Microsoft Docs
-description: Details methods for securing Azure Storage accounts, including management plane security, authorization, network security, encryption, etc.
+title: Azure Storage säkerhets guide | Microsoft Docs
+description: Information om metoder för att skydda Azure Storage konton, inklusive hanterings plan säkerhet, auktorisering, nätverks säkerhet, kryptering osv.
 services: storage
 author: tamram
 ms.service: storage
@@ -16,85 +16,85 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "72926709"
 ---
-# <a name="azure-storage-security-guide"></a>Azure Storage security guide
+# <a name="azure-storage-security-guide"></a>Azure Storage säkerhets guide
 
-Azure Storage provides a comprehensive set of security capabilities that together enable organizations to build and deploy secure applications:
+Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner som tillsammans gör det möjligt för organisationer att skapa och distribuera säkra program:
 
-- All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queues Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for both resource management operations and data plane operations:   
-    - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
-    - Azure AD integration is supported for blob and queue data operations. RBAC roles can be scoped to a subscription, resource group, storage account, individual container or queue. Roles can be assigned to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
-- Data can be secured in transit between an application and Azure using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
-- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
-- Delegated access to the data objects in Azure Storage can be granted using a shared access signature. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
-- Network-layer security between your application components and storage can be enabled using the storage firewall, service endpoints or private endpoints.
+- Alla data (inklusive metadata) som skrivs till Azure Storage krypteras automatiskt med hjälp av [kryptering för lagringstjänst (SSE)](storage-service-encryption.md). Mer information finns i avsnittet [om att presentera standard kryptering för Azure-blobar, filer, tabeller och lagrings köer](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Azure Active Directory (Azure AD) och rollbaserad Access Control (RBAC) stöds för både resurs hanterings åtgärder och data Plans åtgärder:   
+    - Du kan tilldela RBAC-roller som är begränsade till lagrings kontot för säkerhets objekt och använda Azure AD för att auktorisera resurs hanterings åtgärder, till exempel nyckel hantering.
+    - Azure AD-integrering stöds för blob-och Queue data-åtgärder. RBAC-roller kan begränsas till en prenumeration, resurs grupp, lagrings konto, enskild behållare eller kö. Roller kan tilldelas till ett säkerhets objekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).
+- Data kan skyddas vid överföring mellan ett program och Azure med hjälp av [kryptering på klient sidan](../storage-client-side-encryption.md), https eller SMB 3,0.  
+- Operativ system och data diskar som används av virtuella Azure-datorer kan krypteras med hjälp av [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
+- Delegerad åtkomst till data objekt i Azure Storage kan beviljas med hjälp av en signatur för delad åtkomst. Mer information finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
+- Säkerhet i nätverks lager mellan dina program komponenter och lagring kan aktive ras med hjälp av lagrings brand väggen, tjänst slut punkter eller privata slut punkter.
 
-This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles provide additional details on each capability.
+Den här artikeln innehåller en översikt över de säkerhets funktioner som kan användas med Azure Storage. Det finns länkar till artiklar som innehåller ytterligare information om varje funktion.
 
-Here are the areas covered in this article:
+Här följer de områden som beskrivs i den här artikeln:
 
-* [Management Plane Security](#management-plane-security) – Securing resource-level access to your Storage Account
+* [Säkerhet för hanterings plan](#management-plane-security) – skydda resurs nivå åtkomst till ditt lagrings konto
 
-  The management plane consists of the operations used to manage your storage account. This section covers the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. It also addresses managing your storage account keys and how to regenerate them.
+  Hanterings planet består av de åtgärder som används för att hantera ditt lagrings konto. I det här avsnittet beskrivs Azure Resource Manager distributions modell och hur du använder rollbaserad Access Control (RBAC) för att kontrol lera åtkomsten till dina lagrings konton. Den behandlar också hantering av lagrings konto nycklar och hur du återskapar dem.
 
-* [Network Security](#network-security) - Securing network-level access to your Storage Account
+* [Nätverks säkerhet](#network-security) – skydda nätverks nivå åtkomst till ditt lagrings konto
 
-  This section covers how you can secure the network-level access to the storage services endpoints. It discusses how you can use the storage firewall to allow access to your data from specific virtual networks or IP address ranges. It also covers the use of service endpoints and private endpoints with storage accounts.
+  Det här avsnittet beskriver hur du kan skydda åtkomsten på nätverks nivå till lagrings tjänsternas slut punkter. Den beskriver hur du kan använda lagrings brand väggen för att tillåta åtkomst till dina data från vissa virtuella nätverk eller IP-adressintervall. Det omfattar också användning av tjänstens slut punkter och privata slut punkter med lagrings konton.
 
-* [Authorization](#authorization) – Authorizing access to your data
+* [Auktorisering](#authorization) – auktorisera åtkomst till dina data
 
-  This section describes access to the data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+  I det här avsnittet beskrivs åtkomst till data objekt i ditt lagrings konto, till exempel blobbar, filer, köer och tabeller, med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer. Vi kommer att avse SAS på både service nivå och konto nivå. Vi kommer också att se hur du begränsar åtkomsten till en speciell IP-adress (eller ett intervall med IP-adresser), hur du begränsar det protokoll som används för HTTPS och hur du återkallar en signatur för delad åtkomst utan att vänta tills den upphör att gälla.
 
 * [Kryptering vid överföring](#encryption-in-transit)
 
-  This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure file shares. We will also discuss Client-side Encryption, which enables you to encrypt data before transfer into Storage, and to decrypt the data after it is transferred out of Storage.
+  I det här avsnittet beskrivs hur du skyddar data när du överför dem till eller från Azure Storage. Vi pratar om den rekommenderade användningen av HTTPS och kryptering som används av SMB 3,0 för Azure-filresurser. Vi kommer också att diskutera kryptering på klient sidan, vilket gör att du kan kryptera data före överföring till lagring och dekryptera data när de har överförts från lagrings utrymmet.
 
 * [Kryptering i vila](#encryption-at-rest)
 
-  We will talk about Storage Service Encryption (SSE), which is now automatically enabled for new and existing storage accounts. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+  Vi kommer att prata om Kryptering för lagringstjänst (SSE), som nu aktive ras automatiskt för nya och befintliga lagrings konton. Vi kommer också att se hur du kan använda Azure Disk Encryption och utforska de grundläggande skillnaderna och fallen av disk kryptering jämfört med SSE jämfört med kryptering på klient sidan. Vi ska kort se FIPS-kompatibiliteten för amerikanska myndighets datorer.
 
-* Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
+* Använda [Lagringsanalys](#storage-analytics) för att granska åtkomst till Azure Storage
 
-  This section discusses how to find information in the storage analytics logs for a request. We'll take a look at real storage analytics log data and see how to discern whether a request is made with the Storage account key, with a Shared Access signature, or anonymously, and whether it succeeded or failed.
+  I det här avsnittet beskrivs hur du hittar information i Storage Analytics-loggarna för en begäran. Vi tar en titt på Real Storage Analytics-loggdata och se hur du fram om en begäran görs med lagrings konto nyckeln, med en signatur för delad åtkomst eller anonymt, och om den lyckades eller misslyckades.
 
-* [Enabling Browser-Based Clients using CORS](#cross-origin-resource-sharing-cors)
+* [Aktivera webbläsarbaserade klienter med CORS](#cross-origin-resource-sharing-cors)
 
-  This section talks about how to allow cross-origin resource sharing (CORS). We'll talk about cross-domain access, and how to handle it with the CORS capabilities built into Azure Storage.
+  Det här avsnittet handlar om hur du tillåter resurs delning mellan ursprung (CORS). Vi pratar om åtkomst mellan domäner och hur du hanterar det med de CORS-funktioner som är inbyggda i Azure Storage.
 
-## <a name="management-plane-security"></a>Management Plane Security
-The management plane consists of operations that affect the storage account itself. For example, you can create or delete a storage account, get a list of storage accounts in a subscription, retrieve the storage account keys, or regenerate the storage account keys.
+## <a name="management-plane-security"></a>Säkerhet för hanterings plan
+Hanterings planet består av åtgärder som påverkar själva lagrings kontot. Du kan till exempel skapa eller ta bort ett lagrings konto, hämta en lista över lagrings konton i en prenumeration, Hämta lagrings konto nycklar eller återskapa lagrings konto nycklarna.
 
-When you create a new storage account, you select a deployment model of Classic or Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account.
+När du skapar ett nytt lagrings konto väljer du en distributions modell av Classic eller Resource Manager. Den klassiska modellen för att skapa resurser i Azure tillåter bara all-eller-ingen åtkomst till prenumerationen, och i sin tur är lagrings kontot.
 
-This guide focuses on the Resource Manager model that is the recommended means for creating storage accounts. With the Resource Manager storage accounts, rather than giving access to the entire subscription, you can control access on a more finite level to the management plane using Role-Based Access Control (RBAC).
+Den här guiden fokuserar på Resource Manager-modellen som är det rekommenderade sättet att skapa lagrings konton. Med lagrings kontona i Resource Manager, i stället för att ge åtkomst till hela prenumerationen, kan du kontrol lera åtkomsten på en mer begränsad nivå till hanterings planet med rollbaserad Access Control (RBAC).
 
-### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>How to secure your storage account with Role-Based Access Control (RBAC)
-Let's talk about what RBAC is, and how you can use it. Varje Azure-prenumerationen har en Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This type of security is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Skydda ditt lagrings konto med rollbaserad Access Control (RBAC)
+Låt oss prata om vad RBAC är och hur du kan använda det. Varje Azure-prenumerationen har en Azure Active Directory. Användare, grupper och program från den katalogen kan beviljas åtkomst för att hantera resurser i Azure-prenumerationen som använder distributions modellen för Resource Manager. Den här typen av säkerhet kallas för rollbaserad Access Control (RBAC). Om du vill hantera den här åtkomsten kan du använda [Azure Portal](https://portal.azure.com/), [Azure CLI-verktyg](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs)eller [Azure Storage-resurs leverantörens REST-API: er](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
-With the Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.
+Med Resource Manager-modellen ska du lagra lagrings kontot i en resurs grupp och kontrol lera åtkomsten till hanterings planet för det angivna lagrings kontot med hjälp av Azure Active Directory. Du kan till exempel ge vissa användare möjlighet att komma åt lagrings konto nycklarna, medan andra användare kan visa information om lagrings kontot, men inte åtkomst till lagrings konto nycklarna.
 
-#### <a name="granting-access"></a>Granting Access
-Access is granted by assigning the appropriate RBAC role to users, groups, and applications, at the right scope. To grant access to the entire subscription, you assign a role at the subscription level. You can grant access to all of the resources in a resource group by granting permissions to the resource group itself. You can also assign specific roles to specific resources, such as storage accounts.
+#### <a name="granting-access"></a>Bevilja åtkomst
+Åtkomst beviljas genom att tilldela lämplig RBAC-roll till användare, grupper och program, i rätt omfång. Om du vill bevilja åtkomst till hela prenumerationen tilldelar du en roll på prenumerations nivån. Du kan bevilja åtkomst till alla resurser i en resurs grupp genom att bevilja behörighet till själva resurs gruppen. Du kan också tilldela vissa roller till vissa resurser, till exempel lagrings konton.
 
-Here are the main points that you need to know about using RBAC to access the management operations of an Azure Storage account:
+Här är de viktigaste punkterna som du behöver känna till om att använda RBAC för att få åtkomst till hanterings åtgärder för ett Azure Storage-konto:
 
-* When you assign access, you basically assign a role to the account that you want to have access. You can control access to the operations used to manage that storage account, but not to the data objects in the account. For example, you can grant permission to retrieve the properties of the storage account (such as redundancy), but not to a container or data within a container inside Blob Storage.
-* For someone to have permission to access the data objects in the storage account, you can give them permission to read the storage account keys, and that user can then use those keys to access the blobs, queues, tables, and files.
-* Roles can be assigned to a specific user account, a group of users, or to a specific application.
-* Each role has a list of Actions and Not Actions. For example, the Virtual Machine Contributor role has an Action of "listKeys" that allows the storage account keys to be read. The Contributor has "Not Actions" such as updating the access for users in the Active Directory.
-* Roles for storage include (but are not limited to) the following roles:
+* När du tilldelar åtkomst tilldelar du i princip en roll till det konto som du vill ha åtkomst till. Du kan kontrol lera åtkomsten till de åtgärder som används för att hantera lagrings kontot, men inte till data objekt i kontot. Du kan till exempel bevilja behörighet att hämta egenskaperna för lagrings kontot (till exempel redundans), men inte till en behållare eller data i en behållare i Blob Storage.
+* För att någon ska ha behörighet att komma åt data objekt i lagrings kontot kan du ge dem behörighet att läsa lagrings konto nycklarna och användaren kan sedan använda nycklarna för att få åtkomst till blobbar, köer, tabeller och filer.
+* Roller kan tilldelas till ett enskilt användar konto, en grupp användare eller till ett enskilt program.
+* Varje roll har en lista med åtgärder och inte åtgärder. Rollen virtuell dator deltagare har till exempel åtgärden "Listnycklar" som tillåter lagrings konto nycklarna att läsas. Deltagaren har "inte åtgärder", till exempel uppdatering av åtkomsten för användare i Active Directory.
+* Roller för lagring inkluderar (men är inte begränsade till) följande roller:
 
-  * Owner – They can manage everything, including access.
-  * Contributor – They can do anything the owner can do except assign access. Someone with this role can view and regenerate the storage account keys. With the storage account keys, they can access the data objects.
-  * Reader – They can view information about the storage account, except secrets. For example, if you assign a role with reader permissions on the storage account to someone, they can view the properties of the storage account, but they can't make any changes to the properties or view the storage account keys.
-  * Storage Account Contributor – They can manage the storage account – they can read the subscription's resource groups and resources, and create and manage subscription resource group deployments. They can also access the storage account keys, which in turn means they can access the data plane.
-  * User Access Administrator – They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
-  * Virtual Machine Contributor – They can manage virtual machines but not the storage account to which they are connected. This role can list the storage account keys, which means that the user to whom you assign this role can update the data plane.
+  * Ägare – de kan hantera allt, inklusive åtkomst.
+  * Deltagare – de kan göra vad ägaren kan göra förutom att tilldela åtkomst. Någon med den här rollen kan visa och återskapa lagrings konto nycklarna. Med lagrings konto nycklarna kan de komma åt data objekt.
+  * Läsare – de kan visa information om lagrings kontot, förutom hemligheter. Om du till exempel tilldelar en roll med läsar behörighet för lagrings kontot till någon, kan de se egenskaperna för lagrings kontot, men de kan inte göra några ändringar i egenskaperna eller Visa lagrings konto nycklarna.
+  * Lagrings konto deltagare – de kan hantera lagrings kontot – de kan läsa prenumerationens resurs grupper och resurser och skapa och hantera distributioner av resurs grupper för prenumerationer. De kan också komma åt lagrings konto nycklarna, vilket i sin tur innebär att de kan komma åt data planet.
+  * Administratör för användar åtkomst – de kan hantera användar åtkomst till lagrings kontot. De kan till exempel ge läsare åtkomst till en speciell användare.
+  * Virtuell dator deltagare – de kan hantera virtuella datorer, men inte lagrings kontot som de är anslutna till. Den här rollen kan visa lagrings konto nycklar, vilket innebär att användaren som du tilldelar rollen kan uppdatera data planet.
 
-    In order for a user to create a virtual machine, they have to be able to create the corresponding VHD file in a storage account. To do that, they need to be able to retrieve the storage account key and pass it to the API creating the VM. Therefore, they must have this permission so they can list the storage account keys.
-* The ability to define custom roles is a feature that allows you to compose a set of actions from a list of available actions that can be performed on Azure resources.
-* The user must be set up in your Azure Active Directory before you can assign a role to them.
-* You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
+    För att en användare ska kunna skapa en virtuell dator måste de kunna skapa motsvarande VHD-fil i ett lagrings konto. För att göra det måste de kunna hämta lagrings konto nyckeln och skicka den till API: et som skapar den virtuella datorn. De måste därför ha den här behörigheten så att de kan visa lagrings konto nycklarna.
+* Möjligheten att definiera anpassade roller är en funktion som gör att du kan skapa en uppsättning åtgärder från en lista över tillgängliga åtgärder som kan utföras på Azure-resurser.
+* Användaren måste konfigureras i Azure Active Directory innan du kan tilldela dem en roll.
+* Du kan skapa en rapport över vem som har beviljat/återkallat vilken typ av åtkomst till/från vem och i vilken omfattning som använder PowerShell eller Azure CLI.
 
 #### <a name="resources"></a>Resurser
 * [Azure Active Directory rollbaserad åtkomstkontroll](../../role-based-access-control/role-assignments-portal.md)
@@ -102,57 +102,57 @@ Here are the main points that you need to know about using RBAC to access the ma
   Den här artikeln förklarar Azure Active Directorys rollbaserade åtkomstkontroll och hur den fungerar.
 * [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)
 
-  This article details all of the built-in roles available in RBAC.
+  I den här artikeln beskrivs alla inbyggda roller som är tillgängliga i RBAC.
 * [Förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md)
 
-  This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
+  Den här artikeln beskriver distributions modellerna Resource Manager och klassiska distributioner och förklarar fördelarna med att använda Resource Manager och resurs grupper. Det förklarar hur Azure Compute-, Network-och Storage-leverantörer fungerar under Resource Manager-modellen.
 * [Hantera rollbaserad åtkomstkontroll med REST API](../../role-based-access-control/role-assignments-rest.md)
 
   Den här artikeln visar hur du använder REST API för att hantera RBAC.
 * [Referens för REST-API för Azure Storage Resource Provider](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
-  This API reference describes the APIs you can use to manage your storage account programmatically.
+  Denna API-referens beskriver de API: er som du kan använda för att hantera ditt lagrings konto program mässigt.
 
 * [Rollbaserad åtkomstkontroll i Microsoft Azure från Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   Det här är en länk till en video på Channel 9 från 2015 MS Ignite-konferensen. I den här sessionen talar de om åtkomsthantering och rapporteringsfunktioner i Azure och utforskar bästa praxis när det gäller att säkra åtkomst till Azure-prenumerationer med Azure Active Directory.
 
-### <a name="managing-your-storage-account-keys"></a>Managing Your Storage Account Keys
-Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account, for example, blobs, entities within a table, queue messages, and files on an Azure file share. Controlling access to the storage account keys controls access to the data plane for that storage account.
+### <a name="managing-your-storage-account-keys"></a>Hantera dina lagrings konto nycklar
+Lagrings konto nycklar är 512-bitars strängar som skapats av Azure och som tillsammans med lagrings kontots namn, kan användas för att komma åt de data objekt som lagras i lagrings kontot, till exempel blobbar, entiteter i en tabell, köa meddelanden och filer på en Azure-filresurs. Att kontrol lera åtkomsten till lagrings konto nycklarna styr åtkomsten till data planet för det lagrings kontot.
 
-Each storage account has two keys referred to as "Key 1" and "Key 2" in the [Azure portal](https://portal.azure.com/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure portal](https://portal.azure.com/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
+Varje lagrings konto har två nycklar som kallas "nyckel 1" och "nyckel 2" i [Azure Portal](https://portal.azure.com/) och i PowerShell-cmdletar. Dessa kan återskapas manuellt med hjälp av en av flera metoder, inklusive, men inte begränsat till att använda [Azure Portal](https://portal.azure.com/), PowerShell, Azure CLI eller program mässigt med hjälp av .net-lagrings klient biblioteket eller Azure Storage tjänster REST API.
 
-There are various reasons to regenerate your storage account keys.
+Det finns olika anledningar till att återskapa dina lagrings konto nycklar.
 
-* You may regenerate them periodically for security.
-* You might regenerate your storage account keys if your application or network security is compromised.
-* Another instance for key regeneration is when team members with access to the keys leave. Shared Access Signatures were designed primarily to address this scenario – you should share an account-level SAS connection string or token, instead of sharing access keys, with most individuals or applications.
+* Du kan återskapa dem med jämna mellanrum för säkerhet.
+* Du kan återskapa dina lagrings konto nycklar om ditt program eller din nätverks säkerhet komprometteras.
+* En annan instans för att återskapa nyckeln är när grupp medlemmar med åtkomst till nycklarna lämnas. Signaturer för delad åtkomst har utformats främst för att hantera det här scenariot. du bör dela en SAS-anslutningssträng på konto nivå eller token, i stället för att dela åtkomst nycklar, med de flesta användare eller program.
 
-#### <a name="key-regeneration-plan"></a>Key regeneration plan
-You should not regenerate an access key in use without planning. Abrupt key regeneration can block access to a storage account for existing applications, causing major disruption. Azure Storage accounts provide two keys, so that you can regenerate one key at a time.
+#### <a name="key-regeneration-plan"></a>Plan för återskapande av nyckel
+Du bör inte återskapa en åtkomst nyckel som används utan planering. När du återskapar en snabb nyckel kan du blockera åtkomst till ett lagrings konto för befintliga program, vilket orsakar större störningar. Azure Storage konton innehåller två nycklar, så att du kan återskapa en nyckel i taget.
 
-Before you regenerate your keys, be sure you have a list of all applications dependent on the storage account, as well as any other services you are using in Azure. For example, if you are using Azure Media Services use your storage account, you must resync the access keys with your media service after you regenerate the key. If you are using an application such as a storage explorer, you will need to provide new keys to those applications as well. If you have VMs whose VHD files are stored in the storage account, they will not be affected by regenerating the storage account keys.
+Innan du återskapar nycklar, se till att du har en lista över alla program som är beroende av lagrings kontot, samt andra tjänster som du använder i Azure. Om du till exempel använder Azure Media Services använda ditt lagrings konto måste du synkronisera om åtkomst nycklarna med medie tjänsten när du har återskapat nyckeln. Om du använder ett program, till exempel en lagrings Utforskare, måste du även tillhandahålla nya nycklar till dessa program. Om du har virtuella datorer vars VHD-filer lagras i lagrings kontot kommer de inte att påverkas av återskapande av lagrings konto nycklar.
 
-You can regenerate your keys in the Azure portal. Once keys are regenerated, they can take up to 10 minutes to be synchronized across Storage Services.
+Du kan återskapa dina nycklar i Azure Portal. När nycklarna har återskapats kan de ta upp till 10 minuter att synkroniseras över lagrings tjänsterna.
 
-When you're ready, here's the general process detailing how you should change your key. In this case, the assumption is that you are currently using Key 1 and you are going to change everything to use Key 2 instead.
+När du är klar är det här den allmänna processen som beskriver hur du ska ändra din nyckel. I det här fallet är antagandet att du för närvarande använder nyckel 1 och du kommer att ändra allt för att använda nyckel 2 i stället.
 
-1. Regenerate Key 2 to ensure that it is secure. You can do this in the Azure portal.
-2. In all of the applications where the storage key is stored, change the storage key to use Key 2's new value. Test and publish the application.
-3. After all of the applications and services are up and running successfully, regenerate Key 1. This ensures that anybody to whom you have not expressly given the new key will no longer have access to the storage account.
+1. Återskapa nyckel 2 för att säkerställa att den är säker. Det kan du göra i Azure Portal.
+2. I alla program där lagrings nyckeln lagras ska du ändra lagrings nyckeln så att det nya värdet för nyckel 2 används. Testa och publicera programmet.
+3. Återskapa nyckel 1 när alla program och tjänster har körts. Detta säkerställer att vem som du inte uttryckligen har fått den nya nyckeln inte längre kommer att ha åtkomst till lagrings kontot.
 
-If you are currently using Key 2, you can use the same process, but reverse the key names.
+Om du för närvarande använder nyckel 2 kan du använda samma process, men byta nyckel namn.
 
-You can migrate over a couple of days, changing each application to use the new key and publishing it. After all of them are done, you should then go back and regenerate the old key so it no longer works.
+Du kan migrera över några dagar, ändra varje program till att använda den nya nyckeln och publicera det. När alla är klara bör du gå tillbaka och återskapa den gamla nyckeln så att den inte längre fungerar.
 
-Another option is to put the storage account key in an [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) as a secret and have your applications retrieve the key from there. Then when you regenerate the key and update the Azure Key Vault, the applications will not need to be redeployed because they will pick up the new key from the Azure Key Vault automatically. You can have the application read the key each time it needs it, or the application can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
+Ett annat alternativ är att ange lagrings konto nyckeln i en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som en hemlighet och att dina program hämtar nyckeln därifrån. När du sedan återskapar nyckeln och uppdaterar den Azure Key Vault, behöver inte programmen omdistribueras eftersom de kommer att hämta den nya nyckeln från Azure Key Vault automatiskt. Du kan låta programmet läsa nyckeln varje gång det behövs, eller så kan programmet cachelagra det i minnet och om det Miss lyckas när du använder det, hämtar du nyckeln igen från Azure Key Vault.
 
-Using Azure Key Vault also adds another level of security for your storage keys. Using the Key Vault, enables you to avoid writing storage keys in application configuration files. It also prevents exposure of keys to everyone with access to those configuration files.
+Med Azure Key Vault lägger också till en annan säkerhets nivå för dina lagrings nycklar. Med hjälp av Key Vault kan du undvika att skriva lagrings nycklar i konfigurationsfiler för program. Det förhindrar också att nycklar exponeras för alla med åtkomst till dessa konfigurationsfiler.
 
-Azure Key Vault also has the advantage of using Azure AD to control access to your keys. You can grant access to the specific applications that need to retrieve the keys from Key Vault, without exposing them to other applications that do not need access to the keys.
+Azure Key Vault har också fördelen med att använda Azure AD för att kontrol lera åtkomsten till dina nycklar. Du kan bevilja åtkomst till de program som behöver hämta nycklar från Key Vault, utan att exponera dem för andra program som inte behöver åtkomst till nycklarna.
 
 > [!NOTE]
-> Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
+> Microsoft rekommenderar att du bara använder en av nycklarna i alla dina program på samma tidpunkt. Om du använder nyckel 1 på vissa platser och nyckel 2 i andra kommer du inte att kunna rotera dina nycklar utan att några program förlorar åtkomst.
 
 #### <a name="resources"></a>Resurser
 
@@ -160,69 +160,69 @@ Azure Key Vault also has the advantage of using Azure AD to control access to yo
 * [Referens för REST-API för Azure Storage Resource Provider](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="network-security"></a>Nätverkssäkerhet
-Network Security enables you to restrict access to the data in an Azure Storage Account from select networks. You can use the Azure Storage firewall to restrict access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources. You also have the option to create a Private Endpoint for your storage account in the VNet that needs access, and blocking all access through the public endpoint.
+Med nätverks säkerhet kan du begränsa åtkomsten till data i ett Azure Storage konto från Välj nätverk. Du kan använda Azure Storage brand vägg för att begränsa åtkomsten till klienter från vissa offentliga IP-adressintervall, välja virtuella nätverk (virtuella nätverk) på Azure eller till vissa Azure-resurser. Du kan också välja att skapa en privat slut punkt för ditt lagrings konto i VNet som behöver åtkomst och blockera all åtkomst via den offentliga slut punkten.
 
-You can configure the network access rules for your storage account through the [Firewalls and Virtual Networks](storage-network-security.md) tab in the Azure portal. Using the storage firewall, you can deny access for public internet traffic, and grant access to select clients based on the configured network rules.
+Du kan konfigurera nätverks åtkomst reglerna för ditt lagrings konto via fliken [brand väggar och virtuella nätverk](storage-network-security.md) i Azure Portal. Med hjälp av lagrings brand väggen kan du neka åtkomst för offentlig Internet trafik och bevilja åtkomst till utvalda klienter baserat på de konfigurerade nätverks reglerna.
 
-You can also use [Private Endpoints](../../private-link/private-endpoint-overview.md) to privately and securely connect to a storage account from a VNet using [Private Links](../../private-link/private-link-overview.md).
+Du kan också använda [privata slut punkter](../../private-link/private-endpoint-overview.md) för privat och säkert ansluta till ett lagrings konto från ett virtuellt nätverk med [privata länkar](../../private-link/private-link-overview.md).
 
-Storage firewall rules only apply to the public endpoint for the storage account. The subnet that hosts a private endpoint for a storage account gets implicit access to the account when you approve the creation of that private endpoint.
+Lagrings brand Väggs regler gäller endast för den offentliga slut punkten för lagrings kontot. Under nätet som är värd för en privat slut punkt för ett lagrings konto får du implicit åtkomst till kontot när du godkänner skapandet av den privata slut punkten.
 
 > [!NOTE]
-> The storage firewall rules are not applicable to storage management operations conducted through the Azure portal and the Azure Storage Management API.
+> Lagrings brand Väggs reglerna gäller inte för lagrings hanterings åtgärder som utförs via Azure Portal och hanterings-API: et för Azure Storage.
 
-### <a name="access-rules-for-public-ip-address-ranges"></a>Access rules for public IP address ranges
-The Azure Storage firewall can be used to restrict access to a storage account from specific public IP address ranges. You can use IP address rules to restrict access to specific internet-based services communicating on a fixed public IP endpoint, or to select on-premises networks.
+### <a name="access-rules-for-public-ip-address-ranges"></a>Åtkomst regler för offentliga IP-adressintervall
+Azure Storage brand väggen kan användas för att begränsa åtkomsten till ett lagrings konto från vissa offentliga IP-adressintervall. Du kan använda IP-adress regler för att begränsa åtkomsten till vissa Internetbaserade tjänster som kommunicerar på en fast offentlig IP-slutpunkt, eller för att välja lokala nätverk.
 
-### <a name="access-rules-for-azure-virtual-networks"></a>Access rules for Azure virtual networks
-Storage accounts, by default, accept connections from clients on any network. You can restrict the client access to the data in a storage account to selected networks using the storage firewall. [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) enable routing of traffic from an Azure virtual network to the storage account. 
+### <a name="access-rules-for-azure-virtual-networks"></a>Åtkomst regler för virtuella Azure-nätverk
+Lagrings konton accepterar som standard anslutningar från klienter i ett nätverk. Du kan begränsa klient åtkomsten till data i ett lagrings konto till valda nätverk med hjälp av lagrings brand väggen. Med [tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md) kan trafik dirigeras från ett virtuellt Azure-nätverk till lagrings kontot. 
 
-### <a name="granting-access-to-specific-trusted-resource-instances"></a>Granting access to specific trusted resource instances
-You can allow a [subset of Azure trusted services](storage-network-security.md#trusted-microsoft-services) to access the storage account through the firewall with strong authentication based on the service resource type, or a resource instance.
+### <a name="granting-access-to-specific-trusted-resource-instances"></a>Bevilja åtkomst till vissa betrodda resurs instanser
+Du kan tillåta att en [delmängd av Azure-betrodda tjänster](storage-network-security.md#trusted-microsoft-services) får åtkomst till lagrings kontot genom brand väggen med stark autentisering baserat på tjänst resurs typ eller en resurs instans.
 
-For the services that support resource instance-based access through the storage firewall, only the selected instance can access the data in the storage account. In this case, the service must support resource-instance authentication using system-assigned [managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
+För de tjänster som har stöd för resurs instans-baserad åtkomst via lagrings brand väggen kan endast den valda instansen komma åt data i lagrings kontot. I det här fallet måste tjänsten ha stöd för resurs instans autentisering med systemtilldelade [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
 
-### <a name="using-private-endpoints-for-securing-connections"></a>Using private endpoints for securing connections
-Azure Storage supports private endpoints, which enable secure access of storage account from an Azure virtual network. Private endpoints assign a private IP address from your VNet's address space to the storage service. When using private endpoints, the storage connection string redirects traffic destined for the storage account to the private IP address. The connection between the private endpoint and the storage account uses a private link. Using private endpoints you can block exfiltration of data from your VNet.
+### <a name="using-private-endpoints-for-securing-connections"></a>Använda privata slut punkter för att skydda anslutningar
+Azure Storage stöder privata slut punkter som ger säker åtkomst till lagrings kontot från ett virtuellt Azure-nätverk. Privata slut punkter tilldelar en privat IP-adress från ditt VNet-adressutrymme till lagrings tjänsten. När du använder privata slut punkter omdirigerar lagrings anslutnings strängen trafiken som är avsedd för lagrings kontot till den privata IP-adressen. Anslutningen mellan den privata slut punkten och lagrings kontot använder en privat länk. Med privata slut punkter kan du blockera exfiltrering av data från ditt VNet.
 
-On-premises networks connected over VPN or [ExpressRoutes](../../expressroute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoint for your storage accounts can be created in a VNet in any region, enabling a secure global reach. You may also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
+Lokala nätverk som är anslutna via VPN eller [ExpressRoute](../../expressroute/expressroute-locations.md) privat peering och andra peer-kopplade virtuella nätverk kan också komma åt lagrings kontot över den privata slut punkten. Den privata slut punkten för dina lagrings konton kan skapas i ett VNet i vilken region som helst, vilket möjliggör en säker global räckvidd. Du kan också skapa privata slut punkter för lagrings konton i andra [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) klienter.
 
-## <a name="authorization"></a>Autentisering
-Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
+## <a name="authorization"></a>Auktorisering
+Säkerhet för data planet avser de metoder som används för att skydda de data objekt som lagras i Azure Storage – blobbar, köer, tabeller och filer. Vi har sett metoder för att kryptera data och säkerhet vid överföring av data, men hur gör du för att kontrol lera åtkomsten till objekten?
 
-You have three options for authorizing access to data objects in Azure Storage, including:
+Du har tre alternativ för att auktorisera åtkomst till data objekt i Azure Storage, inklusive:
 
-- Using Azure AD to authorize access to containers and queues. Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md). 
-- Using your storage account keys to authorize access via Shared Key. Authorizing via Shared Key requires storing your storage account keys in your application, so Microsoft recommends using Azure AD instead where possible.
-- Using Shared Access Signatures to grant controlled permissions to specific data objects for a specific amount of time.
+- Använda Azure AD för att ge åtkomst till behållare och köer. Azure AD ger fördelar jämfört med andra metoder för auktorisering, inklusive att ta bort behovet av att lagra hemligheter i din kod. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md). 
+- Använd lagrings konto nycklar för att auktorisera åtkomst via delad nyckel. Att auktorisera via delad nyckel kräver lagrings konto nycklar i ditt program, så Microsoft rekommenderar att du använder Azure AD i stället där det är möjligt.
+- Använd signaturer för delad åtkomst för att ge kontrollerade behörigheter till vissa data objekt under en angiven tids period.
 
-In addition, for Blob Storage, you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
+För Blob Storage kan du dessutom bevilja offentlig åtkomst till dina blobbar genom att ange åtkomst nivån för den behållare som innehåller blobarna i enlighet därmed. Om du anger åtkomst för en behållare till BLOB eller container får den offentlig Läs behörighet för blobarna i behållaren. Det innebär att alla med en URL som pekar på en BLOB i den behållaren kan öppna den i en webbläsare utan att använda en signatur för delad åtkomst eller med lagrings konto nycklarna.
 
 ### <a name="storage-account-keys"></a>Lagringskontonycklar
-Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
+Lagrings konto nycklar är 512-bitars strängar som skapats av Azure och som, tillsammans med lagrings kontots namn, kan användas för att komma åt de data objekt som lagras i lagrings kontot.
 
-For example, you can read blobs, write to queues, create tables, and modify files. Many of these actions can be performed through the Azure portal, or using one of many Storage Explorer applications. You can also write code to use the REST API or one of the Storage Client Libraries to perform these operations.
+Du kan till exempel läsa blobbar, skriva till köer, skapa tabeller och ändra filer. Många av de här åtgärderna kan utföras via Azure Portal eller med ett av många Storage Explorer-program. Du kan också skriva kod för att använda REST API eller ett av lagrings klient biblioteken för att utföra dessa åtgärder.
 
-As discussed in the section on the [Management Plane Security](#management-plane-security), access to the storage keys for a Classic storage account can be granted by giving full access to the Azure subscription. Access to the storage keys for a storage account using the Azure Resource Manager model can be controlled through Role-Based Access Control (RBAC).
+Som beskrivs i avsnittet om [hanterings planens säkerhet](#management-plane-security)kan åtkomst till lagrings nycklarna för ett klassiskt lagrings konto beviljas genom att ge fullständig åtkomst till Azure-prenumerationen. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av Azure Resource Manager modellen kan styras via rollbaserad Access Control (RBAC).
 
-### <a name="how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies"></a>How to delegate access to objects in your account using Shared Access Signatures and Stored Access Policies
-A Shared Access Signature is a string containing a security token that can be attached to a URI that allows you to delegate access to storage objects and specify constraints such as the permissions and the date/time range of access.
+### <a name="how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies"></a>Så här delegerar du åtkomst till objekt i ditt konto med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer
+En signatur för delad åtkomst är en sträng som innehåller en säkerhetstoken som kan kopplas till en URI som gör att du kan delegera åtkomst till lagrings objekt och ange begränsningar, till exempel behörigheter och datum/tid-intervallet för åtkomst.
 
-You can grant access to blobs, containers, queue messages, files, and tables. With tables, you can actually grant permission to access a range of entities in the table by specifying the partition and row key ranges to which you want the user to have access. For example, if you have data stored with a partition key of geographical state, you could give someone access to just the data for California.
+Du kan bevilja åtkomst till blobbar, behållare, köa meddelanden, filer och tabeller. Med tabeller kan du faktiskt bevilja behörighet att komma åt ett intervall med entiteter i tabellen genom att ange de partition-och rad nyckel intervall som du vill att användaren ska ha åtkomst till. Om du till exempel har data som lagras med en partitionsnyckel med geografisk status kan du ge någon åtkomst till enbart data för Kalifornien.
 
-In another example, you might give a web application a SAS token that enables it to write entries to a queue, and give a worker role application a SAS token to get messages from the queue and process them. Or you could give one customer a SAS token they can use to upload pictures to a container in Blob Storage, and give a web application permission to read those pictures. In both cases, there is a separation of concerns – each application can be given just the access that they require in order to perform their task. This is possible through the use of Shared Access Signatures.
+I ett annat exempel kan du ge ett webb program en SAS-token som gör det möjligt att skriva poster till en kö och ge en arbets roll program en SAS-token för att hämta meddelanden från kön och bearbeta dem. Eller så kan du ge en kund ett SAS-token som de kan använda för att ladda upp bilder till en behållare i Blob Storage och ge ett webb program behörighet att läsa dessa bilder. I båda fallen är det en åtskillnad mellan problem – varje program kan få bara den åtkomst som krävs för att utföra sina uppgifter. Detta är möjligt genom att signaturer för delad åtkomst används.
 
-#### <a name="why-you-want-to-use-shared-access-signatures"></a>Why you want to use Shared Access Signatures
-Why would you want to use an SAS instead of just giving out your storage account key, which is so much easier? Giving out your storage account key is like sharing the keys of your storage kingdom. It grants complete access. Someone could use your keys and upload their entire music library to your storage account. They could also replace your files with virus-infected versions, or steal your data. Giving away unlimited access to your storage account is something that should not be taken lightly.
+#### <a name="why-you-want-to-use-shared-access-signatures"></a>Varför du vill använda signaturer för delad åtkomst
+Varför skulle du vilja använda en SAS i stället för att bara ange din lagrings konto nyckel, vilket är så mycket enklare? Att ge ut din lagrings konto nyckel är som att dela nycklarna i din lagrings kungariket. Den ger fullständig åtkomst. Någon kan använda dina nycklar och ladda upp hela musik biblioteket till ditt lagrings konto. De kan också ersätta dina filer med virus-infekterade versioner eller stjäla dina data. Att ge bort obegränsad åtkomst till ditt lagrings konto är något som inte bör beaktas lätt.
 
-With Shared Access Signatures, you can give a client just the permissions required for a limited amount of time. For example, if someone is uploading a blob to your account, you can grant them write access for just enough time to upload the blob (depending on the size of the blob, of course). And if you change your mind, you can revoke that access.
+Med signaturer för delad åtkomst kan du ge en klient bara de behörigheter som krävs under en begränsad tid. Om någon till exempel laddar upp en blob till ditt konto, kan du ge dem Skriv behörighet för just nu tillräckligt med tid för att ladda upp bloben (beroende på blobens storlek, naturligtvis). Och om du ändrar dig kan du återkalla åtkomsten.
 
-Additionally, you can specify that requests made using a SAS are restricted to a certain IP address or IP address range external to Azure. You can also require that requests are made using a specific protocol (HTTPS or HTTP/HTTPS). This means if you only want to allow HTTPS traffic, you can set the required protocol to HTTPS only, and HTTP traffic will be blocked.
+Dessutom kan du ange att förfrågningar som görs med hjälp av en SAS är begränsade till en viss IP-adress eller IP-adressintervall utanför Azure. Du kan också kräva att begär Anden görs med hjälp av ett speciellt protokoll (HTTPS eller HTTP/HTTPS). Det innebär att om du bara vill tillåta HTTPS-trafik kan du ange det protokoll som krävs till endast HTTPS, och HTTP-trafik kommer att blockeras.
 
-#### <a name="definition-of-a-shared-access-signature"></a>Definition of a Shared Access Signature
-A Shared Access Signature is a set of query parameters appended to the URL pointing at the resource
+#### <a name="definition-of-a-shared-access-signature"></a>Definition av signaturen för delad åtkomst
+En signatur för delad åtkomst är en uppsättning frågeparametrar som läggs till i URL: en som pekar på resursen
 
-that provides information about the access allowed and the length of time for which the access is permitted. Here is an example; this URI provides read access to a blob for five minutes. Note that SAS query parameters must be URL Encoded, such as %3A for colon (:) or %20 for a space.
+ger information om åtkomst tillåten och hur länge åtkomst tillåts. Här är ett exempel. Denna URI ger Läs behörighet till en BLOB i fem minuter. Observera att SAS-frågeparametrar måste vara URL-kodade, till exempel% 3A för kolon (:) eller %20 för ett blank steg.
 
 ```
 http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
@@ -236,253 +236,253 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>How the Shared Access Signature is authorized by the Azure Storage Service
-When the storage service receives the request, it takes the input query parameters and creates a signature using the same method as the calling program. It then compares the two signatures. If they agree, then the storage service can check the storage service version to make sure it's valid, verify that the current date and time are within the specified window, make sure the access requested corresponds to the request made, etc.
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Hur signaturen för delad åtkomst auktoriseras av tjänsten Azure Storage
+När lagrings tjänsten tar emot begäran, tar den emot indataparametrarna och skapar en signatur med samma metod som det anropande programmet. Den jämför sedan de två signaturerna. Om de samtycker kan lagrings tjänsten kontrol lera lagrings tjänst versionen för att kontrol lera att den är giltig, kontrol lera att det aktuella datumet och tiden är inom det angivna fönstret, se till att den begärda åtkomsten motsvarar förfrågan som gjorts osv.
 
-For example, with our URL above, if the URL was pointing to a file instead of a blob, this request would fail because it specifies that the Shared Access Signature is for a blob. If the REST command being called was to update a blob, it would fail because the Shared Access Signature specifies that only read access is permitted.
+Till exempel, med vår URL ovan, om URL: en pekar på en fil i stället för en BLOB, skulle den här begäran inte utföras eftersom den anger att signaturen för delad åtkomst är för en blob. Om REST-kommandot som anropades var för att uppdatera en BLOB misslyckades det eftersom signaturen för delad åtkomst anger att endast Läs behörighet tillåts.
 
-#### <a name="types-of-shared-access-signatures"></a>Types of Shared Access Signatures
-* A service-level SAS can be used to access specific resources in a storage account. Some examples of this are retrieving a list of blobs in a container, downloading a blob, updating an entity in a table, adding messages to a queue, or uploading a file to a file share.
-* An account-level SAS can be used to access anything that a service-level SAS can be used for. Additionally, it can give options to resources that are not permitted with a service-level SAS, such as the ability to create containers, tables, queues, and file shares. You can also specify access to multiple services at once. For example, you might give someone access to both blobs and files in your storage account.
+#### <a name="types-of-shared-access-signatures"></a>Typer av signaturer för delad åtkomst
+* En SAS på service nivå kan användas för att få åtkomst till vissa resurser i ett lagrings konto. Några exempel på detta är att hämta en lista över blobbar i en behållare, hämta en BLOB, uppdatera en entitet i en tabell, lägga till meddelanden i en kö eller ladda upp en fil till en fil resurs.
+* En SAS på konto nivå kan användas för att få åtkomst till allt som en SAS på service nivå kan användas för. Dessutom kan den ge alternativ till resurser som inte är tillåtna med en SAS på service nivå, till exempel möjligheten att skapa behållare, tabeller, köer och fil resurser. Du kan också ange åtkomst till flera tjänster samtidigt. Du kan till exempel ge någon åtkomst till både blobar och filer i ditt lagrings konto.
 
-#### <a name="creating-a-sas-uri"></a>Creating a SAS URI
-1. You can create a URI on demand, defining all of the query parameters each time.
+#### <a name="creating-a-sas-uri"></a>Skapa en SAS-URI
+1. Du kan skapa en URI på begäran och definiera alla frågeparametrar varje tillfälle.
 
-   This approach is flexible, but if you have a logical set of parameters that are similar each time, using a Stored Access Policy is a better idea.
-2. You can create a Stored Access Policy for an entire container, file share, table, or queue. Then you can use this as the basis for the SAS URIs you create. Permissions based on Stored Access Policies can be easily revoked. You can have up to five policies defined on each container, queue, table, or file share.
+   Den här metoden är flexibel, men om du har en logisk uppsättning parametrar som liknar varje gång, är det en bättre idé att använda en lagrad åtkomst princip.
+2. Du kan skapa en lagrad åtkomst princip för en hel behållare, fil resurs, tabell eller kö. Sedan kan du använda detta som grund för de SAS-URI: er som du skapar. Behörigheter som baseras på lagrade åtkomst principer kan enkelt återkallas. Du kan ha upp till fem principer definierade för varje behållare, kö, tabell eller fil resurs.
 
-   For example, if you were going to have many people read the blobs in a specific container, you could create a Stored Access Policy that says "give read access" and any other settings that will be the same each time. Then you can create an SAS URI using the settings of the Stored Access Policy and specifying the expiration date/time. The advantage of this is that you don't have to specify all of the query parameters every time.
+   Om du till exempel vill att många användare ska läsa Blobbarna i en speciell behållare kan du skapa en lagrad åtkomst princip som säger "ge Läs behörighet" och andra inställningar som ska vara identiska varje gång. Sedan kan du skapa en SAS-URI med inställningarna för den lagrade åtkomst principen och ange förfallo datum/tid. Fördelen med detta är att du inte behöver ange alla frågeparametrar varje gång.
 
-#### <a name="revocation"></a>Revocation
-Suppose your SAS has been compromised, or you want to change it because of corporate security or regulatory compliance requirements. How do you revoke access to a resource using that SAS? It depends on how you created the SAS URI.
+#### <a name="revocation"></a>Återkallade
+Anta att din SAS har komprometterats eller att du vill ändra den på grund av företagets säkerhets-eller reglerings krav. Hur återkallar du åtkomst till en resurs med den SAS-funktionen? Det beror på hur du skapade SAS-URI: n.
 
-If you are using ad hoc URIs, you have three options. You can issue SAS tokens with short expiration policies and wait for the SAS to expire. You can rename or delete the resource (assuming the token was scoped to a single object). You can change the storage account keys. This last option can have a significant impact, depending on how many services are using that storage account, and probably isn't something you want to do without some planning.
+Om du använder ad hoc-URI: er har du tre alternativ. Du kan utfärda SAS-token med korta förfallo principer och vänta tills SAS-tiden upphör att gälla. Du kan byta namn på eller ta bort resursen (förutsatt att token har tilldelats ett enskilt objekt). Du kan ändra lagrings kontots nycklar. Det här sista alternativet kan ha en betydande inverkan, beroende på hur många tjänster som använder lagrings kontot och det är förmodligen inte något som du vill göra utan någon planering.
 
-If you are using a SAS derived from a Stored Access Policy, you can remove access by revoking the Stored Access Policy – you can just change it so it has already expired, or you can remove it altogether. This takes effect immediately, and invalidates every SAS created using that Stored Access Policy. Updating or removing the Stored Access Policy may impact people accessing that specific container, file share, table, or queue via SAS, but if the clients are written so they request a new SAS when the old one becomes invalid, this will work fine.
+Om du använder en SAS som härletts från en lagrad åtkomst princip kan du ta bort åtkomst genom att återkalla den lagrade åtkomst principen – du kan ändra den så att den redan har gått ut, eller så kan du ta bort den helt. Detta börjar gälla omedelbart och inaktive ras varje SAS som skapats med den lagrade åtkomst principen. Om du uppdaterar eller tar bort den lagrade åtkomst principen kan det påverka användare som har åtkomst till den aktuella behållaren, fil resursen, tabellen eller kön via SAS, men om klienterna skrivs så att de begär en ny säkerhets Association när den gamla blir ogiltig, fungerar detta bra.
 
-Because using a SAS derived from a Stored Access Policy gives you the ability to revoke that SAS immediately, it is the recommended best practice to always use Stored Access Policies when possible.
+Eftersom användning av en SAS som härletts från en lagrad åtkomst princip ger dig möjlighet att återkalla SAS omedelbart, är det rekommenderade bästa praxis att alltid använda lagrade åtkomst principer när det är möjligt.
 
 #### <a name="resources"></a>Resurser
-For more detailed information on using Shared Access Signatures and Stored Access Policies, complete with examples, refer to the following articles:
+Mer detaljerad information om hur du använder signaturer för delad åtkomst och lagrade åtkomst principer, komplett med exempel, finns i följande artiklar:
 
-* These are the reference articles.
+* Detta är referens artiklarna.
 
-  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Tjänstens SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
-    This article provides examples of using a service-level SAS with blobs, queue messages, table ranges, and files.
-  * [Constructing a service SAS](https://msdn.microsoft.com/library/dn140255.aspx)
-  * [Constructing an account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
+    Den här artikeln innehåller exempel på hur du kan använda en SAS på service nivå med blobbar, köa meddelanden, tabell intervall och filer.
+  * [Skapa en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
+  * [Skapa ett konto SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* This is a tutorial for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
-  * [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
+* Det här är en själv studie kurs om hur du använder .NET-klient biblioteket för att skapa signaturer för delad åtkomst och lagrade åtkomst principer.
+  * [Använda signaturer för delad åtkomst (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
 
-    This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
+    Den här artikeln innehåller en förklaring av SAS-modellen, exempel på signaturer för delad åtkomst och rekommendationer för bästa praxis att använda SAS. Dessutom behandlas åter kallelsen av den beviljade behörigheten.
 
 * Autentisering
 
-  * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-* Shared Access Signatures Getting Started Tutorial
+  * [Autentisering för Azure Storage-tjänsterna](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* Signaturer för delad åtkomst Komma igång självstudie
 
-  * [SAS Getting Started Tutorial](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
+  * [Själv studie kurs om SAS-Komma igång](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
-## <a name="encryption-in-transit"></a>Encryption in Transit
-### <a name="transport-level-encryption--using-https"></a>Transport-Level Encryption – Using HTTPS
-Another step you should take to ensure the security of your Azure Storage data is to encrypt the data between the client and Azure Storage. The first recommendation is to always use the [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protocol, which ensures secure communication over the public Internet.
+## <a name="encryption-in-transit"></a>Kryptering under överföring
+### <a name="transport-level-encryption--using-https"></a>Kryptering på transport nivå – med HTTPS
+Ett annat steg som du bör vidta för att säkerställa säkerheten för dina Azure Storage data är att kryptera data mellan klienten och Azure Storage. Den första rekommendationen är att alltid använda [https](https://en.wikipedia.org/wiki/HTTPS) -protokollet, vilket garanterar säker kommunikation via det offentliga Internet.
 
-To have a secure communication channel, you should always use HTTPS when calling the REST APIs or accessing objects in storage. Also, **Shared Access Signatures**, which can be used to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used when using Shared Access Signatures, ensuring that anybody sending out links with SAS tokens will use the proper protocol.
+Om du vill ha en säker kommunikations kanal bör du alltid använda HTTPS när du anropar REST-API: erna eller använder objekt i Storage. Signaturer för **delad åtkomst**, som kan användas för att delegera åtkomst till Azure Storage objekt, innehåller också ett alternativ för att ange att endast HTTPS-protokollet kan användas när du använder signaturer för delad åtkomst, vilket säkerställer att vem skickar ut länkar med SAS-token använder rätt protokoll.
 
-You can enforce the use of HTTPS when calling the REST APIs to access objects in storage accounts by enabling [Secure transfer required](../storage-require-secure-transfer.md) for the storage account. Connections using HTTP will be refused once this is enabled.
+Du kan använda HTTPS när du anropar REST-API: er för att komma åt objekt i lagrings konton genom att aktivera [säker överföring som krävs](../storage-require-secure-transfer.md) för lagrings kontot. Anslutningar som använder HTTP kommer att nekas när det är aktiverat.
 
-### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Using encryption during transit with Azure file shares
-[Azure Files](../files/storage-files-introduction.md) supports encryption via SMB 3.0 and with HTTPS when using the File REST API. When mounting outside of the Azure region the Azure file share is located in, such as on-premises or in another Azure region, SMB 3.0 with encryption is always required. SMB 2.1 does not support encryption, so by default connections are only allowed within the same region in Azure, but SMB 3.0 with encryption can be enforced by [requiring secure transfer](../storage-require-secure-transfer.md) for the storage account.
+### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Använda kryptering under överföring med Azure-filresurser
+[Azure Files](../files/storage-files-introduction.md) stöder kryptering via SMB 3,0 och med https när du använder filen REST API. När du monterar utanför Azure-regionen finns Azure-filresursen i, till exempel lokalt eller i en annan Azure-region, SMB 3,0 med kryptering krävs alltid. SMB 2,1 stöder inte kryptering, så eftersom standard anslutningar endast tillåts inom samma region i Azure, men SMB 3,0 med kryptering kan tvingas genom att [kräva säker överföring](../storage-require-secure-transfer.md) för lagrings kontot.
 
-SMB 3.0 with encryption is available in [all supported Windows and Windows Server operating systems](../files/storage-how-to-use-files-windows.md) except Windows 7 and Windows Server 2008 R2, which only support SMB 2.1. SMB 3.0 is also supported on [macOS](../files/storage-how-to-use-files-mac.md) and on distributions of [Linux](../files/storage-how-to-use-files-linux.md) using Linux kernel 4.11 and above. Encryption support for SMB 3.0 has also been backported to older versions of the Linux kernel by several Linux distributions, consult [Understanding SMB client requirements](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
+SMB 3,0 med kryptering är tillgängligt i [alla Windows-och Windows Server-operativsystem som stöds](../files/storage-how-to-use-files-windows.md) utom Windows 7 och windows Server 2008 R2, som endast stöder SMB 2,1. SMB 3,0 stöds också på [MacOS](../files/storage-how-to-use-files-mac.md) och i distributioner av [Linux](../files/storage-how-to-use-files-linux.md) med hjälp av Linux kernel 4,11 och senare. Krypterings stöd för SMB 3,0 har också lästs in till äldre versioner av Linux-kärnan av flera Linux-distributioner. mer information finns i [så här fungerar krav för SMB-klienter](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
 
-### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Using Client-side encryption to secure data that you send to storage
-Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
+### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Använda kryptering på klient sidan för att skydda data som du skickar till lagring
+Ett annat alternativ som hjälper dig att säkerställa att dina data är säkra vid överföring mellan ett klient program och att lagringen är kryptering på klient sidan. Data krypteras innan de överförs till Azure Storage. När data hämtas från Azure Storage dekrypteras data när de tas emot på klient sidan. Även om data krypteras över hela kabeln rekommenderar vi att du även använder HTTPS, eftersom det har kontroller för data integritet som skapats som hjälper till att minska nätverks fel som påverkar data integriteten.
 
-Client-side encryption is also a method for encrypting your data at rest, as the data is stored in its encrypted form. We'll talk about this in more detail in the section on [Encryption at Rest](#encryption-at-rest).
+Kryptering på klient sidan är också en metod för att kryptera dina data i vila, eftersom data lagras i krypterad form. Vi pratar om detta i mer detalj i avsnittet om [kryptering i vila](#encryption-at-rest).
 
-## <a name="encryption-at-rest"></a>Encryption at Rest
-There are three Azure features that provide encryption at rest. Azure Disk Encryption is used to encrypt the OS and data disks in IaaS Virtual Machines. Client-side Encryption and SSE are both used to encrypt data in Azure Storage. 
+## <a name="encryption-at-rest"></a>Kryptering i vila
+Det finns tre Azure-funktioner som ger kryptering i vila. Azure Disk Encryption används för att kryptera operativ system och data diskar i IaaS Virtual Machines. Kryptering på klient sidan och SSE används båda för att kryptera data i Azure Storage. 
 
-While you can use Client-side Encryption to encrypt the data in transit (which is also stored in its encrypted form in Storage), you may prefer to use HTTPS during the transfer, and have some way for the data to be automatically encrypted when it is stored. There are two ways to do this -- Azure Disk Encryption and SSE. One is used to directly encrypt the data on OS and data disks used by VMs, and the other is used to encrypt data written to Azure Blob Storage.
+Även om du kan använda kryptering på klient sidan för att kryptera data under överföring (som också lagras i krypterad form i lagrings utrymmet), kanske du föredrar att använda HTTPS under överföringen och har ett visst sätt för data som ska krypteras automatiskt när de lagras. Det finns två sätt att göra detta – Azure Disk Encryption och SSE. En används för att kryptera data på operativ system och data diskar som används av virtuella datorer direkt, och den andra används för att kryptera data som skrivs till Azure Blob Storage.
 
-### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
+### <a name="storage-service-encryption-sse"></a>Kryptering för lagringstjänst (SSE)
 
-SSE is enabled for all storage accounts and cannot be disabled. SSE automatically encrypts your data when writing it to Azure Storage. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. SSE enables you to secure your data without having to modify code or add code to any applications.
+SSE har Aktiver ATS för alla lagrings konton och kan inte inaktive ras. SSE krypterar automatiskt dina data när de skrivs till Azure Storage. När du läser data från Azure Storage dekrypteras de av Azure Storage innan de returneras. SSE gör att du kan skydda dina data utan att behöva ändra kod eller lägga till kod i några program.
 
-You can use either Microsoft-managed keys or your own custom keys. Microsoft generates managed keys and handles their secure storage as well as their regular rotation, as defined by internal Microsoft policy. For more information about using custom keys, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Du kan använda antingen Microsoft-hanterade nycklar eller dina egna anpassade nycklar. Microsoft genererar hanterade nycklar och hanterar deras skyddade lagrings utrymme samt sin regelbundna rotation, enligt definitionen i den interna Microsoft-principen. Mer information om hur du använder anpassade nycklar finns [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 SSE krypterar automatiskt data på alla prestandanivåer (Standard och Premium), alla distributionsmodeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (blob, kö, tabell och fil). 
 
-### <a name="client-side-encryption"></a>Client-side Encryption
-We mentioned client-side encryption when discussing the encryption of the data in transit. This feature allows you to programmatically encrypt your data in a client application before sending it across the wire to be written to Azure Storage, and to programmatically decrypt your data after retrieving it from Azure Storage.
+### <a name="client-side-encryption"></a>Kryptering på klient Sidan
+Vi har nämnt kryptering på klient sidan när du diskuterar kryptering av data under överföringen. Med den här funktionen kan du kryptera dina data program mässigt i ett klient program innan du skickar dem över kabeln som ska skrivas till Azure Storage och för att program mässigt dekryptera data efter att du har hämtat den från Azure Storage.
 
-This does provide encryption in transit, but it also provides the feature of Encryption at Rest. Although the data is encrypted in transit, we still recommend using HTTPS to take advantage of the built-in data integrity checks that help mitigate network errors affecting the integrity of the data.
+Detta ger kryptering vid överföring, men tillhandahåller även funktionen för kryptering i vila. Även om data krypteras under överföringen rekommenderar vi fortfarande att du använder HTTPS för att dra nytta av de inbyggda data integritets kontrollerna som minimerar nätverks fel som påverkar data integriteten.
 
-An example of where you might use this is if you have a web application that stores blobs and retrieves blobs, and you want the application and data to be as secure as possible. In that case, you would use client-side encryption. The traffic between the client and the Azure Blob Service contains the encrypted resource, and nobody can interpret the data in transit and reconstitute it into your private blobs.
+Ett exempel på hur du kan använda det här är om du har ett webb program som lagrar blobbar och hämtar blobbar, och du vill att programmet och data ska vara så säkra som möjligt. I så fall använder du kryptering på klient sidan. Trafiken mellan klienten och Azure Blob-tjänsten innehåller den krypterade resursen och ingen kan tolka data under överföringen och dela in dem i dina privata blobbar.
 
-Client-side encryption is built into the Java and the .NET storage client libraries, which in turn use the Azure Key Vault APIs, making it easy for you to implement. The process of encrypting and decrypting the data uses the envelope technique, and stores metadata used by the encryption in each storage object. For example, for blobs, it stores it in the blob metadata, while for queues, it adds it to each queue message.
+Kryptering på klient sidan är inbyggd i Java-och .NET-lagrings klient biblioteken, vilket i sin tur använder Azure Key Vault API: er, vilket gör det enkelt för dig att implementera. Processen för att kryptera och dekryptera data använder kuvert tekniken och lagrar metadata som används av krypteringen i varje lagrings objekt. För blobbar lagras till exempel den i BLOB-metadata, medan för köer läggs den till i varje Queue-meddelande.
 
-For the encryption itself, you can generate and manage your own encryption keys. You can also use keys generated by the Azure Storage Client Library, or you can have the Azure Key Vault generate the keys. You can store your encryption keys in your on-premises key storage, or you can store them in an Azure Key Vault. Azure Key Vault allows you to grant access to the secrets in Azure Key Vault to specific users using Azure Active Directory. This means that not just anybody can read the Azure Key Vault and retrieve the keys you're using for client-side encryption.
+För själva krypteringen kan du skapa och hantera dina egna krypterings nycklar. Du kan också använda nycklar som genereras av Azure Storage klient biblioteket, eller så kan du låta Azure Key Vault generera nycklarna. Du kan lagra dina krypterings nycklar i din lokala nyckel lagring, eller så kan du lagra dem i en Azure Key Vault. Med Azure Key Vault kan du bevilja åtkomst till hemligheter i Azure Key Vault till vissa användare som använder Azure Active Directory. Det innebär att inte bara vem kan läsa Azure Key Vault och hämta de nycklar som du använder för kryptering på klient sidan.
 
 #### <a name="resources"></a>Resurser
-* [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
-  This article shows how to use client-side encryption with Azure Key Vault, including how to create the KEK and store it in the vault using PowerShell.
-* [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../storage-client-side-encryption.md)
+  Den här artikeln visar hur du använder kryptering på klient sidan med Azure Key Vault, inklusive hur du skapar KEK och lagrar den i valvet med PowerShell.
+* [Kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../storage-client-side-encryption.md)
 
-  This article gives an explanation of client-side encryption, and provides examples of using the storage client library to encrypt and decrypt resources from the four storage services. It also talks about Azure Key Vault.
+  Den här artikeln innehåller en förklaring av kryptering på klient sidan och innehåller exempel på hur du använder lagrings klient biblioteket för att kryptera och dekryptera resurser från de fyra lagrings tjänsterna. Den pratar också om Azure Key Vault.
 
-### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Using Azure Disk Encryption to encrypt disks used by your virtual machines
-Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
+### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Använda Azure Disk Encryption för att kryptera diskar som används av dina virtuella datorer
+Med Azure Disk Encryption kan du kryptera de OS-diskar och data diskar som används av en virtuell IaaS-dator. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Detta är integrerat med Azure Key Vault så att du kan styra och hantera disk krypterings nycklarna.
 
-The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
+Lösningen har stöd för följande scenarier för virtuella IaaS-datorer när de är aktiverade i Microsoft Azure:
 
-* Integration with Azure Key Vault
-* Standard tier VMs: [A, D, DS, G, GS, and so forth series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Enabling encryption on Windows and Linux IaaS VMs
-* Disabling encryption on OS and data drives for Windows IaaS VMs
-* Disabling encryption on data drives for Linux IaaS VMs
-* Enabling encryption on IaaS VMs that are running Windows client OS
-* Enabling encryption on volumes with mount paths
-* Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using mdadm
-* Enabling encryption on Linux VMs by using LVM for data disks
-* Enabling encryption on Windows VMs that are configured by using storage spaces
-* All Azure public regions are supported
+* Integrering med Azure Key Vault
+* Virtuella datorer på standard nivå: [A, D, DS, G, GS och så vidare serien IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/) : ar
+* Aktivera kryptering för virtuella Windows-och Linux IaaS-datorer
+* Inaktivera kryptering på operativ system och data enheter för virtuella Windows IaaS-datorer
+* Inaktivera kryptering på data enheter för virtuella Linux IaaS-datorer
+* Aktivera kryptering på virtuella IaaS-datorer som kör Windows Client OS
+* Aktivera kryptering på volymer med monterings Sök vägar
+* Aktivera kryptering på virtuella Linux-datorer som är konfigurerade med disk striping (RAID) med hjälp av mdadm
+* Aktivera kryptering på virtuella Linux-datorer med hjälp av LVM för data diskar
+* Aktivera kryptering på virtuella Windows-datorer som har kon figurer ATS med hjälp av lagrings utrymmen
+* Alla offentliga Azure-regioner stöds
 
-The solution does not support the following scenarios, features, and technology in the release:
+Lösningen har inte stöd för följande scenarier, funktioner och teknik i versionen:
 
-* Basic tier IaaS VMs
-* Disabling encryption on an OS drive for Linux IaaS VMs
-* IaaS VMs that are created by using the classic VM creation method
-* Integration with your on-premises Key Management Service
-* Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
+* Basic-nivå IaaS VM
+* Inaktivera kryptering på en OS-enhet för virtuella Linux IaaS-datorer
+* Virtuella IaaS-datorer som skapas med hjälp av den klassiska skapande metoden för virtuella datorer
+* Integrering med din lokala nyckel hanterings tjänst
+* Azure Files (delat fil system), virtuella nätverks fil system (NFS), dynamiska volymer och virtuella Windows-datorer som är konfigurerade med programvarubaserade RAID-system
 
 
 > [!NOTE]
-> Linux OS disk encryption is currently supported on the following Linux distributions: RHEL 7.2, CentOS 7.2n, and Ubuntu 16.04.
+> Linux OS disk Encryption stöds för närvarande på följande Linux-distributioner: RHEL 7,2, CentOS 7,2 n och Ubuntu 16,04.
 >
 >
 
-This feature ensures that all data on your virtual machine disks is encrypted at rest in Azure Storage.
+Den här funktionen ser till att alla data på de virtuella dator diskarna krypteras i vila i Azure Storage.
 
 #### <a name="resources"></a>Resurser
-* [Azure Disk Encryption for Windows and Linux IaaS VMs](../../security/fundamentals/encryption-overview.md)
+* [Azure Disk Encryption för virtuella Windows-och Linux IaaS-datorer](../../security/fundamentals/encryption-overview.md)
 
-### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparison of Azure Disk Encryption, SSE, and Client-Side Encryption
+### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Jämförelse av Azure Disk Encryption, SSE och kryptering på klient Sidan
 
-#### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VMs and their VHD files
+#### <a name="iaas-vms-and-their-vhd-files"></a>Virtuella IaaS-datorer och deras VHD-filer
 
-For data disks used by IaaS VMs, Azure Disk Encryption is recommended. If you create a VM with unmanaged disks using an image from the Azure Marketplace, Azure performs a [shallow copy](https://en.wikipedia.org/wiki/Object_copying) of the image to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. After it creates the VM and starts updating the image, SSE will start encrypting the data. For this reason, it's best to use Azure Disk Encryption on VMs with unmanaged disks created from images in the Azure Marketplace if you want them fully encrypted. If you create a VM with Managed Disks, SSE encrypts all the data by default using platform managed keys. 
+För data diskar som används av virtuella IaaS-datorer rekommenderas Azure Disk Encryption. Om du skapar en virtuell dator med ohanterade diskar med hjälp av en avbildning från Azure Marketplace utför Azure en [ytlig kopia](https://en.wikipedia.org/wiki/Object_copying) av avbildningen till ditt lagrings konto i Azure Storage, och den är inte krypterad även om SSE är aktiverat. När den virtuella datorn har skapats och börjar uppdatera avbildningen börjar SSE att kryptera data. Därför är det bäst att använda Azure Disk Encryption på virtuella datorer med ohanterade diskar som skapats från avbildningar på Azure Marketplace om du vill att de ska vara fullständigt krypterade. Om du skapar en virtuell dator med Managed Disks krypterar SSE alla data som standard med hjälp av plattforms hanterade nycklar. 
 
-If you bring a pre-encrypted VM into Azure from on-premises, you will be able to upload the encryption keys to Azure Key Vault, and continue using the encryption for that VM that you were using on-premises. Azure Disk Encryption is enabled to handle this scenario.
+Om du tar en förkrypterad virtuell dator i Azure från en lokal plats kan du ladda upp krypterings nycklarna till Azure Key Vault och fortsätta använda krypteringen för den virtuella datorn som du använde lokalt. Azure Disk Encryption har Aktiver ATS för att hantera det här scenariot.
 
-If you have non-encrypted VHD from on-premises, you can upload it into the gallery as a custom image and provision a VM from it. If you do this using the Resource Manager templates, you can ask it to turn on Azure Disk Encryption when it boots up the VM.
+Om du har icke-krypterad virtuell hård disk lokalt kan du överföra den till galleriet som en anpassad avbildning och etablera en virtuell dator från den. Om du gör detta med hjälp av Resource Manager-mallar kan du be den att aktivera Azure Disk Encryption när den virtuella datorn startas.
 
-When you add a data disk and mount it on the VM, you can turn on Azure Disk Encryption on that data disk. It will encrypt that data disk locally first, and then the classic deployment model layer will do a lazy write against storage so the storage content is encrypted.
+När du lägger till en datadisk och monterar den på den virtuella datorn, kan du aktivera Azure Disk Encryption på den data disken. Den kommer att kryptera den data disken lokalt och sedan görs en Lazy Write-lagring i det klassiska distributions modell lagret, vilket innebär att lagrings innehållet krypteras.
 
 #### <a name="client-side-encryption"></a>Kryptering av klientsidan
-Client-side encryption is the most secure method of encrypting your data, because it encrypts data prior to transit.  However, it does require that you add code to your applications using storage, which you may not want to do. In those cases, you can use HTTPS to secure your data in transit. Once data reaches Azure Storage, it is encrypted by SSE.
+Kryptering på klient sidan är den säkraste metoden för att kryptera dina data, eftersom den krypterar data före överföringen.  Det kräver dock att du lägger till kod till dina program med hjälp av lagring, som du kanske inte vill göra. I dessa fall kan du använda HTTPS för att skydda dina data under överföring. När data når Azure Storage krypteras de av SSE.
 
-With client-side encryption, you can encrypt table entities, queue messages, and blobs. 
+Med kryptering på klient sidan kan du kryptera tabell enheter, köa meddelanden och blobbar. 
 
-Client-side encryption is managed entirely by the application. This is the most secure approach, but does require you to make programmatic changes to your application and put key management processes in place. You would use this when you want the extra security during transit, and you want your stored data to be encrypted.
+Kryptering på klient sidan hanteras helt av programmet. Detta är den säkraste metoden, men du måste göra program ändringar i programmet och lägga till nyckel hanterings processer på plats. Du använder det här alternativet om du vill ha extra säkerhet under överföringen och vill att dina lagrade data ska krypteras.
 
-Client-side encryption is more load on the client, and you have to account for this in your scalability plans, especially if you are encrypting and transferring a large amount of data.
+Kryptering på klient sidan är mer belastning på klienten och du måste ta hänsyn till detta i dina skalbarhets planer, särskilt om du krypterar och överför en stor mängd data.
 
-#### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
+#### <a name="storage-service-encryption-sse"></a>Kryptering för lagringstjänst (SSE)
 
-SSE is managed by Azure Storage. SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. SSE påverkar inte Azure Storage-prestanda.
+SSE hanteras av Azure Storage. SSE tillhandahåller inte säkerheten för data som överförs, men krypterar data som skrivs till Azure Storage. SSE påverkar inte Azure Storage-prestanda.
 
-You can encrypt any kind of data of the storage account using SSE (block blobs, append blobs, page blobs, table data, queue data, and files).
+Du kan kryptera alla typer av data från lagrings kontot med hjälp av SSE (block blobbar, bifoga blobbar, Page blobbar, tabell data, köa data och filer).
 
-If you have an archive or library of VHD files that you use as a basis for creating new virtual machines, you can create a new storage account and then upload the VHD files to that account. Those VHD files will be encrypted by Azure Storage.
+Om du har ett arkiv eller bibliotek med VHD-filer som du använder som grund för att skapa nya virtuella datorer kan du skapa ett nytt lagrings konto och sedan ladda upp VHD-filerna till det kontot. Dessa VHD-filer kommer att krypteras av Azure Storage.
 
-If you have Azure Disk Encryption enabled for the disks in a VM, then any newly written data is encrypted both by SSE and by Azure Disk Encryption.
+Om du har Azure Disk Encryption aktiverat för diskarna i en virtuell dator krypteras alla nyligen skrivna data både av SSE och av Azure Disk Encryption.
 
 ## <a name="storage-analytics"></a>Lagringsanalys
-### <a name="using-storage-analytics-to-monitor-authorization-type"></a>Using Storage Analytics to monitor authorization type
-For each storage account, you can enable Azure Storage Analytics to perform logging and store metrics data. This is a great tool to use when you want to check the performance metrics of a storage account, or need to troubleshoot a storage account because you are having performance problems.
+### <a name="using-storage-analytics-to-monitor-authorization-type"></a>Använda Lagringsanalys för att övervaka Authorization-typ
+För varje lagrings konto kan du aktivera Azure-lagringsanalys för att utföra loggnings-och lagrings statistik data. Det här är ett bra verktyg som du kan använda när du vill kontrol lera prestanda måtten för ett lagrings konto eller om du behöver felsöka ett lagrings konto eftersom du har prestanda problem.
 
-Another piece of data you can see in the storage analytics logs is the authentication method used by someone when they access storage. For example, with Blob Storage, you can see if they used a Shared Access Signature or the storage account keys, or if the blob accessed was public.
+En annan typ av data som du kan se i Storage Analytics-loggarna är autentiseringsmetoden som används av någon vid åtkomst till lagring. Med Blob Storage kan du till exempel se om de använde en signatur för delad åtkomst eller lagrings konto nycklar, eller om den använda bloben var offentlig.
 
-This can be helpful if you are tightly guarding access to storage. For example, in Blob Storage you can set all of the containers to private and implement the use of an SAS service throughout your applications. Then you can check the logs regularly to see if your blobs are accessed using the storage account keys, which may indicate a breach of security, or if the blobs are public but they shouldn't be.
+Detta kan vara användbart om du nära skyddar åtkomsten till lagringen. I Blob Storage kan du till exempel ange att alla behållare ska vara privata och implementera användningen av en SAS-tjänst i alla program. Sedan kan du kontrol lera loggarna regelbundet för att se om dina blobbar nås med hjälp av lagrings konto nycklarna, vilket kan tyda på en säkerhets överträdelse eller om Blobbarna är offentliga men inte bör vara det.
 
-#### <a name="what-do-the-logs-look-like"></a>What do the logs look like?
-After you enable the storage account metrics and logging through the Azure portal, analytics data will start to accumulate quickly. The logging and metrics for each service is separate; the logging is only written when there is activity in that storage account, while the metrics will be logged every minute, every hour, or every day, depending on how you configure it.
+#### <a name="what-do-the-logs-look-like"></a>Vad ser loggarna ut?
+När du har aktiverat måtten för lagrings kontot och loggat in via Azure Portal börjar analys data att ackumuleras snabbt. Loggning och mått för varje tjänst är separat. loggningen skrivs bara när det finns en aktivitet i det lagrings kontot, medan måtten loggas varje minut, varje timme eller varje dag, beroende på hur du konfigurerar det.
 
-The logs are stored in block blobs in a container named $logs in the storage account. This container is automatically created when Storage Analytics is enabled. Once this container is created, you can't delete it, although you can delete its contents.
+Loggarna lagras i block-blobar i en behållare med namnet $logs i lagrings kontot. Den här behållaren skapas automatiskt när Lagringsanalys är aktive rad. När den här behållaren har skapats kan du inte ta bort den, men du kan ta bort innehållet.
 
-Under the $logs container, there is a folder for each service, and then there are subfolders for the year/month/day/hour. Under hour, the logs are numbered. This is what the directory structure will look like:
+Under $logs container finns en mapp för varje tjänst och sedan finns det undermappar för året/månaden/dagen/timmen. Under en timme numreras loggarna. Så här kommer katalog strukturen att se ut:
 
-![View of log files](./media/storage-security-guide/image1.png)
+![Vy över loggfiler](./media/storage-security-guide/image1.png)
 
-Every request to Azure Storage is logged. Here's a snapshot of a log file, showing the first few fields.
+Varje begäran till Azure Storage loggas. Här är en ögonblicks bild av en loggfil som visar de första fälten.
 
-![Snapshot of a log file](./media/storage-security-guide/image2.png)
+![Ögonblicks bild av en loggfil](./media/storage-security-guide/image2.png)
 
-You can see that you can use the logs to track any kind of calls to a storage account.
+Du kan se att du kan använda loggarna för att spåra alla typer av anrop till ett lagrings konto.
 
-#### <a name="what-are-all-of-those-fields-for"></a>What are all of those fields for?
-There is an article listed in the resources below that provides the list of the many fields in the logs and what they are used for. Here is the list of fields in order:
+#### <a name="what-are-all-of-those-fields-for"></a>Vilka är dessa fält för?
+En artikel som listas i resurserna nedan innehåller en lista över de många fälten i loggarna och vad de används för. Här är listan med fält i ordning:
 
-![Snapshot of fields in a log file](./media/storage-security-guide/image3.png)
+![Ögonblicks bild av fält i en loggfil](./media/storage-security-guide/image3.png)
 
-We're interested in the entries for GetBlob, and how they are authorized, so we need to look for entries with operation-type "Get-Blob", and check the request-status (fourth</sup> column) and the authorization-type (eighth</sup> column).
+Vi är intresserade av posterna för GetBlob, och hur de är auktoriserade, så vi måste leta efter poster med åtgärds typ "Get-BLOB" och kontrol lera status för begäran (fjärde</sup> kolumn) och typen Authorization (åttonde</sup>).
 
-For example, in the first few rows in the listing above, the request-status is "Success" and the authorization-type is "authenticated". This means the request was authorized using the storage account key.
+I de första raderna i listan ovan är till exempel begäran-status "lyckades" och behörighets typen är "autentiserad". Det innebär att begäran auktoriserades med hjälp av lagrings konto nyckeln.
 
-#### <a name="how-is-access-to-my-blobs-being-authorized"></a>How is access to my blobs being authorized?
-We have three cases that we are interested in.
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>Hur beviljas åtkomst till mina blobbar?
+Vi har tre fall som vi är intresserade av.
 
-1. The blob is public and it is accessed using a URL without a Shared Access Signature. In this case, the request-status is "AnonymousSuccess" and the authorization-type is "anonymous".
+1. Blobben är offentlig och används med en URL utan en signatur för delad åtkomst. I det här fallet är förfrågan-status "AnonymousSuccess" och typen av auktorisering är "Anonym".
 
-   1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
-2. The blob is private and was used with a Shared Access Signature. In this case, the request-status is "SASSuccess" and the authorization-type is "sas".
+   1.0; 2015-11-17T02:01:29.0488963 Z; GetBlob **AnonymousSuccess**; 200; 124; 37; **Anonym**;; Mina lagrings enheter...
+2. Blobben är privat och användes med en signatur för delad åtkomst. I det här fallet är förfrågan-status "SASSuccess" och behörighets typen "SAS".
 
-   1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
-3. The blob is private and the storage key was used to access it. In this case, the request-status is "**Success**" and the authorization-type is "**authenticated**".
+   1.0; 2015-11-16T18:30:05.6556115 Z; GetBlob **SASSuccess**; 200; 416; 64; **SAS**;; Mina lagrings enheter...
+3. Blobben är privat och lagrings nyckeln användes för att komma åt den. I det här fallet är Request-status "**lyckades**" och behörighets typen är "**autentiserad**".
 
-   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
+   1.0; 2015-11-16T18:32:24.3174537 Z; GetBlob **Lyckades**; 206; 59; 22; **autentiserad**; lagring...
 
-You can use the Microsoft Message Analyzer to view and analyze these logs. It includes search and filter capabilities. For example, you might want to search for instances of GetBlob to see if the usage is what you expect, that is, to make sure someone is not accessing your storage account inappropriately.
+Du kan använda Microsoft Message Analyzer för att visa och analysera dessa loggar. Det innehåller funktioner för Sök och filter. Du kanske till exempel vill söka efter instanser av GetBlob för att se om användningen är vad du förväntar dig, det vill säga att ingen kommer åt ditt lagrings konto på ett felaktigt sätt.
 
 #### <a name="resources"></a>Resurser
 * [Lagringsanalys](../storage-analytics.md)
 
-  This article is an overview of storage analytics and how to enable them.
-* [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx)
+  Den här artikeln är en översikt över lagrings analys och hur du aktiverar dem.
+* [Lagringsanalys logg format](https://msdn.microsoft.com/library/azure/hh343259.aspx)
 
-  This article illustrates the Storage Analytics Log Format, and details the fields available therein, including authentication-type, which indicates the type of authentication used for the request.
-* [Monitor a Storage Account in the Azure portal](../storage-monitor-storage-account.md)
+  Den här artikeln visar Lagringsanalys logg format och innehåller information om de fält som är tillgängliga där, inklusive autentiseringstyp, som anger vilken typ av autentisering som används för begäran.
+* [Övervaka ett lagrings konto i Azure Portal](../storage-monitor-storage-account.md)
 
-  This article shows how to configure monitoring of metrics and logging for a storage account.
-* [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md)
+  Den här artikeln visar hur du konfigurerar övervakning av mått och loggning för ett lagrings konto.
+* [Fel sökning från slut punkt till slut punkt med hjälp av Azure Storage mått och loggning, AzCopy och Message Analyzer](../storage-e2e-troubleshooting.md)
 
-  This article talks about troubleshooting using the Storage Analytics and shows how to use the Microsoft Message Analyzer.
-* [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx)
+  Den här artikeln beskriver hur du felsöker med hjälp av Lagringsanalys och visar hur du använder Microsoft Message Analyzer.
+* [Microsoft Message Analyzer-funktions guide](https://technet.microsoft.com/library/jj649776.aspx)
 
-  This article is the reference for the Microsoft Message Analyzer and includes links to a tutorial, quickstart, and feature summary.
+  Den här artikeln är referens för Microsoft Message Analyzer och innehåller länkar till självstudier, snabb start och funktions Sammanfattning.
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Resursdelning för korsande ursprung (CORS)
-### <a name="cross-domain-access-of-resources"></a>Cross-domain access of resources
-When a web browser running in one domain makes an HTTP request for a resource from a different domain, this is called a cross-origin HTTP request. For example, an HTML page served from contoso.com makes a request for a jpeg hosted on fabrikam.blob.core.windows.net. For security reasons, browsers restrict cross-origin HTTP requests initiated from within scripts, such as JavaScript. This means that when some JavaScript code on a web page on contoso.com requests that jpeg on fabrikam.blob.core.windows.net, the browser will not allow the request.
+### <a name="cross-domain-access-of-resources"></a>Åtkomst mellan domäner av resurser
+När en webbläsare som körs i en domän gör en HTTP-begäran för en resurs från en annan domän kallas detta för en HTTP-begäran över flera ursprung. En HTML-sida som hanteras från contoso.com gör till exempel en begäran om en JPEG-värd på fabrikam.blob.core.windows.net. Av säkerhets skäl begränsar webbläsare de HTTP-begäranden över flera ursprung som initieras från skript, till exempel Java Script. Det innebär att när en viss JavaScript-kod på en webb sida på contoso.com begär att JPEG på fabrikam.blob.core.windows.net, kommer webbläsaren inte att tillåta begäran.
 
-What does this have to do with Azure Storage? Well, if you are storing static assets such as JSON or XML data files in Blob Storage using a storage account called Fabrikam, the domain for the assets will be fabrikam.blob.core.windows.net, and the contoso.com web application will not be able to access them using JavaScript because the domains are different. This is also true if you're trying to call one of the Azure Storage Services – such as Table Storage – that return JSON data to be processed by the JavaScript client.
+Vad ska detta göra med Azure Storage? Om du lagrar statiska till gångar, till exempel JSON-eller XML-datafiler i Blob Storage med ett lagrings konto som heter Fabrikam, kommer domänen för till gångarna att fabrikam.blob.core.windows.net och contoso.com-webbappen kommer inte att kunna komma åt dem med hjälp av Java Script eftersom domänerna skiljer sig åt. Detta gäller även om du försöker anropa en av de Azure Storage tjänsterna – till exempel Table Storage – som returnerar JSON-data som ska bearbetas av JavaScript-klienten.
 
-#### <a name="possible-solutions"></a>Possible solutions
-One way to resolve this is to assign a custom domain like "storage.contoso.com" to fabrikam.blob.core.windows.net. The problem is that you can only assign that custom domain to one storage account. What if the assets are stored in multiple storage accounts?
+#### <a name="possible-solutions"></a>Möjliga lösningar
+Ett sätt att lösa detta är att tilldela en anpassad domän som "storage.contoso.com" till fabrikam.blob.core.windows.net. Problemet är att du bara kan tilldela den anpassade domänen till ett lagrings konto. Vad händer om till gångarna lagras på flera lagrings konton?
 
-Another way to resolve this is to have the web application act as a proxy for the storage calls. This means if you are uploading a file to Blob Storage, the web application would either write it locally and then copy it to Blob Storage, or it would read all of it into memory and then write it to Blob Storage. Alternately, you could write a dedicated web application (such as a Web API) that uploads the files locally and writes them to Blob Storage. Either way, you have to account for that function when determining the scalability needs.
+Ett annat sätt att lösa detta är att låta webb programmet fungera som en proxy för lagrings samtal. Det innebär att om du laddar upp en fil till Blob Storage kan webb programmet antingen skriva det lokalt och sedan kopiera det till Blob Storage, eller läsa in allt i minnet och skriva det till Blob Storage. Alternativt kan du skriva ett dedikerat webb program (t. ex. ett webb-API) som laddar upp filerna lokalt och skriver dem till Blob Storage. Oavsett vilket du behöver måste du ta hänsyn till den funktionen när du fastställer skalbarhets behoven.
 
-#### <a name="how-can-cors-help"></a>How can CORS help?
-Azure Storage allows you to enable CORS – Cross Origin Resource Sharing. For each storage account, you can specify domains that can access the resources in that storage account. For example, in our case outlined above, we can enable CORS on the fabrikam.blob.core.windows.net storage account and configure it to allow access to contoso.com. Then the web application contoso.com can directly access the resources in fabrikam.blob.core.windows.net.
+#### <a name="how-can-cors-help"></a>Hur kan CORS hjälpa dig?
+Med Azure Storage kan du aktivera CORS – resurs delning mellan ursprung. För varje lagrings konto kan du ange domäner som har åtkomst till resurserna i det lagrings kontot. I vårt fall som beskrivs ovan kan vi till exempel aktivera CORS på fabrikam.blob.core.windows.net lagrings konto och konfigurera det för att tillåta åtkomst till contoso.com. Sedan kan webb programmets contoso.com komma åt resurserna direkt i fabrikam.blob.core.windows.net.
 
-One thing to note is that CORS allows access, but it does not provide authentication, which is required for all non-public access of storage resources. This means you can only access blobs if they are public or you include a Shared Access Signature giving you the appropriate permission. Tables, queues, and files have no public access, and require a SAS.
+En sak att observera är att CORS tillåter åtkomst, men den ger inte autentisering, vilket krävs för all icke-offentlig åtkomst till lagrings resurser. Det innebär att du bara kan komma åt blobar om de är offentliga eller om du inkluderar en signatur för delad åtkomst som ger dig rätt behörighet. Tabeller, köer och filer har ingen offentlig åtkomst och kräver en SAS.
 
-By default, CORS is disabled on all services. You can enable CORS by using the REST API or the storage client library to call one of the methods to set the service policies. When you do that, you include a CORS rule, which is in XML. Here's an example of a CORS rule that has been set using the Set Service Properties operation for the Blob Service for a storage account. You can perform that operation using the storage client library or the REST APIs for Azure Storage.
+Som standard är CORS inaktive rad på alla tjänster. Du kan aktivera CORS genom att använda REST API eller lagrings klient biblioteket för att anropa en av metoderna för att ange tjänst principerna. När du gör det inkluderar du en CORS-regel, som är i XML. Här är ett exempel på en CORS-regel som har angetts med åtgärden Ange tjänst egenskaper för BLOB service för ett lagrings konto. Du kan utföra åtgärden med hjälp av lagrings klient biblioteket eller REST-API: erna för Azure Storage.
 
 ```xml
 <Cors>    
@@ -496,48 +496,48 @@ By default, CORS is disabled on all services. You can enable CORS by using the R
 <Cors>
 ```
 
-Here's what each row means:
+Så här betyder varje rad:
 
-* **AllowedOrigins** This tells which non-matching domains can request and receive data from the storage service. This says that both contoso.com and fabrikam.com can request data from Blob Storage for a specific storage account. You can also set this to a wildcard (\*) to allow all domains to access requests.
-* **AllowedMethods** This is the list of methods (HTTP request verbs) that can be used when making the request. In this example, only PUT and GET are allowed. You can set this to a wildcard (\*) to allow all methods to be used.
-* **AllowedHeaders** This is the request headers that the origin domain can specify when making the request. In this example, all metadata headers starting with x-ms-meta-data, x-ms-meta-target, and x-ms-meta-abc are permitted. The wildcard character (\*) indicates that any header beginning with the specified prefix is allowed.
-* **ExposedHeaders** This tells which response headers should be exposed by the browser to the request issuer. In this example, any header starting with "x-ms-meta-" will be exposed.
-* **MaxAgeInSeconds** This is the maximum amount of time that a browser will cache the preflight OPTIONS request. (For more information about the preflight request, check the first article below.)
+* **AllowedOrigins** Detta anger vilka icke-matchande domäner som kan begära och ta emot data från lagrings tjänsten. Detta säger att både contoso.com och fabrikam.com kan begära data från Blob Storage för ett särskilt lagrings konto. Du kan också ställa in detta till ett jokertecken (\*) så att alla domäner får åtkomst till begär Anden.
+* **AllowedMethods** Detta är listan över metoder (HTTP-begär verb) som kan användas när du gör en begäran. I det här exemplet tillåts endast placering och GET. Du kan ställa in detta till ett jokertecken (\*) för att tillåta att alla metoder används.
+* **AllowedHeaders** Detta är begärandehuvuden som ursprungs domänen kan ange när begäran görs. I det här exemplet är alla metadata-huvuden som börjar med x-MS-meta-data, x-MS-meta-Target och x-MS-Meta-ABC tillåtna. Jokertecknet (\*) visar att alla sidhuvuden som börjar med det angivna prefixet är tillåtna.
+* **ExposedHeaders** Detta anger vilka svarshuvuden som ska visas av webbläsaren till begär ande utfärdaren. I det här exemplet kommer alla sidhuvuden som börjar med "x-MS-meta-" att visas.
+* **MaxAgeInSeconds** Detta är den maximala tid som en webbläsare cachelagrar begäran om preflight-alternativ. (Mer information om preflight-begäran finns i den första artikeln nedan.)
 
 #### <a name="resources"></a>Resurser
-For more information about CORS and how to enable it, check out these resources.
+Om du vill ha mer information om CORS och hur du aktiverar den, kan du ta en titt på dessa resurser.
 
-* [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on Azure.com](../storage-cors-support.md)
+* [Stöd för resurs delning mellan ursprung (CORS) för Azure Storage Services på Azure.com](../storage-cors-support.md)
 
-  This article provides an overview of CORS and how to set the rules for the different storage services.
-* [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
+  Den här artikeln innehåller en översikt över CORS och hur du ställer in reglerna för de olika lagrings tjänsterna.
+* [Stöd för resurs delning mellan ursprung (CORS) för Azure Storage Services på MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
-  This is the reference documentation for CORS support for the Azure Storage Services. This has links to articles applying to each storage service, and shows an example and explains each element in the CORS file.
-* [Microsoft Azure Storage: Introducing CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+  Det här är referens dokumentationen för CORS-stöd för Azure Storage-tjänsterna. Detta innehåller länkar till artiklar som gäller för varje lagrings tjänst och visar ett exempel och förklarar varje element i CORS-filen.
+* [Microsoft Azure Storage: Introduktion till CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
-  This is a link to the initial blog article announcing CORS and showing how to use it.
+  Det här är en länk till den inledande blogg artikeln om att presentera CORS och visa hur du använder den.
 
-## <a name="frequently-asked-questions-about-azure-storage-security"></a>Frequently asked questions about Azure Storage security
-1. **How can I verify the integrity of the blobs I'm transferring into or out of Azure Storage if I can't use the HTTPS protocol?**
+## <a name="frequently-asked-questions-about-azure-storage-security"></a>Vanliga frågor och svar om Azure Storage säkerhet
+1. **Hur kan jag kontrol lera integriteten för de blobbar som jag överför till eller från Azure Storage om jag inte kan använda HTTPS-protokollet?**
 
-   If for any reason you need to use HTTP instead of HTTPS and you are working with block blobs, you can use MD5 checking to help verify the integrity of the blobs being transferred. This will help with protection from network/transport layer errors, but not necessarily with intermediary attacks.
+   Om du av någon anledning behöver använda HTTP i stället för HTTPS och du arbetar med block blobbar, kan du använda MD5-kontroll för att kontrol lera integriteten för de blobbar som överförs. Detta hjälper till att skydda mot fel på nätverks-/transport nivå, men inte nödvändigt vis med mellanliggande attacker.
 
-   If you can use HTTPS, which provides transport level security, then using MD5 checking is redundant and unnecessary.
+   Om du kan använda HTTPS, som tillhandahåller säkerhet på transport nivå, är det redundant och onödigt att använda MD5-kontrollen.
 
-   For more information, please check out the [Azure Blob MD5 Overview](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
-2. **What about FIPS-Compliance for the U.S. Government?**
+   Mer information finns i [Översikt över Azure Blob MD5](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
+2. **Vad gäller FIPS-efterlevnad för amerikanska myndigheter?**
 
-   The United States Federal Information Processing Standard (FIPS) defines cryptographic algorithms approved for use by U.S. Federal government computer systems for the protection of sensitive data. Enabling FIPS mode on a Windows server or desktop tells the OS that only FIPS-validated cryptographic algorithms should be used. If an application uses non-compliant algorithms, the applications will break. With.NET Framework versions 4.5.2 or higher, the application automatically switches the cryptography algorithms to use FIPS-compliant algorithms when the computer is in FIPS mode.
+   FIPS (USA Federal Information Processing Standard) definierar kryptografiska algoritmer som godkänns för användning av amerikanska federala myndighets dator system för skydd av känsliga data. Att aktivera FIPS-läge på en Windows-Server eller skriv bord visar vilket operativ system som endast ska användas av FIPS-validerade kryptografiska algoritmer. Om ett program använder icke-kompatibla algoritmer avbryts programmen. With.NET Framework-versioner 4.5.2 eller senare växlar programmet automatiskt till krypteringsalgoritmerna för att använda FIPS-kompatibla algoritmer när datorn är i FIPS-läge.
 
-   Microsoft leaves it up to each customer to decide whether to enable FIPS mode. We believe there is no compelling reason for customers who are not subject to government regulations to enable FIPS mode by default.
+   Microsoft lämnar dem till varje kund för att bestämma om FIPS-läge ska aktive ras. Vi tror att det inte finns något övertygande skäl för kunder som inte omfattas av myndighets bestämmelser för att aktivera FIPS-läge som standard.
 
 ### <a name="resources"></a>Resurser
-* [Why We're Not Recommending "FIPS Mode" Anymore](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
+* [Varför rekommenderar vi inte att "FIPS-läge" är längre](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
-  This blog article gives an overview of FIPS and explains why they don't enable FIPS mode by default.
-* [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx)
+  Den här blogg artikeln ger en översikt över FIPS och förklarar varför de inte aktiverar FIPS-läge som standard.
+* [FIPS 140-validering](https://technet.microsoft.com/library/cc750357.aspx)
 
-  This article provides information on how Microsoft products and cryptographic modules comply with the FIPS standard for the U.S. Federal government.
-* ["System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing" security settings effects in Windows XP and in later versions of Windows](https://support.microsoft.com/kb/811833)
+  Den här artikeln innehåller information om hur Microsoft-produkter och-kryptografiska moduler följer FIPS-standarden för amerikanska federala myndigheter.
+* ["System kryptografi: Använd FIPS-kompatibla algoritmer för kryptering, hashing och signering" säkerhets inställnings effekter i Windows XP och senare versioner av Windows](https://support.microsoft.com/kb/811833)
 
-  This article talks about the use of FIPS mode in older Windows computers.
+  Den här artikeln pratar om användningen av FIPS-läge på äldre Windows-datorer.

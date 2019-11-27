@@ -42,7 +42,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Dedikerad resursgrupp
 
-Because container registries are resources that are used across multiple container hosts, a registry should reside in its own resource group.
+Eftersom behållar register är resurser som används över flera behållar värdar bör ett register finnas i en egen resurs grupp.
 
 Även om du kan experimentera med en särskild värdtyp, t.ex. Azure Container Instances, vill du troligtvis ta bort behållarinstansen när du är klar. Du kan dock även vilja behålla avbildningssamlingen som du överförde till Azure Container Registry. Genom att placera registret i en egen resursgrupp minimerar du risken för att oavsiktligen ta bort avbildningssamlingen i registret när du tar bort containerinstansens resursgrupp.
 
@@ -59,9 +59,9 @@ Mer djupgående information om autentisering i Azure Container Registry finns i 
 
 ## <a name="manage-registry-size"></a>Hantera registerstorlek
 
-The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Du bör hantera registrets storlek genom att regelbundet ta bort innehåll som inte används under hela registrets livslängd.
+Lagrings begränsningarna för varje [container Registry-SKU][container-registry-skus] är avsedda att överensstämma med ett typiskt scenario: **Basic** for komma igång, **standard** för de flesta produktions program och **Premium** för Hyper-Scale-prestanda och [geo-replikering][container-registry-geo-replication]. Du bör hantera registrets storlek genom att regelbundet ta bort innehåll som inte används under hela registrets livslängd.
 
-Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+Använd Azure CLI-kommandot [AZ ACR show-Usage][az-acr-show-usage] för att visa den aktuella storleken på ditt register:
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
@@ -71,15 +71,15 @@ Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-You can also find the current storage used in the **Overview** of your registry in the Azure portal:
+Du kan också hitta det aktuella lagrings utrymmet som används i **översikten** över registret i Azure Portal:
 
 ![Information om registeranvändning i Azure Portal][registry-overview-quotas]
 
-### <a name="delete-image-data"></a>Delete image data
+### <a name="delete-image-data"></a>Ta bort avbildnings data
 
-Azure Container Registry supports several methods for deleting image data from your container registry. You can delete images by tag or manifest digest, or delete a whole repository.
+Azure Container Registry stöder flera metoder för att ta bort avbildnings data från behållar registret. Du kan ta bort avbildningar efter tagg eller manifest sammandrag eller ta bort en hel lagrings plats.
 
-For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
+Mer information om hur du tar bort bilddata från registret, inklusive otaggade (som ibland kallas "Dangling" eller "överblivna") avbildningar, finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

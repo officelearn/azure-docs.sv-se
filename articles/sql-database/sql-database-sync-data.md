@@ -1,6 +1,6 @@
 ---
 title: Datasynkronisering
-description: This overview introduces Azure SQL Data Sync
+description: Den här översikten introducerar Azure SQL Data Sync
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -18,227 +18,227 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422521"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sync data across multiple cloud and on-premises databases with SQL Data Sync
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
-SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
+SQL Data Sync är en tjänst som bygger på Azure SQL Database som gör att du synkroniserar data som du väljer riktningarna över flera SQL-databaser och SQL Server-instanser.
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does not support Azure SQL Database Managed Instance at this time.
+> Azure SQL Data Sync stöder inte Azure SQL Database hanterade instansen för tillfället.
 
-## <a name="when-to-use-data-sync"></a>When to use Data Sync
+## <a name="when-to-use-data-sync"></a>När du ska använda datasynkronisering
 
-Data Sync is useful in cases where data needs to be kept updated across several Azure SQL databases or SQL Server databases. Here are the main use cases for Data Sync:
+Datasynkronisering är användbart i fall där data måste uppdateras i flera Azure SQL-databaser eller SQL Server databaser. Här är huvudsakliga användningsområden för Data Sync:
 
-- **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
-- **Distributed Applications:** In many cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but you also need to run a reporting or analytics workload on this data, it's helpful to have a second database for this additional workload. This approach minimizes the performance impact on your production workload. You can use Data Sync to keep these two databases synchronized.
-- **Globally Distributed Applications:** Many businesses span several regions and even several countries/regions. To minimize network latency, it's best to have your data in a region close to you. With Data Sync, you can easily keep databases in regions around the world synchronized.
+- **Synkronisering av hybrid data:** Med datasynkronisering kan du hålla data synkroniserade mellan dina lokala databaser och Azure SQL-databaser för att aktivera hybrid program. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
+- **Distribuerade program:** I många fall är det bra att separera olika arbets belastningar i olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
+- **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och till och med flera länder/regioner. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
 
-Data Sync isn't the preferred solution for the following scenarios:
+Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
-| Scenario | Some recommended solutions |
+| Scenario | Några av de rekommenderade lösningar |
 |----------|----------------------------|
-| Katastrofåterställning | [Azure geo-redundant backups](sql-database-automated-backups.md) |
-| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](sql-database-read-scale-out.md) |
-| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Haveriberedskap | [Azure geo-redundanta säkerhets kopieringar](sql-database-automated-backups.md) |
+| Läsa skala | [Använd skrivskyddade repliker för att belastningsutjämna skrivskyddade arbets belastningar för frågor (för hands version)](sql-database-read-scale-out.md) |
+| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| Migrering från en lokal SQLServer till Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
-## <a name="overview-of-sql-data-sync"></a>Overview of SQL Data Sync
+## <a name="overview-of-sql-data-sync"></a>Översikt över SQL Data Sync
 
-Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
+Datasynkronisering baseras kring begreppet en Synkroniseringsgrupp. En Synkroniseringsgrupp är en grupp med databaser som du vill synkronisera.
 
-Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
+Datasynkronisering använder en topologi med nav och ekrar för att synkronisera data. Du definierar en av databaserna i synkroniseringsgruppen som Hubbdatabasen. Resten av databaserna är databaser som medlem. Synkronisera sker bara mellan Hub och enskilda medlemmarna.
 
-- The **Hub Database** must be an Azure SQL Database.
-- The **member databases** can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
-- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
+- **Hub-databasen** måste vara en Azure SQL Database.
+- **Medlems databaserna** kan vara antingen SQL-databaser, lokala SQL Server-databaser eller SQL Server instanser på virtuella Azure-datorer.
+- **Sync-databasen** innehåller metadata och logg för datasynkronisering. Sync-databasen måste vara en Azure SQL Database som finns i samma region som Hub-databasen. Sync-databasen är kund som har skapats och kundägda.
 
 > [!NOTE]
-> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
+> Om du använder en lokal databas som en medlems databas måste du [Installera och konfigurera en lokal Sync-agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
-![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
+![Synkronisera data mellan databaser](media/sql-database-sync-data/sync-data-overview.png)
 
-A Sync Group has the following properties:
+En Synkroniseringsgrupp har följande egenskaper:
 
-- The **Sync Schema** describes which data is being synchronized.
-- The **Sync Direction** can be bi-directional or can flow in only one direction. That is, the Sync Direction can be *Hub to Member*, or *Member to Hub*, or both.
-- The **Sync Interval** describes how often synchronization occurs.
-- The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
+- **Synkroniseringsschemat** beskriver vilka data som synkroniseras.
+- **Sync-riktningen** kan vara dubbelriktad eller kan endast flöda i en riktning. Det vill säga att synkroniseringen kan vara *hubb till medlem*eller *medlem i hubben*eller både och.
+- **Intervallet för synkronisering** beskriver hur ofta synkronisering sker.
+- **Konflikt lösnings principen** är en princip på grup nivå som kan vara en *hubb-WINS* eller *-medlem*.
 
-## <a name="how-does-data-sync-work"></a>How does Data Sync work
+## <a name="how-does-data-sync-work"></a>Hur fungerar synkronisering av data?
 
-- **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT doesn't fire triggers by default. If FIRE_TRIGGERS isn't specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
-- **Synchronizing data:** Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
-- **Resolving conflicts:** Data Sync provides two options for conflict resolution, *Hub wins* or *Member wins*.
-  - If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
-  - If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
+- **Spårar data ändringar:** Datasynkronisering spårar ändringar med hjälp av INSERT-, Update-och Delete-utlösare. Ändringarna sparas i en separat tabell i databasen. Observera att BULK INSERT inte utlösa utlösare som standard. Om FIRE_TRIGGERS inte anges körs inga infognings utlösare. Lägga till alternativet FIRE_TRIGGERS så att Data Sync kan spåra dessa infogningar. 
+- **Synkroniserar data:** Datasynkronisering är utformad i en nav-och eker-modell. Hubben synkroniserar individuellt med varje medlem. Ändringar från hubben laddas ned till medlemmen och sedan överförs ändringar från medlemmen till hubben.
+- **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konflikt lösning, *hubb-WINS* eller *medlems-WINS*.
+  - Om du väljer *hubben WINS*skrivs ändringarna i hubben alltid över ändringar i medlemmen.
+  - Om du väljer *medlem WINS*skriver ändringarna i medlemmen över ändringarna i hubben. Om det finns mer än en medlem, beror det slutliga värdet på vilka medlem synkroniseras först.
 
-## <a name="compare-data-sync-with-transactional-replication"></a>Compare Data Sync with Transactional Replication
+## <a name="compare-data-sync-with-transactional-replication"></a>Jämför datasynkronisering med transaktionell replikering
 
 | | Datasynkronisering | Transaktionsreplikering |
 |---|---|---|
-| Fördelar | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
-| Nackdelar | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database or pooled database<br/>- High maintenance cost |
+| Fördelar | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering |
+| Nackdelar | – 5 min eller mer svars tid<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database enskild databas eller databas i pooler<br/>– Kostnad för hög underhåll |
 
 ## <a name="get-started-with-sql-data-sync"></a>Kom igång med SQL-datasynkronisering
 
-### <a name="set-up-data-sync-in-the-azure-portal"></a>Set up Data Sync in the Azure portal
+### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurera datasynkronisering i Azure portal
 
 - [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 - Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
-### <a name="set-up-data-sync-with-powershell"></a>Set up Data Sync with PowerShell
+### <a name="set-up-data-sync-with-powershell"></a>Konfigurera datasynkronisering med PowerShell
 
 - [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
 - [Använd PowerShell för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 
-### <a name="review-the-best-practices-for-data-sync"></a>Review the best practices for Data Sync
+### <a name="review-the-best-practices-for-data-sync"></a>Läs igenom metodtipsen för datasynkronisering
 
 - [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 
-### <a name="did-something-go-wrong"></a>Did something go wrong
+### <a name="did-something-go-wrong"></a>Har något gå fel
 
 - [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
-## <a name="consistency-and-performance"></a>Consistency and performance
+## <a name="consistency-and-performance"></a>Konsekvens och prestanda
 
 ### <a name="eventual-consistency"></a>Slutlig konsekvens
 
-Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync doesn't cause data loss.
+Eftersom datasynkroniseringen är utlöst är inte transaktionell konsekvens garanterad. Microsoft garanterar att alla ändringar görs till och med att datasynkroniseringen inte leder till data förlust.
 
-### <a name="performance-impact"></a>Performance impact
+### <a name="performance-impact"></a>Prestandapåverkan
 
-Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
+Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra ändringar. Tabeller sida skapas i databasen för ändringsspårning. Dessa aktiviteter för spårning av ändringen påverka på din databas-arbetsbelastning. Utvärdera din tjänstenivå och uppgradera om det behövs.
 
-Provisioning and deprovisioning during sync group creation, update, and deletion may also impact the database performance.
+Etablering och borttagning under synkroniseringsgruppen, uppdatering och borttagning kan också påverka databasens prestanda.
 
-## <a name="sync-req-lim"></a> Requirements and limitations
+## <a name="sync-req-lim"></a>Krav och begränsningar
 
 ### <a name="general-requirements"></a>Allmänna krav
 
-- Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value.
+- Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du måste ändra värdet för en primärnyckel, ta bort rad och återskapa den med det nya värdet för primär nyckel.
 
 > [!IMPORTANT]
-> Changing the value of an existing primary key will result in the following faulty behavior:
-> - Data between hub and member can be lost even though sync does not report any issue.
-> - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
+> Att ändra värdet för en befintlig primär nyckel leder till följande fel beteende:
+> - Data mellan hubb och medlem kan gå förlorade även om synkroniseringen inte rapporterar några problem.
+> - Det går inte att synkronisera eftersom spårnings tabellen inte har en befintlig rad från källan på grund av den primära nyckel ändringen.
 
 - Ögonblicksbildisolering måste vara aktiverat. Mer information finns i [Ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Allmänna begränsningar
 
-- A table can't have an identity column that isn't the primary key.
-- A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
-- Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
-- The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
-- Azure Active Directory authentication isn't supported.
-- Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
-- Columns with User Defined Data Types aren't supported
+- En tabell kan inte ha en identitets kolumn som inte är primär nyckel.
+- En primär nyckel kan inte ha följande data typer: sql_variant, Binary, varbinary, image, XML.
+- Var försiktig när du använder följande datatyper som en primär nyckel eftersom stöds precisionen är endast till andra: tid, datetime, datetime2, datetimeoffset.
+- Namn på objekt (databaser, tabeller och kolumner) får inte innehålla de utskrivbara tecken perioderna (.), vänster hak paren tes ([) eller höger hak paren tes (]).
+- Azure Active Directory autentisering stöds inte.
+- Tabeller med samma namn men olika schema (till exempel dbo. kunder och Sales. Customers) stöds inte.
+- Kolumner med användardefinierade data typer stöds inte
 
-#### <a name="unsupported-data-types"></a>Unsupported data types
+#### <a name="unsupported-data-types"></a>Datatyper
 
 - FileStream
 - SQL/CLR UDT
-- XMLSchemaCollection (XML supported)
-- Cursor, RowVersion, Timestamp, Hierarchyid
+- XMLSchemaCollection (XML stöds)
+- Markören RowVersion, tidsstämpel, Hierarchyid
 
-#### <a name="unsupported-column-types"></a>Unsupported column types
+#### <a name="unsupported-column-types"></a>Stöds inte kolumntyper
 
-Data Sync can't sync read-only or system-generated columns. Exempel:
+Datasynkronisering kan inte synkronisera skrivskyddad eller systemgenererade kolumner. Till exempel:
 
-- Computed columns.
-- System-generated columns for temporal tables.
+- Beräknade kolumner.
+- Systemgenererade kolumner för temporala tabeller.
 
-#### <a name="limitations-on-service-and-database-dimensions"></a>Limitations on service and database dimensions
+#### <a name="limitations-on-service-and-database-dimensions"></a>Begränsningar för tjänsten och databasen dimensioner
 
-| **Dimensions**                                                  | **Gräns**              | **Lösning**              |
+| **Enheter**                                                  | **Gräns**              | **Lösning**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
-| Maximum number of sync groups any database can belong to.       | 5                      |                             |
-| Maximum number of endpoints in a single sync group              | 30                     |                             |
-| Maximum number of on-premises endpoints in a single sync group. | 5                      | Create multiple sync groups |
-| Database, table, schema, and column names                       | 50 characters per name |                             |
-| Tables in a sync group                                          | 500                    | Create multiple sync groups |
-| Columns in a table in a sync group                              | 1 000                   |                             |
-| Data row size on a table                                        | 24 Mb                  |                             |
-| Minimum sync interval                                           | 5 minuter              |                             |
+| Maximala antalet synkroniseringsgrupper alla databaser kan höra till.       | 5                      |                             |
+| Maximalt antal slutpunkter i en enda synkroniseringsgrupp              | 30                     |                             |
+| Maximalt antal lokala slutpunkter i en enda synkroniseringsgrupp. | 5                      | Skapa flera synkroniseringsgrupper |
+| Databas-, tabell-, schema-och kolumnnamn                       | 50 tecken per namn |                             |
+| Tabeller i en synkroniseringsgrupp                                          | 500                    | Skapa flera synkroniseringsgrupper |
+| Kolumner i en tabell i en synkroniseringsgrupp                              | 1000                   |                             |
+| Data Radstorleken på en tabell                                        | 24 mb                  |                             |
+| Minsta intervall                                           | 5 minuter              |                             |
 
 > [!NOTE]
-> There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
+> Det kan vara upp till 30 slutpunkter i en enda synkroniseringsgrupp om det finns endast en synkroniseringsgrupp. Om det finns fler än en synkroniseringsgrupp, får inte det totala antalet slutpunkter över alla synkroniseringsgrupper överskrida 30. Om en databas tillhör flera synkroniseringsgrupper, räknas det som flera slutpunkter kan inte en.
 
-## <a name="faq-about-sql-data-sync"></a>FAQ about SQL Data Sync
+## <a name="faq-about-sql-data-sync"></a>Vanliga frågor och svar om SQL Data Sync
 
-### <a name="how-much-does-the-sql-data-sync-service-cost"></a>How much does the SQL Data Sync service cost
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Hur mycket kostar SQL Data Sync tjänsten
 
-There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+Det kostar inget att själva SQL Data Sync själva tjänsten. Du kan dock fortfarande samla in data överförings avgifter för data förflyttning in och ut ur din SQL Database-instans. Mer information finns i [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
-### <a name="what-regions-support-data-sync"></a>What regions support Data Sync
+### <a name="what-regions-support-data-sync"></a>Vilka regioner stöder datasynkronisering
 
-SQL Data Sync is available in all regions.
+SQL Data Sync är tillgänglig i alla regioner.
 
-### <a name="is-a-sql-database-account-required"></a>Is a SQL Database account required
+### <a name="is-a-sql-database-account-required"></a>Är ett SQL Database konto obligatoriskt
 
-Ja. You must have a SQL Database account to host the Hub Database.
+Ja. Du måste ha ett konto för SQL-databas som värd för Hubbdatabasen.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Can I use Data Sync to sync between SQL Server on-premises databases only
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan jag endast använda datasynkronisering för att synkronisera mellan SQL Server lokala databaser
 
-Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
+Inte direkt. Du kan synkronisera mellan en lokal SQL Server-databaser indirekt, men genom att skapa en hubb-databasen i Azure och sedan lägga till lokala databaser i synkroniseringsgruppen.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Can I use Data Sync to sync between SQL Databases that belong to different subscriptions
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Kan jag använda Data Sync för att synkronisera mellan SQL-databaser som tillhör olika prenumerationer
 
-Ja. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
+Ja. Du kan synkronisera mellan SQL-databaser som hör till resursgrupper som ägs av olika prenumerationer.
 
-- If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
-- Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
+- Om prenumerationerna som tillhör samma klientorganisation och du har behörighet till alla prenumerationer, kan du konfigurera synkroniseringsgruppen i Azure-portalen.
+- Annars kan behöva du använda PowerShell för att lägga till synkroniseringsmedlemmar som tillhör olika prenumerationer.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Kan jag använda datasynkronisering för att synkronisera mellan SQL-databaser som tillhör olika moln (t. ex. Azures offentliga moln och Azure Kina 21Vianet)
 
-Ja. You can sync between SQL Databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
+Ja. Du kan synkronisera mellan SQL-databaser som tillhör olika moln måste du använda PowerShell för att lägga till synkroniseringsmedlemmar som tillhör olika prenumerationer.
 
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Can I use Data Sync to seed data from my production database to an empty database, and then sync them
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Kan jag använda datasynkronisering för att dirigera data från min produktions databas till en tom databas och sedan synkronisera dem
 
-Ja. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
+Ja. Skapa schemat manuellt i den nya databasen med hjälp av skript från ursprungligt. När du skapar schemat kan du lägga till tabeller till en synkroniseringsgrupp för att kopiera data och hålla den synkroniserad.
 
-### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Should I use SQL Data Sync to back up and restore my databases
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Bör jag använda SQL Data Sync för att säkerhetskopiera och återställa mina databaser
 
-It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations are not versioned. Furthermore, SQL Data Sync does not back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
+Vi rekommenderar inte att du använder SQL Data Sync för att skapa en säkerhets kopia av dina data. Du kan inte säkerhetskopiera och återställa till en viss tidpunkt eftersom SQL Data Sync-synkronisering inte är versions hantering. Dessutom säkerhetskopierar SQL Data Sync inte andra SQL-objekt, t. ex. lagrade procedurer, och utför inte motsvarigheten till en återställnings åtgärd snabbt.
 
-For one recommended backup technique, see [Copy an Azure SQL database](sql-database-copy.md).
+En rekommenderad säkerhets kopierings teknik finns i [Kopiera en Azure SQL-databas](sql-database-copy.md).
 
-### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Can Data Sync sync encrypted tables and columns
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Kan synkronisera krypterade tabeller och kolumner med datasynkronisering
 
-- If a database uses Always Encrypted, you can sync only the tables and columns that are *not* encrypted. You can't sync the encrypted columns, because Data Sync can't decrypt the data.
-- If a column uses Column-Level Encryption (CLE), you can sync the column, as long as the row size is less than the maximum size of 24 Mb. Data Sync treats the column encrypted by key (CLE) as normal binary data. To decrypt the data on other sync members, you need to have the same certificate.
+- Om en databas använder Always Encrypted kan du bara synkronisera de tabeller och kolumner som *inte* är krypterade. Du kan inte synkronisera krypterade kolumner eftersom datasynkronisering inte kan dekryptera data.
+- Om en kolumn använder på kolumnnivå kryptering (CLE), kan du synkronisera kolumnen så länge Radstorleken är mindre än den maximala storleken för 24 Mb. Datasynkronisering behandlar den kolumn som krypterats av nyckel (CLE) som normala binära data. Du måste ha samma certifikat för att dekryptera data på andra synkroniseringsmedlemmar.
 
-### <a name="is-collation-supported-in-sql-data-sync"></a>Is collation supported in SQL Data Sync
+### <a name="is-collation-supported-in-sql-data-sync"></a>Stöds sortering i SQL Data Sync
 
-Ja. SQL Data Sync supports collation in the following scenarios:
+Ja. SQL Data Sync har stöd för sorteringen i följande scenarier:
 
-- If the selected sync schema tables aren't already in your hub or member databases, then when you deploy the sync group, the service automatically creates the corresponding tables and columns with the collation settings selected in the empty destination databases.
-- If the tables to be synced already exist in both your hub and member databases, SQL Data Sync requires that the primary key columns have the same collation between hub and member databases to successfully deploy the sync group. There are no collation restrictions on columns other than the primary key columns.
+- Om de valda synkroniseringsschemat inte redan finns i din hubb eller medlems databaser, skapar tjänsten automatiskt motsvarande tabeller och kolumner med sorterings inställningarna markerade i de tomma mål databaserna när du distribuerar synkroniseringsresursen.
+- Om tabeller att synkronisera redan finns i både din hubb och medlemmen databaser, kräver SQL Data Sync att primärnyckelkolumnerna har samma sortering mellan hub och medlemmen databaser ska kunna distribuera synkroniseringsgruppen. Det finns inga begränsningar för sortering på kolumner utom primärnyckelkolumnerna.
 
-### <a name="is-federation-supported-in-sql-data-sync"></a>Is federation supported in SQL Data Sync
+### <a name="is-federation-supported-in-sql-data-sync"></a>Stöds Federation i SQL Data Sync
 
-Federation Root Database can be used in the SQL Data Sync Service without any limitation. You can't add the Federated Database endpoint to the current version of SQL Data Sync.
+Federationsrotdatabas kan användas i SQL Data Sync-tjänsten utan någon begränsning. Du kan inte lägga till den federerade databas slut punkten till den aktuella versionen av SQL Data Sync.
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="update-the-schema-of-a-synced-database"></a>Update the schema of a synced database
+### <a name="update-the-schema-of-a-synced-database"></a>Uppdatera schemat för en synkroniserad databas
 
-Do you have to update the schema of a database in a sync group? Schema changes aren't automatically replicated. For some solutions, see the following articles:
+Behöver du uppdatera schemat för en databas i en synkroniseringsgrupp? Schema ändringar replikeras inte automatiskt. Vissa lösningar finns i följande artiklar:
 
-- [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
-- [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)
+- [Automatisera replikeringen av schema ändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)
+- [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig Sync-grupp](scripts/sql-database-sync-update-schema.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
 
-Is SQL Data Sync doing as expected? To monitor activity and troubleshoot issues, see the following articles:
+Är SQL Data Sync att göra som det ska? Om du vill övervaka och felsöka problem, finns i följande artiklar:
 
-- [Monitor Azure SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
+- [Övervaka Azure-SQL Data Sync med Azure Monitor loggar](sql-database-sync-monitor-oms.md)
 - [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Läs mer om Azure SQL Database
 
-For more info about SQL Database, see the following articles:
+Mer information om SQL Database finns i följande artiklar:
 
 - [Översikt över SQL Database](sql-database-technical-overview.md)
 - [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)

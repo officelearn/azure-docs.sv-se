@@ -1,6 +1,6 @@
 ---
-title: Guidance for developing Azure Functions
-description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
+title: Vägledning för att utveckla Azure Functions
+description: Lär dig Azure Functions koncept och tekniker som du behöver för att utveckla funktioner i Azure, i alla programmeringsspråk och bindningar.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
@@ -11,15 +11,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226664"
 ---
-# <a name="azure-functions-developers-guide"></a>Azure Functions developers guide
-In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
+# <a name="azure-functions-developers-guide"></a>Guide för Azure Functions utvecklare
+I Azure Functions delar specifika funktioner några viktiga tekniska koncept och komponenter, oavsett vilket språk eller vilken bindning du använder. Innan du hoppar till inlärnings information som är specifik för ett specifikt språk eller en bindning bör du läsa igenom den här översikten som gäller för alla.
 
-This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
+Den här artikeln förutsätter att du redan har läst [Översikt över Azure Functions](functions-overview.md).
 
-## <a name="function-code"></a>Function code
-A *function* is the primary concept in Azure Functions. A function contains two important pieces - your code, which can be written in a variety of languages, and some config, the function.json file. For compiled languages, this config file is generated automatically from annotations in your code. For scripting languages, you must provide the config file yourself.
+## <a name="function-code"></a>Funktions kod
+En *funktion* är det primära konceptet i Azure Functions. En funktion innehåller två viktiga delar – din kod, som kan skrivas på en rad olika språk och vissa config, function. JSON-filen. För kompilerade språk genereras den här konfigurations filen automatiskt från anteckningar i din kod. För skript språk måste du ange konfigurations filen själv.
 
-The function.json file defines the function's trigger, bindings, and other configuration settings. Every function has one and only one trigger. The runtime uses this config file to determine the events to monitor and how to pass data into and return data from a function execution. The following is an example function.json file.
+Function. JSON-filen definierar funktionens utlösare, bindningar och andra konfigurations inställningar. Varje funktion har en och endast en utlösare. Körningen använder den här konfigurations filen för att bestämma vilka händelser som ska övervakas och hur data ska skickas till och returnera data från en funktions körning. Följande är en exempel funktion. JSON-fil.
 
 ```json
 {
@@ -36,70 +36,70 @@ The function.json file defines the function's trigger, bindings, and other confi
 }
 ```
 
-For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
-The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings which are specific to a particular type of binding. Every binding requires the following settings:
+Egenskapen `bindings` är den plats där du konfigurerar både utlösare och bindningar. Varje bindning delar några vanliga inställningar och vissa inställningar som är specifika för en viss typ av bindning. Varje bindning kräver följande inställningar:
 
-| Egenskap | Values/Types | Kommentarer |
+| Egenskap | Värden/typer | Kommentarer |
 | --- | --- | --- |
-| `type` |sträng |Binding type. Till exempel `queueTrigger`. |
-| `direction` |'in', 'out' |Indicates whether the binding is for receiving data into the function or sending data from the function. |
-| `name` |sträng |The name that is used for the bound data in the function. For C#, this is an argument name; for JavaScript, it's the key in a key/value list. |
+| `type` |sträng |Bindnings typ. Till exempel `queueTrigger`. |
+| `direction` |in, out |Anger om bindningen avser att ta emot data i funktionen eller skicka data från funktionen. |
+| `name` |sträng |Namnet som används för de data som är kopplade till funktionen. För C#, är detta ett argument namn. för Java Script är det nyckeln i en nyckel/värde-lista. |
 
 ## <a name="function-app"></a>Funktionsapp
-A function app provides an execution context in Azure in which your functions run. As such, it is the unit of deployment and management for your functions. A function app is comprised of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Think of a function app as a way to organize and collectively manage your functions. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
+En Function-app tillhandahåller en körnings kontext i Azure där dina funktioner körs. Därför är det enheten för distribution och hantering av dina funktioner. En Function-app består av en eller flera enskilda funktioner som hanteras, distribueras och skalas tillsammans. Alla funktioner i en Function-app delar samma pris plan, distributions metod och körnings version. Tänk på en Function-app som ett sätt att ordna och hantera dina funktioner gemensamt. Mer information finns i [hantera en Function-app](functions-how-to-use-azure-function-app-settings.md). 
 
 > [!NOTE]
-> All functions in a function app must be authored in the same language. In [previous versions](functions-versions.md) of the Azure Functions runtime, this wasn't required.
+> Alla funktioner i en Function-app måste ha skapats på samma språk. I [tidigare versioner](functions-versions.md) av Azure Functions runtime krävdes detta inte.
 
-## <a name="folder-structure"></a>Folder structure
+## <a name="folder-structure"></a>Mappstruktur
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-The above is the default (and recommended) folder structure for a Function app. If you wish to change the file location of a function's code, modify the `scriptFile` section of the _function.json_ file. We also recommend using [package deployment](deployment-zip-push.md) to deploy your project to your function app in Azure. You can also use existing tools like [continuous integration and deployment](functions-continuous-deployment.md) and Azure DevOps.
+Ovanstående är standard mappstrukturen för en Function-app. Om du vill ändra sökvägen till en funktions kod ändrar du avsnittet `scriptFile` i filen _Function. JSON_ . Vi rekommenderar också att du använder [paket distribution](deployment-zip-push.md) för att distribuera ditt projekt till Function-appen i Azure. Du kan också använda befintliga verktyg som [kontinuerlig integrering och distribution](functions-continuous-deployment.md) och Azure-DevOps.
 
 > [!NOTE]
-> If deploying a package manually, make sure to deploy your _host.json_ file and function folders directly to the `wwwroot` folder. Do not include the `wwwroot` folder in your deployments. Otherwise, you end up with `wwwroot\wwwroot` folders.
+> Om du distribuerar ett paket manuellt ska du se till att distribuera din _Host. JSON_ -fil och Function-mappar direkt till mappen `wwwroot`. Ta inte med `wwwroot`-mappen i dina distributioner. Annars slutar du med `wwwroot\wwwroot` mappar.
 
-#### <a name="use-local-tools-and-publishing"></a>Use local tools and publishing
-Function apps can be authored and published using a variety of tools, including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and the [Azure Functions Core Tools](./functions-develop-local.md). For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
+#### <a name="use-local-tools-and-publishing"></a>Använd lokala verktyg och publicera
+Function-appar kan skapas och publiceras med en rad olika verktyg, inklusive [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Sol förmörkelse](./functions-create-maven-eclipse.md)och [Azure Functions Core tools](./functions-develop-local.md). Mer information finns i [kod-och test Azure Functions lokalt](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-## <a id="fileupdate"></a> How to edit functions in the Azure portal
-The Functions editor built into the Azure portal lets you update your code and your *function.json* file directly inline. This is recommended only for small changes or proofs of concept - best practice is to use a local development tool like VS Code.
+## <a id="fileupdate"></a>Redigera funktioner i Azure Portal
+Med funktions redigeraren som är inbyggd i Azure Portal kan du uppdatera koden och din *Function. JSON* -fil direkt. Detta rekommenderas endast för små ändringar eller koncept bevis – bästa praxis är att använda ett lokalt utvecklingsverktyg som VS Code.
 
-## <a name="parallel-execution"></a>Parallel execution
-When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Consumption hosting plan](functions-scale.md#how-the-consumption-and-premium-plans-work), the function app could scale out automatically.  Each instance of the function app, whether the app runs on the Consumption hosting plan or a regular [App Service hosting plan](../app-service/overview-hosting-plans.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the type of trigger being used as well as the resources used by other functions within the function app.
+## <a name="parallel-execution"></a>Parallell körning
+När flera Utlös ande händelser inträffar snabbare än en process med en enkel tråds funktion kan körningen köra funktionen flera gånger parallellt.  Om en Function-app använder [förbruknings värd planen](functions-scale.md#how-the-consumption-and-premium-plans-work)kan Function-appen skala ut automatiskt.  Varje instans av Function-appen, oavsett om appen körs på förbruknings värd planen eller en vanlig [App Service värd plan](../app-service/overview-hosting-plans.md), kan bearbeta samtidiga funktions anrop parallellt med flera trådar.  Det maximala antalet samtidiga funktions anrop i varje Function-serverinstans varierar beroende på vilken typ av utlösare som används och vilka resurser som används av andra funktioner i Function-appen.
 
-## <a name="functions-runtime-versioning"></a>Functions runtime versioning
+## <a name="functions-runtime-versioning"></a>Functions runtime-versioner
 
-You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~2" indicates that your Function App will use 2.x as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+Du kan konfigurera versionen av Functions-körningen med hjälp av inställningen `FUNCTIONS_EXTENSION_VERSION` app. Värdet "~ 2" anger till exempel att Funktionsapp ska använda 2. x som huvud version. Function-appar uppgraderas till varje ny del version när de släpps. Mer information, inklusive hur du visar den exakta versionen av din Function-app finns i [så här riktar du Azure Functions runtime-versioner](set-runtime-version.md).
 
 ## <a name="repositories"></a>Centrallager
-The code for Azure Functions is open source and stored in GitHub repositories:
+Koden för Azure Functions är öppen källkod och lagras i GitHub-databaser:
 
 * [Azure Functions](https://github.com/Azure/Azure-Functions)
-* [Azure Functions host](https://github.com/Azure/azure-functions-host/)
-* [Azure Functions portal](https://github.com/azure/azure-functions-ux)
-* [Azure Functions templates](https://github.com/azure/azure-functions-templates)
+* [Azure Functions värd](https://github.com/Azure/azure-functions-host/)
+* [Azure Functions Portal](https://github.com/azure/azure-functions-ux)
+* [Azure Functions mallar](https://github.com/azure/azure-functions-templates)
 * [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
-* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [Azure WebJobs SDK-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Bindningar
-Here is a table of all supported bindings.
+Här är en tabell med alla bindningar som stöds.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-Having issues with errors coming from the bindings? Review the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
+Har du problem med fel som kommer från bindningarna? Läs dokumentationen om [Azure Functions bindnings fel koder](functions-bindings-error-pages.md) .
 
-## <a name="reporting-issues"></a>Reporting Issues
+## <a name="reporting-issues"></a>Rapporterings problem
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:
 
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)
 * [Koda och testa Azure Functions lokalt](./functions-develop-local.md)
 * [Metodtips för Azure Functions](functions-best-practices.md)
-* [Azure Functions C# developer reference](functions-dotnet-class-library.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
+* [Referens C# för Azure Functions-utvecklare](functions-dotnet-class-library.md)
+* [Azure Functions NodeJS Developer reference](functions-reference-node.md)

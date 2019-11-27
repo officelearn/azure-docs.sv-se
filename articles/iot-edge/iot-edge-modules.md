@@ -1,6 +1,6 @@
 ---
-title: Learn how modules run logic on your devices - Azure IoT Edge | Microsoft Docs
-description: Azure IoT Edge modules are containerized units of logic that can be deployed and managed remotely so that you can run business logic on IoT Edge devices
+title: Lär dig hur moduler köras logik på dina enheter – Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge-moduler är behållare enheter som kan distribueras och hanteras via fjärranslutning så att du kan köra affärslogik på IoT Edge enheter
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -17,43 +17,43 @@ ms.locfileid: "74456580"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT Edge-moduler
 
-Azure IoT Edge lets you deploy and manage business logic on the edge in the form of *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained, it helps to think of the four conceptual elements of a module:
+Med Azure IoT Edge kan du distribuera och hantera affärs logik på kanten i form av *moduler*. Azure IoT Edge-moduler är den minsta beräkningsenhet hanteras av IoT Edge och kan innehålla Azure-tjänster (till exempel Azure Stream Analytics) eller din egen Lösningsspecifika kod. För att förstå hur moduler utvecklas, distribueras och underhålls, är det bra att tänka på de fyra koncept elementen i en modul:
 
-* A **module image** is a package containing the software that defines a module.
-* A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime.
-* A **module identity** is a piece of information (including security credentials) stored in IoT Hub, that is associated to each module instance.
-* A **module twin** is a JSON document stored in IoT Hub, that contains state information for a module instance, including metadata, configurations, and conditions. 
+* En **modul avbildning** är ett paket som innehåller den program vara som definierar en modul.
+* En **modul instans** är den enhet av beräkning som kör-modulens avbildning på en IoT Edge enhet. Modul-instansen har startats med IoT Edge-körningen.
+* En **modul identitet** är en del av informationen (inklusive säkerhets referenser) som lagras i IoT Hub, som är kopplad till varje instans i modulen.
+* En **modul med dubbla** är ett JSON-dokument som lagras i IoT Hub, som innehåller Tillståndsinformation för en modulreferens, inklusive metadata, konfigurationer och villkor. 
 
-## <a name="module-images-and-instances"></a>Module images and instances
+## <a name="module-images-and-instances"></a>Modulen avbildningar och instanser
 
-IoT Edge module images contain applications that take advantage of the management, security, and communication features of the IoT Edge runtime. You can develop your own module images, or export one from a supported Azure service, such as Azure Stream Analytics.
-The images exist in the cloud and they can be updated, changed, and deployed in different solutions. For instance, a module that uses machine learning to predict production line output exists as a separate image than a module that uses computer vision to control a drone. 
+IoT Edge-modulen avbildningar innehåller program som drar nytta av hantering, säkerhet och kommunikation funktionerna i IoT Edge-körningen. Du kan utveckla dina egna avbildningar för modulen eller exportera en från en stöds Azure-tjänst, till exempel Azure Stream Analytics.
+Bilderna finns i molnet och de kan uppdateras, ändras och distribueras i olika lösningar. Exempelvis kan finns en modul som använder maskininlärning att förutsäga produktionslinje utdata som en separat bild än en modul som används för visuellt innehåll för att styra en drönare. 
 
-Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. Two devices in different parts of the world could use the same module image. However, each device would have its own module instance when the module is started on the device. 
+Varje gång en avbildning av en modul har distribuerats till en enhet och startas av IoT Edge-körningen skapas en ny instans av modulen. Två enheter i olika delar av världen kan använda samma modul-avbildning. Varje enhet skulle dock ha sin egen modul-instans när modulen startas på enheten. 
 
-![Diagram - Module images in cloud, module instances on devices](./media/iot-edge-modules/image_instance.png)
+![Diagram - modulen bilder i molnet, modulen instanser på enheter](./media/iot-edge-modules/image_instance.png)
 
-In implementation, modules images exist as container images in a repository, and module instances are containers on devices. 
+Moduler bilder finns som behållaravbildningar i en databas i implementering och modulen instanser är behållare på enheter. 
 
 <!--
 As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
 -->
 
-## <a name="module-identities"></a>Module identities
+## <a name="module-identities"></a>Modulen identiteter
 
-When a new module instance is created by the IoT Edge runtime, the instance is associated with a corresponding module identity. The module identity is stored in IoT Hub, and is employed as the addressing and security scope for all local and cloud communications for that specific module instance.
+När en ny modulinstans skapas av IoT Edge-körningen, är instansen associerad med en motsvarande modul-identitet. Modulen identiteten lagras i IoT Hub och används som omfång för adressering och säkerhet för alla lokala och molnet kommunikation för den specifika modul-instansen.
 
-The identity associated with a module instance depends on the identity of the device on which the instance is running and the name you provide to that module in your solution. For instance, if you call `insight` a module that uses an Azure Stream Analytics, and you deploy it on a device called `Hannover01`, the IoT Edge runtime creates a corresponding module identity called `/devices/Hannover01/modules/insight`.
+Identiteten som är associerade med en modulinstans beror på identiteten för enheten på-instansen körs vilket namn som du tillhandahåller denna modul i din lösning. Om du till exempel anropar `insight` en modul som använder en Azure Stream Analytics och distribuerar den på en enhet som kallas `Hannover01`, skapar IoT Edge runtime en motsvarande modul-ID som kallas `/devices/Hannover01/modules/insight`.
 
-Clearly, in scenarios when you need to deploy one module image multiple times on the same device, you can deploy the same image multiple times with different names.
+Uppenbarligen i scenarier kan när du behöver distribuera en modul bild flera gånger på samma enhet, du distribuera samma avbildning flera gånger med olika namn.
 
-![Diagram - Module identities are unique within devices and across devices](./media/iot-edge-modules/identity.png)
+![Diagram - modulen identiteter är unika inom enheter och mellan enheter](./media/iot-edge-modules/identity.png)
 
-## <a name="module-twins"></a>Module twins
+## <a name="module-twins"></a>Modultvillingar
 
-Each module instance also has a corresponding module twin that you can use to configure the module instance. The instance and the twin are associated with each other through the module identity. 
+Varje modulinstans har också en motsvarande modultvilling som du kan använda för att konfigurera modulinstans. Instansen och läsningen är associerade med varandra via modulen identiteten. 
 
-A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) concept from IoT Hub. The structure of a module twin is the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
+En modultvilling är ett JSON-dokument som lagrar egenskaper för information och konfiguration av modulen. Det här konceptet parallellt av [enhetens dubbla](../iot-hub/iot-hub-devguide-device-twins.md) koncept från IoT Hub. Strukturen i en modul är på samma sätt som en enhet, med dubbla. API: er som används för att interagera med båda typerna av twins är också desamma. Den enda skillnaden mellan två är den identitet som används för att skapa en instans av klient-SDK. 
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a 
@@ -68,9 +68,9 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Offlinefunktioner
 
-Azure IoT Edge modules can operate offline indefinitely after syncing with IoT Hub at least once. IoT Edge devices can also extend this offline capability to other IoT devices. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
+Azure IoT Edge moduler kan köras offline i oändlighet efter synkronisering med IoT Hub minst en gång. IoT Edge-enheter kan också utöka den här offline-funktionen till andra IoT-enheter. Mer information finns i [förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Nästa steg
- - [Understand the requirements and tools for developing IoT Edge modules](module-development.md)
- - [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md)
+ - [Förstå kraven och verktygen för att utveckla IoT Edge moduler](module-development.md)
+ - [Förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md)
 

@@ -301,7 +301,7 @@ Här är ett exempel som visar hur du extraherar enskilda IDOCs från ett paket 
 
 1. Innan du börjar måste du ha en Logic-app med en SAP-utlösare. Om du inte redan har den här Logic-appen följer du de föregående stegen i det här avsnittet för att [Konfigurera en Logic app med en SAP-utlösare](#receive-from-sap).
 
-   Exempel:
+   Till exempel:
 
    ![Lägg till SAP-utlösare i Logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 

@@ -12,7 +12,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230846"
 ---
-# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Quickstart: Create your first function from the command line using Azure CLI
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Snabb start: skapa din första funktion från kommando raden med hjälp av Azure CLI
 
 I den här snabbstarten får du hjälp med att skapa din första funktion från kommandoraden eller terminalen. Du kan använda Azure CLI till att skapa en funktionsapp, som är den [serverfria](https://azure.microsoft.com/solutions/serverless/) infrastruktur som är värd för funktionen. Funktionskodprojektet genereras från en mall med hjälp av [Azure Functions Core Tools](functions-run-local.md) som också används för att distribuera funktionsapprojektet till Azure.
 
@@ -22,9 +22,9 @@ Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator.
 
 Innan du kör exemplet måste du ha följande:
 
-+ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
++ Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare.
 
-+ Installera [Azure CLI](/cli/azure/install-azure-cli). This     article requires the Azure CLI version 2.0 or later. Kör `az --version` för att se vilken version du har. Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
++ Installera [Azure CLI](/cli/azure/install-azure-cli). Den här artikeln kräver Azure CLI version 2,0 eller senare. Kör `az --version` för att se vilken version du har. Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + En aktiv Azure-prenumeration.
 
@@ -32,7 +32,7 @@ Innan du kör exemplet måste du ha följande:
 
 [!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-## <a name="enable-extension-bundles"></a>Enable extension bundles
+## <a name="enable-extension-bundles"></a>Aktivera tilläggs paket
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Mobile Apps bindings for Azure Functions
-description: Understand how to use Azure Mobile Apps bindings in Azure Functions.
+title: Mobile Apps bindningar för Azure Functions
+description: Lär dig hur du använder Azure Mobile Apps-bindningar i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
@@ -12,39 +12,39 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231117"
 ---
-# <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindings for Azure Functions 
+# <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindningar för Azure Functions 
 
 > [!NOTE]
-> Azure Mobile Apps bindings are only available to Azure Functions 1.x. They are not supported in Azure Functions 2.x.
+> Azure Mobile Apps-bindningar är bara tillgängliga för Azure Functions 1. x. De stöds inte i Azure Functions 2. x.
 
-This article explains how to work with [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
+Den här artikeln förklarar hur du arbetar med [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) -bindningar i Azure Functions. Azure Functions stöder bindningar för indata och utdata för Mobile Apps.
 
-The Mobile Apps bindings let you read and update data tables in mobile apps.
+Med Mobile Apps bindningar kan du läsa och uppdatera data tabeller i mobilappar.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Packages - Functions 1.x
+## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub repository.
+Mobile Apps-bindningar finns i [Microsoft. Azure. WebJobs. Extensions. MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-paketet, version 1. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Indata
 
-The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function. In C# and F# functions, any changes made to the record are automatically sent back to the table when the function exits successfully.
+Mobile Apps-indata-bindningen läser in en post från en Mobile Table-slutpunkt och skickar den till din funktion. I C# och F# -funktioner skickas alla ändringar som görs i posten automatiskt tillbaka till tabellen när funktionen avslutas.
 
-## <a name="input---example"></a>Input - example
+## <a name="input---example"></a>Indatamängds exempel
 
-See the language-specific example:
+Se exempel språkspecifika:
 
-* [C# script (.csx)](#input---c-script-example)
+* [C#skript (. CSX)](#input---c-script-example)
 * JavaScript
 
-### <a name="input---c-script-example"></a>Input - C# script example
+### <a name="input---c-script-example"></a>Exempel på C# indatamängds skript
 
-The following example shows a Mobile Apps input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
+I följande exempel visas en Mobile Apps-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen utlöses av ett köat meddelande som har en post-ID. Funktionen läser den angivna posten och ändrar dess `Text`-egenskap.
 
-Here's the binding data in the *function.json* file:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -68,9 +68,9 @@ Here's the binding data in the *function.json* file:
 ]
 }
 ```
-The [configuration](#input---configuration) section explains these properties.
+I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
 
-Here's the C# script code:
+Här är C#-skriptkoden:
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -85,11 +85,11 @@ public static void Run(string myQueueItem, JObject record)
 }
 ```
 
-### <a name="input---javascript"></a>Input - JavaScript
+### <a name="input---javascript"></a>Inmatade Java Script
 
-The following example shows a Mobile Apps input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
+I följande exempel visas en Mobile Apps-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen utlöses av ett köat meddelande som har en post-ID. Funktionen läser den angivna posten och ändrar dess `Text`-egenskap.
 
-Here's the binding data in the *function.json* file:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -113,9 +113,9 @@ Here's the binding data in the *function.json* file:
 ]
 }
 ```
-The [configuration](#input---configuration) section explains these properties.
+I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
 
-Here's the JavaScript code:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = function (context, myQueueItem) {    
@@ -124,54 +124,54 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes"></a>Input - attributes
+## <a name="input---attributes"></a>Indata - attribut
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
+Använd attributet [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-For information about attribute properties that you can configure, see [the following configuration section](#input---configuration).
+Information om vilka egenskaper för attribut som du kan konfigurera finns i [följande konfigurations avsnitt](#input---configuration).
 
-## <a name="input---configuration"></a>Input - configuration
+## <a name="input---configuration"></a>Indata - konfiguration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `MobileTable` attribute.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `MobileTable`-attributet.
 
-|function.json property | Attribute property |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-| **typ**|| Must be set to "mobileTable"|
-| **riktning**||Must be set to "in"|
-| **name**|| Name of input parameter in function signature.|
-|**tableName** |**TableName**|Name of the mobile app's data table|
-| **id**| **Id** | The identifier of the record to retrieve. Can be static or based on the trigger that invokes the function. For example, if you use a queue trigger for your function, then `"id": "{queueTrigger}"` uses the string value of the queue message as the record ID to retrieve.|
-|**connection**|**Anslutning**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKey**|The name of an app setting that has your mobile app's API key. Provide the API key if you [implement an API key in your Node.js mobile app](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), or [implement an API key in your .NET mobile app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
+| **typ**|| Måste anges till "mobileTable"|
+| **riktning**||Måste anges till "i"|
+| **Namn**|| Namnet på Indataparametern i Function-signaturen.|
+|**tableName** |**TableName**|Namn på den mobila appens data tabell|
+| **identitet**| **Id** | Identifieraren för den post som ska hämtas. Kan vara statisk eller baserad på den utlösare som anropar funktionen. Om du till exempel använder en Queue-utlösare för din funktion använder `"id": "{queueTrigger}"` strängvärdet i Queue-meddelandet som post-ID för hämtning.|
+|**anslutningen**|**Anslutning**|Namnet på en app-inställning som har appens URL för mobilapp. Funktionen använder denna URL för att skapa nödvändiga REST-åtgärder mot mobilappen. Skapa en app-inställning i din Function-app som innehåller webbappens URL och ange sedan namnet på appens inställning i `connection`-egenskapen i den angivna bindningen. URL: en ser ut som `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKey**|Namnet på en app-inställning som har din Mobilapps API-nyckel. Ange API-nyckeln om du [implementerar en API-nyckel i Node. js-mobilappen](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)eller [implementerar en API-nyckel i din .net-mobilapp](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Om du vill ange nyckeln skapar du en app-inställning i din Function-app som innehåller API-nyckeln och lägger sedan till egenskapen `apiKey` i din indatamask med namnet på appens inställning. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Don't share the API key with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. Azure Functions stores your connection information and API keys as app settings so that they are not checked into your source control repository. This safeguards your sensitive information.
+> Dela inte API-nyckeln med dina mobilappar. Den bör endast distribueras säkert till klienter på klient sidan, t. ex. Azure Functions. Azure Functions lagrar anslutnings information och API-nycklar som appinställningar så att de inte checkas in i lagrings platsen för käll kontroll. Detta skyddar känslig information.
 
-## <a name="input---usage"></a>Input - usage
+## <a name="input---usage"></a>Indata - användning
 
-In C# functions, when the record with the specified ID is found, it is passed into the named [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter. When the record is not found, the parameter value is `null`. 
+I C# functions, när posten med det angivna ID: t hittas, skickas den till den namngivna [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) -parametern. När posten inte hittas är parametervärdet `null`. 
 
-In JavaScript functions, the record is passed into the `context.bindings.<name>` object. When the record is not found, the parameter value is `null`. 
+I JavaScript-funktioner skickas posten till `context.bindings.<name>`-objektet. När posten inte hittas är parametervärdet `null`. 
 
-In C# and F# functions, any changes you make to the input record (input parameter) are automatically sent back to the table when the function exits successfully. You can't modify a record in JavaScript functions.
+I C# och F# -funktioner skickas alla ändringar som du gör i Indataposten (indataparameter) automatiskt tillbaka till tabellen när funktionen avslutas. Du kan inte ändra en post i JavaScript-funktioner.
 
 ## <a name="output"></a>Resultat
 
-Use the Mobile Apps output binding to write a new record to a Mobile Apps table.  
+Använd Mobile Apps utgående bindning för att skriva en ny post i en Mobile Apps tabell.  
 
-## <a name="output---example"></a>Output - example
+## <a name="output---example"></a>Utdata - exempel
 
-See the language-specific example:
+Se exempel språkspecifika:
 
 * [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
+* [C#skript (. CSX)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
-### <a name="output---c-example"></a>Output - C# example
+### <a name="output---c-example"></a>Resultat – C#-exempel
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that is triggered by a queue message and creates a record in a mobile app table.
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som utlöses av ett köat meddelande och skapar en post i en mobilapp-tabell.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -184,11 +184,11 @@ public static object Run(
 }
 ```
 
-### <a name="output---c-script-example"></a>Output - C# script example
+### <a name="output---c-script-example"></a>Resultat – exempel på C#-skript
 
-The following example shows a Mobile Apps output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
+I följande exempel visas en Mobile Apps utgående bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen utlöses av ett köat meddelande och skapar en ny post med hårdkodat värde för egenskapen `Text`.
 
-Here's the binding data in the *function.json* file:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -212,9 +212,9 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The [configuration](#output---configuration) section explains these properties.
+I [konfigurations](#output---configuration) avsnittet förklaras dessa egenskaper.
 
-Here's the C# script code:
+Här är C#-skriptkoden:
 
 ```cs
 public static void Run(string myQueueItem, out object record)
@@ -225,11 +225,11 @@ public static void Run(string myQueueItem, out object record)
 }
 ```
 
-### <a name="output---javascript-example"></a>Output - JavaScript example
+### <a name="output---javascript-example"></a>Resultat – JavaScript-exempel
 
-The following example shows a Mobile Apps output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
+I följande exempel visas en Mobile Apps utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen utlöses av ett köat meddelande och skapar en ny post med hårdkodat värde för egenskapen `Text`.
 
-Here's the binding data in the *function.json* file:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -254,9 +254,9 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The [configuration](#output---configuration) section explains these properties.
+I [konfigurations](#output---configuration) avsnittet förklaras dessa egenskaper.
 
-Here's the JavaScript code:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -269,11 +269,11 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="output---attributes"></a>Output - attributes
+## <a name="output---attributes"></a>Utdata - attribut
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
+Använd attributet [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-For information about attribute properties that you can configure, see [Output - configuration](#output---configuration). Here's a `MobileTable` attribute example in a method signature:
+Information om vilka egenskaper för attribut som du kan konfigurera finns i [utdata-Configuration](#output---configuration). Här är ett exempel på ett `MobileTable`-attribut i en metodsignatur:
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -286,37 +286,37 @@ public static object Run(
 }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+Ett fullständigt exempel finns i [utdata- C# exempel](#output---c-example).
 
-## <a name="output---configuration"></a>Output - configuration
+## <a name="output---configuration"></a>Utdata - konfiguration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `MobileTable` attribute.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `MobileTable`-attributet.
 
-|function.json property | Attribute property |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-| **typ**|| Must be set to "mobileTable"|
-| **riktning**||Must be set to "out"|
-| **name**|| Name of output parameter in function signature.|
-|**tableName** |**TableName**|Name of the mobile app's data table|
-|**connection**|**MobileAppUriSetting**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKeySetting**|The name of an app setting that has your mobile app's API key. Provide the API key if you [implement an API key in your Node.js mobile app backend](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
+| **typ**|| Måste anges till "mobileTable"|
+| **riktning**||Måste anges till "out"|
+| **Namn**|| Namnet på Utdataparametern i Function Signature.|
+|**tableName** |**TableName**|Namn på den mobila appens data tabell|
+|**anslutningen**|**MobileAppUriSetting**|Namnet på en app-inställning som har appens URL för mobilapp. Funktionen använder denna URL för att skapa nödvändiga REST-åtgärder mot mobilappen. Skapa en app-inställning i din Function-app som innehåller webbappens URL och ange sedan namnet på appens inställning i `connection`-egenskapen i den angivna bindningen. URL: en ser ut som `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKeySetting**|Namnet på en app-inställning som har din Mobilapps API-nyckel. Ange API-nyckeln om du [implementerar en API-nyckel i Node. js-appen för mobilapp](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)eller [implementerar en API-nyckel i Server delen för .net-mobilappar](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Om du vill ange nyckeln skapar du en app-inställning i din Function-app som innehåller API-nyckeln och lägger sedan till egenskapen `apiKey` i din indatamask med namnet på appens inställning. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Don't share the API key with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. Azure Functions stores your connection information and API keys as app settings so that they are not checked into your source control repository. This safeguards your sensitive information.
+> Dela inte API-nyckeln med dina mobilappar. Den bör endast distribueras säkert till klienter på klient sidan, t. ex. Azure Functions. Azure Functions lagrar anslutnings information och API-nycklar som appinställningar så att de inte checkas in i lagrings platsen för käll kontroll. Detta skyddar känslig information.
 
-## <a name="output---usage"></a>Output - usage
+## <a name="output---usage"></a>Utdata - användning
 
-In C# script functions, use a named output parameter of type `out object` to access the output record. In C# class libraries, the `MobileTable` attribute can be used with any of the following types:
+I C# skript funktioner använder du en namngiven utdataparameter av typen `out object` för att få åtkomst till den utgående posten. I C# klass bibliotek kan `MobileTable`-attributet användas med någon av följande typer:
 
-* `ICollector<T>` or `IAsyncCollector<T>`, where `T` is either `JObject` or any type with a `public string Id` property.
+* `ICollector<T>` eller `IAsyncCollector<T>`där `T` antingen är `JObject` eller någon typ med en `public string Id`-egenskap.
 * `out JObject`
-* `out T` or `out T[]`, where `T` is any Type with a `public string Id` property.
+* `out T` eller `out T[]`där `T` är av valfri typ med en `public string Id`-egenskap.
 
-In Node.js functions, use `context.bindings.<name>` to access the output record.
+Använd `context.bindings.<name>` för att komma åt output-posten i Node. js-funktioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)

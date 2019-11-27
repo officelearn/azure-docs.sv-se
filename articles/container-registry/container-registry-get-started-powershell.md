@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create registry - Powershell
-description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
+title: Snabb start – skapa register – PowerShell
+description: Lär dig snabbt att skapa ett privat Docker-register i Azure Container Registry med PowerShell
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456368"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Quickstart: Create a private container registry using Azure PowerShell
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure PowerShell
 
 Azure Container Registry är en hanterad Docker-behållarregistertjänst för att bygga, lagra och hantera Docker-behållaravbildningar. I denna snabbstart kommer du att lära dig hur du skapar ett Azure-containerregister med hjälp av PowerShell. Använd sedan Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör slutligen avbildningen från registret.
 
@@ -21,13 +21,13 @@ Azure Container Registry är en hanterad Docker-behållarregistertjänst för at
 
 Den här snabbstarten kräver Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att avgöra installerad version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
 
-Du måste också ha Docker installerat lokalt. Docker provides packages for [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux] systems.
+Du måste också ha Docker installerat lokalt. Docker innehåller paket för [MacOS][docker-mac]-, [Windows][docker-windows]-och [Linux][docker-linux] -system.
 
 Eftersom Azure Cloud Shell inte innehåller alla nödvändiga Docker-komponenter (`dockerd`-daemon), kan du inte använda Cloud Shell för denna snabbstart.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Sign in to your Azure subscription with the [Connect-AzAccount][Connect-AzAccount] command, and follow the on-screen directions.
+Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount][Connect-AzAccount] och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzAccount
@@ -35,7 +35,7 @@ Connect-AzAccount
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Once you're authenticated with Azure, create a resource group with [New-AzResourceGroup][New-AzResourceGroup]. En resursgrupp är en logisk container där du kan distribuera och hantera dina Azure-resurser.
+När du har autentiserats med Azure skapar du en resurs grupp med [New-AzResourceGroup][New-AzResourceGroup]. En resursgrupp är en logisk container där du kan distribuera och hantera dina Azure-resurser.
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-container-registry"></a>Skapa containerregister
 
-Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
+Skapa sedan ett behållar register i din nya resurs grupp med kommandot [New-AzContainerRegistry][New-AzContainerRegistry] .
 
 Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I följande exempel skapas ett register med namnet ”myContainerRegistry007”. Ersätt *myContainerRegistry007* i följande kommando innan du kör det för att skapa registernyckeln:
 
@@ -51,17 +51,17 @@ Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tec
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer finns i [SKU: er för container Registry][container-registry-skus].
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar containeravbildningar måste du logga in i ditt register. In production scenarios you should use an individual identity or service principal for container registry access, but to keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command:
+Innan du skickar och hämtar containeravbildningar måste du logga in i ditt register. I produktions scenarier bör du använda en enskild identitet eller tjänstens huvud namn för att få åtkomst till behållar registret, men om du vill fortsätta med snabb starten aktiverar du administratörs användaren för registret med kommandot [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] :
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Next, run [docker login][docker-login] to log in:
+Kör sedan [Docker-inloggning][docker-login] för att logga in:
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
@@ -75,7 +75,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Once you're done working with the resources you created in this quickstart, use the [Remove-AzResourceGroup][Remove-AzResourceGroup] command to remove the resource group, the container registry, and the container images stored there:
+När du har arbetat med de resurser som du skapade i den här snabb starten använder du kommandot [Remove-AzResourceGroup][Remove-AzResourceGroup] för att ta bort resurs gruppen, behållar registret och behållar avbildningarna som lagras där:
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup
@@ -86,7 +86,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 I den här snabbstarten skapade du ett Azure Container Registry med Azure PowerShell, push-överförde en containeravbildning och hämtade och körde avbildningen från registret. Fortsätt till självstudien om Azure Container Registry om du vill titta närmare på ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
+> [Azure Container Registry själv studie kurser][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

@@ -36,7 +36,7 @@ Det finns två typer av CORS-begäranden, *enkla begär Anden* och *komplexa beg
 
 2. Servern kan svara med något av följande:
 
-   * En **Access-Control-Allow-Origin** -rubrik i sitt svar som anger vilken ursprungs plats som tillåts. Exempel:
+   * En **Access-Control-Allow-Origin** -rubrik i sitt svar som anger vilken ursprungs plats som tillåts. Till exempel:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy from geo-replicated registry
+title: Självstudie – distribuera från geo-replikerat register
 description: Distribuera en Linux-baserad webbapp till två olika Azure-regioner med hjälp av en containeravbildning från ett geo-replikerat Azure-containerregister. Del två av en serie i tre delar.
 ms.topic: tutorial
 ms.date: 08/20/2018
@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456101"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Deploy a web app from a geo-replicated Azure container registry
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett geo-replikerat Azure Container Registry
 
 Det här är del två i en serie självstudier i tre delar. I [del ett](container-registry-tutorial-prepare-registry.md) skapade vi ett privat geo-replikerat containerregister, och en containeravbildning skapades från källan och pushades till registret. I den här artikeln drar du nytta av den nätverksnära aspekten av det geo-replikerade registret genom att distribuera containern till två Web App-instanser i två olika Azure-regioner. Varje instans hämtar sedan containeravbildningen från det närmaste registret.
 
@@ -54,9 +54,9 @@ Ange följande värden för varje inställning under **Web App for Containers**,
 | **Operativsystem** | Linux |
 
 > [!NOTE]
-> When you create a new app service plan to deploy your containerized app, a default plan is automatically selected to host your application. The default plan depends on the operating system setting.
+> När du skapar en ny app service-plan för att distribuera din behållare, väljs automatiskt en standard plan som är värd för ditt program. Standard planen beror på inställningen för operativ systemet.
 
-Etablera webbappen i regionen *USA, västra* genom att välja **Skapa**.
+Etablera webbappen i regionen **USA, västra** genom att välja *Skapa*.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-02]
 
@@ -86,7 +86,7 @@ Distribuera en andra webbapp till regionen *USA, östra* med den procedur som be
 | **Avbildning** | `acr-helloworld:v1` |
 | **Operativsystem** | Linux |
 
-Etablera webbappen i regionen *USA, östra* genom att välja **Skapa**.
+Etablera webbappen i regionen **USA, östra** genom att välja *Skapa*.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-06]
 

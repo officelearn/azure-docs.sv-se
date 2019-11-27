@@ -18,7 +18,7 @@ ms.locfileid: "74456711"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Självstudie: Distribuera Azure-funktioner som IoT Edge-moduler
 
-Du kan använda Azure Functions till att distribuera kod som implementerar din affärslogik direkt till dina Azure IoT Edge-enheter. I den här självstudien får du hjälp att skapa och distribuera en Azure-funktion som filtrerar sensordata för den simulerade IoT Edge-enheten. Du använder den simulerade IoT Edge-enheten som du skapade i snabbstarten Distribuera Azure IoT Edge på en simulerad enhet i [Windows](quickstart.md) eller [Linux](quickstart-linux.md). I den här guiden får du lära dig att:
+Du kan använda Azure Functions till att distribuera kod som implementerar din affärslogik direkt till dina Azure IoT Edge-enheter. I den här självstudien får du hjälp att skapa och distribuera en Azure-funktion som filtrerar sensordata för den simulerade IoT Edge-enheten. Du använder den simulerade IoT Edge-enheten som du skapade i snabbstarten Distribuera Azure IoT Edge på en simulerad enhet i [Windows](quickstart.md) eller [Linux](quickstart-linux.md). I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 >
@@ -29,7 +29,7 @@ Du kan använda Azure Functions till att distribuera kod som implementerar din a
 
 <center>
 
-![Diagram - Tutorial architecture, stage and deploy function module](./media/tutorial-deploy-function/functions-architecture.png)
+![diagram – självstudier arkitektur, steg och distribution av Function-modul](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -41,15 +41,15 @@ Den Azure-funktion du skapar i den här självstudien filtrerar temperaturdata s
 
 ## <a name="prerequisites"></a>Krav
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place: 
+Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört den här självstudien bör du ha följande krav på plats: 
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
-* A [Linux device running Azure IoT Edge](quickstart-linux.md)
-* A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* En [Linux-enhet som kör Azure IoT Edge](quickstart-linux.md)
+* Ett behållar register som [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio-kod](https://code.visualstudio.com/) som kon figurer ATS med [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) konfigurerat för att köra Linux-behållare.
 
-To develop an IoT Edge module in with Azure Functions, install the following additional prerequisites on your development machine: 
+Om du vill utveckla en IoT Edge modul i med Azure Functions installerar du följande ytterligare krav på utvecklings datorn: 
 
 * [C# för Visual Studio Code-tillägg (drivs av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [The .NET Core 2.1 SDK](https://www.microsoft.com/net/download).
@@ -60,7 +60,7 @@ Azure IoT-verktyg för Visual Studio Code som du installerade i avsnittet med sy
 
 ### <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-Create a C# Function solution template that you can customize with your own code.
+Skapa en C# mall för funktions lösningar som du kan anpassa med din egen kod.
 
 1. Öppna Visual Studio Code på utvecklingsdatorn.
 
@@ -72,7 +72,7 @@ Create a C# Function solution template that you can customize with your own code
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **FunctionSolution**, eller acceptera standardnamnet. |
-   | Välja modulmall | Välj **Azure Functions - C#** . |
+   | Välj modulmall | Välj **Azure Functions - C#** . |
    | Ange ett modulnamn | Ge modulen namnet **CSharpFunction**. |
    | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. Den slutlgiltiga strängen ser ut så här: \<registernamn\>.azurecr.io/CSharpFunction. |
 
@@ -86,19 +86,19 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret.
 3. Spara filen.
 
-### <a name="select-your-target-architecture"></a>Select your target architecture
+### <a name="select-your-target-architecture"></a>Välj din mål arkitektur
 
-Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64. 
+För närvarande kan Visual Studio Code utveckla C-moduler för Linux AMD64-och Linux ARM32v7-enheter. Du måste välja vilken arkitektur du vill använda för varje lösning, eftersom behållaren har skapats och körs på olika sätt för varje arkitektur typ. Standardvärdet är Linux AMD64. 
 
-1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
+1. Öppna paletten kommando och Sök efter **Azure IoT Edge: Ange standard plattform för Edge-lösning**eller Välj gen vägs ikonen i sido fältet längst ned i fönstret. 
 
-2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**. 
+2. I paletten kommando väljer du mål arkitekturen i listan med alternativ. I den här självstudien använder vi en virtuell Ubuntu-dator som IoT Edge enhet, så behåller standard- **amd64**. 
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub.
+Nu ska vi lägga till ytterligare kod så att modulen bearbetar meddelandena på gränsen innan de vidarebefordrar dem till IoT Hub.
 
-1. In Visual Studio Code, open **modules** > **CSharpFunction** > **CSharpFunction.cs**.
+1. Öppna **moduler** > **CSharpFunction** > **CSharpFunction.cs**i Visual Studio Code.
 
 1. Ersätt innehållet i filen **CSharpFunction.cs** med följande kod. Den här koden tar emot telemetri om omgivande temperatur och datortemperatur och vidarebefordrar enbart meddelandet till IoT Hub om datortemperaturen överstiger ett angivet tröskelvärde.
 
@@ -179,7 +179,7 @@ Let's add some additional code so that the module processes the messages at the 
 
 I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSharpFunction** som filtrerar ut meddelanden om att temperaturen för den rapporterade datorn ligger under det godkända tröskelvärdet. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
-In this section, you provide the credentials for your container registry for the second time (the first was in the **.env** file of your IoT Edge solution) by signing in locally from your development machine so that Visual Studio Code can push images to your registry.
+I det här avsnittet anger du autentiseringsuppgifterna för behållar registret för den andra gången (det första fanns i **. kuvert** -filen för din IoT Edge-lösning) genom att logga in lokalt från utvecklings datorn så att Visual Studio Code kan push-överföra avbildningar till registret.
 
 1. Öppna den VS Code-integrerade terminalen genom att välja **Visa** > **Terminal**. 
 
@@ -189,7 +189,7 @@ In this section, you provide the credentials for your container registry for the
     docker login -u <ACR username> <ACR login server>
     ```
 
-    When you're prompted for the password, paste the password (it won't be visible in the terminal window) for your container registry and press **Enter**.
+    När du uppmanas att ange lösen ordet klistrar du in lösen ordet (det visas inte i terminalfönstret) för behållar registret och trycker på **RETUR**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -198,7 +198,7 @@ In this section, you provide the credentials for your container registry for the
 
 3. Högerklicka på filen deployment.template.json och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren. 
 
-When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. Dessa två kommandon skapar koden, lägger funktionerna i container och push-överför sedan koden till containerregistret du angav när du initierade lösningen. 
+När du anger Visual Studio Code för att bygga din lösning, tar den först med informationen i distributions mal len och genererar en distributions-JSON-fil i en ny mapp med namnet **config**. Sedan körs två kommandon i den integrerade terminalen: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger funktionerna i container och push-överför sedan koden till containerregistret du angav när du initierade lösningen. 
 
 ## <a name="view-your-container-image"></a>Visa din containeravbildning
 
@@ -219,17 +219,17 @@ Du kan använda Azure Portal till att distribuera din funktionsmodul till en IoT
 
 3. Bläddra till lösningsmappen som innehåller **CSharpFunction**. Öppna mappen config, välj filen **deployment.json** och välj sedan på **Välj distributionsmanifest för Edge**.
 
-4. Uppdatera avsnittet **Azure IoT Hub-enheter**. You should see the new **CSharpFunction** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**. Det kan ta en stund för de nya modulerna att visas. IoT Edge-enheten måste hämta sin nya distributionsinformation från IoT Hub, starta de nya containrarna och rapportera statusen tillbaka till IoT Hub. 
+4. Uppdatera avsnittet **Azure IoT Hub-enheter**. Du bör se den nya **CSharpFunction** som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**. Det kan ta en stund för de nya modulerna att visas. IoT Edge-enheten måste hämta sin nya distributionsinformation från IoT Hub, starta de nya containrarna och rapportera statusen tillbaka till IoT Hub. 
 
    ![Visa distribuerade moduler i VS Code](./media/tutorial-deploy-function/view-modules.png)
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-You can see all of the messages that arrive at your IoT hub by running **Azure IoT Hub: Start Monitoring Built-in Event Endpoint** in the command palette.
+Du kan se alla meddelanden som kommer till din IoT-hubb genom att köra **Azure IoT Hub: starta övervakning av den inbyggda händelse slut punkten** i kommando paletten.
 
-Du kan också filtrera vyn för att visa alla meddelanden som kommer till IoT-hubben från en viss enhet. Right-click the device in the **Azure IoT Hub Devices** section and select **Start Monitoring Built-in Event Endpoint**.
+Du kan också filtrera vyn för att visa alla meddelanden som kommer till IoT-hubben från en viss enhet. Högerklicka på enheten i avsnittet **Azure IoT Hub enheter** och välj **starta övervakning inbyggd händelse slut punkt**.
 
-To stop monitoring messages, run the command **Azure IoT Hub: Stop Monitoring Built-in Event Endpoint** in the command palette. 
+Stoppa övervakningen av meddelanden genom att köra kommandot **Azure IoT Hub: stoppa övervakning av den inbyggda händelse slut punkten** i paletten för kommandon. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -241,7 +241,7 @@ Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du h
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapade du en Azure-funktionsmodul med kod för att filtrera rådata som genereras av din IoT Edge-enhet. When you're ready to build your own modules, you can learn more about how to [Develop with Azure IoT Edge for Visual Studio Code](how-to-vs-code-develop-module.md). 
+I den här självstudien skapade du en Azure-funktionsmodul med kod för att filtrera rådata som genereras av din IoT Edge-enhet. När du är redo att skapa dina egna moduler kan du lära dig mer om hur du [utvecklar med Azure IoT Edge för Visual Studio Code](how-to-vs-code-develop-module.md). 
 
 Fortsätt med någon av följande självstudier om du vill lära dig mer om hur Azure IoT Edge kan hjälpa dig att omvandla dina data till affärsinsikter.
 

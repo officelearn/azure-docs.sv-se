@@ -11,20 +11,20 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74210999"
 ---
-**Public DNS zones**
+**Offentliga DNS-zoner**
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Public DNS Zones per subscription |250 <sup>1</sup> |
-| Record sets per public DNS zone |10,000 <sup>1</sup> |
-| Records per record set in public DNS zone |20 |
-| Number of Alias records for a single Azure resource |20|
-| Private DNS zones per subscription |1 000|
-| Record sets per private DNS zone |25000|
-| Records per record set for private DNS zones |20|
-| Virtual Network Links per private DNS zone |1 000|
-| Virtual Networks Links per private DNS zones with auto-registration enabled |100|
-| Number of private DNS zones a virtual network can get linked to with auto-registration enabled |1|
-| Number of private DNS zones a virtual network can get linked |1 000|
+| Offentlig DNS-zoner per prenumeration |250 <sup>1</sup> |
+| Post uppsättningar per offentlig DNS-zon |10 000 <sup>1</sup> |
+| Poster per post uppsättning i offentlig DNS-zon |20 |
+| Antal Ali poster för en enda Azure-resurs |20|
+| Privat DNS zoner per prenumeration |1000|
+| Post uppsättningar per privat DNS-zon |25000|
+| Poster per post uppsättning för privata DNS-zoner |20|
+| Virtual Network länkar per privat DNS-zon |1000|
+| Virtuella nätverk länkar per privat DNS-zoner med automatisk registrering aktive rad |100|
+| Antal privata DNS-zoner som ett virtuellt nätverk kan kopplas till med automatisk registrering aktive rad |1|
+| Antal privata DNS-zoner som ett virtuellt nätverk kan länkas till |1000|
 
-<sup>1</sup>If you need to increase these limits, contact Azure Support.
+<sup>1</sup> Kontakta Azure-supporten om du behöver öka dessa gränser.

@@ -11,29 +11,29 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224424"
 ---
-The following table lists the limits that apply to Azure IoT Hub Device Provisioning Service resources.
+I följande tabell visas de begränsningar som gäller för Azure IoT Hub Device Provisioning Service-resurser.
 
 | Resurs | Gräns |
 | --- | --- |
-| Maximum device provisioning services per Azure subscription | 10 |
-| Maximum number of enrollments | 1,000,000 |
-| Maximum number of registrations | 1,000,000 |
-| Maximum number of enrollment groups | 100 |
-| Maximum number of CAs | 25 |
-| Maximum number of linked IoT hubs | 50 |
-| Maximum size of message | 96 KB|
+| Maximalt antal enhets etablerings tjänster per Azure-prenumeration | 10 |
+| Maximalt antal registreringar | 1,000,000 |
+| Maximalt antal registreringar | 1,000,000 |
+| Maximalt antal registrerings grupper | 100 |
+| Maximalt antal ca: er | 25 |
+| Maximalt antal länkade IoT-hubbar | 50 |
+| Maximal meddelande storlek | 96 KB|
 
 
 > [!NOTE]
-> To increase the number of instances in your subscription, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka antalet instanser i prenumerationen.
 
 > [!NOTE]
-> To increase the number of enrollments and registrations on your provisioning service, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka antalet registreringar och registreringar på etablerings tjänsten.
 
-The Device Provisioning Service throttles requests when the following quotas are exceeded.
+Enhets etablerings tjänsten begränsar begär anden när följande kvoter överskrids.
 
-| Begränsning | Per-unit value |
+| Begränsning | Värde per enhet |
 | --- | --- |
-| Operations | 200/min/service |
-| Enhetsregistreringar | 200/min/service |
-| Device polling operation | 5/10 sec/device |
+| Åtgärder | 200/min/tjänst |
+| Enhetsregistreringar | 200/min/tjänst |
+| Enhets avsökning | 5/10 SEK/enhet |

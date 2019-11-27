@@ -1,5 +1,5 @@
 ---
-title: PowerShell example - Update SQL Data Sync sync schema
+title: PowerShell-exempel – uppdatera SQL Data Sync Sync-schema
 description: Azure PowerShell-exempelskript för uppdatering av synkroniseringsschemat för SQL Data Sync
 services: sql-database
 ms.service: sql-database
@@ -26,16 +26,16 @@ Det här PowerShell-exemplet uppdaterar synkroniseringsschemat i en befintlig sy
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does not support Azure SQL database managed instance at this time.
+> Azure SQL Data Sync stöder inte en hanterad Azure SQL Database-instans för tillfället.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="add-all-tables-to-the-sync-schema"></a>Add all tables to the sync schema
+### <a name="add-all-tables-to-the-sync-schema"></a>Lägg till alla tabeller i synkroniseringsschemat
 
 I följande exempel uppdateras databasschemat och alla giltiga tabeller läggs till i synkroniseringsschemat i hubbdatabasen.
 
@@ -44,7 +44,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resour
     -SyncGroupName <syncGroupName> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
-### <a name="add-and-remove-tables-and-columns"></a>Add and remove tables and columns
+### <a name="add-and-remove-tables-and-columns"></a>Lägga till och ta bort tabeller och kolumner
 
 I följande exempel läggs `[dbo].[Table1]` och `[dbo].[Table2].[Column1]` till i synkroniseringsschemas, och `[dbo].[Table3]` tas bort.
 
@@ -78,16 +78,16 @@ Skriptet **UpdateSyncSchema** använder följande parametrar. Varje kommando i t
 | Kommando | Anteckningar |
 |---|---|
 | [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Returnerar information om en synkroniseringsgrupp. |
-| [Update-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Uppdaterar en synkroniseringsgrupp. |
+| [Uppdatera – AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Uppdaterar en synkroniseringsgrupp. |
 | [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Returnerar information om en synkroniseringsmedlem. |
 | [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | Returnerar information om ett synkroniseringsschema. |
-| [Update-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Uppdaterar ett synkroniseringsschema. |
+| [Uppdatera – AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Uppdaterar ett synkroniseringsschema. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Additional SQL database PowerShell script samples can be found in [Azure SQL database PowerShell scripts](../sql-database-powershell-samples.md).
+Ytterligare PowerShell-skript exempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../sql-database-powershell-samples.md).
 
 Mer information om SQL Data Sync finns i:
 
@@ -99,7 +99,7 @@ Mer information om SQL Data Sync finns i:
         - [Använd PowerShell för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas](sql-database-sync-data-between-azure-onprem.md)
 - Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](../sql-database-data-sync-agent.md)
 - Metodtips – [Metodtips för Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
-- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-database-sync-monitor-oms.md)
+- Övervaka [SQL Data Sync med Azure Monitor loggar](../sql-database-sync-monitor-oms.md)
 - Felsökning – [Felsöka problem med Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 - Uppdatera synkroniseringsschemat
     - Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](../sql-database-update-sync-schema.md)

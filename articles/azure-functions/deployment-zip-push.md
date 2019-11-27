@@ -1,6 +1,6 @@
 ---
-title: Zip push deployment for Azure Functions
-description: Use the .zip file deployment facilities of the Kudu deployment service to publish your Azure Functions.
+title: Zip push-distribution för Azure Functions
+description: Använd zip-fil distributions funktionerna i kudu-distributions tjänsten för att publicera din Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
@@ -10,80 +10,80 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233067"
 ---
-# <a name="zip-deployment-for-azure-functions"></a>Zip deployment for Azure Functions
+# <a name="zip-deployment-for-azure-functions"></a>Zip-distribution för Azure Functions
 
-This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. [Azure Functions Core Tools](functions-run-local.md) also uses these deployment APIs when publishing a local project to Azure.
+Den här artikeln beskriver hur du distribuerar dina Apps-projektfiler till Azure från en. zip-fil (komprimerad). Du får lära dig hur du utför en push-distribution med hjälp av Azure CLI och med hjälp av REST-API: er. [Azure Functions Core tools](functions-run-local.md) använder också dessa API: er för distribution när du publicerar ett lokalt projekt till Azure.
 
-Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+Azure Functions har en fullständig uppsättning alternativ för kontinuerlig distribution och integrering som tillhandahålls av Azure App Service. Mer information finns i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md).
 
-To speed development, you may find it easier to deploy your function app project files directly from a .zip file. The .zip deployment API takes the contents of a .zip file and extracts the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
+För att påskynda utvecklingen kan det vara lättare att distribuera dina Apps-projektfiler direkt från en. zip-fil. API: et för zip-distribution tar innehållet i en. zip-fil och extraherar innehållet till mappen `wwwroot` i din Function-app. Den här. zip-fildistributionen använder samma kudu-tjänst som driver kontinuerlig integrerings-baserade distributioner, inklusive:
 
-+ Deletion of files that were left over from earlier deployments.
-+ Deployment customization, including running deployment scripts.
-+ Deployment logs.
-+ Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
++ Borttagning av filer som lämnades över från tidigare distributioner.
++ Distributions anpassning, inklusive körning av distributions skript.
++ Distributions loggar.
++ Synkronisera funktions utlösare i en [förbruknings Plans](functions-scale.md) funktion app.
 
-For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Mer information finns i referens för [zip-distribution](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-## <a name="deployment-zip-file-requirements"></a>Deployment .zip file requirements
+## <a name="deployment-zip-file-requirements"></a>Krav för distribution. zip-fil
 
-The .zip file that you use for push deployment must contain all of the files needed to run your function.
+Zip-filen som du använder för push-distribution måste innehålla alla filer som behövs för att köra din funktion.
 
 >[!IMPORTANT]
-> When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
+> När du använder. zip-distribution tas alla filer från en befintlig distribution som inte finns i. zip-filen bort från din Function-app.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself. When deploying a C# class library project, you must include the compiled library files and dependencies in a `bin` subfolder in your .zip package.
+En Function-app innehåller alla filer och mappar i `wwwroot`-katalogen. En. zip-fil distribution innehåller innehållet i `wwwroot` katalog, men inte själva katalogen. När du distribuerar C# ett klass biblioteks projekt måste du inkludera de kompilerade biblioteksfilerna och beroenden i en `bin`-undermapp i zip-paketet.
 
-## <a name="download-your-function-app-files"></a>Download your function app files
+## <a name="download-your-function-app-files"></a>Hämta dina app-filer för funktioner
 
-When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer.
+När du utvecklar på en lokal dator är det enkelt att skapa en. zip-fil för mappen Function app-projekt på din utvecklings dator.
 
-However, you might have created your functions by using the editor in the Azure portal. You can download an existing function app project in one of these ways:
+Du kan dock ha skapat dina funktioner med hjälp av redigeraren i Azure Portal. Du kan ladda ned ett befintligt Function app-projekt på något av följande sätt:
 
-+ **From the Azure portal:**
++ **Från Azure Portal:**
 
-  1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
+  1. Logga in på [Azure Portal](https://portal.azure.com)och gå sedan till din Function-app.
 
-  2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
+  2. På fliken **Översikt** väljer du **Hämta app-innehåll**. Välj nedladdnings alternativ och välj sedan **Ladda ned**.
 
-      ![Download the function app project](./media/deployment-zip-push/download-project.png)
+      ![Hämta projektet för Function-appen](./media/deployment-zip-push/download-project.png)
 
-     The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
+     Den hämtade ZIP-filen har rätt format för att publiceras om till din Function-app med hjälp av. zip push-distribution. Portal hämtningen kan också lägga till de filer som behövs för att öppna appen funktion direkt i Visual Studio.
 
-+ **Using REST APIs:**
++ **Använda REST-API: er:**
 
-    Use the following deployment GET API to download the files from your `<function_app>` project: 
+    Använd följande distribution Hämta API för att ladda ned filerna från `<function_app>`-projektet: 
 
         https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
 
-    Including `/site/wwwroot/` makes sure your zip file includes only the function app project files and not the entire site. If you are not already signed in to Azure, you will be asked to do so.  
+    Inklusive `/site/wwwroot/` ser till att zip-filen bara innehåller programmets projektfiler och inte hela webbplatsen. Om du inte redan har loggat in på Azure blir du ombedd att göra det.  
 
-You can also download a .zip file from a GitHub repository. When you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file directly as you downloaded it from GitHub. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
+Du kan också hämta en. zip-fil från en GitHub-lagringsplats. När du laddar ned en GitHub-lagringsplats som en zip-fil lägger GitHub till en extra mappsökväg för grenen. Den här extra mappen innebär att du inte kan distribuera. zip-filen direkt när du laddade ned den från GitHub. Om du använder en GitHub-lagringsplats för att underhålla din Function-app bör du använda [kontinuerlig integrering](functions-continuous-deployment.md) för att distribuera din app.  
 
-## <a name="cli"></a>Deploy by using Azure CLI
+## <a name="cli"></a>Distribuera med hjälp av Azure CLI
 
-You can use Azure CLI to trigger a push deployment. Push deploy a .zip file to your function app by using the [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command. To use this command, you must use Azure CLI version 2.0.21 or later. To see what Azure CLI version you are using, use the `az --version` command.
+Du kan använda Azure CLI för att utlösa en push-distribution. Skicka en. zip-fil till din Function-app genom att använda kommandot [AZ functionapp Deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) . Om du vill använda det här kommandot måste du använda Azure CLI version 2.0.21 eller senare. Om du vill se vilken Azure CLI-version som du använder använder du kommandot `az --version`.
 
-In the following command, replace the `<zip_file_path>` placeholder with the path to the location of your .zip file. Also, replace `<app_name>` with the unique name of your function app. 
+I följande kommando ersätter du `<zip_file_path>` plats hållaren med sökvägen till platsen för zip-filen. Ersätt också `<app_name>` med det unika namnet på din Function-app. 
 
 ```azurecli-interactive
 az functionapp deployment source config-zip  -g myResourceGroup -n \
 <app_name> --src <zip_file_path>
 ```
 
-This command deploys project files from the downloaded .zip file to your function app in Azure. It then restarts the app. To view the list of deployments for this function app, you must use the REST APIs.
+Det här kommandot distribuerar projektfiler från den hämtade ZIP-filen till din Function-app i Azure. Appen startas sedan om. Om du vill visa listan över distributioner för den här Function-appen måste du använda REST-API: erna.
 
-When you're using Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). When you use Cloud Shell, you must first upload your deployment .zip file to the Azure Files account that's associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location that your Cloud Shell account uses. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
+När du använder Azure CLI på din lokala dator är `<zip_file_path>` sökvägen till. zip-filen på din dator. Du kan också köra Azure CLI i [Azure Cloud Shell](../cloud-shell/overview.md). När du använder Cloud Shell måste du först överföra Deployment. zip-filen till det Azure Files konto som är associerat med din Cloud Shell. I så fall är `<zip_file_path>` den lagrings plats som ditt Cloud Shell-konto använder. Mer information finns i [Spara filer i Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
-## <a name="run-functions-from-the-deployment-package"></a>Run functions from the deployment package
+## <a name="run-functions-from-the-deployment-package"></a>Köra funktioner från distributions paketet
 
-You can also choose to run your functions directly from the deployment package file. This method skips the deployment step of copying files from the package to the `wwwroot` directory of your function app. Instead, the package file is mounted by the Functions runtime, and the contents of the `wwwroot` directory become read-only.  
+Du kan också välja att köra dina funktioner direkt från distributions paket filen. Den här metoden hoppar över distributions steget för att kopiera filer från paketet till katalogen `wwwroot` i din Function-app. I stället monteras paket filen av Functions-körningen och innehållet i `wwwroot`s katalogen blir skrivskyddat.  
 
-Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_PACKAGE` to a value of `1`. For more information, see [Run your functions from a deployment package file](run-functions-from-deployment-package.md).
+Zip-distributionen integreras med den här funktionen, som du kan aktivera genom att ställa in appens inställning `WEBSITE_RUN_FROM_PACKAGE` till värdet `1`. Mer information finns i [köra funktioner från en distributions paket fil](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

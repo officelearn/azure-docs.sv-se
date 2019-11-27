@@ -483,7 +483,7 @@ Det är inte alla olika VM-serier som erbjuds i var och en av Azure-regionerna (
 >
 >
 
-### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
+### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure-regioner
 Virtual Machines distribueras till så kallade *Azure-regioner*. En Azure-region kan vara en eller flera data Center som finns nära varandra. För de flesta regionerna i världen har Microsoft minst två Azure-regioner. I Europa finns det till exempel en Azure-region i *Nord Europa* och *en av Västeuropa*. Sådana två Azure-regioner i ett geografiskt politisk region skiljs åt med tillräckligt stort avstånd så att fysiska eller tekniska haveri effekter inte påverkar både Azure-regioner i samma geografiskt politisk region. Eftersom Microsoft ständigt skapar nya Azure-regioner i olika politiska regioner globalt, växer antalet regioner ständigt och från och med dec 2015 uppnås antalet 20 Azure-regioner med ytterligare regioner som redan har meddelats. Du som kund kan distribuera SAP-system i alla dessa regioner, inklusive de två Azure-regionerna i Kina. Aktuell information om Azure-regioner finns på följande webbplats: <https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Koncept för Microsoft Azure virtuell dator
@@ -556,7 +556,7 @@ Azure standard Storage var den typ av lagring som är tillgänglig när Azure-Ia
 
 Diskar som lagras på Azures standard lagrings konton debiteras baserat på faktiska data som lagras, volymen lagrings transaktioner, utgående data överföringar och alternativ för redundans som valts. Många diskar kan skapas med maximalt 1 TB storlek, men om de inte är tomma är det ingen kostnad. Om du sedan fyller en virtuell hård disk med 100 GB, debiteras du för lagring av 100 GB och inte för den nominella storlek som den virtuella hård disken skapades med.
 
-#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
+#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure-Premium Storage
 Azure Premium Storage lanserades med målet att tillhandahålla:
 
 * Bättre I/O-latens.
@@ -770,7 +770,7 @@ Se även den här bloggen och det bifogade dokumentet för SAP-storlek på Azure
 
 ## <a name="managing-azure-assets"></a>Hantera Azure-tillgångar
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal är ett av tre gränssnitt för att hantera distributioner av virtuella Azure-datorer. De grundläggande hanterings aktiviteterna, t. ex. distribution av virtuella datorer från avbildningar, kan göras via Azure Portal. Dessutom är skapandet av lagrings konton, virtuella nätverk och andra Azure-komponenter också aktiviteter som Azure Portal kan hantera bra. Funktioner som att ladda upp virtuella hård diskar från lokala datorer till Azure eller kopiera en virtuell hård disk i Azure är dock aktiviteter, vilket kräver verktyg från tredje part eller administration via PowerShell eller CLI.
 

@@ -1,6 +1,6 @@
 ---
-title: Triggers and bindings in Azure Functions
-description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
+title: Utlösare och bindningar i Azure Functions
+description: Lär dig att använda utlösare och bindningar för att ansluta din Azure-funktion till online-händelser och molnbaserade tjänster.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -12,45 +12,45 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226564"
 ---
-# <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions triggers and bindings concepts
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Metoder för Azure Functions utlösare och bindningar
 
-In this article you learn the high-level concepts surrounding functions triggers and bindings.
+I den här artikeln lär du dig de övergripande koncepten som omger funktions utlösare och bindningar.
 
-Triggers are what cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function. 
+Utlösare är orsaken till att en funktion körs. En utlösare definierar hur en funktion anropas och en funktion måste ha exakt en utlösare. Utlösare har associerade data som ofta tillhandahålls som nytto last för funktionen. 
 
-Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. Data from bindings is provided to the function as parameters.
+Bindning till en funktion är ett sätt att på ett sätt ansluta en annan resurs till funktionen. bindningar kan vara anslutna som *indata-bindningar*, *utgående bindningar*eller både och. Data från bindningar tillhandahålls till funktionen som parametrar.
 
-You can mix and match different bindings to suit your needs. Bindings are optional and a function might have one or multiple input and/or output bindings.
+Du kan blanda och matcha olika bindningar så att de passar dina behov. Bindningar är valfria och en funktion kan ha en eller flera bindningar för indata och/eller utdata.
 
-Triggers and bindings let you avoid hardcoding access to other services. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function. 
+Med utlösare och bindningar kan du undvika hårdkoda åtkomst till andra tjänster. Din funktion tar emot data (till exempel innehållet i ett Queue meddelande) i funktions parametrar. Du skickar data (till exempel för att skapa ett Queue meddelande) genom att använda funktionens retur värde. 
 
-Consider the following examples of how you could implement different functions.
+Tänk på följande exempel på hur du kan implementera olika funktioner.
 
-| Exempel på ett scenario | Utlösare | Input binding | Output binding |
+| Exempel på ett scenario | Utlösare | Binda in | Utgående bindning |
 |-------------|---------|---------------|----------------|
-| A new queue message arrives which runs a function to write to another queue. | Queue<sup>*</sup> | *None* | Queue<sup>*</sup> |
-|A scheduled job reads Blob Storage contents and creates a new Cosmos DB document. | Timer | Blob-lagring | Cosmos DB |
-|The Event Grid is used to read an image from Blob Storage and a document from Cosmos DB to send an email. | Event Grid | Blob Storage and  Cosmos DB | SendGrid |
-| A webhook that uses Microsoft Graph to update an Excel sheet. | HTTP | *None* | Microsoft Graph |
+| Ett nytt Queue-meddelande anländer som kör en funktion för att skriva till en annan kö. | Queue<sup>*</sup> | *Alternativet* | Queue<sup>*</sup> |
+|Ett schemalagt jobb läser Blob Storage innehåll och skapar ett nytt Cosmos DB-dokument. | Timer | Blob Storage | Cosmos DB |
+|Event Grid används för att läsa en avbildning från Blob Storage och ett dokument från Cosmos DB för att skicka ett e-postmeddelande. | Event Grid | Blob Storage och Cosmos DB | SendGrid |
+| En webhook som använder Microsoft Graph för att uppdatera ett Excel-blad. | HTTP | *Alternativet* | Microsoft Graph |
 
-<sup>\*</sup> Represents different queues
+<sup>\*</sup> Representerar olika köer
 
-These examples are not meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
+Dessa exempel är inte avsedda att vara uttömmande, men de tillhandahålls för att illustrera hur du kan använda utlösare och bindningar tillsammans.
 
-###  <a name="trigger-and-binding-definitions"></a>Trigger and binding definitions
+###  <a name="trigger-and-binding-definitions"></a>Utlösare och bindnings definitioner
 
-Triggers and bindings are defined differently depending on the development approach.
+Utlösare och bindningar definieras på olika sätt beroende på utvecklings metoden.
 
-| Plattform | Triggers and bindings are configured by... |
+| Plattform | Utlösare och bindningar konfigureras av... |
 |-------------|--------------------------------------------|
-| C# class library | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with C# attributes |
-| All others (including Azure portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating [function.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
+| C#klass bibliotek | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dekorera metoder och parametrar med C# attribut |
+| Alla andra (inklusive Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uppdatera [Function. JSON](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
-The portal provides a UI for this configuration, but you can edit the file directly by opening the **Advanced editor** available via the **Integrate** tab of your function.
+Portalen innehåller ett användar gränssnitt för den här konfigurationen, men du kan redigera filen direkt genom att öppna den **avancerade redigeraren** som är tillgänglig via fliken **integrera** i din funktion.
 
-In .NET, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to de-serialize to an object.
+I .NET definierar parameter typen data typen för indata. Använd till exempel `string` för att binda till texten i en Queue-utlösare, en byte mat ris som ska läsas som binär och en anpassad typ för deserialisering till ett objekt.
 
-For languages that are dynamically typed such as JavaScript, use the `dataType` property in the *function.json* file. For example, to read the content of an HTTP request in binary format, set `dataType` to `binary`:
+För språk som är dynamiskt skrivna, till exempel Java Script, använder du egenskapen `dataType` i filen *Function. JSON* . Om du till exempel vill läsa innehållet i en HTTP-begäran i binärformat anger `dataType` till `binary`:
 
 ```json
 {
@@ -61,33 +61,33 @@ For languages that are dynamically typed such as JavaScript, use the `dataType` 
 }
 ```
 
-Other options for `dataType` are `stream` and `string`.
+Andra alternativ för `dataType` är `stream` och `string`.
 
-## <a name="binding-direction"></a>Binding direction
+## <a name="binding-direction"></a>Bindnings riktning
 
-All triggers and bindings have a `direction` property in the [function.json](./functions-reference.md) file:
+Alla utlösare och bindningar har en `direction`-egenskap i [Function. JSON](./functions-reference.md) -filen:
 
-- For triggers, the direction is always `in`
-- Input and output bindings use `in` and `out`
-- Some bindings support a special direction `inout`. If you use `inout`, only the **Advanced editor** is available via the **Integrate** tab in the portal.
+- För utlösare är riktningen alltid `in`
+- Med indata och utdata-bindningar används `in` och `out`
+- Vissa bindningar har stöd för en speciell riktning `inout`. Om du använder `inout`är endast **avancerad redigerare** tillgänglig via fliken **integrera** i portalen.
 
-When you use [attributes in a class library](functions-dotnet-class-library.md) to configure triggers and bindings, the direction is provided in an attribute constructor or inferred from the parameter type.
+När du använder [attribut i ett klass bibliotek](functions-dotnet-class-library.md) för att konfigurera utlösare och bindningar, anges riktningen i en attributhierarki eller härleds från parameter typen.
 
-## <a name="supported-bindings"></a>Supported bindings
+## <a name="supported-bindings"></a>Bindningar som stöds
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+Information om vilka bindningar som är i för hands version eller som godkänns för användning av produktion finns i [språk som stöds](supported-languages.md).
 
 ## <a name="resources"></a>Resurser
-- [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
-- [Using the Azure Function return value](./functions-bindings-return-value.md)
-- [How to register a binding expression](./functions-bindings-register.md)
-- Testing:
+- [Bindnings uttryck och mönster](./functions-bindings-expressions-patterns.md)
+- [Använda Azures funktions retur värde](./functions-bindings-return-value.md)
+- [Så här registrerar du ett bindnings uttryck](./functions-bindings-register.md)
+- Prestandatester
   - [Strategier för att testa din kod i Azure Functions](functions-test-a-function.md)
-  - [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md)
-- [Handling binding errors](./functions-bindings-errors.md)
+  - [Köra en icke-HTTP-utlöst funktion manuellt](functions-manually-run-non-http.md)
+- [Hanterar bindnings fel](./functions-bindings-errors.md)
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Register Azure Functions binding extensions](./functions-bindings-register.md)
+> [Registrera Azure Functions bindnings tillägg](./functions-bindings-register.md)

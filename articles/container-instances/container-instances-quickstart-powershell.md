@@ -21,7 +21,7 @@ Använd Azure Container Instances för att köra Server lös Docker-behållare i
 
 I den här snabb starten använder du Azure PowerShell för att distribuera en isolerad Windows-behållare och göra dess program tillgängligt med ett fullständigt kvalificerat domän namn (FQDN). Några sekunder efter att du kört ett enda distributions kommando kan du bläddra till programmet som körs i behållaren:
 
-![Program som distribuerats till Azure Container Instances visas i en webbläsare][qs-powershell-01]
+![App som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -99,7 +99,7 @@ Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
+I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en avbildning av en container och distribuera den från ett privat Azure-containerregister, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

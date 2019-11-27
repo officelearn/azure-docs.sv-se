@@ -24,7 +24,7 @@ När du kör program kan dessa program behöva åtkomst till resurser i kontexte
 
 Den här artikeln visar hur du konfigurerar resurs-baserad Kerberos-begränsad delegering i en Azure AD DS-hanterad domän.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här artikeln behöver du följande resurser:
 

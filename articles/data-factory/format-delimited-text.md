@@ -20,15 +20,15 @@ ms.locfileid: "74548288"
 
 Följ den här artikeln när du vill **parsa de avgränsade textfilerna eller skriva data i avgränsat text format**. 
 
-Avgränsat text format stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [ Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
+Avgränsat text format stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure-File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av den avgränsade text data uppsättningen.
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Ja      |
+| typ             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Ja      |
 | location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har en egen plats typ och egenskaper som stöds under `location`.  | Ja      |
 | columnDelimiter  | De/tecknen som används för att avgränsa kolumner i en fil. För närvarande stöds inte Multi-char-avgränsare för att mappa data flöde, men inte kopiera aktivitet. <br>Standardvärdet är **kommatecken `,`** när kolumn avgränsaren definieras som en tom sträng, vilket innebär att ingen avgränsare tas hela raden som en enda kolumn. | Nej       |
 | rowDelimiter     | Det enstaka tecknen eller "\r\n" som används för att avgränsa rader i en fil.<br>Standardvärdet är något av följande värden **vid läsning: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa data flöde och kopiera aktivitet. <br>När `rowDelimiter` har angetts till ingen avgränsare (tom sträng), måste `columnDelimiter` anges som ingen avgränsare (tom sträng), vilket innebär att hela innehållet behandlas som ett enda värde. | Nej       |
@@ -77,7 +77,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitet ***\*käll\**** .
 
 | Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSource**. | Ja      |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSource**. | Ja      |
 | formatSettings | En grupp med egenskaper. Läs **Inställningar för avgränsad text** i tabellen nedan. | Nej       |
 | storeSettings  | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings`. | Nej       |
 
@@ -85,7 +85,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitet ***\*käll\**** .
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Typen för formatSettings måste anges till **DelimitedTextReadSetting**. | Ja      |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextReadSetting**. | Ja      |
 | skipLineCount | Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. <br>Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. | Nej       |
 
 ### <a name="delimited-text-as-sink"></a>Avgränsad text som mottagare
@@ -94,7 +94,7 @@ Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*mottagare\****
 
 | Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSink**. | Ja      |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSink**. | Ja      |
 | formatSettings | En grupp med egenskaper. Se tabellen med **avgränsade text skriv inställningar** nedan. |          |
 | storeSettings  | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings`.  | Nej       |
 
@@ -102,7 +102,7 @@ Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*mottagare\****
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | Typen för formatSettings måste anges till **DelimitedTextWriteSetting**. | Ja                                                   |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextWriteSetting**. | Ja                                                   |
 | fileExtension | Fil namns tillägget som används för att namnge utdatafilerna, t. ex. `.csv``.txt`. Det måste anges när `fileName` inte anges i data uppsättningen för utdata DelimitedText. | Ja när fil namnet inte anges i data uppsättningen för utdata |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper

@@ -27,7 +27,7 @@ Lär dig hur du distribuerar en modell från Azure Machine Learning som en Funct
 
 Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Azure Machine Learning har nu förhands gransknings funktioner för att bygga dessa maskin inlärnings modeller i Function-appar som kan [distribueras till Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -42,7 +42,7 @@ Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maski
     >
     > Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prepare-for-deployment"></a>Förbereda för distribution
+## <a name="prepare-for-deployment"></a>Förbered för distribution
 
 Innan du distribuerar måste du definiera vad som behövs för att köra modellen som en webb tjänst. I följande lista beskrivs de grundläggande objekt som behövs för en-distribution:
 

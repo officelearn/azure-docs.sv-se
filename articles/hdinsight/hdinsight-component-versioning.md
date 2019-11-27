@@ -42,10 +42,10 @@ Komponent versioner som är associerade med HDInsight-kluster versioner visas i 
 | Apache Oozie           | 4.3.1         | 4.2.0                       |
 | Apache Zookeeper       | 3.4.6         | 3.4.6                       |
 | Apache Storm           | -             | 1.1.0                       |
-| Apache Mahout          | -             | 0.9.0+                      |
+| Apache Mahout          | -             | 0.9.0 +                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
 | Apache Spark           | 2.3.1, 2,4    | 2.3.0, 2.2.0, 2.1.0         |
-| Apache Livy            | 0,5           | 0,4, 0,4, 0,3               |
+| Apache livy            | 0,5           | 0,4, 0,4, 0,3               |
 | Apache Kafka           | 1.1.1, 2,1    | 1,1, 1,0 * (se anmärkning nedan) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.0                       |
@@ -86,15 +86,15 @@ I följande tabell visas de versioner av HDInsight som **inte** är tillgänglig
 
 | HDInsight-version | HDP-version | VM-OPERATIVSYSTEM | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet på Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,5 |HDP 2.5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
-| HDInsight 3,4 |HDP 2.4 |Ubuntu 14.0.4-LTS |Den 29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Nej |
-| HDInsight 3,3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
-| HDInsight 3,3 |HDP 2.3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
-| HDInsight 3,2 |HDP 2.2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |Den 1 april 2017 |Ja |Nej |
-| HDInsight 3,1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |Den 30 juni 2016 |Ja |Nej |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nej |
+| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
+| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4-LTS |29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
+| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |Den 1 april 2017 |Ja |Nej |
+| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |30 juni 2016 |Ja |Nej |
+| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nej |
 | HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 oktober 2013 |12 maj 2014 |31 maj 2015 |Ja |Nej |
-| HDInsight 1,6 |HDP 1.1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Nej |Nej |
+| HDInsight 1,6 |HDP 1,1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Nej |Nej |
 
 > [!NOTE]  
 > Kluster med hög tillgänglighet med två head-noder distribueras som standard för HDInsight version 2,1 och senare. De är inte tillgängliga för HDInsight version 1,6-kluster.
@@ -107,7 +107,7 @@ Enterprise Security är ett valfritt paket som du kan lägga till i ditt HDInsig
 
     Tidigare kan du bara skapa HDInsight-kluster med en lokal administratörs användare och en lokal SSH-användare. Den lokala administratörs användaren har åtkomst till alla filer, mappar, tabeller och kolumner.  Med Enterprise Security Package kan du aktivera rollbaserad åtkomst kontroll genom att integrera HDInsight-kluster med dina egna Active Directory, inklusive lokala Active Directory, Azure Active Directory Domain Services eller Active Directory på IaaS virtuell dator. Domän administratören i klustret kan ge användarna behörighet att använda sina egna företags användar namn och lösen ord för att komma åt klustret.
 
-    Mer information finns i:
+    Mer information finns här:
 
     - [En introduktion till Apache Hadoop säkerhet med domänanslutna HDInsight-kluster](./domain-joined/hdinsight-security-overview.md)
     - [Planera Azure-domänanslutna Apache Hadoop kluster i HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -119,7 +119,7 @@ Enterprise Security är ett valfritt paket som du kan lägga till i ditt HDInsig
   - Integrering med Apache Ranger för auktorisering för Hive-, Spark SQL-och garn köer.
   - Du kan ange åtkomst kontroll för filer och mappar.
 
-    Mer information finns i:
+    Mer information finns här:
 
   - [Konfigurera Apache Hive principer i domänanslutna HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 

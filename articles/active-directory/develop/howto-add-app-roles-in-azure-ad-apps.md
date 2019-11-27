@@ -39,7 +39,7 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Deklarera rollbaserade appar med hjälp av Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och byter sedan **katalog**.
 1. När fönstret **katalog + prenumeration** öppnas väljer du den Active Directory klient organisation där du vill registrera ditt program, från listan **Favoriter** eller **alla kataloger** .
 1. Välj **alla tjänster** i det vänstra navigerings fältet och välj **Azure Active Directory**.

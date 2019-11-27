@@ -20,7 +20,7 @@ Signaturen för delad åtkomst (SAS) ger dig detaljerad kontroll över vilken ty
 
 - Intervallet då SAS är giltigt, inklusive start tid och förfallo tid.
 - De behörigheter som beviljats av SAS. Till exempel kan en SAS för ett Event Hubs namn område ge behörigheten Lyssna, men inte Send-behörigheten.
-- Endast klienter som presenterar giltiga autentiseringsuppgifter kan skicka data till en händelsehubb.
+- Endast klienter som presenterar giltiga autentiseringsuppgifter kan skicka data till en händelsehubben.
 - En klient kan inte personifiera en annan klient.
 - En rouge-klient kan blockeras från att skicka data till en Event Hub.
 
@@ -179,13 +179,13 @@ private static string createToken(string resourceUri, string keyName, string key
 ```
 
 ## <a name="authenticating-event-hubs-publishers-with-sas"></a>Autentisera Event Hubs utgivare med SAS 
-En händelseutfärdare definierar en virtuell slutpunkt för en händelsehubb. Utgivaren kan endast användas för att skicka meddelanden till en Event Hub och inte ta emot meddelanden.
+En händelse utgivare definierar en virtuell slut punkt för en Event Hub. Utgivaren kan endast användas för att skicka meddelanden till en Event Hub och inte ta emot meddelanden.
 
-En händelsehubb använder vanligtvis en utgivare per klient. Alla meddelanden som skickas till någon av utgivare av en händelsehubb är i kön i den händelsehubben. Utgivare möjliggör detaljerad åtkomst kontroll.
+En Event Hub använder vanligt vis en utgivare per klient. Alla meddelanden som skickas till någon av en händelse Hubbs utgivare placeras i kö i den händelsehubben. Utgivare möjliggör detaljerad åtkomst kontroll.
 
-Varje Event Hubs-klient tilldelas en unik token som överförts till klienten. Token skapas så att varje unik token beviljar åtkomst till en annan unik utgivare. En klient som innehåller en token kan bara skicka till en utgivare och ingen annan utgivare. Om flera klienter delar samma token delar var och en av dem utgivaren.
+Varje Event Hubs-klient tilldelas en unik token som överförs till klienten. Token skapas så att varje unik token beviljar åtkomst till en annan unik utgivare. En klient som innehåller en token kan bara skicka till en utgivare och ingen annan utgivare. Om flera klienter delar samma token delar var och en av dem utgivaren.
 
-Alla tokens tilldelas med SAS-nycklar. Vanligtvis signeras alla token med samma nyckel. Klienterna är inte medvetna om nyckeln, vilket förhindrar att klienterna tillverkar tokens. Klienterna använder samma token tills de upphör att gälla.
+Alla tokens tilldelas med SAS-nycklar. Normalt är alla tokens signerade med samma nyckel. Klienterna är inte medvetna om nyckeln, vilket förhindrar att klienterna tillverkar tokens. Klienterna använder samma token tills de upphör att gälla.
 
 Om du till exempel vill definiera auktoriseringsregler som är begränsade till att endast skicka/publicera till Event Hubs måste du definiera en auktoriseringsregel för att skicka. Detta kan göras på en namn områdes nivå eller ge mer detaljerad räckvidd till en viss entitet (Event Hub-instans eller ett ämne). En klient eller ett program som omfattas av den detaljerade åtkomsten kallas Event Hubs utgivare. Det gör du genom att följa dessa steg:
 
@@ -207,16 +207,16 @@ Om du till exempel vill definiera auktoriseringsregler som är begränsade till 
 
 
 > [!NOTE]
-> Även om det inte rekommenderas, är det möjligt att utrusta enheter med token som beviljar åtkomst till en Event Hub eller ett namn område. Alla enheter som innehåller denna token kan skicka meddelanden direkt till den händelsehubben. Dessutom kan du Svartlistad enheten från att skicka till den händelsehubben.
+> Även om det inte rekommenderas, är det möjligt att utrusta enheter med token som beviljar åtkomst till en Event Hub eller ett namn område. Alla enheter som innehåller denna token kan skicka meddelanden direkt till den händelsehubben. Dessutom kan enheten inte ställas in från att skickas till den händelsehubben.
 > 
 > Vi rekommenderar alltid att du ger vissa och detaljerade omfång.
 
 > [!IMPORTANT]
-> När token som har skapats kan etableras varje klient med sin egen unika token.
+> När token har skapats etablerades varje klient med en egen unik token.
 >
-> När klienten skickar data till en händelsehubben, taggar den begäran med token. Om du vill hindra en angripare från avlyssning och stjäla token måste kommunikationen mellan klienten och händelsehubben ske över en krypterad kanal.
+> När klienten skickar data till en händelsehubben, taggar den begäran med token. För att förhindra att en angripare åsidosätter och stjäla token måste kommunikationen mellan klienten och händelsehubben ske över en krypterad kanal.
 > 
-> Om en token blir stulen av en angripare kan angriparen personifiera klienten vars token har blivit stulen. Om du svartlistar en utgivare, återges klienten oanvändbar tills den får en ny token som använder en annan utgivare.
+> Om ett token stjäls av en angripare kan angriparen imitera klienten vars token har blivit stulen. Om du svartlistar en utgivare, återges klienten oanvändbar tills den får en ny token som använder en annan utgivare.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autentisera Event Hubs konsumenter med SAS 

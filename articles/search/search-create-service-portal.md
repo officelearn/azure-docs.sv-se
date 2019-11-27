@@ -33,7 +33,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="find-azure-cognitive-search"></a>Hitta Azure-Kognitiv sökning
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
 3. Använd Sök fältet för att hitta "Azure Kognitiv sökning" eller navigera till resursen via **webb** > Azure- **kognitiv sökning**.
 

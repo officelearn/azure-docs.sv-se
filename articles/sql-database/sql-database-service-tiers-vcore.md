@@ -25,14 +25,14 @@ VCore-modellen (Virtual Core) ger flera fördelar:
 - Pris rabatter för [Azure Hybrid-förmån (AHB)](sql-database-azure-hybrid-benefit.md) och [reserverad instans (RI)](sql-database-reserved-capacity.md).
 - Bättre genomskinlighet i maskin varu informationen som gör beräkningen; underlättar planeringen av migreringar från lokala distributioner.
 
-## <a name="service-tiers"></a>Tjänstnivåer
+## <a name="service-tiers"></a>Servicenivåer
 
 Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärskritisk och storskalig. Tjänste nivån definierar vanligt vis lagrings arkitektur, utrymmes-och IO-gränser och affärs kontinuitets alternativ som rör tillgänglighet och haveri beredskap.
 
 ||**Generellt syfte**|**Verksamhets kritisk**|**Hyperskala**|
 |---|---|---|---|
-|Bäst för|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ. |Erbjuder affärs program den högsta återhämtningen till problem genom att använda flera isolerade repliker och ger den högsta I/O-prestandan per databas replik.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.  Ger högre återhämtning till problem genom att tillåta konfiguration av mer än en isolerad databas replik. |
-|Storage|Använder Fjärrlagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**Hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
+|Passar bäst för|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ. |Erbjuder affärs program den högsta återhämtningen till problem genom att använda flera isolerade repliker och ger den högsta I/O-prestandan per databas replik.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.  Ger högre återhämtning till problem genom att tillåta konfiguration av mer än en isolerad databas replik. |
+|Lagring|Använder Fjärrlagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**Hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**Beräkning av enkel databas och elastisk pool**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
 |I/O-genomflöde (ungefärligt)|**Enkel databas och elastisk pool**: 500 IOPS per vCore upp till 40000 högsta IOPS.<br/>**Hanterad instans**: beror på [fil storleken](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per vCore upp till 320 000 maximal IOPS|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen.|
 |Tillgänglighet|1 replik, inga storskaliga repliker|3 repliker, 1 [storskalig replik](sql-database-read-scale-out.md),<br/>zon-redundant hög tillgänglighet (HA)|1 Läs-och skriv replik, plus 0-4 storskalig [repliker](sql-database-read-scale-out.md)|
 |Säkerhetskopior|[Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|Ögonblicks bilds säkerhets kopieringar i Azure Remote Storage. Återställningar använder dessa ögonblicks bilder för snabb återställning. Säkerhets kopieringar är omedelbara och påverkar inte beräknings-I/O-prestanda. Återställningar är snabba och är inte en storleks data åtgärd (tar några minuter i stället för timmar eller dagar).|
@@ -95,7 +95,7 @@ Om du vill aktivera maskin vara i M-serien för en prenumeration och region mås
 ### <a name="compute-and-memory-specifications"></a>Beräknings-och minnes specifikationer
 
 
-|Maskin varu generering  |Compute  |Minne  |
+|Maskin varu generering  |Databearbetning  |Minne  |
 |:---------|:---------|:---------|
 |Gen4     |– Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer<br>-Etablera upp till 24 virtuella kärnor (1 vCore = 1 fysisk kärna)  |– 7 GB per vCore<br>-Etablera upp till 168 GB|
 |Gen5     |**Allokerad beräkning**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake)<br>-Etablera upp till 80 virtuella kärnor (1 vCore = 1 Hyper-Thread)<br><br>**Data behandling utan Server**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake)<br>-Skala upp till 16 virtuella kärnor (1 vCore = 1 Hyper-Thread) automatiskt|**Allokerad beräkning**<br>– 5,1 GB per vCore<br>-Etablera upp till 408 GB<br><br>**Data behandling utan Server**<br>-Skala upp till 24 GB per vCore automatiskt<br>-Skala upp till 48 GB max|

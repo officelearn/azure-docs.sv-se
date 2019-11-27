@@ -34,7 +34,7 @@ Mått och insikter är tillgängliga via den [Azure Application Insights](https:
 > [!Important]
 > Observera att övervakning av data med SDK är tillgängligt i alla versioner, samtidigt som du övervakar data genom att använda Studio på webben bara Enterprise Edition.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill skapa och arbeta med data uppsättnings övervakare behöver du:
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
@@ -131,10 +131,10 @@ Den här tabellen innehåller grundläggande inställningar som används för da
 
 | Inställning | Beskrivning | Tips | Föränderlig | 
 | ------- | ----------- | ---- | ------- | 
-| Name | Namnet på data uppsättnings övervakaren. | | Nej |
+| Namn | Namnet på data uppsättnings övervakaren. | | Nej |
 | Bas linje data uppsättning | Tabell data uppsättning som ska användas som bas linje för jämförelse av mål data uppsättningen över tid. | Bas linjens data uppsättning måste ha funktioner som är gemensamma för mål data uppsättningen. I allmänhet bör bas linjen anges till en modells utbildnings data uppsättning eller en sektor av mål data uppsättningen. | Nej |
 | Mål data uppsättning | Tabell data uppsättning med en tidsstämpel-kolumn som ska analyseras för data avvikelser. | Mål data uppsättningen måste ha funktioner gemensamt med bas linje data uppsättningen och måste vara en `timeseries` data uppsättning som nya data läggs till i. Historiska data i mål data uppsättningen kan analyseras eller också kan nya data övervakas. | Nej | 
-| Frekvens | Den frekvens som används för att schemalägga pipeline-jobbet och analysera historiska data om en hel fyllning körs. Alternativen omfattar varje dag, varje vecka eller varje månad. | Justera den här inställningen för att inkludera en jämförbar data storlek till bas linjen. | Nej | 
+| Frequency | Den frekvens som används för att schemalägga pipeline-jobbet och analysera historiska data om en hel fyllning körs. Alternativen omfattar varje dag, varje vecka eller varje månad. | Justera den här inställningen för att inkludera en jämförbar data storlek till bas linjen. | Nej | 
 | Funktioner | Lista över funktioner som kommer att analyseras för data drift över tid. | Ställ in till en modells utmatnings funktion (er) för att mäta begrepps avvikelsen. Inkludera inte funktioner som används naturligt över tid (månad, år, index osv.). Du kan fylla på och befintlig data riktnings övervakning när du har justerat listan med funktioner. | Ja | 
 | Beräkningsmål | Azure Machine Learning Compute Target för att köra data uppsättnings övervaknings jobben. | | Ja | 
 
@@ -147,7 +147,7 @@ De här inställningarna gäller för den schemalagda data behandlings övervaka
 | Aktivera | Aktivera eller inaktivera schemat i pipelinen för data uppsättnings övervakaren | Inaktivera schemat för att analysera historiska data med den egna fyllnings inställningen. Den kan aktive ras när data uppsättnings övervakaren har skapats. | Ja | 
 | Svarstid | Tid i timmar tar det för data att komma in i data uppsättningen. Till exempel, om det tar tre dagar innan data tas emot i SQL DB-datauppsättningen inkapslade, ställer du in svars tiden på 72. | Kan inte ändras efter att data uppsättnings övervakaren har skapats | Nej | 
 | E-postadresser | E-postadresser för aviseringar baserat på överträdelse av tröskelvärdet för data avvikelse i procent. | E-postmeddelanden skickas via Azure Monitor. | Ja | 
-| Tröskelvärde | Tröskelvärde för data avvikelse i procent för e-postavisering. | Ytterligare aviseringar och händelser kan anges för många andra mått i arbets ytans associerade Application Insights-resurs. | Ja | 
+| Fastställd | Tröskelvärde för data avvikelse i procent för e-postavisering. | Ytterligare aviseringar och händelser kan anges för många andra mått i arbets ytans associerade Application Insights-resurs. | Ja | 
 
 ### <a name="backfill-settings"></a>Inställningar för bakfyllning
 
@@ -307,7 +307,7 @@ Du kan använda en befintlig åtgärds grupp eller skapa en ny för att definier
 
 ![Ny åtgärds grupp](media/how-to-monitor-datasets/action-group.png)
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Begränsningar och kända problem:
 
@@ -318,10 +318,10 @@ Begränsningar och kända problem:
 
 Kolumner eller funktioner i data uppsättningen klassificeras som kategoriska eller numeriska baserat på villkoren i följande tabell. Om funktionen inte uppfyller dessa villkor, t. ex. en kolumn av typen String med > 100 unika värden, släpps funktionen från vår algoritm för data avvikelser, men är fortfarande profilerad. 
 
-| Funktions typ | Datatyp | villkor | Begränsningar | 
+| Funktions typ | Datatyp | Tillstånd | Begränsningar | 
 | ------------ | --------- | --------- | ----------- |
 | Kategoriska | sträng, bool, int, Float | Antalet unika värden i funktionen är mindre än 100 och mindre än 5% av antalet rader. | Null behandlas som sin egen kategori. | 
-| Numeriskt | int, Float | Värdena i funktionen är av en numerisk datatyp och uppfyller inte villkoret för en kategoriska-funktion. | Funktionen utelämnas om > 15% av värdena är null. | 
+| Numeriska | int, Float | Värdena i funktionen är av en numerisk datatyp och uppfyller inte villkoret för en kategoriska-funktion. | Funktionen utelämnas om > 15% av värdena är null. | 
 
 ## <a name="next-steps"></a>Nästa steg
 

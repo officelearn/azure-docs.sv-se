@@ -89,7 +89,7 @@ Du kan också **begära kvot för flera regioner** genom ett enda support ärend
 
 2.  Välj den prenumeration som behöver en ökad kvot.
 
- ![Välj en prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
+ ![Välj prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3.  Välj **användning + kvoter**.
 

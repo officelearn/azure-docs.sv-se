@@ -371,7 +371,7 @@ Om ett fel inträffar innehåller motsvarande HTTP-svar-text JSON fel informatio
 
 I det här avsnittet dokumenteras möjliga fel svar. Statusen "200 OK" är ett lyckat svar och åtkomsttoken finns i JSON för svars texten i access_token-elementet.
 
-| Statuskod | Fel | Felbeskrivning | Lösning |
+| Statuskod | Fel | Fel Beskrivning | Lösning |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Felaktig begäran | invalid_resource | AADSTS50001: det gick inte att hitta programmet med namnet *\<-URI\>* i klient organisationen med namnet *\<klient organisations-ID\>* . Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kanske har skickat din autentiseringsbegäran till fel klient. \ | (Endast Linux) |
 | 400 Felaktig begäran | bad_request_102 | Obligatoriskt metadata-huvud har inte angetts | Antingen saknas `Metadata`s huvudets huvud fält i din förfrågan eller så är det felaktigt formaterat. Värdet måste anges som `true`, i gemener. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel.|

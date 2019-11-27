@@ -408,7 +408,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 
-*  [Data Factory-bloggen](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

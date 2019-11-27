@@ -23,9 +23,9 @@ Den här artikeln sammanfattar support och krav för haveri beredskap för virtu
 
 **Distribution** |  **Support**
 --- | ---
-**Azure Portal** | Stöds.
+**Azure-portalen** | Stöds.
 **PowerShell** | Stöds. [Läs mer](azure-to-azure-powershell.md)
-**REST-API** | Stöds.
+**REST API** | Stöds.
 **CLI** | Stöds inte för närvarande
 
 
@@ -72,7 +72,7 @@ I den här tabellen sammanfattas stödet för cache Storage-kontot som används 
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Generell användning v2-lagrings konton (frekvent och låg frekvent nivå) | Stöds | Användning av GPv2 rekommenderas inte eftersom transaktionskostnader för v2 är betydligt högre än v1-lagrings konton.
-Premium Storage | Stöds inte | Standard lagrings konton används för cachelagring för att hjälpa till att optimera kostnaderna.
+Premium-lagring | Stöds inte | Standard lagrings konton används för cachelagring för att hjälpa till att optimera kostnaderna.
 Azure Storage brand väggar för virtuella nätverk  | Stöds | Om du använder en brand vägg som är aktive rad för cache-lagring eller mål lagrings konto, se till att du [tillåter betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll nätverket.
 
 
@@ -89,12 +89,12 @@ Windows Server 2019 | Stöds för Server Core, server med Skriv bords miljö.
 Windows Server 2016  | Server Core som stöds, server med Skriv bords miljö.
 Windows Server 2012 R2 | Stöds.
 Windows Server 2012 | Stöds.
-Windows Server 2008 R2 med SP1/SP2 | Stöds.<br/><br/> Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 R2 SP1/SP2.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgraderingen och krav](https://aka.ms/SHA-2KB).
-Windows Server 2008 med SP2 | Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4493730) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 med SP2.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgraderingen och krav](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 med SP1/SP2 | Stöds.<br/><br/> Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 R2 SP1/SP2.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+Windows Server 2008 med SP2 | Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4493730) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 med SP2.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Stöds.
 Windows 8,1 (x64) | Stöds.
 Windows 8 (x64) | Stöds.
-Windows 7 (x64) med SP1 och senare | Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows 7 med SP1.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgraderingen och krav](https://aka.ms/SHA-2KB).
+Windows 7 (x64) med SP1 och senare | Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows 7 med SP1.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
 
 
 
@@ -110,7 +110,7 @@ Ubuntu 18,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-v
 Debian 7 | [Kernel-versioner som stöds](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Kernel-versioner som stöds](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 11 | SP3<br/><br/> Uppgradering av replikering av datorer från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
+SUSE Linux Enterprise Server 11 | INSTALLERAS<br/><br/> Uppgradering av replikering av datorer från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5) 
 
@@ -168,7 +168,7 @@ Storlek | Valfri storlek på virtuella Azure-datorer med minst 2 processor kärn
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standard alternativen skapas en tillgänglighets uppsättning automatiskt, baserat på käll regions inställningarna. Du kan ändra de här inställningarna.
 Tillgänglighetszoner | Stöds |
 Hybrid användnings förmånen (hubb) | Stöds | Om den virtuella käll datorn har en nav-licens aktive rad, används även HUB-licensen i en redundanstest eller redundansväxling av den virtuella datorn.
-Skalningsuppsättningar för virtuella datorer | Stöds inte |
+VM-skalningsuppsättningar | Stöds inte |
 Azure Gallery-bilder – Microsoft publicerat | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Azure Gallery-avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Anpassade avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.

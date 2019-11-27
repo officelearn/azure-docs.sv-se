@@ -25,7 +25,7 @@ Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning n
 > * [Databas markörer](/azure/kusto/management/databasecursor).
 > * [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/tables#create-ingestion-mapping) . 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Logga in på [webb gränssnittet](https://dataexplorer.azure.com/).
@@ -54,7 +54,7 @@ Det finns två typer av streaming-inmatningar som stöds:
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Välj lämplig typ av strömnings inmatning
 
-|   |Händelsehubb  |Anpassad inmatning  |
+|   |Event Hub  |Anpassad inmatning  |
 |---------|---------|---------|
 |Data fördröjning mellan inmatnings initiering och data som är tillgängliga för fråga   |    längre fördröjning     |   kortare fördröjning      |
 |Utvecklings kostnader    |   snabb och enkel installation, inga utvecklings kostnader    |   hög utvecklings kostnader för program för att hantera fel och säkerställa data konsekvens     |

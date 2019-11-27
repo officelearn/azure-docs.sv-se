@@ -56,7 +56,7 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **SQL-databaser** på den vänstra sidan i Azure Portal.
 3. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
 

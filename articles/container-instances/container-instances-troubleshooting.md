@@ -1,5 +1,5 @@
 ---
-title: Felsök vanliga problem
+title: Felsöka vanliga problem
 description: Lär dig hur du felsöker vanliga problem när du distribuerar, kör eller hanterar Azure Container Instances
 ms.topic: article
 ms.date: 09/25/2019

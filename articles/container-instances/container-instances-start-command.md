@@ -52,7 +52,7 @@ Kommando rads koden varierar beroende på vilket Azure-API eller verktyg som anv
 
 ### <a name="examples"></a>Exempel
 
-|    |  Azure CLI   | Portal | Mall | 
+|    |  Azure CLI   | Portalen | Mall | 
 | ---- | ---- | --- | --- |
 | Enda kommando | `--command-line "python myscript.py arg1 arg2"` | **Kommando åsidosättning**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Flera kommandon | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Kommando åsidosättning**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |

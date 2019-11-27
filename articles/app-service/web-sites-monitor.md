@@ -43,7 +43,7 @@ Kvoter för kostnads fria eller delade appar är:
 | **PROCESSOR (kort)** | Mängden CPU som tillåts för den här appen i ett intervall om 5 minuter. Den här kvoten återställs var femte minut. |
 | **PROCESSOR (dag)** | Den totala mängden processor som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
 | **Minnesoptimerade** | Den totala mängden minne som tillåts för den här appen. |
-| **Bandbredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
+| **Bredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
 | **Fil Systems** | Den totala mängden lagrings utrymme som tillåts. |
 
 Den enda kvot som gäller för appar som finns i fil systemet *Basic*, *standard*och *Premium* är filesystem.

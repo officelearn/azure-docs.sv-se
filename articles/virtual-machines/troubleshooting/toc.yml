@@ -59,6 +59,8 @@
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: Felsöka kernelrelaterade startfel
       href: 'https://support.microsoft.com/help/4091524'
+    - name: Återställa LVM-konfigurerade virtuella datorer och ingen start
+      href: chroot-logical-volume-manager.md
     - name: Felsöka fstab-fel
       href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: Detaljerad felsökning av SSH

@@ -244,45 +244,45 @@ I allmänhet bör Azure File Sync stödja samverkan med krypterings lösningar s
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andra HSM-lösningar (hierarkisk lagrings hantering)
 Inga andra HSM-lösningar ska användas med Azure File Sync.
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 Azure File Sync är endast tillgängligt i följande regioner:
 
 | Region | Data Center plats |
 |--------|---------------------|
-| Östra Australien | New South Wales |
-| Sydöstra Australien | Victoria |
-| Södra Brasilien | Sao Paulo (delstat) |
-| Centrala Kanada | Toronto |
-| Östra Kanada | Quebec City |
+| Australien, östra | New South Wales |
+| Australien, sydöstra | Victoria |
+| Brasilien, södra | Sao Paulo (delstat) |
+| Kanada, centrala | Toronto |
+| Kanada, östra | Quebec City |
 | Indien, centrala | Pune |
-| Centrala USA | Iowa |
-| Östasien | Hongkong SAR |
-| Östra USA | Virginia |
+| USA, centrala | Iowa |
+| Asien, östra | Hong Kong SAR |
+| USA, östra | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |
 | Frankrike, södra * | Marseille |
 | Sydkorea, centrala | Seoul |
 | Sydkorea, södra | Busan |
-| Östra Japan | Tokyo, Saitama |
-| Västra Japan | Osaka |
-| Norra centrala USA | Illinois |
-| Norra Europa | Irland |
+| Japan, östra | Tokyo, Saitama |
+| Japan, västra | Osaka |
+| USA, norra centrala | Illinois |
+| Europa, norra | Irland |
 | Sydafrika, norra | Johannesburg |
 | Södra Afrika, västra * | Kapstaden |
-| Södra centrala USA | Texas |
-| Södra Indien | Chennai |
-| Sydostasien | Singapore |
+| USA, södra centrala | Texas |
+| Indien, södra | Chennai |
+| Asien, sydöstra | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
 | Arizona (USA-förvaltad region) | Arizona |
 | Texas (USA-förvaltad region) | Texas |
-| Virginia (USA-förvaltad region) | Virginia |
+| USA Gov Virginia | Virginia |
 | Förenade Arabemiraten, norra | Dubai |
 | Förenade Arabemiraten Central * | Abu Dhabi |
-| Västra Europa | Nederländerna |
-| Västra centrala USA | Wyoming |
-| Västra USA | Kalifornien |
-| Västra USA 2 | Washington |
+| Europa, västra | Nederländerna |
+| USA, västra centrala | Wyoming |
+| USA, västra | Kalifornien |
+| USA, västra 2 | Washington |
 
 Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
 
@@ -298,38 +298,38 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Östra Australien      | Sydöstra Australien|
-| Sydöstra Australien | Östra Australien     |
-| Södra Brasilien        | Södra centrala USA   |
-| Centrala Kanada      | Östra Kanada        |
-| Östra Kanada         | Centrala Kanada     |
-| Indien, centrala       | Södra Indien        |
-| Centrala USA          | USA, östra 2          |
-| Östasien           | Sydostasien     |
-| Östra USA             | Västra USA            |
-| USA, östra 2           | Centrala USA         |
+| Australien, östra      | Australien, sydöstra|
+| Australien, sydöstra | Australien, östra     |
+| Brasilien, södra        | USA, södra centrala   |
+| Kanada, centrala      | Kanada, östra        |
+| Kanada, östra         | Kanada, centrala     |
+| Indien, centrala       | Indien, södra        |
+| USA, centrala          | USA, östra 2          |
+| Asien, östra           | Asien, sydöstra     |
+| USA, östra             | USA, västra            |
+| USA, östra 2           | USA, centrala         |
 | Frankrike, centrala      | Frankrike, södra       |
 | Frankrike, södra        | Frankrike, centrala     |
-| Östra Japan          | Västra Japan         |
-| Västra Japan          | Östra Japan         |
+| Japan, östra          | Japan, västra         |
+| Japan, västra          | Japan, östra         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
-| Norra Europa        | Västra Europa        |
-| Norra centrala USA    | Södra centrala USA   |
+| Europa, norra        | Europa, västra        |
+| USA, norra centrala    | USA, södra centrala   |
 | Sydafrika, norra  | Sydafrika, västra  |
 | Sydafrika, västra   | Sydafrika, norra |
-| Södra centrala USA    | Norra centrala USA   |
-| Södra Indien         | Indien, centrala      |
-| Sydostasien      | Östasien          |
+| USA, södra centrala    | USA, norra centrala   |
+| Indien, södra         | Indien, centrala      |
+| Asien, sydöstra      | Asien, östra          |
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
 | Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| US Gov, Iowa         | Virginia (USA-förvaltad region)    |
-| Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| Västra Europa         | Norra Europa       |
-| Västra centrala USA     | Västra USA 2          |
-| Västra USA             | Östra USA            |
-| Västra USA 2           | Västra centrala USA    |
+| US Gov, Iowa         | USA Gov Virginia    |
+| USA Gov Virginia      | Texas (USA-förvaltad region)       |
+| Europa, västra         | Europa, norra       |
+| USA, västra centrala     | USA, västra 2          |
+| USA, västra             | USA, östra            |
+| USA, västra 2           | USA, västra centrala    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

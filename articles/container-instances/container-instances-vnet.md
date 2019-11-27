@@ -63,7 +63,7 @@ Ett virtuellt nätverk definierar det adress utrymme som du skapar ett eller fle
 
 ### <a name="subnet-delegated"></a>Undernät (delegerat)
 
-Undernät segmentera det virtuella nätverket i separata adressutrymmen som kan användas av Azure-resurserna du placerar i dem. Du skapar ett eller flera undernät i ett virtuellt nätverk.
+Undernät segmenterar det virtuella nätverket i separata adress utrymmen som kan användas av de Azure-resurser som du placerar i dem. Du skapar ett eller flera undernät i ett virtuellt nätverk.
 
 Det undernät som du använder för container grupper får bara innehålla behållar grupper. När du först distribuerar en behållar grupp till ett undernät delegerar Azure det under nätet till Azure Container Instances. Under nätet kan endast användas för container grupper när det har delegerats. Om du försöker distribuera andra resurser än container grupper till ett delegerat undernät, Miss lyckas åtgärden.
 

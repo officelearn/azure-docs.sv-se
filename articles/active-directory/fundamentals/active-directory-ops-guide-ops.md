@@ -134,7 +134,7 @@ Det finns två "från"-adresser som används av Azure AD: <o365mc@email2.microso
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
 - [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Företags program som förfaller certifikat meddelanden](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
-- Etablering tjänstmeddelanden i Enterprise-App
+- Meddelanden om företags-app-etablering
 
 Se följande tabell för att lära dig vilken typ av meddelanden som skickas och var de ska kontrol leras:
 

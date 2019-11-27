@@ -41,7 +41,7 @@ Skapa ditt Genomics-konto med följande information (se föregående bild):
  |Prenumeration         | Ditt prenumerationsnamn|Detta är faktureringsenheten för dina Azure-tjänster – mer information om din prenumeration finns under [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. Mer information finns i [Resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](/azure/architecture/best-practices/resource-naming) |
  |Kontonamn         | MittGenomicsKonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](/azure/architecture/best-practices/resource-naming) för giltiga namn |
- |Plats                   | Västra USA 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
+ |Plats                   | USA, västra 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
 
 
 
@@ -121,9 +121,9 @@ Konfigurera ditt lagringskonto med följande information (se föregående bild).
  |Prenumeration         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Du kan välja samma resursgrupp som ditt Genomics-konto. Information om giltiga resursgruppnamn finns under [Namngivningsregler](/azure/architecture/best-practices/resource-naming) |
  |Lagringskontots namn         | MittLagringskonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](/azure/architecture/best-practices/resource-naming) för giltiga namn |
- |Plats                  | Västra USA 2                  | Använd samma plats som platsen för Genomics-kontot för att minska kostnaderna för utgående trafik och minska svarstiden.  | 
+ |Plats                  | USA, västra 2                  | Använd samma plats som platsen för Genomics-kontot för att minska kostnaderna för utgående trafik och minska svarstiden.  | 
  |Prestanda                  | Standard                   | Standardinställningen är Standard. Mer information om standard- och premiumlagringskonton finns i [introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
- |Typ av konto       | Blob Storage       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |
+ |Typ av konto       | Blobb-lagring       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |
  |Replikering                  | Lokalt redundant lagring                  | Med lokalt redundant lagring replikeras dina data i datacentret i den region där du har skapat ditt lagringskonto. Mer information finns i [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
  |Åtkomstnivå                  | Frekvent                   | Frekvent åtkomst indikerar att objekten på lagringskontot kommer att användas oftare.    |
 

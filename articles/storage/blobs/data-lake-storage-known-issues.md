@@ -1,6 +1,6 @@
 ---
 title: Kända problem med Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Lär dig mer om begränsningar och kända problem med Azure Data Lake Storage Gen2
+description: Läs mer om begränsningar och kända problem med Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage

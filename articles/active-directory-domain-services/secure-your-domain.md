@@ -24,7 +24,7 @@ Azure Active Directory Domain Services (Azure AD DS) möjliggör som standard an
 
 Den här artikeln visar hur du inaktiverar NTLM v1-och TLS v1-chiffer och inaktiverar hash-synkronisering av NTLM-lösenord.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här artikeln behöver du följande resurser:
 

@@ -69,7 +69,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |Namn  |Beskrivning  |
 |---------|---------|
-|location     | Krävs. Resursplats.        |
+|location     | Krävs. Resurs plats.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista användare-tilldelade hanterade identiteter
 

@@ -151,7 +151,7 @@
         - name: Samlokalisering
           href: co-location.md
         - name: Nätverksprestanda
-          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: VM-typer och storlekar
       href: sizes.md
       items:
@@ -209,7 +209,7 @@
     - name: Dedikerade värdar
       href: dedicated-hosts.md
     - name: Underhåll och uppdateringar
-      href: maintenance-and-updates.md
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disklagring
       items:
         - name: Introduktion till hanterade diskar
@@ -376,18 +376,32 @@
           href: download-template.md
         - name: Virtuell Azure-datoragent
           href: ../extensions/agent-windows.md
-        - name: Planerat underhåll
-          href: maintenance-notifications.md
         - name: Minimera spekulativ körning
           href: mitigate-se.md
-        - name: Schemalagda händelser
-          href: scheduled-events.md
-        - name: Övervaka schemalagda händelser
-          href: scheduled-event-service.md
         - name: Övervaka metadata
           href: instance-metadata-service.md
         - name: Aktivera kapslad virtualisering
           href: nested-virtualization.md
+    - name: Underhåll av plattform
+      items:
+        - name: Meddelanden om underhåll
+          items:
+            - name: Översikt
+              href: maintenance-notifications.md
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Portalen
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Kontroll av underhåll
+          items:
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Schemalagda händelser
+          href: scheduled-events.md
+        - name: Windows-tjänst för schemalagda händelser
+          href: scheduled-event-service.md
     - name: Övervaka virtuella datorer
       items:
         - name: Azure Monitor för virtuella datorer

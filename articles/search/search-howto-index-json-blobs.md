@@ -267,7 +267,7 @@ Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den kör
 
 <a name="json-indexer-dotnet"></a>
 
-## <a name="use-net-sdk"></a>Använda .NET SDK
+## <a name="use-net-sdk"></a>Använd .NET SDK
 
 .NET SDK har fullständig paritet med REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
@@ -424,7 +424,7 @@ Du kan också referera till enskilda mat ris element genom att använda ett noll
 >
 >
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Indexerare i Azure Kognitiv sökning](search-indexer-overview.md)
 + [Indexera Azure Blob Storage med Azure Kognitiv sökning](search-howto-index-json-blobs.md)

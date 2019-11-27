@@ -66,7 +66,7 @@ Utför följande steg för att granska befintliga e-postmottagare eller lägga t
 > [!WARNING]
 > När du ändrar meddelande inställningarna uppdateras meddelande inställningarna för hela den hanterade Azure AD DS-domänen, inte bara dig själv.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Jag har fått ett e-postmeddelande om en avisering, men när jag är inloggad på Azure Portal finns det ingen avisering. Vad hände?
 

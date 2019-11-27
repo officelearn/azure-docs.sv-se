@@ -36,7 +36,7 @@ Börjar du bara utforska funktionerna i Azure Cognitive Services? Implementerar 
 
 Utforska [support alternativen för Azure och välj den plan](https://azure.microsoft.com/support/plans) som passar bäst, oavsett om du är en utvecklare som bara startar din moln resa eller en stor organisation som distribuerar affärs kritiska, strategiska program. Azure-kunder kan skapa och hantera support förfrågningar i Azure Portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal för USA myndigheter](https://portal.azure.us)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Publicera en fråga på Stack Overflow
@@ -65,7 +65,7 @@ Om du inte kan hitta ett svar på ditt problem via sökning skickar du en ny fr�
 
 Om du vill begära nya funktioner kan du publicera dem på UserVoice. Dela med dig av dina idéer för att göra Cognitive Services och medföljande API: er fungerar bättre för de program du utvecklar:
 
-| Tjänsten                       | Cognitive Services UserVoice-URL |
+| Tjänst                       | Cognitive Services UserVoice-URL |
 |-------------------------------|---------------|
 | Avvikelseidentifiering              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
 | Bing-tjänster                 | https://cognitive.uservoice.com/forums/555907-bing-search |
@@ -81,7 +81,7 @@ Om du vill begära nya funktioner kan du publicera dem på UserVoice. Dela med d
 | Taltjänster               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Textanalys                | https://cognitive.uservoice.com/forums/555922-text-analytics |
 | Translator för textöversättning               | https://cognitive.uservoice.com/forums/558796-translator |
-| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| Videindexering                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="release-notes"></a>Viktig information
 
@@ -106,7 +106,7 @@ Viktig information uppdateras när nya versioner görs tillgängliga. Anteckning
 
 Nyheter om Cognitive Services delas i Azure- [bloggen](https://azure.microsoft.com/blog/topics/cognitive-services/).
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>

@@ -17,7 +17,7 @@ ms.locfileid: "74534075"
 Den här artikeln visar hur du hanterar din Afire-databas för MySQL-servrar. Hanterings uppgifter omfattar skalning av beräknings-och lagrings utrymme, återställning av administratörs lösen ord och visning av Server information.
 
 ## <a name="sign-in"></a>Logga in
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Skapa en server
 Besök [snabb](quickstart-create-mysql-server-database-using-azure-portal.md) starten för att lära dig hur du skapar och kommer igång med en Azure Database for MySQL-server.
@@ -79,7 +79,7 @@ Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
 
 2. Ange ett nytt lösen ord och bekräfta lösen ordet. I text rutan visas ett varnings krav för lösen ords komplexitet.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Återställ lösen ord](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Välj **OK** för att spara det nya lösen ordet.
 

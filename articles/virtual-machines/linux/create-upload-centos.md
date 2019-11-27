@@ -43,7 +43,7 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
 * Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken.  Mer information om detta finns i stegen nedan.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes) .
 
-## <a name="centos-6x"></a>CentOS 6.x
+## <a name="centos-6x"></a>CentOS 6. x
 
 1. Välj den virtuella datorn i Hyper-V Manager.
 
@@ -229,7 +229,7 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
 
 
 
-## <a name="centos-70"></a>CentOS 7.0+
+## <a name="centos-70"></a>CentOS 7.0 +
 
 **Ändringar i CentOS 7 (och liknande derivat)**
 

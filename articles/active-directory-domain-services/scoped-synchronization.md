@@ -42,9 +42,9 @@ Du kan använda Azure Portal eller PowerShell för att konfigurera inställninga
 
 | Åtgärd | | |
 |--|--|--|
-| Skapa en Azure AD DS-hanterad domän och konfigurera omfångs synkronisering | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Ändra omfångs synkronisering | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Inaktivera omfångs synkronisering | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Skapa en Azure AD DS-hanterad domän och konfigurera omfångs synkronisering | [Azure-portalen](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Ändra omfångs synkronisering | [Azure-portalen](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Inaktivera omfångs synkronisering | [Azure-portalen](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Att ändra omfånget för synkronisering innebär att den Azure AD DS-hanterade domänen synkroniserar om alla data.

@@ -47,13 +47,13 @@ Mer specifikt stöder den här generiska REST-anslutningen:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory entiteter som är speciella för REST-anslutningen.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Följande egenskaper stöds för den REST-länkade tjänsten:
 
@@ -71,7 +71,7 @@ Ange egenskapen **authenticationType** som **Basic**. Förutom de allmänna egen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| Användarnamn | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
+| Användar | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
 | lösenord | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
@@ -106,7 +106,7 @@ Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja |
 | servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
+| innehav | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
 | aadResourceId | Ange den AAD-resurs som du begär för auktorisering, t. ex. `https://management.core.windows.net`.| Ja |
 
 **Exempel**
@@ -163,7 +163,7 @@ Ange egenskapen **authenticationType** till **ManagedServiceIdentity**. Förutom
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
 Det här avsnittet innehåller en lista över egenskaper som stöds av REST-datauppsättningen. 
 
@@ -197,7 +197,7 @@ Om du har angett `requestMethod`, `additionalHeaders`, `requestBody` och `pagina
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
+## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
 
 Det här avsnittet innehåller en lista över egenskaper som REST-källan stöder.
 

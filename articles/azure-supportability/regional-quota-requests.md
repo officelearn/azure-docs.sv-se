@@ -71,7 +71,7 @@ Följ instruktionerna nedan för att skapa en support förfrågan via Azures bla
 
 2. Välj den prenumeration som behöver en ökad kvot.
 
-![Välj en prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
+![Välj prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. Välj **användning + kvoter**
 

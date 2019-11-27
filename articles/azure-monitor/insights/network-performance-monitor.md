@@ -37,15 +37,15 @@ Mer information om de olika funktionerna som stöds av [övervakare av nätverks
  
 ## <a name="supported-regions"></a>Regioner som stöds
 NPM kan övervaka anslutningar mellan nätverk och program i valfri del av världen, från en arbets yta som finns i någon av följande regioner:
-* Västra Europa
-* Västra centrala USA
-* Norra centrala USA
-* Östra USA
+* Europa, västra
+* USA, västra centrala
+* USA, norra centrala
+* USA, östra
 * Östra Japan
 * Sydostasien
 * Sydöstra Australien
 * Australien, centrala
-* Östra Australien
+* Australien, östra
 * Södra Storbritannien
 * Indien, centrala
 * AMERIKANSKA myndigheter i Virginia
@@ -157,7 +157,7 @@ Konfigurera de funktioner som du vill använda:
 
  
 
-## <a name="data-collection-details"></a>Information om insamling av data
+## <a name="data-collection-details"></a>Information om data insamling
 Om du vill samla in information om förlust och latens använder Övervakare av nätverksprestanda TCP SYN-SYNACK – handskaknings paket när du väljer TCP som protokoll. Övervakare av nätverksprestanda använder ICMP ECHO ICMP ECHO svara när du väljer ICMP som protokoll. Spårnings väg används också för att hämta Topology-information.
 
 I följande tabell visas metoder för data insamling och annan information om hur data samlas in för Övervakare av nätverksprestanda.
@@ -267,7 +267,7 @@ Varje gång du skapar en avisering skapar NPM en fråga baserad logg aviserings 
 Meddelanden debiteras separat enligt [priset per meddelande på sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Information om priser är tillgänglig [online](network-performance-monitor-pricing-faq.md).
 

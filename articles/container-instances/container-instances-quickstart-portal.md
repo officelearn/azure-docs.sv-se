@@ -22,7 +22,7 @@ Använd Azure Container Instances för att köra Server lös Docker-behållare i
 
 I den här snabb starten använder du Azure Portal för att distribuera en isolerad Docker-behållare och göra dess program tillgängligt med ett fullständigt kvalificerat domän namn (FQDN). När du har konfigurerat några inställningar och distribuerat containern kan gå du till programmet som körs:
 
-![Program som distribuerats till Azure Container Instances visas i en webbläsare][aci-portal-07]
+![App som distribuerats via Azure Container Instances visas i webbläsaren][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -88,7 +88,7 @@ Välj **Ja** i bekräftelsedialogrutan när den visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Azure Container instance från en offentlig Microsoft-avbildning. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
+I den här snabb starten skapade du en Azure Container instance från en offentlig Microsoft-avbildning. Om du vill skapa en avbildning av en container och distribuera den från ett privat Azure-containerregister, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

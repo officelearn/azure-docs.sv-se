@@ -20,7 +20,7 @@ ms.locfileid: "74549250"
 
 När du arbetar med Azure Logic Apps kan du konfigurera en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) för att vara värd för logi Kap par som behöver åtkomst till resurser i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du har flera ISE-instanser som behöver åtkomst till andra slut punkter som har IP-begränsningar distribuerar du en [Azure-brandvägg](../firewall/overview.md) eller en [virtuell nätverks](../virtual-network/virtual-networks-overview.md#filter-network-traffic) installation till det virtuella nätverket och dirigerar utgående trafik via brand väggen eller den virtuella nätverks installationen. Du kan sedan ha alla ISE-instanser i det virtuella nätverket använda en enda, förutsägbar och offentlig IP-adress för att kommunicera med mål systemen. På så sätt behöver du inte konfigurera ytterligare brand Väggs öppningar i mål systemen för varje ISE. I det här avsnittet visas hur du dirigerar utgående trafik via en Azure-brandvägg, men du kan använda liknande koncept till en virtuell virtuell nätverks installation, till exempel en brand vägg från en tredje part från Azure Marketplace.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-brandvägg som körs i samma virtuella nätverk som din ISE. Om du inte har en brand vägg lägger du först [till ett undernät](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) som heter `AzureFirewallSubnet` till ditt virtuella nätverk. Du kan sedan [skapa och distribuera en brand vägg](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) i det virtuella nätverket.
 
@@ -50,7 +50,7 @@ När du arbetar med Azure Logic Apps kan du konfigurera en [ *integrerings tjän
 
    ![Konfigurera regel för att dirigera utgående trafik](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Egenskap | Value | Beskrivning |
+   | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Vägnamn** | <*unikt flöde-namn*> | Ett unikt namn för vägen i routningstabellen |
    | **Adressprefix** | <*mål adress*> | Mål systemets adress dit du vill att trafiken ska gå. Se till att du använder [CIDR-notering (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) för den här adressen. |
@@ -72,7 +72,7 @@ När du arbetar med Azure Logic Apps kan du konfigurera en [ *integrerings tjän
 
    **Egenskaper för nätverks regel samling**
 
-   | Egenskap | Value | Beskrivning |
+   | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Namn** | <*nätverks regel-samlings namn*> | Namnet på din nätverks regel samling |
    | **Prioritet** | > på <*prioritets nivå* | Prioritetsordningen som används för att köra regel samlingen. Mer information finns i [Vad är några Azure Firewall-koncept](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
@@ -81,7 +81,7 @@ När du arbetar med Azure Logic Apps kan du konfigurera en [ *integrerings tjän
 
    **Egenskaper för nätverks regel**
 
-   | Egenskap | Value | Beskrivning |
+   | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Namn** | <*nätverks regel-namn*> | Nätverks regelns namn |
    | **Protokoll** | <*anslutnings protokoll*> | Anslutnings protokollen som ska användas. Om du till exempel använder NSG-regler, väljer du både **TCP** och **UDP**, inte bara **TCP**. |

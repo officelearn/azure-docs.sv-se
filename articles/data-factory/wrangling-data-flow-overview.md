@@ -40,11 +40,11 @@ Genomsök data visuellt i ett kod fritt sätt för att ta bort eventuella avvika
 
 ## <a name="supported-sources"></a>Källor som stöds
 
-| Koppling | Dataformat | Autentiseringstyp |
+| Anslutningsprogram | Dataformat | Autentiseringstyp |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | Kontonyckel |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Tjänstens huvudnamn |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Konto nyckel, tjänstens huvud namn |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | SKV | Konto nyckel |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | SKV | Tjänstens huvudnamn |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | SKV | Konto nyckel, tjänstens huvud namn |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | SQL-autentisering |
 | [Azure Synapse-analys](connector-azure-sql-data-warehouse.md) | - | SQL-autentisering |
 

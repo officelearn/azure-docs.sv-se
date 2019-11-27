@@ -358,7 +358,7 @@ if ($cloudTieringDesired) {
 
 ## <a name="configure-firewall-and-virtual-network-settings"></a>Konfigurera inställningar för brand vägg och virtuellt nätverk
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
 Gör så här om du vill konfigurera Azure File Sync så att den fungerar med brand vägg och inställningar för virtuellt nätverk:
 
 1. Från Azure Portal navigerar du till det lagrings konto som du vill skydda.
@@ -446,10 +446,10 @@ Så här migrerar du en DFS-R-distribution till Azure File Sync:
 3. Registrera servern och skapa en server slut punkt för den första servern som ska migreras. Aktivera inte moln nivåer.
 4. Låt all data synkroniseras med din Azure-filresurs (moln slut punkt).
 5. Installera och registrera Azure File Sync-agenten på var och en av de återstående DFS-R-servrarna.
-6. Disable DFS-R. 
+6. Inaktivera DFS-R. 
 7. Skapa en server slut punkt på varje DFS-R-Server. Aktivera inte moln nivåer.
 8. Se till att synkroniseringen är klar och testa din topologi som önskad.
-9. Retire DFS-R.
+9. Dra tillbaka DFS-R.
 10. Moln nivåer kan nu aktive ras på alla Server slut punkter efter behov.
 
 Mer information finns i [Azure File Sync interop med Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).

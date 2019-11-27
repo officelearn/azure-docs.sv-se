@@ -54,14 +54,14 @@ Med Azure Datautforskaren-anslutningen kan du göra följande:
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Datautforskaren Connector.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Azure Datautforskaren-anslutningen använder autentisering av tjänstens huvud namn. Följ de här stegen för att hämta ett huvud namn för tjänsten och bevilja behörigheter:
 
 1. Registrera en program enhet i Azure Active Directory genom att följa stegen i [Registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
     - Program-ID:t
-    - Programnyckel
+    - Program nyckel
     - Klient-ID:t
 
 2. Ge tjänstens huvud namn rätt behörigheter i Azure Datautforskaren. Mer detaljerad information om roller och behörigheter och om att hantera behörigheter finns i [Hantera behörigheter för Azure datautforskaren Database](../data-explorer/manage-database-permissions.md) . I allmänhet måste du:
@@ -79,7 +79,7 @@ Följande egenskaper stöds för den länkade Azure Datautforskaren-tjänsten:
 | typ | Egenskapen **Type** måste anges till **AzureDataExplorer**. | Ja |
 | slutpunkt | Slut punkts-URL för Azure Datautforskaren-klustret, med formatet `https://<clusterName>.<regionName>.kusto.windows.net`. | Ja |
 | databas | Namn på databasen. | Ja |
-| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Detta kallas "auktoritets-ID" i [Kusto anslutnings sträng](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta den genom att hovra med mus pekaren i det övre högra hörnet av Azure Portal. | Ja |
+| innehav | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Detta kallas "auktoritets-ID" i [Kusto anslutnings sträng](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta den genom att hovra med mus pekaren i det övre högra hörnet av Azure Portal. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. Detta kallas "AAD-programklient-ID" i [Kusto anslutnings sträng](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Ja |
 | servicePrincipalKey | Ange programmets nyckel. Detta kallas "AAD program Key" i Kusto- [anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till säkra data som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
@@ -104,7 +104,7 @@ Följande egenskaper stöds för den länkade Azure Datautforskaren-tjänsten:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns [i data uppsättningar i Azure Data Factory](concepts-datasets-linked-services.md). I det här avsnittet visas egenskaper som stöds av Azure Datautforskaren-datauppsättningen.
 
@@ -115,7 +115,7 @@ Följande egenskaper stöds:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **AzureDataExplorerTable**. | Ja |
-| table | Namnet på den tabell som den länkade tjänsten refererar till. | Ja för mottagare; Nej för källa |
+| partitionstabell | Namnet på den tabell som den länkade tjänsten refererar till. | Ja för mottagare; Nej för källa |
 
 **Exempel på data uppsättnings egenskaper:**
 

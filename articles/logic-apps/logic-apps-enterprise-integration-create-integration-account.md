@@ -42,7 +42,7 @@ Det här avsnittet visar hur du utför dessa uppgifter:
 
 För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)eller [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 1. Välj **Skapa en resurs** på Azure-huvudmenyn. I sökrutan anger du "integrations konto" som filter och väljer **integrations konto**.
 
@@ -113,9 +113,9 @@ Om du vill öka [gränserna](../logic-apps/logic-apps-limits-and-config.md#integ
 
 Om du vill göra den här ändringen kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet eller i [Azure CLI](#upgrade-tier-azure-cli).
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
 
@@ -207,7 +207,7 @@ Om du vill länka din Logic app till ett annat integrations konto, eller om du i
    },
    ```
 
-   Till exempel:
+   Exempel:
 
    ![Hitta "integrationAccount"-objekt](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
@@ -225,7 +225,7 @@ Du kan flytta ditt integrations konto till en annan Azure-resurs grupp eller Azu
 
 För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet eller i [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
 
@@ -257,7 +257,7 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
 För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)eller [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
 

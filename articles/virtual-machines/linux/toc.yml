@@ -126,7 +126,7 @@
     - name: Dedikerade värdar
       href: dedicated-hosts.md
     - name: Underhåll och uppdateringar
-      href: maintenance-and-updates.md
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disklagring
       items:
         - name: Introduktion till hanterade diskar
@@ -298,16 +298,30 @@
               href: ../extensions/agent-linux.md
             - name: Agentuppdatering
               href: update-agent.md
-        - name: Planerat underhåll
-          href: maintenance-notifications.md
         - name: Minimera spekulativ körning
           href: mitigate-se.md
-        - name: Schemalagda händelser
-          href: scheduled-events.md
         - name: Övervaka metadata
           href: instance-metadata-service.md
         - name: Hämta användningsstatistik med REST
           href: metrics-vm-usage-rest.md
+    - name: Underhåll av plattform
+      items:
+        - name: Meddelanden om underhåll
+          items:
+            - name: Översikt
+              href: maintenance-notifications.md
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Portalen
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Kontroll av underhåll
+          items:
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Schemalagda händelser
+          href: scheduled-events.md
     - name: Övervaka virtuella datorer
       items:
         - name: Azure Monitor för virtuella datorer

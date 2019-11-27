@@ -25,13 +25,13 @@ Information om kvoter och andra begränsningar i dina distributioner finns i [kv
 
 Följande regioner och resurser är tillgängliga för behållar grupper med Linux och [stödda](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-baserade behållare.
 
-| Plats | Operativsystem | Processor | Minne (GB) |
+| Plats | OS | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
 | Centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, västra USA | Linux | 4 | 16 |
 | Västeuropa, västra USA 2 | Linux | 4 | 14 |
 | Östra Australien, Östra Japan | Linux | 2 | 8 |
 | Norra centrala USA, södra Indien | Linux | 2 | 3.5 |
-| Västra Europa | Windows | 4 | 16 |
+| Europa, västra | Windows | 4 | 16 |
 | Östra USA, västra USA | Windows | 4 | 14 |
 | Östra Australien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA 2, Östra Japan, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, västra USA 2 | Windows | 2 | 3.5 |
 
@@ -39,7 +39,7 @@ Följande regioner och resurser är tillgängliga för behållar grupper med Lin
 
 Följande regioner och resurser är tillgängliga för behållar grupper med Windows Server 2019-baserade behållare (för hands version).
 
-| Plats | Operativsystem | Processor | Minne (GB) |
+| Plats | OS | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
 | Sydostasien Europa, norra Europa, Västeuropa, centrala USA, östra USA, västra USA, västra USA 2 | Windows | 4 | 16 |
 | USA, östra 2 | Windows | 2 | 3.5 |

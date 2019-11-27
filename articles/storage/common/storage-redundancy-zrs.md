@@ -32,17 +32,17 @@ För General-Purpose v2-konton är ZRS allmänt tillgängligt i följande region
 - Nordeuropa
 - Västeuropa
 - Frankrike, centrala
-- Östra Japan
+- Japan, östra
 - Storbritannien, södra
 - USA, centrala
-- USA, Östra
+- USA, östra
 - USA, östra 2
 - USA, västra 2
 
 För FileStorage-konton (Premium-filresurser) och BlockBlobStorage-konton (Premium block-blobbar) är ZRS allmänt tillgänglig i följande regioner:
 
 - Västeuropa
-- USA, Östra
+- USA, östra
 
 Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/) regelbundet hittar du information om nya regioner.
 
@@ -163,7 +163,7 @@ Om du vill uppgradera till ZRS med CLI anropar du följande kommando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 - [Azure Storage-replikering](storage-redundancy.md)
 - [Lokalt redundant lagring (LRS): låg kostnads data redundans för Azure Storage](storage-redundancy-lrs.md)
 - [Geo-redundant lagring (GRS): replikering mellan regioner för Azure Storage](storage-redundancy-grs.md)

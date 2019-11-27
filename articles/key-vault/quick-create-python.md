@@ -27,7 +27,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 
 [API-referens dokumentation](/python/api/overview/azure/key-vault?view=azure-python) | [bibliotekets käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [paket (python-paket index)](https://pypi.org/project/azure-keyvault/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2,7, 3.5.3 eller senare

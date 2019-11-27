@@ -88,7 +88,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och använt minne per sekund.  Din app kan automatiskt skala ut till flera instanser efter behov.  
 
-|SKU|Kärnor|Minne|Storage|
+|SKU|Kärnor|Minne|Lagring|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7GB|250 GB|
@@ -102,29 +102,29 @@ Nedan finns de regioner som stöds för varje operativ system.
 |--| -- | -- |
 |Australien, centrala| ✔<sup>1</sup> | |
 |Australien, centrala 2| ✔<sup>1</sup> | |
-|Östra Australien| ✔ | |
-|Sydöstra Australien | ✔ | ✔ |
-|Södra Brasilien| ✔<sup>2</sup> |  |
-|Centrala Kanada| ✔ |  |
-|Centrala USA| ✔ |  |
-|Östasien| ✔ |  |
-|Östra USA | ✔ | ✔ |
+|Australien, östra| ✔ | |
+|Australien, sydöstra | ✔ | ✔ |
+|Brasilien, södra| ✔<sup>2</sup> |  |
+|Kanada, centrala| ✔ |  |
+|USA, centrala| ✔ |  |
+|Asien, östra| ✔ |  |
+|USA, östra | ✔ | ✔ |
 |USA, östra 2| ✔ |  |
 |Frankrike, centrala| ✔ |  |
-|Östra Japan| ✔ | ✔ |
-|Västra Japan| ✔ | |
+|Japan, östra| ✔ | ✔ |
+|Japan, västra| ✔ | |
 |Sydkorea, centrala| ✔ |  |
-|Norra centrala USA| ✔ |  |
-|Norra Europa| ✔ | ✔ |
-|Södra centrala USA| ✔ |  |
-|Södra Indien | ✔ | |
-|Sydostasien| ✔ | ✔ |
+|USA, norra centrala| ✔ |  |
+|Europa, norra| ✔ | ✔ |
+|USA, södra centrala| ✔ |  |
+|Indien, södra | ✔ | |
+|Asien, sydöstra| ✔ | ✔ |
 |Storbritannien, södra| ✔ | |
 |Storbritannien, västra| ✔ |  |
-|Västra Europa| ✔ | ✔ |
+|Europa, västra| ✔ | ✔ |
 |Indien, västra| ✔ |  |
-|Västra USA| ✔ | ✔ |
-|Västra USA 2| ✔ |  |
+|USA, västra| ✔ | ✔ |
+|USA, västra 2| ✔ |  |
 
 <sup>1</sup> Högsta skala begränsad till 20 instanser.  
 <sup>2</sup> Högsta skala begränsad till 60 instanser.

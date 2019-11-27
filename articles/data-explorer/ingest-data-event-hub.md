@@ -35,7 +35,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
@@ -206,7 +206,7 @@ Om du inte planerar att använda händelsehubben igen rensar du **test-hub-rg** 
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn döljs väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
+    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
 
    ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-hub/delete-resources-select.png)
 

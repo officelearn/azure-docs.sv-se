@@ -251,14 +251,14 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Kognitiv sökning data typer
 | Data typen JSON | Kompatibla fält typer för mål index |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
-| Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
-| Siffror som ser ut som svävande punkter |Edm.Double, Edm.String |
+| Booleska |EDM. Boolean, EDM. String |
+| Siffror som ser ut som heltal |EDM. Int32, EDM. Int64, EDM. String |
+| Siffror som ser ut som svävande punkter |EDM. Double, EDM. String |
 | Sträng |Edm.String |
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
-| Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
+| Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
-| Andra JSON-objekt |Saknas |
+| Andra JSON-objekt |Gäller inte |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
 

@@ -78,7 +78,7 @@ Den hanterade instansen har två tjänst nivåer: [generell användning](sql-dat
 | Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[öka fil storleken för att få bättre IO-prestanda](#file-io-characteristics-in-general-purpose-tier) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
-| Minnesintern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
+| Minnes intern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |
 | Maximalt antal sessioner | 30000 | 30000 |
 | [Skrivskyddade repliker](sql-database-read-scale-out.md) | 0 | 1 (ingår i priset) |
 
@@ -137,7 +137,7 @@ Följande tabell visar de **regionala standard gränserna** för prenumerations 
 |Användningsbaserad betalning|3|320|
 |CSP |8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Betala per användning – utveckling/testning|3|320|
-|Enterprise Dev/Test|3|320|
+|Enterprise – utveckling/testning|3|320|
 |EA|8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional och MSDN-plattformar|2|32|
@@ -162,7 +162,7 @@ Initiera processen för att erhålla en större kvot:
 
      ![Typ kvot för utfärdande](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Klicka på **Nästa**.
+3. Klicka på **Next**.
 4. På **fliken problem** för den nya support förfrågan:
    - För **allvarlighets grad**väljer du problemets allvarlighets grad.
    - Om **du vill ha mer information anger**du ytterligare information om problemet, inklusive fel meddelanden.
@@ -176,7 +176,7 @@ Initiera processen för att erhålla en större kvot:
      > - Antalet virtuella kärnor per tjänst nivå som krävs i befintliga undernät efter kvot ökningen (om något av de befintliga under näten måste expanderas.
      > - Antalet nya undernät och det totala antalet virtuella kärnor per tjänst nivå inom de nya under näten (om du behöver distribuera hanterade instanser i nya undernät).
 
-5. Klicka på **Nästa**.
+5. Klicka på **Next**.
 6. På fliken kontakt information för den nya support förfrågan anger du önskad kontakt metod (e-post eller telefon) och kontakt uppgifter.
 7. Klicka på **Skapa**.
 

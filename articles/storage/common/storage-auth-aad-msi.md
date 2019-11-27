@@ -26,7 +26,7 @@ Den här artikeln visar hur du auktoriserar åtkomst till BLOB-eller Queue-data 
 
 Innan du kan använda hanterade identiteter för Azure-resurser för att ge åtkomst till blobbar och köer från din virtuella dator måste du först aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i någon av följande artiklar:
 
-- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure-portalen](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mall](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -117,7 +117,7 @@ I exemplen i den här artikeln används även den senaste versionen av [klient b
 Install-Package Azure.Identity
 ```
 
-## <a name="net-code-example-create-a-block-blob"></a>Kodexempel för .NET: skapa en blockblob
+## <a name="net-code-example-create-a-block-blob"></a>.NET-kod exempel: skapa en Block-Blob
 
 Lägg till följande `using`-direktiv i koden för att använda klient biblioteken för Azure-identitet och Azure Storage.
 

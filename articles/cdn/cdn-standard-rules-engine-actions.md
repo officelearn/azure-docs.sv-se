@@ -61,10 +61,10 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Value
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
-Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
+Skriva över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
 Ta bort | När det här alternativet är markerat, regeln matchar och rubriken som anges i regeln finns, raderas rubriken från begäran. | Sträng
 
 ### <a name="modify-response-header"></a>Ändra svars huvud
@@ -73,10 +73,10 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Value
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
-Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
+Skriva över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
 Ta bort | När det här alternativet är markerat, regeln matchar och rubriken som anges i regeln är närvarande, tas rubriken bort från svaret. | Sträng
 
 ### <a name="url-redirect"></a>URL-omdirigering
@@ -105,7 +105,7 @@ Använd den här åtgärden för att skriva om sökvägen för en begäran som �
 Fält | Beskrivning 
 ------|------------
 Käll mönster | Definiera käll mönstret i URL-sökvägen som ska ersättas. För närvarande använder käll mönstret en prefix-baserad matchning. Om du vill matcha alla URL-sökvägar använder du ett snedstreck ( **/** ) som käll mönster värde.
-Destination | Definiera den mål Sök väg som ska användas vid omskrivning. Mål Sök vägen skriver över käll mönstret.
+Mål | Definiera den mål Sök väg som ska användas vid omskrivning. Mål Sök vägen skriver över käll mönstret.
 Bevara omatchad sökväg | Om värdet är **Ja**, läggs den återstående sökvägen efter käll mönstret till i den nya mål Sök vägen. 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -59,7 +59,7 @@ Följande exempel illustrerar webb program som loggar in användare. Några exem
 
 | Plattform | Endast tecken i användare | Loggar in användare och anropar Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [Själv studie kurs om ASP.NET Core WebApp-loggar – användare](https://aka.ms/aspnetcore-webapp-sign-in) | Samma exempel i [ASP.net Core webbappens anrop Microsoft Graph-](https://aka.ms/aspnetcore-webapp-call-msgraph) fasen |
+| ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | [Själv studie kurs om ASP.NET Core WebApp-loggar – användare](https://aka.ms/aspnetcore-webapp-sign-in) | Samma exempel i [ASP.net Core webbappens anrop Microsoft Graph-](https://aka.ms/aspnetcore-webapp-call-msgraph) fasen |
 | ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Snabb start för ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotNet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotNet-admin-restricted-scope – v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph – utbildning – aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp): en MSAL4J-webbapp som anropar Microsoft Graph |
 | ![Den här bilden visar Node. js-logotypen](media/sample-v2-code/logo_nodejs.png)  |                   | [Snabb start för Node. js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
@@ -86,7 +86,7 @@ I följande exempel visas ett program som har åtkomst till Microsoft Graph-API 
 
 | klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Konsolen | ![Den här bilden visar .NET Core-logotypen](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Console | ![Den här bilden visar .NET Core-logotypen](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Webbapp | ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [Dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>Konsol löst program
@@ -103,7 +103,7 @@ Följande exempel visar hur du skyddar ett webb-API med slut punkten för Micros
 
 | Plattform | Exempel |
 | -------- | ------------------- |
-| ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API (Service) för [dotNet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core Web API (Service) för [dotNet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Webb-API (tjänst) för [MS-Identity-ASPNET-WebAPI-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="azure-functions-as-web-apis"></a>Azure Functions som webb-API: er
@@ -112,7 +112,7 @@ Följande exempel visar hur du skyddar en Azure-funktion med HttpTrigger och exp
 
 | Plattform | Exempel |
 | -------- | ------------------- |
-| ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API (Service) Azure Function i [dotNet-Native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core Web API (Service) Azure Function i [dotNet-Native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![Den här bilden visar Node. js-logotypen](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Webb-API (Service) för [NodeJS och Passport – Azure-AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png)</p>Python | Webb-API (Service) för [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![Den här bilden visar Node. js-logotypen](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Webb-API (Service) för [NodeJS och Passport-Azure-AD som använder på uppdrag av](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
@@ -121,7 +121,7 @@ Följande exempel visar hur du skyddar en Azure-funktion med HttpTrigger och exp
 
 Mer information om [exempel](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) och självstudier som demonstrerar olika användnings mönster för Microsoft Graph API, inklusive autentisering med Azure AD finns i [Microsoft Graph Community-exempel & självstudier](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Guide för Azure Active Directory (v 1.0)-utvecklare](v1-overview.md)
 - [Koncept och referens för Azure AD-Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)

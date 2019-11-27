@@ -31,14 +31,14 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 > [!IMPORTANT]
 > Information om skalning och överväganden finns i [skala en enskild databas](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>Basic tjänstnivå
+### <a name="basic-service-tier"></a>Tjänstnivån Basic
 
 | **Beräknings storlek** | **Basic** |
 | :--- | --: |
 | Maximala DTU:er | 5 |
 | Inkluderat lagrings utrymme (GB) | 2 |
 | Maximalt lagrings alternativ (GB) | 2 |
-| Maximal InMemory-OLTP-lagring (GB) |Saknas |
+| Maximal InMemory-OLTP-lagring (GB) |Gäller inte |
 | Maximalt antal samtidiga arbetare (begär Anden) | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||
@@ -49,14 +49,14 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 >För data lagring placeras den grundläggande tjänst nivån på standard-sid-blobar. Med standard Page blobbar används hård diskbaserade lagrings medier som är bäst lämpade för utveckling, testning och andra arbets belastningar som inte används ofta och som är mindre känsliga för prestanda variationer.
 >
 
-### <a name="standard-service-tier"></a>Standardtjänstnivå
+### <a name="standard-service-tier"></a>Tjänstnivån Standard
 
 | **Beräknings storlek** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | Maximala DTU:er | 10 | 20 | 50 | 100 |
 | Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 |
 | Maximalt lagrings alternativ (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |
+| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
 | Maximalt antal samtidiga arbetare (begär Anden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
@@ -74,18 +74,18 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 200 | 400 | 800 | 1600 | 3000 |
 | Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximalt lagrings alternativ (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |Saknas |
+| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte |Gäller inte |
 | Maximalt antal samtidiga arbetare (begär Anden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Premium tjänstnivån
+### <a name="premium-service-tier"></a>Tjänstnivån Premium
 
 | **Beräknings storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
-| Maximala DTU:er | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
-| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
+| Maximala DTU:er | 125 | 250 | 500 | 1 000 | 1750 | 4000 |
+| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
+| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
 | Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximalt antal samtidiga arbetare (begär Anden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |

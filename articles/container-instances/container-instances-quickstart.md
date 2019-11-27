@@ -145,7 +145,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Azure Container instance med hjälp av en offentlig Microsoft-avbildning. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
+I den här snabb starten skapade du en Azure Container instance med hjälp av en offentlig Microsoft-avbildning. Om du vill skapa en avbildning av en container och distribuera den från ett privat Azure-containerregister, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

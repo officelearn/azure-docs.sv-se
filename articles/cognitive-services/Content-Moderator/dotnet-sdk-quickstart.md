@@ -29,7 +29,7 @@ Använd Content Moderator klient bibliotek för .NET för att:
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Package (NuGet) | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) [exempel](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -96,7 +96,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 Följande klasser hanterar några av de viktigaste funktionerna i Content Moderator .NET SDK.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Den här klassen krävs för alla Content Moderator-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
 |[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Den här klassen innehåller funktioner för att analysera bilder för innehåll som är olämpligt för barn, personlig information eller mänskliga ansikten.|

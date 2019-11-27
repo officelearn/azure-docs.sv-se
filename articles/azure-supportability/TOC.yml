@@ -14,6 +14,8 @@
               href: per-vm-quota-requests.md
             - name: Utökad gräns för totalt antal regionala vCPU
               href: regional-quota-requests.md
+            - name: Utökad kvotgräns med låg prioritet
+              href: low-priority-quota.md
         - name: Klassisk distributionsmodell
           href: classic-deployment-model-quota-increase-requests.md
     - name: Höjning av nätverksgräns

@@ -42,9 +42,9 @@ Du har flera alternativ för att distribuera resurser med Resource Manager-malla
 
 [Azure PowerShell][deploy-powershell]
 
-[Azure Portal][deploy-portal]
+[Azure-portalen][deploy-portal]
 
-[REST-API][deploy-rest]
+[REST API][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav

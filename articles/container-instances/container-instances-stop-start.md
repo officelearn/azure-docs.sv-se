@@ -14,7 +14,7 @@ ms.locfileid: "74533427"
 
 Inställningen för att [starta om principen](container-instances-restart-policy.md) för en behållar grupp avgör hur behållar instanser startar eller stoppar som standard. Du kan åsidosätta standardinställningen genom att manuellt stoppa eller starta en behållar grupp.
 
-## <a name="stop"></a>Stoppa
+## <a name="stop"></a>Stopp
 
 Stoppa en behållare som körs manuellt, till exempel genom att använda kommandot [AZ container Stop][az-container-stop] eller Azure Portal. För vissa behållar arbets belastningar kanske du vill stoppa en långvarig behållar grupp efter en definierad period för att spara pengar. 
 

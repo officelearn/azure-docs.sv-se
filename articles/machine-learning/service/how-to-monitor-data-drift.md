@@ -43,7 +43,7 @@ Med Azure Machine Learning kan du övervaka indata till en modell som distribuer
 
 Med hjälp av Azure Machine Learning övervakas data driften via data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](how-to-machine-learning-interpretability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 

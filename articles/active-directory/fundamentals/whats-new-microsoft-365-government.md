@@ -1,6 +1,6 @@
 ---
-title: Vad är nytt för Azure Active Directory i Microsoft 365 Government - Azure Active Directory | Microsoft Docs
-description: Läs mer om några ändringar till Azure Active Directory (AD Azure) i Microsoft 365 Government cloud-instansen, som kan påverka dig.
+title: Vad är nytt för Azure AD i Microsoft 365 myndigheter? | Microsoft Docs
+description: Läs om några ändringar i Azure Active Directory (Azure AD) i Microsoft 365 myndighets moln instans, vilket kan påverka dig.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,54 +13,54 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b077c7b5efbad2add971d42ff31938b56f6bc33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258901"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805286"
 ---
-# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Vad är nytt för Azure Active Directory i Microsoft 365 Government
+# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Vad är nytt för Azure Active Directory i Microsoft 365 myndigheter
 
-Vi har gjort några ändringar i Azure Active Directory (AD Azure) i Microsoft 365 Government cloud-instansen, som gäller för kunder som använder följande tjänster:
+Vi har gjort några ändringar i Azure Active Directory (Azure AD) i Microsoft 365 myndighets moln instans, som är tillämpliga för kunder som använder följande tjänster:
 
 - Microsoft Azure Government
 
-- Microsoft 365 Government – GCC hög
+- Microsoft 365 myndigheter – GCC hög
 
-- Microsoft 365 Government – DoD
+- Microsoft 365 myndigheter – DoD
 
-Den här artikeln gäller inte för Microsoft 365 Government – GCC-kunder.
+Den här artikeln gäller inte för Microsoft 365 myndigheter – GCC kunder.
 
-## <a name="changes-to-the-initial-domain-name"></a>Ändringar av det ursprungliga domännamnet
+## <a name="changes-to-the-initial-domain-name"></a>Ändringar i det ursprungliga domän namnet
 
-Under din organisations inledande registrera dig för en onlinetjänst för Microsoft 365 för myndigheter, har du ombedd att välja din organisations domännamn, `<your-domain-name>.onmicrosoft.com`. Om du redan har ett domännamn med suffixet .com ändras ingenting.
+Under din organisations första registrering för en Microsoft 365 myndighets online-tjänst uppmanades du att välja din organisations domän namn `<your-domain-name>.onmicrosoft.com`. Om du redan har ett domän namn med. com-suffixet ändras ingenting.
 
-Men om du loggar för en ny Microsoft 365 Government-tjänst, får du en fråga att välja en domän namn med hjälp av den `.us` suffix. Därför blir `<your-domain-name>.onmicrosoft.us`.
+Men om du registrerar dig för en ny Microsoft 365 myndighets tjänst uppmanas du att välja ett domän namn med hjälp av `.us` suffixet. Därför kommer det att `<your-domain-name>.onmicrosoft.us`.
 
 >[!Note]
->Den här ändringen gäller inte för alla kunder som hanteras av molntjänst-providers (CSP).
+>Den här ändringen gäller inte för kunder som hanteras av moln tjänst leverantörer (CSP).
 
-## <a name="changes-to-portal-access"></a>Ändringar av portalåtkomst
+## <a name="changes-to-portal-access"></a>Ändringar av Portal åtkomst
 
-Vi har uppdaterat slutpunkter i portalen för Microsoft Azure Government, Microsoft 365 Government – GCC hög, och Microsoft 365 Government – DoD, enligt den [tabellen med slutpunkter för mappning](#endpoint-mapping).
+Vi har uppdaterat portalens slut punkter för Microsoft Azure Government, Microsoft 365 myndigheter – GCC hög och Microsoft 365 myndigheter – DoD, som visas i [tabellen slut punkts mappning](#endpoint-mapping).
 
-Tidigare kan kunder logga in med över hela världen Azure (portal.azure.com) och Office 365 (portal.office.com) portaler. Med den här uppdateringen måste kunder nu logga in med specifika Microsoft Azure Government, Microsoft 365 Government - GCC hög, och Microsoft 365 Government - DoD portaler.
+Tidigare kunde kunder logga in med de internationella Azure-portal.azure.com-och Office 365-portarna (portal.office.com). Med den här uppdateringen måste kunderna nu logga in med hjälp av den speciella Microsoft Azure Government, Microsoft 365 myndighets-GCC hög, och Microsoft 365 myndighets-DoD portaler.
 
-## <a name="endpoint-mapping"></a>Mappning av slutpunkt
+## <a name="endpoint-mapping"></a>Slut punkts mappning
 
-I följande tabell visas slutpunkterna för alla kunder:
+I följande tabell visas slut punkterna för alla kunder:
 
-| Namn | information om slutpunkten |
+| Namn | Slut punkts information |
 |------|------------------|
-| Portaler |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 Government – GCC hög: https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
-| Azure Active Directory Authority Endpoint | https://login.microsoftonline.us |
+| Portaler |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 myndigheter – GCC hög: https://portal.office365.us<p>Microsoft 365 myndigheter – DoD: https://portal.apps.mil |
+| Slut punkt för Azure Active Directory utfärdare | https://login.microsoftonline.us |
 | Azure Active Directory Graph API | https://graph.windows.net |
-| Microsoft Graph API för Microsoft 365 Government - GCC hög | https://graph.microsoft.us |
-| Microsoft Graph API för Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
-| Slutpunkter för Azure Government-tjänster | Mer information finns i [utvecklarguiden för Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 Government - GCC hög slutpunkter | Mer information finns i [Office 365-USA Government GCC hög slutpunkter](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Government - DoD | Mer information finns i [Office 365-USA Government DoD slutpunkter](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Microsoft Graph-API för Microsoft 365 myndighets GCC hög | https://graph.microsoft.us |
+| Microsoft Graph-API för Microsoft 365 myndigheter – DoD | https://dod-graph.microsoft.us |
+| Azure Government Services-slutpunkter | Mer information finns i [Azure Government Developer Guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
+| Microsoft 365 myndigheter – GCC med höga slut punkter | Mer information finns i [Office 365 amerikanska myndigheter gcc High-slutpunkter](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 myndigheter – DoD | Mer information finns i [Office 365 amerikanska myndigheter DoD-slutpunkter](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -68,8 +68,8 @@ Mer information finns i dessa artiklar:
 
 - [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
-- [Azure Government AAD-utfärdare Endpoint Update](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
+- [Uppdatering av Azure Government AAD-auktoritets slut punkt](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
-- [Microsoft Graph-slutpunkterna i molnet för amerikanska myndigheter](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [Microsoft Graph slut punkter i det amerikanska myndighets molnet](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 US Government GCC High och DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 amerikanska myndigheter GCC hög och DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

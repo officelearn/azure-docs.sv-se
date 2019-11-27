@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Reguljär – uttrycks enhet – LUIS'
+title: 'Självstudie: reguljär – uttrycks enhet-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Extrahera data med ett enhetligt format från ett yttrande med entiteten för reguljära uttryck.
 services: cognitive-services
@@ -9,17 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: db60d87b441836f38309166318dd1778ce828483
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0f24721272c85d658a46ab1319e6f4af79b29364
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307592"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465180"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Självstudier: Hämta välformaterade data från yttrandet
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Självstudie: Hämta välformaterade data från uttryck
 I den här självstudien skapar du en app för att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Reguljärt uttryck**.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -99,7 +101,7 @@ Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-num
 
 1. Välj knappen **Create new entity** (Skapa ny entitet) på sidan Entities (Entiteter). 
 
-1. Ange det nya entitetsnamnet `HRF-number` i dialogrutan, välj **RegEx** som entitetstyp, ange `hrf-[0-9]{6}` som **Regex**-värde och välj sedan **Klar**.
+1. Ange det nya entitetsnamnet `HRF-number` i dialogrutan, välj **RegEx** som entitetstyp, ange `hrf-[0-9]** ` som **Regex**-värde och välj sedan **Klar**.
 
     ![Skärmbild på inställning för popup-dialogruta med egenskaper för ny entitet](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
@@ -109,7 +111,7 @@ Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-num
 
     Eftersom entiteten inte är en maskininlärd entitet tillämpas entiteten på yttrandena och visas på LUIS-webbplatsen så snart den skapas.
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempelyttranden till avsikten Ingen 
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 

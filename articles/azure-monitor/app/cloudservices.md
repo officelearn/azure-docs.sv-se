@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677565"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887545"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -26,7 +26,7 @@ Innan du börjar behöver du:
 * Microsoft Azure Tools 2,9 eller senare.
 * Developer Analytics tools 7,10 eller senare.
 
-## <a name="get-started-quickly"></a>Kom i gång snabbt
+## <a name="get-started-quickly"></a>Kom igång snabbt
 Det snabbaste och enklaste sättet att övervaka din molntjänst med Application Insights är att välja det här alternativet när du publicerar din tjänst till Azure.
 
 ![Exempel på sidan diagnostikinställningar](./media/cloudservices/azure-cloud-application-insights.png)
@@ -57,7 +57,7 @@ Varje resurs tillhör en resursgrupp. Resurs grupper används för att hantera k
 ### <a name="resources-for-components"></a>Resurser för komponenter
 Vi rekommenderar att du skapar en separat resurs för varje komponent i din app. Det innebär att du skapar en resurs för varje webb roll och arbets roll. Du kan analysera varje komponent separat, men du skapar en [instrument panel](../../azure-monitor/app/overview-dashboard.md) som sammanför nyckel diagrammen från alla komponenter så att du kan jämföra och övervaka dem tillsammans i en enda vy. 
 
-En annan metod är att skicka Telemetrin från mer än en roll till samma resurs, men [lägga till en dimensions egenskap till varje telemetri-objekt](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) som identifierar dess käll roll. I den här metoden visar mått diagram, till exempel undantag, vanligt vis en agg regering av antalet från de olika rollerna, men du kan segmentera diagrammet utifrån roll-ID: t, om det behövs. Du kan också filtrera sökningar efter samma dimension. Det här alternativet gör det lättare att Visa allting samtidigt, men det kan också leda till viss förvirring mellan rollerna.
+En annan metod är att skicka Telemetrin från mer än en roll till samma resurs, men [lägga till en dimensions egenskap till varje telemetri-objekt](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) som identifierar dess käll roll. I den här metoden visar mått diagram, till exempel undantag, vanligt vis en agg regering av antalet från de olika rollerna, men du kan segmentera diagrammet utifrån roll-ID: t, om det behövs. Du kan också filtrera sökningar efter samma dimension. Det här alternativet gör det lättare att Visa allting samtidigt, men det kan också leda till viss förvirring mellan rollerna.
 
 Webbläsartelemetri ingår vanligtvis i samma resurs som dess webbroll på serversidan.
 
@@ -74,7 +74,7 @@ Om du vill skicka Telemetrin till lämpliga resurser kan du konfigurera Applicat
 
 Om du har bestämt dig för att skapa en separat resurs för varje roll, och kanske en separat uppsättning för varje versions konfiguration, är det enklast att skapa dem på Application Insights Portal. Om du skapar resurser mycket kan du [automatisera processen](../../azure-monitor/app/powershell.md).
 
-1. I [Azure Portal][portal]väljer du **nya**  > **developer-tjänster**  > **Application Insights**.  
+1. I [Azure Portal][portal]väljer du **nya** > **developer-tjänster** > **Application Insights**.  
 
     ![Application Insightss fönster](./media/cloudservices/01-new.png)
 
@@ -94,7 +94,7 @@ Om du har valt att använda en separat Application Insights-resurs för varje ve
 
 ![Konfigurera Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration. \*. cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration.\*. cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Om du vill variera graden av diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera *. cscfg* -filerna direkt](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
@@ -224,7 +224,7 @@ För arbets roller kan du spåra undantag på två sätt:
 ## <a name="performance-counters"></a>Prestandaräknare
 Följande räknare samlas in som standard:
 
-* \Process (?? APP_WIN32_PROC??) \% processor tid
+* \Process (?? APP_WIN32_PROC??)\% processor tid
 * \Memory\Tillgängliga byte
 * \.NET CLR-undantag(??APP_CLR_PROC??)\# undantag som utlöses/sekund
 * \Process(??APP_WIN32_PROC??)\Privata byte

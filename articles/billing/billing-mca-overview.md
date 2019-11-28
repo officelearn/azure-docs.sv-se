@@ -3,19 +3,19 @@ title: Kom igång med faktureringskontot för ditt Microsoft-kundavtal – Azure
 description: Få bättre förståelse för faktureringskontot för ditt Microsoft-kundavtal
 author: bandersmsft
 manager: amberbhargava
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: 835686d639679cca7e9a83b5297b365953835e47
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e27d2116cf58c64fca7fb0273c852d6223f00c6e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880735"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226122"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Kom igång med faktureringskontot för ditt Microsoft-kundavtal
 

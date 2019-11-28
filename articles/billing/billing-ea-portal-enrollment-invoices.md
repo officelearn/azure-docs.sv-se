@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/07/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 6bd70a58552a0217cff82cad10b11783aec64347
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2e9611995a233f9890aebb90fc3b8deaeed8efc2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888408"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226328"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -281,8 +281,8 @@ Observera att Azure Marketplace inte är tillgängligt för MPSA-registreringar.
 Om du vill skapa rapporter för specifika datumintervall eller konton kan du välja nedladdning av avancerad rapport. Från och med 30 augusti 2016 ändras formatet på utdatafilen från .xlsx till .csv för att hantera större uppsättningar av poster.
 
 1. Välj **Advanced Report Download** (Nedladdning av avancerad rapport).
-1. Välj **lämpligt datumintervall**.
-1. Välj **lämpliga konton**.
+1. Välj **Appropriate Date Range** (Lämpligt datumintervall).
+1. Välj **Appropriate Accounts** (Lämpliga konton).
 1. Välj **Request Usage Data** (Begär användningsdata).
 1. Välj **uppdateringsknappen** tills rapportens status uppdateras till Ladda ned.
 1. Ladda ned rapporten.
@@ -596,9 +596,9 @@ Mer information om hur du skapar API-nyckeln för din registrering finns i hjäl
     - Arbets- eller skolkontot kan vara detsamma eller ett annat än det som används för att nå registreringen via Azure EA-portalen.
  1. Välj **Microsoft Azure Enterprise** på instrumentpanelen för tjänster och klicka på **Anslut**.
  1. På skärmen Connect to Azure Enterprise (Anslut till Azure Enterprise) väljer du:
-    - Azure Environment URL (URL till Azure-miljön): [https://ea.azure.com](https://ea.azure.com/).
+    - URL till Azure-miljön: [https://ea.azure.com](https://ea.azure.com/).
     - Antal månader: Välj ett värde mellan 1 och 36.
-    - Registreringsnummer: Ange registreringsnumret.
+    - Registreringsnummer: ange registreringsnumret.
     - Klicka på **Nästa**.
  1. I rutan Autentiseringsnyckel anger du API-nyckeln. Du kan hämta API-nyckeln här i Azure EA-portalen. Klicka på API Access Key (API-åtkomstnyckel) under Download Usage (Ladda ned användning)
     - Kopiera och klistra in nyckeln i rutan för kontonyckel

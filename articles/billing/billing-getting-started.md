@@ -4,19 +4,19 @@ description: Lär dig hur du undviker oväntade avgifter på din Azure-faktura. 
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 6f7a29adfbd145be11f9f6c91e8e66dd229fed62
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e5cdd7181e680dbc7406118afeb4aeb837d3aaf2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375684"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223917"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -68,11 +68,11 @@ Du kan övervaka kostnader med följande verktyg:
 
 ### <a name="track-costs-with-budgets-and-cost-alerts"></a>Spåra kostnader med budgetar och kostnadsaviseringar
 
-Skapa [budgetar](../cost-management/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa [aviseringar](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) som automatiskt meddelar mottagarna om kostnadsavvikelser och överförbrukning. 
+Skapa [budgetar](../cost-management/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa [aviseringar](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) som automatiskt meddelar mottagarna om kostnadsavvikelser och överförbrukning.
 
 ### <a name="costs"></a> Utforska och analysera kostnader med kostnadsanalys
 
-När dina Azure-tjänster är igång bör du regelbundet kontrollera kostnaderna så att du sparar dina utgifter för Azure. Du kan använda kostnadsanalys till att ta reda på var kostnaderna för din Azure-användning kommer ifrån. 
+När dina Azure-tjänster är igång bör du regelbundet kontrollera kostnaderna så att du sparar dina utgifter för Azure. Du kan använda kostnadsanalys till att ta reda på var kostnaderna för din Azure-användning kommer ifrån.
 
 1. Öppna [sidan Kostnadshantering och fakturering i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
@@ -166,7 +166,7 @@ Serviceavtalet beskriver Microsofts åtaganden vad gäller drifttid och anslutni
 
 Så här begär du en kredit:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/). Om du har flera konton kontrollerar du att du använder det som påverkades av avbrottet i Azure. 
+1. Logga in på [Azure-portalen](https://portal.azure.com/). Om du har flera konton kontrollerar du att du använder det som påverkades av avbrottet i Azure.
 2. Skapa en ny supportbegäran.
 3. Välj **Fakturering** under **Typ av problem**.
 4. Välj **Begäran om återbetalning** under **Typ av problem**.

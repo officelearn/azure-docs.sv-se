@@ -5,22 +5,20 @@ services: billing
 documentationcenter: ''
 author: bandersmsft
 manager: dougeby
-editor: ''
 tags: billing
-ms.assetid: 204b15b2-6667-4b6c-8ea4-f32c06f287fd
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 54c4426fb8bdb1476b33defb5351b3fb0e6a0663
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6a2cb3df5bf8a67c7b79a24fd8328267bf6c4dd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718838"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224068"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automationsscenarier för fakturering och kostnadshantering
 
@@ -70,7 +68,7 @@ Web Direct- och Enterprise-kunder kan använda alla följande API:er, förutom d
 
 -   [API för Marketplace-avgifter](https://docs.microsoft.com/rest/api/consumption/marketplaces): Hämta avgifts- och användningsdata för alla Azure Marketplace-resurser (Azure-partnererbjudanden). Du kan använda dessa data för att summera kostnaderna för alla Marketplace-resurser eller för att analysera kostnaderna/användningen för specifika resurser.
 
--   [API för prisdokument](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*endast Enterprise-kunder*): Hämta anpassad prissättning för alla mätare. Företag kan använda dessa data i kombination med användningsdata och information om Marketplace-användning för att beräkna kostnader med hjälp av användnings- och Marketplace-data. 
+-   [API för prisdokument](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*endast Enterprise-kunder*): Hämta anpassad prissättning för alla mätare. Företag kan använda dessa data i kombination med användningsdata och information om Marketplace-användning för att beräkna kostnader med hjälp av användnings- och Marketplace-data.
 
 -   [API för reservationsrekommendationer](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations): Få rekommendationer om köp av reserverade VM-instanser. Rekommendationer hjälper dig att analysera förväntade kostnadsbesparingar och inköpsbelopp. Mer information finns i [API:er för automation av Azure-reservation](billing-reservation-apis.md).
 
@@ -80,14 +78,14 @@ Web Direct- och Enterprise-kunder kan använda alla följande API:er, förutom d
 
 -   [API för användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails): Få information om kostnader och användning för alla Azure-resurser från Microsoft. Informationen visas i form av poster med användningsinformation och skickas för närvarande en gång per mätare och dag. Du kan använda informationen för att summera kostnaderna för alla resurser eller för att analysera kostnader/användning för specifika resurser.
 
--   [API för RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): Hämta mätarpriser om du är Web Direct-kund. Du kan sedan använda den returnerade informationen med din information resursanvändning till att beräkna den förväntade fakturan manuellt. 
+-   [API för RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): Hämta mätarpriser om du är Web Direct-kund. Du kan sedan använda den returnerade informationen med din information resursanvändning till att beräkna den förväntade fakturan manuellt.
 
 -   [API för oklassificerad användning](/previous-versions/azure/reference/mt219003(v=azure.100)): Hämta rå användningsinformation innan Azure utför mätning/avgiftsberäkning.
 
 ### <a name="billing"></a>Fakturering
 -   [API för faktureringsperioder](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Fastställ en faktureringsperiod som ska analyseras, tillsammans med faktura-ID:n för den perioden. Du kan använda faktura-ID:n med API:et för fakturor.
 
--   [API för fakturor](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): Hämta nedladdnings-URL för en faktura för en faktureringsperiod i PDF-format.
+-   [API för fakturor](/rest/api/billing/2019-10-01-preview/invoices): Hämta nedladdnings-URL för en faktura för en faktureringsperiod i PDF-format.
 
 ### <a name="enterprise-consumption"></a>Enterprise-förbrukning
 Följande API:er gäller endast för Enterprise:
@@ -107,11 +105,11 @@ Följande API:er gäller endast för Enterprise:
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>Vad är skillnaden mellan API:erna för företagsrapportering och förbruknings-API:erna? När ska jag använda respektive API?
-Dessa API:er har en liknande uppsättning funktioner och kan besvara samma breda uppsättning frågor vad gäller fakturering och kostnadshantering. Men de riktar sig till olika målgrupper: 
+Dessa API:er har en liknande uppsättning funktioner och kan besvara samma breda uppsättning frågor vad gäller fakturering och kostnadshantering. Men de riktar sig till olika målgrupper:
 
 - API:er för företagsrapportering är tillgängliga för kunder som har registrerat ett Enterprise-avtal med Microsoft som ger dem tillgång till förhandlade ekonomiska åtaganden och anpassad prissättning. API:erna kräver en nyckel som du kan hämta från [Enterprise-portalen](https://ea.azure.com). En beskrivning av dessa API:er finns i [översikten över rapporterings-API:er för Enterprise-kunder](billing-enterprise-api.md).
 
-- Förbruknings-API:er är tillgängliga för alla kunder, med några undantag. Mer information finns i [Översikt över API för Azure Consumption](billing-consumption-api-overview.md) och [referensen för förbruknings-API i Azure](https://docs.microsoft.com/rest/api/consumption/). Vi rekommenderar de tillhandahållna API:erna som lösning för de senaste utvecklingsscenarierna. 
+- Förbruknings-API:er är tillgängliga för alla kunder, med några undantag. Mer information finns i [Översikt över API för Azure Consumption](billing-consumption-api-overview.md) och [referensen för förbruknings-API i Azure](https://docs.microsoft.com/rest/api/consumption/). Vi rekommenderar de tillhandahållna API:erna som lösning för de senaste utvecklingsscenarierna.
 
 ### <a name="whats-the-difference-between-the-usage-details-api-and-the-usage-api"></a>Vad är skillnaden mellan API:et för användningsinformation och API:et för användning?
 Dessa API:er erbjuder data som skiljer sig i grunden:
@@ -126,7 +124,7 @@ Dessa API:er erbjuder data som skiljer sig i grunden:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Vad är skillnaden mellan API:et för fakturering och API:et för användningsinformation?
 Dessa API:er ger olika vyer av samma data:
 
-- [Faktura-API:et](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) är endast till för Web Direct-kunder. Det ger en månatlig sammanställning av din faktura baserat på de aggregerade avgifterna för varje mätartyp. 
+- [Faktura-API:et](/rest/api/billing/2019-10-01-preview/invoices) är endast till för Web Direct-kunder. Det ger en månatlig sammanställning av din faktura baserat på de aggregerade avgifterna för varje mätartyp.
 
 - [API:et för användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails) ger en detaljerad vy av användnings-/kostnadsposterna för varje dag. Det kan användas av både Enterprise-kunder och Web Direct-kunder.
 

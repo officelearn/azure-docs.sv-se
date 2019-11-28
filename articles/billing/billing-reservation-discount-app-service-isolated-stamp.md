@@ -4,16 +4,16 @@ description: Lär dig hur reservationsrabatter tillämpas på Azure App Service 
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 759f83001353957f23b917440b68719b54690bea
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2e9f2fd4541621e98bc1d46f23559993eeabe311
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718808"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226006"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Så tillämpas reservationsrabatter på Azure App Service Isolerad-stämplar
 

@@ -5,19 +5,19 @@ keywords: status tillstånd för azure-prenumeration
 author: anuragdalmia
 manager: andalmia
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: andalmia
-ms.openlocfilehash: 27664fef04e9b52294f0689eba49f16f84433c16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 741e7cf0869e36b5788d0a883a4e982caf041512
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888460"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224099"
 ---
 # <a name="azure-subscription-states"></a>Azure-prenumerationstillstånd
 I den här artikeln beskrivs de olika tillstånd en Azure-prenumeration kan ha. Dessa tillstånd visas som ”Status” under prenumerationsbladen.

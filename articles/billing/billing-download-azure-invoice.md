@@ -5,19 +5,19 @@ keywords: billing invoice,invoice download,azure invoice,azure usage
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 80ec40a7411a370460d663084f9f7034b28e1a2e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7d52a589ee7fcb8891f5ea839b2baeb5e4b30733
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375762"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224028"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
 
@@ -32,7 +32,7 @@ Om du har ett Microsoft-kundavtal (MCA) måste du ha någon av följande roller 
 - Läsare
 - Fakturaansvarig
 
-Om du har ett Microsoft-partneravtal (MPA) måste du vara global administratör eller administratörsrepresentant för partnerorganisationen för at kunna visa och ladda ned Azure-fakturor. [Kontrollera typen av faktureringskonto](#check-your-billing-account-type) om du vill se vilka behörigheter du behöver. 
+Om du har ett Microsoft-partneravtal (MPA) måste du vara global administratör eller administratörsrepresentant för partnerorganisationen för at kunna visa och ladda ned Azure-fakturor. [Kontrollera typen av faktureringskonto](#check-your-billing-account-type) om du vill se vilka behörigheter du behöver.
 
 <!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks). -->
 
@@ -46,7 +46,7 @@ Det kan finnas flera orsaker till att den inte visas:
 
 - Du har inte behörighet att visa fakturor. Om du har ett MCA- eller MPA-avtal måste du vara ägare, deltagare, läsare eller fakturaansvarig för faktureringsprofilen. För andra prenumerationer ser du kanske inte gamla fakturor om du inte är kontoadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](billing-manage-access.md).
 
-- Om du har en kostnadsfri fri utvärderingsversion eller ett månatligt kreditbelopp med din prenumeration får du bara en faktura när du överskrider det månatliga kreditbeloppet. Om du har ett Microsoft-kundavtal eller Microsoft-partneravtal får du alltid en faktura. 
+- Om du har en kostnadsfri fri utvärderingsversion eller ett månatligt kreditbelopp med din prenumeration får du bara en faktura när du överskrider det månatliga kreditbeloppet. Om du har ett Microsoft-kundavtal eller Microsoft-partneravtal får du alltid en faktura.
 
 ## <a name="download-invoices-in-the-azure-portal"></a>Ladda ned fakturor i Azure-portalen
 

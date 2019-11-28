@@ -4,19 +4,19 @@ description: Lär dig hur du läser och förstår din användning samt fakturan 
 author: bandersmsft
 manager: dougeby
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ceeacf216b1d3258aa73d86c613d28e00e9480bb
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 9486d56a723bb311c05ab7aa776060dfa9561aae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718622"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223033"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Förstå din Microsoft Azure-faktura
 För att förstå din Azure-faktura jämför du fakturan med filen med detaljerad daglig användning samt kostnadshanteringsrapporterna i Azure-portalen.

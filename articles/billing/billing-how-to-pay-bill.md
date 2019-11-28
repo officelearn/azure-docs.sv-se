@@ -2,25 +2,22 @@
 title: Betala din faktura för Microsoft Azure | Microsoft Docs
 description: Beskriver hur du betalar en faktura i Azure-portalen
 keywords: billing, past due, balance, pay now,
-services: billing
-documentationcenter: ''
 author: jureid
 manager: jureid
-editor: ''
 tags: billing, past due, pay now, bill, invoice, pay
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 4df0939137a529dd35f8f61ff90ee6da43ec5d61
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 68c9838fc374bd3bd8a4d25f3d6f1c4bdace8e95
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709669"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226191"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Så betalar du din faktura för Microsoft Azure
 
@@ -50,7 +47,7 @@ Du måste vara ägare, deltagare eller fakturaansvarig för faktureringsprofilen
 1. På det nya bladet klickar du på **Välj en betalningsmetod** för att välja ett befintligt kreditkort eller lägga till ett nytt.<!-- screenshot of select payment method link -->
 1. När du har valt betalningsmetoden klickar du på **Betala nu**.
 
-Fakturans status uppdateras till Betald på bladet Fakturor. 
+Fakturans status uppdateras till Betald på bladet Fakturor.
 
 <!-- pay now from invoice blade -->
 

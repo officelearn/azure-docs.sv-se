@@ -3,12 +3,12 @@ title: Exempel på CIS Microsoft Azure Foundations Benchmark-skiss – översikt
 description: Översikt över skissexemplet på CIS Microsoft Azure Foundations Benchmark. Det här skissexemplet hjälper kunderna att utvärdera specifika kontroller.
 ms.date: 08/09/2019
 ms.topic: sample
-ms.openlocfilehash: 89b7396b39ed6d308240316bbb5e718922d5e156
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 414c6d5a38821767dd43e62aa9f42edd8633dbe2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032412"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544568"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Översikt över skissexemplet på CIS Microsoft Azure Foundations Benchmark
 

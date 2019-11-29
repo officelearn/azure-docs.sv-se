@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/09/2018
-ms.openlocfilehash: 0cdd962e5d027b5576a0556ca5decb976af45ff1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 11/22/2019
+ms.openlocfilehash: cec94b2ecb18bc9e8cceb24a21967a3c829d78a5
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494545"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561740"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använda externa paket med Jupyter-anteckningsböcker i Apache Spark kluster i HDInsight
 
@@ -21,69 +21,64 @@ ms.locfileid: "73494545"
 > * [Använda cell Magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Använda skript åtgärd](apache-spark-python-package-installation.md)
 
-Lär dig hur du konfigurerar en [Jupyter Notebook](https://jupyter.org/) i Apache Spark-kluster på HDInsight för att använda externa community-bidrogiga Apache **maven** -paket som inte ingår i klustret. 
+Lär dig hur du konfigurerar en [Jupyter Notebook](https://jupyter.org/) i Apache Spark-kluster på HDInsight för att använda externa community-bidrogiga Apache **maven** -paket som inte ingår i klustret.
 
 Du kan söka i [maven-lagringsplatsen](https://search.maven.org/) efter den fullständiga listan med tillgängliga paket. Du kan också hämta en lista över tillgängliga paket från andra källor. Till exempel finns en fullständig lista över community-paket som har bidragit till i [Spark-paket](https://spark-packages.org/).
 
 I den här artikeln får du lära dig hur du använder [Spark-CSV-](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paketet med Jupyter Notebook.
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Du måste ha följande:
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
+* Kunskaper om Jupyter Notebooks med Spark på HDInsight. Mer information finns i [läsa in data och köra frågor med Apache Spark på HDInsight](./apache-spark-load-data-run-query.md).
+
+* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta är `wasb://` för Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Azure Storage eller Data Lake Storage Gen2, skulle URI: n `wasbs://` eller `abfss://`Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
+
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Använda externa paket med Jupyter-anteckningsböcker
 
-1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.
+1. Navigera till `https://CLUSTERNAME.azurehdinsight.net/jupyter` där `CLUSTERNAME` är namnet på ditt Spark-kluster.
 
-1. Klicka på **Snabblänkar** på Spark-klusterbladet och sedan på **Jupyter Notebook** på **Klusterinstrumentpanel**-bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. Skapa en ny anteckningsbok. Välj **nytt**och välj sedan **Spark**.
 
-    > [!NOTE]  
-    > Du kan också nå Jupyter Notebook för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
-    > 
-    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-
-1. Skapa en ny anteckningsbok. Klicka på **ny**och klicka sedan på **Spark**.
-   
     ![Skapa en ny Spark Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Skapa en ny Jupyter-anteckningsbok")
 
-1. En ny anteckningsbok skapas och öppnas med namnet Untitled.pynb. Klicka på anteckningsbokens namn högst upp och ange ett trevligt namn.
-   
+1. En ny anteckningsbok skapas och öppnas med namnet Untitled.pynb. Välj antecknings bokens namn högst upp och ange ett eget namn.
+
     ![Ange ett namn för antecknings boken](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Ange ett namn för anteckningsboken")
 
-1. Du kommer att använda `%%configure` Magic för att konfigurera antecknings boken för att använda ett externt paket. I antecknings böcker som använder externa paket kontrollerar du att du anropar `%%configure` Magic i den första kod cellen. Detta säkerställer att kerneln har kon figurer ATS för att använda paketet innan sessionen startar.
+1. Du använder `%%configure` Magic för att konfigurera antecknings boken för att använda ett externt paket. I antecknings böcker som använder externa paket kontrollerar du att du anropar `%%configure` Magic i den första kod cellen. Detta säkerställer att kerneln har kon figurer ATS för att använda paketet innan sessionen startar.
 
     >[!IMPORTANT]  
     >Om du glömmer att konfigurera kärnan i den första cellen kan du använda `%%configure` med `-f`-parametern, men som startar om sessionen och all förloppet går förlorad.
 
     | HDInsight-version | Kommando |
     |-------------------|---------|
+    | För HDInsight 3,5 och HDInsight 3,6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.11:1.5.0" }}`|
     |För HDInsight 3,3 och HDInsight 3,4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
-    | För HDInsight 3,5 och HDInsight 3,6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
 
-1. Kodfragmentet ovan förväntar sig maven-koordinaterna för det externa paketet i maven Central-lagringsplatsen. I det här kodfragmentet är `com.databricks:spark-csv_2.10:1.4.0` maven-koordinaten för **Spark-CSV-** paketet. Så här skapar du koordinaterna för ett paket.
-   
-    a. Leta upp paketet i maven-lagringsplatsen. I den här artikeln använder vi [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
-   
-    b. Samla in **värdena för** **ArtifactId**och **version**från databasen. Kontrol lera att värdena som du samlar in matchar klustret. I det här fallet använder vi ett Scala 2,10-och Spark 1.4.0-paket, men du kan behöva välja olika versioner för lämplig Scala-eller Spark-version i klustret. Du kan ta reda på Scala-versionen på klustret genom att köra `scala.util.Properties.versionString` på Spark Jupyter-kärnan eller vid Spark-sändning. Du kan ta reda på Spark-versionen i klustret genom att köra `sc.version` på Jupyter Notebooks.
-   
+1. Kodfragmentet ovan förväntar sig maven-koordinaterna för det externa paketet i maven Central-lagringsplatsen. I det här kodfragmentet är `com.databricks:spark-csv_2.11:1.5.0` maven-koordinaten för **Spark-CSV-** paketet. Så här skapar du koordinaterna för ett paket.
+
+    a. Leta upp paketet i maven-lagringsplatsen. I den här artikeln använder vi [Spark-CSV](https://mvnrepository.com/artifact/com.databricks/spark-csv).
+
+    b. Samla in **värdena för** **ArtifactId**och **version**från databasen. Kontrol lera att värdena som du samlar in matchar klustret. I det här fallet använder vi ett Scala 2,11-och Spark 1.5.0-paket, men du kan behöva välja olika versioner för lämplig Scala-eller Spark-version i klustret. Du kan ta reda på Scala-versionen på klustret genom att köra `scala.util.Properties.versionString` på Spark Jupyter-kärnan eller vid Spark-sändning. Du kan ta reda på Spark-versionen i klustret genom att köra `sc.version` på Jupyter Notebooks.
+
     ![Använda externa paket med Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Använda externa paket med Jupyter Notebook")
-   
+
     c. Sammanfoga de tre värdena, avgränsade med kolon ( **:** ).
-   
-        com.databricks:spark-csv_2.10:1.4.0
+
+        com.databricks:spark-csv_2.11:1.5.0
 
 1. Kör Code-cellen med `%%configure` Magic. Detta konfigurerar den underliggande livy-sessionen att använda det paket som du har angett. I de efterföljande cellerna i antecknings boken kan du nu använda paketet, som du ser nedan.
-   
-        val df = sqlContext.read.format("com.databricks.spark.csv").
+
+        val df = spark.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-    För HDInsight 3,6 bör du använda följande kodfragment.
+    För HDInsight 3,4 och tidigare bör du använda följande kodfragment.
 
-        val df = spark.read.format("com.databricks.spark.csv").
+        val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")

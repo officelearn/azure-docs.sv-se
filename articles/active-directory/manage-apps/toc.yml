@@ -72,8 +72,14 @@
       items:
         - name: Planera en distribution med automatisk användaretablering
           href: plan-auto-user-provisioning.md
+        - name: Automatisk etablering för SCIM-aktiverade appar
+          href: use-scim-to-provision-users-and-groups.md
         - name: Manuell jämfört med automatisk etablering
           href: application-provisioning-config-how-to.md
+    - name: Etablering av HR Cloud
+      items:
+        - name: Planera en distribution med HR-användaretablering i molnet
+          href: plan-cloud-hr-provision.md
     - name: Programproxy för lokala appar
       items:
         - name: Programproxy

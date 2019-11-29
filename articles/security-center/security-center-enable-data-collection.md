@@ -1,6 +1,6 @@
 ---
 title: Data insamling i Azure Security Center | Microsoft Docs
-description: " Lär dig hur du aktiverar data insamling i Azure Security Center. "
+description: Den här artikeln beskriver hur du installerar en Log Analytics agent och anger en Log Analytics arbets yta där insamlade data ska lagras.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,17 +8,17 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 8aa0adf03aef2085ed2374bcfc7ea774d002061c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4b67e7a2ee9f2d734d927b3488cc15ca310f4295
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162689"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559049"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data insamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare. Log Analytics agenten kopierar även krasch dum par till din arbets yta.
 
-Data insamling krävs för att ge insyn i uppdateringar som saknas, felkonfigurerade säkerhets inställningar för operativ systemet, Endpoint Protection-aktivering och hälso-och hot identifiering. 
+Data insamling krävs för att ge insyn i uppdateringar som saknas, felkonfigurerade säkerhets inställningar, Endpoint Protection-status och hälso-och hot identifiering. 
 
 Den här artikeln beskriver hur du installerar en Log Analytics agent och anger en Log Analytics arbets yta där insamlade data ska lagras. Båda åtgärderna krävs för att aktivera data insamling. 
 

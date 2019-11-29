@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: c5d6c671890f5e036d3f4cce6e880230c01048ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 54f2c39260ecaf643b0f2add8758ceb866e71afe
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483827"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561124"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -184,7 +184,7 @@ Om din app använder ett certifikat som inte är offentligt betrott eller själv
 
 MSIX app Attach har fyra distinkta faser som måste utföras i följande ordning:
 
-1. Skede
+1. Mellanlagra
 2. Registrera dig
 3. Avregistrera
 4. Destage
@@ -307,8 +307,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
 
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the
-    pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
 
     $path = ([System.Uri]$path).AbsoluteUri
 

@@ -8,16 +8,16 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 5b37ea92869468001581c9299b1633869671886a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 09371cc66b54d822db5ad24679d28f40323eb871
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457075"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561021"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
-Du kan aktivera din affärslogik-moduler för Azure IoT Edge. Den här artikeln visar hur du använder Visual Studio Code som huvud verktyg för att utveckla och felsöka moduler.
+Du kan omvandla din affärs logik till moduler för Azure IoT Edge. Den här artikeln visar hur du använder Visual Studio Code som huvud verktyg för att utveckla och felsöka moduler.
 
 Det finns två sätt att felsöka moduler skrivna i C#Node. js eller java i Visual Studio Code: du kan antingen koppla en process i en modul-behållare eller starta modulens kod i fel söknings läge. Om du vill felsöka moduler skrivna i python eller C kan du bara ansluta till en process i Linux amd64-behållare.
 
@@ -59,7 +59,7 @@ Om du vill bygga och distribuera din modul-avbildning behöver Docker du för at
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) -eller [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
-    > Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet.
+    > Du kan använda ett lokalt Docker-register för prototyp-och testnings ändamål i stället för ett moln register.
 
 Om du inte utvecklar modulen i C behöver du även det python-baserade [Azure IoT EdgeHub dev-verktyget](https://pypi.org/project/iotedgehubdev/) för att konfigurera din lokala utvecklings miljö för att felsöka, köra och testa din IoT Edge-lösning. Om du inte redan har gjort det installerar du [python (2.7/3.6/3.7) och pip](https://www.python.org/) och installerar sedan **iotedgehubdev** genom att köra det här kommandot i terminalen.
 
@@ -91,7 +91,7 @@ Följande steg visar hur du skapar en IoT Edge-modul på det föredragna utveckl
 
 1. Ange ett namn för modulen. Välj ett namn som är unikt i behållar registret.
 
-1. Ange namnet på modulens avbildnings lagrings plats. Visual Studio Code fyller automatiskt i modulnamnet med **localhost: 5000/< ditt modulnamn\>** . Ersätt den med din egen information i registret. Om du använder ett lokalt Docker-register för testning är **localhost** bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Inloggnings servern ser ut som  **_\<register namn\>_ . azurecr.io**. Ersätt endast **localhost: 5000** del av strängen så att det slutliga resultatet ser ut som **\<*register namn*\>. azurecr.io/ _\<ditt Modulnamn\>_** .
+1. Ange namnet på modulens avbildnings lagrings plats. Visual Studio Code fyller automatiskt i modulnamnet med **localhost: 5000/< ditt modulnamn\>** . Ersätt den med din egen register information. Om du använder ett lokalt Docker-register för testning är **localhost** bra. Om du använder Azure Container Registry använder du inloggnings servern från registrets inställningar. Inloggnings servern ser ut som  **_\<register namn\>_ . azurecr.io**. Ersätt endast **localhost: 5000** del av strängen så att det slutliga resultatet ser ut som **\<*register namn*\>. azurecr.io/ _\<ditt Modulnamn\>_** .
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-csharp-module/repository.png)
 
@@ -110,11 +110,13 @@ Det finns fyra objekt i lösningen:
 
 - En **Deployment. template. JSON** -fil listar den nya modulen tillsammans med en exempel- **SimulatedTemperatureSensor** -modul som simulerar data som du kan använda för testning. Mer information om hur distributions manifest fungerar finns i [Lär dig hur du använder distributions manifest för att distribuera moduler och upprätta vägar](module-composition.md).
 
+Om du vill se hur den simulerade temperaturen fungerar kan du Visa [käll koden för SimulatedTemperatureSensor. CSPROJ](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
 ## <a name="add-additional-modules"></a>Lägg till ytterligare moduler
 
 Om du vill lägga till ytterligare moduler till din lösning kör du kommandot **Azure IoT Edge: Lägg till IoT Edge modul** från paletten kommando. Du kan också högerklicka på mappen **moduler** eller `deployment.template.json`-filen i Visual Studio Code Explorer-vyn och sedan välja **Lägg till IoT Edge modul**.
 
-## <a name="develop-your-module"></a>Utveckla din modell
+## <a name="develop-your-module"></a>Utveckla din modul
 
 Standard koden för modulen som medföljer lösningen finns på följande plats:
 
@@ -125,7 +127,7 @@ Standard koden för modulen som medföljer lösningen finns på följande plats:
 - Java: **moduler > *&lt;ditt modulnamn&gt;* > src > main > java > com > edgemodulemodules > app. java**
 - C: **moduler > *&lt;ditt modulnamn&gt;* > main. c**
 
-Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är konstruerad för att helt enkelt ta med indata från en källa (i det här fallet SimulatedTemperatureSensor-modulen som simulerar data) och rör den till IoT Hub.
+Modulen och filen Deployment. template. JSON har kon figurer ATS så att du kan skapa lösningen, push-överför den till behållar registret och distribuera den till en enhet för att starta testning utan att behöva röra någon kod. Modulen är konstruerad för att helt enkelt ta med indata från en källa (i det här fallet SimulatedTemperatureSensor-modulen som simulerar data) och rör den till IoT Hub.
 
 När du är redo att anpassa mallen med din egen kod kan du använda [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md) : er för att bygga moduler som uppfyller nyckel behoven för IoT-lösningar som säkerhet, enhets hantering och pålitlighet.
 

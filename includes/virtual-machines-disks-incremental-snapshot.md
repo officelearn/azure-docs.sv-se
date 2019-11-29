@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 846fd92bce3056dc119f38ac253a0a937e8c56a4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74309832"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566363"
 ---
 Stegvisa ögonblicks bilder (för hands version) är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt göra att de är mer kostnads effektiva eftersom du inte längre behöver lagra hela disken med varje enskild ögonblicks bild, såvida du inte väljer att. Precis som vanliga ögonblicks bilder kan du använda stegvisa ögonblicks bilder för att skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.
 
@@ -25,7 +25,7 @@ Om du ännu inte har registrerat dig för för hands versionen och du vill börj
 
 ## <a name="restrictions"></a>Begränsningar
 
-- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i USA, västra centrala och Europa, norra.
+- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i östra USA, centrala USA, centrala Kanada, västra centrala USA och norra Europa.
 - Det går för närvarande inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk.
 - Det går för närvarande inte att flytta stegvisa ögonblicks bilder mellan prenumerationer.
 - För närvarande kan du bara skapa SAS-URI: er på upp till fem ögonblicks bilder av en viss ögonblicks bild serie vid en given tidpunkt.

@@ -1,6 +1,6 @@
 ---
 title: Felsökningsguide för Azure Security Center | Microsoft Docs
-description: Det här dokumentet hjälper till med fel sökning av problem i Azure Security Center.
+description: Den här guiden är för IT-proffs, säkerhetsanalytiker och moln administratörer som behöver felsöka Azure Security Center relaterade problem.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 073e500028634e3c35a482d8efc5f9ae169145e3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257692"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559212"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
@@ -42,7 +42,7 @@ För vissa aviseringar har vi också en förtroende poäng. Förtroendepoäng i 
 
 Kunder kan dela feedback om aviseringens beskrivning och relevans. Gå till själva aviseringen och välj knappen **Hade du nytta av detta?** . Välj orsak och ange en kommentar för att förklara din feedback. Vi övervakar ständigt den här feedbackkanalen för att förbättra våra aviseringar.
 
-## <a name="audit-log"></a>Granskningslogg
+## <a name="audit-log"></a>Gransknings logg
 
 Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](../azure-monitor/platform/activity-logs-overview.md)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
 
@@ -62,7 +62,7 @@ Security Center använder Microsoft Monitoring Agent – det här är samma agen
 
 Om du öppnar konsolen för tjänsthantering (services.msc) kan du även se att tjänsten Microsoft Monitoring Agent körs enligt nedan:
 
-![Tjänster](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 Om du vill se vilken version av agenten du har kan du öppna **Aktivitetshanteraren**i fliken **processer**, leta upp tjänsten **Microsoft Monitoring Agent**, högerklicka på den och klicka på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
 
@@ -74,7 +74,7 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 
 * **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för den prenumeration som resursen tillhör.
 
-* **Agent installeras manuellt på en virtuell dator som finns i Azure**: i det här scenariot kan du, om du använder agenter som har hämtats och installerats manuellt före februari 2017, Visa aviseringarna i Security Center portalen endast om du filtrerar på prenumerationen på arbets ytan tillhör. Om du filtrerar på prenumerationen som resursen tillhör visas inga aviseringar. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för prenumerationen som arbets ytan tillhör.
+* **Agent installeras manuellt på en virtuell dator som finns i Azure**: i det här scenariot kan du, om du använder agenter som har hämtats och installerats manuellt före februari 2017, bara Visa aviseringarna i Security Center portal om du filtrerar på prenumerationen som arbets ytan tillhör. Om du filtrerar på prenumerationen som resursen tillhör visas inga aviseringar. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för prenumerationen som arbets ytan tillhör.
 
 > [!NOTE]
 > Kontrollera att du laddar ned den senaste versionen av agenten för att undvika det andra scenariot.
@@ -93,7 +93,7 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 | Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Microsoft Monitoring Agent misslyckades. Security Center identifierat en lokal agent (Log Analytics eller System Center Operations Manager) som redan har installerats på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbetsytor, stoppades installationen av Microsoft Monitoring Agent. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
 | Agenten kan inte ansluta till arbetsytan | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel med nätverksanslutningen.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se övervaknings agentens nätverks krav. |
 | Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierade att Microsoft Monitoring Agent som är installerat på den virtuella datorn är anslutet till en arbetsyta som det inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md#azure-portal). |
-| Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så rapporterar agenten data men saknar Azure-resurs-ID så att det är omöjligt att matcha data till den virtuella Azure-datorn. Felsökning av Linux beskrivs [felsökningsguide för Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
+| Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så rapporterar agenten data men saknar Azure-resurs-ID så att det är omöjligt att matcha data till den virtuella Azure-datorn. För att felsöka Linux, se [fel söknings guide för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
 | Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera datainsamling i säkerhetsprincipen eller installera Microsoft Monitoring Agent manuellt. |
 
 ## Felsöka nätverkskrav för övervakningsagenten <a name="mon-network-req"></a>
@@ -142,11 +142,11 @@ Vissa problem kan identifieras med hjälp av riktlinjerna i den här artikeln, a
 
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
-* [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md) – Här får du lära dig att planera och vad du behöver tänka på när det gäller design när du ska börja använda Azure Security Center.
+* [Planerings- och användningsguide för Azure Security Center](security-center-planning-and-operations-guide.md) – Lär dig mer om planering och viktiga designaspekter när du ska börja använda Azure Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar dina Azure-resursers hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Förstå säkerhetsaviseringar i Azure Security Center](security-center-alerts-type.md)
-* [Självstudier: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
+* [Självstudie: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
 * [Aviseringsverifiering i Azure Security Center](security-center-alert-validation.md)
 * [E-postmeddelanden i Azure Security Center](security-center-provide-security-contact-details.md)
 * [Hantera säkerhetsincidenter i Azure Security Center](security-center-incident.md)

@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544630"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555478"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program
 
@@ -22,9 +22,9 @@ ms.locfileid: "74544630"
 
 ## <a name="support-coverage-and-regional-availability"></a>Support täckning och regional tillgänglighet
 
-ZRS stöder för närvarande generella typer av lagrings konton för generell användning v2 och FileStorage. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
+ZRS stöder för närvarande generella typer av lagrings konton för generell användning v2, FileStorage och BlockBlobStorage. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
 
-ZRS är tillgängligt för block-blobar, icke-disk-sidfel, standard fil resurser, tabeller och köer.
+General-Purpose v2 ZRS-konton har stöd för block-blobbar, icke-disk Page blobbar, standard fil resurser, tabeller och köer.
 
 För General-Purpose v2-konton är ZRS allmänt tillgängligt i följande regioner:
 

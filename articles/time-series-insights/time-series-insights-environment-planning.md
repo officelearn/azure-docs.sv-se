@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f75c84aeb1893008832635cf93cd634d96653dd3
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006960"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561546"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planera din Azure Time Series Insights GA-miljö
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du planerar din Azure Time Series Insights gener
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 För att komma igång med Azure Time Series Insights är det bäst om du vet hur mycket data du förväntar dig att pusha per minut och hur länge du behöver lagra dina data.  
 
@@ -53,7 +53,7 @@ Du kan ändra tids inställningen för **datakvarhållning** i Azure Time Series
 Azure Time Series Insights har två lägen:
 
 * Ett läge optimerar för de mest aktuella data. Den tillämpar en princip för att **Rensa gamla data** som lämnar de senaste data som är tillgängliga med instansen. Det här läget är aktiverat som standard. 
-* Den andra optimerar data så att de förblir under de konfigurerade gräns värdena. **Pausa** ingångar förhindrar att nya data inaktive ras när den har valts som **gräns för lagrings gränsen**. 
+* Den andra optimerar data så att de förblir under de konfigurerade gräns värdena. **Pausa** ingångar förhindrar att nya data inaktive ras när det har valts som **lagrings gränsen har överskridits**. 
 
 Du kan justera kvarhållning och växla mellan de två lägena på miljöns konfigurations sida i Azure Portal.
 
@@ -64,11 +64,11 @@ Du kan justera kvarhållning och växla mellan de två lägena på miljöns konf
 
 1. I [Azure Portal](https://portal.azure.com)väljer du din Time Series Insights miljö.
 
-1. Välj **Konfigurera**i rutan **Time Series Insights miljö** under **Inställningar**.
+1. I fönstret **Time Series Insights miljö** under **Inställningar**väljer du **lagrings konfiguration**.
 
 1. Ange ett värde mellan 1 och 400 i rutan **data lagrings tid (i dagar)** .
 
-   [![Konfigurera kvarhållning](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [![Konfigurera kvarhållning](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
 > Mer information om hur du implementerar en lämplig bevarande princip för data finns i [så här konfigurerar du kvarhållning](./time-series-insights-how-to-configure-retention.md).

@@ -7,13 +7,13 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
-ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/22/2019
+ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076246"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561759"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använd Apache Hive som ett ETL-verktyg (Extract, Transform och Load)
 
@@ -21,11 +21,11 @@ Du måste vanligt vis rensa och transformera inkommande data innan du läser in 
 
 ## <a name="use-case-and-model-overview"></a>Översikt över användnings fall och modell
 
-Följande bild visar en översikt över användnings fallet och modellen för ETL-Automation. Indata omvandlas för att generera lämpliga utdata.  Under omvandlingen kan data ändra form, datatyp och till och med språk.  ETL-processer kan konvertera Imperial till mått, ändra tids zoner och förbättra precisionen för att korrekt justera med befintliga data i målet.  ETL-processer kan också kombinera nya data med befintliga data för att hålla rapporter aktuella, eller för att ge ytterligare insikt i befintliga data.  Program som rapporterings verktyg och tjänster kan sedan använda dessa data i det önskade formatet.
+Följande bild visar en översikt över användnings fallet och modellen för ETL-Automation. Indata omvandlas för att generera lämpliga utdata.  Under omvandlingen kan data ändra form, datatyp och till och med språk.  ETL-processer kan konvertera Imperial till mått, ändra tids zoner och förbättra precisionen för att korrekt justera med befintliga data i målet.  ETL-processer kan också kombinera nya data med befintliga data för att hålla rapporter aktuella, eller för att ge mer insikt i befintliga data.  Program som rapporterings verktyg och tjänster kan sedan använda dessa data i det önskade formatet.
 
 ![Apache Hive som ETL-arkitektur](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-Hadoop används vanligt vis i ETL-processer som importerar antingen ett massivt antal textfiler (t. ex. csv: er) eller en mindre men ofta ändrade antal textfiler, eller både och.  Hive är ett utmärkt verktyg som används för att förbereda data innan de läses in i data målet.  Med Hive kan du skapa ett schema över CSV och använda ett SQL-liknande språk för att generera MapReduce-program som interagerar med data. 
+Hadoop används vanligt vis i ETL-processer som importerar antingen ett massivt antal textfiler (t. ex. csv: er) eller en mindre men ofta ändrade antal textfiler, eller både och.  Hive är ett utmärkt verktyg som används för att förbereda data innan de läses in i data målet.  Med Hive kan du skapa ett schema över CSV och använda ett SQL-liknande språk för att generera MapReduce-program som interagerar med data.
 
 De vanligaste stegen för att använda Hive för att utföra ETL är följande:
 
@@ -38,14 +38,14 @@ De vanligaste stegen för att använda Hive för att utföra ETL är följande:
     DROP TABLE IF EXISTS hvac;
 
     --create the hvac table on comma-separated sensor data stored in Azure Storage blobs
-    
+
     CREATE EXTERNAL TABLE hvac(`date` STRING, time STRING, targettemp BIGINT,
-        actualtemp BIGINT, 
-        system BIGINT, 
-        systemage BIGINT, 
+        actualtemp BIGINT,
+        system BIGINT,
+        systemage BIGINT,
         buildingid BIGINT)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-    STORED AS TEXTFILE LOCATION 'wasb://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE LOCATION 'wasbs://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
 5. Transformera data och Läs in dem i målet.  Det finns flera sätt att använda Hive under omvandlingen och inläsning:
@@ -73,7 +73,7 @@ Du kan använda Hive för att mata ut data till en mängd olika mål, inklusive:
 * Excel.
 * Azure Table och Blob Storage.
 * Program eller tjänster som kräver att data bearbetas i vissa format eller som filer som innehåller vissa typer av informations strukturer.
-* Ett JSON-dokument lagrar som <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
+* Ett JSON-dokument lagrar som [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## <a name="considerations"></a>Överväganden
 

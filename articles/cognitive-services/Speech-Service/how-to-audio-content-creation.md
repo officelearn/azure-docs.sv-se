@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579633"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554999"
 ---
-# <a name="audio-content-creation"></a>Skapa ljud innehåll
+# <a name="audio-content-creation"></a>Skapa ljudinnehåll
 
 Att [skapa ljud innehåll](https://aka.ms/audiocontentcreation) är ett online verktyg som gör att du kan anpassa och finjustera Microsofts text till tal-utdata för dina appar och produkter. Du kan använda det här verktyget för att finjustera offentliga och anpassade röster för mer exakta naturliga uttryck och hantera dina utdata i molnet.
 
@@ -43,7 +43,7 @@ Det här diagrammet visar de steg som krävs för att justera och exportera anpa
 
 Följ dessa steg om du vill skapa en tal resurs och ansluta den till tal Studio.
 
-1. Följ de här anvisningarna för att [Registrera dig för ett Azure-konto](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Kontrol lera att pris nivån är inställd på **S0**. Om du använder någon av neurala-rösterna ser du till att du skapar din resurs i en [region som stöds](regions.md#standard-and-neural-voices).
+1. Följ de här anvisningarna för att [Registrera dig för ett Azure-konto](get-started.md#try-the-speech-service-using-a-new-azure-account) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Kontrol lera att pris nivån är inställd på **S0**. Om du använder någon av neurala-rösterna ser du till att du skapar din resurs i en [region som stöds](regions.md#standard-and-neural-voices).
 2. Logga in på att [skapa ljud innehåll](https://aka.ms/audiocontentcreation).
 3. Välj ett befintligt projekt eller klicka på **Skapa nytt**.
 4. Du kan ändra din prenumeration när som helst med alternativet **Inställningar** , som finns i det övre navigerings fältet.
@@ -104,7 +104,7 @@ När du har granskat din ljud uppspelning och är nöjd med justeringen och just
 | våg | riff-16khz-bitarsläge-mono-PCM | riff-24khz-bitarsläge-mono-PCM |
 | MP3 | Audio-16khz-128kbitrate-mono-MP3 | Audio-24khz-160kbitrate-mono-MP3 |
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Långt ljud-API](https://aka.ms/long-audio-api)
 

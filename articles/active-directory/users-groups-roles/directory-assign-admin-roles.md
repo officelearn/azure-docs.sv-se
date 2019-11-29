@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
-ms.translationtype: HT
+ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547526"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554121"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -185,7 +185,7 @@ Den här rollen är endast tillgänglig för tilldelning som en ytterligare loka
 
 Användare med den här rollen kan läsa grundläggande katalog information. Den här rollen ska användas för:
 * Att bevilja en speciell uppsättning gäst användare Läs åtkomst i stället för att ge dem till alla gäst användare.
-* Att bevilja en särskild uppsättning icke-administratörs användare åtkomst till Azure Portal när "begränsa åtkomst till Azure AD-portalen enbart till administratörer" är inställd på "Ja".
+* Att bevilja en särskild uppsättning användare som inte är administratörs åtkomst till Azure Portal när "begränsa åtkomst till Azure AD-portalen enbart till administratörer" är inställd på "Ja".
 * Beviljar tjänstens huvud namn åtkomst till katalogen där Directory. Read. all inte är ett alternativ.
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Konton för katalog synkronisering](#directory-synchronization-accounts-permissions)
@@ -238,7 +238,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 >- [Azure AD-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) – den globala läsaren kan inte läsa etablerings läget för en företags app.
 >- [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
 >- [M365 Security Center](https://security.microsoft.com/homepage) – den globala läsaren kan inte läsa känslighets-och lagrings etiketter. Du hittar inte **känslighets etiketter**, **lagrings etiketter**och **etikett Analytics** -flikar i den vänstra rutan i M365 Security Center.
->- Det går inte att läsa SCC gransknings loggar eller göra innehållss ökning i [Office-säkerhets-och Efterlevnadscenter](https://protection.microsoft.com) – global läsare.
+>- Det går inte att läsa SCC gransknings loggar eller göra innehållss ökning i [Office-säkerhets-och Efterlevnadscenter](https://sip.protection.office.com/homepage) – global läsare.
 >- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) stöder inte rollen global läsare.
 >- [Azure information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – global läsare stöds endast [för central rapportering](https://docs.microsoft.com/azure/information-protection/reports-aip) , och när din Azure AD-organisation inte finns på den [enhetliga etiketterande plattformen](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
@@ -248,7 +248,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 
 ### <a name="group-administratorgroup-administrator"></a>[Grupp administratör](#group-administrator)
 
-Användare med den här rollen kan skapa/hantera grupper och dess inställningar, t. ex. namn och förfallo principer. Det är viktigt att förstå att tilldela en användare till den här rollen och ger dem möjlighet att hantera alla grupper i klient organisationen över olika arbets belastningar som team, SharePoint, Yammer, förutom Outlook. Användaren kan också hantera de olika grupp inställningarna över olika administrations portaler som Microsoft administrations Center, Azure Portal, samt arbets belastningar som är speciella som team och administrations Center för SharePoint.
+Användare med den här rollen kan skapa/hantera grupper och dess inställningar, t. ex. namn och förfallo principer. Det är viktigt att förstå att tilldela en användare till den här rollen och ger dem möjlighet att hantera alla grupper i klient organisationen över olika arbets belastningar som team, SharePoint, Yammer, förutom Outlook. Användaren kan också hantera de olika grupp inställningarna över olika administrations portaler som Microsoft administrations Center, Azure Portal, och även arbets belastningar som team och administrations Center för SharePoint.
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Gäst deltagare](#guest-inviter-permissions)
 

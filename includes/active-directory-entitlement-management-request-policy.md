@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: fb72ed337219f58481c094d68342dbf6f26493c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260883"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566370"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
@@ -106,6 +106,14 @@ I avsnittet godkännande anger du om ett godkännande krävs när användare beg
 - Godkännande från varje vald god kännare krävs inte för ett eller 2-stegs godkännande.
 - Godkännande beslutet baseras på vilken god kännare som granskar begäran först.
 
+En demonstration av hur du lägger till god kännare i en princip för begäran finns i följande videoklipp:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+En demonstration av hur du lägger till ett godkännande med flera steg i en princip för begäran finns i följande videoklipp:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
 Följ de här stegen för att ange godkännande inställningarna för begär Anden för Access-paketet:
 
 1. Om du vill kräva godkännande för förfrågningar från de valda användarna anger du alternativet **Kräv godkännande** för att växla till **Ja**. Eller, om du vill att begär Anden ska godkännas automatiskt, anger du växla till **Nej**.
@@ -115,7 +123,6 @@ Följ de här stegen för att ange godkännande inställningarna för begär And
 1. Kontrol lera nu om begär Anden kräver ett enda eller 2-stegs godkännande. Ange **hur många steg** som ska växlas till **1** för godkännande av enstaka steg eller ange växla till **2** för godkännande i två steg.
 
     ![Åtkomst till paket-begär Anden – godkännande inställningar](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 
 Använd följande steg för att lägga till god kännare när du har valt hur många steg du behöver: 
 
@@ -198,4 +205,4 @@ Om du till exempel har listat Alice och Bob som första god kännare, anger du C
 
     ![Åtkomst paket-princip-aktivera princip inställning](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.

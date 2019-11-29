@@ -2,20 +2,20 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 11/28/2019
 ms.author: raynew
-ms.openlocfilehash: 96cba4e077be8b7658c270b09b177a845e16c8b0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: de15e3028cf22cdd03ce29385278fc5e2babaa9b
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187869"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566371"
 ---
 Den här artikeln förutsätter att
 
 1. En **plats-till-plats-VPN** eller en **Express Route**-anslutning redan har upprättats mellan ditt lokala nätverk och Azure Virtual Network.
 2. Ditt användarkonto har behörighet att skapa en ny virtuell dator på den Azure-prenumeration som de virtuella datorerna har redundansväxlats till.
-3. Din prenumeration har minst 4 kärnor tillgängliga för att lägga upp en ny virtuell processerverdator.
+3. Din prenumeration har minst 8 kärnor tillgängliga för att skapa en ny virtuell dator för processervern.
 4. Du har **konfigurationsserverns lösenfras** tillgänglig.
 
 > [!TIP]

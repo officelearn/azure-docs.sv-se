@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819680"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559029"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduktion till Azure App Service i Linux
 
@@ -67,7 +67,12 @@ Baserat på en aktuell begränsning för samma resurs grupp kan du inte blanda W
 
 ## <a name="troubleshooting"></a>Felsöka
 
-När det inte går att starta appen eller om du vill kontrollera loggen i din app kan du öppna Docker-loggarna i katalogen LogFiles. Katalogen är åtkomlig via SCM-webbplatsen eller via FTP. Om du vill logga `stdout` och `stderr` från din behållare måste du aktivera **Docker-behållar loggning** under **App Service loggar**. Inställningen utförs direkt. App Service identifierar ändringen och startar om behållaren automatiskt.
+> [!NOTE]
+> Det finns en ny integrerad loggnings funktion med [Azure Monitoring (för hands version)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
+>
+>
+
+När det inte går att starta appen eller om du vill kontrollera loggen i din app kan du öppna Docker-loggarna i katalogen LogFiles. Katalogen är åtkomlig via SCM-webbplatsen eller via FTP. Om du vill logga `stdout` och `stderr` från din behållare måste du aktivera **program loggning** under **App Service loggar**. Inställningen utförs direkt. App Service identifierar ändringen och startar om behållaren automatiskt.
 
 Du kommer åt SCM-webbplatsen från **Avancerade verktyg** i menyn **Utvecklingsverktyg**.
 

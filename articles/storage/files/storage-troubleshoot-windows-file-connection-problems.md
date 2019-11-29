@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 261816e42c8de670cd7888af726a70e1a6e5b228
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269364"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560137"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files problem i Windows
 
@@ -273,7 +273,7 @@ Om du vill kopiera en fil över nätverket måste du först dekryptera den. Anv�
 - Ange följande register nyckel:
   - Sökväg = HKLM\Software\Policies\Microsoft\Windows\System
   - Värdetyp = DWORD
-  - Name = CopyFileAllowDecryptedRemoteDestination
+  - Namn = CopyFileAllowDecryptedRemoteDestination
   - Värde = 1
 
 Tänk på att om du anger register nyckeln påverkar det alla kopierings åtgärder som görs till nätverks resurser.
@@ -295,17 +295,29 @@ Lös problemet genom att justera register värdet **DirectoryCacheEntrySizeMax**
  
 Du kan till exempel ställa in den på 0x100000 och se om prestandan blir bättre.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Fel AadDsTenantNotFound vid aktivering av Azure Active Directory autentisering för Azure Files "Det gick inte att hitta aktiva klienter med klient-ID AAD-Tenant-ID"
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Fel vid AadDsTenantNotFound aktivering av AAD DS-autentisering (Azure Active Directory Domain Service) för Azure Files "Det gick inte att hitta aktiva klienter med klient-ID AAD-Tenant-ID"
 
 ### <a name="cause"></a>Orsak
 
-Fel AadDsTenantNotFound inträffar när du försöker [aktivera Azure Active Directory (AAD)-autentisering för Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) på ett lagrings konto där [AAD-domän tjänsten (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) inte skapas på AAD-klienten för den associerade prenumerationen.  
+Fel AadDsTenantNotFound uppstår när du försöker [aktivera autentisering med Azure Active Directory Domain Service (AAD DS) för Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) på ett lagrings konto där [AAD Domain Service (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) inte skapas på AAD-klienten för den associerade prenumerationen.  
 
 ### <a name="solution"></a>Lösning
 
 Aktivera AAD DS på AAD-klienten för den prenumeration som ditt lagrings konto har distribuerats till. Du behöver administratörs behörighet för AAD-klienten för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [aktivera Azure Active Directory Domain Services att använda Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>Fel: system fel 1359 har uppstått. Ett internt fel som har tagits emot via SMB-åtkomst till fil resurser med autentisering med Azure Active Directory Domain Service (AAD DS) aktiverat
+
+### <a name="cause"></a>Orsak
+
+Fel: system fel 1359 har uppstått. Ett internt fel inträffar när du försöker ansluta till fil resursen med AAD DS-autentisering aktive rad mot en AAD DS med domän-DNS-namn som börjar med ett numeriskt tecken. Om ditt DNS-namn för AAD DS-domänen till exempel är "1domain", får du det här felet när du försöker montera fil resursen med AAD-autentiseringsuppgifter. 
+
+### <a name="solution"></a>Lösning
+
+För närvarande kan du överväga att omdistribuera AAD DS med ett nytt domän-DNS-namn som gäller för reglerna nedan:
+- Namn får inte börja med ett numeriskt tecken.
+- Namn måste vara mellan 3 och 63 tecken.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.

@@ -103,6 +103,20 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: Felsöka fel
           href: logic-apps-diagnosing-failures.md
+    - name: Få åtkomst till Azure Virtual Networks
+      items:
+        - name: Ansluta till virtuella nätverk med integreringstjänstmiljöer
+          href: connect-virtual-network-vnet-isolated-environment.md
+        - name: Konfigurera åtkomst för flera integreringstjänstmiljöer
+          href: connect-virtual-network-vnet-set-up-single-ip-address.md
+        - name: Lägga till artefakter i integreringstjänstmiljöer
+          href: add-artifacts-integration-service-environment-ise.md
+    - name: Komma åt lokala data
+      items:
+        - name: Installera datagateway
+          href: logic-apps-gateway-install.md
+        - name: Ansluta till lokala data
+          href: logic-apps-gateway-connection.md
     - name: Utveckla för B2B-scenarier
       items:
         - name: Skapa integrationskonto
@@ -159,16 +173,6 @@
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: Skapa en haveriberedskapsplan
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
-    - name: Ansluta till virtuella nätverk med isolerade miljöer
-      href: connect-virtual-network-vnet-isolated-environment.md
-    - name: Lägga till artefakter i integreringstjänstmiljöer
-      href: add-artifacts-integration-service-environment-ise.md
-    - name: Komma åt lokala data
-      items:
-        - name: Installera datagateway
-          href: logic-apps-gateway-install.md
-        - name: Ansluta till lokala data
-          href: logic-apps-gateway-connection.md
     - name: Anslutningsappar – ämnesfördjupning
       items:
         - name: AS2

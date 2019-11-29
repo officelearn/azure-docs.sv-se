@@ -1,14 +1,14 @@
 ---
 title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
-ms.date: 03/06/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463511"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555171"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -16,7 +16,9 @@ Azure Resource Manager egenskaper definieras vanligt vis som strängar och boole
 
 - Typ av [definitions parameter](../concepts/definition-structure.md#parameters)för att tillhandahålla flera alternativ
 - En del av en [princip regel](../concepts/definition-structure.md#policy-rule) med hjälp av villkoren **i** eller **notIn**
-- En del av en princip regel som utvärderar [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) för att utvärdera vissa scenarier som **ingen**, **alla**eller **alla**
+- En del av en princip regel som utvärderar [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) som ska utvärderas:
+  - Scenarier som **ingen**, **alla**eller **alla**
+  - Komplexa scenarier med **antal**
 - I Lägg till- [effekter](../concepts/effects.md#append) för att ersätta eller lägga till i en befintlig matris
 
 Den här artikeln beskriver varje användning av Azure Policy och innehåller flera exempel definitioner.
@@ -138,10 +140,10 @@ Förväntad **typ** av villkor `equals` är _sträng_. Eftersom **allowedLocatio
 
 ### <a name="evaluating-the--alias"></a>Utvärdera [*]-aliaset
 
-Alias som har **[\*]** kopplat till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen gör **[\*]** det möjligt att utvärdera varje element i matrisen. Det finns tre scenarier denna utvärdering av objekt är användbar i: ingen, alla och alla.
+Alias som har **\[\*\]** kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen, **\[\*\]** gör det möjligt att utvärdera varje element i matrisen. Det finns tre standard scenarier för utvärdering av objekt per objekt är det användbart i: ingen, alla och alla. För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
 
 Princip motorn utlöser **effekterna** i **sedan** bara när **IF** -regeln utvärderas som sant.
-Detta faktum är viktigt att förstå i kontexten för hur **[\*]** utvärderar varje enskilt element i matrisen.
+Detta faktum är viktigt att förstå i sammanhang som **\[\*\]** utvärderar varje enskilt element i matrisen.
 
 Exempel princip regeln för scenario tabellen nedan:
 
@@ -194,10 +196,10 @@ Följande resultat är resultatet av kombinationen av villkoret och exempel prin
 
 ## <a name="the-append-effect-and-arrays"></a>Lägg till effekter och matriser
 
-[Lägg till-resultatet](../concepts/effects.md#append) fungerar på olika sätt beroende på om **information. Field** är ett **[\*]** -alias eller inte.
+[Lägg till-resultatet](../concepts/effects.md#append) fungerar på olika sätt beroende på om **information. field** är ett **\[\*\]** alias eller inte.
 
-- Om du inte använder ett **[\*]** -alias ersätter append hela matrisen med egenskapen **Value**
-- När ett **[\*]** -alias lägger till lägger till egenskapen **Value** till den befintliga matrisen eller skapar den nya matrisen
+- Om du inte använder ett **\[\*\]** alias ersätter append hela matrisen med egenskapen **Value**
+- När ett **\[\*\]** alias lägger till egenskapen **Value** till den befintliga matrisen eller skapar den nya matrisen
 
 Mer information finns i [Lägg till exempel](../concepts/effects.md#append-examples).
 

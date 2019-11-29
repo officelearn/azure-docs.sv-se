@@ -1,6 +1,6 @@
 ---
 title: Själv studie kurs om incident svar – Azure Security Center
-description: Azure Security Center-självstudie – Reagera på säkerhetsincidenter
+description: I den här självstudien får du lära dig hur du prioritering säkerhets aviseringar, fastställer rotor saken & omfattningen av en incident och söker efter säkerhets data.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663647"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559192"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -31,7 +31,7 @@ Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med a
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
 ## <a name="scenario"></a>Scenario
@@ -78,7 +78,7 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
    Typen av varning kan variera. Läs [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) för mer information om typen av varning och potentiella åtgärder. För varningar som kan avfärdas säkert kan du högerklicka på varningen och välja alternativet **Stäng**:
 
-   ![Varning](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Avisering](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Om rotorsaken och omfånget för den skadliga aktiviteten är okänd fortsätter du till nästa steg för att undersöka närmare.
 

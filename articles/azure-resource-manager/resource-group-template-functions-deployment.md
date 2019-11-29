@@ -2,17 +2,17 @@
 title: Mall funktioner – distribution
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta distributions information.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: a255cea128241465788f21013eb0522a29f5bd9e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 11/27/2019
+ms.openlocfilehash: 67540a78e349285be032f696a9ef4b9ba3c7e242
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230239"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561461"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributions funktioner för Azure Resource Manager mallar 
 
-Resource Manager innehåller följande funktioner för att hämta värden från avsnitt i mallen och värden som är relaterade till distributionen:
+Resource Manager innehåller följande funktioner för att hämta värden som är relaterade till den aktuella distributionen:
 
 * [spridningen](#deployment)
 * [miljö](#environment)
@@ -27,7 +27,7 @@ För att hämta värden från resurser, resurs grupper eller prenumerationer, se
 
 Returnerar information om den aktuella distributions åtgärden.
 
-### <a name="return-value"></a>Returvärde
+### <a name="return-value"></a>Retur värde
 
 Den här funktionen returnerar det objekt som skickas under distributionen. Egenskaperna i det returnerade objektet skiljer sig åt beroende på om distributions objekt skickas som en länk eller som ett infogat objekt. När distributions objekt skickas direkt, till exempel när du använder parametern **-TemplateFile** i Azure PowerShell för att peka på en lokal fil, har det returnerade objektet följande format:
 
@@ -139,9 +139,9 @@ En mall för en prenumerations nivå som använder distributions funktionen finn
 
 Returnerar information om den Azure-miljö som används för distribution.
 
-### <a name="return-value"></a>Returvärde
+### <a name="return-value"></a>Retur värde
 
-Den här funktionen returnerar egenskaper för den aktuella Azure-miljön.
+Den här funktionen returnerar egenskaper för den aktuella Azure-miljön. I följande exempel visas egenskaperna för Global Azure. Suveräna moln kan returnera något annorlunda egenskaper.
 
 ```json
 {
@@ -243,7 +243,7 @@ Returnerar ett parameter värde. Det angivna parameter namnet måste definieras 
 |:--- |:--- |:--- |:--- |
 | parameterName |Ja |sträng |Namnet på den parameter som ska returneras. |
 
-### <a name="return-value"></a>Returvärde
+### <a name="return-value"></a>Retur värde
 
 Värdet för den angivna parametern.
 
@@ -348,7 +348,7 @@ Returnerar värdet för variabeln. Det angivna variabel namnet måste definieras
 |:--- |:--- |:--- |:--- |
 | variableName |Ja |Sträng |Namnet på variabeln som ska returneras. |
 
-### <a name="return-value"></a>Returvärde
+### <a name="return-value"></a>Retur värde
 
 Värdet för den angivna variabeln.
 

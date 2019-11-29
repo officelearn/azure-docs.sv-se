@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200214"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561945"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Förstå säkra, Azure-hanterade arbets stationer
 
 Skyddade, isolerade arbets stationer är mycket viktiga för att skydda känsliga roller som administratörer, utvecklare och kritiska tjänst operatörer. Om säkerheten för en klient arbets Station komprometteras kan många säkerhets kontroller och säkerhets garantier gå sönder eller vara ineffektiva.
 
-Det här dokumentet förklarar vad du behöver för att skapa en säker arbets Station, ofta kallat en privilegie rad åtkomst arbets Station (PAW). Artikeln innehåller också detaljerade instruktioner för hur du konfigurerar de första säkerhets kontrollerna. Den här vägledningen beskriver hur Cloud-baserad teknik kan hantera tjänsten. Den förlitar sig på säkerhetsfunktioner som introducerades i Windows 10RS5, Microsoft Defender Avancerat skydd (ATP), Azure Active Directory och Intune.
+Det här dokumentet förklarar vad du behöver för att skapa en säker arbets Station, ofta kallat en privilegie rad åtkomst arbets Station (PAW). Artikeln innehåller också detaljerade instruktioner för hur du konfigurerar de första säkerhets kontrollerna. Den här vägledningen beskriver hur Cloud-baserad teknik kan hantera tjänsten. Den förlitar sig på säkerhetsfunktioner som introducerades i Windows 10RS5, Microsoft Defender Avancerat skydd (ATP), Azure Active Directory och Microsoft Intune.
 
 > [!NOTE]
 > Den här artikeln förklarar begreppet säker arbets Station och dess betydelse. Om du redan är bekant med konceptet och vill hoppa över till distributionen kan du gå till [distribuera en säker arbets Station](howto-azure-managed-workstation.md).
@@ -52,6 +52,7 @@ Det här dokumentet beskriver en lösning som kan hjälpa till att skydda dina d
 * Windows 10 (aktuell version) för hälsoattestering av enhets hälsa och användar upplevelse
 * Defender ATP för Cloud-hanterad slut punkts skydd, identifiering och svar
 * Azure AD PIM för hantering av privilegie rad åtkomst till resurser för auktorisering och just-in-Time (JIT)
+* Log Analytics och indikator för övervakning och avisering
 
 ## <a name="who-benefits-from-a-secure-workstation"></a>Vem fördelar från en säker arbets Station?
 
@@ -63,7 +64,7 @@ Alla användare och operatörer har nytta av en säker arbets Station. En angrip
 * Mycket känslig arbets Station, till exempel en SWIFT-betalningsterminal
 * Arbets station som hanterar affärs hemligheter
 
-För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i [distributions guiden för Azure Active Directory Feature](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365-översikt](https://aka.ms/o365secroadmap)och [skydd av Privileged Access Planning](https://aka.ms/sparoadmap).
+För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i [distributions guiden för Azure Active Directory Feature](../fundamentals/active-directory-deployment-checklist-p2.md), [Office 365-översikt](https://aka.ms/o365secroadmap)och [skydd av Privileged Access Planning](https://aka.ms/sparoadmap).
 
 ## <a name="why-use-dedicated-workstations"></a>Varför ska jag använda dedikerade arbets stationer?
 
@@ -78,16 +79,29 @@ Inne slutnings strategier ökar säkerheten genom att öka antalet och typen av 
 
 ## <a name="supply-chain-management"></a>Hantering av leverans kedja
 
-Nödvändig för en säker arbets Station är en lösning för leverans kedja där du använder en betrodd arbets station som kallas "rot för förtroende". I den här lösningen använder roten av förtroende [Microsoft autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) -teknik. För att skydda en arbets station gör autopilot det möjligt för dig att utnyttja Microsoft-OEM-optimerade Windows 10-enheter. Dessa enheter kommer in i ett känt tillstånd från tillverkaren. I stället för att återställa en potentiellt osäker enhet kan autopilot omvandla en Windows-enhet till ett "affärs klart" läge. Den tillämpar inställningar och principer, installerar appar och ändrar även utgåvan av Windows 10. Till exempel kan autopiloten ändra en enhets Windows-installation från Windows 10 Pro till Windows 10 Enterprise så att den kan använda avancerade funktioner.
+Nödvändig för en säker arbets Station är en lösning för leverans kedja där du använder en betrodd arbets station som kallas "rot för förtroende". Teknik som måste beaktas vid val av roten av Trust-maskinvaran bör omfatta följande tekniker som ingår i moderna bärbara datorer: 
+
+* [Trusted Platform Module (TPM) 2,0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
+* [BitLocker-diskkryptering](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
+* [UEFI säker start](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Driv rutiner och inbyggd program vara distribueras via Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualisering och begärda HVCI har Aktiver ATS](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
+* [Driv rutiner och appar begärda HVCI-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [DMA-I/O-skydd](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [System Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [Modern vänte läge](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+
+I den här lösningen kommer förtroende roten att distribueras med [Microsoft autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) -teknik med maskin vara som uppfyller moderna tekniska krav. För att skydda en arbets station gör autopilot det möjligt för dig att utnyttja Microsoft-OEM-optimerade Windows 10-enheter. Dessa enheter kommer in i ett känt tillstånd från tillverkaren. I stället för att återställa en potentiellt osäker enhet kan autopilot omvandla en Windows-enhet till ett "affärs klart" läge. Den tillämpar inställningar och principer, installerar appar och ändrar även utgåvan av Windows 10. Till exempel kan autopiloten ändra en enhets Windows-installation från Windows 10 Pro till Windows 10 Enterprise så att den kan använda avancerade funktioner.
 
 ![Skydda arbets Stations nivåer](./media/concept-azure-managed-workstation/supplychain.png)
 
 ## <a name="device-roles-and-profiles"></a>Enhets roller och profiler
 
-Den här vägledningen hänvisar till flera säkerhets profiler och roller som kan hjälpa dig att skapa säkrare lösningar för användare, utvecklare och IT-personal. Dessa profiler balanserar användbarhet och risker för vanliga användare som kan dra nytta av en förbättrad eller säker arbets Station. De inställnings konfigurationer som anges här baseras på bransch godkända standarder. Den här vägledningen visar hur du skärper Windows 10 och minskar riskerna med enhets-eller användar problem. Det gör det genom att använda princip och teknik för att hjälpa dig att hantera säkerhetsfunktioner och risker.
+Den här vägledningen hänvisar till flera säkerhets profiler och roller som kan hjälpa dig att skapa säkrare lösningar för användare, utvecklare och IT-personal. Dessa profiler balanserar användbarhet och risker för vanliga användare som kan dra nytta av en förbättrad eller säker arbets Station. De inställnings konfigurationer som anges här baseras på bransch godkända standarder. Den här vägledningen visar hur du skärper Windows 10 och minskar riskerna med enhets-eller användar problem. För att kunna dra nytta av modern maskin varu teknik och roten av Trust-enheten kommer vi att använda [Hälsoattestering för enhet](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), som är aktive rad med den **höga säkerhets** profilen. Den här funktionen är tillgänglig för att se till att angripare inte kan bevaras när en enhet startas tidigt. Det gör det genom att använda princip och teknik för att hjälpa dig att hantera säkerhetsfunktioner och risker.
 ![säkra arbets Stations nivåer](./media/concept-azure-managed-workstation/seccon-levels.png)
 
-* **Låg säkerhet** – en hanterad, standard arbets Station ger en välgrundad utgångs punkt för de flesta hem-och små företags användning. Dessa enheter är registrerade i Azure AD och hanteras med Intune. Den här profilen tillåter användare att köra program och bläddra på alla webbplatser. En lösning mot skadlig kod som [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) ska vara aktive rad.
+* Grundläggande säkerhet – en hanterad standard arbets Station ger en **välgrundad** utgångs punkt för de flesta hem-och småföretags användning. Dessa enheter är registrerade i Azure AD och hanteras med Intune. Den här profilen tillåter användare att köra program och bläddra på alla webbplatser. En lösning mot skadlig kod som [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) ska vara aktive rad.
 
 * **Förbättrad säkerhet** – den skyddade lösningen på ingångs nivå är lämplig för hemmaanvändare, små företags användare och allmänna utvecklare.
 
@@ -99,7 +113,7 @@ Den här vägledningen hänvisar till flera säkerhets profiler och roller som k
 
 * **Specialiserade** – angripare riktar sig till utvecklare och IT-administratörer eftersom de kan ändra system av intresse för angripare. Den specialiserade arbets stationen expanderar principerna för arbets stationen hög säkerhet genom att hantera lokala program och begränsa webbplatser. Det begränsar också möjligheterna till hög risk produktivitet, till exempel ActiveX, Java, webb läsar-plugin-program och andra Windows-kontroller. Du distribuerar den här profilen med SecurityBaseline-skriptet DeviceConfiguration_NCSC-windows10 (1803).
 
-* **Säkra** – en angripare som äventyrar ett administratörs konto kan orsaka betydande affärs skada genom stöld av data, data förändringar eller avbrott i tjänsten. I detta härdade tillstånd aktiverar arbets stationen alla säkerhets kontroller och principer som begränsar direkt styrningen av lokal program hantering. En säker arbets Station har inga produktivitets verktyg, så det är svårare att kompromissa med enheten. Den blockerar den vanligaste vektorn för nätfiske-attacker: e-post och sociala medier.  Den skyddade arbets stationen kan distribueras med SecurityBaseline-skriptet Secure Workstation-windows10 (1809).
+* **Säkra** – en angripare som äventyrar ett administratörs konto kan orsaka betydande affärs skada genom stöld av data, data förändringar eller avbrott i tjänsten. I detta härdade tillstånd aktiverar arbets stationen alla säkerhets kontroller och principer som begränsar direkt styrningen av lokal program hantering. En säker arbets Station har inga produktivitets verktyg, så det är svårare att kompromissa med enheten. Den blockerar den vanligaste vektorn för nätfiske-attacker: e-post och sociala medier. Den skyddade arbets stationen kan distribueras med SecurityBaseline-skriptet Secure Workstation-windows10 (1809).
 
    ![Skyddad arbets Station](./media/concept-azure-managed-workstation/secure-workstation.png)
 
@@ -107,8 +121,8 @@ Den här vägledningen hänvisar till flera säkerhets profiler och roller som k
 
 * **Isolerade** – det anpassade scenariot offline representerar det extrema slutet av spektrumet. Det finns inga installations skript för det här fallet. Du kan behöva hantera en verksamhets kritisk funktion som kräver ett äldre operativ system som inte stöds eller som inte har korrigerats. Till exempel en produktions linje med hög värde eller ett system för livs support. Eftersom säkerhet är kritiskt och moln tjänster inte är tillgängliga, kan du hantera och uppdatera dessa datorer manuellt eller med en isolerad Active Directory skogs arkitektur, till exempel den förbättrade säkerhets administrations miljön (ESAE). I dessa fall bör du överväga att ta bort all åtkomst förutom grundläggande hälso kontroller för Intune och ATP.
 
-  * [Krav för nätverks kommunikation i Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
-  * [Krav för nätverks kommunikation i ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Krav för nätverks kommunikation i Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
+   * [Krav för nätverks kommunikation i ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>Nästa steg
 

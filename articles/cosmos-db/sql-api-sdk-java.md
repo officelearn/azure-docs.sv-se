@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934147"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561878"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ SQL API Java SDK stöder synkrona åtgärder. För asynkron support använder du
 |**Lägsta körnings tid som stöds**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Undvik ett nytt försök med ett ogiltigt intervall för partitionsnyckel, om användaren tillhandahåller pkRangeId.
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * Optimerade partitionerings nycklar, cache-uppdateringar.
@@ -160,7 +163,7 @@ SQL API Java SDK stöder synkrona åtgärder. För asynkron support använder du
 * Stöd för enkel klient instans baserad proxy har lagts till med ConnectionPolicy. setProxy () API.
 * Har lagt till DocumentClient. Close () API för att stänga av DocumentClient-instansen korrekt.
 * Bättre prestanda för frågor i direkt anslutnings läge genom att härleda frågeuttrycket från den inbyggda sammansättningen i stället för gatewayen.
-* Ange FAIL_ON_UNKNOWN_PROPERTIES = false så att användarna inte behöver definiera JsonIgnoreProperties i sina POJO.
+* Ange FAIL_ON_UNKNOWN_PROPERTIES = falskt så att användarna inte behöver definiera JsonIgnoreProperties i sina POJO.
 * Omfaktorad loggning för att använda SLF4J.
 * Åtgärdade några andra buggar i konsekvens läsaren.
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: f1fbfcaa80a3d1781878fe3d6eb14558a3b298a5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c424c18538a4e428c0e713bb814c2febe28d2d04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999489"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555579"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Schema-och sändnings jobb (python)
 
@@ -29,9 +29,9 @@ Ett jobb är konceptuellt, och spårar förloppet för körningen mot en uppsät
 
 Lär dig mer om var och en av dessa funktioner i dessa artiklar:
 
-* Enhetens dubbla och egenskaper: [Kom igång med enhets dubbla](iot-hub-python-twin-getstarted.md) och [Självstudier: Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
+* Enhetens dubbla och egenskaper: [Kom igång med enhets dubbla](iot-hub-python-twin-getstarted.md) och [Självstudier: hur du använder enhetens dubbla egenskaper](tutorial-device-twins.md)
 
-* Direkta metoder: [Guide för IoT Hub utvecklare – direkta metoder](iot-hub-devguide-direct-methods.md) och [Självstudier: direkta metoder](quickstart-control-device-python.md)
+* Direkta metoder: [IoT Hub Developer Guide – direkta metoder](iot-hub-devguide-direct-methods.md) och [Självstudier: direkta metoder](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -53,7 +53,7 @@ I slutet av den här självstudien har du två python-appar:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -75,13 +75,9 @@ I det här avsnittet skapar du en python-konsol-app som svarar på en direkt met
     pip install azure-iot-device
     ```
 
-   > [!NOTE]
-   > PIP-paketen för Azure-iothub-service-client är för närvarande endast tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
-
 2. Skapa en ny **simDevice.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner och variabler i början av **simDevice.py** -filen. Ersätt `deviceConnectionString` med anslutnings strängen för den enhet som du skapade ovan:
+3. Lägg till följande `import`-instruktioner och variabler i början av **simDevice.py** -filen. Ersätt `deviceConnectionString` med anslutnings strängen för den enhet som du skapade ovan:
 
     ```python
     import threading
@@ -189,12 +185,12 @@ I det här avsnittet skapar du en python-konsol-app som initierar en fjärran sl
     ```
 
    > [!NOTE]
-   > PIP-paketen för Azure-iothub-service-Client och Azure-iothub-Device-client är för närvarande endast tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   > PIP-paketet för Azure-iothub-service-client är för närvarande endast tillgängligt för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) post.
    >
 
 2. Skapa en ny **scheduleJobService.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner och variabler i början av **scheduleJobService.py** -filen. Ersätt plats hållaren med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen.](#get-the-iot-hub-connection-string) `{IoTHubConnectionString}` Ersätt plats hållaren med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub:](#register-a-new-device-in-the-iot-hub) `{deviceId}`
+3. Lägg till följande `import`-instruktioner och variabler i början av **scheduleJobService.py** -filen. Ersätt `{IoTHubConnectionString}` plats hållaren med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Ersätt `{deviceId}` plats hållaren med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub):
 
     ```python
     import sys

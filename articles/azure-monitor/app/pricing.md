@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 10/28/2019
+ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007737"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559096"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -69,7 +69,7 @@ Application Insights avgifter läggs till på din Azure-faktura. Du kan se infor
 ### <a name="using-data-volume-metrics"></a>Använda data volym mått
 <a id="understanding-ingested-data-volume"></a>
 
-Om du vill veta mer om dina data volymer väljer du **mått** för din Application Insights resurs, lägger till ett nytt diagram. För diagram måttet under **loggbaserade mått**väljer du **data punkts volym**. Klicka på **tillämpa delning**och välj gruppera efter **Telemetryitem typ**.
+Om du vill veta mer om dina data volymer väljer du **mått** för din Application Insights resurs, lägger till ett nytt diagram. För diagram måttet under **loggbaserade mått**väljer du **data punkts volym**. Klicka på **tillämpa delning**och välj gruppera efter **`Telemetryitem` typ**.
 
 ![Använd mått för att titta på data volym](./media/pricing/10-billing.png)
 
@@ -124,7 +124,7 @@ dependencies
 Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. insikter/komponenter för Application Insights) kan du spåra dina utgifter.
 
 Du kan få mer förståelse för användningen genom att [Ladda ned din användning från Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
-I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID", som är "innehåller Microsoft. Insights/komponenter ".  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID" som innehåller Microsoft. Insights/komponenter.  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 
 ## <a name="managing-your-data-volume"></a>Hantera din data volym 
@@ -157,9 +157,9 @@ Du kan använda den dagliga volym begränsningen för att begränsa de data som 
 
 I stället för att använda den dagliga volym gränsen använder du [sampling](../../azure-monitor/app/sampling.md) för att justera data volymen till önskad nivå. Använd sedan den dagliga begränsningen endast som "sista utväg" om ditt program inte börjar att skicka mycket större telemetri.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
+### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga data gränser som ska definieras
 
-Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
+Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör övervägas varsamt eftersom du inte kan övervaka dina resurser när gränsen har uppnåtts. 
 
 ### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
@@ -169,7 +169,7 @@ Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera*
 
 Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen att ändra `dailyQuota`.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och den dagliga Cap-`warningThreshold`. 
 
-## <a name="sampling"></a>Samling
+## <a name="sampling"></a>Sampling
 [Sampling](../../azure-monitor/app/sampling.md) är en metod för att minska den hastighet som telemetri skickas till din app, samtidigt som du behåller möjligheten att hitta relaterade händelser under diagnostiska sökningar. Du behåller också korrekta antal händelser.
 
 Sampling är ett effektivt sätt att minska kostnaderna och hålla dig inom din månads kvot. Samplings algoritmen behåller relaterade objekt för telemetri, så om du till exempel använder Sök kan du hitta begäran som är relaterad till ett visst undantag. Algoritmen behåller också de korrekta värdena så att du ser rätt värden i Metric Explorer för begär ande frekvens, undantags frekvens och andra antal.
@@ -195,7 +195,7 @@ Använd en [analys fråga](analytics.md)för att identifiera den faktiska sampli
 
 I varje kvarhållen post anger `itemCount` antalet ursprungliga poster som den representerar. Det är lika med 1 + antalet tidigare borttagna poster. 
 
-## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
+## <a name="change-the-data-retention-period"></a>Ändra data lagrings perioden
 
 Standard kvarhållning av Application Insights resurser är 90 dagar. Du kan välja olika kvarhållningsperioder för varje Application Insights-resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 
@@ -203,7 +203,7 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. 
+Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. Den dagliga återställnings tiden för data volymens Cap kan konfigureras med hjälp av Azure Resource Manager för att ange parametern `dailyQuotaResetTime`. 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Avgifter för data överföring med Application Insights
 
@@ -259,7 +259,7 @@ Eftersom den här nivån bara gäller för kunder med en Operations Management S
 |:---------------------------------------|:----------------:|
 | 1 program med 3 Azure App Service instanser och 1 virtuell server | 4 |
 | 3 program som körs på två virtuella datorer; Application Insights resurser för dessa program finns i samma prenumeration och i per nod-nivå | 2 | 
-| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13.33 | 
+| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13,33 | 
 | Moln tjänster med 1-arbets roll och 1 webbroll, varje som kör 2 instanser | 4 | 
 | Ett Azure Service Fabric-kluster med 5 noder som kör 50 mikrotjänster; varje mikrotjänst som kör 3 instanser | 5|
 

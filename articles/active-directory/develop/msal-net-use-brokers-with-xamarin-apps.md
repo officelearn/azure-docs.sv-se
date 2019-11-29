@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd144f1922456520075c1863ec347e85eb3889db
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f2ae0d79076a0137b3756721675267d89990bf5a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379864"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554044"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Använda Microsoft Authenticator eller Microsoft Intune Företagsportal på Xamarin-program
 
@@ -182,7 +182,7 @@ Portalen har en ny Experience app Registration-portal som hjälper dig att berä
 
 MSAL.NET stöder bara Xamarin. iOS-plattformen för tillfället. Den har ännu inte stöd för utjämnare för Xamarin. Android-plattformen.
 
-Det inbyggda Android-biblioteket i MSAL har redan stöd för det. Mer information finns [i utjämnad autentisering i Android](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth.md)
+Det inbyggda Android-biblioteket i MSAL har redan stöd för det. Mer information finns [i utjämnad autentisering i Android](brokered-auth.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

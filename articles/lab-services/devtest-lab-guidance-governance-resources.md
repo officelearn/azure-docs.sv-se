@@ -1,6 +1,6 @@
 ---
-title: Styrning i Azure DevTest Labs-infrastruktur
-description: Den här artikeln innehåller riktlinjer för styrning i Azure DevTest Labs-infrastruktur.
+title: Styrning av Azure DevTest Labs infrastruktur-resurs
+description: Den här artikeln beskriver justering och hantering av resurser för Azure DevTest Labs i din organisation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,81 +10,81 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561661"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561654"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Styrning av infrastruktur för Azure DevTest Labs - resurser
-Den här artikeln tar upp justering och hantering av resurser för DevTest Labs i din organisation. 
+# <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Styrning av Azure DevTest Labs infrastruktur – resurser
+Den här artikeln beskriver justering och hantering av resurser för DevTest Labs i din organisation. 
 
-## <a name="align-within-an-azure-subscription"></a>Justera inom en Azure-prenumeration 
-
-### <a name="question"></a>Fråga
-Hur jag för att justera DevTest Labs resurser inom en Azure-prenumeration?
-
-### <a name="answer"></a>Svar
-Innan en organisation börjar använda Azure för utveckling av allmänt program, granska IT-planerare först presentera kapaciteten som en del av deras övergripande portfölj av tjänster. Områden för granskning bör åtgärda följande problem:
-
-- Hur du använder den kostnad som hör till programlivscykeln för utveckling?
-- Hur justera föreslagna tjänsterbjudandet med företagets säkerhetsprinciper i organisationen? 
-- Är segmentering som krävs för att avgränsa miljöer för utveckling och produktion? 
-- Vilka kontroller har introducerats för långsiktig enkel hantering, stabilitet och tillväxt?
-
-Den **först rekommenderar** är att granska organisationers Azure taxonomi där indelningar mellan produktion och utveckling prenumerationer beskrivs. I följande diagram kan den föreslagna taxonomin för en logisk avgränsning av utveckling och testning och produktionsmiljöer. Med den här metoden kan en organisation introducera fakturering koder för att spåra kostnader i samband med varje miljö separat. Mer information finns i [förebyggande Prenumerationsåtgärder](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Du kan dessutom använda [Azure taggar](../azure-resource-manager/resource-group-using-tags.md) organisera resurser för spårning och fakturering.
-
-Den **andra rekommenderas** är att aktivera DevTest-prenumeration inom Azure Enterprise portal. Det gör att en organisation att köra klientoperativsystem som inte är normalt tillgängliga i en Azure enterprise-prenumeration. Använd sedan företagsprogram där du betalar bara för beräkningen och inte oroa dig inte om licensiering. Det innebär att faktureringen för avsedda tjänster, inklusive galleriavbildningar i IaaS, till exempel Microsoft SQL Server, är baserat på förbrukning endast. Information om Azure DevTest-prenumerationen finns [här](https://azure.microsoft.com/offers/ms-azr-0148p/) för kunder med Enterprise Agreement (EA) och [här](https://azure.microsoft.com/offers/ms-azr-0023p/) för kunder med Användningsbaserad betalning.
-
-![Justering av resursen med prenumerationer](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
-
-Den här modellen ger en organisation flexibiliteten att distribuera Azure DevTest Labs i stor skala. En organisation stöder hundratals labs för olika affärsenheter med 100 till 1000 virtuella datorer som körs parallellt. Den främjar begreppet en centraliserad lab företagslösning som kan dela samma principer för konfigurationshantering och säkerhetskontroller.
-
-Den här modellen innebär också att organisationen inte använt sina resursbegränsningar som är associerad med deras Azure-prenumeration. Mer information om prenumeration och tjänstbegränsningar finns [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md). DevTest Labs etableringsprocessen kan använda många resursgrupper. Du kan begära för begränsningar för ökas genom en supportförfrågan i Azure DevTest-prenumeration. Resurserna i produktion prenumerationen påverkas inte när prenumerationen utveckling växer används. Läs mer om att skala DevTest Labs [skala kvoter och begränsningar i DevTest Labs](devtest-lab-scale-lab.md).
-
-En gemensam nivå prenumerationsgränsen som måste ta hänsyn till är hur IP-adressintervall nätverksallokeringarna allokeras för att stödja både produktions- och prenumerationer för utveckling. De här tilldelningarna bör hänsyn till tillväxten över tid (förutsatt att den lokala anslutningen eller en annan nätverkets topologi som kräver att företag kan hantera sina nätverksstacken i stället för standardvärdet är Azures implementering). Den rekommenderade metoden är att ha några virtuella nätverk som har ett stort IP-adressprefix tilldelas och dividerat med många stora undernät i stället för att ha flera virtuella nätverk med liten undernät. Du kan till exempel definiera 10 virtuella nätverk (en för varje prenumeration) med 10 prenumerationer. Alla labb som inte kräver isolering kan dela samma undernät för prenumerationens virtuella nätverk.
-
-## <a name="maintain-naming-conventions"></a>Underhålla namngivningskonventioner
+## <a name="align-within-an-azure-subscription"></a>Justera i en Azure-prenumeration 
 
 ### <a name="question"></a>Fråga
-Hur jag för att bibehålla en namngivningskonvention för min labb-miljö?
+Hur gör jag för att du justera DevTest Labs-resurser i en Azure-prenumeration?
 
 ### <a name="answer"></a>Svar
-Du kanske vill utöka aktuella enterprise namnkonventioner för Azure-åtgärder och göra dem konsekvent i labb-miljö.
+Innan en organisation börjar använda Azure för allmän program utveckling bör IT-planeraren först gå igenom hur du introducerar kapaciteten som en del av den övergripande portföljen av tjänster. Följande gäller för gransknings områden:
 
-Vi rekommenderar att du har specifika från principer när du distribuerar DevTest Labs. Du distribuerar dessa principer genom att en central skript och JSON-mallar för att upprätthålla konsekvens. Namngivning av principer kan implementeras via Azure-principer tillämpas på prenumerationsnivån. JSON-exempel för Azure Policy, se [Azure Policy-exempel](../governance/policy/samples/index.md).
+- Hur mäter du kostnaden som är kopplad till program utvecklings livs cykeln?
+- Hur justerar organisationen det föreslagna tjänst erbjudandet med företagets säkerhets policy? 
+- Krävs segmentering för att separera utvecklings-och produktions miljöerna? 
+- Vilka kontroller introduceras för långsiktig enkel hantering, stabilitet och tillväxt?
 
-## <a name="number-of-users-per-lab-and-labs-per-organization"></a>Antalet användare per labb och labb per organisation
+Den **första rekommenderade metoden** är att granska organisationens Azure-taxonomi där indelningarna mellan produktions-och utvecklings prenumerationerna beskrivs. I följande diagram möjliggör den föreslagna taxonomin en logisk avgränsning av utvecklings-/testnings-och produktions miljöer. Med den här metoden kan en organisation införa fakturerings koder för att spåra kostnader som är associerade med varje miljö separat. Mer information finns i [preskripting-styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Dessutom kan du använda [Azure-Taggar](../azure-resource-manager/resource-group-using-tags.md) för att organisera resurser för spårnings-och fakturerings syfte.
+
+Den **Andra rekommenderade metoden** är att aktivera DevTest-prenumerationen i Azure Enterprise Portal. Det gör det möjligt för en organisation att köra klient operativ system som inte normalt är tillgängliga i en Azure Enterprise-prenumeration. Använd sedan företags program vara där du bara betalar för beräkningen och inte behöver oroa dig för licensiering. Det garanterar att faktureringen för avsedda tjänster, inklusive Galleri bilder i IaaS, till exempel Microsoft SQL Server, endast baseras på konsumtion. Information om Azure DevTest-prenumerationen finns [här](https://azure.microsoft.com/offers/ms-azr-0148p/) för kunder med Enterprise-avtal (EA) och [här](https://azure.microsoft.com/offers/ms-azr-0023p/) kan du betala per användning.
+
+![Resurs justering med prenumerationer](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
+
+Den här modellen ger en organisation flexibiliteten att distribuera Azure DevTest Labs i stor skala. En organisation kan stödja hundratals labb för olika affär senheter med 100 till 1000 virtuella datorer som körs parallellt. Det främjar begreppet en centraliserad Enterprise Lab-lösning som kan dela samma principer för konfigurations hantering och säkerhets kontroller.
+
+Den här modellen säkerställer också att organisationen inte utsätter sina resurs gränser som är kopplade till deras Azure-prenumeration. Mer information om prenumerations-och tjänst begränsningar finns i [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../azure-subscription-service-limits.md). Etablerings processen för DevTest Labs kan förbruka ett stort antal resurs grupper. Du kan begära att gränser ökar genom en supportbegäran i Azure DevTest-prenumerationen. Resurserna i produktions prenumerationen påverkas inte när utvecklings prenumerationen växer. Mer information om skalning av DevTest Labs finns i [skala kvoter och begränsningar i DevTest Labs](devtest-lab-scale-lab.md).
+
+En gemensam prenumerations nivå gräns som måste redovisas för är hur tilldelningen av nätverks-IP-intervall tilldelas för att stödja både produktions-och utvecklings prenumerationer. De här tilldelningarna bör redovisas över tid (förutsatt att den lokala anslutningen eller en annan nätverkstopologi som kräver att företaget hanterar sin nätverks stack i stället för att användas som standard för Azures implementering). Den rekommenderade metoden är att ha några virtuella nätverk som har tilldelats ett stort IP-adressprefix och delas med många stora undernät i stället för att ha flera virtuella nätverk med små undernät. Med 10 prenumerationer kan du till exempel definiera 10 virtuella nätverk (ett för varje prenumeration). Alla labb som inte kräver isolering kan dela samma undernät i prenumerationens VNet.
+
+## <a name="maintain-naming-conventions"></a>Bevara namn konventioner
+
+### <a name="question"></a>Fråga
+Hur gör jag för att underhålla en namngivnings konvention i min DevTest Labs-miljö?
+
+### <a name="answer"></a>Svar
+Du kanske vill utöka de nuvarande konventionerna för företags namn till Azure-åtgärder och göra dem konsekventa i DevTest Labs-miljön.
+
+När du distribuerar DevTest Labs rekommenderar vi att du har vissa start principer. Du distribuerar dessa principer av ett centralt skript och JSON-mallar för att genomdriva konsekvens. Namngivnings principer kan implementeras via Azure-principer som tillämpas på prenumerations nivån. JSON-exempel för Azure Policy finns i [Azure policy exempel](../governance/policy/samples/index.md).
+
+## <a name="number-of-users-per-lab-and-labs-per-organization"></a>Antal användare per labb och labb per organisation
 
 ### <a name="question"></a>Fråga 
-Hur vet jag antalet användare per labb och det totala antalet labs som behövs i en organisation?
+Hur gör jag för att fastställa förhållandet mellan användarna per labb och det totala antalet Labb som krävs i en organisation?
 
 ### <a name="answer"></a>Svar
-Vi rekommenderar att affärsenheter och utvecklingsgrupper som är associerade med samma utvecklingsprojekt är associerade med samma labbet. Det möjliggör samma typer av principer, bilder och Stäng av principer som ska tillämpas på båda grupperna. 
+Vi rekommenderar att affär senheter och utvecklings grupper som är associerade med samma utvecklings projekt är associerade med samma labb. Den tillåter samma typer av principer, avbildningar och avslutnings principer som tillämpas på båda grupperna. 
 
-Du kan också behöva tänka på geografiska gränser. Exempelvis kan utvecklare i norra östra USA (USA) använda ett labb som etablerats i östra usa2. Och utvecklare i Dallas, Texas, och Denver, Colorado kan dirigeras till att använda en resurs i södra centrala USA. Om det finns en gemensam ansträngning med en extern från tredje part, kan de tilldelas till ett labb som inte används av egna utvecklare. 
+Du kan också behöva överväga geografiska gränser. Till exempel kan utvecklare i norra östra USA (US) använda ett labb som har etablerad i östra 2; USA. Och utvecklare i Borås, Texas och Denver, kan i USA hänvisas till att använda en resurs i södra centrala USA. Om det finns en samarbets ansträngning med en extern tredje part kan de tilldelas ett labb som inte används av interna utvecklare. 
 
-Du kan också använda ett labb för ett specifikt projekt inom Azure DevOps-projekt. Sedan kan tillämpa du säkerhet via en angiven Azure Active Directory-grupp, vilket ger åtkomst till båda uppsättning resurser. Det virtuella nätverket som tilldelats labbet kan vara en annan gräns att konsolidera användare.
+Du kan också använda ett labb för ett enskilt projekt i Azure DevOps-projekt. Sedan tillämpar du säkerheten via en angiven Azure Active Directory grupp, som ger åtkomst till båda uppsättningarna av resurser. Det virtuella nätverk som tilldelats labbet kan vara en annan bindning för att konsolidera användare.
 
 ## <a name="deletion-of-resources"></a>Borttagning av resurser
 
 ### <a name="question"></a>Fråga
-Hur kan vi för att förhindra borttagningen av resurser i ett laboratorium?
+Hur kan vi förhindra att resurser tas bort inom ett labb?
 
 ### <a name="answer"></a>Svar
-Vi rekommenderar att du anger rätt behörigheter på nivån labb så att endast behöriga användare kan ta bort resurser eller ändra principer för labbet. Utvecklare bör placeras i den **DevTest Labs-användare** grupp. Lead-utvecklare och infrastruktur lead bör vara den **DevTest Labs ägare**. Vi rekommenderar att du har bara två labbägare. Den här principen utökar mot kodlagringsplatsen att undvika skada. Labbet använder har behörighet att använda resurser, men kan inte uppdatera principer för labbet. Se följande artikel som visar en lista över roller och behörigheter som varje inbyggd grupp som har i ett laboratorium: [Lägg till ägare och användare i Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+Vi rekommenderar att du ställer in rätt behörigheter på labb nivån så att endast auktoriserade användare kan ta bort resurser eller ändra labb principer. Utvecklare bör placeras i gruppen **DevTest Labs-användare** . Lead-utvecklaren eller infrastrukturens lead bör vara **DevTest Labs-ägare**. Vi rekommenderar att du bara har två labb ägare. Den här principen sträcker sig över kod lagrings platsen för att undvika skador. Labb användning har behörighet att använda resurser, men kan inte uppdatera labb principer. Se följande artikel som visar de roller och rättigheter som varje inbyggd grupp har i ett labb: [Lägg till ägare och användare i Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
-## <a name="move-lab-to-another-resource-group"></a>Flytta labb till en annan resursgrupp 
+## <a name="move-lab-to-another-resource-group"></a>Flytta labbet till en annan resurs grupp 
 
 ### <a name="question"></a>Fråga
-Finns det stöd för att flytta ett labb till en annan resursgrupp?
+Finns det stöd för att flytta ett labb till en annan resurs grupp?
 
 ### <a name="answer"></a>Svar
-Ja. Gå till sidan resursgrupp från startsidan för labbet. Välj **flytta** verktygsfältet och välj labb som du vill flytta till en annan resursgrupp. När du skapar ett labb, skapas en resursgrupp automatiskt åt dig. Dock kan du flytta labbet till en annan resursgrupp som följer namngivningskonventionerna i företaget. 
+Ja. Gå till sidan resurs grupp från start sidan för ditt labb. Välj sedan **Flytta** i verktygsfältet och välj det labb som du vill flytta till en annan resurs grupp. När du skapar ett labb skapas en resurs grupp automatiskt åt dig. Men du kanske vill flytta labbet till en annan resurs grupp som följer organisationens namngivnings konventioner. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se [hantera kostnader och ägarskap](devtest-lab-guidance-governance-cost-ownership.md).

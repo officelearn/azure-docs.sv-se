@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använda SDK för webbsökning i Bing för Node.js'
+title: 'Snabbstart: Använda SDK för Webbsökning i Bing för Node.js'
 titleSuffix: Azure Cognitive Services
 description: SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i Node.js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79f0630c65aa438ac5d831b03842cc74b609cd3b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498924"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132733"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Snabbstart: Använda SDK för webbsökning i Bing för Node.js
+# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Node.js
 
 SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i Node.js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
@@ -25,15 +25,15 @@ Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för N
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
 * En prenumerationsnyckel  
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
 
 Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
 
@@ -109,6 +109,6 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-* [Azure Node SDK-referens](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch/)
+* [Azure Node SDK-referens](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)

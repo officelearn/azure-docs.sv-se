@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Security Center?| Microsoft Docs
-description: Här får du lära dig om Azure Security Center, de viktigaste funktionerna och hur Security Center fungerar.
+description: Den här sidan beskriver Security Center viktiga fördelar med att identifiera ditt säkerhets tillstånd och förbättra den med täckning av moln-och lokal resurser.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202105"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558625"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -37,11 +37,11 @@ Azure Security Center adresserar de tre mest brådskande säkerhetsutmaningarna:
 
 Som en hjälp i skyddet mot dessa utmaningar erbjuder Security Center dig verktyg för att:
 
--   **Förbättra säkerheten**: Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
+-   **Förstärk säkerhets position**: Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
 
--   **Skydda dig mot hot**: Security Center utvärderar dina arbetsbelastningar och genererar rekommendationer för förebyggande av hot och hotidentifieringsaviseringar.
+-   **Skydda mot hot**: Security Center utvärderar dina arbets belastningar och genererar hot skydds rekommendationer och aviseringar om hot identifiering.
 
--   **Bli skyddad snabbare**: Allt sker med molnhastighet i Security Center. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och ger dig automatisk etablering och skydd med Azure-tjänster.
+-   **Bli säker snabbare**: i Security Center görs allt i moln hastigheten. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och ger dig automatisk etablering och skydd med Azure-tjänster.
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -145,5 +145,5 @@ Omfattande logginsamling som innebär att loggar från både Windows och Linux b
 
 - För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 - Security Centers kostnadsfria prisnivå aktiveras med Azure-prenumerationen. Om du vill använda avancerad säkerhetshantering och hotidentifiering måste du uppgradera till prisnivån Standard. Du kan prova Standard-nivån kostnadsfritt. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
-- Om du är redo att aktivera Security Center Standard nu kan du gå till [Snabbstart: Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) där du får stegvisa anvisningar.
+- Om du är redo att aktivera Security Center Standard kan du använda [Snabbstart: Registrera Azure-prenumerationen för Security Center Standard](security-center-get-started.md) som en vägledning.
 

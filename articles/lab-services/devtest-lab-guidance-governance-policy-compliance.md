@@ -1,6 +1,6 @@
 ---
-title: Styrning i Azure DevTest Labs-infrastruktur
-description: Den här artikeln innehåller riktlinjer för styrning i Azure DevTest Labs-infrastruktur.
+title: Företagets policy och efterlevnad i Azure DevTest Labs
+description: Den här artikeln innehåller vägledning om hur du styr företagets policy och efterlevnad för Azure DevTest Labs infrastruktur.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,71 +10,71 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e02400ef940efdf42370fbdc1da75bdc7062a8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81ca2a90b1940d70e170cab3f8d18144a5d5e5a8
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127369"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560508"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Styrning i Azure DevTest Labs infrastruktur - företagets principer och efterlevnad
-Den här artikeln innehåller råd om reglerar företagets principer och efterlevnad för Azure DevTest Labs-infrastruktur. 
+# <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Styrning av Azure DevTest Labs infrastruktur – företagets policy och efterlevnad
+Den här artikeln innehåller vägledning om hur du styr företagets policy och efterlevnad för Azure DevTest Labs infrastruktur. 
 
-## <a name="public-vs-private-artifact-repository"></a>Offentliga och privata artefaktcentrallagret
-
-### <a name="question"></a>Fråga
-När ska en organisation använda offentliga artefaktlagringsplatsen jämfört med privata artefaktcentrallagret i DevTest Labs?
-
-### <a name="answer"></a>Svar
-Den [offentliga artefaktlagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ger en inledande uppsättning programvarupaket som används mest. Det underlättar snabb distribution utan att investera tid att återskapa vanliga utvecklingsverktyg och tillägg. Du kan välja att distribuera sina egna privata lagringsplatsen. Du kan använda en offentlig och en privat lagringsplats parallellt. Du kan också välja att inaktivera den offentliga databasen. Villkoren för att distribuera en privat lagringsplats bör styras av följande frågor och överväganden:
-
-- Har organisationen ett krav att ha företagets licensierad programvara som en del av sitt erbjudande för DevTest Labs? Om svaret är Ja, bör privata lagringsplatsen skapas.
-- Organisationen utveckla anpassade program som ger en viss åtgärd som krävs som en del av den övergripande processen för etablering? Om svaret är Ja, bör en privat lagringsplats distribueras.
-- Om organisationens principer kräver isolering och externa databaser inte är direkt konfiguration hanteras av organisationen, ska en privat artefaktcentrallagret distribueras. Som en del av den här processen, en inledande kopia av den offentliga databasen kopieras och integrerad med den privata lagringsplatsen. Den offentliga databasen kan sedan inaktiveras så att ingen inom organisationen kan komma åt den längre. Den här metoden tvingar alla användare i organisationen ska ha en enda lagringsplats som är godkänd av organisationen och minimera konfigurationsförändringar.
-
-### <a name="single-repository-or-multiple-repositories"></a>Enkel databas eller flera databaser 
+## <a name="public-vs-private-artifact-repository"></a>Offentligt eller privat artefakt lager
 
 ### <a name="question"></a>Fråga
-Bör en organisation planerar för en enda lagringsplats eller tillåta flera databaser?
+När ska en organisation använda ett offentligt artefakt lager eller en privat artefakt lagrings plats i DevTest Labs?
 
 ### <a name="answer"></a>Svar
-Som en del av din organisations övergripande styrnings- och hanteringsstrategi för konfiguration rekommenderar vi att du använder en centraliserad databas. När du använder flera databaser, kan de bli silor av ohanterade programvara över tiden. Flera team kan använda artefakter från den här lagringsplatsen för sina projekt med en central databas. Den tillämpar standardisering, säkerhet, enkel hantering och eliminerar dubbelarbete. Som en del av centralisering rekommenderas följande metoder för hantering av långsiktig och hållbarhet:
+Den [offentliga artefakt lagrings platsen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) innehåller en första uppsättning program varu paket som används oftast. Den hjälper till med snabb distribution utan att behöva investera tid för att återskapa vanliga utvecklingsverktyg och tillägg. Du kan välja att distribuera egna privata lagrings platser. Du kan använda en offentlig och en privat databas parallellt. Du kan också välja att inaktivera den offentliga lagrings platsen. Villkoren för att distribuera ett privat lager bör drivas av följande frågor och överväganden:
 
-- Associera Azure-databaser med samma Azure Active Directory-klient som använder Azure-prenumerationen för autentisering och auktorisering.
-- Skapa en grupp med namnet **alla DevTest Labs utvecklare** i Azure Active Directory som hanteras centralt. Alla utvecklare som bidrar till artefakt utveckling ska placeras i den här gruppen.
-- Samma Azure Active Directory-grupp kan användas för att ge åtkomst till lagringsplatsen Azure-databaser och till labbet.
-- I Azure-lagringsplatser, branchning eller förgreningen ska användas till en separat en i utveckling från den primära produktion-lagringsplatsen. Innehåll läggs endast till mastergrenen med en pull-begäran när du har rätt Kodgranskning. När koden granskaren godkänner ändringen, sammanfogar chefsutvecklare som ansvarar för underhåll av huvudgrenen, den uppdaterade koden. 
+- Har organisationen ett krav på att ha en licensierad program vara som en del av deras DevTest Labs-erbjudande? Om svaret är ja, ska du skapa ett privat lager.
+- Utvecklar organisationen anpassad program vara som tillhandahåller en speciell åtgärd, vilket krävs som en del av den övergripande etablerings processen? Om svaret är ja, ska en privat lagrings plats distribueras.
+- Om organisationens styrnings princip kräver isolering, och externa databaser inte är under direkt konfigurations hantering av organisationen, bör ett privat artefakt lager distribueras. Som en del av den här processen kan en ursprunglig kopia av det offentliga lagrings platsen kopieras och integreras med den privata lagrings platsen. Sedan kan den offentliga lagrings platsen inaktive ras så att ingen i organisationen kan komma åt den längre. Den här metoden tvingar alla användare i organisationen att bara ha en enda lagrings plats som godkänts av organisationen och minimerar konfigurations avvikelser.
 
-## <a name="corporate-security-policies"></a>Företagets säkerhetsprinciper
+### <a name="single-repository-or-multiple-repositories"></a>Enkel lagrings plats eller flera databaser 
 
 ### <a name="question"></a>Fråga
-Hur kan en organisation till att företagets säkerhetsprinciper är på plats?
+Bör en organisations plan för en enda lagrings plats eller tillåta flera databaser?
 
 ### <a name="answer"></a>Svar
-En organisation kan åstadkomma det genom att göra följande:
+Som en del av din organisations övergripande styrnings-och konfigurations hanterings strategi rekommenderar vi att du använder en central lagrings plats. När du använder flera databaser kan de bli silor av ohanterad program vara under tiden. Med en central lagrings plats kan flera team använda artefakter från den här lagrings platsen för sina projekt. Den tillämpar standardisering, säkerhet, enkel hantering och eliminerar dubbleringen av insatser. Som en del av centralisering är följande åtgärder rekommenderade metoder för långsiktig hantering och hållbarhet:
 
-1. Utveckla och publicera en omfattande säkerhetsprincip. Principen tydliggör reglerna för godkänd användning som är associerade med den med hjälp av programvara, molntillgångar. Den definierar också vad tydligt bryter mot principen. 
-2. Utveckla en anpassad avbildning, anpassade artefakter och en process som gör det möjligt orchestration inom området säkerhet som definieras med active directory. Den här metoden tillämpar företagsgräns och anger en gemensam uppsättning Miljökontroller. Dessa kontroller mot miljön utvecklare kan ha i åtanke när de utvecklar och följa en utvecklingslivscykel för säker som en del av deras övergripande processen. Målet är också att tillhandahålla en miljö som inte är mycket begränsad som kan hindra utveckling, men en rimlig uppsättning kontroller. Grupprinciper på organisationsenheten (OU) som innehåller virtuella datorer för testlabbet kan vara en delmängd av de totala grupprinciper som påträffas i produktion. De kan också vara en extra uppsättning korrekt hantera alla identifierade risker.
+- Associera Azure-databaser med samma Azure Active Directory klient som Azure-prenumerationen använder för autentisering och auktorisering.
+- Skapa en grupp med namnet **alla DevTest Labs-utvecklare** i Azure Active Directory som hanteras centralt. Alla utvecklare som bidrar till artefakt utveckling bör placeras i den här gruppen.
+- Samma Azure Active Directorys grupp kan användas för att ge åtkomst till Azure databaser-lagringsplatsen och till labbet.
+- I Azure databaser bör branchning eller förgreningar användas för att separera ett utvecklings lager från den primära produktions lagrings platsen. Innehåll läggs bara till i huvud grenen med en pull-begäran efter en korrekt kod granskning. När kod granskaren godkänner ändringen är en lead-utvecklare, som ansvarar för underhåll av huvud grenen, sammanslagning av den uppdaterade koden. 
 
-## <a name="data-integrity"></a>Dataintegritet
+## <a name="corporate-security-policies"></a>Företags säkerhets principer
 
 ### <a name="question"></a>Fråga
-Hur kan en organisation säkerställa dataintegriteten för att säkerställa att fjärrkommunikation utvecklare inte kan ta bort kod eller införa skadlig kod eller icke-godkända programvara?
+Hur kan en organisation se till att företagets säkerhets principer är på plats?
 
 ### <a name="answer"></a>Svar
-Det finns flera styrningslager kan minimera hotet från externa konsulter, leverantörer och anställda som är fjärrkommunikation i att samarbeta i DevTest Labs. 
+En organisation kan uppnå det genom att utföra följande åtgärder:
 
-Som tidigare nämnts bör måste det första steget ha en policy för acceptabel användning utformas och definieras som tydligt visar konsekvenserna när någon bryter mot principen. 
+1. Utveckla och publicera en omfattande säkerhets princip. Principen förbrukar reglerna för acceptabel användning som är associerade med användning av program vara, moln till gångar. Den definierar också vad som tydligt strider mot principen. 
+2. Utveckla en anpassad avbildning, anpassade artefakter och en distributions process som tillåter dirigering i säkerhets sfären som har definierats med Active Directory. Den här metoden tillämpar företags gränser och anger en gemensam uppsättning miljö kontroller. Dessa kontroller mot miljön som en utvecklare kan ta hänsyn till när de utvecklar och följer en säker utvecklings livs cykel som en del av den övergripande processen. Målet är också att tillhandahålla en miljö som inte är mer begränsad än vad som kan förhindra utveckling, men en rimlig uppsättning kontroller. Grup principerna på organisationsenheten (OU) som innehåller virtuella labb datorer kan vara en delmängd av de totala grup principer som finns i produktionen. De kan också vara ytterligare en uppsättning för att korrekt minimera eventuella identifierade risker.
 
-Det första lagret av kontroller för fjärråtkomst är att använda principer för fjärråtkomst via en VPN-anslutning som inte är direkt ansluten till labbet. 
+## <a name="data-integrity"></a>Data integritet
 
-Det andra lagret för kontroller är att använda en uppsättning grupprincipobjekt som kan förhindra att kopiera och klistra in via fjärrskrivbord. En princip kan implementeras för att inte tillåta utgående från miljön, till exempel FTP och RDP-tjänsterna från miljön. Användardefinierad routning kan tvinga all Azure nätverkstrafik tillbaka till den lokala, men routning kunde inte hänsyn till alla URL: er som gör överföring av data, såvida inte kontrolleras via en proxy söker igenom innehållet och sessioner. Offentliga IP-adresser kan vara begränsade i det virtuella nätverket som stöd för DevTest Labs för att inte tillåta bryggning för en resurs i externt nätverk.
+### <a name="question"></a>Fråga
+Hur kan en organisation säkerställa data integriteten för att säkerställa att fjärrutvecklare inte kan ta bort kod eller införa skadlig kod eller program vara som inte godkänts?
 
-Slutligen måste samma typ av begränsningar tillämpas i organisationen, vilket skulle behöva även hänsyn till alla möjliga metoder för flyttbara medier eller externa URL: er som kunde acceptera ett inlägg av innehåll. Kontakta din professionella att granska och implementera en säkerhetsprincip för säkerhet. Fler rekommendationer finns i [Microsoft Cyberhot Security](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs).
+### <a name="answer"></a>Svar
+Det finns flera lager med kontroll för att minimera hotet från externa konsulter, entreprenörer eller anställda som är fjärran på att samar beta i DevTest Labs. 
+
+Som tidigare nämnts måste det första steget ha ett acceptable use policy som har skapats och definierats som tydligt beskriver konsekvenserna när någon strider mot principen. 
+
+Det första lagret med kontroller för fjärråtkomst är att tillämpa en fjärråtkomstprincip via en VPN-anslutning som inte är direkt ansluten till labbet. 
+
+Det andra lagret med kontroller är att använda en uppsättning grup princip objekt som förhindrar kopiering och inklistring via fjärr skrivbord. En nätverks princip kan implementeras för att inte tillåta utgående tjänster från miljön, till exempel FTP-och RDP-tjänster från miljön. Användardefinierad routning kan tvinga all Azure-nätverkstrafik tillbaka till lokalt, men routningen kunde inte ta hänsyn till alla URL: er som kan möjliggöra överföring av data om du inte styrs via en proxy för att genomsöka innehåll och sessioner. Offentliga IP-adresser kan begränsas inom det virtuella nätverk som stöder DevTest Labs för att inte tillåta bryggning av en extern nätverks resurs.
+
+Slutligen måste samma typ av begränsningar tillämpas i hela organisationen, vilket även skulle behöva ta hänsyn till alla möjliga metoder för flyttbara media eller externa URL: er som kan ta emot en post av innehållet. Kontakta din säkerhets personal för att granska och implementera en säkerhets princip. Fler rekommendationer finns i [Microsoft cyberhot Security](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se [programmigreringen och integrering](devtest-lab-guidance-governance-application-migration-integration.md).
+Se [migrering och integrering av program](devtest-lab-guidance-governance-application-migration-integration.md).

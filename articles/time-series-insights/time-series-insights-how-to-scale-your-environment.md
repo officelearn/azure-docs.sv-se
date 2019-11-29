@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bc6c33762fa572e971fff9dee8988a100e50b07c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006807"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561154"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Så här skalar du Time Series Insightss miljön
 
@@ -34,13 +34,13 @@ Det är dock inte tillåtet att ändra pris nivåns SKU. Till exempel kan en mil
 
 1. Leta upp och välj din Time Series Insights-miljö i Azure Portal.
 
-1. Välj **Konfigurera**i menyn för din Time Series Insights miljö.
+1. I menyn för din Time Series Insights-miljö väljer du **lagrings konfiguration**.
 
-   [![konfigurera. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![konfigurera din Time Series Insights-kapacitet](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Justera skjutreglaget **kapacitet** för att välja den kapacitet som uppfyller kraven för ingångs frekvens och lagrings kapacitet. Observera ingångs **frekvens**, **lagrings kapacitet**och **Beräknad kostnads** uppdatering dynamiskt för att visa effekten av ändringen.
 
-   [![skjutreglage](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![konfigurera din miljö med skjutreglaget kapacitet](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 
    Alternativt kan du ange antalet kapacitets multiplikatorer i text rutan till höger om skjutreglaget.
 

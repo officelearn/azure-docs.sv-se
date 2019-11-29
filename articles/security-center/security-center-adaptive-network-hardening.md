@@ -1,6 +1,6 @@
 ---
 title: Anpassad nätverks härdning i Azure Security Center | Microsoft Docs
-description: " Lär dig hur du aktiverar anpassad nätverks härdning i Azure Security Center. "
+description: Lär dig hur du kan härdning, baserat på faktiska trafik mönster, regler för nätverks säkerhets grupper (NSG) och ytterligare förbättra din säkerhets position.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255237"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559281"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassad nätverks härdning i Azure Security Center
 Lär dig hur du konfigurerar anpassad nätverks härdning i Azure Security Center.
@@ -47,7 +47,7 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
 
      ![resurser som inte är felfria](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. På fliken **ohälsosama resurser** väljer du en virtuell dator för att visa aviseringar och de rekommenderade regler för härdning som ska tillämpas.
+2. På fliken **felaktiga resurser** väljer du en virtuell dator för att visa aviseringar och de rekommenderade regler för härdning som ska tillämpas.
 
     ![härdning av aviseringar](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
@@ -83,7 +83,7 @@ Några viktiga rikt linjer för att ändra en regel för anpassad nätverks här
 * Du kan inte ändra reglerna för "Tillåt" för att bli "Neka"-regler. 
 
   > [!NOTE]
-  > Att skapa och ändra "Neka"-regler görs direkt på NSG för mer information, se [skapa, ändra eller ta bort en nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Att skapa och ändra "Neka"-regler görs direkt på NSG. Mer information finns i [skapa, ändra eller ta bort en nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 * En regel för att **neka all trafik** är den enda typen av "Neka"-regel som visas här, och den kan inte ändras. Du kan dock ta bort den (se [ta bort en regel](#delete-rule)).
   > [!NOTE]

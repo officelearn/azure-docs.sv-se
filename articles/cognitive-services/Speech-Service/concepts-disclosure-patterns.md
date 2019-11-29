@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836983"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559008"
 ---
-# <a name="disclosure-design-patterns"></a>Design mönster för utlämnande
+# <a name="disclosure-design-patterns"></a>Utlämnande av designmönster
 Nu när du&#39;har bestämt rätt [nivå för utlämnande](concepts-disclosure-guidelines.md#disclosure-assessment) av den syntetiska röst upplevelsen&#39;, är det en bättre tid att utforska potentiella design mönster.
 ## <a name="overview"></a>Översikt
 Det finns ett spektrum av design mönster för inlämning som du kan använda för din syntetiska röst upplevelse. Om resultatet av din utlämnande av utvärderingen var "högt utlämnat", rekommenderar vi [**uttrycklig**](#explicit-disclosure)information, vilket innebär att den syntetiska röstens ursprung kommunicerar. [**Implicit avslöjande**](#implicit-disclosure) innehåller tips och interaktions mönster som förmånen röst upplevelser oavsett om nivåerna är höga eller låga.
@@ -167,7 +167,7 @@ Konsekvens är nyckeln för att få ut utlämnande av information implicit under
 
 ![Konsekvens för implicita stackar](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues-amp-feedback"></a>Implicita tips &amp; feedback
+### <a name="implicit-cues--feedback"></a>Implicita tips & feedback
 
 Anthropomorphism kan manifesta på olika sätt, från den faktiska visuella representationen av agenten, till röst, ljud, mönster av ljusa, Bouncing former eller till och med en enhets vibration. När du definierar din person kan du använda implicita tips och feedback-mönster i stället för att rikta in sig på en mycket mänsklig person. Detta är ett sätt att minimera behovet av mer uttryckliga upplysningar.
 

@@ -3,16 +3,16 @@ title: Vad är Azure Reservations?
 description: Lär dig mer om Azure-reservationer och priser för att spara kostnader för dina virtuella datorer, SQL-databaser, Azure Cosmos DB och andra resurser.
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: df15bcc0e4a3ef7629abf7b62f8ff36caf732150
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580098"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420143"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -36,6 +36,12 @@ Tjänstplaner:
 - **SQL Database-reserverad v-kärna** – endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
 - **SQL Data Warehouse** – en reservation omfattar cDWU-användning. En reservation omfattar inte lagrings- eller nätverksavgifter som är kopplade till SQL Data Warehouse-användningen.
 - **App Service-stämpelavgift** – en reservation omfattar stämpelanvändning. Den gäller inte för arbeten, och därför debiteras andra resurser som är kopplade till stämpeln separat.
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure-databas för MariaDB
+- Azure-datautforskaren
+- Premium SSD Managed Disks
+
 
 För virtuella Windows-datorer och SQL Database kan du täcka licenskostnaderna med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173699"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554118"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter
 
@@ -80,6 +80,30 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 Om du begär åtkomst till ett Access-paket som har flera principer som gäller kan du bli ombedd att välja en princip. Till exempel kan en Access Package Manager Konfigurera ett Access-paket med två principer för två grupper av interna anställda. Den första principen kan ge åtkomst i 60 dagar och kräver godkännande. Den andra principen kan tillåta åtkomst i 2 dagar och kräver inte godkännande. Om du stöter på det här scenariot måste du välja den princip som du vill använda.
 
 ![Min åtkomst Portal – begär åtkomst – flera principer](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## <a name="resubmit-a-request"></a>Skicka en begäran igen
+
+När du begär åtkomst till ett Access-paket kan din begäran nekas eller så kan din begäran gå ut om god kännare inte svarar i tid. Om du behöver åtkomst kan du försöka igen och skicka din begäran igen. Följande procedur beskriver hur du skickar en åtkomstbegäran igen:
+
+**Nödvändig roll:** Begär Ande
+
+1. Logga in på portalen för **åtkomst** .
+
+1. Klicka på **begär historik** på navigerings menyn till vänster.
+
+1. Hitta det åtkomst paket som du skickar en begäran till.
+
+1. Klicka på kryss markeringen för att välja Access-paketet.
+
+1. Klicka på länken för den blåa **vyn** till höger om det valda åtkomst paketet.
+    
+    ![Välj Access-paket och Visa länk](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    Ett fönster öppnas till höger med förfrågnings historiken för Access-paketet.
+    
+    ![Välj knappen Skicka igen](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Klicka på knappen **Skicka igen** längst ned i fönstret.
 
 ## <a name="cancel-a-request"></a>Avbryt en begäran
 

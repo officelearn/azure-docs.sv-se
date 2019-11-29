@@ -3,12 +3,12 @@ title: Exempel på Canada Federal PBMM-skiss – översikt
 description: Översikt över Canada Federal PBMM-skissexemplet. Det här skissexemplet hjälper kunderna att utvärdera specifika Canada Federal PBMM-kontroller.
 ms.date: 09/04/2019
 ms.topic: sample
-ms.openlocfilehash: 2640ba05be69cdb9432307b89027c30a27b4ad1c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c1c5f9c6ec8dc49db4c93d0fbf9caa379a4ab160
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406295"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544509"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Översikt över Canada Federal PBMM-skissexemplet
 

@@ -1,33 +1,33 @@
 ---
 title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: afb06771422b2f8117383b0bde711dc3e1a4d238
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279465"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555181"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
-Resursen principdefinitioner används av Azure Policy för att etablera konventioner för resurser. Varje definition beskriver resurskompatibilitet och vad i kraft för att vidta när en resurs är inkompatibla.
-Du kan styra kostnaderna genom att definiera konventioner och mer hantera enkelt dina resurser. Du kan till exempel ange att bara vissa typer av virtuella datorer är tillåtna. Eller så kan du kräva att alla resurser har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip tillämpas på en resursgrupp, kan den användas för alla resurser i resursgruppen.
+Resurs princips definitioner används av Azure Policy för att upprätta konventioner för resurser. Varje definition beskriver resursanvändningen och vilken verkan som ska vidtas när en resurs är icke-kompatibel.
+Genom att definiera konventioner kan du kontrol lera kostnaderna och enklare hantera dina resurser. Du kan till exempel ange att endast vissa typer av virtuella datorer ska tillåtas. Du kan också kräva att alla resurser har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip tillämpas på en resurs grupp, gäller den för alla resurser i resurs gruppen.
 
 Princip definitions schema finns här: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
-Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
+Du använder JSON för att skapa en princip definition. Princip definitionen innehåller element för:
 
-- läge
+- offline
 - parameters
-- Visningsnamn
-- description
-- principregel
-  - logiska utvärdering
+- visnings namn
+- beskrivning
+- princip regel
+  - logisk utvärdering
   - effekt
 
-Följande JSON visar exempelvis en princip som begränsar där resurser har distribuerats:
+Följande JSON visar till exempel en princip som begränsar var resurserna distribueras:
 
 ```json
 {
@@ -69,7 +69,7 @@ Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md)
 
 ### <a name="resource-manager-modes"></a>Lägen i Resource Manager
 
-**Läget** avgör vilka resurs typer som ska utvärderas för en princip. De stödda lägena är:
+**Läget** avgör vilka resurs typer som ska utvärderas för en princip. De lägen som stöds är:
 
 - `all`: utvärdera resurs grupper och alla resurs typer
 - `indexed`: utvärdera endast resurs typer som stöder taggar och platser
@@ -92,11 +92,11 @@ Följande resurs leverantörs lägen stöds för närvarande under för hands ve
 
 ## <a name="parameters"></a>Parametrar
 
-Parametrar underlätta hanteringen av principer genom att minska antalet principdefinitioner. Tänk på parametrar som fälten i ett formulär – `name`, `address`, `city`, `state`. Dessa parametrar desamma alltid, men deras värden ändras baserat på enskilda fyller i formuläret.
-Parametrar fungerar på samma sätt som när du skapar principer. Du kan återanvända principen för olika scenarier med hjälp av olika värden genom att lägga till parametrar i en principdefinition.
+Med parametrar kan du förenkla princip hanteringen genom att minska antalet princip definitioner. Tänk på parametrar som fälten i ett formulär – `name`, `address`, `city`, `state`. Dessa parametrar är alltid desamma, men deras värden ändras baserat på de enskilda som fyller i formuläret.
+Parametrar fungerar på samma sätt när du skapar principer. Genom att inkludera parametrar i en princip definition kan du återanvända principen för olika scenarier genom att använda olika värden.
 
 > [!NOTE]
-> Parametrar kan läggas till i en befintlig och tilldelad definition. Den nya parametern måste innehålla egenskapen **DefaultValue** . Detta förhindrar att befintliga tilldelningar för principen eller initiativ indirekt görs ogiltig.
+> Parametrar kan läggas till i en befintlig och tilldelad definition. Den nya parametern måste innehålla egenskapen **DefaultValue** . Detta förhindrar att befintliga tilldelningar av principen eller initiativet från indirekt görs ogiltiga.
 
 ### <a name="parameter-properties"></a>Parameter egenskaper
 
@@ -163,22 +163,22 @@ I `metadata`-egenskapen kan du använda **strongType** för att ange en lista ö
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-## <a name="definition-location"></a>Definitionens plats
+## <a name="definition-location"></a>Definitions plats
 
-När du skapar ett initiativ- eller är det nödvändigt att ange platsen för definition. Definitionens plats måste vara en hanteringsgrupp eller en prenumeration. Den här platsen anger omfånget som den initiativ- eller kan tilldelas. Resurser måste vara direkta medlemmar i eller underordnade objekt inom hierarkin för definitionens plats för att rikta för tilldelning.
+När du skapar ett initiativ eller en princip måste du ange definitions platsen. Definitions platsen måste vara en hanterings grupp eller en prenumeration. Den här platsen avgör omfattningen som initiativet eller principen kan tilldelas till. Resurser måste vara direkta medlemmar av eller underordnade inom hierarkin för den definitions plats som ska användas som mål för tilldelningen.
 
-Om den definition lagras a:
+Om definitions platsen är:
 
 - Endast **prenumerations** resurser i den prenumerationen kan tilldelas principen.
-- **Hanterings grupp** – endast resurser inom underordnade hanterings grupper och underordnade prenumerationer kan tilldelas principen. Om du planerar att använda principdefinitionen till flera prenumerationer, måste platsen vara en hanteringsgrupp som innehåller dessa prenumerationer.
+- **Hanterings grupp** – endast resurser inom underordnade hanterings grupper och underordnade prenumerationer kan tilldelas principen. Om du planerar att tillämpa princip definitionen på flera prenumerationer måste platsen vara en hanterings grupp som innehåller dessa prenumerationer.
 
-## <a name="display-name-and-description"></a>Namn och beskrivning
+## <a name="display-name-and-description"></a>Visnings namn och beskrivning
 
 Du kan använda **DisplayName** och **Description** för att identifiera princip definitionen och tillhandahålla kontext när den används. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
 
 ## <a name="policy-rule"></a>Principregel
 
-Princip regeln består av **IF** och **then** -block. I **IF** -blocket definierar du ett eller flera villkor som anger när principen tillämpas. Du kan använda logiska operatorer för dessa villkor för att ange exakt scenariot för en princip.
+Princip regeln består av **IF** och **then** -block. I **IF** -blocket definierar du ett eller flera villkor som anger när principen tillämpas. Du kan använda logiska operatorer för dessa villkor för att exakt definiera scenariot för en princip.
 
 I blocket **then** definierar du den påverkan som inträffar när **IF** -villkoren är uppfyllda.
 
@@ -223,7 +223,7 @@ Du kan kapsla logiska operatorer. I följande exempel visas en åtgärd som är 
 
 ### <a name="conditions"></a>Villkor
 
-Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vissa villkor. Villkor som stöds är:
+Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vissa villkor. De villkor som stöds är:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -253,13 +253,13 @@ När du använder **matchnings** -och **notMatch** -villkor, anger du `#` för a
 
 ### <a name="fields"></a>Fält
 
-Villkor bildas genom att använda fält. Ett fält matchar egenskaper i nyttolasten i begäran av resursen och beskriver tillståndet för resursen.
+Villkor bildas med hjälp av fält. Ett fält matchar egenskaper i nytto lasten för resurs förfrågan och beskriver resursens tillstånd.
 
 Följande fält stöds:
 
 - `name`
 - `fullName`
-  - Returnerar det fullständiga namnet på resursen. Det fullständiga namnet på en resurs är resursnamnet föregås av ett anpassningsprefix av alla överordnade resursnamn (till exempel ”minserver/myDatabase”).
+  - Returnerar resursens fullständiga namn. Det fullständiga namnet på en resurs är resurs namnet anpassningsprefix av eventuella överordnade resurs namn (till exempel "Server/databas").
 - `kind`
 - `type`
 - `location`
@@ -394,6 +394,146 @@ Använd i stället funktionen [IF ()](../../../azure-resource-manager/resource-g
 
 Med den ändrade regel regeln `if()` kontrollerar längden på **namnet** innan ett `substring()` för ett värde får färre än tre tecken. Om **namnet** är för kort returneras värdet "inte börjar med ABC" i stället och jämförs med **ABC**. En resurs med ett kort namn som inte börjar med **ABC** kan fortfarande inte utföra princip regeln, men inte längre orsaka ett fel under utvärderingen.
 
+### <a name="count"></a>Antal
+
+Villkor som räknar hur många medlemmar i en matris i resurs nytto lasten uppfyller ett villkors uttryck kan skapas med hjälp av **Count** -uttryck. Vanliga scenarier kontrollerar om "minst en av", ",", "alla" eller "ingen av" mat ris medlemmarna uppfyller villkoret. **Count** utvärderar varje mat ris medlem för ett villkors uttryck och summerar de _sanna_ resultaten, som sedan jämförs med uttrycks operatorn.
+
+Strukturen för **Count** -uttrycket är:
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+Följande egenskaper används med **Count**:
+
+- **Count. Field** (required): innehåller sökvägen till matrisen och måste vara ett mat ris alias. Om matrisen saknas utvärderas uttrycket till _false_ utan att ta hänsyn till villkors uttrycket.
+- **Count.** (valfritt): villkors uttrycket för att utvärdera varje [\[\*\] Ali Aset](#understanding-the--alias) mat ris medlem i **fältet Count.** Om den här egenskapen inte anges utvärderas alla mat ris medlemmar med sökvägen för Field till _True_. Alla [villkor](../concepts/definition-structure.md#conditions) kan användas i den här egenskapen.
+  [Logiska operatorer](#logical-operators) kan användas i den här egenskapen för att skapa komplexa utvärderings krav.
+- **\<villkor\>** (obligatoriskt): värdet jämförs med antalet objekt som uppfyller **antalet. Where** villkors uttryck. Ett numeriskt [villkor](../concepts/definition-structure.md#conditions) ska användas.
+
+#### <a name="count-examples"></a>Antal exempel
+
+Exempel 1: kontrol lera om en matris är tom
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+Exempel 2: kontrol lera att endast en mat ris medlem uppfyller villkors uttrycket
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+Exempel 3: kontrol lera om minst en mat ris medlem uppfyller villkors uttrycket
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+Exempel 4: kontrol lera att alla medlemmar i objekt mat ris uppfyller villkors uttrycket
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+Exempel 5: kontrol lera att alla sträng mat ris medlemmar uppfyller villkors uttrycket
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exempel 6: Använd **fältet** i **värde** för att kontrol lera att alla mat ris medlemmar uppfyller villkors uttrycket
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exempel 7: kontrol lera att minst en mat ris medlem matchar flera egenskaper i villkors uttrycket
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Verkan
 
 Azure Policy stöder följande typer av påverkan:
@@ -410,7 +550,7 @@ Azure Policy stöder följande typer av påverkan:
 
 Fullständig information om varje effekt, utvärderings ordning, egenskaper och exempel finns i [förstå Azure policys effekter](effects.md).
 
-### <a name="policy-functions"></a>Princip fungerar
+### <a name="policy-functions"></a>Princip funktioner
 
 Alla [funktioner i Resource Manager-mallar](../../../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en princip regel, förutom följande funktioner och användardefinierade funktioner:
 
@@ -454,9 +594,9 @@ Den här princip regel exemplet använder funktionen `resourceGroup` resurs för
 
 ## <a name="aliases"></a>Alias
 
-Du kan använda egenskapen alias för att få åtkomst till specifika egenskaper för en resurstyp. Alias kan du begränsa vilka värden eller villkor är tillåtna för en egenskap för en resurs. Varje alias som mappas till sökvägar i olika API-versioner för en viss resurstyp. Under principutvärdering hämtar principmodulen egenskapssökvägen för den API-versionen.
+Du använder alias för egenskaper för att få åtkomst till vissa egenskaper för en resurs typ. Alias gör att du kan begränsa vilka värden eller villkor som tillåts för en egenskap på en resurs. Varje alias mappar till sökvägar i olika API-versioner för en specifik resurs typ. Under princip utvärderingen hämtar princip motorn egenskaps Sök vägen för API-versionen.
 
-Lista över alla alias växer. Använd någon av följande metoder för att hitta vilka alias är för närvarande stöds av Azure Policy:
+Listan över alias växer alltid. Använd någon av följande metoder för att ta reda på vilka alias som för närvarande stöds av Azure Policy:
 
 - Azure PowerShell
 
@@ -482,22 +622,23 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
   az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
-- REST-API / ARMClient
+- REST API/ARMClient
 
   ```http
   GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
   ```
 
-### <a name="understanding-the--alias"></a>Förstå alias [*]
+### <a name="understanding-the--alias"></a>Förstå aliaset [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som har **[\*]** kopplad till den. Till exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 Aliaset "normal" representerar fältet som ett enda värde. Det här fältet är för exakta matchnings scenarier när hela uppsättningen med värden måste vara exakt som definierad, inte mer eller mindre.
 
-**[\*]** -aliaset gör det möjligt att jämföra mot värdet för varje element i matrisen och vissa egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaper för "if ingen", "om några", "eller" om alla "-scenarier. Med **ipRules [\*]** verifierar ett exempel att varje _åtgärd_ är _neka_, men inte bekymrar dig om hur många regler som finns eller vad IP- _värdet_ är. Den här exempel regeln söker efter eventuella matchningar av **ipRules [\*]. Value** till **10.0.4.1** och tillämpar bara **effectType** om den inte hittar minst en matchning:
+Med aliaset **\[\*\]** kan du jämföra med värdet för varje element i matrisen och vissa egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaper för "if ingen", "om några", "eller" om alla "-scenarier. För mer komplexa scenarier använder du villkors uttrycket [Count](#count) . Med **ipRules\[\*\]** verifierar ett exempel att varje _åtgärd_ är _neka_, men inte bekymrar dig om hur många regler som finns eller vad IP- _värdet_ är.
+Den här exempel regeln söker efter eventuella matchningar av **ipRules\[\*\]. Value** till **10.0.4.1** och tillämpar bara **effectType** om det inte finns minst en matchning:
 
 ```json
 "policyRule": {
@@ -519,13 +660,15 @@ Aliaset "normal" representerar fältet som ett enda värde. Det här fältet är
 }
 ```
 
+
+
 Mer information finns i avsnittet [om att utvärdera [\*]-aliaset](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiativ
 
-Initiativ kan du gruppera flera relaterade principdefinitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enskilt objekt. Du kan exempelvis gruppera relaterade taggning principdefinitioner i ett enda initiativ. I stället för att tilldela varje princip individuellt kan använda du initiativ.
+Med initiativ kan du gruppera flera relaterade princip definitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enda objekt. Du kan till exempel gruppera relaterade definitioner av princip definitioner till ett enda initiativ. I stället för att tilldela varje princip individuellt, tillämpar du initiativet.
 
-I följande exempel visas hur du skapar ett initiativ för att hantera två Taggar: `costCenter` och `productName`. Två inbyggda principer används för att tillämpa taggen standardvärdet.
+I följande exempel visas hur du skapar ett initiativ för att hantera två Taggar: `costCenter` och `productName`. Den använder två inbyggda principer för att tillämpa standard tag gen svärdet.
 
 ```json
 {

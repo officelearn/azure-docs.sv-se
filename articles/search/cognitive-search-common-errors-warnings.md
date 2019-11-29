@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a86c809e239a84b2ec6910c47a17b935c440c741
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287001"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555048"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -34,10 +34,10 @@ Från och med API-versionen `2019-05-06`struktureras fel och varningar på objek
 
 | Egenskap | Beskrivning | Exempel |
 | --- | --- | --- |
-| key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| name | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName Projektion. KnowledgeStore. Table. myTableName |
-| message | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
-| details | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1-källa, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... rest av stack spårning... |
+| key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| namn | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName Projektion. KnowledgeStore. Table. myTableName |
+| meddelande | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
+| Information | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1-källa, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... rest av stack spårning... |
 | documentationLink | En länk till relevant dokumentation med detaljerad information för att felsöka och lösa problemet. Den här länken pekar ofta på ett av nedanstående avsnitt på den här sidan. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -46,7 +46,7 @@ Från och med API-versionen `2019-05-06`struktureras fel och varningar på objek
 
 Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Lösning |
+| Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
 | inkonsekventa fält typer i olika dokument | Värdets typ stämmer inte med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i Authors-kolumnen.  Förväntad typ är JArray. | Se till att typen för varje fält är samma för olika dokument. Om t. ex. det första dokument `'startTime'`s fältet är ett datum/tid och i det andra dokumentet är det en sträng. detta fel uppstår. |
 | fel från data källans underliggande tjänst | (från Cosmos DB) `{"Errors":["Request rate is large"]}` | Kontrol lera lagrings instansen för att säkerställa att den är felfri. Du kan behöva justera skalning/partitionering. |
@@ -57,7 +57,7 @@ Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa 
 ## <a name="error-could-not-extract-document-content"></a>Fel: det gick inte att extrahera dokument innehåll
 Indexeraren med en BLOB-datakälla kunde inte extrahera innehållet från dokumentet (till exempel en PDF-fil). Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Lösning |
+| Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
 | blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider den maximala storleken `'134217728'` byte för dokument extrahering för den aktuella tjänst nivån. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds `'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -69,7 +69,7 @@ Indexeraren med en BLOB-datakälla kunde inte extrahera innehållet från dokume
 ## <a name="error-could-not-parse-document"></a>Fel: det gick inte att parsa dokumentet
 Indexeraren läser dokumentet från data källan, men det uppstod ett problem med att konvertera dokument innehållet till det angivna fält mappnings schemat. Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Lösning |
+| Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
 | Dokument nyckeln saknas | Dokument nyckeln kan inte vara tom eller saknas | Se till att alla dokument har giltiga dokument nycklar |
 | Dokument nyckeln är ogiltig | Dokument nyckeln får innehålla högst 1024 tecken | Ändra dokument nyckeln så att den uppfyller verifierings kraven. |
@@ -81,7 +81,7 @@ Indexeraren läser dokumentet från data källan, men det uppstod ett problem me
 ## <a name="error-could-not-execute-skill"></a>Fel: det gick inte att köra kompetensen
 Indexeraren kunde inte köra en färdighet i färdigheter.
 
-| Orsak | Information/exempel | Lösning |
+| Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
 | Problem med tillfälliga anslutningar | Ett tillfälligt fel har uppstått. Försök igen senare. | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 | Potentiell produkt fel | Det uppstod ett oväntat fel. | Detta indikerar en okänd fel klass och det kan betyda att det finns en produkt bugg. Använd ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) för att få hjälp. |
@@ -140,7 +140,7 @@ Det maximala värde som du kan ange för parametern `timeout` är 230 sekunder. 
 
 Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i Sök indexet. Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Lösning |
+| Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
 | Ett fält innehåller en term som är för stor | En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
 | Dokumentet är för stort för att indexeras | Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | [Så här indexerar du stora data mängder](search-howto-large-index.md)
@@ -195,7 +195,7 @@ Om du vill ange ett standardvärde i händelse av saknade indata kan du använda
 }
 ```
 
-| Orsak | Information/exempel | Lösning |
+| Orsak | Information/exempel | Upplösning |
 | --- | --- | --- |
 | Kompetens ineffekten är av fel typ | Nödvändiga `X` för kompetens inflöden var inte av den förväntade typen `String`. Nödvändiga `X` för kompetens in hade inte det förväntade formatet. | Vissa kunskaper förväntar sig indata av särskilda typer, till exempel [sentiment-kompetens](cognitive-search-skill-sentiment.md) förväntar sig `text` att vara en sträng. Om indatan anger ett värde som inte är ett sträng värde, körs inte kompetensen och genererar inga utdata. Se till att data uppsättningen har inmatnings värden som är enhetliga i typ eller Använd en [anpassad webb-API-färdighet](cognitive-search-custom-skill-web-api.md) för att Förbearbeta indatan. Om du vill iterera över en matris kontrollerar du att kunskaps kontexten och indatamängden har `*` på rätt platser. Vanligt vis ska både kontexten och Indatakällan sluta med `*` för matriser. |
 | Kompetens ineffekt saknas | Nödvändig `X` för kompetens inflöde saknas. | Om alla dokument får den här varningen, är det förmodligen ett stavfel i inmatnings Sök vägarna och du bör dubbelt kontrol lera egenskaps namnets Skift läge, extra eller saknas `*` i sökvägen, och dokument från data källan definierar de nödvändiga indatana. |
@@ -208,7 +208,7 @@ Ett eller flera av de värden som angavs i den valfria `languageCode` indatamän
 
 Om du vet att din data uppsättning är på ett språk, bör du ta bort [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) och `languageCode` kompetens inmatningar och använda den `defaultLanguageCode` färdighets parameter för den kunskapen i stället, förutsatt att språket stöds för den aktuella kompetensen.
 
-Om du vet att din data uppsättning innehåller flera språk och därför behöver [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) och `languageCode` indata, kan du överväga att lägga till en [ConditionalSkill](cognitive-search-skill-conditional.md) för att filtrera bort texten med språk som inte stöds innan du skickar in text till den efterföljande färdigheten.  Här är ett exempel på hur det kan se ut för EntityRecognitionSkill:
+Om du vet att din data uppsättning innehåller flera språk och därför behöver [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) och `languageCode` indata, kan du överväga att lägga till en [ConditionalSkill](cognitive-search-skill-conditional.md) för att filtrera bort texten med språk som inte stöds innan du skickar texten till den efterföljande färdigheten.  Här är ett exempel på hur det kan se ut för EntityRecognitionSkill:
 
 ```json
 {
@@ -298,7 +298,7 @@ Mappningar av utdatakolumner som refererar till icke-existerande/null-data gener
 
 [Indexerings lägena för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) måste veta hur texten kodas innan den kan parsas. De två vanligaste sätten att koda text är UTF-16 och UTF-8. UTF-8 är en kodning med variabel längd där varje tecken är mellan 1 byte och 4 byte långt. UTF-16 är en kodning med fast längd där varje tecken är 2 byte långt. UTF-16 har två olika varianter, "big endian" och "little endian". Text kodningen bestäms av en "byte ordnings markering", en serie byte före texten.
 
-| Kodning | Markering av byte ordning |
+| Encoding | Markering av byte ordning |
 | --- | --- |
 | UTF-16 big endian | 0xFE 0xFF |
 | UTF-16 lite endian | 0xFF 0xFE |

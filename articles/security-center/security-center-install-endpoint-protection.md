@@ -1,6 +1,6 @@
 ---
 title: Hantera problem med slut punkts skydd med Azure Security Center | Microsoft Docs
-description: Lär dig hur du hanterar problem med slut punkts skydd i Azure Security Center.
+description: Lär dig mer om Security Center övervakning av slut punkts skyddet och hur du kan åtgärda eventuella problem som uppstår.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: memildin
-ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 70b7f511c32013a5dbc9369a2dfba2b8cd5f9145
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202070"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558614"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med slut punkts skydd med Azure Security Center
-Azure Security Center övervakar status för skydd mot skadlig kod och rapporterar detta under bladet problem med slut punkts skydd. Security Center fokuserar på problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer är utsatta för hot mot skadlig kod. Genom att använda informationen under **problem med slut punkts skydd**kan du identifiera en plan för att åtgärda eventuella problem som identifieras.
+Azure Security Center övervakar status för skydd mot skadlig kod och rapporterar detta på sidan problem med slut punkts skydd. Security Center fokuserar på problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer är utsatta för hot mot skadlig kod. Genom att använda informationen under **problem med slut punkts skydd**kan du identifiera en plan för att åtgärda eventuella problem som identifieras.
 
 Security Center rapporterar följande problem med slut punkts skydd:
 
@@ -30,7 +30,7 @@ Security Center rapporterar följande problem med slut punkts skydd:
 - Endpoint Protection-hälsa:
 
   - Inaktuell signatur – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men lösningen har inte de senaste signaturerna för program mot skadlig kod.
-  - Inget real tids skydd – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men har inte kon figurer ATS för real tids skydd.   Tjänsten kan vara inaktive rad eller Security Center kanske inte kan hämta status eftersom lösningen inte stöds. Se [partner integration](security-center-services.md#endpoint-supported) för en lista över lösningar som stöds.
+  - Inget real tids skydd – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men har inte kon figurer ATS för real tids skydd. Tjänsten kan vara inaktive rad eller Security Center kanske inte kan hämta status eftersom lösningen inte stöds. Se [partner integration](security-center-services.md#endpoint-supported) för en lista över lösningar som stöds.
   - Ej rapportering – en lösning för program mot skadlig kod installeras men rapporterar inte data.
   - Okänd – en lösning för program mot skadlig kod har installerats men dess status är okänd eller rapporterar ett okänt fel.
 
@@ -40,7 +40,7 @@ Security Center rapporterar följande problem med slut punkts skydd:
     >
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-Problem med slut punkts skydd presenteras som en rekommendation i Security Center.  Om din miljö är utsatt för hot mot skadlig kod visas den här rekommendationen under **rekommendationer** och under **beräkning**. Om du vill se **instrument panelen för slut punkts skydds problem**måste du följa beräknings arbets flödet.
+Problem med slut punkts skydd presenteras som en rekommendation i Security Center. Om din miljö är utsatt för hot mot skadlig kod visas den här rekommendationen under **rekommendationer** och under **beräkning**. Om du vill se **instrument panelen för slut punkts skydds problem**måste du följa beräknings arbets flödet.
 
 I det här exemplet ska vi använda **Compute**.  Vi ska titta på hur du installerar program mot skadlig kod på virtuella Azure-datorer och på datorer som inte är Azure-datorer.
 
@@ -107,7 +107,7 @@ Mer information om Security Center finns i följande dokument:
 * [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
+* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure.
 

@@ -4,12 +4,12 @@ description: Övervaka Azure Backup arbets belastningar och skapa anpassade avis
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 66417071190fa45a746ce0b80a9de12968198bda
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278277"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554880"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -37,7 +37,7 @@ I avsnittet övervakning väljer du **diagnostikinställningar** och anger måle
 
 ![Den Recovery Services valvets diagnostiska inställning, mål Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
-Du kan rikta en Log Analytics arbets yta från en annan prenumeration. Om du vill övervaka valv mellan prenumerationer på en enda plats väljer du samma Log Analytics arbets yta för flera Recovery Services-valv. Om du vill kanal all information som är relaterad till Azure Backup till arbets ytan Log Analytics väljer du **Resurstilldelning** i växlingen som visas och väljer följande händelser- **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Läs [den här artikeln](https://aka.ms/AA6jkus) om du vill ha mer information om hur du konfigurerar inställningar för La-diagnostik.
+Du kan rikta en Log Analytics arbets yta från en annan prenumeration. Om du vill övervaka valv mellan prenumerationer på en enda plats väljer du samma Log Analytics arbets yta för flera Recovery Services-valv. Om du vill kanal all information som är relaterad till Azure Backup till arbets ytan Log Analytics väljer du **Resurstilldelning** i växlingen som visas och väljer följande händelser- **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Läs [den här artikeln](backup-azure-diagnostic-events.md) om du vill ha mer information om hur du konfigurerar inställningar för La-diagnostik.
 
 > [!IMPORTANT]
 > När du har slutfört konfigurationen bör du vänta 24 timmar innan den första data-push-installationen har slutförts. Efter den första data sändningen skickas alla händelser som beskrivs längre fram i den här artikeln i [avsnittet frekvens](#diagnostic-data-update-frequency).

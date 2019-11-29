@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2d0f92f7bf5b015a30e431354edb0c29f5e103f6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c6951ad129a564193a33a4c21fb97e9000ac8dc2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046435"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555443"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse data integrerings partner
 Om du vill skapa din lösning för informations lager väljer du bland flera branschledande verktyg. I den här artikeln beskrivs Microsoft partner företag med officiella lösningar för data integrering som stöder Azure SQL Data Warehouse.
@@ -36,9 +36,10 @@ Om du vill skapa din lösning för informations lager väljer du bland flera bra
 | ![Skyvia][11] |**Skyvia (data integrering)**<br>Skyvia data integration tillhandahåller en guide som automatiserar data importer. Med den här guiden kan du migrera data mellan olika typer av källor – CRMs, program databas, CSV-filer med mera. |[Produkt sida][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>SnapLogic-plattformen gör det möjligt för kunder att snabbt överföra data till och från Microsoft Azure SQL Data Warehouse. Det ger möjlighet att integrera hundratals program, tjänster och IoT-scenarier i en lösning.|[Produkt sida][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][15] |**StreamSets**<br>StreamSets tillhandahåller en data integrerings plattform för DataOps. Det operationalizes den fullständiga design-Deploy-driver-livs cykeln för att integrera data i Azure SQL Data Warehouse. Du kan inte bara snabbt mata in och integrera data till och från lagret, via strömnings-, batch-eller data överförings metoder för data insamling, men även säkerställa kontinuerliga åtgärder med Smart datapipelines som tillhandahåller synlighet för data flödet från slut punkt till slut punkt och återhämtning.|[Produkt sida][streamsets_website]|
-| ![Talend][12] |**Talend-moln**<br>Talend Cloud är en plattform för data integrering i företag för att ansluta, komma åt och transformera data i molnet eller lokalt. Det är ett iPaaS-erbjudande (Platform-as-a-Service) som ger bred anslutning, inbyggd data kvalitet och inbyggt stöd för de senaste Big data-och moln teknikerna |[Produkt sida][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![Trifacta][13] |**Trifacta Wrangler**<br> Trifacta hjälper individer och organisationer att utforska och ansluta ihop olika data för analys. Trifacta Wrangler är utformat för att hantera data datatransformering arbets belastningar som behöver stöd för data i skala och ett stort antal slutanvändare.|[Produkt sida][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
-| ![WhereScape][14] |**Wherescape RED**<br> WhereScape RED är en IDE som ger team med automatiserings verktyg för att effektivisera ETL-arbetsflöden. IDE ger bästa praxis och optimerad inbyggd kod för populära data mål. Använd WhereScape RED för att minska tiden för att utveckla, distribuera och driva din data infrastruktur.|[Produkt sida][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
+| ![Talend][12] |**Talend-moln**<br>Talend Cloud är en plattform för data integrering i företag för att ansluta, komma åt och transformera data i molnet eller lokalt. Det är ett iPaaS-erbjudande (Platform-as-a-Service) som ger bred anslutning, inbyggd data kvalitet och inbyggt stöd för de senaste stor data-och moln teknikerna. |[Produkt sida][talend_website]<br> [Azure Marketplace][talend_marketplace] |
+| ![TimeXtender][13] |**TimeXtender**<br>TimeXtender för identifierings hubb hjälper företag att bygga en modern datafastighet genom att tillhandahålla en integrerad data hanterings plattform som påskyndar tiden till data insikter med upp till 10 gånger. Gå bortom vardaglig extrahering, transformering och inläsning (ETL) eller extrahera, Läs in och transformera (ELT) genom att tillhandahålla automatisering och funktioner för data åtkomst, data modellering och efterlevnad på en enda plattform. Discovery Hub ger en sammanhängande data infrastruktur för skalnings analys i molnet, så att du kan ansluta och integrera olika datasilor, katalog-, modell-, flytt-och dokument data för analys och AI. | [Produkt sida][timextender_website] |
+| ![Trifacta][14] |**Trifacta Wrangler**<br> Trifacta hjälper individer och organisationer att utforska och ansluta ihop olika data för analys. Trifacta Wrangler är utformat för att hantera data datatransformering arbets belastningar som behöver stöd för data i skala och ett stort antal slutanvändare.|[Produkt sida][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
+| ![WhereScape][15] |**Wherescape RED**<br> WhereScape RED är en IDE som ger team med automatiserings verktyg för att effektivisera ETL-arbetsflöden. IDE ger bästa praxis och optimerad inbyggd kod för populära data mål. Använd WhereScape RED för att minska tiden för att utveckla, distribuera och driva din data infrastruktur.|[Produkt sida][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -64,9 +65,10 @@ Mer information om andra partner finns i [Business Intelligence-partner][bi_part
 [10]: ./media/sql-data-warehouse-partner-data-integration/segment_logo.png
 [11]: ./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png
 [12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
-[13]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
-[14]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
-[15]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
+[13]: ./media/sql-data-warehouse-partner-data-integration/timextender-logo.png
+[14]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
+[15]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
+[16]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
 
 
 
@@ -86,6 +88,7 @@ Mer information om andra partner finns i [Business Intelligence-partner][bi_part
 [segment_website]:https://segment.com/
 [skyvia_website]:https://skyvia.com/
 [talend_website]:https://www.talend.com/
+[timextender_website]:https://www.timextender.com/
 [trifacta_website]:https://www.trifacta.com/
 [wherescape_website]:https://www.wherescape.com/
 [streamsets_website]:https://streamsets.com/partners/microsoft

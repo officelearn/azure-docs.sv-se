@@ -1,6 +1,6 @@
 ---
 title: Priser för Azure Security Center-nivåer
-description: Den här artikeln innehåller information om priser för Azure Security Center.
+description: Azure Security Center erbjuds på två nivåer – kostnads fri och standard. Den här sidan visar hur du uppgraderar från kostnads fritt till standard.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0c3fdc48d9b3bc77b629d4d6f1da081d70658c88
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ffb571d13270ced80426aee3575197cf95d3805
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664247"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559237"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till Security Center standard nivå för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger insyn och kontroll över hybrid moln arbets belastningar, aktiva försvar som minskar exponeringen för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt växande cyberhot-attacker.
@@ -42,7 +42,7 @@ Så här hämtar du standard nivån:
 2. Välj den prenumeration som du vill uppgradera till standard.
 3. Välj **Prisnivå**.
 4. Välj **standard** som ska uppgraderas.
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 
 (Priserna i avbildningen är endast avsedda för exempel för övervakning) [priser för![Security Center](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 

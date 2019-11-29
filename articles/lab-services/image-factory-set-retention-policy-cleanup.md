@@ -1,6 +1,6 @@
 ---
-title: Skapa en avbildning datafabrik i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du skapar en anpassad avbildning fabrik i Azure DevTest Labs.
+title: Konfigurera bevarande princip i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du konfigurerar en bevarande princip, rensar fabriken och drar tillbaka gamla avbildningar från DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,68 +12,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622579"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560174"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Skapa en anpassad avbildning fabrik i Azure DevTest Labs
-Den här artikeln beskriver ställa in en bevarandeprincip rensar fabriken och ta bort gamla avbildningar från alla andra labb i organisationen. 
+# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Skapa en anpassad avbildnings fabrik i Azure DevTest Labs
+Den här artikeln beskriver hur du ställer in en bevarande princip, rensar fabriken och drar tillbaka gamla bilder från alla andra DevTest labb i organisationen. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Kontrollera att du har följt de här artiklarna innan du fortsätter:
+## <a name="prerequisites"></a>Krav
+Kontrol lera att du har följt de här artiklarna innan du fortsätter:
 
-- [Skapa en avbildning datafabrik](image-factory-create.md)
-- [Kör en datafabrik avbildning från Azure DevOps](image-factory-set-up-devops-lab.md)
-- [Spara anpassade avbildningar och distribuera till flera labs](image-factory-save-distribute-custom-images.md)
+- [Skapa en avbildnings fabrik](image-factory-create.md)
+- [Köra en avbildnings fabrik från Azure DevOps](image-factory-set-up-devops-lab.md)
+- [Spara anpassade bilder och distribuera dem till flera labb](image-factory-save-distribute-custom-images.md)
 
-Följande objekt ska redan finnas:
+Följande objekt bör redan vara på plats:
 
-- Ett labb för bild-fabrik i Azure DevTest Labs
-- En eller flera mål där fabriken ska distribuera gyllene avbildningar för Azure DevTest Labs
-- Azure DevOps-projekt som används för att automatisera bild fabriken.
-- Kod källplats som innehåller skript och konfiguration (i vårt exempel, i samma DevOps-projekt som använde ovan)
-- En byggesdefinition för att dirigera Azure Powershell-åtgärder
+- Ett labb för avbildnings fabriken i Azure DevTest Labs
+- En eller flera mål Azure DevTest Labs där fabriken distribuerar gyllene bilder
+- Ett Azure DevOps-projekt som används för att automatisera avbildnings fabriken.
+- Käll kods plats som innehåller skripten och konfigurationen (i vårt exempel i samma DevOps-projekt som används ovan)
+- En build-definition för att dirigera Azure PowerShell-aktiviteter
  
-## <a name="setting-the-retention-policy"></a>Ange bevarandeprincipen
-Innan du konfigurerar Rensa steg bör du definiera hur många historiska avbildningar som du vill ha kvar i DevTest Labs. När du har följt den [kör factory en avbildning från Azure DevOps](image-factory-set-up-devops-lab.md) artikeln har du konfigurerat olika Skapa variabler. En av dem har **ImageRetention**. Du anger den här variabeln till `1`, vilket innebär att DevTest Labs inte bibehåller en historik över anpassade avbildningar. Endast de senaste distribuerade avbildningarna blir tillgänglig. Om du ändrar den här variabeln till `2`, senast distribuerade avbildningen samt de tidigare inställningarna kommer att finnas kvar. Du kan ange ett värde att definiera antalet historiska avbildningar som du vill behålla i DevTest Labs.
+## <a name="setting-the-retention-policy"></a>Ställer in bevarande principen
+Innan du konfigurerar rensnings stegen definierar du hur många historiska avbildningar du vill behålla i DevTest Labs. När du följde artikeln [kör en avbildnings fabrik från Azure DevOps](image-factory-set-up-devops-lab.md) konfigurerade du olika bygg variabler. En av dem var **ImageRetention**. Du ställer in den här variabeln på `1`, vilket innebär att DevTest Labs inte kommer att behålla en historik över anpassade avbildningar. Endast de senaste distribuerade avbildningarna är tillgängliga. Om du ändrar den här variabeln till `2`kommer den senaste distribuerade avbildningen plus de tidigare att behållas. Du kan ange det här värdet för att definiera antalet historiska avbildningar som du vill underhålla i dina DevTest Labs.
 
 ## <a name="cleaning-up-the-factory"></a>Rensa fabriken
-Det första steget i att rensa fabriken är att ta bort den gyllene avbildningar av virtuella datorer från avbildningen fabriken. Det finns ett skript för att göra detta precis som våra föregående skript. Det första steget är att lägga till en annan **Azure Powershell** uppgift till build-definition som du ser i följande bild:
+Det första steget när du rensar fabriken är att ta bort de virtuella datorerna från avbildnings fabriken. Det finns ett skript för att utföra den här uppgiften precis som i tidigare skript. Det första steget är att lägga till en annan **Azure PowerShell** -uppgift i build-definitionen som visas i följande bild:
 
-![Steg för PowerShell](./media/set-retention-policy-cleanup/powershell-step.png)
+![PowerShell-steg](./media/set-retention-policy-cleanup/powershell-step.png)
 
-När du har den nya uppgiften i listan, Välj posten och fylla i all information som visas i följande bild:
+När du har den nya uppgiften i listan markerar du objektet och fyller i all information som visas i följande bild:
 
-![Rensa gamla avbildningar PowerShell-aktivitet](./media/set-retention-policy-cleanup/configure-powershell-task.png)
+![Rensa gamla bilder PowerShell-aktivitet](./media/set-retention-policy-cleanup/configure-powershell-task.png)
 
-Skriptparametrar är: `-DevTestLabName $(devTestLabName)`.
+Skript parametrarna är: `-DevTestLabName $(devTestLabName)`.
 
-## <a name="retire-old-images"></a>Dra tillbaka gamla avbildningar 
-Den här uppgiften tar bort eventuella gamla avbildningar, som endast historik matchande den **ImageRetention** skapa variabeln. Lägg till ytterligare **Azure Powershell** Skapa uppgift till vår build-definition. När den har lagts till, väljer du uppgiften och fyll sedan i informationen som visas i följande bild: 
+## <a name="retire-old-images"></a>Ta bort gamla avbildningar 
+Den här uppgiften tar bort alla gamla bilder och behåller bara en historik som matchar **ImageRetention** -variabeln. Lägg till ytterligare en **Azure PowerShell** build-uppgift i vår versions definition. När den har lagts till väljer du uppgiften och fyller i informationen på det sätt som visas i följande bild: 
 
-![Dra tillbaka gamla avbildningar PowerShell-aktivitet](./media/set-retention-policy-cleanup/retire-old-image-task.png)
+![Ta bort gamla bilder PowerShell-aktivitet](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
-Skriptparametrar är: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
+Skript parametrarna är: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
-## <a name="queue-the-build"></a>Kön versionen
-Nu när du har slutfört byggesdefinition kan köa en ny version att se till att allt fungerar. När bygget har slutförts har den nya anpassade avbildningar visas i laboratoriet mål och om du kontrollera att avbildningen factory labbet, visas inga etablerade virtuella datorer. Om du köa ytterligare versioner visas dessutom rensningsuppgifter tas ur bruk ut gamla anpassade avbildningar från DevTest Labs enligt till kvarhållningsvärdet i build-variabler.
+## <a name="queue-the-build"></a>Köa versionen
+Nu när du har slutfört build-definitionen ska du köa en ny version för att se till att allt fungerar. När versionen har slutförts visas de nya anpassade bilderna i mål labbet och om du markerar avbildningen Factory Lab visas inga etablerade virtuella datorer. Om du lägger till fler versioner i kö kan du se att rensnings aktiviteterna tar bort gamla anpassade bilder från DevTest Labs i enlighet med det kvarhållning värde som angavs i build-variablerna.
 
 > [!NOTE]
-> Om du har genomfört build pipelinen i slutet av den senaste artikeln i serien, manuellt ta bort de virtuella datorerna som skapades i avbildningen factory labbet innan en ny version.  Manuell rensning steget behövs bara medan vi konfigurerar allt och kontrollera att det fungerar.
+> Om du har kört build-pipeline i slutet av den sista artikeln i serien tar du manuellt bort de virtuella datorer som skapades i Image Factory-labbet innan du köa en ny version.  Steget manuell rensning behövs bara när vi ställer in allt och kontrollerar att det fungerar.
 
 
 
 ## <a name="summary"></a>Sammanfattning
-Nu har du en aktiv avbildning fabrik som kan skapa och distribuera anpassade avbildningar till dina labb på begäran. I den här punkten, det är bara för att få dina avbildningar korrekt konfigurerad och identifiera mål labs. Som vi nämnde i föregående artikel den **Labs.json** finns i din **Configuration** mapp anger vilka bilder ska vara tillgängliga i varje mål labs. När du lägger till andra DevTest Labs för din organisation, behöver du bara lägga till en post i Labs.json för det nya labbet.
+Nu har du en bild fabrik som du kan använda för att skapa och distribuera anpassade avbildningar till dina labb på begäran. I det här läget är det bara att få dina avbildningar konfigurerade korrekt och identifiera mål labben. Som vi nämnt i föregående artikel anger **labb. JSON** -filen i mappen **konfiguration** vilka avbildningar som ska vara tillgängliga i varje mål labb. När du lägger till andra DevTest Labs i din organisation behöver du bara lägga till en post i labbet. JSON för det nya labbet.
 
-Det är också enkelt att lägga till en ny avbildning till din datafabrik. När du vill inkludera en ny avbildning i din datafabrik som du öppnar den [Azure-portalen](https://portal.azure.com), navigera till din datafabrik DevTest Labs, Välj knappen för att lägga till en virtuell dator och väljer önskad marketplace-avbildning och artefakter. Istället för att välja den **skapa** knappen Välj om du vill se den nya Virtuellt **visa Azure Resource Manager-mall**”och spara mallen som en JSON-fil någonstans inom den **GoldenImages** mapp i din lagringsplats. Nästa gång du kör din avbildning factory skapas en anpassad avbildning.
+Det är också enkelt att lägga till en ny avbildning till din fabrik. När du vill lägga till en ny avbildning i fabriken öppnar du [Azure Portal](https://portal.azure.com), navigerar till fabriken DevTest Labs, väljer knappen för att lägga till en virtuell dator och väljer önskad Marketplace-avbildning och artefakter. I stället för att välja knappen **skapa** för att skapa den nya virtuella datorn väljer du **Visa Azure Resource Manager mall**"och sparar mallen som en. JSON-fil någonstans i mappen **GoldenImages** i din lagrings plats. Nästa gången du kör avbildnings fabriken skapas en anpassad avbildning.
 
 
 ## <a name="next-steps"></a>Nästa steg
-1. [Schemalägg din version och utgåva](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) att köra den avbildning fabriken med jämna mellanrum. Den uppdaterar din factory bilder med jämna mellanrum.
-2. Se fler gyllene bilder för din datafabrik. Du kan även försöka [skapa artefakter](devtest-lab-artifact-author.md) skript ytterligare delar av ditt VM-installationsåtgärder och ange artefakter i bilderna factory.
-4. Skapa en [avgränsa version och utgåva](/azure/devops/pipelines/overview?view=azure-devops-2019) att köra den **DistributeImages** skript separat. Du kan köra det här skriptet när du gör ändringar i Labs.json och hämta bilder som kopieras till målet labs utan att behöva återskapa alla bilder igen.
+1. [Schemalägg din version/version](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) så att du kan köra avbildnings fabriken med jämna mellanrum. Den uppdaterar regelbundet dina fabriks genererade avbildningar.
+2. Gör fler gyllene avbildningar för din fabrik. Du kan också överväga att [skapa artefakter](devtest-lab-artifact-author.md) för att skripta ytterligare delar av konfigurations uppgifterna för virtuella datorer och inkludera artefakterna i dina fabriks avbildningar.
+4. Skapa en [separat version/version](/azure/devops/pipelines/overview?view=azure-devops-2019) för att köra **DistributeImages** -skriptet separat. Du kan köra det här skriptet när du gör ändringar i labb. JSON och hämta bilder som har kopierats till mål labb utan att behöva återskapa alla avbildningar igen.
 

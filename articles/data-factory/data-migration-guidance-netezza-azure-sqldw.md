@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 2844b48b3d832e8d9ec659ba657879d683016aee
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 762e7d4a7356c11171355b5325e77569e9acb1e2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217664"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555088"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Använd Azure Data Factory för att migrera data från en lokal Netezza-server till Azure 
 
@@ -156,7 +156,7 @@ Om det inte går att läsa in till Azure inom två timmar och kapaciteten för I
 
 Fortsätt att övervaka processor-och minnes användningen på den lokala IR-datorn och var redo att skala upp datorn eller skala ut till flera datorer när du ser att CPU och minne används fullt ut. 
 
-Om du stöter på fel som rapporteras av Azure Data Factory kopierings aktivitet kan du antingen minska samtidigheten eller `parallelCopies` inställningen i Azure Data Factory eller överväga att öka bandbredden eller I/O-åtgärder per sekund (IOPS) för nätverket och data Auktoriseringshanteraren. 
+Om du stöter på fel som rapporteras av Azure Data Factory kopierings aktivitet kan du antingen minska samtidigheten eller `parallelCopies` inställningen i Azure Data Factory eller överväga att öka bandbredden eller I/O-åtgärder per sekund (IOPS) för nätverket och data lager. 
 
 
 ### <a name="estimate-your-pricing"></a>Beräkna din prissättning 
@@ -190,7 +190,7 @@ Här är det uppskattade priset baserat på föregående antaganden:
 
 Mer information finns i följande artiklar och guider:
 
-- [Migrera data från en lokal databas för Relations informations lager till Azure med hjälp av Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+- [Migrera data från en lokal databas för Relations informations lager till Azure med hjälp av Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
 - [Netezza-anslutning](https://docs.microsoft.com/azure/data-factory/connector-netezza)
 - [ODBC-anslutning](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)

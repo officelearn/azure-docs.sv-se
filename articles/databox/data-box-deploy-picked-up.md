@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172672"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407027"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För a
 2. Kontrollera att datakopieringen till enheten är klar och att **Förbered för att skicka** lyckades.
 3. Stäng av enheten och avlägsna kablarna.
 4. Rulla ihop strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-5. Skicka ett e-postmeddelande till Quantium Solutions och be om upphämtning. Uppge tjänstreferensnumret som anges på Azure-portalen. Använd följande e-postmall: *Request for reverse shipping label with TAU code* (Begäran om returfraktsedel med TAU-kod). Inkludera följande information i e-postmeddelandet: 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions Australia skickar en returfraktsedel via e-post.
-7. Skriv ut returfraktsedeln och fäst den på leveranskartongen.
-8. Lämna paketet till fraktföretaget.
-
-Om det behövs kan du kontakta Quantium Solutions support på e-postadressen Azure@quantiumsolutions.com eller via telefon.
-
-För frågor om din beställning via telefonen:
-
-- Skicka ett e-postmeddelande om upphämtning först.
-- Ange namnet på din order på telefonen.
+5. Boka en upphämtning online på [DHL-länken](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 

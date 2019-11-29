@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012599"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561217"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Konfigurera kvarhållning i Time Series Insights
 
@@ -38,7 +38,7 @@ Detaljerad information för att bättre förstå de här inställningarna finns 
 
 1. Leta upp din befintliga Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
-1. Under rubriken **Inställningar** väljer du **Konfigurera**.
+1. Under rubriken **Inställningar** väljer du **lagrings konfiguration**.
 
     [![väljer Inställningar och sedan konfigurera](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
@@ -50,7 +50,7 @@ Detaljerad information för att bättre förstå de här inställningarna finns 
 
     [![data kvarhållning – Godkänn och spara.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
-1. Acceptera kryss rutan som anger att du har granskat dokumentationen och förstår de potentiella riskerna med data förlust. Konfigurera ändringarna genom att välja **Spara** .
+1. Läs dokumentationen för att förstå de potentiella riskerna med data förlust. Konfigurera ändringarna genom att välja **Spara** .
 
 ## <a name="next-steps"></a>Nästa steg
 

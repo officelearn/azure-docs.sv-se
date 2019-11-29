@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174133"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561927"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -33,7 +33,7 @@ En ansluten organisation är en extern Azure AD-katalog eller domän som du har 
 
 Anta till exempel att du arbetar på Sparbanken och vill samar beta med två externa organisationer: Graphic Design Institute och contoso. Du har fått anvisningar från din kontakt i Graphic Design Institute att de använder Azure AD, och att grafik Design Institute-användare har ett User Principal Name som slutar med `graphicdesigninstitute.com`. Och du har fått din kontakt på Contoso att de inte använder Azure AD än, men att Contosos användare har ett User Principal Name som slutar med `contoso.com`.
 
-Du kan konfigurera två anslutna organisationer – en för Graphic Design Institute med domän `graphicdesigninstitute.com`och en för Contoso med domän `contoso.com`. Om du sedan lägger till dessa två anslutna organisationer i en princip kan användare från varje organisation som har en User Principal Name som matchar principen begära åtkomst paket. Dessutom, eftersom Graphic Design Institute har identifierats som att använda Azure AD, och om Graphic Design Institute sedan har under domäner, till exempel `graphicdesigninstitute.example`, kommer användare med den User Principal Name också att kunna begära åtkomst paket med hjälp av samma princip.
+Du kan konfigurera två anslutna organisationer – en för Graphic Design Institute med domän `graphicdesigninstitute.com`och en för Contoso med domän `contoso.com`. Om du sedan lägger till dessa två anslutna organisationer i en princip kan användare från varje organisation som har en User Principal Name som matchar principen begära åtkomst paket. Dessutom, eftersom Graphic Design Institute har identifierats som att använda Azure AD, och om Graphic Design Institute sedan har under domäner, till exempel `graphicdesigninstitute.example`, kommer användare med den User Principal Name också att kunna begära åtkomst paket med samma princip.
 
 ![Exempel på ansluten organisation](./media/entitlement-management-organization/connected-organization-example.png)
 
@@ -42,6 +42,10 @@ Hur användare från Azure AD-katalogen eller domänen kommer att autentiseras b
 - Azure AD
 - [Direkt Federation](../b2b/direct-federation.md)
 - [Eng ång slö sen ord](../b2b/one-time-passcode.md) (domän)
+
+Se följande videoklipp om du vill ha en demonstration av hur du lägger till en ansluten organisation:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
 ## <a name="add-a-connected-organization"></a>Lägga till en ansluten organisation
 

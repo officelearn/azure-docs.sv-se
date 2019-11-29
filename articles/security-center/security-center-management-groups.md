@@ -1,6 +1,6 @@
 ---
 title: Få överblick över hela organisationen för Azure Security Center | Microsoft Docs
-description: Lär dig mer om att få insyn i hela klient organisationen i Azure Security Center.
+description: Den här artikeln förklarar hur du hanterar din säkerhets position i stor skala genom att tillämpa principer för alla prenumerationer som är kopplade till din Azure Active Directory-klient.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,16 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582915"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559351"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
-Den här artikeln hjälper dig att komma igång genom att utföra flera åtgärder som maximerar fördelarna Azure Security Center ger. Genom att utföra de här åtgärderna kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt hantera din organisations säkerhets position i stor skala genom att tillämpa säkerhets principer över flera prenumerationer på ett samlings sätt.
-
+Den här artikeln förklarar hur du hanterar din organisations säkerhets position i stor skala genom att använda säkerhets principer för alla Azure-prenumerationer som är kopplade till din Azure Active Directory-klient.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,7 +39,7 @@ En detaljerad översikt över hanterings grupper finns i artikeln [organisera di
 Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrnings principer i hanterings grupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Även om hanterings grupper inte krävs för att publicera Security Center, rekommenderar vi starkt att du skapar minst en hanterings grupp så att rot hanterings gruppen skapas. När gruppen har skapats kommer alla prenumerationer i Azure AD-klienten att länkas till den. Instruktioner för PowerShell och mer information finns i [skapa hanterings grupper för resurs-och organisations hantering](../azure-resource-manager/management-groups-create.md).
 
  
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** > **hanterings grupper**.
 3. På huvud sidan väljer du **ny hanterings grupp.** 
 
@@ -49,11 +48,11 @@ Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrni
     - **Hanterings gruppens ID** är katalogens unika identifierare som används för att skicka kommandon i den här hanterings gruppen. Den här identifieraren kan inte redige ras när den används i hela Azure-systemet för att identifiera den här gruppen. 
     - Fältet visnings namn är det namn som visas i Azure Portal. Ett separat visnings namn är ett valfritt fält när du skapar hanterings gruppen och kan ändras när som helst.  
 
-      ![Skapa](./media/security-center-management-groups/create_context_menu.png)  
+      ![Create](./media/security-center-management-groups/create_context_menu.png)  
 5.  Välj **Spara**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visa hanterings grupper i Azure Portal
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Om du vill visa hanterings grupper väljer du **alla tjänster** på huvud menyn i Azure.
 3. Under **Allmänt**väljer du **hanteringsgrupper**.
 
@@ -94,7 +93,7 @@ För att få insyn i alla prenumerationer måste klient organisations administra
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Tilldela RBAC-roller till användare via Azure Portal: 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Om du vill visa hanterings grupper väljer du **alla tjänster** på huvud menyn i Azure och väljer sedan **hanteringsgrupper**.
 1.  Välj en hanterings grupp och klicka på **information**.
 
@@ -141,7 +140,7 @@ För att få insyn i alla prenumerationer måste klient organisations administra
 ### <a name="open-or-refresh-security-center"></a>Öppna eller uppdatera Security Center
 När du har förhöjd åtkomst, öppna eller uppdatera Azure Security Center för att kontrol lera att du har insyn i alla prenumerationer under Azure AD-klienten. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Se till att du väljer alla prenumerationer i prenumerations väljaren som du vill visa i Security Center.
 
     ![Skärm bild för prenumerations väljare](./media/security-center-management-groups/subscription-selector.png)

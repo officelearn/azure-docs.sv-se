@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: e2460ab760811a3db39058eac74d519ca09046c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889814"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561599"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
-Microsoft Azure Service Bus är en helt hanterad integrerad meddelandekoordinator för företag. Service Bus kan frikoppla program och tjänster. Service Bus erbjuder en tillförlitlig och säker plattform för asynkron data och tillstånds överföring.
+Microsoft Azure Service Bus är en helt hanterad integrerad meddelandekoordinator för företag. Service Bus kan frikoppla program och tjänster. Service Bus erbjuder en tillförlitlig och säker plattform för asynkron överföring av data och tillstånd.
 
 Data överförs mellan olika program och tjänster med *meddelanden*. Ett meddelande är i binärformat och kan innehålla JSON, XML eller bara text. Mer information finns i [integrerings tjänster](https://azure.com/integration).
 
@@ -47,7 +47,7 @@ Meddelanden i köer ordnas och tidsstämplas vid ankomsten. När de har godkänt
 
 Du kan också använda *ämnen* för att skicka och ta emot meddelanden. Medan en kö oftast används för kommunikation från punkt till punkt är ämnen användbara i scenarier med publicering/prenumeration.
 
-![Avsnitt](./media/service-bus-messaging-overview/about-service-bus-topic.png)
+![Ämne](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
 Ämnen kan ha flera oberoende prenumerationer. En prenumerant på ett ämne får en kopia av varje meddelande. Prenumerationer kallas entiteter. Prenumerationerna är kvar, men kan förfalla eller autota bort.
 

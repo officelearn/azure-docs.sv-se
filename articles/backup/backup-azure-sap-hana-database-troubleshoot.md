@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 9c6e4c66d96b02c2d5b4b4fe70fe6e6798c4e2c6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b4c39c631963a358dcdc9d1eafe954a85a9499ad
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285920"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554866"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -20,16 +20,61 @@ Se [nödvändiga komponenter](tutorial-backup-sap-hana-db.md#prerequisites) och 
 
 ## <a name="common-user-errors"></a>Vanliga användar fel
 
-| Fel                                | Felmeddelande                    | Möjliga orsaker                                              | Rekommenderad åtgärd                                           |
-| ------------------------------------ | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| UserErrorInOpeningHanaOdbcConnection | Det gick inte att ansluta till HANA-systemet | SAP HANA-instansen kan vara avstängd. <br> De behörigheter som krävs för Azure Backup för att interagera med HANA-databasen har inte angetts. | Kontrol lera om SAP HANA databasen är igång. Om databasen är igång kontrollerar du om alla nödvändiga behörigheter är inställda. Om någon av behörigheterna saknas kör du för [registrerings skriptet](https://aka.ms/scriptforpermsonhana) för att lägga till de behörigheter som saknas. |
-| UserErrorHanaInstanceNameInvalid | Den angivna SAP HANA-instansen är antingen ogiltig eller kan inte hittas | Flera SAP HANA-instanser på en enskild virtuell Azure-dator kan inte säkerhets kopie ras. | Kör för [registrerings skriptet](https://aka.ms/scriptforpermsonhana) på den SAP HANA-instans som du vill säkerhetskopiera. Kontakta Microsoft-supporten om problemet kvarstår. |
-| UserErrorHanaUnsupportedOperation | Den angivna SAP HANA åtgärden stöds inte | Azure Backup för SAP HANA stöder inte stegvis säkerhets kopiering och åtgärder som utförs på SAP HANA ursprungliga klienter (Studio/cockpit/DBA-cockpit) | Mer information finns [här](sap-hana-backup-support-matrix.md#scenario-support). |
-| UserErrorHANAPODoesNotSupportBackupType | Den här SAP HANA databasen har inte stöd för den begärda säkerhets kopierings typen | Azure Backup stöder inte stegvis säkerhets kopiering och säkerhets kopiering med ögonblicks bilder | Mer information finns [här](sap-hana-backup-support-matrix.md#scenario-support). |
-| UserErrorHANALSNValidationFailure | Logg kedjan för säkerhets kopiering är bruten | Mål platsen för säkerhets kopieringen kan ha uppdaterats från backint till fil systemet, eller så har den körbara filen backint ändrats | Utlös en fullständig säkerhets kopiering för att lösa problemet |
-| UserErrorIncomaptibleSrcTargetSystsemsForRestore | Käll-och mål systemen för återställning är inkompatibla | Mål systemet för återställning är inte kompatibelt med källan | Se SAP NOTE [1642148](https://launchpad.support.sap.com/#/notes/1642148) för mer information om de återställnings typer som stöds idag |
-| UserErrorSDCtoMDCUpgradeDetected | SDC till MDC-uppgradering upptäcktes | SAP HANA-instansen har uppgraderats från SDC till MDC. Säkerhets kopieringar kommer att Miss lyckas efter uppdateringen. | Följ stegen som beskrivs i [avsnittet Uppgradera från SAP HANA 1,0 till 2,0](#upgrading-from-sap-hana-10-to-20) för att lösa problemet |
-| UserErrorInvalidBackintConfiguration | En ogiltig backint-konfiguration upptäcktes | De sekundära parametrarna har angetts felaktigt för Azure Backup | Kontrol lera om följande (backint) parametrar har angetts: <br> * [catalog_backup_using_backint: sant] <br>  * [enable_accumulated_catalog_backup: falskt] <br> * [parallel_data_backup_backint_channels: 1] <br>* [log_backup_timeout_s: 900)] <br> * [backint_response_timeout: 7200] <br> Om det finns backint-baserade parametrar i värden tar du bort dem. Om parametrarna inte finns på VÄRDnivå men har ändrats manuellt på en databas nivå, återställer du dem till lämpliga värden enligt beskrivningen ovan. Du kan också köra [stoppa skyddet och behålla säkerhets kopierings data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) från Azure Portal och sedan välja **återuppta säkerhets kopiering**. |
+###  <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection 
+
+| Felmeddelande      | Det gick inte att ansluta till HANA-systemet                             |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | SAP HANA-instansen kan vara avstängd.<br/>De behörigheter som krävs för Azure Backup för att interagera med HANA-databasen har inte angetts. |
+| Rekommenderad åtgärd | Kontrol lera om SAP HANA databasen är igång. Om databasen är igång kontrollerar du om alla nödvändiga behörigheter är inställda. Om någon av behörigheterna saknas kör du för [registrerings skriptet](https://aka.ms/scriptforpermsonhana) för att lägga till de behörigheter som saknas. |
+
+###  <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid 
+
+| Felmeddelande      | Den angivna SAP HANA-instansen är antingen ogiltig eller kan inte hittas |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | Flera SAP HANA-instanser på en enskild virtuell Azure-dator kan inte säkerhets kopie ras. |
+| Rekommenderad åtgärd | Kör för [registrerings skriptet](https://aka.ms/scriptforpermsonhana) på den SAP HANA-instans som du vill säkerhetskopiera. Kontakta Microsoft-supporten om problemet kvarstår. |
+
+###  <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation 
+
+| Felmeddelande      | Den angivna SAP HANA åtgärden stöds inte             |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | Azure Backup för SAP HANA stöder inte stegvis säkerhets kopiering och åtgärder som utförs på SAP HANA ursprungliga klienter (Studio/cockpit/DBA-cockpit) |
+| Rekommenderad åtgärd | Mer information finns [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+
+###  <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType 
+
+| Felmeddelande      | Den här SAP HANA databasen har inte stöd för den begärda säkerhets kopierings typen |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | Azure Backup stöder inte stegvis säkerhets kopiering och säkerhets kopiering med ögonblicks bilder |
+| Rekommenderad åtgärd | Mer information finns [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+
+###  <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure 
+
+| Felmeddelande      | Logg kedjan för säkerhets kopiering är bruten                                   |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | Mål platsen för säkerhets kopieringen kan ha uppdaterats från backint till fil systemet, eller så har den körbara filen backint ändrats |
+| Rekommenderad åtgärd | Utlös en fullständig säkerhets kopiering för att lösa problemet                   |
+
+###  <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore 
+
+| Felmeddelande      | Käll-och mål systemen för återställning är inkompatibla   |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | Mål systemet för återställning är inte kompatibelt med källan |
+| Rekommenderad åtgärd | Se SAP NOTE [1642148](https://launchpad.support.sap.com/#/notes/1642148) för mer information om de återställnings typer som stöds idag |
+
+###  <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected 
+
+| Felmeddelande      | SDC till MDC-uppgradering upptäcktes                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | SAP HANA-instansen har uppgraderats från SDC till MDC. Säkerhets kopieringar kommer att Miss lyckas efter uppdateringen. |
+| Rekommenderad åtgärd | Följ stegen som beskrivs i [avsnittet Uppgradera från SAP HANA 1,0 till 2,0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) för att lösa problemet |
+
+###  <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration 
+
+| Felmeddelande      | En ogiltig backint-konfiguration upptäcktes                       |
+| ------------------ | ------------------------------------------------------------ |
+| Möjliga orsaker    | De sekundära parametrarna har angetts felaktigt för Azure Backup |
+| Rekommenderad åtgärd | Kontrol lera om följande (backint) parametrar har angetts:<br/>\* [catalog_backup_using_backint: true]<br/>\* [enable_accumulated_catalog_backup: falskt]<br/>\* [parallel_data_backup_backint_channels: 1]<br/>\* [log_backup_timeout_s: 900)]<br/>\* [backint_response_timeout: 7200]<br/>Om det finns backint-baserade parametrar i värden tar du bort dem. Om parametrarna inte finns på VÄRDnivå men har ändrats manuellt på en databas nivå, återställer du dem till lämpliga värden enligt beskrivningen ovan. Du kan också köra [stoppa skyddet och behålla säkerhets kopierings data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) från Azure Portal och sedan välja **återuppta säkerhets kopiering**. |
 
 ## <a name="restore-checks"></a>Återställnings kontroller
 

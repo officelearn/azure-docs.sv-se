@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bf25967133901aca911c0ad3a69d43c75bb816a0
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958025"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558556"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -66,7 +66,7 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 
 | Nivå | Inkluderade kategorier |
 |-|-|
-|**Inaktiverad** | Ingen |
+|**Inaktiverad** | Inget |
 |**Fels** | Fel, kritiskt |
 |**Honom** | Varning, fel, kritiskt|
 |**Mer** | Information, varning, fel, kritiskt|
@@ -189,14 +189,14 @@ Med den nya [Azure Monitor-integreringen](https://aka.ms/appsvcblog-azmon)kan du
 
 I följande tabell visas de logg typer och beskrivningar som stöds: 
 
-| Loggtyp | Windows-support | Linux-support | Beskrivning |
+| Loggtyp | Windows-support | Stöd för Linux (Docker) | Beskrivning |
 |-|-|-|
-| AppServiceConsoleLogs | TBA | Ja | Standardutdata och standard fel |
+| AppServiceConsoleLogs | Kommer senare | Ja | Standardutdata och standard fel |
 | AppServiceHTTPLogs | Ja | Ja | Webb server loggar |
 | AppServiceEnvironmentPlatformLogs | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
 | AppServiceAuditLogs | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
-| AppServiceFileAuditLogs | TBA | TBA | Fil ändringar via FTP och kudu |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Program loggar |
+| AppServiceFileAuditLogs | Kommer senare | Kommer senare | Fil ändringar via FTP och kudu |
+| AppServiceAppLogs | Kommer senare | Java SE & Tomcat | Program loggar |
 
 ## <a name="nextsteps"></a>Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Så här återger du anpassade data på en raster karta i Azure Maps | Microsoft Docs
-description: Återge anpassade data på en raster karta i Azure Maps.
+description: I den här artikeln får du lära dig hur du återger anpassade data på en raster karta med Azure Maps tjänsten för statisk avbildning.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915757"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559984"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
@@ -23,7 +23,7 @@ Den här artikeln förklarar hur du använder [tjänsten för statisk avbildning
 Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan du använda Postman-programmet. Du kan använda [API: er för Azure Maps data tjänst](https://docs.microsoft.com/rest/api/maps/data) för att lagra och återge överlägg.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
@@ -35,7 +35,7 @@ För att slutföra procedurerna i den här artikeln måste du först skapa ett A
 > [!Note]
 > Proceduren i det här avsnittet kräver ett Azure Maps konto på pris nivån S0 eller S1.
 
-Azure Maps-kontots S0-nivå stöder endast en instans av `pins` parametern. Du kan rendera upp till fem kartnålar som anges i URL-begäran med en anpassad avbildning.
+Azure Maps-kontots S0-nivå stöder endast en instans av `pins`-parametern. Du kan rendera upp till fem kartnålar som anges i URL-begäran med en anpassad avbildning.
 
 Slutför följande steg för att återge kartnålar med etiketter och en anpassad bild:
 
@@ -48,7 +48,7 @@ Slutför följande steg för att återge kartnålar med etiketter och en anpassa
 3. Välj metoden Hämta HTTP på fliken Builder och ange följande URL för att skapa en GET-begäran.
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
     Här är den resulterande bilden:
 
@@ -68,7 +68,7 @@ Du kan också hämta plats informationen för sökvägen och PIN-koden genom att
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. På fliken **parametrar** anger du följande nyckel/värde-par som används för URL: en för post-begäran. `subscription-key` Ersätt värdet med din Azure Maps prenumerations nyckel.
+2. På fliken **parametrar** anger du följande nyckel/värde-par som används för URL: en för post-begäran. Ersätt `subscription-key`-värdet med din Azure Maps prenumerations nyckel.
     
     ![Nyckel/värde-parametrar i Postman](./media/how-to-render-custom-data/postman-key-vals.png)
 
@@ -154,7 +154,7 @@ Du kan också hämta plats informationen för sökvägen och PIN-koden genom att
    }
    ```
 
-7. Använd det `udId` värde som togs emot från data överförings-API: n för att återge funktioner på kartan. Det gör du genom att öppna en ny flik i den samling som du skapade i föregående avsnitt. Välj metoden Hämta HTTP på fliken Builder och ange denna URL för att få en GET-begäran:
+7. Använd `udId`-värdet som tagits emot från API: et för data överföring för att återge funktioner på kartan. Det gör du genom att öppna en ny flik i den samling som du skapade i föregående avsnitt. Välj metoden Hämta HTTP på fliken Builder och ange denna URL för att få en GET-begäran:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -190,7 +190,7 @@ Du kan ändra utseendet på en polygon genom att använda format modifierare med
 > Proceduren i det här avsnittet kräver ett Azure Maps konto i pris nivån S1.
 
 
-Du kan göra kartnålar och deras etiketter större eller mindre med hjälp `sc` av modifieraren skalnings format. Den här modifieraren tar ett värde som är större än noll. Värdet 1 är standard skalan. Värden som är större än 1 gör PIN-koderna större och värden som är mindre än 1 blir mindre. Mer information om format modifierare finns i [Parametrar för statisk avbildnings tjänst Sök väg](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Du kan göra kartnålar och deras etiketter större eller mindre med hjälp av `sc` skal formats modifieraren. Den här modifieraren tar ett värde som är större än noll. Värdet 1 är standard skalan. Värden som är större än 1 gör PIN-koderna större och värden som är mindre än 1 blir mindre. Mer information om format modifierare finns i [Parametrar för statisk avbildnings tjänst Sök väg](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Följ dessa steg om du vill återge en cirkel och kartnålar med anpassade etiketter:

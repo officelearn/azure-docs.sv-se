@@ -4,16 +4,16 @@ description: I den här artikeln får du lära dig hur du skapar och hanterar s�
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173423"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554894"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa principer för Azure Recovery Services säkerhets kopiering med REST API
 
-Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery Services-valv beskrivs i [princip REST API dokumentet](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Låt oss använda det här dokumentet som en referens för att skapa en princip för säkerhets kopiering av virtuella Azure-datorer.
+Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery Services-valv beskrivs i [princip REST API dokumentet](/rest/api/backup/protectionpolicies/createorupdate). Låt oss använda det här dokumentet som en referens för att skapa en princip för säkerhets kopiering av virtuella Azure-datorer.
 
 ## <a name="backup-policy-essentials"></a>Säkerhets kopierings princip Essentials
 
@@ -46,10 +46,10 @@ Om du till exempel vill skapa en princip för säkerhets kopiering av virtuella 
 
 |Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Egenskaper för ProtectionPolicyResource        |
-|taggar     |         | Objekt        |  Resurstaggar       |
+|properties     |   Sant      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Egenskaper för ProtectionPolicyResource        |
+|tags     |         | Objekt        |  Resurstaggar       |
 
-En fullständig lista över definitioner i begär ande texten finns i [säkerhets kopierings policyn REST API-dokument](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
+En fullständig lista över definitioner i begär ande texten finns i [säkerhets kopierings policyn REST API-dokument](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### <a name="example-request-body"></a>Exempel på begär ande text
 
@@ -146,7 +146,7 @@ Principen säger:
 > [!IMPORTANT]
 > Tids formaten för schema och kvarhållning stöder endast DateTime. De har inte stöd för själva tids formatet.
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>Svar
 
 Skapande/uppdatering av säkerhets kopierings policy är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -154,7 +154,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |    [Skydd PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Skydd PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 accepterad     |         |     Accept    |
 
 ### <a name="example-responses"></a>Exempel svar

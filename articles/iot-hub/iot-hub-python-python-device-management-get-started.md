@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: eb5085db10c5763a4173f460eabde6afcccd5aff
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 514f4b26a708a6fec30a1f54cfe6da6d1b58b79d
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000447"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555518"
 ---
 # <a name="get-started-with-device-management-python"></a>Kom igång med enhets hantering (python)
 
@@ -35,7 +35,7 @@ I slutet av den här självstudien har du två python-konsol program:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -63,13 +63,9 @@ I det här avsnittet får du:
     pip install azure-iot-device
     ```
 
-   > [!NOTE]
-   > PIP-paketen för Azure-iothub-service-client är bara tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
-
 2. Skapa en fil med namnet **dmpatterns_getstarted_device. py** i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner i början av filen **dmpatterns_getstarted_device. py** .
+3. Lägg till följande `import`-instruktioner i början av filen **dmpatterns_getstarted_device. py** .
 
     ```python
     import threading
@@ -78,7 +74,7 @@ I det här avsnittet får du:
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. Lägg till variabeln **CONNECTION_STRING** . `{deviceConnectionString}` Ersätt placeholder-värdet med enhets anslutnings strängen. Du har kopierat den här anslutnings strängen tidigare i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).  
+4. Lägg till variabeln **CONNECTION_STRING** . Ersätt `{deviceConnectionString}` placeholder-värdet med enhets anslutnings strängen. Du har kopierat den här anslutnings strängen tidigare i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -161,12 +157,12 @@ I det här avsnittet skapar du en python-konsol-app som initierar en fjärromsta
     ```
 
    > [!NOTE]
-   > PIP-paketen för Azure-iothub-service-Client och Azure-iothub-Device-client är för närvarande endast tillgängliga för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   > PIP-paketet för Azure-iothub-service-client är för närvarande endast tillgängligt för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) post.
    >
 
 2. Skapa en fil med namnet **dmpatterns_getstarted_service. py** i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner i början av filen **dmpatterns_getstarted_service. py** .
+3. Lägg till följande `import`-instruktioner i början av filen **dmpatterns_getstarted_service. py** .
 
     ```python
     import sys, time
@@ -175,7 +171,7 @@ I det här avsnittet skapar du en python-konsol-app som initierar en fjärromsta
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-4. Lägg till följande variabel deklarationer. Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen.](#get-the-iot-hub-connection-string) `{IoTHubConnectionString}` Ersätt placeholder-värdet med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub.](#register-a-new-device-in-the-iot-hub) `{deviceId}`
+4. Lägg till följande variabel deklarationer. Ersätt `{IoTHubConnectionString}` placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Ersätt `{deviceId}` placeholder-värdet med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

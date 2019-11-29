@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 70e6bdfcf9718244632ad02e09d3ddadee71a617
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: eb204701b42436a5ae95bac97ed6fd97cf272860
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311560"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561872"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
 
@@ -33,7 +33,7 @@ Genom att använda vågrät skalning kan du skala antalet instanser automatiskt,
 
 1. I Azure Portal går du till Azure Datautforskaren kluster resursen. Under **Inställningar**väljer du **skala ut**. 
 
-2. I fönstret **skala ut** väljer du den metod för autoskalning som du vill använda: **Manuell skalning**, **optimerad**autoskalning eller **anpassad**autoskalning.
+2. I fönstret **skala ut** väljer du den metod för autoskalning som du vill använda: **manuell skalning**, **optimerad autoskalning**eller **anpassad autoskalning**.
 
 ### <a name="manual-scale"></a>Manuell skalning
 
@@ -41,11 +41,11 @@ Manuell skalning är standardinställningen när klustret skapas. Klustret har e
 
    ![Metod för manuell skalning](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-### <a name="optimized-autoscale"></a>Optimerad autoskalning
+### <a name="optimized-autoscale-preview"></a>Optimerad autoskalning (för hands version)
 
 Optimerad autoskalning är den rekommenderade automatiska skalnings metoden. Med den här metoden optimeras kluster prestanda och-kostnader. Om klustret närmar sig ett tillstånd med under användning skalas det i. Den här åtgärden sänker kostnaderna men behåller prestanda nivån. Om klustret närmar sig ett tillstånd för överförbrukning kommer det att skalas ut för att upprätthålla optimala prestanda. Så här konfigurerar du optimerad autoskalning:
 
-1. Välj **optimerad**autoskalning. 
+1. Välj **optimerad autoskalning**. 
 
 1. Välj ett minsta antal instanser och maximalt antal instanser. Intervallet för automatisk skalning av klustret mellan de två talen, baserat på belastning.
 
@@ -59,7 +59,7 @@ Optimerad autoskalning börjar fungera. Dess åtgärder visas nu i Azures aktivi
 
 Med hjälp av anpassad autoskalning kan du skala klustret dynamiskt baserat på mått som du anger. Följande bild visar flödet och stegen för att konfigurera anpassad autoskalning. Mer information finns i bilden.
 
-1. I rutan **namn på inställning** för autoskalning anger du ett namn, till exempel utskalning *: cache-användning*. 
+1. I rutan **namn på inställning för autoskalning** anger du ett namn, till exempel *utskalning: cache-användning*. 
 
    ![Skalnings regel](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
 
@@ -74,7 +74,7 @@ Med hjälp av anpassad autoskalning kan du skala klustret dynamiskt baserat på 
     | Inställning | Beskrivning och värde |
     | --- | --- |
     | **Tids mängd** | Välj ett agg regerings kriterium, till exempel **Average**. |
-    | **Mått namn** | Välj det mått som du vill att skalnings åtgärden ska baseras på, till exempel **användningen**av cachen. |
+    | **Mått namn** | Välj det mått som du vill att skalnings åtgärden ska baseras på, till exempel **användningen av cachen**. |
     | **Statistik för tids kornig het** | Välj mellan **genomsnitt**, **lägsta**, **högsta**och **Sum**. |
     | **Operator** | Välj lämpligt alternativ, till exempel **större än eller lika**med. |
     | **Fastställd** | Välj ett lämpligt värde. Till exempel för cachelagring är 80 procent en lämplig start punkt. |

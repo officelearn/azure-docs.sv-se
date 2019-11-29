@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174906"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74553999"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa, lägga till och ta bort tilldelningar för ett Access-paket i hantering av Azure AD-rättigheter
 
@@ -76,6 +76,24 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 1. Klicka på **Lägg till** för att tilldela de valda användarna direkt till åtkomst paketet.
 
     Efter en liten stund klickar du på **Uppdatera** för att se användarna i listan tilldelningar.
+
+## <a name="remove-an-assignment"></a>Ta bort en tilldelning
+
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+
+1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
+
+1. Klicka på **tilldelningar**på den vänstra menyn.
+ 
+1. Klicka på kryss rutan bredvid den användare vars tilldelning du vill ta bort från åtkomst paketet. 
+
+1. Klicka på knappen **ta bort** högst upp i det vänstra fönstret. 
+ 
+    ![Tilldelningar – ta bort användare från Access-paket](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+
+    Ett meddelande visas som talar om att tilldelningen har tagits bort. 
 
 ## <a name="next-steps"></a>Nästa steg
 

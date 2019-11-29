@@ -16,12 +16,12 @@ ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 5ed9088bcc5776fe1fb0d09e6ae771adabb1b879
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802675"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555547"
 ---
 # <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Hantera åtkomst till Azure-resurser för externa gäst användare som använder RBAC
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill lägga till en gäst användare till din katalog med
 
 1. Kontrol lera att organisationens inställningar för externt samarbete är konfigurerade så att du får bjuda in gäster. Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../active-directory/b2b/delegate-invitations.md).
 
-1. Klicka på **Azure Active Directory** > **användare** > **nya gäst användare**i Azure Portal.
+1. Klicka på **Azure Active Directory** > **användare** > **ny gäst användare**i Azure Portal.
 
     ![Ny gäst användar funktion i Azure Portal](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -65,13 +65,13 @@ Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-sam
 
 I RBAC för att bevilja åtkomst tilldelar du en roll. Om du vill bevilja åtkomst till en gäst användare följer du [samma steg](role-assignments-portal.md#add-a-role-assignment) som för en medlems användare, grupp, tjänstens huvud namn eller hanterad identitet. Följ dessa steg om du vill bevilja åtkomst till en gäst användare i olika omfång.
 
-1. Klicka på **Alla tjänster** på Azure Portal.
+1. Klicka på **Alla tjänster** i Azure-portalen.
 
 1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
 
 1. Klicka på den aktuella resursen.
 
-1. Klicka på **åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
     Följande skärm bild visar ett exempel på bladet åtkomst kontroll (IAM) för en resurs grupp. Om du gör ändringar i åtkomst kontrollen gäller de bara för resurs gruppen.
 
@@ -101,13 +101,13 @@ I RBAC för att bevilja åtkomst tilldelar du en roll. Om du vill bevilja åtkom
 
 Om gäst användaren inte finns i din katalog än kan du bjuda in användaren direkt från fönstret Lägg till roll tilldelning.
 
-1. Klicka på **Alla tjänster** på Azure Portal.
+1. Klicka på **Alla tjänster** i Azure-portalen.
 
 1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
 
 1. Klicka på den aktuella resursen.
 
-1. Klicka på **åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar i det här omfånget.
 
@@ -165,7 +165,7 @@ Innan du tar bort en gäst användare från en katalog bör du först ta bort al
 
 1. Klicka på **Ja**i det borttagnings meddelande som visas.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>Gäst användare kan inte bläddra i katalogen
 
@@ -203,7 +203,7 @@ Om en gäst användare har beviljats åtkomst till en katalog, men de inte ser d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal](../active-directory/b2b/add-users-administrator.md)
+- [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/b2b/add-users-administrator.md)
 - [Egenskaper för en Azure Active Directory B2B-samarbets användare](../active-directory/b2b/user-properties.md)
 - [Elementen i e-postinbjudanen B2B – Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
-- [Lägga till en gäst användare som en medadministratör](classic-administrators.md#adding-a-guest-user-as-a-co-administrator)
+- [Lägg till en gäst användare som en medadministratör](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

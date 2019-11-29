@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 34762d561edfa5b37b1841c55f3fff6a4b8337a3
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c74cc5cc65f16eb38ead7c09b5e662cd2463af35
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240505"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555289"
 ---
 # <a name="connect-windows-security-events"></a>Ansluta till Windows säkerhetshändelser 
 
@@ -29,9 +29,9 @@ ms.locfileid: "71240505"
 Du kan strömma alla säkerhets händelser från Windows-servrar som är anslutna till din Azure Sentinel-arbetsyta. Med den här anslutningen kan du Visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig bättre insikt i din organisations nätverk och förbättrar dina säkerhets åtgärder.  Du kan välja vilka händelser som ska strömmas:
 
 - **Alla händelser** – alla Windows-säkerhets-och AppLocker-händelser.
-- **Vanliga** – en standard uppsättning händelser för gransknings syfte. En fullständig användar Gransknings logg ingår i den här uppsättningen. Den här uppsättningen innehåller till exempel både användar inloggnings-och användar inloggnings händelser (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
+- **Vanliga** – en standard uppsättning händelser för gransknings syfte. En fullständig användar Gransknings logg ingår i den här uppsättningen. Den här uppsättningen innehåller till exempel både användar inloggnings-och användar inloggnings händelser (händelse-ID 4634). Vi inkluderar gransknings åtgärder som säkerhets grupps ändringar, viktiga Kerberos-åtgärder för domänkontrollanter och andra händelser som rekommenderas av bransch organisationer.
 
-Händelser som har mycket små volymer ingick i den gemensamma som huvudsakliga skälet att välja det över alla händelser är att minska mängden och inte för att filtrera bort specifika händelser.
+Händelser som har mycket låg volym ingår i den gemensamma uppsättningen som huvud motivation att välja den över alla händelser är att minska volymen och inte filtrera bort vissa händelser.
 - **Minimal** – en liten uppsättning händelser som kan tyda på potentiella hot. Genom att aktivera det här alternativet kan du inte ha en fullständig Gransknings logg.  Den här uppsättningen omfattar bara händelser som kan tyda på en lyckad överträdelse och viktiga händelser som har en mycket låg volym. Den här uppsättningen innehåller till exempel användaren lyckade och misslyckade inloggningar (händelse-ID 4624, 4625), men innehåller inte information om utloggning, vilket är viktigt för granskning men inte meningsfullt för identifiering och har en relativt hög volym. Merparten av data volymen för den här mängden är inloggnings händelser och händelse för att skapa processer (händelse-ID 4688).
 - **Ingen** -inga säkerhets-eller AppLocker-händelser.
 
@@ -43,23 +43,23 @@ Händelser som har mycket små volymer ingick i den gemensamma som huvudsakliga 
 
 I följande lista finns en fullständig analys av händelse-ID: n för säkerhet och app Locker för varje uppsättning:
 
-| Datanivå | Insamlade händelser indikatorer |
+| Data nivå | Insamlade händelse indikatorer |
 | --- | --- |
-| Minimalt | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
-| | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
+| Små | 1102, 4624, 4625, 4657, 4663, 4688, 4700, 4702, 4719, 4720, 4722, 4723, 4724, 4727, 4728, 4732, 4735, 4737, 4739, 4740, 4754, 4755,,,,,,, |
+| | 4756, 4767, 4799, 4825, 4946, 4948, 4956, 5024, 5033, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222 |
 | Common | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
-| |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
-| | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
-| | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
-| | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
-| | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
-| | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+| |  4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697,,,,,, |
+| | 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4733, 4732, 4735, 4737, |
+| | 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771,,,,,, |
+| | 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902,,,,,, |
+| | 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137, 5140, 5145, 5632, 6144, 6145, 6272,,,,,, |
+| | 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Konfigurera Windows Security Events Connector
 
 För att helt integrera dina Windows-säkerhetshändelser med Azure Sentinel:
 
-1. I Azure Sentinel-portalen väljer du **data kopplingar** och klickar sedan på panelen **Windows säkerhets händelser** . 
+1. I Azure Sentinel-portalen väljer du **data kopplingar** och klickar sedan på panelen **säkerhets händelser** . 
 1. Välj vilka data typer du vill strömma.
 1. Klicka på **Uppdatera**.
 6. Om du vill använda det relevanta schemat i Log Analytics för säkerhets händelser i Windows söker du efter **SecurityEvent**.

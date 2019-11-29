@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 490f2e7bb394d6593e51438c1e484a4677c963a3
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1da1bc330af9d2b652c44114e44dc6d6c9f0d575
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539353"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559175"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
@@ -93,6 +93,7 @@ Texten som följer är ett exempel på en flödes logg. Som du kan se finns det 
 1. Plats: det lagrings konto som används måste finnas i samma region som NSG.
 2. Ingen brand vägg: NSG Flow-loggar har inte publicerats som en [betrodd Microsoft-tjänst för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Se [Hur gör jag för att inaktivera brand väggen på mitt lagrings konto?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) om du vill inaktivera brand väggen. 
 3. Inga tjänst slut punkter: eftersom det finns en aktuell begränsning kan loggar bara skickas direkt till lagrings konton och inte via tjänst slut punkter. Se [Hur gör jag för att använda flödes loggar för NSG med tjänst slut punkter?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) för att få hjälp med att ta bort befintliga tjänst slut punkter.
+4. Själv hantering av nyckel rotation: om du ändrar/roterar åtkomst nycklarna till ditt lagrings konto slutar NSG Flow-loggar att fungera. För att åtgärda detta måste du inaktivera och sedan återaktivera NSG Flow-loggar.
 
 **Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: flödes loggning i Azure konfigureras på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att loggning av NSG-flöde är aktiverat på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Se [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) för mer information om nätverks säkerhets grupper. 
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 729371ede8df3dc21f70bc5742de52f2be874507
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 0fc23a63ba9c54896212f0a3f398b33514fbb5f1
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030000"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555349"
 ---
 # <a name="get-started-with-device-twins-python"></a>Kom igång med enhets garn (python)
 
@@ -27,7 +27,7 @@ I slutet av den här självstudien kommer du att ha två python-konsol program:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -56,7 +56,7 @@ I det här avsnittet skapar du en python-konsol-app som lägger till platsens me
    ```
 
    > [!NOTE]
-   > PIP-paketet för Azure-iothub-service-client är för närvarande endast tillgängligt för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   > PIP-paketet för Azure-iothub-service-client är för närvarande endast tillgängligt för Windows-operativsystem. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) post.
    >
 
 2. Skapa en ny **AddTagsAndQuery.py** -fil med hjälp av en text redigerare.
@@ -70,7 +70,7 @@ I det här avsnittet skapar du en python-konsol-app som lägger till platsens me
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Lägg till följande kod. Ersätt `[IoTHub Connection String]` med IoT Hub-anslutningssträngen som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Ersätt `[Device Id]` med enhets-ID: t som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
+4. Lägg till följande kod. Byt ut `[IoTHub Connection String]` med IoT Hub-anslutningssträngen som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Ersätt `[Device Id]` med enhets-ID: t som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -171,7 +171,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. Lägg till följande kod. Ersätt värdet för plats hållaren `[IoTHub Device Connection String]` med enhets anslutnings strängen som du kopierade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
+4. Lägg till följande kod. Ersätt `[IoTHub Device Connection String]` placeholder-värdet med enhets anslutnings strängen som du kopierade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f3b7826fdcc16d3094785507ec8263da39d6284
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d8e473afa2c8e7c0abf58e2dbc9caea030f2f5f
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881522"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554971"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -43,7 +43,7 @@ Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
-En prenumeration på tal tjänster krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard-prenumeration för tal tjänster: [Skapa en tal prenumeration](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
+En prenumeration på tal tjänster krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard-prenumeration för tal tjänster: [skapa en tal prenumeration](get-started.md#try-the-speech-service-using-a-new-azure-account).
 
 > [!NOTE]
 > Se till att skapa standard prenumerationer (S0), prenumerationer för kostnads fria utvärderings versioner (F0) stöds inte.
@@ -59,7 +59,7 @@ När du har skapat ett Azure-konto och en prenumeration på tal tjänster måste
 
 Innehåll som data, modeller, tester och slut punkter organiseras i **projekt** i [Custom Speech portalen](https://speech.microsoft.com/customspeech). Varje projekt är specifika för en domän och ett land/språk. Du kan till exempel skapa ett projekt för Call Center som använder engelska i USA.
 
-Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal**och klickar sedan på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **Data**, **testning**, **utbildning**och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
+Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal**och klickar sedan på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **data**, **testning**, **utbildning**och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Styrning i Azure DevTest Labs-infrastruktur
-description: Den här artikeln innehåller riktlinjer för styrning i Azure DevTest Labs-infrastruktur.
+title: Migrering och integrering av program i Azure DevTest Labs
+description: Den här artikeln innehåller rikt linjer för styrning av Azure DevTest Labs infrastruktur i samband med migrering och integrering av program.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,127 +10,127 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193007"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560638"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av infrastruktur för Azure DevTest Labs - programmigreringen och integration
-När din miljö för utveckling/test lab har upprättats, måste du tänka på följande frågor:
+# <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av Azure DevTest Labs infrastruktur – migrering och integrering av program
+När din utvecklings-/test labb miljö har upprättats måste du tänka på följande frågor:
 
-- Hur du för att använda miljön i gruppen?
-- Hur undviker du att du följa alla nödvändiga organisationens principer och underhålla flexibilitet för att lägga till värdet för ditt program?
+- Hur använder du miljön i ditt projekt team?
+- Hur ser du till att du följer de organisations principer som krävs och att du får en smidigare att lägga till värde i ditt program?
 
-## <a name="azure-marketplace-images-vs-custom-images"></a>Azure Marketplace-avbildningar och anpassade avbildningar
-
-### <a name="question"></a>Fråga
-När ska jag använda en Azure Marketplace-avbildning jämfört med min egen anpassade organisationens avbildning?
-
-### <a name="answer"></a>Svar
-Azure Marketplace ska användas som standard om du inte har specifika frågor eller organisationens krav. Några vanliga exempel är;
-
-- Konfiguration av komplexa programvara som kräver ett program för att ingå som en del av basavbildningen.
-- Installationen av ett program kan ta flera timmar, som inte är en effektiv användning av beräkningstid som ska läggas till på en Azure Marketplace-avbildning.
-- Utvecklare och testare behöver snabbt åtkomst till en virtuell dator och vill minimera tiden för installationen av en ny virtuell dator.
-- Efterlevnad eller föreskrifter (till exempel säkerhetsprinciper) som måste vara uppfyllda för alla datorer.
-
-Med hjälp av anpassade avbildningar ska inte betraktas lätt. Nu när du har att hantera VHD-filer för de underliggande Källavbildningen medför de extra komplexiteten. Du måste också regelbundet uppdatera dessa grundläggande avbildningar med programuppdateringar. Dessa uppdateringar innehåller nya uppdateringar av operativsystemet (OS), och eventuella uppdateringar eller konfigurationsändringar som krävs för programpaketet själva.
-
-## <a name="formula-vs-custom-image"></a>Formeln jämfört med anpassad avbildning
+## <a name="azure-marketplace-images-vs-custom-images"></a>Azure Marketplace-avbildningar eller anpassade avbildningar
 
 ### <a name="question"></a>Fråga
-När ska jag använda en formel jämfört med anpassad avbildning?
+När ska jag använda en Azure Marketplace-avbildning eller en egen anpassad organisations avbildning?
 
 ### <a name="answer"></a>Svar
-Normalt den avgörande faktorn som i det här scenariot är kostnaden och återanvända.
+Azure Marketplace bör användas som standard om du inte har särskilda problem eller organisations krav. Några vanliga exempel är:
 
-Om du har ett scenario där många användare/labs kräver en avbildning med en mängd program ovanpå basavbildningen kan minska du kostnaderna genom att skapa en anpassad avbildning. Det innebär att avbildningen skapas en gång. Det minskar tiden för installationen av den virtuella datorn och kostnader som uppstår på grund av den virtuella datorn körs när installationsprogrammet sker.
+- Komplex program vara som kräver att ett program ingår som en del av bas avbildningen.
+- Det kan ta flera timmar att installera och konfigurera ett program, vilket inte är en effektiv användning av beräknings tiden som ska läggas till på en Azure Marketplace-avbildning.
+- Utvecklare och testare behöver snabbt åtkomst till en virtuell dator och vill minimera installations tiden för en ny virtuell dator.
+- Efterlevnads-eller reglerings villkor (till exempel säkerhets principer) som måste finnas på plats för alla datorer.
 
-Ytterligare en faktor att notera är dock frekventa ändringarna till programpaketet. Om du kör varje dag bygger och kräver att programvaran på dina användares virtuella datorer, Överväg att använda en formel i stället för en anpassad avbildning.
+Att använda anpassade bilder bör inte anses vara lätt. De introducerar extra komplexitet eftersom du nu måste hantera VHD-filer för de underliggande bas avbildningarna. Du måste också regelbundet korrigera de grundläggande avbildningarna med program uppdateringar. Dessa uppdateringar omfattar nya operativ Systems uppdateringar och uppdateringar eller konfigurations ändringar som krävs för själva programpaketet.
 
-## <a name="use-custom-organizational-images"></a>Använd anpassade organisationens avbildningar
+## <a name="formula-vs-custom-image"></a>Formel kontra anpassad bild
 
 ### <a name="question"></a>Fråga
-Hur ställer jag in ett enkelt repeterbar process att ta med min organisations anpassade avbildningar i en labb-miljö?
+När ska jag använda en formel eller en anpassad avbildning?
 
 ### <a name="answer"></a>Svar
-Se [den här videon på från en avbildning Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Det här scenariot är ett avancerat scenario och skript som angetts är bara exempel på skript. Om några förändringar krävs, måste du hantera och underhålla de skript som används i din miljö.
+Normalt är den avgörande faktorn i det här scenariot kostnad och åter användning.
 
-Med labb för att skapa en anpassad avbildning pipeline i Azure Pipelines:
+Om du har ett scenario där många användare/labb kräver en avbildning med mycket program vara ovanpå bas avbildningen kan du minska kostnaderna genom att skapa en anpassad avbildning. Det innebär att avbildningen skapas en gång. Det minskar installations tiden för den virtuella datorn och kostnaden som uppstått på grund av att den virtuella datorn körs när installationen sker.
 
-- [Introduktion: Förbereda virtuella datorer på några minuter genom att ställa in en avbildning datafabrik i Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Bild fabriken – del 2! Konfigurera Azure Pipelines och Factory labb för att skapa virtuella datorer](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Bild fabriken – del 3: Spara anpassade avbildningar och distribuera till flera Labs](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [Video: Anpassad avbildning Factory med Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+En extra faktor att notera är dock frekvensen av ändringar i ditt program varu paket. Om du kör dagliga versioner och kräver att programmet finns på användarnas virtuella datorer, bör du överväga att använda en formel i stället för en anpassad avbildning.
 
-## <a name="patterns-to-set-up-network-configuration"></a>Mönster för att ställa in nätverkskonfiguration
+## <a name="use-custom-organizational-images"></a>Använd anpassade organisations avbildningar
 
 ### <a name="question"></a>Fråga
-Hur gör jag se till att utveckla och testa virtuella datorer kan inte nå det offentliga internet? Finns det några rekommenderade mönster du ställer in nätverkskonfigurationen?
+Hur kan jag skapa en lätt upprepnings bar process för att överföra mina anpassade organisations bilder till en DevTest Labs-miljö?
 
 ### <a name="answer"></a>Svar
-Ja. Det finns två aspekter att tänka på – inkommande och utgående trafik.
+Se [det här videoklippet om bild fabriks mönster](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Det här scenariot är ett avancerat scenario och de angivna skripten är endast exempel skript. Om det krävs några ändringar måste du hantera och underhålla skripten som används i din miljö.
 
-**Inkommande trafik** – om den virtuella datorn inte har en offentlig IP-adress, och sedan den inte går att nå via internet. En vanlig metod är att säkerställa att en princip på prenumerationsnivå har angetts, så att ingen användare kan skapa en offentlig IP-adress.
+Använda DevTest Labs för att skapa en anpassad avbildnings pipeline i Azure-pipelines:
 
-**Utgående trafik** – om du vill förhindra att virtuella datorer som kommer direkt att offentliga internet och tvinga trafik via en företagsbrandvägg, och du kan dirigera trafik lokalt via expressroute eller VPN, med hjälp av framtvingad routning.
+- [Introduktion: Hämta virtuella datorer på några minuter genom att konfigurera en avbildnings fabrik i Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
+- [Bild fabrik – del 2! Konfigurera Azure-pipelines och Factory Lab för att skapa virtuella datorer](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Bild fabrik – del 3: Spara anpassade bilder och distribuera dem till flera labb](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
+- [Video: anpassad avbildnings fabrik med Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+
+## <a name="patterns-to-set-up-network-configuration"></a>Mönster för att konfigurera nätverks konfiguration
+
+### <a name="question"></a>Fråga
+Hur gör jag för att se till att det inte går att komma åt de virtuella datorerna i utvecklings-och test miljön? Finns det några rekommenderade mönster för att konfigurera nätverks konfigurationen?
+
+### <a name="answer"></a>Svar
+Ja. Det finns två aspekter att överväga – inkommande och utgående trafik.
+
+**Inkommande trafik** – om den virtuella datorn inte har en offentlig IP-adress kan den inte nås via Internet. En vanlig metod är att se till att en princip för en prenumerations nivå anges, så att ingen användare kan skapa en offentlig IP-adress.
+
+**Utgående trafik** – om du vill förhindra att virtuella datorer går direkt till offentlig Internet och tvinga trafik genom en företags brand vägg, kan du dirigera trafik lokalt via Express Route eller VPN genom att använda Tvingad routning.
 
 > [!NOTE]
-> Glöm inte att lägga till undantag för den testmiljön artefaktlagringskonto, om du har en proxyserver som blockerar trafik utan proxy-inställningar.
+> Om du har en proxyserver som blockerar trafik utan proxyinställningar, ska du inte glömma att lägga till undantag till Labbets artefakt lagrings konto.
 
-Du kan också använda nätverkssäkerhetsgrupper för virtuella datorer eller undernät. Det här steget lägger till ytterligare ett lager för att tillåta / blockera trafik.
+Du kan också använda nätverks säkerhets grupper för virtuella datorer eller undernät. Det här steget lägger till ett extra skydds lager för att tillåta/blockera trafik.
 
 ## <a name="new-vs-existing-virtual-network"></a>Nytt eller befintligt virtuellt nätverk
 
 ### <a name="question"></a>Fråga
-När bör jag skapa ett nytt virtuellt nätverk för min labb-miljö och att använda ett befintligt virtuellt nätverk?
+När ska jag skapa ett nytt virtuellt nätverk för min DevTest Labs-miljö jämfört med att använda ett befintligt virtuellt nätverk?
 
 ### <a name="answer"></a>Svar
-Om dina virtuella datorer behöver interagera med befintlig infrastruktur, bör du försöka med ett befintligt virtuellt nätverk i labb-miljö. Dessutom om du använder ExpressRoute, kan du minska mängden virtuella nätverk / undernät så att du inte Fragmentera ditt IP-adressutrymme som hämtar tilldelade för användning i prenumerationerna. Du bör överväga att använda VNet peering mönstret här (typen Hub-Spoke modell). Den här metoden kan virtuella nätverk/undernät kommunikation mellan prenumerationer inom en viss region, även om peering mellan regioner är en upp-kommer funktion i Azure-nätverk.
+Om dina virtuella datorer behöver interagera med en befintlig infrastruktur bör du överväga att använda ett befintligt virtuellt nätverk i din DevTest Labs-miljö. Om du använder ExpressRoute kan du dessutom behöva minimera mängden virtuella nätverk/undernät så att du inte fragmenterar ditt IP-adressutrymme som tilldelas för användning i prenumerationerna. Du bör också överväga att använda VNet-peering-mönstret här (hubb-eker modell). Den här metoden aktiverar VNet/undernät-kommunikation mellan prenumerationer inom en angiven region, även om peering mellan regioner är en funktion i Azure-nätverk.
 
-I annat fall kan varje labb-miljö ha sitt eget virtuella nätverk. Observera dock att det inte finns [gränser](../azure-subscription-service-limits.md) på antalet virtuella nätverk per prenumeration. Standardvärdet är 50, även om den här gränsen kan höjas upp till 100.
+I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk. Observera dock att det finns [gränser](../azure-subscription-service-limits.md) för antalet virtuella nätverk per prenumeration. Standardvärdet är 50, men den här gränsen kan höjas till 100.
 
-## <a name="shared-public-or-private-ip"></a>Delade, offentliga eller privata IP
+## <a name="shared-public-or-private-ip"></a>Delad, offentlig eller privat IP-adress
 
 ### <a name="question"></a>Fråga
-När ska jag använda en delad IP och offentlig IP-adress jämfört med privata IP?
+När ska jag använda en delad IP-adress eller offentlig IP-adress jämfört med privat IP?
 
 ### <a name="answer"></a>Svar
-Om du använder en plats-till-plats VPN eller Express Route kan du använda privata IP-adresser så att dina datorer är tillgängliga via det interna nätverket, och kan inte användas via offentliga internet.
+Om du använder en plats-till-plats-VPN eller Express Route bör du överväga att använda privata IP-adresser så att datorerna kan nås via det interna nätverket och inte kan nås via offentliga Internet.
 
 > [!NOTE]
-> Labbägare kan ändra den här principen för undernätet för att säkerställa att ingen av misstag skapar offentliga IP-adresser för sina virtuella datorer. Prenumerationsägaren ska skapa en prenumerationsprincip som förhindrar att offentliga IP-adresser som skapas.
+> Labb ägare kan ändra den här under näts principen så att ingen av misstag skapar offentliga IP-adresser för sina virtuella datorer. Prenumerationens ägare bör skapa en prenumerations princip som förhindrar att offentliga IP-adresser skapas.
 
-När du använder delade offentliga IP-adresser kan dela en offentlig IP-adress i de virtuella datorerna i ett labb. Den här metoden kan vara användbart när du behöver att undvika att tränga in begränsningar i den offentliga IP-adresser för en viss prenumeration.
+När du använder delade offentliga IP-adresser delar de virtuella datorerna i ett labb en offentlig IP-adress. Den här metoden kan vara till hjälp när du behöver undvika att lösa begränsningar för offentliga IP-adresser för en specifik prenumeration.
 
-## <a name="limits-of-number-of-virtual-machines-per-user-or-lab"></a>Gränsen för antalet virtuella datorer per användare eller labb
+## <a name="limits-of-number-of-virtual-machines-per-user-or-lab"></a>Gränser för antalet virtuella datorer per användare eller labb
 
 ### <a name="question"></a>Fråga
-Finns det en regel när det gäller hur många virtuella datorer som jag bör ange per användare eller per labb?
+Finns det en regel vad gäller hur många virtuella datorer som jag ska ange per användare, eller per labb?
 
 ### <a name="answer"></a>Svar
-När du överväger hur många virtuella datorer per användare eller per labb, finns det tre huvudsakliga frågeställningar:
+När du överväger antalet virtuella datorer per användare eller per labb finns det tre huvudsakliga problem:
 
-- Den **total kostnad** som teamet kan användas för resurser i laboratoriet. Det är enkelt att skapa många datorer. Om du vill kontrollera kostnader, är en mekanism att begränsa antalet virtuella datorer per användare och/eller per labb
-- Det totala antalet virtuella datorer i ett labb påverkas av den [på prenumerationskvoter](../azure-subscription-service-limits.md) tillgängliga. En av den övre gränsen är 800 resursgrupper per prenumeration. DevTest Labs skapar för närvarande en ny resursgrupp för varje virtuell dator (såvida inte delade offentliga IP-adresser som används). Om det finns 10 labs i en prenumeration, labs kan anpassa cirka 79 virtuella datorer i varje labb (800 övre gräns – 10 resursgrupper för de 10 labbarna själva) = 79 virtuella datorer per labb.
-- Om labbet är ansluten till den lokala via Express Route (till exempel), finns **definierats IP-adressutrymmen tillgängliga** för VNet/undernätet. Så att virtuella datorer i labbet inte inte skapas (fel: Det går inte att hämta IP-adressen), labbägare kan ange max virtuella datorer per labb i linje med tillgängliga IP-adressutrymme.
+- Den **totala kostnaden** som teamet kan spendera på resurser i labbet. Det är enkelt att sätta upp många datorer. För att kontrol lera kostnaderna är en mekanism att begränsa antalet virtuella datorer per användare och/eller per labb
+- Det totala antalet virtuella datorer i ett labb påverkas av [prenumerations nivå kvoterna](../azure-subscription-service-limits.md) som är tillgängliga. En av de övre gränserna är 800 resurs grupper per prenumeration. DevTest Labs skapar för närvarande en ny resurs grupp för varje virtuell dator (såvida inte delade offentliga IP-adresser används). Om det finns 10 labb i en prenumeration kan labben passa cirka 79 virtuella datorer i varje labb (800 övre gräns – 10 resurs grupper för de 10 labben själva) = 79 Virtual Machines per labb.
+- Om labbet är anslutet till lokalt via Express Route (till exempel) finns det **definierade IP-** adressutrymme för VNet/under nätet. För att se till att det inte går att skapa virtuella datorer i labbet (fel: det går inte att hämta IP-adress) kan Lab-ägare ange maximalt antal virtuella datorer per labb med det tillgängliga IP-adressutrymmet.
 
-## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
+## <a name="use-resource-manager-templates"></a>Använd mallar för resurshanteraren
 
 ### <a name="question"></a>Fråga
 Hur kan jag använda Resource Manager-mallar i min DevTest Labs-miljö?
 
 ### <a name="answer"></a>Svar
-Du distribuera dina Resource Manager-mallar i en labb med hjälp av stegen i den [miljöer funktionen i DevTest labs](devtest-lab-test-env.md) artikeln. I princip du checka in Resource Manager-mallar i en Git-lagringsplats (Azure-databaser eller GitHub) och lägga till en [privat lagringsplats för dina mallar](devtest-lab-test-env.md) till labbet.
+Du distribuerar dina Resource Manager-mallar till en DevTest labb miljö med hjälp av de steg som beskrivs i [miljö funktionen i DevTest Labs](devtest-lab-test-env.md) -artikeln. I princip kan du kontrol lera dina Resource Manager-mallar i en git-lagringsplats (antingen Azure databaser eller GitHub) och lägga till ett [privat lager för dina mallar](devtest-lab-test-env.md) i labbet.
 
-Det här scenariot kanske inte användbart om du använder labb till värddatorerna för utveckling, men kan vara användbart om du skapar en mellanlagringsmiljö, som är representativ för produktion.
+Det här scenariot kanske inte är användbart om du använder DevTest Labs för att hantera utvecklings datorer, men det kan vara användbart om du skapar en fristående miljö som är representativ för produktion.
 
-Det är också värt att antalet virtuella datorer per labb eller per användare endast begränsar antalet datorer som skapats internt i själva labben och inte av några miljöer (Resource Manager-mallar).
+Det är också värt att Observera att alternativet antal virtuella datorer per labb eller per användare endast begränsar antalet datorer internt som skapats i själva labbet, och inte av några miljöer (Resource Manager-mallar).
 
 ## <a name="next-steps"></a>Nästa steg
 Se [använda miljöer i DevTest Labs](devtest-lab-test-env.md).

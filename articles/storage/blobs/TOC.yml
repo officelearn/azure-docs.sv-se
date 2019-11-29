@@ -276,6 +276,8 @@
               href: storage-blob-containers-list.md
             - name: Hantera egenskaper och metadata (.NET)
               href: storage-blob-container-properties-metadata.md
+            - name: Ange och hantera oföränderlighetsprinciper
+              href: storage-blob-immutability-policies-manage.md
         - name: Skapa och hantera blobar
           items:
             - name: Visa en lista över blobar (.NET)

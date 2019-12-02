@@ -141,6 +141,8 @@
           href: storage-sync-offline-data-transfer.md
         - name: Flytta data till och från Azure Storage
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Migrera till Azure File Sync från StorSimple
+          href: storage-sync-files-storsimple-migration.md
         - name: Flytta data med AzCopy
           items:
             - name: Komma igång

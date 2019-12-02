@@ -1,5 +1,5 @@
 ---
-title: Konsekvensnivåer och API:er för Azure Cosmos DB
+title: Konsistensnivå och API:er för Azure Cosmos DB
 description: 'Förstå konsekvens nivåer för API: er i Azure Cosmos DB.'
 author: markjbrown
 ms.author: mjbrown
@@ -14,7 +14,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 11/27/2019
 ms.locfileid: "74559109"
 ---
-# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och API:er för Azure Cosmos DB
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsistensnivå och API:er för Azure Cosmos DB
 
 Azure Cosmos DB har inbyggt stöd för API-kompatibla API: er för populära databaser. Dessa omfattar MongoDB, Apache Cassandra, Gremlin och Azure Table Storage. De här databaserna erbjuder inte exakt definierade konsekvens modeller eller garanti garantier för konsekvens nivå. De tillhandahåller vanligt vis endast en delmängd av de fem konsekvens modellerna som erbjuds av Azure Cosmos DB. 
 

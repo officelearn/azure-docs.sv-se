@@ -1,25 +1,17 @@
 ---
-title: Så här använder du JavaScript SDK för Azure Mobile Apps
+title: Använda Java Script SDK
 description: Så här använder du v för Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 8a22de6b3e518bb3c9392d7fd64411969b32f33f
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f70523b5b27a4f3db86bacf39469e233e43f807
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388738"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668829"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Så här använder du JavaScript-klient biblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388738"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 Den här guiden lär dig att utföra vanliga scenarier med hjälp av den senaste [Java Script SDK för Azure Mobile Apps]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del och skapa en tabell. I den här hand boken fokuserar vi på att använda mobil Server delen i HTML/Java Script-webbprogram.

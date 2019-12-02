@@ -1,25 +1,17 @@
 ---
-title: Så här använder du Apache Cordova-plugin-programmet för Azure Mobile Apps
+title: Använda Apache Cordova-plugin-programmet
 description: Så här använder du Apache Cordova-plugin-programmet för Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 25bff77da6c2bd89916fe40ebb153ff9631e62eb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ecca8f719a01abe68b368987fce4ea883193e844
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388790"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668509"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Använda Apache Cordova-klient bibliotek för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388790"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 Den här guiden lär dig att utföra vanliga scenarier med hjälp av det senaste [Apache Cordova-plugin-program för Azure Mobile Apps]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del, skapa en tabell och hämta ett fördefinierat Apache Cordova-projekt. I den här hand boken fokuserar vi på klient sidans Apache Cordova-plugin-program.
@@ -59,7 +51,7 @@ cd projectName
 ionic plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
-Lägg till följande rader i `app.component.ts` om du vill skapa ett klient objekt:
+Lägg till följande rader i `app.component.ts` för att skapa klient objektet:
 
 ```typescript
 declare var WindowsAzure: any;
@@ -112,7 +104,7 @@ Följ dessa anvisningar för att lägga till dina lokala inställningar i konfig
              "https://localhost:3000"
          ],
 
-    Ersätt URL: erna med URL: er för din tjänst.  Exempel på detta är `http://localhost:3000` (för Node. js-exempel tjänsten) eller `http://localhost:4400` (för Krusnings tjänsten).  Dessa URL: er är dock exempel – din situation, inklusive för de tjänster som nämns i exemplen, kan vara olika.
+    Ersätt URL: erna med URL: er för din tjänst.  Exempel på detta är `http://localhost:3000` (för Node. js-exempelprogrammet) eller `http://localhost:4400` (för Krusnings tjänsten).  Dessa URL: er är dock exempel – din situation, inklusive för de tjänster som nämns i exemplen, kan vara olika.
 8. Klicka på knappen **Läs/skriv** i det övre högra hörnet på skärmen.
 9. Klicka på knappen grönt **placering** .
 
@@ -130,7 +122,7 @@ Lägg också till dessa loopback-URL: er till CORS-inställningarna för din App
 Det tar ungefär 10-15 sekunder innan de nya inställningarna börjar gälla.
 
 ## <a name="register-for-push"></a>Gör så här: registrera dig för push-meddelanden
-Installera [PhoneGap – plugin-push] för att hantera push-meddelanden.  Detta plugin-program kan enkelt läggas till med kommandot `cordova plugin add` på kommando raden eller via installations programmet för git-plugin i Visual Studio.  Följande kod i din Apache Cordova-App registrerar din enhet för push-meddelanden:
+Installera [PhoneGap – plugin-push] för att hantera push-meddelanden.  Det här plugin-programmet kan enkelt läggas till med kommandot `cordova plugin add` på kommando raden eller via installations programmet för git-plugin i Visual Studio.  Följande kod i din Apache Cordova-App registrerar din enhet för push-meddelanden:
 
 ```javascript
 var pushOptions = {

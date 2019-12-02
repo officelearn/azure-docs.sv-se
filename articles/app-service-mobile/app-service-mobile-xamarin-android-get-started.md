@@ -1,25 +1,17 @@
 ---
-title: Kom igång med Azure Mobile Apps för Xamarin.Android-appar
-description: I den här kursen får du hjälp att komma igång med Azure Mobile Apps för Xamarin Android-utveckling
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: Kom igång med Xamarin. Android-appar
+description: Följ den här självstudien för att komma igång med Azure Mobile Apps för Xamarin Android-utveckling.
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 038ca0bd7690ac90470d9a739a47d0f634f1297b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1bac9ac03971765f1afc4f15ff3de6cc4b7d3883
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388480"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668676"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Skapa en Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388480"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Xamarin.Android-app. Mer information om Mobile Apps finns [här](app-service-mobile-value-prop.md).
@@ -57,11 +49,11 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
 ## <a name="run-the-xamarinandroid-app"></a>Kör Xamarin. Android-appen
 1. Öppna Xamarin. Android-projektet.
 
-2. Gå till [Azure Portal](https://portal.azure.com/) och navigera till den mobilapp som du har skapat. På bladet `Overview` letar du efter URL: en som är den offentliga slut punkten för mobilappen. Exempel – webbplats namnet för mitt program namn "test123" kommer att https://test123.azurewebsites.net.
+2. Gå till [Azure Portal](https://portal.azure.com/) och navigera till den mobilapp som du har skapat. På bladet `Overview` letar du reda på webb adressen som är den offentliga slut punkten för mobilappen. Exempel – webbplats namnet för mitt program namn "test123" kommer att https://test123.azurewebsites.net.
 
 3. Öppna filen `ToDoActivity.cs` i den här mappen – Xamarin. Android/ZUMOAPPNAME/ToDoActivity. cs. Program namnet är `ZUMOAPPNAME`.
 
-4. I `ToDoActivity`-klassen ersätter du `ZUMOAPPURL`-variabeln med den offentliga slut punkten ovan.
+4. Ersätt `ZUMOAPPURL` variabeln med den offentliga slut punkten ovan i `ToDoActivity`-klass.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 

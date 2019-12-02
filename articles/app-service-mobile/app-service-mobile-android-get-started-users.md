@@ -1,25 +1,17 @@
 ---
-title: Lägg till autentisering på Android med Mobile Apps | Microsoft Docs
-description: Lär dig hur du använder Mobile Apps funktionen i Azure App Service för att autentisera användare av Android-appen via olika identitets leverantörer, inklusive Google, Facebook, Twitter och Microsoft.
-services: app-service\mobile
-documentationcenter: android
-author: elamalani
-manager: crdun
-editor: ''
+title: Lägg till autentisering på Android
+description: Lär dig hur du använder Azure App Service för att autentisera användare av Android-appen med identitets leverantörer som Google, Facebook, Twitter och Microsoft.
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: b520f6129e7d7fa1a4800143d5987d3eba625e98
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f68b4f8477d5b21a7107270370af387a7e88756e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388954"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668950"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Lägg till autentisering i din Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -39,15 +31,15 @@ I den här självstudien lägger du till autentisering i ToDoList snabb starts p
 
 Säker autentisering kräver att du definierar ett nytt URL-schema för din app. Detta gör att Authentication-systemet kan omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder _vi program_ varan för URL-program i alla. Du kan dock använda alla URL-scheman du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på Server sidan:
 
-1. I [Azure Portal]väljer du App Service.
+1. I [Azure-portalen]väljer du App Service.
 
 2. Klicka på meny alternativet **autentisering/auktorisering** .
 
 3. I de **tillåtna externa omdirigerings-URL: erna**anger du `appname://easyauth.callback`.  _APPNAME_ i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
 
-4. Klicka på **OK**.
+4. Klicka på **OK**
 
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 
 ## <a name="permissions"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -85,4 +77,4 @@ Nu när du har slutfört den här grundläggande autentiseringen kan du fortsät
 
 <!-- URLs. -->
 [Kom igång med Mobile Apps]: app-service-mobile-android-get-started.md
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/

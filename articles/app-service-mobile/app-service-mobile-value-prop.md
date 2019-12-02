@@ -1,32 +1,23 @@
 ---
-title: Om Mobile Apps i Azure App Service
+title: Om Mobile Apps
 description: Läs om fördelarna med App Service i dina företagsmobilappar.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: yochayk
-editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 89e3fb57f29a6c24b64082db06678b3965ad8517
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d85ac89a4226b545419cea3413a04f4013a073be
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388612"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668711"
 ---
 # <a name="getting-started"> </a>Om Mobile Apps i Azure App Service
 
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 Azure App Service är ett helt hanterat [PaaS](https://azure.microsoft.com/overview/what-is-paas/)-erbjudande (plattform som en tjänst) för professionella utvecklare. Tjänsten ger en omfattande uppsättning funktioner för webb-, mobil- och integrationsscenarier. 
 

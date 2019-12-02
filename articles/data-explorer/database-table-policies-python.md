@@ -7,23 +7,26 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 2afe3da8b4d4bee31b17320ad976e795e91d410a
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71997246"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667285"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Skapa databas-och tabell principer för Azure Datautforskaren med hjälp av python
 
+> [!div class="op_single_selector"]
+> * [C#](database-table-policies-csharp.md)
+> * [Python](database-table-policies-python.md)
+>
+
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln skapar du databas-och tabell principer för Azure Datautforskaren med hjälp av python.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-
 * [Ett testkluster och en databas](create-cluster-database-python.md)
-
 * [En test tabell](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## <a name="install-the-data-libraries"></a>Installera data biblioteken
@@ -34,8 +37,8 @@ pip install azure-mgmt-kusto
 pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
-## <a name="authentication"></a>Authentication
-För att kunna köra exemplen i den här artikeln behöver vi ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser. Du kan använda samma Azure AD-program för autentisering från [ett test kluster och en databas](create-cluster-database-csharp.md#authentication). Om du vill använda en annan Azure AD-App kan du läsa [skapa ett Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) -program för att skapa ett kostnads fritt Azure AD-program och lägga till roll tilldelning i prenumerations omfånget. Det visar också hur du hämtar `Directory (tenant) ID`, `Application ID` och `Client Secret`. Du kan behöva lägga till det nya Azure AD-programmet som huvud konto i databasen. mer information finns i [Hantera behörigheter för azure datautforskaren Database](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
+## <a name="authentication"></a>Autentisering
+För att kunna köra exemplen i den här artikeln behöver vi ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser. Du kan använda samma Azure AD-program för autentisering från [ett test kluster och en databas](create-cluster-database-csharp.md#authentication). Om du vill använda en annan Azure AD-App kan du läsa [skapa ett Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) -program för att skapa ett kostnads fritt Azure AD-program och lägga till roll tilldelning i prenumerations omfånget. Det visar också hur du hämtar `Directory (tenant) ID`, `Application ID`och `Client Secret`. Du kan behöva lägga till det nya Azure AD-programmet som huvud konto i databasen. mer information finns i [Hantera behörigheter för azure datautforskaren Database](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
 
 ## <a name="alter-database-retention-policy"></a>Ändra bevarande princip för databasen
 Anger en bevarande princip med en period av mjuk borttagning på 10 dagar.

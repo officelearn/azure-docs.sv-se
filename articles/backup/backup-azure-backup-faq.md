@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173234"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668080"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Vanliga frågor och svar om Azure Backup
 
@@ -75,7 +75,7 @@ Ja.
 
 Azure Backup stöder dessa operativ system för säkerhets kopiering av filer och mappar och appar som skyddas av Azure Backup Server och DPM.
 
-**OS** | **SKU** | **Information**
+**OS** | **SKU** | **Detaljer**
 --- | --- | ---
 Arbets Station | |
 Windows 10 64-bit | Enterprise, Pro, Home | Datorerna ska köra de senaste Service Pack och uppdateringar.
@@ -91,7 +91,7 @@ Windows Storage Server 2016 64 bitar | Standard, Workgroup | Med de senaste Serv
 Windows Storage Server 2012 R2 64 bit | Standard, arbets grupp, viktigt | Med de senaste Service Pack/-uppdateringarna.
 Windows Storage Server 2012 64 bitar | Standard, Workgroup | Med de senaste Service Pack/-uppdateringarna.
 Windows Server 2008 R2 SP1 64 bitar | Standard, Enterprise, Datacenter, Foundation | Med de senaste uppdateringarna.
-Windows Server 2008 64-bitars | Standard, Enterprise, Datacenter | Med de senaste uppdateringarna.
+Windows Server 2008 64-bitars | Standard, Enterprise, data Center | Med de senaste uppdateringarna.
 
 Azure Backup stöder inte 32-bitars operativ system.
 
@@ -113,12 +113,12 @@ Azure VM | 16 data diskar<br/><br/> Data disk upp till 4095 GB
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-**Data Källa** | **Information**
+**Data Källa** | **Detaljer**
 --- | ---
 Volym |Mängden data som säkerhets kopie ras från en virtuell volym som säkerhets kopie ras.
-SQL Server-databas |Storlek på den individuella SQL Database-storlek som säkerhets kopie ras.
+SQL Server databas |Storlek på den individuella SQL Database-storlek som säkerhets kopie ras.
 SharePoint | Summan av innehålls-och konfigurations databaserna i en SharePoint-servergrupp som säkerhets kopie ras.
-Exchange |Summan av alla Exchange-databaser på en Exchange-Server som säkerhets kopie ras.
+Utbyt |Summan av alla Exchange-databaser på en Exchange-Server som säkerhets kopie ras.
 BMR/system tillstånd |Varje enskild kopia av BMR eller system tillstånd på datorn som säkerhets kopie ras.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Finns det en gräns för hur mycket data som säkerhets kopie ras med ett Recovery Services valv?
@@ -176,7 +176,7 @@ Azure Backup-lagringsarkitekturen ger dig det bästa av två världar genom att 
 
 Du kan skapa upp till 9999 återställningspunkter per skyddad instans. En skyddad instans är en dator, Server (fysisk eller virtuell) eller arbets belastning som säkerhetskopierar till Azure.
 
-- Läs mer om [säkerhets kopiering och kvarhållning](./backup-overview.md#backup-and-retention).
+- Läs mer om [säkerhets kopiering och kvarhållning](./backup-support-matrix.md).
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Hur många gånger kan jag återställa data som har säkerhetskopierats till Azure?
 

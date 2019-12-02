@@ -7,34 +7,30 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 741232bb7ed6ecf3d20711c1f6248f8e6d6215e8
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cf2a274b4f48b31739d6abba5cf87fa2a10d4ca1
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031687"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667684"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>Skapa en data anslutning för Event Hub för Azure Datautforskaren med hjälp avC#
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-hub.md)
+> * [Portalen](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
+> * [Azure Resource Manager-mall](data-connection-event-hub-resource-manager.md)
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning (data inläsning) från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare. I den här artikeln skapar du en data anslutning för Event Hub för Azure Datautforskaren med C#hjälp av.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
-
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-
 * Skapa [ett kluster och en databas](create-cluster-database-csharp.md)
-
 * Skapa [tabell-och kolumn mappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * Ange [databas-och tabell principer](database-table-policies-csharp.md) (valfritt)
-
 * Skapa en [Event Hub med data för inmatning](ingest-data-event-hub.md#create-an-event-hub). 
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
@@ -80,7 +76,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 
 |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
 |---|---|---|
-| TenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Även känt som katalog-ID.|
+| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Även känt som katalog-ID.|
 | subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Det prenumerations-ID som du använder för att skapa resurser.|
 | clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
 | clientSecret | *xxxxxxxxxxxxxx* | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation.|

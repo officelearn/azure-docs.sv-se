@@ -1,25 +1,17 @@
 ---
-title: Lägg till autentisering på iOS med Azure Mobile Apps
-description: Lär dig hur du använder Azure Mobile Apps för att autentisera användare av iOS-appen via olika identitets leverantörer, till exempel AAD, Google, Facebook, Twitter och Microsoft.
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
+title: Lägg till autentisering på iOS
+description: Lär dig hur du använder Azure Mobile Apps för att autentisera användare av iOS-appen via identitets leverantörer som AAD, Google, Facebook, Twitter och Microsoft.
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 800d86750f091404ee7f940d7cf8f6631e3fbbeb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 925894cab00537cb9aeb03ca05c9699bb4bf6a84
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388704"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668455"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Lägg till autentisering i din iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388704"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 I den här självstudien lägger du till autentisering till [snabb start för iOS] projektet för iOS med en identitets leverantör som stöds. Den här självstudien baseras på [snabb start för iOS] guiden för iOS, som du måste slutföra först.
 
@@ -92,7 +84,7 @@ I Xcode trycker du på **Kör** för att starta appen. Ett undantag aktive ras e
     [self loginAndGetData];
     ```
 
-3. Öppna filen `QSAppDelegate.h` och Lägg till följande kod:
+3. Öppna filen `QSAppDelegate.h` och lägg till följande kod:
 
     ```Objective-C
     #import "QSTodoService.h"
@@ -100,7 +92,7 @@ I Xcode trycker du på **Kör** för att starta appen. Ett undantag aktive ras e
     @property (strong, nonatomic) QSTodoService *qsTodoService;
     ```
 
-4. Öppna filen `QSAppDelegate.m` och Lägg till följande kod:
+4. Öppna filen `QSAppDelegate.m` och lägg till följande kod:
 
     ```Objective-C
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
@@ -115,9 +107,9 @@ I Xcode trycker du på **Kör** för att starta appen. Ett undantag aktive ras e
     }
     ```
 
-   Lägg till den här koden direkt innan linjen läser `#pragma mark - Core Data stack`.  Ersätt _APPNAME_ med det urlScheme-värde som du använde i steg 1.
+   Lägg till den här koden direkt före rad läsningen `#pragma mark - Core Data stack`.  Ersätt _APPNAME_ med det urlScheme-värde som du använde i steg 1.
 
-5. Öppna filen `AppName-Info.plist` (Ersätt AppName med namnet på din app) och Lägg till följande kod:
+5. Öppna `AppName-Info.plist`-filen (Ersätt AppName med namnet på din app) och Lägg till följande kod:
 
     ```XML
     <key>CFBundleURLTypes</key>
@@ -133,9 +125,9 @@ I Xcode trycker du på **Kör** för att starta appen. Ett undantag aktive ras e
     </array>
     ```
 
-    Den här koden ska placeras inuti `<dict>`-elementet.  Ersätt _APPNAME_ -strängen (i matrisen för **CFBundleURLSchemes**) med det app-namn som du valde i steg 1.  Du kan också göra dessa ändringar i plist-redigeraren – Klicka på filen `AppName-Info.plist` i XCode för att öppna plist-redigeraren.
+    Den här koden ska placeras inuti `<dict>`-elementet.  Ersätt _APPNAME_ -strängen (i matrisen för **CFBundleURLSchemes**) med det app-namn som du valde i steg 1.  Du kan också göra dessa ändringar i plist-redigeraren och klicka på `AppName-Info.plist`-filen i XCode för att öppna plist-redigeraren.
 
-    Ersätt `com.microsoft.azure.zumo`-strängen för **CFBundleURLName** med ditt Apple-paket-ID.
+    Ersätt `com.microsoft.azure.zumo` strängen för **CFBundleURLName** med ditt Apple-paket-ID.
 
 6. Tryck på *Kör* för att starta appen och logga sedan in. När du är inloggad bör du kunna visa att göra-listan och göra uppdateringar.
 
@@ -178,7 +170,7 @@ I Xcode trycker du på **Kör** för att starta appen. Ett undantag aktive ras e
     loginAndGetData()
     ```
 
-3. Öppna filen `AppDelegate.swift` och Lägg till följande rad i klassen `AppDelegate`:
+3. Öppna `AppDelegate.swift`-filen och Lägg till följande rad i `AppDelegate`-klassen:
 
     ```swift
     var todoTableViewController: ToDoTableViewController?
@@ -195,7 +187,7 @@ I Xcode trycker du på **Kör** för att starta appen. Ett undantag aktive ras e
 
     Ersätt _APPNAME_ med det urlScheme-värde som du använde i steg 1.
 
-4. Öppna filen `AppName-Info.plist` (Ersätt AppName med namnet på din app) och Lägg till följande kod:
+4. Öppna `AppName-Info.plist`-filen (Ersätt AppName med namnet på din app) och Lägg till följande kod:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -211,9 +203,9 @@ I Xcode trycker du på **Kör** för att starta appen. Ett undantag aktive ras e
     </array>
     ```
 
-    Den här koden ska placeras inuti `<dict>`-elementet.  Ersätt _APPNAME_ -strängen (i matrisen för **CFBundleURLSchemes**) med det app-namn som du valde i steg 1.  Du kan också göra dessa ändringar i plist-redigeraren – Klicka på filen `AppName-Info.plist` i XCode för att öppna plist-redigeraren.
+    Den här koden ska placeras inuti `<dict>`-elementet.  Ersätt _APPNAME_ -strängen (i matrisen för **CFBundleURLSchemes**) med det app-namn som du valde i steg 1.  Du kan också göra dessa ändringar i plist-redigeraren och klicka på `AppName-Info.plist`-filen i XCode för att öppna plist-redigeraren.
 
-    Ersätt `com.microsoft.azure.zumo`-strängen för **CFBundleURLName** med ditt Apple-paket-ID.
+    Ersätt `com.microsoft.azure.zumo` strängen för **CFBundleURLName** med ditt Apple-paket-ID.
 
 5. Tryck på *Kör* för att starta appen och logga sedan in. När du är inloggad bör du kunna visa att göra-listan och göra uppdateringar.
 

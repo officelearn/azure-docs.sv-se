@@ -1,25 +1,17 @@
 ---
-title: Lägg till push-meddelanden till din Xamarin. iOS-app med Azure App Service
-description: Lär dig hur du använder Azure App Service för att skicka push-meddelanden till din Xamarin. iOS-app
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: Lägg till push-meddelanden i din Xamarin. iOS-app
+description: Lär dig hur du använder Azure App Service för att skicka push-meddelanden till din Xamarin. iOS-app.
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 5f968de25226528cb7aa016a4c301d07e53f2695
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 39e06587e48f30ce099eafaf7cfdb2fb2269d24f
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388398"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668649"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Lägg till push-meddelanden i din Xamarin. iOS-app
 
@@ -28,7 +20,7 @@ ms.locfileid: "72388398"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 
@@ -100,7 +92,7 @@ Om du inte använder det nedladdade snabb start Server-projektet behöver du ett
     }
     ```
 
-4. I samma fil åsidosätter du händelsen `RegisteredForRemoteNotifications`. I den här koden registrerar du dig för ett enkelt mal meddelande som skickas mellan alla plattformar som stöds av servern.
+4. I samma fil, Åsidosätt `RegisteredForRemoteNotifications`-händelsen. I den här koden registrerar du dig för ett enkelt mal meddelande som skickas mellan alla plattformar som stöds av servern.
 
     Mer information om mallar med Notification Hubs finns i [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 

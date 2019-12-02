@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838218"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668575"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuera Azure Datautforskaren till din Virtual Network (förhands granskning)
 
@@ -64,6 +64,9 @@ Totalt antal IP-adresser:
 Med [tjänst slut punkter i Azure](/azure/virtual-network/virtual-network-service-endpoints-overview) kan du skydda dina Azure-resurser för flera klienter i ditt virtuella nätverk.
 Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfigurera data anslutningar med [händelsehubben](/azure/event-hubs/event-hubs-about) eller [Event Grid](/azure/event-grid/overview) samtidigt som du begränsar de underliggande resurserna för Azure datautforskaren-undernätet.
 
+> [!NOTE]
+> När du använder EventGrid-installation med [Storage](/azure/storage/common/storage-introduction) och [Event Hub], kan det lagrings konto som används i prenumerationen låsas med tjänstens slut punkter till azures datautforskaren under nätet samtidigt som Trusted Azure Platform Services tillåts i [brand Väggs konfigurationen](/azure/storage/common/storage-network-security), men Händelsehubben inte kan aktivera tjänst slut punkten eftersom den inte har stöd för betrodda [Azure Platform Services](/azure/event-hubs/event-hubs-service-endpoints).
+
 ## <a name="dependencies-for-vnet-deployment"></a>Beroenden för VNet-distribution
 
 ### <a name="network-security-groups-configuration"></a>Konfiguration av nätverks säkerhets grupper
@@ -74,7 +77,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 
 | **Använd**   | **Som**   | **Till**   | **Protokoll**   |
 | --- | --- | --- | --- |
-| Hantering  |[ADX-hantering adresser](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | ADX-undernät: 443  | TCP  |
+| Förvaltning  |[ADX-hantering adresser](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | ADX-undernät: 443  | TCP  |
 | Hälsoövervakning  | [ADX för hälso övervakning](#health-monitoring-addresses)  | ADX-undernät: 443  | TCP  |
 | Intern kommunikation med ADX  | ADX-undernät: alla portar  | ADX-undernät: alla portar  | Alla  |
 | Tillåt inkommande Azure Load Balancer (hälso avsökning)  | AzureLoadBalancer  | ADX-undernät: 80443  | TCP  |
@@ -101,37 +104,37 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | --- | --- |
 | Australien, centrala | 20.37.26.134 |
 | Australien, Central2 | 20.39.99.177 |
-| Östra Australien | 40.82.217.84 |
-| Sydöstra Australien | 20.40.161.39 |
+| Australien, östra | 40.82.217.84 |
+| Australien, sydöstra | 20.40.161.39 |
 | Centrala | 191.233.25.183 |
-| Centrala Kanada | 40.82.188.208 |
-| Östra Kanada | 40.80.255.12 |
+| Kanada, centrala | 40.82.188.208 |
+| Kanada, östra | 40.80.255.12 |
 | Indien, centrala | 40.81.249.251 |
-| Centrala USA | 40.67.188.68 |
+| USA, centrala | 40.67.188.68 |
 | Centrala USA-EUAP | 40.89.56.69 |
-| Östasien | 20.189.74.103 |
-| Östra USA | 52.224.146.56 |
+| Asien, östra | 20.189.74.103 |
+| USA, östra | 52.224.146.56 |
 | USA, östra 2 | 52.232.230.201 |
 | Östra 2; USA-EUAP | 52.253.226.110 |
 | Frankrike, centrala | 40.66.57.91 |
 | Frankrike, södra | 40.82.236.24 |
-| Östra Japan | 20.43.89.90 |
-| Västra Japan | 40.81.184.86 |
+| Japan, östra | 20.43.89.90 |
+| Japan, västra | 40.81.184.86 |
 | Sydkorea, centrala | 40.82.156.149 |
 | Sydkorea, södra | 40.80.234.9 |
-| Norra centrala USA | 40.81.45.254 |
-| Norra Europa | 52.142.91.221 |
+| USA, norra centrala | 40.81.45.254 |
+| Europa, norra | 52.142.91.221 |
 | Sydafrika, norra | 102.133.129.138 |
 | Sydafrika, västra | 102.133.0.97 |
-| Södra centrala USA | 20.45.3.60 |
-| Sydostasien | 40.119.203.252 |
-| Södra Indien | 40.81.72.110 |
+| USA, södra centrala | 20.45.3.60 |
+| Asien, sydöstra | 40.119.203.252 |
+| Indien, södra | 40.81.72.110 |
 | Storbritannien, södra | 40.81.154.254 |
 | Storbritannien, västra | 40.81.122.39 |
-| Västra centrala USA | 52.159.55.120 |
-| Västra Europa | 51.145.176.215 |
+| USA, västra centrala | 52.159.55.120 |
+| Europa, västra | 51.145.176.215 |
 | Indien, västra | 40.81.88.112 |
-| Västra USA | 13.64.38.225 |
+| USA, västra | 13.64.38.225 |
 | USA, västra 2 | 40.90.219.23 |
 
 #### <a name="health-monitoring-addresses"></a>Hälso övervaknings adresser
@@ -140,38 +143,38 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | --- | --- |
 | Australien, centrala | 191.239.64.128 |
 | Australien, centrala 2 | 191.239.64.128 |
-| Östra Australien | 191.239.64.128 |
-| Sydöstra Australien | 191.239.160.47 |
-| Södra Brasilien | 23.98.145.105 |
-| Centrala Kanada | 168.61.212.201 |
-| Östra Kanada | 168.61.212.201 |
+| Australien, östra | 191.239.64.128 |
+| Australien, sydöstra | 191.239.160.47 |
+| Brasilien, södra | 23.98.145.105 |
+| Kanada, centrala | 168.61.212.201 |
+| Kanada, östra | 168.61.212.201 |
 | Indien, centrala | 23.99.5.162 |
-| Centrala USA | 168.61.212.201 |
+| USA, centrala | 168.61.212.201 |
 | Centrala USA-EUAP | 168.61.212.201 |
-| Östasien | 168.63.212.33 |
-| Östra USA | 137.116.81.189 |
+| Asien, östra | 168.63.212.33 |
+| USA, östra | 137.116.81.189 |
 | USA, östra 2 | 137.116.81.189 |
 | USA, östra 2 EUAP | 137.116.81.189 |
 | Frankrike, centrala | 23.97.212.5 |
 | Frankrike, södra | 23.97.212.5 |
-| Östra Japan | 138.91.19.129 |
-| Västra Japan | 138.91.19.129 |
+| Japan, östra | 138.91.19.129 |
+| Japan, västra | 138.91.19.129 |
 | Sydkorea, centrala | 138.91.19.129 |
 | Sydkorea, södra | 138.91.19.129 |
-| Norra centrala USA | 23.96.212.108 |
-| Norra Europa | 191.235.212.69 
+| USA, norra centrala | 23.96.212.108 |
+| Europa, norra | 191.235.212.69 
 | Sydafrika, norra | 104.211.224.189 |
 | Sydafrika, västra | 104.211.224.189 |
-| Södra centrala USA | 23.98.145.105 |
-| Södra Indien | 23.99.5.162 |
-| Sydostasien | 168.63.173.234 |
+| USA, södra centrala | 23.98.145.105 |
+| Indien, södra | 23.99.5.162 |
+| Asien, sydöstra | 168.63.173.234 |
 | Storbritannien, södra | 23.97.212.5 |
 | Storbritannien, västra | 23.97.212.5 |
-| Västra centrala USA | 168.61.212.201 |
-| Västra Europa | 23.97.212.5 |
+| USA, västra centrala | 168.61.212.201 |
+| Europa, västra | 23.97.212.5 |
 | Indien, västra | 23.99.5.162 |
-| Västra USA | 23.99.5.162 |
-| Västra USA 2 | 23.99.5.162 | 
+| USA, västra | 23.99.5.162 |
+| USA, västra 2 | 23.99.5.162 | 
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Azure Monitor slut punkts adresser för konfiguration
 
@@ -206,7 +209,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Sydostasien | 52.148.86.165 |
 | Storbritannien, södra | 52.174.4.112 |
 | Storbritannien, västra | 52.169.237.246 |
-| Västra centrala USA | 52.161.31.69 |
+| USA, västra centrala | 52.161.31.69 |
 | Västeuropa | 52.174.4.112 |
 | Indien, västra | 13.71.25.187 |
 | Västra USA | 40.78.70.148 |

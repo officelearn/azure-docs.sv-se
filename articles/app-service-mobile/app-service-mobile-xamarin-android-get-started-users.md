@@ -1,25 +1,17 @@
 ---
-title: Kom igång med autentisering för Mobile Apps i Xamarin Android
-description: Lär dig hur du använder Mobile Apps för att autentisera användare av din Xamarin Android-app via olika identitets leverantörer, till exempel AAD, Google, Facebook, Twitter och Microsoft.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: panarasi
-editor: ''
+title: Kom igång med autentisering i Xamarin Android
+description: Lär dig hur du använder Mobile Apps för att autentisera användare av din Xamarin Android-app med identitets leverantörer som AAD, Google, Facebook, Twitter och Microsoft.
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: e0baf64c3490dd5b7edd8c3f7d209c135c546ed5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 60c46c32c8650bf72c0032cf0ec03895905bae1c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388434"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668362"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Lägg till autentisering i din Xamarin. Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388434"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 Det här avsnittet visar hur du autentiserar användare av en mobilapp från klient programmet. I den här självstudien lägger du till autentisering i snabb starts projektet med en identitetsprovider som stöds av Azure Mobile Apps. När du har autentiserat och auktoriserat i mobilappen visas värdet för användar-ID.
@@ -108,7 +100,7 @@ Appen uppdateras för att kräva att användare trycker på knappen **Logga in**
 2. Ta bort eller kommentera ut följande kodrad i **OnCreate** -metoden:
    
         OnRefreshItemsSelected ();
-3. I filen Activity_To_Do. axml lägger du till följande *LoginUser* Button-definition före den befintliga *addItem* -knappen:
+3. I filen Activity_To_Do. axml lägger du till följande *LoginUser* -knapp definition före den befintliga *addItem* -knappen:
    
           <Button
             android:id="@+id/buttonLoginUser"

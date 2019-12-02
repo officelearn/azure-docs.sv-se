@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847260"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668152"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -35,9 +35,9 @@ Den nya v2-SKU: n innehåller följande förbättringar:
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Standard_v2 och WAF_v2 SKU: n är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, norra Europa, Västeuropa, Sydostasien, Frankrike Central, Storbritannien, västra, Östra Japan, västra Japan, östra Australien , Sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, Asien, östra, Korea, centrala, Republiken Korea, södra Indien, Storbritannien, södra, centrala Indien, västra Indien, södra Indien.
+Standard_v2 och WAF_v2 SKU: n är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, norra Europa, Västeuropa, Sydostasien, Frankrike Central, Storbritannien, västra, Östra Japan, västra Japan, östra Australien , Sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, Asien, östra, Korea, centrala, Korea, södra, Storbritannien, södra, centrala Indien, västra Indien, södra Indien.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Med v2-SKU: n drivs pris sättnings modellen av förbrukning och är inte längre kopplad till instans antal eller storlekar. Priserna för v2-SKU har två komponenter:
 
@@ -157,7 +157,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 | Sessionstillhörighet                                  | &#x2713; | &#x2713; |
 | Anpassade felsidor                                | &#x2713; | &#x2713; |
 | WebSocket-stöd                                 | &#x2713; | &#x2713; |
-| Stöd för HTTP/2                                    | &#x2713; | &#x2713; |
+| HTTP/2-stöd                                    | &#x2713; | &#x2713; |
 | Anslutningstömning                               | &#x2713; | &#x2713; |
 
 > [!NOTE]

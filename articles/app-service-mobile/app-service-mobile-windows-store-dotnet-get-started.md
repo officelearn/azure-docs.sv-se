@@ -1,25 +1,17 @@
 ---
-title: Skapa en universell Windowsplattform (UWP) som använder Azure Mobile Apps | Microsoft Docs
+title: Skapa en UWP-app
 description: Följ den här kursen och kom igång med att använda serverdelar för mobilappar i Azure för utveckling av appar med den universella Windowsplattformen (UWP) i C#, Visual Basic eller JavaScript.
-services: app-service\mobile
-documentationcenter: windows
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 3ddd5ef197740315add2960971c978addb7fe62a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a0f78239406567513c1eb94b48bf1090165d9185
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388553"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668686"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Skapa en Windows-app med en Azure-serverdel
 
@@ -28,7 +20,7 @@ ms.locfileid: "72388553"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 
@@ -60,11 +52,11 @@ Skapa en ny mobilappsserverdel genom att följa instruktionerna nedan.
 
 1. Öppna UWP-projektet.
 
-2. Gå till [Azure Portal](https://portal.azure.com/) och navigera till den mobilapp som du har skapat. På bladet `Overview` letar du efter URL: en som är den offentliga slut punkten för mobilappen. Exempel – webbplats namnet för mitt program namn "test123" kommer att https://test123.azurewebsites.net.
+2. Gå till [Azure Portal](https://portal.azure.com/) och navigera till den mobilapp som du har skapat. På bladet `Overview` letar du reda på webb adressen som är den offentliga slut punkten för mobilappen. Exempel – webbplats namnet för mitt program namn "test123" kommer att https://test123.azurewebsites.net.
 
-3. Öppna filen `App.xaml.cs` i den här mappen-Windows-UWP-CS/ZUMOAPPNAME/. Program namnet är `ZUMOAPPNAME`.
+3. Öppna filen `App.xaml.cs` i den här mappen – Windows-UWP-CS/ZUMOAPPNAME/. Program namnet är `ZUMOAPPNAME`.
 
-4. I `App`-klassen ersätter du `ZUMOAPPURL`-parametern med den offentliga slut punkten ovan.
+4. Ersätt `ZUMOAPPURL` parameter med den offentliga slut punkten ovan i `App`s klass.
 
     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 

@@ -1,25 +1,17 @@
 ---
-title: Lägg till autentisering på Apache Cordova med Mobile Apps | Microsoft Docs
-description: Lär dig hur du använder Mobile Apps i Azure App Service för att autentisera användare av din Apache Cordova-app via olika identitets leverantörer, inklusive Google, Facebook, Twitter och Microsoft.
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
+title: Lägg till autentisering på Apache Cordova
+description: Lär dig hur du använder Mobile Apps i Azure App Service för att autentisera användare av din Apache Cordova-app med identitets leverantörer som Google, Facebook, Twitter och Microsoft.
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: c42cf2c944457b6b738578f738cd338977df8185
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f85c8e4f8eedccf3039038308f2262727fb18197
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388819"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668557"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Lägg till autentisering i din Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388819"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="summary"></a>Sammanfattning
 I den här självstudien lägger du till autentisering i ToDoList snabb starts projekt på Apache Cordova med hjälp av en identitets leverantör som stöds. Den här självstudien baseras på självstudien [Kom igång med Mobile Apps] , som du måste slutföra först.
@@ -49,8 +41,8 @@ Nu kan du kontrol lera att anonym åtkomst till Server delen har inaktiverats. I
 Uppdatera sedan appen för att autentisera användare innan du begär resurser från Server delen för mobilappar.
 
 ## <a name="add-authentication"></a>Lägg till autentisering i appen
-1. Öppna projektet i **Visual Studio**och öppna sedan filen `www/index.html` för redigering.
-2. Leta upp taggen `Content-Security-Policy` i head-avsnittet.  Lägg till OAuth-värden i listan över tillåtna källor.
+1. Öppna projektet i **Visual Studio**och öppna sedan `www/index.html`-filen för redigering.
+2. Leta upp taggen `Content-Security-Policy` meta i head-avsnittet.  Lägg till OAuth-värden i listan över tillåtna källor.
 
    | Leverantör | Namn på SDK-Provider | OAuth-värd |
    |:--- |:--- |:--- |
@@ -69,7 +61,7 @@ Uppdatera sedan appen för att autentisera användare innan du begär resurser f
 
     Vissa autentiseringsproviders kräver inte innehåll-säkerhets princip ändringar när de används på lämpliga mobila enheter.  Till exempel krävs inget innehåll – säkerhets princip ändringar när du använder Google-autentisering på en Android-enhet.
 
-3. Öppna filen `www/js/index.js` för redigering, leta upp metoden `onDeviceReady()` och Lägg till följande kod under koden för att skapa klienter:
+3. Öppna `www/js/index.js`-filen för redigering, leta upp `onDeviceReady()`-metoden och Lägg till följande kod under klient skapande koden:
 
         // Login to the service
         client.login('SDK_Provider_Name')
@@ -95,7 +87,7 @@ Uppdatera sedan appen för att autentisera användare innan du begär resurser f
 
     Metoden login () påbörjar autentisering med providern. Metoden login () är en async-funktion som returnerar ett JavaScript-löfte.  Resten av initieringen placeras i löftes svaret så att det inte utförs förrän metoden login () har slutförts.
 
-4. I den kod som du just har lagt till ersätter du `SDK_Provider_Name` med namnet på din inloggnings leverantör. Använd till exempel `client.login('aad')` för Azure Active Directory.
+4. I den kod som du just har lagt till ersätter du `SDK_Provider_Name` med namnet på din inloggnings leverantör. Använd till exempel `client.login('aad')`för Azure Active Directory.
 5. Kör ditt projekt.  När projektet har initierats visar programmet sidan OAuth-inloggning för den valda autentiseringsprovidern.
 
 ## <a name="next-steps"></a>Nästa steg

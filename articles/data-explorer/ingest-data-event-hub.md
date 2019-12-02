@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1750267b5780dcfbb227ffcd6bb98e2f77ff1511
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539295"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667428"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
@@ -20,17 +20,15 @@ ms.locfileid: "74539295"
 > * [Portalen](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
+> * [Azure Resource Manager-mall](data-connection-event-hub-resource-manager.md)
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här artikeln skapar du en Event Hub, ansluter till den från Azure Datautforskaren och ser data flödet genom systemet.
 
 ## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-
 * [Ett test kluster och en databas](create-cluster-database-portal.md).
-
 * [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data och skickar dem till en händelsehubb. Ladda ned exempelprogrammet till datorn.
-
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) för att köra exempel appen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal

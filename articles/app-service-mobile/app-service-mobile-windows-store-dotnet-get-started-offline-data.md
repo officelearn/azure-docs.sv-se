@@ -1,25 +1,17 @@
 ---
-title: Aktivera offline-synkronisering för din Universell Windows-plattform-app (UWP) med Mobile Apps | Microsoft Docs
+title: Aktivera synkronisering offline för din UWP-app
 description: Lär dig hur du använder en Azure-mobilapp för att cachelagra och Synkronisera offlinedata i din Universell Windows-plattform-app (UWP).
-documentationcenter: windows
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 1f15bd86debd98104a408c00650f5acfab94c526
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 66ae11fb0532ae2a138eb8590eb92de15e997dfa
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388577"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668406"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Aktivera offlinesynkronisering av Windows-appen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

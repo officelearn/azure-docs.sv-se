@@ -1,25 +1,17 @@
 ---
-title: Lägg till push-meddelanden i din Xamarin. Forms-app | Microsoft Docs
+title: Lägg till push-meddelanden i din Xamarin. Forms-app
 description: Lär dig hur du använder Azure-tjänster för att skicka push-meddelanden med flera plattformar till dina Xamarin. Forms-appar.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: ce5750a5071ee0dfc257498f83f41b6d59c99a8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f8aab2c5e942944f6251eef0aaaec204ce5ad076
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388523"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668782"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Lägg till push-meddelanden i din Xamarin. Forms-app
 
@@ -419,7 +411,7 @@ Du kan läsa mer om push-meddelanden:
 Du kan också fortsätta till någon av följande Självstudier:
 
 * [Lägg till autentisering i appen](app-service-mobile-xamarin-forms-get-started-users.md)  
-  Läs om hur du autentiserar användare i appen med en identitetsprovider.
+  Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 * [Aktivera offlinesynkronisering av appen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Läs om hur du lägger till offlinestöd i appen genom en Mobile Apps-serverdel. Med offlinesynkronisering kan användare interagera med en mobilapp&mdash;Visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverks anslutning.
 

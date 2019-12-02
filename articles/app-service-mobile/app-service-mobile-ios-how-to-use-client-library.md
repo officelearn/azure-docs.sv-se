@@ -1,24 +1,17 @@
 ---
-title: Så här använder du iOS SDK för Azure Mobile Apps
+title: Använda iOS SDK
 description: Så här använder du iOS SDK för Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 175351d6bab6cc6aee06b83bdeb8544c2e7c2d24
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9860ab6b16c6639581d0bcd1783d43f420f88d74
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435392"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668429"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här använder du klient biblioteket för iOS för Azure Mobile Apps
 
@@ -27,7 +20,7 @@ ms.locfileid: "72435392"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 Den här guiden lär dig att utföra vanliga scenarier med hjälp av den senaste [Azure Mobile Apps iOS SDK][1]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del, skapa en tabell och ladda ned ett fördefinierat iOS Xcode-projekt. I den här hand boken fokuserar vi på klient sidans iOS SDK. Mer information om Server sidans SDK för Server delen finns i Server SDK-HOWTOs.
@@ -45,11 +38,11 @@ Detta SDK är därför inte lämpligt för bevakade eller liknande enheter.
 
 ## <a name="Setup"></a>Konfiguration och krav
 
-Den här guiden förutsätter att du har skapat en server del med en tabell. Den här guiden förutsätter att tabellen har samma schema som tabellerna i de här självstudierna. Den här guiden förutsätter också att du refererar `MicrosoftAzureMobile.framework` och importerar `MicrosoftAzureMobile/MicrosoftAzureMobile.h` i din kod.
+Den här guiden förutsätter att du har skapat en server del med en tabell. Den här guiden förutsätter att tabellen har samma schema som tabellerna i de här självstudierna. Den här guiden förutsätter också att du refererar `MicrosoftAzureMobile.framework` och importera `MicrosoftAzureMobile/MicrosoftAzureMobile.h`i din kod.
 
 ## <a name="create-client"></a>Gör så här: skapa klient
 
-Skapa en `MSClient` för att få åtkomst till en Azure Mobile Apps Server del i projektet. Ersätt `AppUrl` med appens URL. Du kan lämna `gatewayURLString` och `applicationKey` tomt. Om du konfigurerar en gateway för autentisering fyller du i `gatewayURLString` med Gateway-URL: en.
+Skapa en `MSClient`för att få åtkomst till en Azure Mobile Apps Server del i projektet. Ersätt `AppUrl` med appens URL. Du kan lämna `gatewayURLString` och `applicationKey` tomt. Om du konfigurerar en gateway för autentisering fyller du i `gatewayURLString` med Gateway-URL: en.
 
 **Mål-C**:
 
@@ -115,7 +108,7 @@ table.readWithCompletion { (result, error) in
 
 Det finns många tillgängliga alternativ för att filtrera resultat.
 
-Om du vill filtrera med ett predikat använder du en `NSPredicate` och `readWithPredicate`. Följande filter returnerade data för att hitta endast ofullständiga att göra-objekt.
+Använd en `NSPredicate` och `readWithPredicate`för att filtrera med hjälp av ett predikat. Följande filter returnerade data för att hitta endast ofullständiga att göra-objekt.
 
 **Mål-C**:
 
@@ -153,7 +146,7 @@ table.readWithPredicate(predicate) { (result, error) in
 
 ## <a name="query-object"></a>Gör så här: använda MSQuery
 
-Om du vill utföra en komplex fråga (inklusive sortering och växling) skapar du ett `MSQuery`-objekt, direkt eller genom att använda ett predikat:
+Om du vill utföra en komplex fråga (inklusive sortering och växling) skapar du ett `MSQuery` objekt, direkt eller genom att använda ett predikat:
 
 **Mål-C**:
 
@@ -178,11 +171,11 @@ med `MSQuery` kan du styra flera fråge beteenden.
 * Ange anpassade parametrar för frågesträngen i begäran
 * Använd ytterligare funktioner
 
-Kör en `MSQuery`-fråga genom att anropa `readWithCompletion` på objektet.
+Kör en `MSQuery` fråga genom att anropa `readWithCompletion` på objektet.
 
 ## <a name="sorting"></a>Så här gör du: sortera data med MSQuery
 
-För att sortera resultaten ska vi titta på ett exempel. Om du vill sortera efter fält "text", sedan efter "Complete", anropar du `MSQuery` så här:
+För att sortera resultaten ska vi titta på ett exempel. Om du vill sortera efter fält "text", sedan efter "Slutför", anropar du `MSQuery` så här:
 
 **Mål-C**:
 
@@ -251,7 +244,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 ## <a name="paging"></a>Gör så här: Konfigurera sid storlek
 
-Med Azure Mobile Apps kontrollerar sid storleken antalet poster som hämtas i taget från Server dels tabellerna. Ett anrop till `pull`-data skulle sedan skapa data, baserat på den här sid storleken, tills det inte finns några fler poster att hämta.
+Med Azure Mobile Apps kontrollerar sid storleken antalet poster som hämtas i taget från Server dels tabellerna. Ett anrop till `pull` data skulle sedan skapa data, baserat på den här sid storleken, tills det inte finns några fler poster att hämta.
 
 Det är möjligt att konfigurera en sid storlek med **MSPullSettings** som visas nedan. Standard sid storleken är 50 och exemplet nedan ändrar den till 3.
 
@@ -290,9 +283,9 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 
 Om du vill infoga en ny tabell rad skapar du en `NSDictionary` och anropar `table insert`. Om [dynamiskt schema] är aktiverat genererar Azure App Service mobil Server del automatiskt nya kolumner baserat på `NSDictionary`.
 
-Om `id` inte anges genererar Server delen automatiskt ett nytt unikt ID. Ange din egen `id` om du vill använda e-postadresser, användar namn eller dina egna anpassade värden som-ID. Att tillhandahålla ditt eget ID kan under lätta anslutningarna och affärs orienterad databas logik.
+Om `id` inte anges genererar Server delen automatiskt ett nytt unikt ID. Ange din egen `id` för att använda e-postadresser, användar namn eller dina egna anpassade värden som-ID. Att tillhandahålla ditt eget ID kan under lätta anslutningarna och affärs orienterad databas logik.
 
-@No__t-0 innehåller det nya objektet som infogades. Beroende på din server logik kan det finnas ytterligare eller ändrade data jämfört med vad som skickats till servern.
+`result` innehåller det nya objektet som infogades. Beroende på din server logik kan det finnas ytterligare eller ändrade data jämfört med vad som skickats till servern.
 
 **Mål-C**:
 
@@ -379,11 +372,11 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 }
 ```
 
-Som minimum måste attributet `id` anges när uppdateringar görs.
+Som minst måste attributet `id` anges när uppdateringar görs.
 
 ## <a name="deleting"></a>Så här gör du: ta bort data
 
-Om du vill ta bort ett objekt, anropa `delete` med objektet:
+Om du vill ta bort ett objekt anropar du `delete` med objektet:
 
 **Mål-C**:
 
@@ -435,13 +428,13 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 }
 ```
 
-Som minimum måste attributet `id` anges när du gör borttagningar.
+Som minst måste attributet `id` anges när du gör borttagningar.
 
 ## <a name="customapi"></a>Gör så här: anropa anpassat API
 
 Med ett anpassat API kan du exponera Server dels funktioner. Den behöver inte mappas till en tabell åtgärd. Om du inte bara får mer kontroll över meddelanden kan du till och med läsa/ange rubriker och ändra text formatet för svar.
 
-Anropa `MSClient.invokeAPI` om du vill anropa en anpassad API. Innehållet i begäran och svaret behandlas som JSON. Om du vill använda andra medie typer [använder du den andra överlagringen för `invokeAPI`][5].  Om du vill göra en `GET`-begäran i stället för en `POST`-begäran anger du parametern `HTTPMethod` till `"GET"` och parametern `body` till `nil` (eftersom GET-begäranden inte har meddelande texter). Om ditt anpassade API stöder andra HTTP-verb ändrar du `HTTPMethod` på lämpligt sätt.
+Anropa `MSClient.invokeAPI`för att anropa en anpassad API. Innehållet i begäran och svaret behandlas som JSON. Om du vill använda andra medie typer [använder du den andra överlagringen för `invokeAPI`][5].  Om du vill göra en `GET`-begäran i stället för en `POST`-begäran anger du parameter `HTTPMethod` till `"GET"` och parametern `body` till `nil` (eftersom GET-begäranden inte har några meddelande texter). Om ditt anpassade API stöder andra HTTP-verb ändrar du `HTTPMethod` på lämpligt sätt.
 
 **Mål-C**:
 
@@ -522,7 +515,7 @@ Alla Taggar tas bort från begäran om säkerhet.  Information om hur du lägger
 
 När du anropar en Azure App Service mobil Server del innehåller slut för ande blocket en `NSError`-parameter. När ett fel inträffar är den här parametern icke-Nil. I din kod bör du kontrol lera den här parametern och hantera felet efter behov, som visas i föregående kodfragment.
 
-Filen [`<WindowsAzureMobileServices/MSError.h>`][6] definierar konstanterna `MSErrorResponseKey`, `MSErrorRequestKey` och `MSErrorServerItemKey`. Hämta mer information om felet:
+Filen [`<WindowsAzureMobileServices/MSError.h>`][6] definierar konstanterna `MSErrorResponseKey`, `MSErrorRequestKey`och `MSErrorServerItemKey`. Hämta mer information om felet:
 
 **Mål-C**:
 
@@ -571,7 +564,7 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga a
    * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure-portalen].
    * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
    * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
-   * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
+   * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
 
 **Mål-C**:
 
@@ -661,7 +654,7 @@ Du kan använda Facebook SDK för iOS för att logga användare i ditt program m
         return handled
     }
     ```
-4. Förutom att lägga till `FBSDKCoreKit.framework` i projektet, kan du också lägga till en referens till `FBSDKLoginKit.framework` på samma sätt.
+4. Förutom att lägga till `FBSDKCoreKit.framework` i projektet kan du också lägga till en referens till `FBSDKLoginKit.framework` på samma sätt.
 5. Lägg till följande kod i programmet, enligt det språk som du använder.
 
     **Mål-C**:
@@ -724,7 +717,7 @@ Du kan använda Fabric för iOS för att logga användare i ditt program med hj�
 2. Lägg till infrastruktur resurser i projektet genom att följa [Infrastruktur resurs för iOS – Komma igång] dokumentation och konfigurera TwitterKit.
 
    > [!NOTE]
-   > Som standard skapar Fabric ett Twitter-program åt dig. Du kan undvika att skapa ett program genom att registrera konsument nyckeln och den konsument hemlighet som du skapade tidigare med hjälp av följande kodfragment.    Alternativt kan du ersätta konsument nyckeln och de konsument hemliga värden som du anger för att App Service med de värden som visas i [Instrument panel för infrastruktur resurser]. Om du väljer det här alternativet måste du ange en URL för återanrop till ett plats hållare, till exempel `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+   > Som standard skapar Fabric ett Twitter-program åt dig. Du kan undvika att skapa ett program genom att registrera konsument nyckeln och den konsument hemlighet som du skapade tidigare med hjälp av följande kodfragment.    Alternativt kan du ersätta konsument nyckeln och de konsument hemliga värden som du anger för att App Service med de värden som visas i [Instrument panel för infrastruktur resurser]. Om du väljer det här alternativet måste du ange en URL för återanrop till en plats hållare, till exempel `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
 
     Om du väljer att använda de hemligheter som du skapade tidigare, lägger du till följande kod i appens ombud:
 
@@ -804,7 +797,7 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
 
 1. Konfigurera din server del för mobilappen för Google-inloggning genom att följa själv studie kursen [konfigurera App Service för Google-inloggning](../app-service/configure-authentication-provider-google.md) .
 2. Installera Google SDK för iOS genom att följa den [Google-inloggningen för iOS-börja integrera](https://developers.google.com/identity/sign-in/ios/start-integrating) dokumentation. Du kan hoppa över avsnittet "autentisera med en backend-server".
-3. Lägg till följande i ditt ombuds `signIn:didSignInForUser:withError:`-metod enligt det språk som du använder.
+3. Lägg till följande i ditt ombuds `signIn:didSignInForUser:withError:` metod enligt det språk som du använder.
 
     **Mål-C**:
     ```objc

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 04e6eddb86d34089db0243ff102d5ebd5ee77e43
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 5843e6a5669cd90cdc0572e7a104c4fdf70ac2b3
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666128"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669134"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -49,7 +49,7 @@ Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-er
 [Samhyres teknik](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera servrar
 [Enhet 42](https://docs.device42.com/) | Utvärdera servrar
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera VDI
-[Rack](https://www.rackwareinc.com/cloud-migration) | Migrera servrar
+[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrera servrar
 [Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Utvärdera servrar
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Utvärdera servrar och databaser
 

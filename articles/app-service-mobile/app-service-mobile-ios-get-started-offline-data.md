@@ -1,25 +1,17 @@
 ---
-title: Aktivera synkronisering offline med iOS-mobilappar | Microsoft Docs
+title: Aktivera offline-synkronisering (iOS)
 description: Lär dig hur du använder Azure App Service Mobile Apps för att cachelagra och Synkronisera offlinedata i iOS-program.
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: f29a28f9a80b64ef0a6890fa8fc7ecd0ca205e66
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388761"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668488"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera synkronisering offline med iOS-mobilappar
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -47,7 +39,7 @@ I **QSTodoService. m** (mål-C) eller **ToDoTableViewController. SWIFT** (SWIFT)
 
 Innan alla tabell åtgärder kan utföras måste det lokala arkivet initieras. Här är den relevanta koden:
 
-* **Objective-C**. I metoden **QSTodoService. init** :
+* **Mål-C**. I metoden **QSTodoService. init** :
 
    ```objc
    MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
@@ -65,7 +57,7 @@ Innan alla tabell åtgärder kan utföras måste det lokala arkivet initieras. H
 
 Nu ska vi utföra den faktiska synkroniseringsåtgärden och hämta data från fjärrservern:
 
-* **Objective-C**. `syncData` börjar med att skicka nya ändringar och anropar sedan **pullData** för att hämta data från fjärrservern. I sin tur hämtar metoden **pullData** nya data som matchar en fråga:
+* **Mål-C**. `syncData` börjar med att skicka nya ändringar och anropar sedan **pullData** för att hämta data från fjärrservern. I sin tur hämtar metoden **pullData** nya data som matchar en fråga:
 
    ```objc
    -(void)syncData:(QSCompletionBlock)completion
@@ -166,11 +158,11 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 | Attribut | Typ |
 | --- | --- |
-| id | Integer 64 |
+| id | Heltal 64 |
 | itemId | Sträng |
-| properties | Binary Data |
-| table | Sträng |
-| tableKind | Integer 16 |
+| properties | Binära data |
+| partitionstabell | Sträng |
+| tableKind | Heltal 16 |
 
 
 **MS_TableOperationErrors**
@@ -180,9 +172,9 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 | Attribut | Typ |
 | --- | --- |
 | id |Sträng |
-| operationId |Integer 64 |
-| properties |Binary Data |
-| tableKind |Integer 16 |
+| operationId |Heltal 64 |
+| properties |Binära data |
+| tableKind |Heltal 16 |
 
  **MS_TableConfig**
 
@@ -192,8 +184,8 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 | --- | --- |
 | id |Sträng |
 | key |Sträng |
-| KeyType |Integer 64 |
-| table |Sträng |
+| KeyType |Heltal 64 |
+| partitionstabell |Sträng |
 | värde |Sträng |
 
 ### <a name="data-table"></a>Data tabell
@@ -202,11 +194,11 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 | Attribut | Typ | Obs! |
 | --- | --- | --- |
-| id | String, markeras krävs |Primär nyckel i fjärrarkiv |
+| id | Sträng, markerad som krävs |Primär nyckel i fjärrarkiv |
 | full | Boolesk | Fältet att göra-objekt |
 | text |Sträng |Fältet att göra-objekt |
-| createdAt | Date | valfritt Mappar till **createdAt** system egenskap |
-| updatedAt | Date | valfritt Mappar till **updatedAt** system egenskap |
+| createdAt | Datum | valfritt Mappar till **createdAt** system egenskap |
+| updatedAt | Datum | valfritt Mappar till **updatedAt** system egenskap |
 | version | Sträng | valfritt Används för att identifiera konflikter, mappar till version |
 
 ## <a name="setup-sync"></a>Ändra appens synkroniserings beteende
@@ -243,11 +235,11 @@ I det här avsnittet ansluter du till en ogiltig URL för att simulera ett offli
 
 1. Ändra mobil-app-URL: en i **QSTodoService. m** till en ogiltig URL och kör appen igen:
 
-   **Objective-C**. I QSTodoService. m:
+   **Mål-C**. I QSTodoService. m:
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **Swift**. In ToDoTableViewController.swift:
+   **Swift**. I ToDoTableViewController. SWIFT:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```

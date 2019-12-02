@@ -7,22 +7,22 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643832"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667835"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av en Azure Resource Manager mall
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portalen](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [ARM-mall](create-cluster-database-resource-manager.md)
+> * [Azure Resource Manager-mall](create-cluster-database-resource-manager.md)
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. 
 
@@ -155,26 +155,7 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. 
-
-### <a name="clean-up-resources-using-the-azure-portal"></a>Rensa resurser med hjälp av Azure Portal
-
-Ta bort resurserna i Azure Portal genom att följa stegen i [Rensa resurser](create-cluster-database-portal.md#clean-up-resources).
-
-### <a name="clean-up-resources-using-powershell"></a>Rensa resurser med hjälp av PowerShell
-
-Om Cloud Shell fortfarande är öppen, behöver du inte kopiera/köra den första raden (Read-Host).
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
-
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-
-Write-Host "Press [ENTER] to continue ..."
-```
+[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

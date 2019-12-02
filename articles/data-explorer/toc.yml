@@ -52,26 +52,32 @@
           items:
             - name: Azure Portal
               href: ingest-data-event-hub.md
-            - name: python
+            - name: Python
               href: data-connection-event-hub-python.md
             - name: 'C#'
               href: data-connection-event-hub-csharp.md
+            - name: Azure Resource Manager-mall
+              href: data-connection-event-hub-resource-manager.md
         - name: Event Grid
           items:
             - name: Azure Portal
               href: ingest-data-event-grid.md
-            - name: python
+            - name: Python
               href: data-connection-event-grid-python.md
             - name: 'C#'
               href: data-connection-event-grid-csharp.md
+            - name: Azure Resource Manager-mall
+              href: data-connection-event-grid-resource-manager.md
         - name: IoT Hub
           items:
             - name: Azure Portal
               href: ingest-data-iot-hub.md
-            - name: python
+            - name: Python
               href: data-connection-iot-hub-python.md
             - name: 'C#'
               href: data-connection-iot-hub-csharp.md
+            - name: Azure Resource Manager-mall
+              href: data-connection-iot-hub-resource-manager.md
         - name: Datainmatning med ett klick
           href: ingest-data-one-click.md
         - name: Strömningsinmatning

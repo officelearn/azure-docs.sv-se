@@ -1,24 +1,17 @@
 ---
-title: Kom igång med Mobile Apps med hjälp av Xamarin.Forms
+title: Kom igång med Xamarin. Forms
 description: I den här kursen får du hjälp att komma igång med Mobile Apps för Xamarin.Forms-utveckling
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: e891bc34840e8c8bb61be1a9da607c43a93f2d17
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 69a9b3294bf080f7ae1516b0acbfc4be077518f4
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388450"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668650"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Skapa en Xamarin.Forms-app med Azure
 
@@ -27,7 +20,7 @@ ms.locfileid: "72388450"
 > [!NOTE]
 > Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
 >
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Xamarin.Forms-mobilapp med hjälp av funktionen Mobile Apps i Azure App Service som serverdel. Du skapar både en ny Mobile Apps-serverdel och en enkel ”todo list”-app med Xamarin.Forms där appdata lagras i Azure.
@@ -56,11 +49,11 @@ Visual Studio Tools för Xamarin krävs för att öppna lösningen, se [installa
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows och Mac)
 
-1. Gå till [Azure Portal](https://portal.azure.com/) och navigera till den mobilapp som du har skapat. På bladet `Overview` letar du efter URL: en som är den offentliga slut punkten för mobilappen. Exempel – webbplats namnet för mitt program namn "test123" kommer att https://test123.azurewebsites.net.
+1. Gå till [Azure Portal](https://portal.azure.com/) och navigera till den mobilapp som du har skapat. På bladet `Overview` letar du reda på webb adressen som är den offentliga slut punkten för mobilappen. Exempel – webbplats namnet för mitt program namn "test123" kommer att https://test123.azurewebsites.net.
 
 2. Öppna filen `Constants.cs` i den här mappen – Xamarin. Forms/ZUMOAPPNAME. Program namnet är `ZUMOAPPNAME`.
 
-3. I `Constants.cs`-klassen ersätter du `ZUMOAPPURL`-variabeln med den offentliga slut punkten ovan.
+3. Ersätt `ZUMOAPPURL` variabeln med den offentliga slut punkten ovan i `Constants.cs`-klass.
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 

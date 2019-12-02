@@ -1,25 +1,17 @@
 ---
-title: Arbeta med det App Service Mobile Apps hanterade klient biblioteket | Microsoft Docs
+title: Arbeta med det hanterade klient biblioteket
 description: Lär dig hur du använder .NET-klient biblioteket för Azure App Service Mobile Apps med Windows-och Xamarin-appar.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 1a56c6eed8b6a78587ea272c44f01d16e8a2b88d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388707"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668471"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -42,7 +34,7 @@ Du kan också hitta flera klient exempel i [Azure-samples GitHub-lagringsplatsen
 * Xamarin Android-versioner för API 19 – 24 (KitKat via nougat)
 * Xamarin iOS-versioner för iOS version 8,0 och senare
 * Universell Windows-plattform
-* Windows Phone 8.1
+* Windows Phone 8,1
 * Windows Phone 8,0 utom Silverlight-program
 
 Autentiseringen "Server-Flow" använder en webbvy för det visade användar gränssnittet.  Om enheten inte kan visa användar gränssnittet för WebView krävs andra metoder för autentisering.  Detta SDK är därför inte lämpligt för bevakade eller liknande enheter.
@@ -67,7 +59,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] används för att definiera *PropertyName* -mappning mellan fältet klient och fältet tabell.
 
-Information om hur du skapar tabeller i din Mobile Apps Server del finns i [avsnittet .NET Server SDK][7] eller i [avsnittet Node. js-Server-SDK][8]. Om du har skapat en server del för mobilappen i Azure Portal med snabb starten kan du också använda inställningen **enkla tabeller** i [Azure Portal].
+Information om hur du skapar tabeller i din Mobile Apps Server del finns i [avsnittet .NET Server SDK][7] eller i [avsnittet Node. js-Server-SDK][8]. Om du har skapat en server del för mobilappen i Azure Portal med snabb starten kan du också använda inställningen **enkla tabeller** i [Azure-portalen].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Gör så här: installera det hanterade klient-SDK-paketet
 Använd någon av följande metoder för att installera SDK-paketet för den hanterade klienten för Mobile Apps från [NuGet][9]:
@@ -94,7 +86,7 @@ Följande kod skapar [MobileServiceClient][12] -objektet som används för att k
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-I föregående kod ersätter du `MOBILE_APP_URL` med URL: en för Server delen för mobilappar, som finns på bladet för Server delen för mobilappar i [Azure Portal]. MobileServiceClient-objektet ska vara en singleton.
+I föregående kod ersätter du `MOBILE_APP_URL` med URL: en för Server delen för mobilappar, som finns på bladet för Server delen för mobilappar i [Azure-portalen]. MobileServiceClient-objektet ska vara en singleton.
 
 ## <a name="work-with-tables"></a>Arbeta med tabeller
 I följande avsnitt beskrivs hur du söker efter och hämtar poster och ändrar data i tabellen.  Följande avsnitt beskrivs:
@@ -335,7 +327,7 @@ Mobile Apps stöder unika anpassade sträng värden för tabellens **ID-** kolum
 * Poster är enklare att sammanfoga från olika tabeller och databaser.
 * ID-värden kan integreras bättre med ett programs logik.
 
-När ett sträng-ID-värde inte är inställt på en infogad post genererar mobilappen för mobilappen ett unikt värde för ID: t. Du kan använda metoden [Guid.NewGuid] för att generera egna ID-värden, antingen på klienten eller i Server delen.
+När ett sträng-ID-värde inte är inställt på en infogad post genererar mobilappen för mobilappen ett unikt värde för ID: t. Du kan använda metoden [GUID. NewGuid] för att generera egna ID-värden, antingen på klienten eller i Server delen.
 
 ```csharp
 JObject jo = new JObject();
@@ -636,7 +628,7 @@ Två autentiserings flöden stöds: *klient-hanterat* och *Server-hanterat* flö
 > [!NOTE]
 > Vi rekommenderar att du använder ett klient hanterat flöde i dina produktions program.
 
-Om du vill konfigurera autentisering måste du registrera din app med en eller flera identitets leverantörer.  Identitets leverantören genererar ett klient-ID och en klient hemlighet för din app.  Dessa värden ställs sedan in i Server delen för att aktivera Azure App Service autentisering/auktorisering.  Mer information följer detaljerade instruktioner i självstudiekursen [Lägg till autentisering i appen].
+Om du vill konfigurera autentisering måste du registrera din app med en eller flera identitets leverantörer.  Identitets leverantören genererar ett klient-ID och en klient hemlighet för din app.  Dessa värden ställs sedan in i Server delen för att aktivera Azure App Service autentisering/auktorisering.  Mer information finns i de detaljerade anvisningarna i självstudien [Lägg till autentisering i appen].
 
 Följande avsnitt beskrivs i det här avsnittet:
 
@@ -659,7 +651,7 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att starta 
 2. Öppna projektet i Visual Studio eller Xamarin Studio och Lägg till en referens till `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet-paketet. Inkludera för hands versioner vid sökning.
 3. Lägg till följande kod i programmet, enligt den plattform som du använder. I vart och ett ska du göra följande ersättningar:
 
-   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure Portal].
+   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure-portalen].
    * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
    * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
    * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -870,7 +862,7 @@ client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Xamarin-appar använder API: erna [Xamarin.Auth] för att lagra autentiseringsuppgifter på ett säkert sätt i ett **konto** objekt. Ett exempel på hur du använder dessa API: er finns i [AuthStore.cs] -kod filen i [exempel på ContosoMoments-bilddelning](https://github.com/azure-appservice-samples/ContosoMoments).
+Xamarin-appar använder API: erna [Xamarin. auth] för att lagra autentiseringsuppgifter på ett säkert sätt i ett **konto** objekt. Ett exempel på hur du använder dessa API: er finns i [AuthStore.cs] -kod filen i [exempel på ContosoMoments-bilddelning](https://github.com/azure-appservice-samples/ContosoMoments).
 
 När du använder klient-hanterad autentisering kan du också cachelagra den åtkomsttoken som hämtats från leverantören, till exempel Facebook eller Twitter. Denna token kan anges för att begära en ny autentiseringstoken från Server delen, enligt följande:
 
@@ -904,7 +896,7 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Om du skickar till WNS måste du [Skaffa ett Microsoft Store-paket-sid](#package-sid).  Mer information om Windows-appar, inklusive hur du registrerar dig för mallen registreringar finns [Lägg till push-meddelanden i appen].
+Om du skickar till WNS måste du [Skaffa ett Microsoft Store-paket-sid](#package-sid).  Mer information om Windows-appar, inklusive hur du registrerar för mall registreringar finns i [Lägg till push-meddelanden i appen].
 
 Det finns inte stöd för att begära taggar från klienten.  Tagg begär Anden tas bort tyst från registreringen.
 Om du vill registrera din enhet med Taggar skapar du en anpassad API som använder Notification Hubs API för att utföra registreringen för din räkning.  Anropa det anpassade API: et i stället för metoden `RegisterNativeAsync()`.
@@ -1073,9 +1065,9 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Vilken]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
-[Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
+[GUID. NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Windows Dev Center]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
@@ -1089,6 +1081,6 @@ public class MyHandler : DelegatingHandler
 [OData v3-dokumentation]: https://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: https://www.telerik.com/fiddler
 [Json.NET]: https://www.newtonsoft.com/json
-[Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
+[Xamarin. auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments

@@ -7,32 +7,29 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b69cdb1ee04e3824bf5fd20a7db2401161fdf6e7
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 113c039c9b7f0319bb724bcde1432044c0770672
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031674"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667676"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>Skapa en data anslutning för Händelsehubben för Azure Datautforskaren med hjälp av python
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-hub.md)
+> * [Portalen](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
+> * [Azure Resource Manager-mall](data-connection-event-hub-resource-manager.md)
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning (data inläsning) från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare. I den här artikeln skapar du en data anslutning för Event Hub för Azure Datautforskaren med hjälp av python.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-
 * Skapa [ett kluster och en databas](create-cluster-database-csharp.md)
-
 * Skapa [tabell-och kolumn mappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * Ange [databas-och tabell principer](database-table-policies-csharp.md) (valfritt)
-
 * Skapa en [Event Hub med data för inmatning](ingest-data-event-hub.md#create-an-event-hub). 
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]

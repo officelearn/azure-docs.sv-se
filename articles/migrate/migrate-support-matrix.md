@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: raynew
-ms.openlocfilehash: 13a4fbb119ae9aceb8731e53f7123375a6e5c106
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666281"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669157"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
 
@@ -54,7 +54,7 @@ Migrering av Azure Migrate Server | Ej tillämpligt | Migrera [virtuella VMware-
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | Ej tillämpligt | Migrera SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera VDI (Virtual Desktop Infrastructure) | Ej tillämpligt
 [Förflyttat](https://go.microsoft.com/fwlink/?linkid=2109528) | Utvärdera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, fysiska datorer, arbets stationer (inklusive VDI), offentliga moln arbets belastningar | Ej tillämpligt
-[Rack](https://www.rackwareinc.com/cloud-migration) | Ej tillämpligt | Migrera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, KVM-VM, fysiska datorer, offentliga moln arbets belastningar 
+[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Ej tillämpligt | Migrera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, KVM-VM, fysiska datorer, offentliga moln arbets belastningar 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. | Ej tillämpligt
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar och SQL Server databaser. | Ej tillämpligt
 [Webapp-Migration Assistant](https://appmigration.microsoft.com/) | Utvärdera webbappar | Migrera webbappar.

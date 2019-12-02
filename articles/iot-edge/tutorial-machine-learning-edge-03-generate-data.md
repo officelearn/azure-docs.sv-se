@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa simulerade enhets data Machine Learning på Azure IoT Edge'
+title: 'Självstudie: simulera enhets data – Azure IoT Edge & Machine Learning'
 description: 'Självstudie: skapa virtuella enheter som genererar simulerad telemetri som senare kan användas för att träna en maskin inlärnings modell.'
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 51d93e5b83d203f3fa99b69cc5f2877bbfdb6fb1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9b3b36cf5a0f426f2081179d08cf2f093a233fff
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112871"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665941"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudie: skapa simulerade enhets data
 
@@ -153,7 +153,7 @@ De data som vi precis skickade till din IoT Hub dirigerades till lagrings behål
 
 1. Klicka i någon av dessa mappar för att söka efter datafiler med etiketten **00** och **01** som motsvarar partitionen.
 
-1. Filerna skrivs i [Avro](https://avro.apache.org/) -format, men om du dubbelklickar på en av dessa filer öppnas en annan webbläsare-flik som delvis återger data. Om du i stället uppmanas du att öppna filen i ett program, kan du välja VS Code och det renderas korrekt.
+1. Filerna skrivs i [Avro](https://avro.apache.org/) -format, men om du dubbelklickar på en av dessa filer öppnas en annan webbläsare-flik som delvis återger data. Om du i stället uppmanas att öppna filen i ett program kan du välja VS Code och den kommer att återges på rätt sätt.
 
 1. Du behöver inte försöka att läsa eller tolka data just nu. Vi kommer att göra det i nästa artikel.
 

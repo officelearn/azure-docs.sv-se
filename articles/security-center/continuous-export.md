@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cd26ed446ce676bcec85d8e413d3ec37ac236869
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522000"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665087"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>Exportera säkerhets aviseringar och rekommendationer (för hands version)
 
-Azure Security Center genererar detaljerade säkerhets aviseringar och rekommendationer. Du kan visa dessa i portalen eller med programmerings verktyg. Du kan också behöva exportera den här informationen eller skicka den till andra övervaknings verktyg i din miljö. 
+Azure Security Center genererar detaljerade säkerhets aviseringar och rekommendationer. Du kan visa dem i portalen eller med programmerings verktyg. Du kan också behöva exportera den här informationen eller skicka den till andra övervaknings verktyg i din miljö. 
 
 I den här artikeln beskrivs en uppsättning (för hands versions verktyg) som gör att du kan exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö.
 
@@ -41,7 +41,7 @@ Med de här verktygen kan du:
 
 1. I området "Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 ## <a name="continuous-export-through-azure-event-hubs"></a>Kontinuerlig export via Azure Event Hubs  
 
@@ -73,6 +73,29 @@ För att kunna exportera till Log Analytics arbets ytan måste du ha Security Ce
 Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* respektive *SecurityRecommendations* . Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du är på nivån kostnads fri eller standard (se [prissättning](security-center-pricing.md)): säkerhet eller SecurityCenterFree.
 
 ![\* SecurityAlert *-tabellen i Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Visa exporterade säkerhets aviseringar och rekommendationer i Azure Monitor
+
+I vissa fall kan du välja att visa de exporterade säkerhets aviseringarna och/eller rekommendationerna i [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+
+Azure Monitor ger en enhetlig aviserings upplevelse för en rad olika Azure-aviseringar, inklusive diagnostisk logg, mått aviseringar och anpassade aviseringar baserat på frågor från Log Analytics-arbetsyta.
+
+Om du vill visa aviseringar och rekommendationer från Security Center i Azure Monitor konfigurerar du en varnings regel baserat på Log Analytics frågor (logg avisering):
+
+1. Från Azure Monitor sidan **aviseringar** klickar du på **ny aviserings regel**.
+
+    ![Azure Monitor sidan aviseringar](./media/continuous-export/azure-monitor-alerts.png)
+
+1. På sidan Skapa regel konfigurerar du din nya regel (på samma sätt som du konfigurerar en [logg aviserings regel i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+
+    * För **resurs**väljer du den Log Analytics arbets yta som du exporterade säkerhets aviseringar och rekommendationer till.
+
+    * För **villkor**väljer du **anpassad loggs ökning**. På sidan som visas konfigurerar du frågan, lookback perioden och frekvens perioden. I Sök frågan kan du skriva *SecurityAlert* eller *SecurityRecommendation* för att fråga data typerna som Security Center kontinuerligt exportera till när du aktiverar funktionen för kontinuerlig export till Log Analytics. 
+    
+    * Du kan också konfigurera den [Åtgärds grupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) som du vill utlösa. Åtgärds grupper kan utlösa e-post som skickas, ITSM biljetter, Webhooks och mycket annat.
+    ![Azure Monitor varnings regel](./media/continuous-export/azure-monitor-alert-rule.png)
+
+Nu visas nya Azure Security Center aviseringar eller rekommendationer (beroende på din konfiguration) i Azure Monitor aviseringar, med automatisk utlösning av en åtgärds grupp (om det finns).
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Manuell export av säkerhets aviseringar
 

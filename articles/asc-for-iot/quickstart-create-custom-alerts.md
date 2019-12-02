@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: skapa anpassade aviseringar för Azure Security Center för IoT'
-description: I den här snabb starten skapar du och tilldelar anpassade enhets aviseringar för Azure Security Center för IoT.
+description: Förstå, skapa och tilldela anpassade enhets aviseringar för tjänsten Azure Security Center för IoT-säkerhet.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: eca5d69efb04cf8210b0b2aa502bcee5cd4f5264
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 992dd7b85dee0774b8388ae22fe18377ca9e5691
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904122"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664848"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Snabb start: skapa anpassade aviseringar
 
@@ -41,7 +41,7 @@ Dessa grupper kan representera enheter med specifik maskin vara, enheter som har
 
 Säkerhets grupper definieras av en enhets dubbla tag-egenskap med namnet **SecurityGroup**. Som standard har varje IoT-lösning på IoT Hub en säkerhets grupp med namnet **default**. Ändra värdet för egenskapen **SecurityGroup** om du vill ändra säkerhets gruppen för en enhet.
  
-Till exempel:
+Exempel:
 
 ```
 {
@@ -82,7 +82,7 @@ Använd säkerhets grupper för att gruppera dina enheter i logiska kategorier. 
 Följande tabell innehåller en sammanfattning av aviseringar som är tillgängliga för anpassning.
 
 
-| Severity | Namn | Data Källa | Beskrivning | Rekommenderad reparation|
+| Allvarsgrad | Namn | Data Källa | Beskrivning | Rekommenderad reparation|
 |---|---|---|---|---|
 | Låg      | Anpassad avisering – antalet moln till enhets meddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet          | IoT Hub     | Antalet moln till enhets meddelanden (AMQP-protokoll) inom ett särskilt tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
 | Låg      | Anpassad avisering – antal nekade moln till enhets meddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Antalet moln till enhets meddelanden (AMQP-protokoll) som avvisats av enheten inom ett särskilt tidsintervall är utanför det konfigurerade och tillåtna intervallet.||

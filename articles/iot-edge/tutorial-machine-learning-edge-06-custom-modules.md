@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa och distribuera anpassade moduler – Machine Learning på Azure IoT Edge'
+title: 'Självstudie: träna & distribuera modell – Azure IoT Edge & Machine Learning'
 description: 'Självstudie: skapa och distribuera IoT Edge moduler som bearbetar data från löv enheter via en maskin inlärnings modell och sedan skickar insikter till IoT Hub.'
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7bfe620510d5ff88a20c518be1f4dd1fb422daa2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 371c897f0b4858a642322ff35a6008edbe9a651d
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106559"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664224"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler
 
@@ -22,7 +22,7 @@ ms.locfileid: "74106559"
 
 I den här artikeln skapar vi tre IoT Edge moduler som tar emot meddelanden från löv enheter, kör data via din Machine Learning-modell och vidarebefordrar insikter till IoT Hub.
 
-IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubben som en meddelande utjämning lagras moduler oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden.
+IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubben som en meddelande utjämning lagras moduler oberoende av varandra. Moduler behöver bara ange de indata som de accepterar meddelanden och de utdata som de skriver meddelanden till.
 
 Vi vill att IoT Edge-enheten ska utföra fyra saker för oss:
 
@@ -639,7 +639,7 @@ Med routern och klassificeraren på plats förväntar vi dig att ta emot vanliga
 
 13. Välj **test väg**. Om testet lyckas visas meddelandet "meddelandet matchade frågan".
 
-14. Klicka på **Spara**.
+14. Klicka på **Save** (Spara).
 
 #### <a name="update-turbofandevicetostorage-route"></a>Uppdatera turbofanDeviceToStorage-flöde
 
@@ -714,7 +714,7 @@ Konfigurera den IoT Hub fil överförings funktionen så att modulen File Writer
 
 Nu när vi har gjort konfigurations ändringarna är vi redo att bygga avbildningarna och publicera dem i vårt Azure Container Registry. I build-processen används filen Deployment. template. JSON för att avgöra vilka moduler som behöver skapas. Inställningarna för varje modul, inklusive version, finns i filen module. json i mappen module. Bygg processen kör först en Docker-version på Dockerfiles som matchar den aktuella konfigurationen som finns i filen module. JSON för att skapa en avbildning. Sedan publicerar den avbildningen i registret från module. JSON-filen med en versions tagg som matchar den i module. JSON-filen. Slutligen genererar den ett konfigurations bara distributions manifest (till exempel Deployment. amd64. JSON) som vi ska distribuera till den IoT Edge enheten. Den IoT Edge enheten läser informationen från distributions manifestet, och utifrån anvisningarna hämtas modulerna, konfigurerar vägarna och anger önskade egenskaper. Den här distributions metoden har två sido effekter som du bör vara medveten om:
 
-* **Distributions fördröjning:** eftersom den IoT Edge körningen måste identifiera ändringen av de önskade egenskaperna innan den börjar omkonfigureras, kan det ta lite tid efter att du har distribuerat modulerna tills körningen har valt ut och börjar uppdatera IoT Edge anordningar.
+* **Distributions fördröjning:** eftersom den IoT Edge körningen måste identifiera ändringen av de önskade egenskaperna innan den börjar omkonfigureras, kan det ta lite tid efter att du har distribuerat modulerna tills körningen har valt att uppdatera IoT Edge enheten.
 
 * **Versioner av moduler:** om du publicerar en ny version av en moduls behållare till behållar registret med hjälp av samma versions taggar som i föregående modul, laddas inte den nya versionen av modulen ned i körnings miljön. Den jämför med versions tag gen för den lokala avbildningen och den önskade avbildningen från distributions manifestet. Om dessa versioner stämmer vidtas ingen åtgärd i körnings miljön. Därför är det viktigt att öka versionen av modulen varje gången du vill distribuera nya ändringar. Öka versionen genom att ändra egenskapen **version** under egenskapen **tag** i filen module. JSON för modulen som du ändrar. Sedan skapar och publicerar du modulen.
 

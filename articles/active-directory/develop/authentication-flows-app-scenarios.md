@@ -17,12 +17,12 @@ ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d6a36d66d6094bbac1b3e39a4ee5cea55737971
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c859c7f2d1b3d7c4cd2e64b2c9a42eb878241856
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473837"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664156"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -261,7 +261,7 @@ Scenarier som innefattar att förvärva token mappas också till OAuth 2,0-auten
 
   <tr>
    <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls web APIs" src="media/scenarios/daemon-app.svg"></a></td>
-   <td><a href=scenario-daemon-overview.md">En daemon-app som anropar webb-API: er</a></td>
+   <td><a href="scenario-daemon-overview.md">En daemon-app som anropar webb-API: er</a></td>
    <td><a href="v2-oauth2-client-creds-grant-flow.md">Klientautentiseringsuppgifter</a></td>
    <td>Endast app-behörigheter utan användare och enbart används i Azure AD-organisationer</td>
  </tr>

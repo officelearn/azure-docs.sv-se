@@ -4,15 +4,15 @@ description: Lär dig mer om Server utvärdering och migrering med tjänsten Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a64e7366281f15c94d6551c1f7be27f461737634
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 04e6eddb86d34089db0243ff102d5ebd5ee77e43
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185796"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666128"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -49,7 +49,7 @@ Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-er
 [Samhyres teknik](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera servrar
 [Enhet 42](https://docs.device42.com/) | Utvärdera servrar
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera VDI
-[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrera servrar
+[Rack](https://www.rackwareinc.com/cloud-migration) | Migrera servrar
 [Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Utvärdera servrar
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Utvärdera servrar och databaser
 
@@ -57,7 +57,7 @@ Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-er
 
 Tabellen sammanfattar andra verktyg som är integrerade i Azure Migrate.
 
-**Verktyg** | **Information**
+**Verktyg** | **Detaljer**
 --- | ---
 Azure Migrate: Server utvärdering | Utvärdera servrar
 Azure Migrate: Server-migrering | Migrera servrar

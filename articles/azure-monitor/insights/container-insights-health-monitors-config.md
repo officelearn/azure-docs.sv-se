@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279701"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664955"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Konfigurations guide för Azure Monitor för behållares hälso övervakning
 
@@ -77,12 +77,12 @@ Azure Monitor för behållare innehåller ett antal nyckel övervaknings scenari
 
 |**Övervakarens namn** | **Beskrivning** | **Algoritm** |
 |-----------------|-----------------|---------------|
-|Node |Den här övervakaren är en mängd olika noder som övervakare. Den matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet:<br> CPU-användning för nod<br> Minnes användning för nod<br> Nod status | Sämsta av|
+|Nod |Den här övervakaren är en mängd olika noder som övervakare. Den matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet:<br> CPU-användning för nod<br> Minnes användning för nod<br> Nod status | Sämsta av|
 |Node-pool |Den här övervakaren rapporterar en kombinerad hälso status för alla noder i nodens *agentpoolegenskap*. Detta är en övervakare med tre tillstånd, vars tillstånd baseras på det sämsta tillståndet på 80% av noderna i Node-poolen, sorterade i fallande ordning efter allvarlighets grad för Node-tillstånd (det vill säga, kritisk, varning, felfri).|Procent |
 |Noder (överordnad för Node-pool) |Detta är en sammanställd övervakare av alla Node-pooler. Dess tillstånd baseras på de sämsta tillstånden för dess underordnade övervakare (det vill säga de noder som finns i klustret). |Sämsta av |
 |Kluster (överordnad av noder/<br> Kubernetes-infrastruktur) |Det här är den överordnade övervakaren som matchar tillståndet för den underordnade övervakaren med sämsta hälso tillstånd, som är Kubernetes-infrastruktur och noder. |Sämsta av |
 |Kubernetes-infrastruktur |Den här övervakaren rapporterar den kombinerade hälso statusen för de hanterade infrastruktur komponenterna i klustret. dess status beräknas som sämsta av dess underordnade övervakare, dvs. Kube arbets belastningar och API-Server status. |Sämsta av|
-|Systemets arbets belastning |Övervakaren rapporterar hälso status för en Kube arbets belastning. Den här övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet, som är **poddar i Övervakaren för klar läge** och behållarna i arbets belastningen. |Sämsta av |
+|Systemets arbets belastning |Övervakaren rapporterar hälso status för en Kube arbets belastning. Den här övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet, som är **poddar i klar läge** (övervakare och behållare i arbets belastningen). |Sämsta av |
 |Container |Den här övervakaren rapporterar övergripande hälso status för en behållare i en specifik arbets belastning. Den här övervakaren matchar tillståndet för den underordnade övervakaren med det sämsta hälso tillståndet, det vill säga **processor användning** och **minnes användnings** övervakare. |Sämsta av |
 
 ## <a name="next-steps"></a>Nästa steg

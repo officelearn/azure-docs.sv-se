@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig integrering och kontinuerlig distribution – Azure IoT Edge | Microsoft Docs
-description: Konfigurera kontinuerlig integrering och kontinuerlig distribution – Azure IoT Edge med Azure DevOps, Azure-Pipelines
+title: Kontinuerlig integrering & kontinuerlig distribution – Azure IoT Edge
+description: Konfigurera kontinuerlig integrering och kontinuerlig distribution – Azure IoT Edge med Azure-DevOps, Azure-pipeline
 author: shizn
 manager: philmea
 ms.author: xshi
@@ -8,18 +8,18 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 85f77d1132af63681ee92cfd2bde82a71d8ed999
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 463de1f49ad8fd21c355395bec3a55d9d40474e6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457237"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666366"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
 Du kan enkelt införa DevOps med dina Azure IoT Edge-program med de inbyggda Azure IoT Edge uppgifterna i Azure-pipelines. Den här artikeln visar hur du kan använda funktionerna för kontinuerlig integrering och kontinuerlig distribution i Azure pipelines för att bygga, testa och distribuera program snabbt och effektivt till din Azure IoT Edge. 
 
-![Diagram - CI och CD grenar för utveckling och produktion](./media/how-to-ci-cd/cd.png)
+![Diagram – CI-och CD-grenar för utveckling och produktion](./media/how-to-ci-cd/cd.png)
 
 I den här artikeln får du lära dig hur du använder de inbyggda Azure IoT Edge uppgifterna för Azure pipelines för att skapa två pipeliner för din IoT Edge-lösning. Det finns fyra åtgärder som kan användas i Azure IoT Edge uppgifter.
    - **Azure IoT Edge-avbildning av modul** tar din IoT Edge lösnings kod och skapar behållar avbildningarna.
@@ -77,7 +77,7 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
 
    * Om du vill skapa moduler i plattforms-arm32v7 eller arm64 för Linux-behållare måste du konfigurera en lokal [agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-     ![Konfigurera build-agentpoolen](./media/how-to-ci-cd/configure-env.png)
+     ![Konfigurera bygga Gent pool](./media/how-to-ci-cd/configure-env.png)
 
 5. Din pipeline är förkonfigurerad med ett jobb som kallas **Agent jobb 1**. Välj plus tecknet ( **+** ) om du vill lägga till tre aktiviteter i jobbet: **Azure IoT Edge** två gånger, **Kopiera filer** en gång och **publicera Bygg artefakter** en gång. (Hovra över namnet på varje uppgift för att se knappen **Lägg till** .)
 
@@ -119,9 +119,9 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
    * **Artefakt publicerings plats**: Azure-pipeliner.
 
 
-10. Öppna fliken **utlösare** och markera kryss rutan för att **aktivera kontinuerlig integrering**. Se till att grenen som innehåller koden ingår.
+10. Öppna fliken **utlösare** och markera kryss rutan för att **aktivera kontinuerlig integrering**. Se till att grenen som innehåller din kod ingår.
 
-    ![Aktivera utlösaren för kontinuerlig integrering](./media/how-to-ci-cd/configure-trigger.png)
+    ![Aktivera kontinuerlig integrations utlösare](./media/how-to-ci-cd/configure-trigger.png)
 
 11. Spara den nya bygg pipelinen med knappen **Spara** .
 
@@ -134,11 +134,11 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
 
 1. På fliken **utgåvor** väljer du **+ ny pipeline**. Eller, om du redan har versions pipeliner, väljer du knappen **+ ny** och väljer **+ ny versions pipeline**.  
 
-    ![Lägg till releasepipeline](./media/how-to-ci-cd/add-release-pipeline.png)
+    ![Lägg till versions pipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 
 2. När du uppmanas att välja en mall väljer du att starta med ett **tomt jobb**.
 
-    ![Börja med en tom jobb](./media/how-to-ci-cd/start-with-empty-job.png)
+    ![Starta med ett tomt jobb](./media/how-to-ci-cd/start-with-empty-job.png)
 
 3. Din nya versions pipeline initieras med en fas, som kallas **steg 1**. Byt namn på steg 1 till **dev** och behandla den som en test miljö. Vanligt vis har kontinuerliga distributions pipeliner flera steg, inklusive **utveckling**, **mellanlagring** och **Prod**. Du kan skapa mer baserat på din DevOps-praxis. Stäng fönstret steg information när det har bytt namn. 
 
@@ -148,11 +148,11 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
     
 5. På **sidan Lägg till en artefakt**väljer **du typ av**källtyp. Välj sedan projektet och den build-pipeline som du skapade. Välj sedan **Lägg till**.
 
-   ![Lägg till en byggesartefakt](./media/how-to-ci-cd/add-an-artifact.png)
+   ![Lägg till en versions artefakt](./media/how-to-ci-cd/add-an-artifact.png)
 
 6. Öppna artefakt utlösare och välj växla för att aktivera den kontinuerliga distributions utlösaren. Nu skapas en ny version varje gång en ny version är tillgänglig.
 
-   ![Konfigurera utlösare av kontinuerlig distribution](./media/how-to-ci-cd/add-a-trigger.png)
+   ![Konfigurera utlösare för kontinuerlig distribution](./media/how-to-ci-cd/add-a-trigger.png)
 
 7. **Dev** -fasen är förkonfigurerad med ett jobb och noll uppgifter. Från pipeline-menyn väljer du **uppgifter** och sedan **dev** -fasen.  Välj jobb-och aktivitets antal för att konfigurera uppgifterna i det här steget.
 
@@ -190,14 +190,14 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
     * **IoT Hub namn**: Välj din IoT Hub. 
     * **Välj en/flera enhet**: Välj om du vill att versions pipelinen ska distribueras till en enhet eller flera enheter. 
       * Om du distribuerar till en enda enhet anger du **IoT Edge enhets-ID**. 
-      * Om du distribuerar till flera enheter anger du enhetens **mål villkor**. Mål villkoret är ett filter som matchar en uppsättning IoT Edge enheter i IoT Hub. Om du vill använda taggar för enheten som villkoret måste du uppdatera dina motsvarande enheter taggar med enhetstvillingen i IoT Hub. Uppdatera **IoT Edge distributions-ID** och **IoT Edge distributions prioritet** i de avancerade inställningarna. Mer information om hur du skapar en distribution för flera enheter finns i [förstå IoT Edge automatiska distributioner](module-deployment-monitoring.md).
+      * Om du distribuerar till flera enheter anger du enhetens **mål villkor**. Mål villkoret är ett filter som matchar en uppsättning IoT Edge enheter i IoT Hub. Om du vill använda enhets koder som villkor måste du uppdatera motsvarande enhets koder med IoT Hub enhets-till-enhet. Uppdatera **IoT Edge distributions-ID** och **IoT Edge distributions prioritet** i de avancerade inställningarna. Mer information om hur du skapar en distribution för flera enheter finns i [förstå IoT Edge automatiska distributioner](module-deployment-monitoring.md).
     * Expandera avancerade inställningar, Välj **IoT Edge distributions-ID**, och Lägg till variabeln `$(System.TeamProject)-$(Release.EnvironmentName)`. Detta mappar projektet och versions namnet med ditt IoT Edge-distributions-ID.
 
 11. Välj **Spara** för att spara ändringarna i den nya versions pipelinen. Gå tillbaka till vyn pipeline genom att välja **pipeline** på menyn. 
     
-## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifiera IoT Edge CI/CD med build and release-pipelines
+## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifiera IoT Edge CI/CD med pipelinen build och release
 
-Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för källkod eller utlösa den manuellt. I det här avsnittet utlöser du CI/CD-pipeline manuellt för att testa att den fungerar. Kontrol lera sedan att distributionen lyckades.
+Om du vill utlösa ett build-jobb kan du antingen skicka ett genomförande till käll kods databasen eller aktivera det manuellt. I det här avsnittet utlöser du CI/CD-pipeline manuellt för att testa att den fungerar. Kontrol lera sedan att distributionen lyckades.
 
 1. Navigera till den pipeline för build som du skapade i början av den här artikeln. 
 
@@ -207,7 +207,7 @@ Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för 
 
 3. Välj build-jobbet för att se hur det fortskrider. Om build-pipeline har slutförts utlöses en version till **dev** -fasen. 
 
-    ![Skapa loggar](./media/how-to-ci-cd/build-logs.png)
+    ![Build-loggar](./media/how-to-ci-cd/build-logs.png)
 
 4. Den framgångs rik **dev** -versionen skapar IoT Edge distribution till mål IoT Edge enheter.
 

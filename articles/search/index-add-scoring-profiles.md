@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113616"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666315"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Lägga till bedömnings profiler i ett Azure Kognitiv sökning-index
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113616"
  I följande exempel visas en enkel profil med namnet "Geo" för att ge dig en uppfattning om vad en bedömnings profil ser ut. Den här en stärker objekt som har Sök termen i fältet **hotelName** . Den använder också funktionen `distance` för att prioritera objekt som ligger inom tio kilo meter på den aktuella platsen. Om någon söker på termen "Inn" och "Inn" ska vara en del av hotell namnet, kommer dokument som innehåller hotell med "Inn" inom en radie på 10 KM på den aktuella platsen att visas högre upp i Sök resultaten.  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
  I det här exemplet visas schemat för ett index med två bedömnings profiler (`boostGenre``newAndHighlyRated`). Alla frågor mot detta index som inkluderar profil som en frågeparameter använder profilen för att räkna med resultat uppsättningen.  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -234,14 +234,14 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
 |Attribut|Beskrivning|  
 |---------------|-----------------|  
-|`Name`|Krävs. Detta är namnet på bedömnings profilen. Det följer samma namn konventioner för ett fält. Det måste börja med en bokstav, får inte innehålla punkter, kolon eller @-symboler och får inte börja med frasen "azureSearch" (Skift läges känsligt).|  
-|`Text`|Innehåller egenskapen viktningar.|  
-|`Weights`|Valfri. Ett namn/värde-par som anger ett fält namn och relativ vikt. Relativ vikt måste vara ett positivt heltal eller ett flytt ALS nummer. Det maximala värdet är Int32. MaxValue.<br /><br /> Du kan ange fält namnet utan motsvarande vikt. Vikter används för att ange vikten av ett fält i förhållande till ett annat.|  
-|`Functions`|Valfri. En poängsättnings funktion kan endast användas för fält som är filter bara.|  
-|`Type`|Krävs för poängsättnings funktioner. Anger vilken typ av funktion som ska användas. Giltiga värden är storlek, aktualitet, avstånd och tagg. Du kan inkludera fler än en funktion i varje bedömnings profil. Funktions namnet måste vara gemener.|  
-|`Boost`|Krävs för poängsättnings funktioner. Ett positivt tal som används som multiplikator för rå score. Det får inte vara lika med 1.|  
-|`Fieldname`|Krävs för poängsättnings funktioner. En poängsättnings funktion kan endast användas för fält som ingår i indexets fält samling och som kan filtreras. Dessutom introducerar varje funktions typ ytterligare begränsningar (färskhet används med DATETIME-fält, storlek med heltal eller dubbla fält och avstånd med plats fält). Du kan bara ange ett enskilt fält per funktions definition. Om du till exempel vill använda två gånger i samma profil måste du inkludera två definitions storlek, en för varje fält.|  
-|`Interpolation`|Krävs för poängsättnings funktioner. Definierar lutningen för vilken poängen ökar från början av intervallet till slutet av intervallet. Giltiga värden är linjär (standard), konstant, kvadratisk och logaritmisk. Mer information finns i [Ange interpolation](#bkmk_interpolation) .|  
+|`name`|Krävs. Detta är namnet på bedömnings profilen. Det följer samma namn konventioner för ett fält. Det måste börja med en bokstav, får inte innehålla punkter, kolon eller @-symboler och får inte börja med frasen "azureSearch" (Skift läges känsligt).|  
+|`text`|Innehåller egenskapen viktningar.|  
+|`weights`|Valfri. Innehåller namn/värde-par som var och en anger ett fält namn och relativ vikt. Relativ vikt måste vara ett positivt heltal eller ett flytt ALS nummer.<br /><br /> Vikter används för att ange vikten av ett sökbart fält i förhållande till ett annat.|  
+|`functions`|Valfri. En poängsättnings funktion kan endast användas för fält som är filter bara.|  
+|`type`|Krävs för poängsättnings funktioner. Anger vilken typ av funktion som ska användas. Giltiga värden är storlek, aktualitet, avstånd och tagg. Du kan inkludera fler än en funktion i varje bedömnings profil. Funktions namnet måste vara gemener.|  
+|`boost`|Krävs för poängsättnings funktioner. Ett positivt tal som används som multiplikator för rå score. Det får inte vara lika med 1.|  
+|`fieldname`|Krävs för poängsättnings funktioner. En poängsättnings funktion kan endast användas för fält som ingår i indexets fält samling och som kan filtreras. Dessutom introducerar varje funktions typ ytterligare begränsningar (färskhet används med DATETIME-fält, storlek med heltal eller dubbla fält och avstånd med plats fält). Du kan bara ange ett enskilt fält per funktions definition. Om du till exempel vill använda två gånger i samma profil måste du inkludera två definitions storlek, en för varje fält.|  
+|`interpolation`|Krävs för poängsättnings funktioner. Definierar lutningen för vilken poängen ökar från början av intervallet till slutet av intervallet. Giltiga värden är linjär (standard), konstant, kvadratisk och logaritmisk. Mer information finns i [Ange interpolation](#bkmk_interpolation) .|  
 |`magnitude`|Funktionen poängsättnings funktion används för att ändra rangordningar baserat på värde intervallet för ett numeriskt fält. Några av de vanligaste användnings exemplen för detta är:<br /><br /> -   **stjärn klassificeringar:** ändra poängen baserat på värdet i fältet "stjärn klassificering". När två objekt är relevanta kommer objektet med den högre klassificeringen att visas först.<br />-   **marginal:** när två dokument är relevanta kan en åter försäljare vilja öka dokument som har högre marginaler först.<br />-   **Klicka på antal:** för program som spårar Klicka genom åtgärder till produkter eller sidor kan du använda storlek för att öka antalet objekt som tenderar att få ut mesta möjliga trafik.<br />-   **hämtnings antal:** för program som spårar hämtningar kan du använda funktionen omfattning för att öka objekt som har flest hämtningar.|  
 |`magnitude` &#124; `boostingRangeStart`|Anger startvärdet för intervallet, vars storlek är resultatet. Värdet måste vara ett heltals värde eller ett flyttal. För stjärn klassificeringar mellan 1 och 4 blir det 1. För marginaler över 50% är detta 50.|  
 |`magnitude` &#124; `boostingRangeEnd`|Anger slutvärdet för intervallet, vars storlek är resultatet. Värdet måste vara ett heltals värde eller ett flyttal. För stjärn klassificeringar mellan 1 och 4 är detta 4.|  
@@ -261,10 +261,10 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
 |||  
 |-|-|  
-|`Linear`|För objekt som ligger inom max-och min-intervallet görs ökningen som tillämpas på objektet i ett konstant minsknings belopp. Linjär är standard-interpolation för en bedömnings profil.|  
-|`Constant`|För objekt som ligger inom start-och Slutintervallet används en konstant förstärkning för ranknings resultatet.|  
-|`Quadratic`|I jämförelse med en linjär interpolation som har en konstant minskning av ökningen minskar kvadratisk inlednings vis vid mindre takt och sedan den närmar sig slut intervallet, minskar den med ett mycket högre intervall. Det här alternativet för interpolation tillåts inte i taggnings bedömnings funktioner.|  
-|`Logarithmic`|I jämförelse med en linjär interpolation som har en konstant minskning av ökningen minskar logaritmen inlednings vis vid högre takt och när det närmar sig slut intervallet, minskar det med ett mycket mindre intervall. Det här alternativet för interpolation tillåts inte i taggnings bedömnings funktioner.|  
+|`linear`|För objekt som ligger inom max-och min-intervallet görs ökningen som tillämpas på objektet i ett konstant minsknings belopp. Linjär är standard-interpolation för en bedömnings profil.|  
+|`constant`|För objekt som ligger inom start-och Slutintervallet används en konstant förstärkning för ranknings resultatet.|  
+|`quadratic`|I jämförelse med en linjär interpolation som har en konstant minskning av ökningen minskar kvadratisk inlednings vis vid mindre takt och sedan den närmar sig slut intervallet, minskar den med ett mycket högre intervall. Det här alternativet för interpolation tillåts inte i taggnings bedömnings funktioner.|  
+|`logarithmic`|I jämförelse med en linjär interpolation som har en konstant minskning av ökningen minskar logaritmen inlednings vis vid högre takt och när det närmar sig slut intervallet, minskar det med ett mycket mindre intervall. Det här alternativet för interpolation tillåts inte i taggnings bedömnings funktioner.|  
 
  ![Konstant, linjär, kvadratisk, log10 linjer i grafen](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
@@ -275,16 +275,16 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
  Följande tabell innehåller flera exempel.  
 
-|Varaktighet|boostingDuration|  
+|Längd|boostingDuration|  
 |--------------|----------------------|  
 |1 dag|"P1D"|  
 |2 dagar och 12 timmar|"P2DT12H"|  
 |15 minuter|"PT15M"|  
-|30 dagar, 5 timmar, 10 minuter och 6,334 sekunder|"P30DT5H10M6.334S"|  
+|30 dagar, 5 timmar, 10 minuter och 6,334 sekunder|"P30DT5H10M 6.334 S"|  
 
  Fler exempel finns i [XML-schema: data typer (w3.org webbplats)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Se även  
+## <a name="see-also"></a>Se också  
    för [Azure KOGNITIV sökning rest](https://docs.microsoft.com/rest/api/searchservice/)  
  [Skapa index &#40;Azure kognitiv sökning REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure Kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

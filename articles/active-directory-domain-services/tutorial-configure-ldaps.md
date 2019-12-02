@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 56283c1e07ec55c753701e86ff8c7c00078cffa2
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172781"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664110"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -208,7 +208,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
 
 1. I Azure Portal väljer du *resurs grupper* i navigeringen till vänster.
 1. Välj resurs grupp, till exempel *myResourceGroup*, och välj sedan din nätverks säkerhets grupp, till exempel *aaads-NSG*.
-1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **säkerhets > inkommande säkerhets regler**till vänster i rutan nätverks säkerhets grupp.
+1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler**till vänster i fönstret nätverks säkerhets grupp.
 1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
     | Inställning                           | Värde        |
@@ -243,7 +243,7 @@ I följande exempel DNS-post, antingen med den externa DNS-providern eller i den
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testa frågor till den hanterade domänen
 
-Om du vill ansluta och binda till din Azure AD DS-hanterade domän och söka via LDAP använder du *Ldp. exe* . Det här verktyget ingår i verktyg för fjärrserveradministration-paketet (RSAT). Mer information finns i [installera verktyg för fjärrserveradministration][rsat].
+Om du vill ansluta och binda till din Azure AD DS-hanterade domän och söka via LDAP använder du verktyget *Ldp. exe* . Det här verktyget ingår i verktyg för fjärrserveradministration-paketet (RSAT). Mer information finns i [installera verktyg för fjärrserveradministration][rsat].
 
 1. Öppna *Ldp. exe* och Anslut till den hanterade domänen. Välj **anslutning**, välj sedan **Anslut...** .
 1. Ange det säkra LDAP DNS-domännamnet för din hanterade domän som skapats i föregående steg, till exempel *LDAPS.contoso.com*. Om du vill använda säker LDAP ställer du in **port** på *636*och markerar sedan kryss rutan för **SSL**.

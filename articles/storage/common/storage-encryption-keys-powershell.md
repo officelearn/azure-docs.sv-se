@@ -1,26 +1,26 @@
 ---
-title: Konfigurera Kundhanterade nycklar för Azure Storage kryptering från PowerShell
+title: Konfigurera Kundhanterade nycklar med Azure Key Vault med PowerShell-Azure Storage
 description: Lär dig hur du använder PowerShell för att konfigurera Kundhanterade nycklar för Azure Storage kryptering. Med Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomst kontroller.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249277"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666230"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Konfigurera Kundhanterade nycklar för Azure Storage kryptering från PowerShell
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>Konfigurera Kundhanterade nycklar för Azure Storage med hjälp av PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av PowerShell.
+Den här artikeln visar hur du konfigurerar en Azure Key Vault med Kundhanterade nycklar med hjälp av PowerShell. Information om hur du skapar ett nyckel valv med Azure CLI finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell](../../key-vault/quick-create-powershell.md).
 
 > [!IMPORTANT]
 > Om du använder Kundhanterade nycklar med Azure Storage kryptering måste du ange två egenskaper för nyckel valvet, **mjuk borttagning** och **Rensa inte**. De här egenskaperna är inte aktiverade som standard. Om du vill aktivera dessa egenskaper använder du antingen PowerShell eller Azure CLI.
@@ -96,5 +96,5 @@ När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage kryptering för vilande data](storage-service-encryption.md) 
+- [Azure Storage kryptering för vilande data](storage-service-encryption.md)
 - [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

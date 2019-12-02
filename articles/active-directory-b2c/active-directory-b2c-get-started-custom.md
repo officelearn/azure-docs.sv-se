@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 411710280a631d341adeb55bc4b587a613ee3c4c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643628"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664071"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "73643628"
 
 [Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory B2C (Azure AD B2C)-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
@@ -34,7 +34,7 @@ ms.locfileid: "73643628"
 1. Logga in på [Azure-portalen](https://portal.azure.com)
 1. Använd filtret för **katalog + prenumeration** på den översta menyn för att välja den katalog som innehåller Azure AD B2C klient.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. På sidan Översikt väljer du **ID för identitets miljö**.
+1. På sidan Översikt väljer du **identitets miljö ramverk** i rutan **principer** .
 
 ### <a name="create-the-signing-key"></a>Skapa signerings nyckeln
 
@@ -67,7 +67,7 @@ Lägg till ditt Facebook-programs [app-hemlighet](active-directory-b2c-setup-fb-
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrera program för identitets upplevelse Framework
 
-Azure AD B2C kräver att du registrerar två program som används för att registrera dig och logga in användare med lokala konton: *IdentityExperienceFramework*, ett webb-API och *ProxyIdentityExperienceFramework*, en inbyggd app med delegerad behörighet till IdentityExperienceFramework-app. Användarna kan registrera sig med en e-postadress eller ett användar namn och ett lösen ord för att få åtkomst till dina klient registrerade program, vilket skapar ett "lokalt konto". Lokala konton finns bara i Azure AD B2C-klienten.
+Azure AD B2C kräver att du registrerar två program som används för att registrera dig och logga in användare med lokala konton: *IdentityExperienceFramework*, ett webb-API och *ProxyIdentityExperienceFramework*, en inbyggd app med delegerad behörighet till IdentityExperienceFramework-appen. Användarna kan registrera sig med en e-postadress eller ett användar namn och ett lösen ord för att få åtkomst till dina klient registrerade program, vilket skapar ett "lokalt konto". Lokala konton finns bara i Azure AD B2C-klienten.
 
 Du behöver bara registrera dessa två program i Azure AD B2C klient organisationen en gång.
 
@@ -93,7 +93,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 1. I **namn**anger du `IdentityExperienceFramework`.
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är ditt Azure AD B2C klient domän namn.
-1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .
+1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
 1. Välj **Registrera**.
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
@@ -130,7 +130,7 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
 1. Under **omdirigerings-URI**använder du List rutan för att välja **offentlig klient/ursprunglig (mobil & Desktop)** .
 1. För **omdirigerings-URI**anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är Azure AD B2C klient.
-1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .
+1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
 1. Välj **Registrera**.
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
@@ -146,7 +146,7 @@ Bevilja nu behörighet till API-omfånget som du visade tidigare i *IdentityExpe
 1. Under **Hantera**, Välj **API-behörigheter**.
 1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Välj fliken **Mina API: er** och välj sedan **IdentityExperienceFramework** -programmet.
-1. Under **behörighet**väljer du det **user_impersonation** -definitions område som du definierade tidigare.
+1. Under **behörighet**väljer du den **user_impersonation** definition som du definierade tidigare.
 1. Välj **Lägg till behörigheter**. Vänta några minuter innan du fortsätter till nästa steg.
 1. Välj **bevilja administrativt godkännande för (ditt klient namn)** .
 1. Välj ditt inloggade administratörs konto eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .

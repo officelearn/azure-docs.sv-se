@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f18e5dbdc257aa1ae647505c323c17f9f197d360
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150984"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666502"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du kan konfigurera Azure VPN-gatewayer för att 
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Om IKEv1 och IKEv2 för Azure VPN-anslutningar
 
-Traditionellt tillåtna endast IKEv1-anslutningar för grundläggande SKU: er och tillåtna IKEv2-anslutningar för alla VPN gateway-SKU: er som inte är grundläggande. De grundläggande SKU: erna tillåter endast 1 anslutning och tillsammans med andra begränsningar, till exempel prestanda, kunder som använder äldre enheter som endast stöder IKEv1-protokoll har begränsad erfarenhet. För att förbättra upplevelsen av kunder med IKEv1-protokoll tillåter vi nu IKEv1-anslutningar för alla VPN gateway-SKU: er. Mer information finns i [VPN gateway SKU: er](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Traditionellt tillåtna endast IKEv1-anslutningar för grundläggande SKU: er och tillåtna IKEv2-anslutningar för alla VPN gateway-SKU: er som inte är grundläggande. De grundläggande SKU: erna tillåter endast 1 anslutning och tillsammans med andra begränsningar, till exempel prestanda, kunder som använder äldre enheter som endast stöder IKEv1-protokoll har begränsad erfarenhet. För att förbättra upplevelsen av kunder med IKEv1-protokoll tillåter vi nu IKEv1-anslutningar för alla VPN gateway-SKU: er, förutom Basic SKU. Mer information finns i [VPN gateway SKU: er](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
 ![Azure VPN Gateway IKEv1-och IKEv2-anslutningar](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
@@ -42,7 +42,7 @@ IKEv2 huvud läges principer för Azure VPN-gatewayer använder till exempel bar
 
 Azure VPN-gatewayer stöder nu per anslutning, anpassad IPsec/IKE-princip. För en plats-till-plats-eller VNet-till-VNet-anslutning kan du välja en speciell kombination av krypteringsalgoritmer för IPsec och IKE med önskad nyckel längd, som du ser i följande exempel:
 
-![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![IPSec-IKE – princip](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
 Du kan skapa en IPsec/IKE-princip och tillämpa den på en ny eller befintlig anslutning.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera IoT Edge enhet – Machine Learning på Azure IoT Edge'
+title: 'Självstudie: Konfigurera en IoT Edge enhet – Azure IoT Edge & Machine Learning'
 description: 'Självstudie: Konfigurera en virtuell Azure-dator som kör Linux som en Azure IoT Edge enhet som fungerar som en transparent Gateway.'
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 714f0c335e2871fa1afe2f99d08870f0e39c488e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 510580dff575d60d9071667f6be28b525bc05d88
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113967"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665669"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -26,7 +26,7 @@ Stegen i den här artikeln utförs vanligt vis av en molnbaserad utvecklare.
 
 ## <a name="generate-certificates"></a>Generera certifikat
 
-För att en enhet ska fungera som en gateway måste den kunna ansluta till underordnade enheter på ett säkert sätt. Azure IoT Edge kan du använda en public key infrastructure (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta identiteten för den IoT Edge enheten. Mer information om hur IoT Edge enheter använder certifikat finns i avsnittet [information om Azure IoT Edge certifikat användning](iot-edge-certs.md).
+För att en enhet ska fungera som en gateway måste den kunna ansluta till underordnade enheter på ett säkert sätt. Med Azure IoT Edge kan du använda en PKI (Public Key Infrastructure) för att konfigurera säkra anslutningar mellan enheter. I det här fallet låter vi en underordnad enhet ansluta till en IoT Edge-enhet som fungerar som en transparent Gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta identiteten för den IoT Edge enheten. Mer information om hur IoT Edge enheter använder certifikat finns i avsnittet [information om Azure IoT Edge certifikat användning](iot-edge-certs.md).
 
 I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en Docker-avbildning som vi sedan skapar och kör. Vi valde att använda en Docker-avbildning för att slutföra det här steget, eftersom det betydligt minskade antalet steg som krävs för att skapa certifikaten på Windows Development-datorn. Se [generera certifikat med Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) för information om hur du skapar certifikaten utan att använda en behållare. [Skapa certifikat med Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) har den uppsättning instruktioner som vi har automatiserat med Docker-avbildningen.
 
@@ -65,10 +65,10 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
 
 12. När behållaren har körts klart kontrollerar du att följande filer finns i **c:\\edgeCertificates**:
 
-    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
+    * c:\\edgeCertificates\\certifikat\\Azure-IoT-test-Only. root. ca. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device-full-Chain. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pfx
     * c:\\edgeCertificates\\privat\\New-Edge-Device. Key. pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Ladda upp certifikat till Azure Key Vault

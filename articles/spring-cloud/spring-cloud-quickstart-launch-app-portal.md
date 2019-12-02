@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0d8bc302434ea973dd4d94156c65ee6965dd1dc1
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560068"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666263"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -72,13 +72,17 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Gå till sidan tjänst **Översikt** och välj **konfigurations Server**.
 
-1. I avsnittet **standard databas** ställer du in **URI** till "https\://GitHub.com/Azure-samples/piggymetrics", anger **etikett** till "config" och väljer **tillämpa** för att spara ändringarna.
+1. I avsnittet **standard plats** ställer du in **URI** till "https\://GitHub.com/Azure-samples/piggymetrics".
+
+1. Ange **etiketten** till "config".
+
+1. Välj **tillämpa** för att spara ändringarna.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Utveckla och distribuera program för mikrotjänster
 
-1. Öppna en [Azure-Cloudshell](https://shell.azure.com) och klona exempel App-lagringsplatsen till den lokala datorn.  Här skapar vi först en tillfällig katalog med namnet `source-code` innan appen klonas.
+1. Öppna en [Azure Cloud Shell](https://shell.azure.com) och klona exempel App-lagringsplatsen till den lokala datorn.  Här skapar vi först en tillfällig katalog med namnet `source-code` innan appen klonas.
 
     ```azurecli
     mkdir source-code
@@ -123,7 +127,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Välj `gateway` programmet för att visa **översikts** sidan.
 
-1. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Detta kan några minuter.
+1. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Det kan ta några minuter.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

@@ -9,37 +9,34 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: aad66a91f7de8380ac7e87f0ce8e35ed43cac4a6
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4460d19de1859a8a3c51d91d418b948b5d3532a6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594542"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666717"
 ---
-Koden för alla funktioner i en specifik funktionsapp finns i en rotmapp för projekt som innehåller en konfigurationsfil för värden och en eller flera undermappar. Varje undermapp innehåller kod för en separat funktion. Mappstrukturen visas i följande representation:
+Koden för alla funktioner i en speciell Function-app finns i en rotmapp som innehåller en värd konfigurations fil och en eller flera undermappar. Varje undermapp innehåller koden för en separat funktion. Mappstrukturen visas i följande representation:
 
 ```
 FunctionApp
  | - host.json
- | - Myfirstfunction
+ | - MyFirstFunction
  | | - function.json
  | | - ...  
- | - mysecondfunction
+ | - MySecondFunction
  | | - function.json
  | | - ...  
  | - SharedCode
  | - bin
 ```
 
-I version 2.x av funktionskörningen alla funktioner i funktionsappen måste dela samma språk-stacken.  
+I version 2. x av Functions-körningen måste alla funktioner i funktions programmet dela samma språks tack.  
 
-Den [host.json](../articles/azure-functions/functions-host-json.md) filen innehåller runtime-specifika konfigurationer och finns i rotmappen för funktionsappen. En *bin* mappen innehåller paket och andra biblioteksfiler som kräver att funktionsappen. Se kraven för ett funktionsapprojekt språkspecifika:
+[Host. JSON](../articles/azure-functions/functions-host-json.md) -filen innehåller körnings bara konfigurationer och finns i rotmappen i Function-appen. En *bin* -mapp innehåller paket och andra biblioteks filer som funktions programmet kräver. Se språkspecifika krav för ett Function app-projekt:
 
-* [C#-klassbiblioteket (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
-* [C#-skript (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
-* [F#skriptet](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [C#klass bibliotek (. CSPROJ)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [C#skript (. CSX)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [F#över](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
 * [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
 * [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
-
-
-

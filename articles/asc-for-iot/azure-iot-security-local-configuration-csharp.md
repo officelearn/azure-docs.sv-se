@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för lokal konfigurations fil för C# agent för | Microsoft Docs
-description: Lär dig mer om Azure Security Center för den lokala konfigurations filen för agent för C#.
+title: Förstå Azure Security Center för lokal konfigurations fil för IoT Security C# agent för | Microsoft Docs
+description: Läs mer om Azure Security Center för IoT Security Service, den lokala konfigurations filen för säkerhets C#agent för.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cc7b9f0b6e537ca3bdcbb82a357b2f2b9451fab0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600636"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664207"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Förstå den lokala konfigurations filenC# (agent)
 
@@ -46,13 +46,13 @@ För Windows:
 
 ### <a name="generalconfig-configurations"></a>Allmänna konfigurations inställningar
 
-| Konfigurationsnamn | Möjliga värden | Information | 
+| Konfigurations namn | Möjliga värden | Information | 
 |:-----------|:---------------|:--------|
-| agentId | GUID | Unikt ID för agent |
-| readRemoteConfigurationTimeout | TimeSpan | Tids period för att hämta fjärrkonfiguration från IoT Hub. Om agenten inte kan hämta konfigurationen inom den angivna tiden, kommer åtgärden att ta slut.|
-| schedulerInterval | TimeSpan | Internt schema intervall. |
-| producerInterval | TimeSpan | Arbets intervall för händelse producent. |
-| consumerInterval | TimeSpan | Arbets intervall för händelse förbrukare. |
+| agentId | LED | Unikt ID för agent |
+| readRemoteConfigurationTimeout | Intervall | Tids period för att hämta fjärrkonfiguration från IoT Hub. Om agenten inte kan hämta konfigurationen inom den angivna tiden, kommer åtgärden att ta slut.|
+| schedulerInterval | Intervall | Internt schema intervall. |
+| producerInterval | Intervall | Arbets intervall för händelse producent. |
+| consumerInterval | Intervall | Arbets intervall för händelse förbrukare. |
 | highPriorityQueueSizePercentage | 0 < nummer < 1 | Den del av total cache dedikerat för meddelanden med hög prioritet. |
 | logLevel | "Off", "oåterkallelig", "fel", "varning", "information", "Felsök"  | Logg meddelanden som är lika med eller större än den här allvarlighets graden loggas i fel söknings konsolen (syslog i Linux). |
 | fileLogLevel |  "Off", "oåterkallelig", "fel", "varning", "information", "Felsök"| Logg meddelanden som är lika med eller större än den här allvarlighets graden är inloggade i filen (syslog i Linux). |
@@ -86,8 +86,8 @@ För Windows:
 | deviceId | sträng | ID för enheten (som registrerats i Azure IoT Hub). || schedulerInterval | TimeSpan-sträng | Internt schema intervall. |
 | gatewayHostname | sträng | Värd namnet för Azure IoT Hub. < Vanligt vis >. Azure-devices.net |
 | filePath | sträng-sökväg till fil | Sökväg till filen som innehåller hemligheten för autentisering.|
-| type | "SymmetricKey", "SelfSignedCertificate" | Användar hemligheten för autentisering. Välj *SymmetricKey* om användar hemligheten är en symmetrisk nyckel väljer du *självsignerat certifikat* om hemligheten är ett självsignerat certifikat. |
-| identity | "DPS", "modul", "enhet" | Autentiseringsidentitet – DPS om autentisering görs via DPS, modul om autentisering görs med autentiseringsuppgifter för modulen eller om autentisering görs med autentiseringsuppgifter för enheten.
+| typ | "SymmetricKey", "SelfSignedCertificate" | Användar hemligheten för autentisering. Välj *SymmetricKey* om användar hemligheten är en symmetrisk nyckel väljer du *självsignerat certifikat* om hemligheten är ett självsignerat certifikat. |
+| identitet | "DPS", "modul", "enhet" | Autentiseringsidentitet – DPS om autentisering görs via DPS, modul om autentisering görs med autentiseringsuppgifter för modulen eller om autentisering görs med autentiseringsuppgifter för enheten.
 | certificateLocationKind |  "Lokalfil", "Store" | Lokalfil om certifikatet lagras i en fil, lagrar du om certifikatet finns i ett certifikat arkiv. |
 | idScope | sträng | ID-omfång för DPS |
 | registrationId | sträng  | Registrerings-ID för DPS-enhet. |
@@ -110,7 +110,7 @@ För Windows:
 ```
 ### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
 
-| Konfigurationsnamn | Möjliga värden | Information | 
+| Konfigurations namn | Möjliga värden | Information | 
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "MQTT" | IoT Hub Transport typ. |
 |

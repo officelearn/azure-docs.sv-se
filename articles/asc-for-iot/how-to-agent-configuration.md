@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure Security Center för IoT-agenten | Microsoft Docs
-description: Lär dig hur du konfigurerar agenter för användning med Azure Security Center för IoT.
+description: Lär dig hur du konfigurerar Azure Security Center för IoT-säkerhetsagenter som ska användas med tjänsten Azure Security Center for IoT Security.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933888"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664860"
 ---
-# <a name="tutorial-configure-security-agents"></a>Självstudier: Konfigurera säkerhetsagenter
+# <a name="tutorial-configure-security-agents"></a>Självstudie: Konfigurera säkerhets agenter
 
 I den här artikeln beskrivs Azure Security Center för IoT-säkerhetsagenter och information om hur du ändrar och konfigurerar dem. 
 
@@ -108,7 +108,7 @@ Om du vill använda ett standard egenskaps värde tar du bort egenskapen från k
     }
     ```
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 ### <a name="using-a-default-value"></a>Använda ett standardvärde
 
@@ -120,31 +120,31 @@ Följande tabell innehåller de kontrollerbara egenskaperna för Azure Security 
 
 Standardvärden är tillgängliga i rätt schema i [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Name| State | Giltiga värden| Standardvärden| Beskrivning |
+| Namn| Status | Giltiga värden| Standardvärden| Beskrivning |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Krävs: falskt |Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde: PT7M |Max tidsintervall innan meddelanden med hög prioritet skickas.|
-|lowPriorityMessageFrequency |Krävs: falskt|Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde: PT5H |Max tid innan meddelanden med låg prioritet skickas.| 
-|snapshotFrequency |Kräv: falskt|Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde PT13H |Tidsintervall för att skapa ögonblicks bilder av enhets status.| 
+|highPriorityMessageFrequency|Krävs: falskt |Giltiga värden: varaktighet i ISO 8601-format |Standardvärde: PT7M |Max tidsintervall innan meddelanden med hög prioritet skickas.|
+|lowPriorityMessageFrequency |Krävs: falskt|Giltiga värden: varaktighet i ISO 8601-format |Standardvärde: PT5H |Max tid innan meddelanden med låg prioritet skickas.| 
+|snapshotFrequency |Kräv: falskt|Giltiga värden: varaktighet i ISO 8601-format |Standardvärde PT13H |Tidsintervall för att skapa ögonblicks bilder av enhets status.| 
 |maxLocalCacheSizeInBytes |Krävs: falskt |Giltiga värden: |Standardvärde: 2560000, större än 8192 | Maximalt lagrings utrymme (i byte) som tillåts för meddelande-cache för en agent. Högsta mängd utrymme som tillåts för att lagra meddelanden på enheten innan meddelanden skickas.| 
-|maxMessageSizeInBytes |Krävs: falskt |Giltiga värden: Ett positivt tal som är större än 8192, mindre än 262144 |Standardvärde: 204800 |Högsta tillåtna storlek på en agent till moln meddelande. Den här inställningen styr mängden maximalt antal data som skickas i varje meddelande. |
-|eventPriority${EventName} |Krävs: falskt |Giltiga värden: Hög, låg, av |Standardvärden: |Prioritet för varje agent-genererad händelse | 
+|maxMessageSizeInBytes |Krävs: falskt |Giltiga värden: ett positivt tal som är större än 8192, mindre än 262144 |Standardvärde: 204800 |Högsta tillåtna storlek på en agent till moln meddelande. Den här inställningen styr mängden maximalt antal data som skickas i varje meddelande. |
+|eventPriority $ {EventName} |Krävs: falskt |Giltiga värden: hög, låg, av |Standardvärden: |Prioritet för varje agent-genererad händelse | 
 
 ### <a name="supported-security-events"></a>Säkerhets händelser som stöds
 
-|Händelsenamn| propertyName | Default Value| Ögonblicks bilds händelse| Information status  |
+|Händelse namn| Namn | Standardvärde| Ögonblicks bilds händelse| Information status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Diagnostisk händelse|eventPriorityDiagnostic| Av| False| Agent relaterade diagnostiska händelser. Använd den här händelsen för utförlig loggning.| 
-|Konfigurations fel |eventPriorityConfigurationError |Låg |False |Agenten kunde inte parsa konfigurationen. Verifiera konfigurationen mot schemat.| 
+|Diagnostisk händelse|eventPriorityDiagnostic| Av| Falskt| Agent relaterade diagnostiska händelser. Använd den här händelsen för utförlig loggning.| 
+|Konfigurations fel |eventPriorityConfigurationError |Låg |Falskt |Agenten kunde inte parsa konfigurationen. Verifiera konfigurationen mot schemat.| 
 |Statistik över ignorerade händelser |eventPriorityDroppedEventsStatistics |Låg |Sant|Agent relaterad händelse statistik. |
 |Meddelande statistik|eventPriorityMessageStatistics |Låg |Sant |Agent relaterad meddelande statistik. |
 |Ansluten maskin vara|eventPriorityConnectedHardware |Låg |Sant |Ögonblicks bild av all maskin vara som är ansluten till enheten.|
 |Lyssnande portar|eventPriorityListeningPorts |Hög |Sant |Ögonblicks bild av alla öppna lyssnings portar på enheten.|
-|Skapa process |eventPriorityProcessCreate |Låg |False |Granskar process skapande på enheten.|
-|Processen avslutas|eventPriorityProcessTerminate |Låg |False |Granskar avslutning av processen på enheten.| 
-|System information |eventPrioritySystemInformation |Låg |Sant |En ögonblicks bild av system information (till exempel: Operativ system eller processor).| 
+|Skapa process |eventPriorityProcessCreate |Låg |Falskt |Granskar process skapande på enheten.|
+|Processen avslutas|eventPriorityProcessTerminate |Låg |Falskt |Granskar avslutning av processen på enheten.| 
+|System information |eventPrioritySystemInformation |Låg |Sant |En ögonblicks bild av system information (till exempel: OS eller CPU).| 
 |Lokala användare| eventPriorityLocalUsers |Hög |Sant|En ögonblicks bild av registrerade lokala användare i systemet. |
-|Logga in|  eventPriorityLogin |Hög|False|Granska inloggnings händelser för enheten (lokala och fjärranslutna inloggningar).|
-|Skapa anslutning |eventPriorityConnectionCreate|Låg|False|Granskar TCP-anslutningar som skapats till och från enheten. |
+|Logga in|  eventPriorityLogin |Hög|Falskt|Granska inloggnings händelser för enheten (lokala och fjärranslutna inloggningar).|
+|Skapa anslutning |eventPriorityConnectionCreate|Låg|Falskt|Granskar TCP-anslutningar som skapats till och från enheten. |
 |Brand Väggs konfiguration| eventPriorityFirewallConfiguration|Låg|Sant|Ögonblicks bild av enhets brand Väggs konfiguration (brand Väggs regler). |
 |OS-bas linje| eventPriorityOSBaseline| Låg|Sant|Ögonblicks bild av bas linje kontroll för enhetens operativ system.|
 |

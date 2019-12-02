@@ -2,18 +2,18 @@
 title: 'Datamigrering: lokala Apache Hadoop till Azure HDInsight'
 description: Lär dig metod tips för datamigrering för migrering av lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: hrasheed
-ms.openlocfilehash: 30f7ae2eeb928e3f8dc71baed20d9c9b2129d1f9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 11/22/2019
+ms.openlocfilehash: 41112359408497d84243ed9bb06f396acf008dc5
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494995"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666009"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för data migrering
 
@@ -23,16 +23,20 @@ Den här artikeln innehåller rekommendationer för datamigrering till Azure HDI
 
 Det finns två huvud alternativ för att migrera data från lokala datorer till Azure-miljön:
 
-1.  Överföra data över nätverk med TLS
-    1. Via Internet kan du överföra data till Azure Storage via en vanlig Internet anslutning med något av flera verktyg som: Azure Storage Explorer, AzCopy, Azure PowerShell och Azure CLI.  Mer information finns i [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md) .
-    2. Express Route-ExpressRoute är en Azure-tjänst som gör att du kan skapa privata anslutningar mellan Microsoft-datacenter och infrastruktur som finns lokalt eller i en samplacerings anläggning. ExpressRoute-anslutningar går inte via det offentliga Internet och ger högre säkerhet, tillförlitlighet och hastighet med lägre fördröjning än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
-    1. Data Box-enhet data överföring online – Data Box Edge och Data Box Gateway är data överförings produkter online som fungerar som nätverks lagrings-gatewayer för att hantera data mellan din plats och Azure. Data Box Edge, en lokal nätverksenhet, överför data till och från Azure och använder AI-aktiverad (artificiell intelligens) gränsdatabearbetning för att bearbeta data. Data Box Gateway är en virtuell installation med lagringsgatewayfunktioner. Mer information finns i [Azure Data Box dokumentation – online-överföring](https://docs.microsoft.com/azure/databox-online/).
-1.  Leverera data offline
-    1. Data Box-enhet data överföring offline – Data Box-enhet, Data Box Disk och Data Box Heavy enheter kan du överföra stora mängder data till Azure när nätverket inte är ett alternativ. Dessa offlineenheter för dataöverföring skickas mellan din organisation och Azure-datacentret. De använder AES-kryptering för att skydda dina data i transit, och de genomgår en noggrann sanering efter uppladdning för att ta bort dina data från enheten. Mer information om Data Box-enhet frånkopplade överförings enheter finns i [Azure Data Box dokumentation – offline-överföring](https://docs.microsoft.com/azure/databox/). Mer information om migrering av Hadoop-kluster finns i [använda Azure Data box för att migrera från en lokal HDFS-lagring till Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+* Överföra data över nätverk med TLS
+    * Via Internet kan du överföra data till Azure Storage via en vanlig Internet anslutning med något av flera verktyg som: Azure Storage Explorer, AzCopy, Azure PowerShell och Azure CLI. Mer information finns i [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md).
+
+    * Express Route-ExpressRoute är en Azure-tjänst som gör att du kan skapa privata anslutningar mellan Microsoft-datacenter och infrastruktur som finns lokalt eller i en samplacerings anläggning. ExpressRoute-anslutningar går inte via det offentliga Internet och ger högre säkerhet, tillförlitlighet och hastighet med lägre fördröjning än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+
+    * Data Box-enhet data överföring online – Data Box Edge och Data Box Gateway är data överförings produkter online som fungerar som nätverks lagrings-gatewayer för att hantera data mellan din plats och Azure. Data Box Edge, en lokal nätverksenhet, överför data till och från Azure och använder AI-aktiverad (artificiell intelligens) gränsdatabearbetning för att bearbeta data. Data Box Gateway är en virtuell installation med lagringsgatewayfunktioner. Mer information finns i [Azure Data Box dokumentation – online-överföring](https://docs.microsoft.com/azure/databox-online/).
+
+* Leverera data offline
+
+    Data Box-enhet data överföring offline – Data Box-enhet, Data Box Disk och Data Box Heavy enheter kan du överföra stora mängder data till Azure när nätverket inte är ett alternativ. Dessa offlineenheter för dataöverföring skickas mellan din organisation och Azure-datacentret. De använder AES-kryptering för att skydda dina data i transit, och de genomgår en noggrann sanering efter uppladdning för att ta bort dina data från enheten. Mer information om Data Box-enhet frånkopplade överförings enheter finns i [Azure Data Box dokumentation – offline-överföring](https://docs.microsoft.com/azure/databox/). Mer information om migrering av Hadoop-kluster finns i [använda Azure Data box för att migrera från en lokal HDFS-lagring till Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 Följande tabell innehåller ungefärlig data överförings tid baserat på data volymen och nätverks bandbredden. Använd en data ruta om datamigreringen förväntas ta mer än tre veckor.
 
-|**Data mängd**|**Nätverks bandbredd**||||
+|Data mängd|Nätverks bandbredd||||
 |---|---|---|---|---|
 || **45 Mbit/s (T3)**|**100 Mbit/s**|**1 Gbit/s**|**10 Gbit/s**|
 |1 TB|2 dagar|1 dag| 2 timmar|14 minuter|
@@ -42,14 +46,12 @@ Följande tabell innehåller ungefärlig data överförings tid baserat på data
 |100 TB|216 dagar|97 dagar|10 dagar|1 dag|
 |200 TB|1 år|194 dagar|19 dagar|2 dagar|
 |500 TB|3 år|1 år|49 dagar|5 dagar|
-|1 PB|6 år|3 år|97 dagar|10 dagar|
+|1 PB|6 år|3 år|97 dagar|10 dagar|
 |2 PB|12 år|5 år|194 dagar|19 dagar|
 
 Verktyg som är inbyggda i Azure, t. ex. Apache Hadoop DistCp, Azure Data Factory och AzureCp, kan användas för att överföra data över nätverket. Verktyget WANDisco kan också användas för samma ändamål. Apache Kafka MirrorMaker och Apache Sqoop kan användas för pågående data överföring från lokala datorer till Azure Storage-System.
 
-
 ## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Prestanda överväganden när du använder Apache Hadoop DistCp
-
 
 DistCp är ett Apache-projekt som använder ett MapReduce-kart jobb för att överföra data, hantera fel och återställa från dessa fel. En lista med källfiler tilldelas varje kart aktivitet. Map-aktiviteten kopierar sedan alla tilldelade filer till målet. Det finns flera metoder som kan förbättra prestandan för DistCp.
 
@@ -57,8 +59,9 @@ DistCp är ett Apache-projekt som använder ett MapReduce-kart jobb för att öv
 
 DistCp försöker skapa kart aktiviteter så att var och en kopierar ungefär samma antal byte. Som standard använder DistCp-jobb 20 mapper. Om du använder fler Mapper för Distcp (med parametern ' x på kommando raden) ökar parallellitet under data överförings processen och minskar data överföringens längd. Det finns dock två saker att tänka på när du ökar antalet mappningar:
 
-1. DistCp för den lägsta precisionen är en enskild fil. Om du anger ett antal Mapper fler än antalet källfiler går det inte att använda och de tillgängliga kluster resurserna tas bort.
-1. Överväg det tillgängliga garn minnet på klustret för att fastställa antalet mappningar. Varje kart aktivitet startas som en garn behållare. Förutsatt att inga andra tunga arbets belastningar körs i klustret, kan antalet Mapper bestämmas av följande formel: m = (antalet arbetsnoder \* garn minne för varje arbetsnod)/storlek för garn behållare. Men om andra program använder minne väljer du att bara använda en del av garn minnet för DistCp-jobb.
+* DistCp för den lägsta precisionen är en enskild fil. Det går inte att ange ett antal fler Mapper än antalet källfiler och de tillgängliga kluster resurserna kommer att tas bort.
+
+* Överväg det tillgängliga garn minnet på klustret för att fastställa antalet mappningar. Varje kart aktivitet startas som en garn behållare. Förutsatt att inga andra tunga arbets belastningar körs i klustret, kan antalet Mapper bestämmas av följande formel: m = (antalet arbetsnoder \* garn minne för varje arbetsnod)/storlek för garn behållare. Men om andra program använder minne väljer du att bara använda en del av garn minnet för DistCp-jobb.
 
 ### <a name="use-more-than-one-distcp-job"></a>Använd mer än ett DistCp-jobb
 
@@ -102,14 +105,14 @@ Hive-metaarkiv kan migreras antingen med hjälp av skripten eller med hjälp av 
 - Konfigurera databasreplikering mellan lokala Hive-metaarkiv DB-och HDInsight metaarkiv DB.
 - Använd "Hive-MetaTool" för att ersätta HDFS-URL med WASB/ADLS/ABFS-URL: er, till exempel:
 
-```bash
-./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
-```
+    ```bash
+    ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+    ```
 
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Exportera lokala Ranger-principer till XML-filer.
-- Transformera lokalt angivna HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.
+- Transformera lokala HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.
 - Importera principerna på Ranger som körs på HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg

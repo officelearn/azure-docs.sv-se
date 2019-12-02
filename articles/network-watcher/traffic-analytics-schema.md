@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: a678039b3386c3df290327238d3bf968a803d2c1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229442"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666383"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema-och data agg regering i Trafikanalys
 
@@ -106,7 +106,7 @@ Nedan visas fälten i schemat och vad de betecknar
 | FlowIntervalEndTime_t | Datum och tid i UTC | Slut tid för flödes logg bearbetnings intervall |
 | FlowStartTime_t | Datum och tid i UTC |  Den första förekomsten av flödet (som sammanställs) i bearbetnings intervallet för flödes loggen mellan "FlowIntervalStartTime_t" och "FlowIntervalEndTime_t". Det här flödet får aggregeras baserat på agg regerings logik |
 | FlowEndTime_t | Datum och tid i UTC | Den sista förekomsten av flödet (som sammanställs) i bearbetnings intervallet för flödes loggen mellan "FlowIntervalStartTime_t" och "FlowIntervalEndTime_t". I den här typen av flödes logg v2, innehåller det här fältet den tidpunkt då det sista flödet med samma fyra tuple-start (markerat som "B" i rå Flow-posten) |
-| FlowType_s |  * IntraVNet <br> * InterVNet <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * Okänd privat <br> * Okänd | Definition i anteckningar under tabellen |
+| FlowType_s |  * IntraVNet <br> * Anslutningar <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * Okänd privat <br> * Okänd | Definition i anteckningar under tabellen |
 | SrcIP_s | Källans IP-adress | Kommer att vara tomt i händelse av AzurePublic-och ExternalPublic-flöden |
 | DestIP_s | Mål-IP-adress | Kommer att vara tomt i händelse av AzurePublic-och ExternalPublic-flöden |
 | VMIP_s | IP-adress för den virtuella datorn | Används för AzurePublic-och ExternalPublic-flöden |
@@ -122,8 +122,8 @@ Nedan visas fälten i schemat och vad de betecknar
 | NSGRuleType_s | * Användardefinierad * standard |   Typ av NSG-regel som används av flödet |
 | MACAddress_s | MAC-adress | MAC-adressen för NÄTVERKSKORTet som flödet registrerades med |
 | Subscription_s | Prenumerationen på det virtuella Azure-nätverket/nätverks gränssnittet/den virtuella datorn fylls i i det här fältet | Endast tillämpligt för FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow och UnknownPrivate flödes typer (flödes typer där bara en sida är Azure) |
-| Subscription1_s | Prenumerations-ID:t | Prenumerations-ID för virtuellt nätverk/nätverks gränssnitt/virtuell dator som käll-IP i flödet tillhör |
-| Subscription2_s | Prenumerations-ID:t | Prenumerations-ID för virtuellt nätverk/nätverks gränssnitt/virtuell dator som mål-IP i flödet tillhör |
+| Subscription1_s | Prenumerations-ID | Prenumerations-ID för virtuellt nätverk/nätverks gränssnitt/virtuell dator som käll-IP i flödet tillhör |
+| Subscription2_s | Prenumerations-ID | Prenumerations-ID för virtuellt nätverk/nätverks gränssnitt/virtuell dator som mål-IP i flödet tillhör |
 | Region_s | Azure-region för virtuellt nätverk/nätverks gränssnitt/virtuell dator som IP-adressen i flödet tillhör | Endast tillämpligt för FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow och UnknownPrivate flödes typer (flödes typer där bara en sida är Azure) |
 | Region1_s | Azure-region | Azure-region för virtuellt nätverk/nätverks gränssnitt/virtuell dator som käll-IP i flödet tillhör |
 | Region2_s | Azure-region | Azure-regionen för det virtuella nätverk som mål-IP i flödet tillhör |
@@ -142,8 +142,8 @@ Nedan visas fälten i schemat och vad de betecknar
 | LoadBalancer2_s | \<SubscriptionID >/\<ResourceGroupName >/\<LoadBalancerName > | Belastningsutjämnare som är associerad med mål-IP i flödet |
 | LocalNetworkGateway1_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | Lokal nätverksgateway kopplad till käll-IP i flödet |
 | LocalNetworkGateway2_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | Lokal nätverksgateway kopplad till mål-IP i flödet |
-| ConnectionType_s | Möjliga värden är VNetPeering, VpnGateway och ExpressRoute |    Anslutningstyp |
-| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | Anslutningsnamn |
+| ConnectionType_s | Möjliga värden är VNetPeering, VpnGateway och ExpressRoute |    Anslutnings typ |
+| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | Anslutnings namn. För FlowType-P2S formateras detta som <gateway name>_<VPN Client IP> |
 | ConnectingVNets_s | Blankstegsavgränsad lista över virtuella nätverks namn | I händelse av hubb och eker-topologi kommer hubbens virtuella nätverk att fyllas här |
 | Country_s | Landskod med två bokstäver (ISO 3166-1 alpha-2) | Ifyllt för flödes typen ExternalPublic. Alla IP-adresser i PublicIPs_s fält kommer att dela samma landskod |
 | AzureRegion_s | Azure-region platser | Ifyllt för flödes typen AzurePublic. Alla IP-adresser i PublicIPs_s fält kommer att dela Azure-regionen |

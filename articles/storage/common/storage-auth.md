@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c20f699a2d2270d11935b0216b1655390ece211c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b7669f9ec804a8fd2801474a845af7e029ee5235
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671066"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664054"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>Auktorisera åtkomst till Azure Storage
 
@@ -36,8 +36,13 @@ Varje Authorization-alternativ beskrivs kortfattat nedan:
 
 - **Azure AD Domain Services (DS)-integration (för hands version)** för filer. Azure Files stöder identitets-baserad autentisering över Server Message Block (SMB) via Azure AD DS. Detta tillhandahåller RBAC för detaljerad kontroll över en klients åtkomst till resurser i ett lagrings konto. Mer information om Azure AD-integrering för filer med domän tjänster finns i [Översikt över stöd för autentisering med Azure Files Azure Active Directory Domain Service (AAD DS) för SMB-åtkomst (för hands version)](../files/storage-files-active-directory-overview.md).
 
-- **Auktorisering av delad nyckel** för blobbar, filer, köer och tabeller. En klient som använder delad nyckel skickar ett huvud till varje begäran som är signerad med lagrings kontots åtkomst nyckel. Mer information finns i [auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/).
+- **Auktorisering av delad nyckel** för blobbar, filer, köer och tabeller. En klient som använder delad nyckel skickar ett huvud till varje begäran som är signerad med lagrings kontots åtkomst nyckel. Mer information finns i [auktorisera med delad nyckel](/rest/api/storageservices/authenticate-with-shared-key/).
 - **Signaturer för delad åtkomst** för blobbar, filer, köer och tabeller. Signaturer för delad åtkomst (SAS) ger begränsad delegerad åtkomst till resurser i ett lagrings konto. Att lägga till begränsningar i tidsintervallet för vilka signaturen är giltig eller behörigheter som den ger ger flexibilitet vid hantering av åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
 - **Anonym offentlig Läs behörighet** för behållare och blobbar. Auktorisering krävs inte. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../blobs/storage-manage-access-to-resources.md).  
 
-Som standard är alla resurser i Azure Storage skyddade, och de är bara tillgängliga för kontots ägare. Även om du kan använda någon av de behörighets strategier som beskrivs ovan för att ge klienterna åtkomst till resurser i ditt lagrings konto, rekommenderar Microsoft att använda Azure AD när det är möjligt för maximal säkerhet och enkel användning. 
+Som standard är alla resurser i Azure Storage skyddade, och de är bara tillgängliga för kontots ägare. Även om du kan använda någon av de behörighets strategier som beskrivs ovan för att ge klienterna åtkomst till resurser i ditt lagrings konto, rekommenderar Microsoft att använda Azure AD när det är möjligt för maximal säkerhet och enkel användning.
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Azure Active Directory dokumentation](/azure/active-directory/)
+- [Utveckling av Microsoft Identity Platform](/azure/active-directory/develop/about-microsoft-identity-platform)

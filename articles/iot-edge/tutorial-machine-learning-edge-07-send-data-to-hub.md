@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skicka enhets data via transparent Gateway – Machine Learning på Azure IoT Edge'
+title: 'Självstudie: skicka data via gateway – Azure IoT Edge & Machine Learning'
 description: 'Självstudie: Använd din utvecklings dator som en simulerad IoT Edge enhet för att skicka data till IoT Hub genom att gå igenom en enhet som kon figurer ATS som en transparent Gateway.'
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a1974a9d9e635bad4094e38c2c194ff49993611
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: cdd1e1d83b1d184e6a904fc64e9c2395c2896d54
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113956"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665635"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Självstudie: skicka data via transparent Gateway
 
@@ -107,7 +107,7 @@ Utdata från avroFileWriter-modulen kan observeras enkelt genom att titta på de
 
 5. När 10 minuter har förflutit ska modulen Ladda upp filerna. Om överföringen lyckas tas filerna bort från disken.
 
-### <a name="azure-storage"></a>Azure-lagring
+### <a name="azure-storage"></a>Azure Storage
 
 Vi kan se resultatet av vår löv enhet som skickar data genom att titta på de lagrings konton där vi förväntar sig att data ska vidarebefordras.
 

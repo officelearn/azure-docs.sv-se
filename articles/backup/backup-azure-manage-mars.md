@@ -4,12 +4,12 @@ description: Lär dig hur du hanterar och övervakar säkerhets kopior av Micros
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173070"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665601"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services (MARS) med hjälp av tjänsten Azure Backup
 
@@ -124,7 +124,7 @@ Du kan lägga till undantags regler för att hoppa över filer och mappar som du
 
     ![Välj objekten](./media/backup-azure-manage-mars/select-items-exclude.png)
 
-4. Som standard undantas alla **undermappar** i de valda mapparna. Du kan ändra detta genom att välja **Ja** eller **Nej**. Du kan redigera och specificera filtyper som ska undantas enligt följande:
+4. Som standard undantas alla **undermappar** i de valda mapparna. Du kan ändra detta genom att välja **Ja** eller **Nej**. Du kan redigera och ange de filtyper som ska undantas enligt nedan:
 
     ![Välj objekten](./media/backup-azure-manage-mars/subfolders-type.png)
 
@@ -159,12 +159,12 @@ Det finns två sätt att sluta skydda säkerhets kopior av filer och mappar:
 
 1. Öppna hanterings konsolen för MARS, gå till **Åtgärds fönstret**och **Välj Schemalägg säkerhets kopiering**.
     ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/mars-actions.png)
-1. På sidan **Välj princip objekt** väljer du **ändra ett schema för säkerhets kopiering för filerna och mapparna klickar du** på **Nästa**.
+1. På sidan **Välj princip objekt** väljer du **ändra ett schema för säkerhets kopiering för dina filer och mappar** och klickar på **Nästa**.
     ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. På sidan **ändra eller stoppa en schemalagd säkerhets kopiering** väljer du **sluta använda detta schema för säkerhets kopiering, men Behåll de lagrade säkerhets kopiorna tills ett schema aktive ras igen**. Välj sedan **Nästa**.  
     ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. I **pausa schemalagd säkerhets kopiering** granskar du informationen genom att klicka på **Slutför** ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. i **ändra säkerhets kopierings process** kontrollerar du att schemalagd säkerhets kopiering har slutförts. Klicka på **Stäng** för att slutföra.
+1. I **pausa schemalagd säkerhets kopiering** granskar du informationen och klickar på **Slutför** ![ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. i **ändra säkerhets kopierings process** kontrollerar du att säkerhets kopieringen har pausats. Klicka på **Stäng** för att slutföra.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Stoppa skyddet och ta bort säkerhets kopierings data
 
@@ -194,7 +194,7 @@ När du har tagit bort de lokala säkerhets kopierings objekten följer du stege
 Om du har stoppat skyddet och bevarar data och valt att återuppta skyddet kan du återaktivera schemat för säkerhets kopiering med hjälp av ändra säkerhets kopierings princip.
 
 1. På **åtgärder** väljer du **Schemalägg säkerhets kopiering**.
-1. Välj återaktivera **säkerhets kopierings schema. Du kan också ändra säkerhets kopierings objekt eller Tines** och klicka på **Nästa**.
+1. Välj återaktivera **säkerhets kopierings schema. Du kan också ändra säkerhets kopierings objekt eller-tider** och klicka på **Nästa**.
     ![bort infrastruktur för säkerhets kopiering.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. I **Välj objekt som ska säkerhets kopie ras klickar du**på **Nästa**.
     ![bort infrastruktur för säkerhets kopiering.](./media/backup-azure-manage-mars/re-enable-next.png)

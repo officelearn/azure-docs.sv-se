@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 11/26/2019
 ms.author: tamram
 ms.custom: include
-ms.openlocfilehash: 3076065d23d4701711c0ecb60349e77ee5c9b7c8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f846d75833b3a796e24fd23c5f841ea24a8d1876
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187558"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665922"
 ---
-Azure Storage stöder kryptering i vila med Microsoft-hanterade nycklar eller Kundhanterade nycklar. Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomstkontroller.
+Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklarna kan du ange Kundhanterade nycklar på lagrings kontots nivå.
 
-Använda Azure Key Vault för att hantera dina nycklar och granska din nyckelanvändning. Du kan skapa dina egna nycklar och lagra dem i ett nyckelvalv, eller du kan använda Azure Key Vault-API: er för att generera nycklar. Storage-konto och nyckelvalvet måste vara i samma region, men de kan vara i olika prenumerationer. Läs mer om Azure Key Vault [vad är Azure Key Vault?](../articles/key-vault/key-vault-overview.md)
+Kundhanterade nycklar måste lagras i en Azure Key Vault. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Lagrings kontot och nyckel valvet måste finnas i samma region, men de kan finnas i olika prenumerationer. Mer information om Azure Storage kryptering och nyckel hantering finns i [Azure Storage kryptering för data i vila](../articles/storage/common/storage-service-encryption.md). Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../articles/key-vault/key-vault-overview.md)

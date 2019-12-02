@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090822"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666434"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor om Azure Storage migrering
 
 I den här artikeln besvaras vanliga frågor om Azure Storage migrering. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 **Hur gör jag för att skapa ett skript för att kopiera filer från en behållare till en annan?**
 
@@ -47,7 +47,7 @@ Det finns inget alternativ för att säkerhetskopiera ett helt lagrings konto di
 
 1.  Installera kommando rads verktyget [AzCopy](storage-use-azcopy.md) . Med det här verktyget kan du flytta VHD-filen mellan lagrings konton.
 
-2.  När du har installerat AzCopy i Windows med hjälp av installations programmet öppnar du ett kommando tolks fönster och bläddrar sedan till mappen AzCopy-installation på din dator. Som standard installeras AzCopy på **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** eller **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  När du har installerat AzCopy i Windows med hjälp av installations programmet öppnar du ett kommando tolks fönster och bläddrar sedan till mappen AzCopy-installation på din dator. Som standard installeras AzCopy till **% ProgramFiles (x86)% \ Microsoft SDKs\Azure\AzCopy** eller **%program%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Kör följande kommando för att flytta behållaren. Du måste ersätta texten med de faktiska värdena.   
      
@@ -55,10 +55,10 @@ Det finns inget alternativ för att säkerhetskopiera ett helt lagrings konto di
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Ange URI för käll lagrings kontot (upp till behållaren).  
-    - `/Dest`: Ange URI för mål lagrings kontot (upp till behållaren).  
-    - `/SourceKey`: Ange primär nyckel för käll lagrings kontot. Du kan kopiera den här nyckeln från Azure Portal genom att välja lagrings kontot.  
-    - `/DestKey`: Ange primär nyckel för mål lagrings kontot. Du kan kopiera den här nyckeln från portalen genom att välja lagrings kontot.
+    - `/Source`: ange URI för käll lagrings kontot (upp till behållaren).  
+    - `/Dest`: ange URI för mål lagrings kontot (upp till behållaren).  
+    - `/SourceKey`: Ange den primära nyckeln för käll lagrings kontot. Du kan kopiera den här nyckeln från Azure Portal genom att välja lagrings kontot.  
+    - `/DestKey`: Ange den primära nyckeln för mål lagrings kontot. Du kan kopiera den här nyckeln från portalen genom att välja lagrings kontot.
 
 När du har kört det här kommandot flyttas behållar filerna till mål lagrings kontot.
 
@@ -167,7 +167,7 @@ Använd AzCopy för att hämta data. Mer information finns i [överföra data me
 
 **Hur gör jag för att ändra den sekundära platsen till regionen Europa för ett lagrings konto?**
 
-När du skapar ett lagrings konto väljer du den primära regionen för kontot. Valet av den sekundära regionen baseras på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): Replikering mellan regioner för Azure Storage](storage-redundancy.md).
+När du skapar ett lagrings konto väljer du den primära regionen för kontot. Valet av den sekundära regionen baseras på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): replikering mellan flera regioner för Azure Storage](storage-redundancy.md).
 
 **Var kan jag få mer information om Azure Storage Service Encryption (SSE)?**  
   
@@ -237,7 +237,7 @@ Om du har virtuella datorer måste du vidta ytterligare åtgärder innan du migr
 
 **Hur gör jag för att flytta från ett klassiskt lagrings konto till ett Azure Resource Manager lagrings konto?**
 
-Du kan använda cmdleten **Move-AzStorageAccount** . Denna cmdlet har flera steg (validate, preping, commit). Du kan verifiera flytten innan du gör den.
+Du kan använda cmdleten **Move-AzureStorageAccount** . Denna cmdlet har flera steg (validate, preping, commit). Du kan verifiera flytten innan du gör den.
 
 Om du har virtuella datorer måste du vidta ytterligare åtgärder innan du migrerar lagrings konto data. Mer information finns i [migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -267,9 +267,9 @@ Ge andra personer åtkomst till lagrings resurserna:
 
 -   Om du öppnar AzCopy från kommando raden Microsoft Azure Storage skriver du **AzCopy**. Kommando raden installeras tillsammans med AzCopy.
 
--   Om du har installerat 32-bitars versionen finns den här: **% ProgramFiles (x86)%\\Microsoft SDK\\Azure\\-AzCopy**.
+-   Om du har installerat 32-bitars versionen finns den här: **% ProgramFiles (x86)%\\Microsoft SDK: er\\Azure\\AzCopy**.
 
--   Om du har installerat 64-bitars versionen finns den här: **% ProgramFiles%\\Microsoft SDK\\Azure\\AzCopy**.
+-   Om du har installerat 64-bitars versionen finns den här: **% ProgramFiles%\\Microsoft SDK: er\\Azure\\AzCopy**.
 
 **Hur kommer jag åt data som lagras i den sekundära regionen för ett replikerat lagrings konto (till exempel zon redundant lagring, Geo-redundant lagring eller Geo-redundant lagring med Läs åtkomst)?**
 
@@ -283,7 +283,7 @@ Ge andra personer åtkomst till lagrings resurserna:
 
     - **SAS-token**: Använd en SAS-token för att komma åt data från slut punkten. Mer information finns i [använda signaturer för delad åtkomst](storage-sas-overview.md).
 
-**Hur gör jag för att använder du en anpassad HTTPS-domän med mitt lagrings konto? Hur gör jag för att t. ex. "\/https:/mystorageaccountname.blob.Core.Windows.net/images/image.gif" visas som "\/https:/www.contoso.com/images/image.gif"?**
+**Hur gör jag för att använder du en anpassad HTTPS-domän med mitt lagrings konto? Hur gör jag för att t. ex. "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" visas som "https:\//www.contoso.com/images/image.gif"?**
 
 SSL stöds för närvarande inte på lagrings konton med anpassade domäner.
 Men du kan använda icke-HTTPS-anpassade domäner. Mer information finns i [Konfigurera ett eget domän namn för din Blob Storage-slutpunkt](../blobs/storage-custom-domain-name.md).

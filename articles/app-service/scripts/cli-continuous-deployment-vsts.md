@@ -1,27 +1,20 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en app och distribuera kontinuerligt från Azure Repos | Microsoft Docs
-description: Skriptexempel för Azure CLI – Skapa en app med kontinuerlig distribution från Azure Repos
-services: app-service\web
-documentationcenter: ''
+title: Kontinuerlig distribution från Azure databaser
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du konfigurerar CI/CD från Azure databaser.
 author: msangapu-msft
-manager: jeconnoc
-editor: ''
 tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f7b28e75e8ae722169f3e41f657ef6292e12cc6b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1b1d829f2e1e9dcf277f3be5276a1494d5b96c12
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879024"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688402"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Skapa en App Service-app med kontinuerlig distribution med hjälp av Azure CLI
 
@@ -52,7 +45,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Skapar en App Service-app. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Kopplar en Azure Service-app till en Git- eller Mercurial-lagringsplats. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associerar en Azure Service-app med en Git- eller Mercurial-lagringsplats. |
 
 ## <a name="next-steps"></a>Nästa steg
 

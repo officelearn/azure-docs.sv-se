@@ -1,27 +1,20 @@
 ---
-title: Skriptexempel för Azure CLI – Ansluta en app till en SQL-databas | Microsoft Docs
-description: Skriptexempel för Azure CLI – Ansluta en app till en SQL-databas
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: ansluta en app till en SQL-databas'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till en SQL-databas.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e23ef4a12182aaeb6db84615106ed4e8919938bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0634cff6060e47ea059508f5f14abcaa679b53f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136783"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688456"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Ansluta en App Service-app till en SQL-databas med hjälp av CLI
 
@@ -51,7 +44,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | Skapar en SQL Database-server.  |
 | [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | Skapar en ny databas med SQL Database-servern. |
 | [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) | Genererar en anslutningssträng för en databas. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Skapar eller uppdaterar en appinställning för en App Service-app. Appinställningarna visas som miljövariabler för din app. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Skapar eller uppdaterar en app-inställning för en App Service-app. Appinställningarna visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg
 

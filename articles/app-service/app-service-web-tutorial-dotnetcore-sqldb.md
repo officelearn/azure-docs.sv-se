@@ -1,25 +1,16 @@
 ---
-title: ASP.NET Core med SQL Database-Azure App Service | Microsoft Docs
+title: 'Självstudie: ASP.NET Core med SQL Database'
 description: Lär dig hur du får igång en .NET Core-app som fungerar i Azure App Service med anslutning till en SQL Database.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a52a842bbd8ba9d8b22cdcf6792ec7e45a06e964
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7f444ad9b32ca5da923ce5ac711c9947971c4d1e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471156"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672003"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service
 
@@ -27,7 +18,7 @@ ms.locfileid: "73471156"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core- och SQL Database-app i Azure App Service i Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-Med [App Service ](overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Den här självstudiekursen visar hur du skapar en .NET Core-app och ansluter den till en SQL Database. När du är klar har du en .NET Core MVC-app som körs i App Service.
+Med [App Service ](overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Den här självstudien visar hur du skapar en .NET Core-app och ansluter den till en SQL Database. När du är klar har du en .NET Core MVC-app som körs i App Service.
 
 ![app som körs i App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -43,7 +34,7 @@ Du lär dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -156,7 +147,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 Detta är anslutningssträngen för .NET Core-appen. Kopiera den för senare bruk.
 
-## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
 I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till App Service.
 
@@ -168,7 +159,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa en webbapp
+### <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 

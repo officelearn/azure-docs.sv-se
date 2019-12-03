@@ -1,28 +1,19 @@
 ---
-title: Node. js (MEAN. js) med MongoDB-Azure App Service | Microsoft Docs
-description: Lär dig att få en Node.js-app att fungera i Azure med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng. MEAN. js används i självstudien.
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: erikre
-editor: ''
+title: 'Självstudie: Node. js-app med MongoDB'
+description: Lär dig hur du hämtar en Node. js-app som fungerar i Azure med anslutning till en MongoDB-databas i Azure (Cosmos DB). MEAN. js används i självstudien.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b9b10542b861b49e83ff9704912a569cdca7616
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7d0a1d89b0547b1cd982b2717ac7548bec848a77
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024914"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671309"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudier: Skapa en Node.js- och MongoDB-app i Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudie: Bygg en Node. js-och MongoDB-app i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js- och MongoDB-app i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
@@ -36,7 +27,7 @@ Detta får du får lära dig:
 
 > [!div class="checklist"]
 > * skapa en MongoDB-databas i Azure
-> * ansluta en Node.js-app till MongoDB
+> * Anslut en Node.js-app till MongoDB
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma diagnostikloggar från Azure
@@ -44,7 +35,7 @@ Detta får du får lära dig:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -230,7 +221,7 @@ $env:NODE_ENV = "production"
 node server.js
 ```
 
-`NODE_ENV=production` ställer in miljövariabeln som anvisar Node.js att köra i produktionsmiljön.  `node server.js` startar Node.js-servern med `server.js` i roten för lagringsplatsen. Så här läses Node.js-programmet in i Azure. 
+`NODE_ENV=production` ställer in miljövariabeln som uppmanar Node.js att köra i produktionsmiljön.  `node server.js` startar Node.js-servern med `server.js` i roten för lagringsplatsen. Så här läses Node.js-programmet in i Azure. 
 
 När appen är inläst ska du kontrollera att den körs i produktionsmiljön:
 
@@ -262,7 +253,7 @@ I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azu
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>Skapa en webbapp
+### <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
@@ -346,7 +337,7 @@ I det här steget ändrar du datamodellen `article` och publicerar din ändring 
 
 Öppna _modules/articles/server/models/article.server.model.js_.
 
-I `ArticleSchema` lägger du till `String`-typ med namnet `comment`. När du är klar bör schemakoden se ut så här:
+I `ArticleSchema` lägger du till `String` en typ som heter `comment`. När du är klar bör schemakoden se ut så här:
 
 ```javascript
 const ArticleSchema = new Schema({
@@ -486,7 +477,7 @@ Stoppa loggströmningen när som helst genom att skriva `Ctrl+C`.
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) för att se den app du skapade.
 
 Klicka på **App Services** på menyn till vänster och klicka sedan på din Azure-apps namn.
 
@@ -505,7 +496,7 @@ Vad du lärt dig:
 
 > [!div class="checklist"]
 > * skapa en MongoDB-databas i Azure
-> * ansluta en Node.js-app till MongoDB
+> * Anslut en Node.js-app till MongoDB
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen

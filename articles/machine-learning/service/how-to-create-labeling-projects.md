@@ -7,153 +7,153 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837487"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689301"
 ---
 # <a name="get-labels-for-data"></a>Hämta etiketter för data
 
-Att märka stora mängder data har ofta varit ett problem i Machine Learning-projekt. ML-projekt med en dator vision, till exempel bild klassificering eller objekt identifiering, kräver vanligt vis tusentals avbildningar och motsvarande etiketter. 
+Att märka Voluminous-data i Machine Learning-projekt är ofta ett problem. Projekt som har en dator vision komponent, till exempel bild klassificering eller objekt identifiering, kräver vanligt vis etiketter för tusentals avbildningar.
  
-Azure Machine Learning ger dig en central plats för att skapa, hantera och övervaka projekt med etiketter. Genom att namnge projekt kan du koordinera data, etiketter och grupp medlemmar, så att du effektivt kan hantera etikett uppgifter. Aktiviteter som stöds för närvarande är bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering med hjälp av gränser rutor.
+[Azure Machine Learning](https://ml.azure.com/) ger dig en central plats där du kan skapa, hantera och övervaka projekt med etiketter. Använd den för att koordinera data, etiketter och team medlemmar för att effektivt hantera etikett uppgifter. Machine Learning stöder bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering tillsammans med gränser rutor.
 
-Azure spårar förlopp och underhåller kön med ofullständiga etikett uppgifter. Etiketter kräver inget Azure-konto för att delta. När de har autentiserats med sitt Microsoft-konto (MSA) eller [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)kan de göra så mycket eller bara små etiketter som de tillåter. De kan tilldela och ändra etiketter med kortkommandon. 
+Machine Learning spårar förloppet och underhåller kön med ofullständiga etikett uppgifter. Etiketter behöver inte delta i ett Azure-konto. När de har autentiserats med Microsoft-konto eller [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)kan de göra så mycket etiketter som möjligt.
 
-Du kan starta och stoppa projektet, lägga till och ta bort personer och team och övervaka förloppet. Du kan exportera märkta data i antingen COCO-format eller som en Azure ML-datauppsättning. 
+I Machine Learning startar och stoppar du projektet, lägger till och tar bort personer och team och övervakar förloppet. Du kan exportera märkta data i COCO-format eller som en Azure Machine Learning data uppsättning.
 
 I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett projekt
 > * Ange projektets data och struktur
-> * Hantera de team och personer som arbetar med projektet
+> * Hantera team och personer som arbetar med projektet
 > * Köra och övervaka projektet
-> * Exportera etiketterna 
+> * Exportera etiketterna
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* De data som du vill märka, antingen i lokala filer eller redan i Azure Storage
-* Den uppsättning etiketter som du vill använda
-* Instruktioner för etikettering
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
-* En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
+* De data som du vill märka, antingen i lokala filer eller i Azure Storage.
+* Den uppsättning etiketter som du vill använda.
+* Anvisningarna för att märka.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
 
-Att märka projekt administreras från [Azure Machine Learning](https://ml.azure.com/). På sidan **Märk projekt** kan du hantera dina projekt, team och personer. Ett projekt har ett eller flera team tilldelade till sig, och ett lag har tilldelats en eller flera personer. 
+Att märka projekt administreras från Azure Machine Learning. Du kan använda sidan **Märk projekt** för att hantera dina projekt och personer. Ett projekt har ett eller flera team tilldelade till sig, och ett lag har tilldelats en eller flera personer.
 
-Om dina data redan är lagrade i Azure Blob Storage bör du göra dem tillgängliga som ett data lager innan du skapar ditt etikett-projekt. Mer information finns i [skapa och registrera data lager](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
+Om dina data redan finns i Azure Blob Storage bör du göra det tillgängligt som ett data lager innan du skapar ett etikettande projekt. Mer information finns i [skapa och registrera data lager](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
 
-Välj **Lägg till projekt**om du vill skapa ett projekt. Ge den ett lämpligt namn och välj **uppgifts typ**. 
+Välj **Lägg till projekt**om du vill skapa ett projekt. Ge projektet ett lämpligt namn och välj **uppgifts typ för etiketter**.
 
 ![Guiden skapa etikett för projekt](media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Välj **bild klassificering med flera etiketter** för projekt där **en _eller flera_**  etiketter från en uppsättning klasser kan tillämpas på en bild. Till exempel kan ett foto av en hund märkas med både *hund* och *dagtid*
-* Välj **bild klassificering flera klasser** för projekt där endast en **enskild klass** från en uppsättning klasser kan tillämpas på en avbildning
-* Välj **objekt identifiering (markerings ram)** för projekt där uppgiften ska båda tilldela en klass till ett objekt i en bild och för att ange en avgränsnings ruta runt objektet
+* Välj **bild klassificering med flera etiketter** för projekt om du vill tillämpa *en eller flera* etiketter från en uppsättning klasser i en bild. Till exempel kan ett foto av en hund vara märkt med både *hund* och *dagtid*.
+* Välj **bild klassificering flera klasser** för projekt när du bara vill använda en *enda klass* från en uppsättning klasser till en avbildning.
+* Välj **objekt identifiering (markerings ram)** för projekt när du vill tilldela en klass och en avgränsnings ruta till varje objekt i en bild.
 
-Välj **Nästa** när du är redo att gå vidare.
+Välj **Nästa** när du är redo att fortsätta.
 
-## <a name="specify-data-to-be-labeled"></a>Ange data som ska märkas
+## <a name="specify-the-data-to-label"></a>Ange de data som ska etiketteras
 
-Om du redan har skapat en data uppsättning som innehåller dina data kan du välja den från List rutan **Välj en befintlig data mängd** . Alternativt kan du välja **skapa en data uppsättning** för att antingen välja ett befintligt Azure-datalager eller ladda upp lokala filer. 
+Om du redan har skapat en data uppsättning som innehåller dina data väljer du den från List rutan **Välj en befintlig data uppsättning** . Eller Välj **skapa en data uppsättning** för att använda ett befintligt Azure-datalager eller för att ladda upp lokala filer.
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Skapa en data uppsättning från ett Azure-datalager
 
-Även om det är bra att välja direkt överföring av lokala filer är det bra att [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) både stabilt och snabbare för överföring av stora mängder data. Vi rekommenderar Azure Storage Explorer som standard sätt att flytta filer.
+I många fall är det bra att bara ladda upp lokala filer. Men [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) ger ett snabbare och mer robust sätt att överföra en stor mängd data. Vi rekommenderar Storage Explorer som standard sätt att flytta filer.
 
 Så här skapar du en data uppsättning från data som du redan har lagrat i Azure Blob Storage:
 
-1. Välj **skapa en data uppsättning** och **från data lager**
-1. Tilldela ett **namn** för din data uppsättning
-1. Du måste välja "Arkiv" som **data uppsättnings typ**  
-1. Välj data lager 
-1. Om dina data finns i en undermapp i Blob Storage väljer du **Bläddra** för att välja sökvägen. 
-    * Du kan lägga till `/**` efter sökvägen för att inkludera alla filer i undermappar för den valda sökvägen
-    * Använd `**/*.*` om du vill inkludera alla data i den aktuella behållaren och undermapparna
-1. Ange en beskrivning av din data uppsättning
-1. Välj **Nästa** 
-1. Bekräfta informationen. Du kan välja **tillbaka** om du vill ändra inställningarna eller välja **skapa** för att skapa data uppsättningen
+1. Välj **skapa en data uppsättning** > **från data lagret**.
+1. Tilldela ett **namn** till din data uppsättning.
+1. Välj **fil** som **data uppsättnings typ**.  
+1. Välj data lagret.
+1. Om dina data finns i en undermapp i Blob Storage väljer du **Bläddra** för att välja sökvägen.
+    * Lägg till "/* *" i sökvägen om du vill inkludera alla filer i undermappar för den valda sökvägen.
+    * Lägg till "* */* . *" för att inkludera alla data i den aktuella behållaren och dess undermappar.
+1. Ange en beskrivning för din data uppsättning.
+1. Välj **Nästa**.
+1. Bekräfta informationen. Välj **tillbaka** om du vill ändra inställningarna eller **skapa** för att skapa data uppsättningen.
 
-### <a name="create-a-dataset-by-uploading-data"></a>Skapa en data uppsättning genom att ladda upp data
+### <a name="create-a-dataset-from-uploaded-data"></a>Skapa en data uppsättning från överförda data
 
-Om du vill överföra dina data direkt:
+Så här överför du dina data direkt:
 
-1. Välj **skapa en data uppsättning** och **från lokala filer**
-1. Tilldela ett **namn** för din data uppsättning
-1. Du måste välja "Arkiv" som **data uppsättnings typ**
-1. Om du väljer **Avancerade inställningar**kan du anpassa data lagret, behållaren och sökvägen till dina data
-1. Välj **Bläddra** för att välja lokala filer för uppladdning
-1. Ange en beskrivning av din data uppsättning
-1. Välj **Nästa** 
-1. Bekräfta informationen. Du kan välja **tillbaka** om du vill ändra inställningarna eller välja **skapa** för att skapa data uppsättningen
+1. Välj **skapa en data uppsättning** > **från lokala filer**.
+1. Tilldela ett **namn** till din data uppsättning.
+1. Välj "Arkiv" som **data uppsättnings typ**.
+1. *Valfritt:* Välj **Avancerade inställningar** för att anpassa data lagret, behållaren och sökvägen till dina data.
+1. Välj **Bläddra** för att välja de lokala filer som ska laddas upp.
+1. Ange en beskrivning av din data uppsättning.
+1. Välj **Nästa**.
+1. Bekräfta informationen. Välj **tillbaka** om du vill ändra inställningarna eller **skapa** för att skapa data uppsättningen.
 
-Data laddas upp till standard-BLOB-arkivet (`workspaceblobstore`) för din Azure ML-arbetsyta.
+Data överförs till standard-BLOB-arkivet ("workspaceblobstore") på din Machine Learning-arbetsyta.
 
 ## <a name="specify-label-classes"></a>Ange etikett klasser
 
-På sidan **etikett klasser** anger du den uppsättning klasser som används för att kategorisera dina data. Tänk på dessa klasser, eftersom dina etiketter stämmer överens med hur snabbt de kan välja mellan dem. I stället för att bokstavera hela släktet och arterna för växter eller djur kan det vara bättre att använda fält koder eller förkorta släktet. 
+På sidan **etikett klasser** anger du uppsättningen klasser för att kategorisera dina data. Gör detta noggrant eftersom etiketternas precision och hastighet kommer att påverkas av deras möjlighet att välja bland klasserna. I stället för att bokstavera hela släktet och arterna för växter eller djur använder du exempelvis en fältkod eller förkorta släktet.
 
-Ange en etikett per rad med knappen **+** för att lägga till en ny rad. Om du har fler än 3 eller 4 etiketter, men färre än 10, bör du överväga att åtgärda dem med "1:", "2:" osv. för att ge en vägledning till etiketter med hjälp av nummer nycklarna för att påskynda sitt arbete. 
+Ange en etikett per rad. Använd knappen **+** för att lägga till en ny rad. Om du har fler än 3 eller 4 etiketter men färre än 10 kanske du vill lägga till prefixet i namnen med siffror ("1:", "2:") så att etiketterna kan använda sig av siffer tangenterna för att påskynda sitt arbete.
 
 ## <a name="describe-the-labeling-task"></a>Beskriv etikettens uppgift
 
-En tydlig förklaring av att märka uppgiften är viktigt. På sidan **etiketting-instruktioner** kan du länka till en extern webbplats för instruktioner som visas för etiketter. Se till att instruktionerna är orienterade och lämpligt för mål gruppen. 
+Det är viktigt att tydligt förklara etikettens uppgift. På sidan **etiketting-instruktioner** kan du lägga till en länk till en extern plats för etikett instruktioner. Se till att instruktionerna är orienterade och lämpligt för mål gruppen. Tänk på följande frågor:
 
-* Vilka etiketter ser de ut och hur kommer de att välja mellan dem? Finns det en referens text som de ska referera till?
-* Vad ska de göra om ingen etikett verkar vara lämplig? 
+* Vilka etiketter ser de ut och hur kommer de att välja mellan dem? Finns det en referens text att referera till?
+* Vad ska de göra om ingen etikett verkar vara lämplig?
 * Vad ska de göra om flera etiketter förefaller lämpliga?
 * Vilket konfidens tröskelvärde bör gälla för en etikett? Vill du ha deras "bästa gissning" om de inte är säkra?
 * Vad ska de göra med delvis Occluded eller överlappande objekt av intresse?
 * Vad ska de göra om ett objekt av intresse klipps av bildens kant?
-* Vad ska de göra om de tycker att de har gjort ett misstag med en bild när de har skickat in dem? 
+* Vad ska de göra när de skickar en etikett om de tror att de gör ett misstag?
 
-Med avgränsnings rutor är andra viktiga frågor:
+För avgränsnings rutor är viktiga frågor:
 
-* Hur definieras avgränsnings rutan för den här uppgiften? Ska det vara helt intill objektet, beskurna så nära som möjligt, eller så är det en del av den godtagbara mängden utrymme? 
-* Vilken nivå av omsorg och konsekvens förväntar du dig att Labeler ska gälla för att definiera markerings rutor?
+* Hur definieras avgränsnings rutan för den här uppgiften? Ska det vara helt på insidan av objektet eller ska det vara på utsidan? Bör den beskäras så tätt som möjligt, eller är vissa godkännanden godtagbara?
+* Vilken nivå av vård och konsekvens förväntar du dig att etiketterna ska tillämpas i definitions rutor?
 
->[!Note]
-> Tänk på att Labeler kan välja bland de första 9 etiketterna med siffer nycklar 1-9. 
+>[!NOTE]
+> Observera att etiketterna kan välja de första 9 etiketterna genom att använda siffer nycklar 1-9.
 
 ## <a name="initialize-the-labeling-project"></a>Initiera ett etikettande projekt
 
-När du har initierat är vissa delar av etiketts projektet oföränderliga: du kan inte ändra aktivitets typen eller data uppsättningen. Du kan ändra etiketter och du kan ändra URL: en för aktivitets beskrivningen. Granska inställningarna noga innan du skapar projektet. När du har skickat projektet kommer du tillbaka till start sidan för **etiketten** som visar projektet som **initieras**. Den här sidan uppdateras inte automatiskt, så efter en viss tid uppdaterar den manuellt projektet när det **skapas**. 
+När du har initierat projektet är vissa delar av projektet oföränderliga. Du kan inte ändra aktivitets typen eller data uppsättningen. Du *kan* ändra etiketter och URL: en för uppgifts beskrivningen. Granska inställningarna noggrant innan du skapar projektet. När du har skickat projektet kommer du tillbaka till start sidan för **etiketten** som visar projektet som **initieras**. Den här sidan uppdateras inte automatiskt. Efter en paus uppdaterar du sidan manuellt för att se projektets status som **skapats**.
 
 ## <a name="manage-teams-and-people"></a>Hantera team och personer
 
-Ett etikett projekt får ett standard team och lägger till dig som standard medlem. Varje etikettande projekt får ett nytt standard team, men team kan delas mellan projekt. Projekt kan ha fler än ett team. Skapa ett team genom att välja **Lägg till Team** på sidan **team** . 
+Som standard får varje etikett projekt som du skapar ett nytt team med dig som medlem. Men team kan också delas mellan projekt. Och projekt kan ha mer än ett team. Om du vill skapa ett team väljer du **Lägg till Team** på sidan **team** .
 
-Personer hanteras på sidan **personer** . Du kan lägga till och ta bort personer som är inloggade på deras e-postadress. Varje Labeler måste autentiseras med antingen ett Microsoft-konto eller Azure Active Directory om du använder det.  
+Du hanterar personer på sidan **personer** . Lägg till och ta bort personer via e-postadress. Varje Labeler måste autentisera dig via din Microsoft-konto eller Azure Active Directory, om du använder den.  
 
-När du har lagt till en person kan du tilldela dem till ett eller flera team. Gå till sidan **team** , Välj det team som du är intresse rad av och Använd sedan **tilldela personer** eller **ta bort personer** som du vill.
+När du har lagt till en person kan du tilldela den personen till ett eller flera team: gå till sidan **Teams** , Välj teamet och välj sedan **tilldela personer** eller **ta bort personer**.
 
-Om du vill skicka ett e-postmeddelande till alla i teamet kan du göra det genom att välja teamet för att öppna sidan med **team information** . På den här sidan öppnar knappen **e-postteam** e-postredigeraren med adresserna för alla i teamet.
+Om du vill skicka ett e-postmeddelande till teamet väljer du teamet för att visa sidan med **team information** . På den här sidan väljer du **e-postteam** för att öppna ett e-postmeddelande med adresserna för alla i teamet.
 
 ## <a name="run-and-monitor-the-project"></a>Köra och övervaka projektet
 
-När projektet har initierats börjar Azure att köra det. Om du klickar på projektet på huvud sidan för **Etiketter** visas **projekt information**. Fliken **instrument panel** visar hur du gör för att märka uppgiften. 
+När du har initierat projektet börjar Azure att köra det. Välj projektet på huvud sidan för **Etiketter** för att gå till **projekt information**. Fliken **instrument panel** visar förloppet för etikett uppgiften.
 
-På fliken **data** kan du titta på din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data kan du **välja** den och välja **avvisa**, vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön. 
+På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa**, vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
 
-På fliken **team** kan du tilldela eller ta bort tilldelning av team till det här projektet. 
+Använd fliken **team** för att tilldela eller ta bort tilldelningen av team till projektet.
 
-Om du vill göra projektet offline eller online väljer du knappen **paus**/**Start** , som växlar körnings status för projektet.
+Om du vill pausa eller starta om projektet väljer du knappen **paus**/**Start** . Du kan bara märka data när projektet körs.
 
-Du kan märka data direkt från sidan **projekt information** genom att välja **etikett data**. Du får bara märka data när projektet körs. 
+Du kan märka data direkt från sidan **projekt information** genom att välja **etikett data**.
 
 ## <a name="export-the-labels"></a>Exportera etiketterna
 
-Du kan när som helst exportera etikett data för Machine Learning-experimentering. Bild etiketter kan exporteras i [Coco-format](http://cocodataset.org/#format-data) eller som en Azure ml-datauppsättning. Du hittar knappen **Exportera** på sidan **projekt information** i ditt projekt med etiketter.
+Du kan när som helst exportera etikett data för Machine Learning experimentering. Bild etiketter kan exporteras i [Coco-format](http://cocodataset.org/#format-data) eller som en Azure Machine Learning data uppsättning. Använd knappen **Exportera** på sidan **projekt information** i ditt projekt med etiketter.
 
-COCO-filen skapas i standard-BLOB-arkivet för Azure ML-arbetsytan i en mapp i **export-/Coco**. Du kan komma åt den exporterade Azure ML-datauppsättningen under avsnittet **data uppsättningar** i Azure Machine Learning. Information om data uppsättnings sidan innehåller också exempel kod för att komma åt dina etiketter från python.
+COCO-filen skapas i standard-BLOB-arkivet för Azure Machine Learning arbets ytan i en mapp i *export-/Coco*. Du kan komma åt den exporterade Azure Machine Learning data uppsättningen i avsnittet **data uppsättningar** i Machine Learning. På sidan data uppsättnings information finns också exempel kod för att få åtkomst till dina etiketter från python.
 
 ![Exporterad data uppsättning](media/how-to-create-labeling-projects/exported-dataset.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Etikett bilder för [bild klassificering eller objekt identifiering](how-to-label-images.md)
-* Läs mer om [Azure Machine Learning och Studio](../compare-azure-ml-to-studio-classic.md)
+* Läs mer om [Azure Machine Learning och Machine Learning Studio (klassisk)](../compare-azure-ml-to-studio-classic.md)

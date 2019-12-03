@@ -1,27 +1,20 @@
 ---
-title: Skriptexempel för Azure CLI – Skala en app globalt med Traffic Manager | Microsoft Docs
-description: Skriptexempel för Azure CLI – Skala en App Service-app globalt med en arkitektur för hög tillgänglighet
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: skala appen med Traffic Manager'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skalar en världs omspännande med Traffic Manager.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3165904eb7757b43d35a4fa3051d29d10bce70a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82845977efe3141dda8c0f0f05c1fbcb3f741bd2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136675"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689370"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Skala en App Service-app globalt med en arkitektur för hög tillgänglighet med hjälp av Azure CLI
 

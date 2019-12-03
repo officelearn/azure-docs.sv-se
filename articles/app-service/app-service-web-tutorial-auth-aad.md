@@ -1,26 +1,17 @@
 ---
-title: Autentisera och auktorisera användare från slutpunkt till slutpunkt – Azure App Service | Microsoft Docs
+title: 'Självstudie: authn/authd end-to-end'
 description: Lär dig hur du använder App Service-autentisering och auktorisering och skyddar App Service-appar, inklusive åtkomst till fjärr-API:er.
 keywords: app service, azure app service, authN, authZ, säker, säkerhet, flera nivåer, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961959"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672054"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -53,7 +44,7 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/).
 * [Installera .NET Core](https://www.microsoft.com/net/core/).
@@ -281,7 +272,7 @@ Logga in på [Azure Resource Explorer](https://resources.azure.com). Överst på
 
 ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-I den vänstra webbläsaren klickar du på **prenumerationer** >  **_\<prenumerationen >_**  > **resourceGroups** > **MyAuthResourceGroup** > **providers** > **Microsoft. Web** > - **platser** >  **_\<klient delens app-Name >_**  > **config** > **authsettings**.
+I den vänstra webbläsaren klickar du **på prenumerationer** >  **_\<prenumerationen >_**  > **resourceGroups** > **MyAuthResourceGroup** > **providers** > **Microsoft. Web** > **Sites** >  **_\<klient delens program namn >_**  > **config** > **authsettings**.
 
 I vyn **authsettings** (autentiseringsinställningar) klickar du på **Edit** (Redigera). Ange `additionalLoginParams` till följande JSON-sträng med det klient-ID som du kopierade. 
 

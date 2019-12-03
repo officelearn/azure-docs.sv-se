@@ -1,26 +1,17 @@
 ---
-title: Skriptexempel för Azure PowerShell – Ansluta en app till ett lagringskonto | Microsoft Docs
-description: Skriptexempel för Azure PowerShell – Ansluta en App Service-app till ett lagringskonto
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: Anslut till ett lagrings konto'
+description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du ansluter en app till ett lagrings konto.
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1eae5c4b94a59b09e73454fdfcea4e9f041652f2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d1c8951445c0be6a3d4b9c4763d719fc7d79d2d5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098361"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685338"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>Ansluta en App Service-app till ett lagringskonto
 

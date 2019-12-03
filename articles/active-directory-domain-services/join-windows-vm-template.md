@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755692"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705000"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Ansluta en virtuell Windows Server-dator till en Azure Active Directory Domain Services hanterad domän med hjälp av en Resource Manager-mall
 
@@ -92,8 +92,8 @@ Om du vill skapa en virtuell Windows Server-dator ansluter du den till en hanter
     | Befintligt VNET-namn        | Namnet på det befintliga virtuella nätverket för att ansluta den virtuella datorn till, till exempel *myVnet*. |
     | Befintligt under näts namn      | Namnet på det befintliga under nätet för virtuella nätverk, till exempel *arbets belastningar*. |
     | DNS-etikett-prefix          | Ange ett DNS-namn som ska användas för den virtuella datorn, till exempel *myvm*. |
-    | VM-storlek                   | Ange en VM-storlek, till exempel *Standard_DS2_v2*. |
-    | Domän att ansluta till            | DNS-namnet för den hanterade domänen i Azure AD DS, till exempel *contoso.com*. |
+    | VM-storlek                   | Ange en storlek på virtuell dator, t. ex. *Standard_DS2_v2*. |
+    | Domän att ansluta till            | DNS-namnet för den hanterade domänen i Azure AD DS, till exempel *aadds.contoso.com*. |
     | Domän användar namn           | Användar kontot i den Azure AD DS-hanterade domän som ska användas för att ansluta den virtuella datorn till den hanterade domänen. Det här kontot måste vara medlem i gruppen *Azure AD DC-administratörer* . |
     | Domän lösen ord           | Lösen ordet för det användar konto som anges i föregående inställning. |
     | Valfri OU-sökväg          | Den anpassade ORGANISATIONSENHETen där den virtuella datorn ska läggas till. Om du inte anger ett värde för den här parametern läggs den virtuella datorn till i ou för *AAD DC-datorer* . |

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Distribuera Azure Machine Learning till en enhet – Azure IoT Edge'
+title: Självstudie – Distribuera Azure Machine Learning till en enhet med Azure IoT Edge
 description: I den här självstudien skapar du en Azure Machine Learning modell och distribuerar den sedan som en modul till en gräns enhet
 author: kgremban
 manager: philmea
@@ -9,22 +9,22 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f1bd4ce5b701652318679f3277bc7c9109fa529
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457636"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701930"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
 Använd Azure Notebooks för att utveckla en Machine Learning-modul och distribuera den till en Linux-enhet som kör Azure IoT Edge. 
 
-Du kan använda IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure Machine Learning på IoT Edge finns i [Azure Machine Learning dokumentation](../machine-learning/service/how-to-deploy-to-iot.md).
+Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure Machine Learning på IoT Edge finns i [Azure Machine Learning dokumentation](../machine-learning/service/how-to-deploy-to-iot.md).
 
 Azure Machine Learning-modulen som du skapar i den här självstudiekursen läser av miljödata som genereras av enheten och märker meddelandena som avvikande eller normala.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Machine Learning-modul
@@ -165,4 +165,3 @@ I den här självstudiekursen har du distribuerat en IoT Edge-modul som tillhand
 
 > [!div class="nextstepaction"]
 > [Klassificera bilder med Custom Vision-tjänsten](tutorial-deploy-custom-vision.md)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569825"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704297"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services (för hands version)
 
@@ -51,10 +51,10 @@ Följande kategorier av gransknings händelser är tillgängliga:
 |:---|:---|
 |Konto inloggnings säkerhet|4767, 4774, 4775, 4776, 4777|
 |Konto hanterings säkerhet|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Informations spårnings säkerhet|Ingen|
+|Informations spårnings säkerhet|Inget|
 |Åtkomst säkerhet för DS|5136, 5137, 5138, 5139, 5141|
 |Inloggnings utloggnings säkerhet|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Objekt åtkomst säkerhet|Ingen|
+|Objekt åtkomst säkerhet|Inget|
 |Princip ändrings säkerhet|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Privilegiet Använd säkerhet|4985|
 |Systemsäkerhet|4612, 4621|
@@ -82,7 +82,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 > Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Det går inte att hämta händelser från föregående eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när den har Aktiver ATS.
 
 1. Logga in på Azure Portal på https://portal.azure.com.
-1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *contoso.com*.
+1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *aadds.contoso.com*.
 1. I Azure AD DS-fönstret väljer du **diagnostikinställningar (för hands version)** på den vänstra sidan.
 1. Ingen diagnostik konfigureras som standard. Kom igång genom att välja **Lägg till diagnostisk inställning**.
 

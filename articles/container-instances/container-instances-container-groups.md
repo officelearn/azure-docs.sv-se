@@ -4,12 +4,12 @@ description: Lär dig mer om behållar grupper i Azure Container Instances, en s
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482112"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706317"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållar grupper i Azure Container Instances
 
@@ -48,15 +48,15 @@ Azure Container Instances allokerar resurser som processorer, minne och alternat
 
 ### <a name="resource-usage-by-instances"></a>Resursanvändning efter instanser
 
-Varje behållar instans tilldelas resurserna som anges i resurs förfrågan. Resurs användningen av en behållar instans i en grupp beror dock på hur du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen.
+Varje behållar instans tilldelas resurserna som anges i resurs förfrågan. Resurs användningen av en behållar instans i en grupp beror dock på hur du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen. Resurs gränsen måste vara mindre än den obligatoriska [resurs förfrågnings][resource-requests] egenskapen.
 
 * Om du inte anger en resurs gräns, är instansens maximala resursanvändning samma som resurs förfrågan.
 
 * Om du anger en resurs gräns för en instans kan du justera instansens resursanvändning för arbets belastningen, antingen minska eller öka användningen i förhållande till resurs förfrågan. Den maximala resurs gränsen du kan ange är det totala antalet resurser som allokeras till gruppen.
     
-    I en grupp med till exempel två instanser som begär 1 processor kan en av dina behållare köra en arbets belastning som kräver fler processorer för att köras än den andra.
+I en grupp med till exempel två instanser som begär 1 processor kan en av dina behållare köra en arbets belastning som kräver fler processorer för att köras än den andra.
 
-    I det här scenariot kan du ange en resurs gräns på 0,5 CPU för en instans och en gräns på 2 processorer för den andra. Den här konfigurationen begränsar den första behållarens resursanvändning till 0,5 CPU, så att den andra behållaren kan använda upp till hela 2 CPU: n om den är tillgänglig.
+I det här scenariot kan du ange en resurs gräns på 0,5 CPU för en instans och en gräns på 2 processorer för den andra. Den här konfigurationen begränsar den första behållarens resursanvändning till 0,5 CPU, så att den andra behållaren kan använda upp till hela 2 CPU: n om den är tillgänglig.
 
 Mer information finns i egenskapen [ResourceRequirements][resource-requirements] i behållar grupper REST API.
 
@@ -72,7 +72,7 @@ Behållar grupper delar en IP-adress och en port namn rymd på den IP-adressen. 
 
 Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][virtual-network] (för hands version) för att tillåta att behållare kommunicerar säkert med andra resurser i det virtuella nätverket.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 Du kan ange externa volymer som ska monteras i en behållar grupp. Du kan mappa dessa volymer till specifika sökvägar inom de enskilda behållarna i en grupp.
 

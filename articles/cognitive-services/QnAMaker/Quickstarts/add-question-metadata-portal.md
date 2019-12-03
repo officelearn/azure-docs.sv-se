@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 92735d8982fb1364d5ebfe0494f5ee51f4302469
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: bf88928ca24a1205ec7a1ddd2fd20af0d0e91468
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794010"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422664"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
@@ -40,7 +40,7 @@ När metadata har lagts till i en fråga-och-svars uppsättning kan klient progr
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En QnA Maker tjänst
 * En kunskaps bas som skapats i QnA Maker tjänsten
@@ -170,10 +170,10 @@ Genom att lägga till metadata till en fråga och en svars uppsättning kan klie
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Få svar med Postman](get-answer-from-kb-using-postman.md)
+> [Få svar med Postman eller sväng](get-answer-from-knowledge-base-using-url-tool.md)

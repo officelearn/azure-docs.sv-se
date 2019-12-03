@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 0ac9247f5156eb1b766aec7403b2dc8473114659
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483715"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707991"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -45,7 +45,7 @@ Azure SQL Database stöder följande tre alternativ för anslutnings princip ins
 
 - **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer, vilket leder till ökad latens och minskar i hela. För att anslutningar ska kunna använda detta läge måste klienterna tillåta inkommande och utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
 
-- **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect`. Standard principen är`Redirect` för alla klient anslutningar som har sitt ursprung i Azure (t. ex. från en virtuell Azure-dator) och `Proxy`för alla klient anslutningar som har sitt ursprung (t. ex. anslutningar från din lokala arbets Station)
+- **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect`. Standard principen är`Redirect` för alla klient anslutningar som har sitt ursprung i Azure (t. ex. från en virtuell Azure-dator) och `Proxy`för alla klient anslutningar som kommer från utsidan (t. ex. anslutningar från din lokala arbets Station).
 
  Vi rekommenderar starkt `Redirect` anslutnings princip via `Proxy` anslutnings princip för lägsta latens och högsta data flöde. Du måste dock uppfylla de ytterligare kraven för att tillåta nätverks trafik enligt beskrivningen ovan. Om klienten är en virtuell Azure-dator kan du göra detta med hjälp av nätverks säkerhets grupper (NSG) med [service märken](../virtual-network/security-overview.md#service-tags). Om klienten ansluter från en lokal arbets Station kan du behöva arbeta med nätverks administratören för att tillåta nätverks trafik via företags brand väggen.
 
@@ -76,43 +76,43 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | --- | --- |
 | Australien, centrala    | 20.36.105.0 |
 | Australien, Central2   | 20.36.113.0 |
-| Östra Australien       | 13.75.149.87, 40.79.161.1 |
+| Australien, östra       | 13.75.149.87, 40.79.161.1 |
 | Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
-| Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
-| Centrala Kanada       | 40.85.224.249      |
-| Östra Kanada          | 40.86.226.166      |
-| Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
+| Brasilien, södra         | 104.41.11.5, 191.233.200.14 |
+| Kanada, centrala       | 40.85.224.249      |
+| Kanada, östra          | 40.86.226.166      |
+| USA, centrala           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
 | Kina, norra          | 139.219.15.17      |
 | Kina, norra 2        | 40.73.50.0         |
-| Östasien            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| Östra USA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Asien, östra            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| USA, östra              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
-| Centrala Tyskland      | 51.4.144.100       |
+| Tyskland, centrala      | 51.4.144.100       |
 | Tyskland, norra öst   | 51.5.144.179       |
 | Centrala Indien        | 104.211.96.159     |
 | Södra Indien          | 104.211.224.146    |
 | Västra Indien           | 104.211.160.80     |
-| Östra Japan           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
-| Västra Japan           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
+| Japan, östra           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Japan, västra           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Sydkorea, centrala        | 52.231.32.42       |
 | Sydkorea, södra          | 52.231.200.86      |
-| Norra centrala USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Norra Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| USA, norra centrala     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| Europa, norra         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
-| Södra centrala USA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| USA, södra centrala     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | Sydostasien      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Förenade Arabemiraten, centrala          | 20.37.72.64        |
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
 | Storbritannien, södra             | 51.140.184.11      |
 | Storbritannien, västra              | 51.141.8.11        |
-| Västra centrala USA      | 13.78.145.25       |
-| Västra Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
-| Västra USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Västra USA 2            | 13.66.226.202      |
+| USA, västra centrala      | 13.78.145.25       |
+| Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| USA, västra              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| USA, västra 2            | 13.66.226.202      |
 |                      |                    |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Ändra Azure SQL Database anslutnings princip

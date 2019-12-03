@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030598"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705554"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
 
@@ -27,13 +27,13 @@ Den här artikeln innehåller en referens för situationer där du misstänker a
 
 ## <a name="solution"></a>Lösning
 
-Processen som beskrivs i den här artikeln är avsedd att användas som en lösning så att du kan fokusera på att åtgärda det riktiga problemet, vilket innebär att brand Väggs reglerna konfigureras på rätt sätt. It\rquote är en Microsoft Best Practice för att låta komponenten Windows-brandväggen vara aktive rad. Hur du konfigurerar brand Väggs reglernas \cf3 beror på åtkomst nivån till de VM-that\rquote s som krävs.
+Processen som beskrivs i den här artikeln är avsedd att användas som en lösning så att du kan fokusera på att åtgärda det riktiga problemet, vilket innebär att brand Väggs reglerna konfigureras på rätt sätt. Det är Microsofts bästa praxis att låta komponenten Windows-brandväggen vara aktive rad. Hur du konfigurerar brand Väggs reglerna beror på vilken åtkomst nivå som krävs för den virtuella datorn.
 
 ### <a name="online-solutions"></a>Online-lösningar 
 
 Om den virtuella datorn är online och kan nås på en annan virtuell dator i samma virtuella nätverk kan du utföra dessa åtgärder med hjälp av den andra virtuella datorn.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Minskning 1: Anpassat skript tillägg eller Kör kommando funktion
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Minskning 1: anpassat skript tillägg eller Kör kommando funktion
 
 Om du har en fungerande Azure-agent kan du använda [anpassat skript tillägg](../extensions/custom-script-windows.md) eller funktionen [Kör kommandon](../windows/run-command.md) (endast virtuella Resource Manager-datorer) för att fjärrköra följande skript.
 
@@ -54,11 +54,11 @@ Om du har en fungerande Azure-agent kan du använda [anpassat skript tillägg](.
 >   ```
 >   Men så snart principen tillämpas igen, kommer du att lanseras från fjärrsessionen. Den permanenta korrigeringen för det här problemet är att ändra principen som tillämpas på den här datorn.
 
-#### <a name="mitigation-2-remote-powershell"></a>Minskning 2: Fjärr-PowerShell
+#### <a name="mitigation-2-remote-powershell"></a>Minskning 2: fjärr-PowerShell
 
 1.  Anslut till en virtuell dator som finns i samma virtuella nätverk som den virtuella datorn som du inte kan komma åt med hjälp av RDP-anslutning.
 
-2.  Öppna ett PowerShell-konsolfönster.
+2.  Öppna ett fönster i PowerShell-konsolen.
 
 3.  Kör följande kommandon:
 
@@ -86,7 +86,7 @@ Om du har en fungerande Azure-agent kan du använda [anpassat skript tillägg](.
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Minskning 4: Fjär register 
+#### <a name="mitigation-4-remote-registry"></a>Minskning 4: fjär register 
 
 Följ dessa steg om du vill använda [fjär registret](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
@@ -118,9 +118,9 @@ Följ dessa steg om du vill använda [fjär registret](https://support.microsoft
 
 Om du har en situation där du inte kan komma åt den virtuella datorn med någon annan metod kommer det inte att gå att använda det anpassade skript tillägget och du måste arbeta i OFFLINELÄGE genom att gå direkt genom system disken. Det gör du genom att följa dessa steg:
 
-1.  [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
+2.  Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 
 3.  Kontrol lera att disken är flaggad som online i disk hanterings konsolen. Anteckna enhets beteckningen som är kopplad till den anslutna system disken.
 
@@ -130,7 +130,7 @@ Om du har en situation där du inte kan komma åt den virtuella datorn med någo
 
 6.  I den här fel söknings proceduren monterar vi registreringsdatafiler som BROKENSYSTEM och BROKENSOFTWARE.
 
-7.  Markera nyckeln HKEY_LOCAL_MACHINE och välj sedan Arkiv > läsa in Hive från menyn.
+7.  Markera HKEY_LOCAL_MACHINE nyckel och välj sedan Arkiv > läsa in Hive på menyn.
 
 8.  Leta upp \windows\system32\config\SYSTEM-filen på den anslutna system disken.
 
@@ -160,6 +160,6 @@ Om du har en situation där du inte kan komma åt den virtuella datorn med någo
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Koppla från systemdisken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
+10. [Koppla från system disken och skapa den virtuella datorn på nytt](troubleshoot-recovery-disks-portal-windows.md).
 
-11. Kontrollera om problemet är löst.
+11. Kontrol lera om problemet är löst.

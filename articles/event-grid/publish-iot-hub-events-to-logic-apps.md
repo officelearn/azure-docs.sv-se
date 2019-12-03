@@ -1,18 +1,18 @@
 ---
 title: Självstudie – Använd IoT Hub händelser för att utlösa Azure Logic Apps
-description: Själv studie kurs – använda tjänsten för händelse dirigering i Azure Event Grid skapa automatiserade processer för att utföra Azure Logic Apps åtgärder baserat på IoT Hub händelser.
+description: I den här självstudien visas hur du använder tjänsten för händelse dirigering i Azure Event Grid skapa automatiserade processer för att utföra Azure Logic Apps åtgärder baserat på IoT Hub händelser.
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 70ad74715446a54605a23a049ebc92a81d7ee673
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423731"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706440"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudie: skicka e-postaviseringar om Azure IoT Hub händelser med Event Grid och Logic Apps
 
@@ -216,7 +216,7 @@ Testa logikappen genom att skapa en ny enhet för att utlösa ett e-postmeddelan
 
 2. Välj **Ny**.
 
-3. Ange **för**Enhets-ID`Building1_Floor1_Room1_Light`.
+3. Ange `Building1_Floor1_Room1_Light` för **Enhets-ID**.
 
 4. Välj **Spara**. 
 

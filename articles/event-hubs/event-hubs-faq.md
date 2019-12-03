@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller en lista över vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
+description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,21 +8,21 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 05/15/2019
+ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479156"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706383"
 ---
-# <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
+# <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
 ## <a name="general"></a>Allmänt
 
-### <a name="what-is-an-event-hubs-namespace"></a>Vad är ett namnområde för Event Hubs?
-Ett namnområde är en gemensam behållare för Event Hub/Kafka-ämnen. Då får du ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Ett namnområde fungerar som en programbehållare som kan innehålla flera Event Hub/Kafka-ämnen. 
+### <a name="what-is-an-event-hubs-namespace"></a>Vad är ett Event Hubs namn område?
+Ett namn område är en omfattnings behållare för Event Hub/Kafka-ämnen. Det ger dig ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Ett namn område fungerar som en program behållare som kan vara ett hus för flera Event Hub-och Kafka-ämnen. 
 
 ### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>När skapar jag ett nytt namn område eller använder ett befintligt namn område?
 Kapacitets tilldelningar ([data flödes enheter (antal)](#throughput-units)) debiteras på namn områdes nivå. En namnrymd är också kopplad till en region.
@@ -33,32 +33,34 @@ Du kanske vill skapa ett nytt namn område i stället för att använda ett befi
 - Du behöver en Event Hub som är associerad med en annan prenumeration.
 - Du behöver en Event Hub med en distinkt kapacitets fördelning (det vill säga att kapacitets behovet för namn området med den tillagda händelsehubben skulle överskrida tröskelvärdet på 40 data flödes enheter och du inte vill gå till det dedikerade klustret)  
 
-### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Vad är skillnaden mellan Event Hubs Basic och Standard-nivån?
+### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Vad är skillnaden mellan Event Hubs Basic-och standard-nivåerna?
 
-Standardnivån för Azure Event Hubs tillhandahåller funktioner utöver vad som är tillgängligt i Basic-nivån. Följande funktioner ingår i Standard:
+Standard nivån i Azure Event Hubs ger funktioner utöver vad som är tillgängligt på Basic-nivån. Följande funktioner ingår i standard:
 
-* Längre kvarhållning för händelse
-* Fler asynkrona anslutningar med en extra avgift för mer än det antal som ingår
-* Mer än en enda [konsumentgrupp](event-hubs-features.md#consumer-groups)
-* [samla in](event-hubs-capture-overview.md)
+* Längre kvarhållning av händelser
+* Ytterligare Brokered Connections, med ett överbelastat värde för mer än det antal som ingår
+* Mer än en enda [konsument grupp](event-hubs-features.md#consumer-groups)
+* [Webbinfångsten](event-hubs-capture-overview.md)
 * [Kafka-integrering](event-hubs-for-kafka-ecosystem-overview.md)
 
-Läs mer om prissättning för nivåerna, inklusive Event Hubs Dedicated den [Händelsehubbar prisinformation](https://azure.microsoft.com/pricing/details/event-hubs/).
+Mer information om pris nivåer, inklusive Event Hubs Dedicated finns i [pris informationen för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="where-is-azure-event-hubs-available"></a>Var finns Azure Event Hubs?
 
-Händelsehubbar i Azure är tillgängligt i alla regioner som stöds Azure. En lista på den [Azure-regioner](https://azure.microsoft.com/regions/) sidan.  
+Azure Event Hubs är tillgängligt i alla Azure-regioner som stöds. För en lista går du till sidan [Azure-regioner](https://azure.microsoft.com/regions/) .  
 
-### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Kan jag använda en enkel AMQP-anslutning för att skicka och ta emot från flera event hubs?
+### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Kan jag använda en enda AMQP-anslutning för att skicka och ta emot från flera Event Hub?
 
-Ja, så länge alla event hubs finns i samma namnområde.
+Ja, så länge alla Event Hub finns i samma namnrymd.
 
-### <a name="what-is-the-maximum-retention-period-for-events"></a>Vad är den högsta bevarandeperioden för händelser?
+### <a name="what-is-the-maximum-retention-period-for-events"></a>Vad är den maximala kvarhållningsperioden för händelser?
 
-Event Hubs Standard-nivån stöder för närvarande en högsta kvarhållningsperiod på sju dagar. Händelsehubbar är inte avsedda för permanent datalagring. Lagringstider som är mer än 24 timmar avses för scenarier där det är lämpligt att spela upp en händelseström till samma system; till exempel att finjustera eller verifiera en ny maskininlärningsmodell på befintliga data. Om du behöver kvarhållning av meddelanden efter sju dagar, så att [Event Hubs Capture](event-hubs-capture-overview.md) på din event hub hämtar data från din event hub i Storage-konto eller Azure Data Lake-tjänstkonto valfritt. Avbildningsfunktionen utgår en avgift baserat på dina köpta genomflödesenheterna.
+Event Hubs standard nivån stöder för närvarande en maximal kvarhållningsperiod på sju dagar. Händelse hubbar är inte avsedda som permanenta data lager. Kvarhållningsperiod som är större än 24 timmar är avsedda för scenarier där det är lämpligt att spela upp en händelse ström i samma system. till exempel för att träna eller verifiera en ny maskin inlärnings modell på befintliga data. Om du behöver kvarhålla meddelanden längre än sju dagar, kan du med hjälp av [Event Hubs Capture](event-hubs-capture-overview.md) på händelsehubben hämta data från Händelsehubben till lagrings kontot eller Azure Data Lake tjänst konto som du väljer. Om du aktiverar Capture debiteras du en avgift utifrån dina köpta data flödes enheter.
 
-### <a name="how-do-i-monitor-my-event-hubs"></a>Hur övervakar jag min Event Hubs?
-Händelsehubbar genererar uttömmande mått som anger tillståndet för dina resurser till [Azure Monitor](../azure-monitor/overview.md). De också kan du utvärdera den övergripande hälsan för Event Hubs-tjänsten inte bara på namnområdesnivå utan även på enhetsnivå. Läs om vilka övervakning erbjuds för [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+Du kan konfigurera kvarhållningsperioden för de infångade data på ditt lagrings konto. Funktionen för **livs cykel hantering** i Azure Storage erbjuder en omfattande, regelbaserade princip för generell användning v2-och Blob Storage-konton. Använd principen för att överföra data till lämpliga åtkomst nivåer eller förfaller i slutet av data livs cykeln. Mer information finns i [Hantera Azure Blob Storage-livscykeln](../storage/blobs/storage-lifecycle-management-concepts.md). 
+
+### <a name="how-do-i-monitor-my-event-hubs"></a>Hur gör jag för att övervaka mina Event Hubs?
+Event Hubs utvärderar uttömmande Mät värden som ger resursernas tillstånd att [Azure Monitor](../azure-monitor/overview.md). De gör det också möjligt att utvärdera den övergripande hälsan för tjänsten Event Hubs inte bara på namn områdes nivån, utan även på enhets nivå. Lär dig mer om vilken övervakning som erbjuds för [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar måste jag öppna i brand väggen? 
 Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
@@ -69,7 +71,7 @@ Du kan använda följande protokoll med Azure Service Bus för att skicka och ta
 
 Se följande tabell för utgående portar som du måste öppna för att kunna använda dessa protokoll för att kommunicera med Azure Event Hubs. 
 
-| Protocol | Portar | Information | 
+| Protokoll | Portar | Information | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 och 5672 | Se [AMQP-protokoll guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
@@ -83,7 +85,7 @@ Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för di
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna IP-adressen som returnerades `Non-authoritative answer`i. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
+2. Anteckna IP-adressen som returnerades i `Non-authoritative answer`. Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
 
 Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
 
@@ -103,157 +105,157 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka-integrering
 
-### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>Hur integrerar jag mina befintliga Kafka-program med Event Hubs?
-Event Hubs ger en Kafka-slutpunkt som kan användas av befintliga Apache Kafka-baserade program. En konfigurationsändring är allt som krävs för att ha PaaS Kafka-upplevelse. Det är ett alternativ till att köra dina egna Kafka-kluster. Händelsehubbar har stöd för Apache Kafka 1.0 och nyare klientversioner och fungerar med din befintliga Kafka program, verktyg och ramverk. Mer information finns i [Händelsehubbar för Kafka-lagringsplatsen](https://github.com/Azure/azure-event-hubs-for-kafka).
+### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>Hur gör jag för att integrera mitt befintliga Kafka-program med Event Hubs?
+Event Hubs tillhandahåller en Kafka-slutpunkt som kan användas av befintliga Apache Kafka baserade program. En konfigurations ändring är allt som krävs för att ha PaaS Kafka-upplevelsen. Det är ett alternativ till att köra ditt eget Kafka-kluster. Event Hubs stöder Apache Kafka 1,0 och nyare klient versioner och fungerar med dina befintliga Kafka-program, verktyg och ramverk. Mer information finns i [Event Hubs för Kafka-lagrings platsen](https://github.com/Azure/azure-event-hubs-for-kafka).
 
-### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Konfigurationsändringar behöver göras för mitt befintliga program att kommunicera med Event Hubs?
-För att ansluta till en Händelsehubb för Kafka-aktiverad, behöver du uppdatera på konfigurationerna för Kafka-klienten. Detta görs genom att skapa ett namnområde för Event Hubs och hämta den [anslutningssträngen](event-hubs-get-connection-string.md). Ändra bootstrap.servers genom att peka 9093 Event Hubs-FQDN och port. Uppdatera sasl.jaas.config för att dirigera Kafka-klient till Kafka-aktiverade Event Hubs-slutpunkten (vilket är den sträng som du har fått), med rätt autentisering enligt nedan:
+### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Vilka konfigurations ändringar måste göras för mitt befintliga program för att prata med Event Hubs?
+Om du vill ansluta till en Kafka-aktiverad Händelsehubben måste du uppdatera Kafka-klientens konfiguration. Det gör du genom att skapa en Event Hubs namnrymd och hämta [anslutnings strängen](event-hubs-get-connection-string.md). Ändra start-. servrarna så att de pekar på Event Hubs-FQDN och porten till 9093. Uppdatera sasl. jaas. config för att dirigera Kafka-klienten till din Kafka-aktiverade Event Hubs slut punkt (vilket är den anslutnings sträng som du har fått), med korrekt autentisering enligt nedan:
 
-bootstrap.Servers={Your. EVENTHUBS. FQDN}: 9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule krävs användarnamn = ”$ConnectionString” lösenord = ”{YOUR. EVENTHUBS. ANSLUTNING. STRÄNGEN} ”;
+Bootstrap. servers = {din. EVENTHUBS. FQDN}: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanismen = PLAIn sasl. jaas. config = org. apache. Kafka. Common. Security. Plaie. PlainLoginModule required-namn = "$ConnectionString" Password = "{YOUR. EVENTHUBS. Anslutningen. STRÄNG} ";
 
 Exempel:
 
-bootstrap.Servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule krävs användarnamn = ”$ ConnectionString ”password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ”;
+Bootstrap. servers = dummynamespace. Service Bus. Windows. net: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanism = PLAIn sasl. jaas. config = org. apache. Kafka. Common. Security. plain. PlainLoginModule $ConnectionString required SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
 
-Anteckning: Om sasl. jaas. config inte är en konfiguration som stöds i ramverket hittar du de konfigurationer som används för att ange SASL användar namn och lösen ord och använder dem i stället. Ange användarnamnet till $ConnectionString och lösenord för att anslutningssträngen för Event Hubs.
+OBS! om sasl. jaas. config inte är en konfiguration som stöds i ramverket hittar du de konfigurationer som används för att ange SASL användar namn och lösen ord och använder dem i stället. Ange användar namnet $ConnectionString och lösen ordet till din Event Hubs anslutnings sträng.
 
-### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Vad är meddelandehändelse/storleken för Kafka-aktiverade Event Hubs?
-Den maximala tillåtna storleken för Kafka-aktiverade Händelsehubbar är 1MB.
+### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Vad är storleken på meddelandet/händelsen för Kafka-aktiverade Event Hubs?
+Den maximala meddelande storlek som tillåts för Kafka-aktiverade Event Hubs är 1 MB.
 
-## <a name="throughput-units"></a>Genomflödesenheter
+## <a name="throughput-units"></a>Dataflödesenheter
 
-### <a name="what-are-event-hubs-throughput-units"></a>Vad är throughput units för Event Hubs?
-Dataflöde i Event Hubs definierar hur mycket data i megabyte eller antalet händelser som 1 KB (i tusental) den ingående och utgående via Event Hubs. Den här dataflödet mäts i dataflödesenheter (Dataflödesenheter). Köpa Dataflödesenheter innan du kan börja använda Event Hubs-tjänsten. Du kan uttryckligen välja Event Hubs-Dataflödesenheter antingen med hjälp av portalen eller Event Hubs Resource Manager-mallar. 
+### <a name="what-are-event-hubs-throughput-units"></a>Vad är Event Hubs data flödes enheter?
+Genom strömning i Event Hubs definieras mängden data i megabyte eller antal (i tusental) av 1 KB-händelser som intränger och utgångs genom Event Hubs. Detta data flöde mäts i data flödes enheter (antal). Köp antal innan du kan börja använda tjänsten Event Hubs. Du kan uttryckligen välja Event Hubs antal antingen med hjälp av portalen eller Event Hubs Resource Manager-mallar. 
 
 
-### <a name="do-throughput-units-apply-to-all-event-hubs-in-a-namespace"></a>Throughput units gäller för alla händelsehubbar i ett namnområde?
-Ja, throughput units (Dataflödesenheter som) gäller för alla händelsehubbar i ett namnområde för Event Hubs. Det innebär att du köper Dataflödesenheter på namnområdesnivå och delas med event hubs under det här namnområdet. Varje Dataflödesenheter berättigar namnrymden till följande funktioner:
+### <a name="do-throughput-units-apply-to-all-event-hubs-in-a-namespace"></a>Gäller data flödes enheter för alla Event Hub i ett namn område?
+Ja, data flödes enheter (antal) gäller för alla Event Hub i ett Event Hubs-namnområde. Det innebär att du köper antal på namn områdes nivån och delas mellan händelse hubbarna under denna namnrymd. Varje data flödes enheter bevarar namn området till följande funktioner:
 
-- Upp till 1 MB per sekund för ingångshändelser (händelser skickas till ett händelsenav), men inga fler än 1000 ingångshändelser, hanteringsåtgärder eller kontrollen API-anrop per sekund.
-- Upp till 2 MB per sekund för utgångshändelser (händelser som konsumeras från ett händelsenav), men inte mer än 4096 utgångshändelser.
-- Upp till 84 GB händelselagring (tillräckligt för standardlagringstid 24-timmarsformat).
+- Upp till 1 MB ingångs händelser per sekund (händelser som skickats till en händelsehubben), men högst 1000 ingress händelser, hanterings åtgärder eller kontroll-API-anrop per sekund.
+- Upp till 2 MB utgångs händelser per sekund (händelser som konsumeras från en händelsehubben), men högst 4096 utgående händelser.
+- Upp till 84 GB händelse lagring (tillräckligt för standard lagrings perioden på 24 timmar).
 
-### <a name="how-are-throughput-units-billed"></a>Hur faktureras enheter?
-Dataflödesenheter (Dataflödesenheter), faktureras per timme. Faktureringen baseras på det maximala antalet enheter som valdes under timmen. 
+### <a name="how-are-throughput-units-billed"></a>Hur faktureras data flödes enheter?
+Data flödes enheter (antal) faktureras per timme. Faktureringen baseras på det maximala antalet enheter som valdes under den angivna timmen. 
 
-### <a name="how-can-i-optimize-the-usage-on-my-throughput-units"></a>Hur kan jag optimera användningen på min dataflödesenheter?
-Du kan starta så lite som en genomflödesenhet (Dataflödesenheter) och aktivera [automatisk ökning](event-hubs-auto-inflate.md). Den automatisk ökning funktionen kan du utöka din Dataflödesenheter när din trafik/nyttolast ökar. Du kan också ange en övre gräns för antalet Dataflödesenheter.
+### <a name="how-can-i-optimize-the-usage-on-my-throughput-units"></a>Hur kan jag optimera användningen av mina data flödes enheter?
+Du kan börja så lite som en data flödes enhet (data flödes enheter) och aktivera [automatiskt](event-hubs-auto-inflate.md)öknings kraft. Med funktionen för automatisk ökning kan du utöka din antal när din trafik/nytto Last ökar. Du kan också ange en övre gräns för antalet antal.
 
-### <a name="how-does-auto-inflate-feature-of-event-hubs-work"></a>Hur fungerar automatisk ökning-funktionen i Event Hubs?
-Den automatisk ökning av funktionen kan du skala upp dina dataflödesenheter (Dataflödesenheter). Det innebär att du kan börja genom att köpa låg Dataflödesenheter och automatisk ökning skalar upp dina Dataflödesenheter när dina ingångshändelser ökar. Det ger dig ett kostnadseffektivt alternativ och fullständig kontroll över antalet Dataflödesenheter som du hanterar. Den här funktionen är en **skala upp endast** funktionen och du kan helt styra skala ned antalet Dataflödesenheter genom att uppdatera den. 
+### <a name="how-does-auto-inflate-feature-of-event-hubs-work"></a>Hur fungerar funktionen för automatisk ökning i Event Hubs fungera?
+Med funktionen för automatisk ökning kan du skala upp dina data flödes enheter (antal). Det innebär att du kan börja med att köpa låg antal och att autoökningen automatiskt ska skala upp dina antal när ingångs ökningen ökar. Det ger dig ett kostnads effektivt alternativ och fullständig kontroll över antalet antal som ska hanteras. Den här funktionen är en funktion för automatisk **skalning** , och du kan helt styra nedskalning av antalet antal genom att uppdatera den. 
 
-Du kanske vill börja med låg dataflödesenheter (Dataflödesenheter), till exempel 2 Dataflödesenheter. Om du förutsäga att trafiken kan växa till 15 Dataflödesenheter, aktivera den automatisk ökning av funktionen på ditt namnområde och ange maxgränsen till 15 Dataflödesenheter. Du kan nu utöka dina Dataflödesenheter automatiskt allteftersom trafiken ökar.
+Du kanske vill börja med låg data flödes enheter (antal), till exempel 2 antal. Om du förutsäger att din trafik kan växa till 15 antal, aktiverar du funktionen för automatisk ökning på ditt namn område och anger Max gränsen till 15 antal. Nu kan du utöka dina antal automatiskt när trafiken växer.
 
-### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>Kostar det när du aktiverar den automatisk ökning av funktionen?
-Det finns **utan kostnad** som är associerade med den här funktionen. 
+### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>Är kostnaden kopplad till funktionen för automatisk ökning?
+Det finns **ingen kostnad** kopplad till den här funktionen. 
 
-### <a name="how-are-throughput-limits-enforced"></a>Hur övervakas dataflödesbegränsningar?
-Om den totala ingångar eller den sammanlagda takten för ingångshändelser på alla händelsehubbar i ett namnområde överskrider den sammanlagda dataflödet enhet, avsändare begränsas och få felmeddelanden som anger att ingående kvoten har överskridits.
+### <a name="how-are-throughput-limits-enforced"></a>Hur tvingas data flödes gränser?
+Om den totala ingångs data flödet eller den totala ingångs händelse frekvensen för alla händelse hubbar i ett namn område överskrider den sammanlagda enhets tilldelningen för data flödet, begränsas avsändare och får fel meddelanden som anger att den inkommande kvoten har överskridits.
 
-Om den totala genomströmningen av utgångar eller den sammanlagda takten för utgångshändelser på alla händelsehubbar i ett namnområde överskrider den sammanlagda dataflödet enhet mottagare begränsas och få felmeddelanden som anger att den utgående kvoten har överskridits. In- och utgångskvoterna upprätthålls separat, så att ingen avsändare kan orsaka att händelseförbrukningen, inte heller kan någon mottagare hindra att händelser skickas in till en händelsehubb.
+Om det totala utgående data flödet eller den totala utgående händelsen i ett namn område överskrider den sammanlagda tilldelningen av data flödes enheter, begränsas mottagarna och får fel meddelanden som anger att den utgående kvoten har överskridits. Ingångs-och utgångs kvoter tillämpas separat, så att ingen avsändare kan orsaka att händelse förbrukningen saktas ned och att ingen mottagare kan förhindra att händelser skickas till en Event Hub.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Finns det en gräns för antal throughput units (Dataflödesenheter) som kan vara reserverade/valt?
-Genomflödesenheter kan växa upp till 40 Dataflödesenheter (du kan välja upp till 20 Dataflödesenheter i portalen, och generera ett supportärende för att höja den till 40 Dataflödesenheter på samma namnområde) på flera innehavare som erbjuder. Utöver 40 Dataflödesenheter Händelsehubbar erbjuder resurs/kapacitet-baserade modellen kallas den **Event Hubs Dedicated-kluster**. Dedikerade kluster säljs i kapacitetsenheter (Cu: er).
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Finns det en gräns för antalet data flödes enheter (antal) som kan reserveras/väljas?
+I ett erbjudande med flera innehavare kan data flödes enheter växa upp till 40 antal (du kan välja upp till 20 antal i portalen och skapa ett support ärende för att öka det till 40 antal i samma namnrymd). Utöver 40 antal erbjuder Event Hubs den resurs-/kapacitets modellen som kallas **Event Hubs Dedicated-kluster**. Dedikerade kluster säljs i kapacitets enheter (CUs).
 
 ## <a name="dedicated-clusters"></a>Dedikerade kluster
 
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>Vad är Event Hubs Dedicated kluster?
-Event Hubs Dedicated kluster erbjuder en enda klient distributioner för kunder med svåraste krav. Det här erbjudandet skapar ett kluster med kapacitet som inte är bunden av genomflödesenheter. Det innebär att du kan använda klustret för att mata in och strömma dina data enligt processor- och minnesanvändning i klustret. Mer information finns i [Event Hubs Dedicated-kluster](event-hubs-dedicated-overview.md).
+Event Hubs Dedicated kluster erbjuder distributioner för enskilda klienter för kunder med de mest krävande kraven. Detta erbjudande skapar ett kapacitets baserat kluster som inte är kopplat till data flödes enheter. Det innebär att du kan använda klustret för att mata in och strömma data som styrs av klustrets processor-och minnes användning. Mer information finns i [Event Hubs Dedicated kluster](event-hubs-dedicated-overview.md).
 
-### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Hur mycket tillåter en enda Kapacitetsenhet mig uppnå?
-För ett dedikerat kluster beror hur mycket du kan mata in och strömma på olika faktorer, till exempel din producenter, konsumenter, den hastighet med vilken du mata in och bearbetning av och mycket mer. 
+### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Hur mycket kan en enda kapacitets enhet få mig?
+För ett dedikerat kluster, hur mycket du kan mata in och strömma beror på olika faktorer, till exempel producenter, konsumenter, den hastighet som du matar in och bearbetar, och mycket mer. 
 
-Följande tabell visas resultaten att vi har uppnått under våra tester:
+I följande tabell visas de benchmark-resultat som vi uppnått vid testningen:
 
-| Nyttolasten form | Mottagare | Ingående bandbredd| Inkommande meddelanden | Utgående bandbredd | Utgående meddelanden | Totalt antal Dataflödesenheter | Dataflödesenheter per Kapacitetsenhet |
+| Nytto Last form | Mottagare | Ingress bandbredd| Ingress meddelanden | Utgående bandbredd | Utgående meddelanden | Totalt antal antal | Antal per CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batchar med 100x1KB | 2 | 400 MB/sek | 400 k meddelanden/sek | 800 MB/sek | 800 k meddelanden/sek | 400 Dataflödesenheter | 100 Dataflödesenheter | 
-| Batchar med 10x10KB | 2 | 666 MB/sek | 66.6 k meddelanden/sek | 1,33 GB/sek | 133 k meddelanden/sek | 666 Dataflödesenheter | 166 Dataflödesenheter |
-| Batchar med 6x32KB | 1 | 1,05 GB/sek | 34 k meddelanden / sek | 1,05 GB/sek | 34 k meddelanden/sek | 1000 Dataflödesenheter | 250 Dataflödesenheter |
+| Batchar av 100x1KB | 2 | 400 MB/SEK | 400k meddelanden/SEK | 800 MB/SEK | 800k meddelanden/SEK | 400 antal | 100 antal | 
+| Batchar av 10x10KB | 2 | 666 MB/SEK | 66.6 k meddelanden/SEK | 1,33 GB/SEK | 133k meddelanden/SEK | 666 antal | 166 antal |
+| Batchar av 6x32KB | 1 | 1,05 GB/SEK | 34k meddelanden/SEK | 1,05 GB/SEK | 34k meddelanden/SEK | 1000 antal | 250 antal |
 
-I testet användes följande kriterier:
+I testningen användes följande kriterier:
 
-- En dedikerad Event Hubs-kluster med fyra kapacitetsenheter (Cu: er) har använts. 
-- Den händelsehubb som används för datainmatning hade 200 partitioner. 
-- De data som har samlats in togs emot av två mottagare program tar emot från alla partitioner.
+- Ett dedikerat Event Hubs kluster med fyra kapacitets enheter (CUs) användes. 
+- Händelsehubben som används för inmatning hade 200 partitioner. 
+- De data som matats in togs emot av två mottagar program som tar emot från alla partitioner.
 
-Resultaten ger dig en uppfattning om vad som kan uppnås med en dedikerad Event Hubs-kluster. Dessutom kan levereras ett tilldela-kluster med Event Hubs Capture aktiveras för dina scenarier i mindre batchar och långsiktig kvarhållning.
+Resultatet ger dig en uppfattning om vad som kan uppnås med ett dedikerat Event Hubs-kluster. Dessutom levereras ett dedikerat kluster med Event Hubs-avbildningen som är aktive rad för dina scenarier för mikrobatch och långsiktig kvarhållning.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Hur gör jag för att skapa ett Event Hubs Dedicated-kluster?
-Du skapar en Event Hubs dedicated-kluster genom att skicka in en [supportförfrågan om kvot ökning](https://portal.azure.com/#create/Microsoft.Support) eller genom att kontakta den [Event Hubs-teamet](mailto:askeventhubs@microsoft.com). Det tar normalt två veckor för att hämta klustret distribueras och överlämnas till användas av dig. Den här processen är tillfällig tills en fullständig självbetjäning är tillgänglig via Azure portal eller Azure Resource Manager-mallar som tar ungefär två timmar för att distribuera klustret.
+Du skapar ett Event Hubs dedikerat kluster genom att skicka en [kvot som ökar support förfrågan](https://portal.azure.com/#create/Microsoft.Support) eller genom att kontakta [Event Hubss teamet](mailto:askeventhubs@microsoft.com). Det tar vanligt vis ungefär två veckor att få klustret distribuerat och behålls för att användas av dig. Den här processen är tillfällig tills en fullständig egen betjäning görs tillgänglig via Azure Portal eller Azure Resource Manager mallar, vilket tar ungefär två timmar att distribuera klustret.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
-Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Eftersom det inte går att ändra antalet partitioner bör du tänka på hur många partitioner som kommer att behövas på längre sikt när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
+Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Antalet partitioner kan inte ändras, så du bör överväga långsiktig skalning när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
 
-Du kanske vill ange att den ska vara det högsta möjliga värdet, vilket är 32 vid tidpunkten för skapandet. Kom ihåg att om du har mer än en partition resulterar det i händelser som skickas till flera partitioner utan att behållas i ordningen, om du inte konfigurerar avsändare till att bara skicka till en enda partition av 32 som lämnar de återstående 31 partitionerna överflödiga. I det förra fallet måste du läsa händelser över alla 32-partitioner. I det senare fallet finns det ingen uppenbar ytterligare kostnad utöver den extra konfiguration som du måste göra på händelse bearbetnings värden.
+Du kanske vill ange att den ska vara det högsta möjliga värdet, vilket är 32 vid tidpunkten för skapandet. Kom ihåg att om du har mer än en partition resulterar det i händelser som skickas till flera partitioner utan att behållas i ordningen, om du inte konfigurerar avsändare till att bara skicka till en enda partition av 32 som lämnar de återstående 31 partitionerna överflödiga. I det förra fallet måste du läsa händelser över alla 32-partitioner. I det senare fallet finns det ingen tydlig ytterligare kostnad utöver den extra konfiguration som du måste göra på händelse bearbetnings värden.
 
-Event Hubs har utformats så att en enskild partition läsare per konsumentgrupp. I de flesta användningar räcker standardinställningen för fyra partitioner. Om du vill skala ditt händelsebearbetning är kan du överväga att lägga till ytterligare partitioner. Det finns ingen dataflödesgräns för specifika på en partition, men den sammanlagda genomströmningen i namnområdet begränsas av antalet dataflödesenheter. När du ökar antalet dataflödesenheter i namnområdet, kan du ytterligare partitioner så att samtidiga läsare att uppnå sina egna maximalt dataflöde.
+Event Hubs har utformats för att tillåta en enda partitions läsare per konsument grupp. I de flesta användnings fall räcker standardinställningen för fyra partitioner. Om du vill skala din händelse bearbetning kanske du vill överväga att lägga till ytterligare partitioner. Det finns inga särskilda data flödes gränser för en partition, men det sammanlagda data flödet i namn området begränsas av antalet data flödes enheter. När du ökar antalet data flödes enheter i namn området kan du behöva ytterligare partitioner för att tillåta samtidiga läsare att uppnå sitt eget maximala data flöde.
 
-Men om du har en modell där programmet har en mappning till en viss partition kan öka antalet partitioner inte av en förmån för dig. Mer information finns i [tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md).
+Men om du har en modell där ditt program har en tillhörighet till en viss partition, kanske det inte är någon förmån för att öka antalet partitioner. Mer information finns i [tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md).
 
 ## <a name="pricing"></a>Prissättning
 
-### <a name="where-can-i-find-more-pricing-information"></a>Var hittar jag mer information om priser?
+### <a name="where-can-i-find-more-pricing-information"></a>Var hittar jag mer pris information?
 
-Fullständig information om priser för Event Hubs finns i den [Händelsehubbar prisinformation](https://azure.microsoft.com/pricing/details/event-hubs/).
+Fullständig information om Event Hubs priser finns i [pris informationen för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>Finns det en kostnad för att behålla Event Hubs-händelser i mer än 24 timmar?
+### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>Finns det någon avgift för att behålla Event Hubs händelser i mer än 24 timmar?
 
-Event Hubs Standard-nivån tillåter meddelandelagring punkter som är längre än 24 timmar innan högst sju dagar. Om storleken på det totala antalet lagrade händelser överstiger lagringskvoten för antalet dataflödesenheter som valts (84 GB per dataflödesenhet), debiteras den storlek som överstiger kvoten enligt taxan för publicerade Azure Blob-lagring. Lagringskvoten i varje throughput unit täcker alla lagringskostnader för lagringstider på 24 timmar (standard) även om dataflödesenheterna används till den maximala kvoten för ingångshändelser.
+Event Hubs standard nivån tillåter att meddelande kvarhållning är längre än 24 timmar, i högst sju dagar. Om storleken på det totala antalet lagrade händelser överskrider lagrings tilldelningen för antalet valda data flödes enheter (84 GB per data flödes enhet) debiteras den storlek som överstiger tilldelningen för den publicerade Azure Blob Storage-priset. Lagrings tilldelningen i varje data flödes enhet omfattar alla lagrings kostnader för kvarhållningsperiod på 24 timmar (standard) även om data flödes enheten används upp till maximalt antal inkommande tilldelningar.
 
-### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Hur lagringsstorlek Händelsehubbar beräknas och debiteras?
+### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Hur beräknas och debiteras lagrings storleken för Event Hubs?
 
-Den totala storleken för alla lagrade händelser, inklusive eventuell intern tillhörande information för händelserubriker eller strukturer för lagring av disk på i alla händelsehubbar mäts under hela dagen. Vid slutet av dagen beräknas den högsta lagringsstorleken. Den dagliga lagringskvoten beräknas baserat på det minsta antal dataflödesenheten som valdes under dagen (varje dataflödesenhet ger en kvot på 84 GB). Om den totala storleken överstiger den dagliga lagringskvoten beräknade, debiteras lagringen som använder Azure Blob-lagringstaxor (vid den **lokalt Redundant lagring** pris).
+Den totala storleken på alla lagrade händelser, inklusive eventuell intern kostnad för händelse rubriker eller disk lagrings strukturer i alla Event Hub, mäts under dagen. Vid slutet av dagen beräknas den högsta lagringsstorleken. Den dagliga lagringskvoten beräknas baserat på det minsta antal dataflödesenheten som valdes under dagen (varje dataflödesenhet ger en kvot på 84 GB). Om den totala storleken överskrider den beräknade dagliga lagringen debiteras den överskjutande lagringen med hjälp av Azure Blob Storage-taxan (vid den **lokalt redundanta lagrings** takten).
 
-### <a name="how-are-event-hubs-ingress-events-calculated"></a>Hur beräknas ingångshändelser i Event Hubs?
+### <a name="how-are-event-hubs-ingress-events-calculated"></a>Hur beräknas Event Hubs ingress-händelser?
 
-Varje händelse som skickas till ett händelsenav räknas som ett faktureringsbart meddelande. En *ingångshändelse* definieras som en enhet med data som är mindre än eller lika med 64 KB. Varje händelse som är mindre än eller lika med 64 KB i storlek anses vara en fakturerbar händelse. Om händelsen är större än 64 KB beräknas antalet faktureringsbara händelser enligt händelsestorleken i multipler av 64 KB. Exempelvis kan en händelse på 8 KB som skickas till event hub faktureras som en händelse, men ett meddelande på 96 KB som skickas till event hub faktureras som två händelser.
+Varje händelse som skickas till en Event Hub räknas som ett fakturerbart meddelande. En *ingress-händelse* definieras som en enhet med data som är mindre än eller lika med 64 kB. En händelse som är mindre än eller lika med 64 KB anses vara en fakturerbar händelse. Om händelsen är större än 64 KB beräknas antalet fakturerbara händelser enligt händelse storleken i multipler av 64 KB. En 8 KB-händelse som skickas till händelsehubben faktureras exempelvis som en händelse, men ett meddelande på 96 KB som skickas till händelsehubben faktureras som två händelser.
 
-Händelser som konsumeras från ett händelsenav, samt hanteringsåtgärder och kontrollen anropar som t.ex kontrollpunkter, räknas inte som fakturerbara ingångshändelser, men nivån upp till throughput unit-kvoten.
+Händelser som konsumeras från en händelsehubben, samt hanterings-och kontroll anrop, till exempel kontroll punkter, räknas inte som fakturerbara ingångs händelser, men påförs till tilldelningen av data flödes enheten.
 
-### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Gäller brokered connection-avgifter för Event Hubs?
+### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Gäller Brokered Connection-avgifter för Event Hubs?
 
-Connection-avgifter gäller endast när AMQP-protokollet används. Du debiteras inga anslutningsavgifter för att skicka händelser via HTTP, oavsett antalet sändande system eller enheter. Om du planerar att använda AMQP (t.ex, för att få effektivare händelseströmning eller för att aktivera tvåvägskommunikation i IoT-kommando och kontroll scenarier) kan du läsa den [information om priser för Händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/) för information om hur många anslutningar som ingår i varje tjänstnivå.
+Anslutnings avgifterna gäller endast när AMQP-protokollet används. Du debiteras inga anslutningsavgifter för att skicka händelser via HTTP, oavsett antalet sändande system eller enheter. Om du planerar att använda AMQP (till exempel för att få mer effektiv händelse strömning eller för att aktivera dubbelriktad kommunikation i IoT-kommando och kontroll scenarier) finns information om hur många anslutningar som ingår i varje tjänst nivå på sidan [Event Hubs pris information](https://azure.microsoft.com/pricing/details/event-hubs/) .
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Hur faktureras Event Hubs Capture?
 
-Capture aktiveras när en händelsehubb i namnområdet har avbildningsalternativet aktiverat. Event Hubs Capture faktureras per timme per köpt dataflödesenhet. När antalet dataflödesenheter ökar eller minskar, återspeglar Event Hubs Capture fakturering ändringarna i hela timmar. Läs mer om Event Hubs Capture fakturering [information om priser för Händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/).
+Avbildning aktive ras när en Event Hub i namn området har alternativet Aktivera. Event Hubs inspelning faktureras per timme per köpt data flödes enhet. När antalet data flödes enheter ökar eller minskar, visar Event Hubs avbildnings faktureringen dessa ändringar i hela Tim ökningar. Mer information om hur du Event Hubs avbildnings fakturering finns i [Event Hubs pris information](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-### <a name="do-i-get-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>Faktureras jag för det lagringskonto jag väljer för Event Hubs Capture?
+### <a name="do-i-get-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>Debiteras jag för det lagrings konto jag väljer för Event Hubs avbildning?
 
-Capture använder ett lagringskonto som du anger när du aktiverat på en händelsehubb. Eftersom det är ditt lagringskonto faktureras ändringar för den här konfigurationen på Azure-prenumerationen.
+Avbildningen använder ett lagrings konto som du anger när du aktiverar det i en Event Hub. Eftersom det är ditt lagrings konto faktureras alla ändringar för den här konfigurationen till din Azure-prenumeration.
 
 ## <a name="quotas"></a>Kvoter
 
-### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Finns det kvoter som är associerade med Event Hubs?
+### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Finns det några kvoter som är associerade med Event Hubs?
 
-En lista över alla Event Hubs-kvoter finns i [kvoter](event-hubs-quotas.md).
+En lista över alla Event Hubs kvoter finns i [kvoter](event-hubs-quotas.md).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte skapa ett namn område efter att ha tagit bort det från en annan prenumeration? 
 När du tar bort ett namn område från en prenumeration väntar du i fyra timmar innan du skapar det igen med samma namn i en annan prenumeration. Annars kan du få följande fel meddelande: `Namespace already exists`. 
 
-### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Vilka är några av undantagen som genereras av Event Hubs och föreslagna åtgärder?
+### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Vad är några av undantagen som genereras av Event Hubs och deras föreslagna åtgärder?
 
-En lista över möjliga undantag för Händelsehubbar finns i [undantag översikt](event-hubs-messaging-exceptions.md).
+En lista över möjliga Event Hubs undantag finns i [Översikt över undantag](event-hubs-messaging-exceptions.md).
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Event Hubs stöder två typer av [diagnostikloggar](event-hubs-diagnostic-logs.md) -avbilda felloggar och driftloggar - som representeras i json och kan aktiveras via Azure portal.
+Event Hubs stöder två typer av [diagnostikloggar](event-hubs-diagnostic-logs.md) – avbildning av fel loggar och drift loggar som båda representeras i JSON och som kan aktive ras via Azure Portal.
 
 ### <a name="support-and-sla"></a>Support och servicenivåavtal
 
-Teknisk support för Event Hubs är tillgängliga via den [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Support för fakturering och prenumerationshantering ges utan kostnad.
+Teknisk support för Event Hubs finns i Community- [forumen](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Support för fakturering och prenumerationshantering ges utan kostnad.
 
-Mer information om serviceavtal finns på [serviceavtal](https://azure.microsoft.com/support/legal/sla/) sidan.
+Mer information om service avtal finns på sidan [service nivå avtal](https://azure.microsoft.com/support/legal/sla/) .
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
+* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Skapa en händelsehubb](event-hubs-create.md)
-* [Event Hubs automatisk ökning](event-hubs-auto-inflate.md)
+* [Event Hubs automatiskt bred mitt](event-hubs-auto-inflate.md)

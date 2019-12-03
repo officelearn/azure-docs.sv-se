@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Utföra ETL-åtgärder med Azure Databricks'
-description: Lär dig hur du extraherar data från Data Lake Storage Gen2 till Azure Databricks, transformerar dessa data och läser in dem i Azure SQL Data Warehouse.
+title: Självstudie – utföra ETL-åtgärder med hjälp av Azure Databricks
+description: I den här självstudien får du lära dig hur du extraherar data från Data Lake Storage Gen2 till Azure Databricks, transformerar data och läser in data i Azure SQL Data Warehouse.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 8ceb9e940584ae4c41484fe31ce5cb1832bb3400
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605704"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707460"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
 > Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
      
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Slutför de här uppgifterna innan du startar självstudien:
 
@@ -65,7 +65,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
    * När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och lösen ords värden i en textfil. Du kommer att behöva dem snart.
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Samla in den information som du behöver
 
@@ -79,11 +79,11 @@ Se till att du slutför kraven för den här självstudien.
 
    : heavy_check_mark: namnet på ditt Data Lake Storage Gen2 lagrings konto.
 
-   : heavy_check_mark: klient-ID: t för din prenumeration.
+   : heavy_check_mark: klient-ID för din prenumeration.
 
-   : heavy_check_mark: program-ID för den app som du registrerade i Azure Active Directory (Azure AD).
+   : heavy_check_mark: program-ID för den app som du registrerade med Azure Active Directory (Azure AD).
 
-   : heavy_check_mark: nyckeln för den app som du registrerade med Azure AD.
+   : heavy_check_mark: autentiseringsnyckel för den app som du registrerade med Azure AD.
 
 ## <a name="create-an-azure-databricks-service"></a>Skapa en Azure Databricks-tjänst
 
@@ -106,7 +106,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **USA, västra 2**.  För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).      |
+    |**Plats**     | Välj **Västra USA 2**.  För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).      |
     |**Prisnivå**     |  Välj **standard**.     |
 
 3. Det tar några minuter att skapa kontot. Du kan övervaka åtgärdsstatusen i förloppsindikatorn längst upp.

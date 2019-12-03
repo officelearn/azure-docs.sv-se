@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844411"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706077"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrera icke-partitionerade behållare till partitionerade behållare
 
@@ -24,7 +24,7 @@ Icke-partitionerade behållare är äldre och du bör migrera befintliga icke-pa
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrera behållare med den systemdefinierade partitionsnyckel
 
-För att stödja migreringen tillhandahåller Azure Cosmos DB en systemdefinierad partitionsnyckel med `/_partitionkey` namnet på alla behållare som inte har någon partitionsnyckel. Du kan inte ändra partitionens nyckel definition efter att behållarna har migrerats. Definitionen av en behållare som migreras till en partitionerad behållare är till exempel följande:
+För att stödja migreringen tillhandahåller Azure Cosmos DB en systemdefinierad partitionsnyckel med namnet `/_partitionkey` på alla behållare som inte har någon partitionsnyckel. Du kan inte ändra partitionens nyckel definition efter att behållarna har migrerats. Definitionen av en behållare som migreras till en partitionerad behållare är till exempel följande:
 
 ```json
 {
@@ -38,7 +38,7 @@ För att stödja migreringen tillhandahåller Azure Cosmos DB en systemdefiniera
 }
 ```
 
-När behållaren har migrerats kan du skapa dokument genom att fylla i `_partitionKey` egenskapen tillsammans med de andra egenskaperna för dokumentet. `_partitionKey` Egenskapen representerar partitionens partitionsnyckel.
+När behållaren har migrerats kan du skapa dokument genom att fylla i egenskapen `_partitionKey` tillsammans med de andra egenskaperna för dokumentet. Egenskapen `_partitionKey` representerar partitionens partitionsnyckel.
 
 Det är viktigt att välja rätt partitionsnyckel för att använda det etablerade data flödet optimalt. Mer information finns i [så här väljer du en partitionsnyckel](partitioning-overview.md) .
 
@@ -91,11 +91,11 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-Det fullständiga exemplet finns i .net- [exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub-lagringsplatsen.
+Det fullständiga exemplet finns i .net- [exempel][1] GitHub-lagringsplatsen.
                       
 ## <a name="migrate-the-documents"></a>Migrera dokumenten
 
-Medan behållar definitionen har förbättrats med en partitionsnyckel, migreras inte dokumenten i behållaren automatiskt. Vilket innebär att `/_partitionKey` sökvägen till system partition Key inte automatiskt läggs till i de befintliga dokumenten. Du måste partitionera om de befintliga dokumenten genom att läsa dokumenten som har skapats utan en partitionsnyckel och skriva tillbaka dem igen med `_partitionKey` egenskapen i dokumenten.
+Medan behållar definitionen har förbättrats med en partitionsnyckel, migreras inte dokumenten i behållaren automatiskt. Vilket innebär att egenskapen system partition Key `/_partitionKey` sökväg inte läggs till automatiskt i de befintliga dokumenten. Du måste partitionera om de befintliga dokumenten genom att läsa dokumenten som har skapats utan en partitionsnyckel och skriva tillbaka dem igen med `_partitionKey`-egenskapen i dokumenten.
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Åtkomst till dokument som saknar partitionsnyckel
 
@@ -110,7 +110,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-Det fullständiga exemplet på hur du partitionerar om dokumenten finns i [.net-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub-lagringsplatsen. 
+Det fullständiga exemplet på hur du partitionerar om dokumenten finns i [.net-exempel][1] GitHub-lagringsplatsen. 
 
 ## <a name="compatibility-with-sdks"></a>Kompatibilitet med SDK: er
 
@@ -122,5 +122,7 @@ Om en migrerad behållare används av den senaste/v3-versionen av SDK och du bö
 
 * [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
-* [Etablera data flöde på behållare och databaser](set-throughput.md)
+* [Etablera dataflöde på containrar och databaser](set-throughput.md)
 * [Arbeta med Azure Cosmos-konto](account-overview.md)
+
+[1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

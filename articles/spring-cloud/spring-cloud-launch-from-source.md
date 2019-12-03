@@ -1,19 +1,19 @@
 ---
-title: 'Snabb start: starta ditt våren Cloud-program från käll koden'
-description: Lär dig hur du startar ditt Azure våren Cloud-program direkt från din käll kod
+title: Snabb start – starta ditt våren Cloud-program från käll koden
+description: I den här snabb starten får du lära dig hur du startar ditt Azure våren Cloud-program direkt från din käll kod
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6e18ac6c0fa97125b89ea5760a5d7da6c1545393
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721285"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708876"
 ---
-# <a name="launch-your-spring-cloud-application-from-source-code"></a>Starta ditt våren Cloud-program från käll koden
+# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Snabb start: starta ditt våren Cloud-program från käll koden
 
 Med Azures våren Cloud kan du enkelt köra vår molnbaserade mikrotjänstprogram på Azure.
 
@@ -28,7 +28,7 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 >[!Note]
 > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) .
@@ -110,7 +110,7 @@ az spring-cloud app deployment create --app <app-name> -n <deployment-name> --ja
 Azure våren Cloud använder [kpack](https://github.com/pivotal/kpack) för att bygga projektet.  Du kan använda Azure CLI för att ladda upp din källkod, bygga projektet med kpack och distribuera det till mål programmet.
 
 > [!WARNING]
-> Projektet måste bara producera en JAR-fil med en `main-class`-post i `MANIFEST.MF` i `target` (för maven-distributioner eller `build/libs` (för Gradle-distributioner).  Om du har flera JAR-filer med `main-class`-poster går det inte att distribuera.
+> Projektet måste bara producera en JAR-fil med en `main-class` post i `MANIFEST.MF` i `target` (för maven-distributioner eller `build/libs` (för Gradle-distributioner).  Flera JAR-filer med `main-class` poster leder till att distributionen Miss fungerar.
 
 För en modul maven/Gradle-projekt:
 

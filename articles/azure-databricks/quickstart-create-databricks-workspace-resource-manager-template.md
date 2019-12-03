@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Databricks arbets yta med Azure Resource Manager
-description: Snabbstarten visar hur du använder Azure Resource Manager-mallen för att skapa en arbetsyta för Azure Databricks, sedan skapa ett Apache Spark-kluster och därefter köra ett Spark-jobb.
+title: Snabb start – skapa en Azure Databricks arbets yta med Azure Resource Manager
+description: Den här snabb starten visar hur du använder Azure Resource Manager mall för att skapa en Azure Databricks arbets yta, sedan skapar ett Apache Spark kluster och kör ett Spark-jobb.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 83dc18424bc8606eff9a735b76cdaa09e381d588
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2fbe1e91204df7901b4ac3ccfdcd323304b2ce3c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129351"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706176"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
 
@@ -170,7 +170,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
    * Ställ in **Värden** på **nivå**.
    * Ställ in **Sammansättning** på **COUNT** (Antal).
 
-   Klicka på **Använd**.
+   Klicka på **Verkställ**.
 
 9. Utdata visar den visuella representationen som visas i följande skärmbild:
 
@@ -178,7 +178,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 

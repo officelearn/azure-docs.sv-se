@@ -1,6 +1,6 @@
 ---
-title: Skapa anpassade roller för Azure-resurser med hjälp av REST-API – Azure | Microsoft Docs
-description: Lär dig hur du skapar anpassade roller med rollbaserad åtkomstkontroll (RBAC för Azure-resurser med hjälp av REST-API). Detta omfattar att lista, skapa, uppdatera och ta bort anpassade roller.
+title: Skapa anpassade eller uppdaterings roller för Azure-resurser med hjälp av REST API-Azure | Microsoft Docs
+description: Lär dig att visa, skapa, uppdatera eller ta bort anpassade roller med rollbaserad åtkomst kontroll (RBAC) för Azure-resurser med hjälp av REST API.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596677"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702985"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Skapa anpassade roller för Azure-resurser med hjälp av REST-API
+# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av REST API
 
-Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. Den här artikeln beskriver hur du skapar och hanterar anpassade roller med hjälp av REST-API.
+Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. Den här artikeln beskriver hur du visar, skapar, uppdaterar eller tar bort anpassade roller med hjälp av REST API.
 
 ## <a name="list-custom-roles"></a>Lista anpassade roller
 
-Visa alla anpassade roller i en katalog genom att använda den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) REST API.
+Om du vill visa en lista med alla anpassade roller i en katalog använder du REST API [roll definitioner-lista](/rest/api/authorization/roledefinitions/list) .
 
 1. Börja med följande begäran:
 
@@ -36,15 +36,15 @@ Visa alla anpassade roller i en katalog genom att använda den [rolldefinitioner
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. Ersätt *{filter}* med rolltypen.
+1. Ersätt *{filter}* med roll typen.
 
-    | Filter | Beskrivning |
+    | Filtrera | Beskrivning |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filter baserat på vilken CustomRole |
+    | `$filter=type%20eq%20'CustomRole'` | Filtrera baserat på typen av CustomRole |
 
-## <a name="list-custom-roles-at-a-scope"></a>Lista över anpassade roller för ett omfång
+## <a name="list-custom-roles-at-a-scope"></a>Visa en lista med anpassade roller i ett omfång
 
-Visa anpassade roller för ett omfång genom att använda den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) REST API.
+Om du vill visa en lista med anpassade roller i ett omfång använder du [roll definitionerna-list](/rest/api/authorization/roledefinitions/list) REST API.
 
 1. Börja med följande begäran:
 
@@ -52,23 +52,23 @@ Visa anpassade roller för ett omfång genom att använda den [rolldefinitioner 
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
+1. I URI: n ersätter du *{scope}* med den omfattning som du vill lista rollerna för.
 
-    | Scope | Typ |
+    | Omfång | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-1. Ersätt *{filter}* med rolltypen.
+1. Ersätt *{filter}* med roll typen.
 
-    | Filter | Beskrivning |
+    | Filtrera | Beskrivning |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filter baserat på vilken CustomRole |
+    | `$filter=type%20eq%20'CustomRole'` | Filtrera baserat på typen av CustomRole |
 
-## <a name="list-a-custom-role-definition-by-name"></a>Visa en anpassad rolldefinition efter namn
+## <a name="list-a-custom-role-definition-by-name"></a>Lista en anpassad roll definition efter namn
 
-Om du vill ha information om en anpassad roll efter dess visningsnamn kan använda den [rolldefinitioner – hämta](/rest/api/authorization/roledefinitions/get) REST API.
+Om du vill hämta information om en anpassad roll med dess visnings namn använder du [roll definitionerna-get](/rest/api/authorization/roledefinitions/get) REST API.
 
 1. Börja med följande begäran:
 
@@ -76,25 +76,25 @@ Om du vill ha information om en anpassad roll efter dess visningsnamn kan använ
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
+1. I URI: n ersätter du *{scope}* med den omfattning som du vill lista rollerna för.
 
-    | Scope | Typ |
+    | Omfång | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-1. Ersätt *{filter}* med visningsnamnet för rollen.
+1. Ersätt *{filter}* med rollens visnings namn.
 
-    | Filter | Beskrivning |
+    | Filtrera | Beskrivning |
     | --- | --- |
-    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Använd URL-kodad form av exakta visningsnamnet för rollen. Till exempel `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Använd URL-kodad form med det exakta visnings namnet för rollen. `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` till exempel |
 
-## <a name="list-a-custom-role-definition-by-id"></a>Visa en anpassad rolldefinition efter ID
+## <a name="list-a-custom-role-definition-by-id"></a>Lista en anpassad roll definition efter ID
 
-Om du vill ha information om en anpassad roll efter des unika identifierare kan använda den [rolldefinitioner – hämta](/rest/api/authorization/roledefinitions/get) REST API.
+Om du vill hämta information om en anpassad roll efter dess unika identifierare använder du [roll definitionerna-get](/rest/api/authorization/roledefinitions/get) REST API.
 
-1. Använd den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) REST API för att hämta GUID-identifierare för rollen.
+1. Använd [roll definitionerna-List](/rest/api/authorization/roledefinitions/list) REST API för att hämta GUID-identifieraren för rollen.
 
 1. Börja med följande begäran:
 
@@ -102,23 +102,23 @@ Om du vill ha information om en anpassad roll efter des unika identifierare kan 
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
+1. I URI: n ersätter du *{scope}* med den omfattning som du vill lista rollerna för.
 
-    | Scope | Typ |
+    | Omfång | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-1. Ersätt *{roleDefinitionId}* med GUID-identifierare för rolldefinitionen.
+1. Ersätt *{roleDefinitionId}* med roll DEFINITIONens GUID-identifierare.
 
 ## <a name="create-a-custom-role"></a>Skapa en anpassad roll
 
-Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa detta API kan du vara inloggad med en användare som har tilldelats en roll som har den `Microsoft.Authorization/roleDefinitions/write` behörighet på alla de `assignableScopes`. Av de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) inkluderar den här behörigheten.
+Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa detta API måste du vara inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleDefinitions/write` på alla `assignableScopes`. Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
 
-1. Granska listan över [åtgärder för resursprovider](resource-provider-operations.md) som är tillgängliga för att skapa behörigheter för din anpassade roll.
+1. Granska listan över [resurs leverantörs åtgärder](resource-provider-operations.md) som är tillgängliga för att skapa behörigheter för din anpassade roll.
 
-1. Använd ett GUID-verktyg för att generera en unik identifierare som används för anpassad roll-ID. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
+1. Använd ett GUID-verktyg för att generera en unik identifierare som ska användas för den anpassade roll identifieraren. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
 
 1. Börja med följande begäran och brödtext:
 
@@ -150,27 +150,27 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
     }
     ```
 
-1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
+1. I URI: n ersätter du *{scope}* med den första `assignableScopes` av den anpassade rollen.
 
-    | Scope | Typ |
+    | Omfång | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
+1. Ersätt *{roleDefinitionId}* med GUID-identifieraren för den anpassade rollen.
 
-1. I begärandetexten, i den `assignableScopes` egenskapen, Ersätt *{roleDefinitionId}* med GUID-identifierare.
+1. I begär ande texten i egenskapen `assignableScopes` ersätter du *{roleDefinitionId}* med GUID-identifieraren.
 
 1. Ersätt *{subscriptionId}* med ditt prenumerations-ID.
 
-1. I den `actions` egenskapen, lägga till åtgärder som rollen kan utföras.
+1. I egenskapen `actions` lägger du till de åtgärder som rollen kan utföra.
 
-1. I den `notActions` egenskapen, lägga till åtgärder som är undantagna från den tillåtna `actions`.
+1. I egenskapen `notActions` lägger du till de åtgärder som undantas från den tillåtna `actions`.
 
-1. I den `roleName` och `description` egenskaper, ange ett unikt rollnamn och en beskrivning. Mer information om egenskaperna finns i [anpassade roller](custom-roles.md).
+1. I egenskaperna `roleName` och `description` anger du ett unikt roll namn och en beskrivning. Mer information om egenskaperna finns i [anpassade roller](custom-roles.md).
 
-    Nedan visas ett exempel på en brödtext i begäran:
+    Följande visar ett exempel på en begär ande text:
 
     ```json
     {
@@ -205,9 +205,9 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
 
 ## <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
 
-Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa detta API kan du vara inloggad med en användare som har tilldelats en roll som har den `Microsoft.Authorization/roleDefinitions/write` behörighet på alla de `assignableScopes`. Av de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) inkluderar den här behörigheten.
+Om du vill uppdatera en anpassad roll använder du [roll definitionerna-skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa detta API måste du vara inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleDefinitions/write` på alla `assignableScopes`. Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
 
-1. Använd den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) eller [rolldefinitioner – hämta](/rest/api/authorization/roledefinitions/get) REST API för att få information om den anpassade rollen. Mer information finns i den tidigare [lista över anpassade roller](#list-custom-roles) avsnittet.
+1. Använd [roll definitionerna – lista](/rest/api/authorization/roledefinitions/list) eller [roll definitioner – Hämta](/rest/api/authorization/roledefinitions/get) REST API för att hämta information om den anpassade rollen. Mer information finns i avsnittet om [anpassade roller](#list-custom-roles) i föregående lista.
 
 1. Börja med följande begäran:
 
@@ -215,17 +215,17 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
+1. I URI: n ersätter du *{scope}* med den första `assignableScopes` av den anpassade rollen.
 
-    | Scope | Typ |
+    | Omfång | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
+1. Ersätt *{roleDefinitionId}* med GUID-identifieraren för den anpassade rollen.
 
-1. Baserat på informationen om den anpassade rollen kan skapa en brödtext i begäran med följande format:
+1. Utifrån informationen om den anpassade rollen skapar du en begär ande text med följande format:
 
     ```json
     {
@@ -251,9 +251,9 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
     }
     ```
 
-1. Uppdatera begärandetexten med ändringar som du vill göra till den anpassade rollen.
+1. Uppdatera begär ande texten med de ändringar som du vill göra till den anpassade rollen.
 
-    Nedan visas ett exempel på en brödtext i begäran med en ny åtgärd för diagnostikinställningar har lagts till:
+    Nedan visas ett exempel på en begär ande text med en ny åtgärd för diagnostiska inställningar som har lagts till:
 
     ```json
     {
@@ -289,9 +289,9 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
 
 ## <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
 
-Ta bort en anpassad roll genom att använda den [rolldefinitioner – ta bort](/rest/api/authorization/roledefinitions/delete) REST API. För att anropa detta API kan du vara inloggad med en användare som har tilldelats en roll som har den `Microsoft.Authorization/roleDefinitions/delete` behörighet på alla de `assignableScopes`. Av de inbyggda rollerna, endast [ägare](built-in-roles.md#owner) och [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) inkluderar den här behörigheten.
+Om du vill ta bort en anpassad roll använder du [roll definitionerna-ta bort](/rest/api/authorization/roledefinitions/delete) REST API. För att anropa detta API måste du vara inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleDefinitions/delete` på alla `assignableScopes`. Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
 
-1. Använd den [rolldefinitioner – lista](/rest/api/authorization/roledefinitions/list) eller [rolldefinitioner – hämta](/rest/api/authorization/roledefinitions/get) REST API för att hämta GUID-identifierare för den anpassade rollen. Mer information finns i den tidigare [lista över anpassade roller](#list-custom-roles) avsnittet.
+1. Använd [roll definitionerna – lista](/rest/api/authorization/roledefinitions/list) eller [roll definitioner – Hämta](/rest/api/authorization/roledefinitions/get) REST API för att hämta GUID-identifieraren för den anpassade rollen. Mer information finns i avsnittet om [anpassade roller](#list-custom-roles) i föregående lista.
 
 1. Börja med följande begäran:
 
@@ -299,15 +299,15 @@ Ta bort en anpassad roll genom att använda den [rolldefinitioner – ta bort](/
     DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill ta bort den anpassade rollen.
+1. I URI: n ersätter du *{scope}* med det omfång som du vill ta bort den anpassade rollen.
 
-    | Scope | Typ |
+    | Omfång | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-1. Ersätt *{roleDefinitionId}* med GUID-identifierare för den anpassade rollen.
+1. Ersätt *{roleDefinitionId}* med GUID-identifieraren för den anpassade rollen.
 
 ## <a name="next-steps"></a>Nästa steg
 

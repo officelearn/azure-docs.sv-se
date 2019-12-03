@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d0efbaec6905d0d24d9dc1c310d472958011960
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228413"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702085"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -43,7 +43,7 @@ I [del två](tutorial-designer-automobile-price-deploy.md) av självstudien får
 
 Azure Machine Learning pipelines ordnar flera, beroende maskin inlärning och data bearbetnings steg i en enda resurs. Pipelines hjälper dig att organisera, hantera och återanvända komplexa Machine Learning-arbetsflöden mellan projekt och användare. Om du vill skapa en Azure Machine Learning pipeline behöver du en Azure Machine Learning arbets yta. I det här avsnittet får du lära dig hur du skapar båda dessa resurser.
 
-### <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
+### <a name="create-a-new-workspace"></a>Skapa en ny arbets yta
 
 Om du har en Azure Machine Learning-arbetsyta med en Enterprise-utgåva går du [vidare till nästa avsnitt](#create-the-pipeline).
 
@@ -55,7 +55,7 @@ Om du har en Azure Machine Learning-arbetsyta med en Enterprise-utgåva går du 
 
 1. Välj **Designer**.
 
-    ![Skärm bild av den visuella arbets ytan som visar hur du får åtkomst till designern](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![Skärm bild av den visuella arbets ytan som visar hur du får åtkomst till designern](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Välj **lättanvända inbyggda moduler**.
 
@@ -87,7 +87,7 @@ Du kan visualisera data för att förstå den data uppsättning som du kommer at
 
     Varje rad representerar en bil och variablerna som är kopplade till varje bil visas som kolumner. Det finns 205 rader och 26 kolumner i den här data uppsättningen.
 
-## <a name="prepare-data"></a>Förbereda data
+## <a name="prepare-data"></a>Förbered data
 
 Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du kanske har märkt vissa saknade värden när du kontrollerade data uppsättningen. De värden som saknas måste rengöras så att modellen kan analysera data korrekt.
 
@@ -127,7 +127,7 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. I fönstret Egenskaper väljer du **parametrar** > **kommentar** och anger *exkludera normaliserade förluster*.
 
-### <a name="clean-missing-data"></a>Rensa data som saknas
+### <a name="clean-missing-data"></a>Rensa saknade data
 
 Din data uppsättning har fortfarande värden som saknas efter att du tagit bort kolumnen **normaliserade förluster** . Du kan ta bort återstående data som saknas med hjälp av modulen **Rensa data som saknas** .
 
@@ -152,7 +152,7 @@ Nu när data har bearbetats kan du träna en förutsägelse modell.
 
 ### <a name="select-an-algorithm"></a>Välja en algoritm
 
-*Klassificering* och *regression* är två typer av övervakade maskininlärningsalgoritmer. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg som röd, blå eller grön. Regression används för att förutsäga ett tal.
+*Klassificering* och *regression* är två typer av övervakade Machine Learning-algoritmer. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg som röd, blå eller grön. Regression används för att förutsäga ett tal.
 
 Eftersom du vill förutsäga pris, vilket är ett tal, kan du använda en Regressions algoritm. I det här exemplet använder du en linjär Regressions modell.
 

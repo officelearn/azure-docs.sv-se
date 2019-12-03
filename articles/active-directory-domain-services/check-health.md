@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 50b142acb457d16abeb24f22d56b653a38aca76d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898249"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705414"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Kontrol lera hälso tillståndet för en Azure Active Directory Domain Services hanterad domän
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du visar hälso status för Azure AD DS och förstå
 Hälso tillståndet för en hanterad Azure AD DS-domän visas med hjälp av Azure Portal. Information om den senaste säkerhets kopierings tiden och synkroniseringen med Azure AD kan ses, tillsammans med eventuella aviseringar som indikerar ett problem med den hanterade domänens hälsa. Slutför följande steg för att Visa hälso status för en Azure AD DS-hanterad domän:
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**.
-1. Välj din Azure AD DS-hanterade domän, till exempel *contoso.com*.
+1. Välj din Azure AD DS-hanterade domän, till exempel *aadds.contoso.com*.
 1. På vänster sida av fönstret Azure AD DS-resurs väljer du **hälso tillstånd**. Följande exempel skärm bild visar en felfria Azure AD DS-hanterad domän och status för den senaste säkerhets kopieringen och Azure AD-synkronisering:
 
     ![Översikt över hälso sidan i Azure Portal som visar Azure Active Directory Domain Services status](./media/check-health/health-page.png)
@@ -38,12 +38,12 @@ Den *senaste utvärderade* tidsstämpeln för hälso sidan visar när den hanter
 
 Statusen längst upp till höger visar den övergripande hälso tillståndet för den hanterade domänen i Azure AD DS. Status faktorerna är alla befintliga aviseringar på din domän. Följande tabell innehåller information om tillgängliga status indikatorer:
 
-| State | Ikon | Förklaring |
+| Status | Icon | Förklaring |
 | --- | :----: | --- |
 | Körs | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Den hanterade Azure AD DS-domänen körs korrekt och saknar kritiska eller varnings aviseringar. Domänen kan innehålla informations aviseringar. |
 | Kräver åtgärd (varning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Det finns inga kritiska aviseringar för den hanterade domänen i Azure AD DS, men det finns en eller flera varnings aviseringar som ska åtgärdas. |
 | Behöver åtgärdas (kritisk) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Det finns en eller flera kritiska aviseringar i den hanterade Azure AD DS-domänen som måste åtgärdas. Du kan också ha varnings-och/eller informations aviseringar. |
-| Distribuerar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Azure AD DS-domänen distribueras. |
+| Deploy | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Azure AD DS-domänen distribueras. |
 
 ## <a name="understand-monitors-and-alerts"></a>Förstå övervakare och aviseringar
 
@@ -53,7 +53,7 @@ Hälso tillståndet för en hanterad Azure AD DS-domän visar två typer av info
 
 Övervakare är områden i en Azure AD DS-hanterad domän som kontrol leras regelbundet. Om det finns aktiva aviseringar för den hanterade Azure AD DS-domänen kan det leda till att en av övervakarna rapporterar ett problem. Azure AD Domain Services övervakar för närvarande följande områden:
 
-* Säkerhetskopiera
+* Backup
 * Synkronisering med Azure AD
 
 #### <a name="backup-monitor"></a>Övervakare för säkerhets kopiering

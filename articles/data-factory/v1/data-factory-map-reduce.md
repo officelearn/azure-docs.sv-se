@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139299"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703153"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Anropa MapReduce-program från Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -39,7 +39,7 @@ ms.locfileid: "70139299"
 HDInsight MapReduce-aktiviteten i en Data Factory [pipeline](data-factory-create-pipelines.md) kör MapReduce-program på [ditt eget](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller Windows/Linux-baserade HDInsight-kluster [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Den här artikeln bygger på artikeln [data omvandlings aktiviteter](data-factory-data-transformation-activities.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
 
 > [!NOTE] 
-> Om du inte har använt Azure Data Factory läser du igenom [Introduktion till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [Bygg din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln.  
+> Om du inte har använt Azure Data Factory läser du igenom [introduktionen till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [skapa din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln.  
 
 ## <a name="introduction"></a>Introduktion
 En pipeline i en Azure Data Factory bearbetar data i länkade lagrings tjänster med hjälp av länkade Compute-tjänster. Den innehåller en sekvens med aktiviteter där varje aktivitet utför en speciell bearbetnings åtgärd. I den här artikeln beskrivs hur du använder HDInsight MapReduce-aktiviteten.
@@ -112,7 +112,7 @@ I JSON-definitionen för HDInsight-aktiviteten:
    Du kan använda HDInsight-MapReduce-aktiviteten för att köra en MapReduce jar-fil på ett HDInsight-kluster. I följande exempel på JSON-definition för en pipeline är HDInsight-aktiviteten konfigurerad att köra en Mahout JAR-fil.
 
 ## <a name="sample-on-github"></a>Exempel på GitHub
-Du kan hämta ett exempel för att använda HDInsight-MapReduce-aktiviteten från: [Data Factory exempel på GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
+Du kan hämta ett exempel för att använda HDInsight-MapReduce-aktiviteten från: [Data Factory exempel på GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
 
 ## <a name="running-the-word-count-program"></a>Köra Word Count-programmet
 Pipelinen i det här exemplet kör kommandot räkna ord för att mappa/minska programmet på ditt Azure HDInsight-kluster.   
@@ -183,12 +183,12 @@ Pipelinen i det här exemplet har endast en aktivitet av typen: HDInsightMapRedu
 
 | Egenskap | Anteckningar |
 |:--- |:--- |
-| type |Typen måste anges till **HDInsightMapReduce**. |
+| typ |Typen måste anges till **HDInsightMapReduce**. |
 | className |Namnet på klassen är: **WORDCOUNT** |
 | jarFilePath |Sökväg till jar-filen som innehåller klassen. Om du kopierar eller klistrar in följande kod ska du inte glömma att ändra namnet på klustret. |
 | jarLinkedService |Azure Storage länkad tjänst som innehåller jar-filen. Den här länkade tjänsten refererar till det lagrings utrymme som är associerat med HDInsight-klustret. |
 | ogiltiga |WORDCOUNT-programmet tar två argument, in-och utdata. Indatafilen är filen DaVinci. txt. |
-| frequency/interval |Värdena för dessa egenskaper matchar utdata-datauppsättningen. |
+| frekvens/intervall |Värdena för dessa egenskaper matchar utdata-datauppsättningen. |
 | linkedServiceName |refererar till den länkade HDInsight-tjänsten som du skapade tidigare. |
 
 ```JSON
@@ -250,5 +250,5 @@ Du kan använda MapReduce-aktiviteten för att köra Spark-program i ditt HDInsi
 * [Aktivitet i gris](data-factory-pig-activity.md)
 * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 * [Anropa Spark-program](data-factory-spark.md)
-* [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

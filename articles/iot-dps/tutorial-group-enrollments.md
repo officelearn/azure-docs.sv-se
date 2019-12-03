@@ -1,6 +1,6 @@
 ---
-title: Etablera en simulerad X. 509-enhet till Azure IoT Hub med hjälp av Java-och registrerings grupper
-description: Självstudie – Skapa och etablera en simulerad X. 509-enhet med Java-enhets-och tjänst-SDK och registrerings grupper för IoT Hub Device Provisioning Service
+title: Självstudie – etablera simulerad X. 509-enhet till Azure IoT Hub med hjälp av Java-och registrerings grupper
+description: I den här självstudien skapar och etablerar du en simulerad X. 509-enhet med Java-enhets-och tjänst-SDK och registrerings grupper för IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: a903997c6548aad3638ba5785d23ee7642d403fc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 28cb37ad4fcd41818c3dfc18925ec65b04dddd00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228322"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702446"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Självstudie: skapa och etablera en simulerad X. 509-enhet med Java-enhets-och tjänst-SDK och grupp registreringar för IoT Hub Device Provisioning Service
 
 Dessa steg visar hur du simulerar en X.509-enhet på utvecklingsdatorn som kör Windows OS och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben med registreringsgrupper. 
 
-Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen](./quick-setup-auto-provision.md) innan du fortsätter.
+Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal](./quick-setup-auto-provision.md) innan du fortsätter.
 
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
@@ -251,7 +251,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 Om du vill fortsätta att arbeta med och utforska enhetsklientexemplet ska du inte rensa de resurser som har skapats i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Öppna bladet **Hantera registreringar** för din tjänst och klicka sedan på fliken **enskilda registreringar** . Välj *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp. 
+1. I den vänstra menyn i Azure-portalen klickar du på **Alla resurser** och väljer sedan Device Provisioning-tjänsten. Öppna bladet **Hantera registreringar** för din tjänst och klicka sedan på fliken **enskilda registreringar** . Välj *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp. 
 1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Öppna bladet **IoT-enheter** för din hubb, välj *ENHETS-ID* för enheten du har registrerat i den här snabbstarten och klicka på knappen **Ta bort** högst upp.
 
 

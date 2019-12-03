@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 3d55e0e7ecbd52b6d96c657e333c5557388f2721
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406513"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706026"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3,6 Hive-arbetsbelastningar till HDInsight 4,0
 
@@ -73,10 +73,10 @@ När metaarkiv- **kopieringen** är klar kör du ett skript för schema uppgrade
 
 Använd värdena i tabellen nedan. Ersätt `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` med lämpliga värden för den **kopierade** Hive-metaarkiv, avgränsade med blank steg. Ta inte med ". database.windows.net" när du anger SQL Server-namnet.
 
-|Egenskap | Value |
+|Egenskap | Värde |
 |---|---|
 |Skript typ|– Anpassad|
-|Name|Hive-uppgradering|
+|Namn|Hive-uppgradering|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |Node-typ (er)|Huvud|
 |Parametrar|LÖSEN ORD FÖR SQLSERVERNAME DATABASENAME USERNAME|
@@ -118,7 +118,7 @@ Den här komprimeringen krävs eftersom HDInsight 3,6 och HDInsight 4,0 syra tab
 
 När du har slutfört metaarkiv-migreringen och komprimerings stegen kan du migrera det aktuella lagret. När du har slutfört strukturen för Hive-lagret har HDInsight 4,0-lagret följande egenskaper:
 
-|3.6 |4.0 |
+|3,6 |4,0 |
 |---|---|
 |Externa tabeller|Externa tabeller|
 |Icke-transaktionella hanterade tabeller|Externa tabeller|
@@ -174,12 +174,12 @@ Det finns två sätt att köra och felsöka Hive/LLAP-frågor i ett HDInsight 3,
 
 I HDInsight 4,0 har HiveCLI ersatts med Beeline. HiveCLI är en Thrift-klient för Hiveserver 1 och Beeline är en JDBC-klient som ger åtkomst till Hiveserver 2. Beeline kan också användas för att ansluta till en annan JDBC-kompatibel databas slut punkt. Beeline är tillgängligt i HDInsight 4,0 utan någon installation.
 
-I HDInsight 3,6 är GUI-klienten för att interagera med Hive-Server den Ambari Hive-vyn. HDInsight 4,0 ersätter Hive-vyn med Hortonworks Data Analytics Studio (DAS). DAS levereras inte med HDInsight-kluster och är inte ett paket som stöds officiellt. DAS kan dock installeras i klustret med hjälp av en [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) enligt följande:
+I HDInsight 3,6 är GUI-klienten för att interagera med Hive-Server den Ambari Hive-vyn. HDInsight 4,0 levereras inte med Ambari-vyn. Vi har gett oss ett sätt för våra kunder att använda data Analytics Studio (DAS), som inte är en kärn tjänst för HDInsight. DAS levereras inte med HDInsight-kluster direkt och är inte ett paket som stöds officiellt. DAS kan dock installeras i klustret med hjälp av en [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) enligt följande:
 
-|Egenskap | Value |
+|Egenskap | Värde |
 |---|---|
 |Skript typ|– Anpassad|
-|Name|DAS|
+|Namn|DAS|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Node-typ (er)|Huvud|
 

@@ -1,6 +1,6 @@
 ---
-title: Självstudie om att lagra data med SQL-modulen – Azure IoT Edge | Microsoft Docs
-description: Lär dig hur du lagrar data lokalt på din IoT Edge-enhet med en SQL Server-modul
+title: Självstudie – lagra data med SQL-modulen med hjälp av Azure IoT Edge
+description: Den här självstudien visar hur du lagrar data lokalt på din IoT Edge enhet med en SQL Server modul
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5a3133100621cee2e786c4001df02f2316b1e4ec
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457061"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701913"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -24,7 +24,7 @@ Använda Azure IoT Edge och SQL Server för att lagra och fråga efter data på 
 
 Den här artikeln innehåller instruktioner för hur man distribuerar en SQL Server-databas till en IoT Edge-enhet. Azure Functions körs på IoT Edge-enheten och strukturerar inkommande data och skickar dem sedan till databasen. Stegen i den här artikeln kan också tillämpas på andra databaser som fungerar i containrar, t.ex. MySQL eller PostgreSQL.
 
-I den här självstudiekursen får du lära du dig att: 
+I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
 > * Använd Visual Studio Code för att skapa en Azure-funktion
@@ -67,7 +67,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **SqlSolution**, eller acceptera standardnamnet. |
-   | Välj modulmall | Välj **Azure Functions - C#** . |
+   | Välja modulmall | Välj **Azure Functions - C#** . |
    | Ange ett modulnamn | Ge modulen namnet **sqlFunction**. |
    | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den sista strängen ser ut som \<register namn\>. azurecr.io/sqlfunction. |
 
@@ -211,7 +211,7 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
    | Fält | Värde | 
    | ----- | ----- |
    | Välj distributionsmallfil | Paletten Command visar filen Deployment. template. json i din aktuella Solution-mapp. Välj den filen.  |
-   | Välj modulmall | Välj **modul från Azure Marketplace**. |
+   | Välja modulmall | Välj **modul från Azure Marketplace**. |
 
 3. I Azure IoT Edge module Marketplace söker du efter och väljer **SQL Server modul**. 
 
@@ -242,7 +242,7 @@ I föregående avsnitt skapade du en lösning med en modul och lade sedan till e
     
     Du kan se en säkerhets varning som rekommenderar att parametern--Password-STDIN används. Även om användning av denna ligger utanför vad som tas upp i denna artikel rekommenderar vi att du följer denna bästa metod. Mer information finns i kommando referensen [Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) . 
 
-2. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
+2. Högerklicka på filen **deployment.template.json** och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren. 
 
 När du anger Visual Studio Code för att bygga din lösning, tar den först med informationen i distributions mal len och genererar en distributions-JSON-fil i en ny mapp med namnet **config**. Sedan kör den två kommandon i den integrerade terminalen: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger modulen i container och push-överför sedan koden till det containerregister du angav när du initierade lösningen. 
 

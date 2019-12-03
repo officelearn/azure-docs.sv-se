@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 584fedc2ebe93b2a3cfd8a3b538a410d29aebe9d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2259343d2c7bca1f60a5256efcd572e6cc21b565
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383091"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706040"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Skapa Azure Cosmos-behållare och databaser i autopilot-läge (för hands version)
 
@@ -65,7 +65,7 @@ Lösningar på tidigare problem kräver inte bara en enorma del av tiden i imple
 | **Allokerat data flöde** | Manuellt etablerade | Automatiskt och automatiskt skalas baserat på användnings mönster för arbets belastning. |
 | **Hastighets begränsning av begär Anden/åtgärder (429)**  | Kan inträffa om förbrukningen överskrider den etablerade kapaciteten. | Sker inte om det data flöde som förbrukas är inom det maximala data flöde som du väljer med autopilot-läge.   |
 | **Kapacitetsplanering** |  Du måste utföra en första kapacitets planering och tillhandahålla det data flöde du behöver. |    Du behöver inte bekymra dig om kapacitets planering. Systemet tar automatiskt hand om kapacitets planering och kapacitets hantering. |
-| **Priser** | Manuellt etablerade RU/s per timme. | För enstaka Skriv regions konton betalar du för det data flöde som används per timme med hjälp av den autopiloten RU/s per tim pris. <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autopilot. Du betalar för det data flöde som används per timme med samma taxa för flera huvud-RU/s per timme. |
+| **Prissättning** | Manuellt etablerade RU/s per timme. | För enstaka Skriv regions konton betalar du för det data flöde som används per timme med hjälp av den autopiloten RU/s per tim pris. <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autopilot. Du betalar för det data flöde som används per timme med samma taxa för flera huvud-RU/s per timme. |
 | **Passar bäst för arbets belastnings typer** |  Förutsägbara och stabila arbets belastningar|   Oförutsedda och varierande arbets belastningar  |
 
 ## <a id="enable-autopilot"></a>Aktivera autopilot från Azure Portal

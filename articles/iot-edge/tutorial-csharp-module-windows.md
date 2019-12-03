@@ -1,5 +1,5 @@
 ---
-title: Själv studie C# kurs utveckla modul för Windows-Azure IoT Edge | Microsoft Docs
+title: Självstudie – utveckla C# modulen för Windows med Azure IoT Edge
 description: Den här självstudien visar hur du skapar en IoT Edge C# -modul med kod och distribuerar den till en Windows IoT Edge-enhet.
 services: iot-edge
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f37f0f3fe57015cc733d67f16e64bdf58a8a6b7
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 041efc62b32e8d8c0c477d9d5715882fd7899cd9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560993"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701951"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 

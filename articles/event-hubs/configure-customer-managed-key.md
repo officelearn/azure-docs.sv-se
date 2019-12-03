@@ -6,17 +6,20 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 3af951d120282767bd71bc569d8c0bfe39dafffe
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809381"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705466"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal (för hands version)
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
+
+>[!NOTE]
+> Den här funktionen är för närvarande en förhandsversion. Vi rekommenderar att du inte använder i en produktions miljö.
 
 ## <a name="overview"></a>Översikt
 Azure Event Hubs stöder nu möjligheten att kryptera data i vila med antingen Microsoft-hanterade nycklar eller Kundhanterade nycklar (Bring Your Own Key – BYOK). Med den här funktionen kan du skapa, rotera, inaktivera och återkalla åtkomst till de Kundhanterade nycklar som används för att kryptera Azure Event Hubs data i vila.
@@ -113,8 +116,8 @@ Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post inneh�
 | keyVault | Fullständigt namn på nyckel valvet. |
 | key | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
 | version | Den nyckel version som används. |
-| Reparation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
-| Rikt | Den kod som är kopplad till åtgärden. Exempel: felkod, 404 innebär att nyckeln inte hittades. |
+| reparation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
+| rikt | Den kod som är kopplad till åtgärden. Exempel: felkod, 404 innebär att nyckeln inte hittades. |
 | meddelande | Ett fel meddelande som är kopplat till åtgärden |
 
 Här är ett exempel på loggen för en kundhanterad nyckel:

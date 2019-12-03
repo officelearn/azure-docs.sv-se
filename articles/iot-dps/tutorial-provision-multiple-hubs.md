@@ -1,6 +1,6 @@
 ---
-title: Etablera enheter över belastningsutjämnade hubbar med hjälp av Azure IoT Hub Device Provisioning Service
-description: Självstudie – enhets etablerings tjänst automatisk enhets etablering över belastningsutjämnade IoT-hubbar i Azure Portal
+title: Självstudie – etablera enheter över belastningsutjämnade hubbar med hjälp av Azure IoT Hub Device Provisioning Service
+description: Den här självstudien visar hur enhets etablerings tjänsten aktiverar automatisk enhets etablering över belastningsutjämnade IoT-hubbar i Azure Portal
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: fb3002e5f195bd3dca32a3500c6789f90e9ea0d6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf1246862a455cfa71f3e170478736e5e07ee6f7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229455"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701961"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Självstudie: etablera enheter över belastningsutjämnade IoT-hubbar
 
-Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här självstudiekursen får du lära du dig att:
+Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använda Azure Portal till att etablera en andra enhet till en andra IoT-hubb 

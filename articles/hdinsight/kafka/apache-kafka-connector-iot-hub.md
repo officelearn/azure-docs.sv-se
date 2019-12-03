@@ -1,151 +1,133 @@
 ---
 title: Använda Apache Kafka på HDInsight med Azure IoT Hub
-description: Lär dig hur du använder Apache Kafka på HDInsight med Azure IoT Hub. Projektet Kafka ansluta Azure IoT Hub tillhandahåller en käll- och mottagar-anslutningsapp för Kafka. Käll-koppling kan läsa data från IoT Hub och mottagare anslutningen skriver till IoT Hub.
-ms.service: hdinsight
+description: Lär dig hur du använder Apache Kafka i HDInsight med Azure IoT Hub. Kafka Connect Azure IoT Hub Project innehåller en källa och en mottagar anslutning för Kafka. Käll anslutningen kan läsa data från IoT Hub och mottagar kopplingen skriver till IoT Hub.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 5559d243573ea04400007cdce0e71009dc91e27a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.custom: hdinsightactive
+ms.date: 11/26/2019
+ms.openlocfilehash: 884d10ce1bc5e6b710c849d0be1cb9165caac4c5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446440"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706096"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Använda Apache Kafka på HDInsight med Azure IoT Hub
 
-Lär dig hur du använder den [Apache Kafka ansluta Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) -anslutningen för att flytta data mellan Apache Kafka på HDInsight och Azure IoT Hub. I det här dokumentet har du lära dig hur du kör IoT Hub-kopplingen från en edge-nod i klustret.
+Lär dig hur du använder [Apache Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) Connector för att flytta data mellan Apache Kafka på HDInsight och Azure IoT Hub. I det här dokumentet får du lära dig hur du kör IoT Hub Connector från en Edge-nod i klustret.
 
-Kafka ansluta API: et kan du implementera kopplingar som kontinuerligt hämta data till Kafka eller skicka data från Kafka till ett annat system. Den [Apache Kafka ansluta Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) är en koppling som hämtar data från Azure IoT Hub i Kafka. Det kan också skicka data från Kafka till IoT Hub. 
+Med Kafka Connect API kan du implementera anslutningar som kontinuerligt hämtar data till Kafka eller skicka data från Kafka till ett annat system. [Apache Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) är en anslutning som hämtar data från Azure-IoT Hub till Kafka. Den kan också skicka data från Kafka till IoT Hub.
 
-När du hämtar från IoT-hubben som du använder en __källa__ connector. När du skickar till IoT Hub, använder du en __mottagare__ connector. IoT Hub-anslutningen tillhandahåller både käll- och mottagar-kopplingar.
+När du hämtar från IoT Hub använder du en __käll__ koppling. När du skickar till IoT Hub använder du en __mottagar__ anslutning. IoT Hub-anslutaren tillhandahåller både käll-och mottagar anslutningarna.
 
-I följande diagram visas dataflödet mellan Azure IoT Hub och Kafka på HDInsight när du använder anslutningen.
+I följande diagram visas data flödet mellan Azure IoT Hub och Kafka i HDInsight när du använder anslutnings tjänsten.
 
-![Bild som visar data som flödar från IoT Hub till Kafka via anslutningen](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+![Bild som visar data som flödar från IoT Hub till Kafka via kopplingen](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
 
-Mer information om API: et ansluta finns i [ https://kafka.apache.org/documentation/#connect ](https://kafka.apache.org/documentation/#connect).
+Mer information om Connect API finns [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Ett Apache Kafka kluster i HDInsight. Mer information finns i dokumentet [Snabbstart för Kafka i HDInsight](apache-kafka-get-started.md).
 
-* En Kafka på HDInsight-klustret. Mer information finns i dokumentet [Snabbstart för Kafka i HDInsight](apache-kafka-get-started.md).
+* En Edge-nod i Kafka-klustret. Mer information finns i [använda Edge-noder med HDInsight](../hdinsight-apps-use-edge-node.md) -dokument.
 
-* En kantnod i Kafka-klustret. Mer information finns i den [använda kantnoder med HDInsight](../hdinsight-apps-use-edge-node.md) dokumentet.
+* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* En Azure IoT-hubb. Den här artikeln är jag rekommenderar den [Anslut Raspberry Pi onlinesimulator på Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) dokumentet.
+* En Azure-IoT Hub och-enhet. I den här artikeln bör du överväga att använda [Anslut Raspberry Pi online Simulator till Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
 
-* En SSH-klient. Stegen i det här dokumentet använder SSH för att ansluta till klustret. Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* [Scala build-verktyg](https://www.scala-sbt.org/).
 
-## <a name="install-the-connector"></a>Installera connector
+## <a name="build-the-connector"></a>Bygg anslutningen
 
-1. Ladda ned den senaste versionen av Kafka ansluta för Azure IoT Hub från [ https://github.com/Azure/toketi-kafka-connect-iothub/releases/ ](https://github.com/Azure/toketi-kafka-connect-iothub/releases).
+1. Hämta källan för anslutningen från [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) till din lokala miljö.
 
-2. Om du vill överföra .jar-filen till gränsnoden för dina Kafka på HDInsight-klustret använder du följande kommando:
+2. Gå till `toketi-kafka-connect-iothub-master` katalog från en kommando tolk. Använd sedan följande kommando för att bygga och paketera projektet:
 
-    > [!NOTE]  
-    > Ersätt `sshuser` med SSH-användarkontot för ditt HDInsight-kluster. Ersätt `new-edgenode` med namnet på edge-noden. Ersätt `clustername` med klustrets namn. Mer information om SSH-slutpunkten för gränsnoden finns i den [används edge-noder med HDInsight](../hdinsight-apps-use-edge-node.md#access-an-edge-node) dokumentet.
-
-    ```bash
-    scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.clustername-ssh.azurehdinsight.net:
+    ```cmd
+    sbt assembly
     ```
 
-3. När filkopian är klar kan du ansluta till gränsnoden via SSH:
+    Det tar några minuter att slutföra versionen. Kommandot skapar en fil med namnet `kafka-connect-iothub-assembly_2.11-0.7.0.jar` i `toketi-kafka-connect-iothub-master\target\scala-2.11` katalogen för projektet.
 
-    ```bash
-    ssh sshuser@new-edgenode.clustername-ssh.azurehdinsight.net
+## <a name="install-the-connector"></a>Installera anslutningen
+
+1. Ladda upp. jar-filen till Edge-noden i din Kafka i HDInsight-klustret. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med det faktiska namnet på klustret. Standardvärdena för SSH-användarkontot och namnet på [Edge-noden](../hdinsight-apps-use-edge-node.md#access-an-edge-node) används nedan, ändra efter behov.
+
+    ```cmd
+    scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net:
     ```
 
-    Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. När fil kopieringen är klar ansluter du till Edge-noden med SSH:
 
-4. Att installera anslutningen i Kafka `libs` directory, använder du följande kommando:
+    ```bash
+    ssh sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. Om du vill installera anslutningen till katalogen Kafka `libs` använder du följande kommando:
 
     ```bash
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]  
-> Om du stöter på problem med resten av stegen i det här dokumentet när du använder en färdiga .jar-fil kan du försöka med att skapa paket från källan.
->
-> För att skapa anslutningen, måste du ha en Scala-utvecklingsmiljö med den [Scala skapa verktyget](https://www.scala-sbt.org/).
->
-> 1. Hämtar källan för anslutningstjänsten från [ https://github.com/Azure/toketi-kafka-connect-iothub/ ](https://github.com/Azure/toketi-kafka-connect-iothub/) till utvecklingsmiljön.
->
-> 2. Från Kommandotolken i projektkatalogen, använder du följande kommando för att bygga och paketera projektet:
->
->    ```bash
->    sbt assembly
->    ```
->
->    Det här kommandot skapar en fil med namnet `kafka-connect-iothub-assembly_2.11-0.6.jar` i den `target/scala-2.11` katalogen för projektet.
+Se till att SSH-anslutningen är aktiv i de återstående stegen.
 
 ## <a name="configure-apache-kafka"></a>Konfigurera Apache Kafka
 
-Använd följande steg för att konfigurera Kafka för att köra anslutningstjänsten i fristående läge från en SSH-anslutning till gränsnoden:
+Från SSH-anslutningen till Edge-noden använder du följande steg för att konfigurera Kafka för att köra anslutnings tjänsten i fristående läge:
 
-1. Spara klusternamnet i en variabel. Med hjälp av en variabel gör det lättare att kopiera och klistra in andra kommandona i det här avsnittet:
+1. Konfigurera lösen ords variabel. Ersätt lösen ordet med klustrets inloggnings lösen ord och ange sedan kommandot:
 
     ```bash
-    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
+    export password='PASSWORD'
     ```
 
-2. Installera den `jq` verktyget. Det här verktyget gör det enklare att bearbeta JSON-dokument som returneras från Ambari frågor:
+1. Installera [JQ](https://stedolan.github.io/jq/) -verktyget. JQ gör det enklare att bearbeta JSON-dokument som returneras från Ambari-frågor. Ange följande kommando:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Hämta adressen för Kafka asynkrona meddelandeköer. Det kan finnas många asynkrona meddelandeköer i klustret, men du behöver bara referera till en eller två. Om du vill hämta adressen för två broker värdar, använder du följande kommando:
+1. Hämta adressen till Kafka-utlösarna. Det kan finnas många mäklare i klustret, men du behöver bara referera till en eller två. Använd följande kommando för att hämta adressen till två Broker-värdar:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+
+    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $KAFKABROKERS
     ```
 
-    När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin). Det värde som genereras liknar följande text:
+    Kopiera värdena för senare användning. Det värde som genereras liknar följande text:
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. Hämta adressen för Apache Zookeeper-noder. Det finns flera Zookeeper-noder i klustret, men du behöver bara referera till en eller två. Om du vill hämta adressen för två Zookeeper-noder, använder du följande kommando:
+1. Hämta adressen till Apache Zookeeper-noderna. Det finns flera Zookeeper-noder i klustret, men du behöver bara referera till en eller två. Använd följande kommando för att lagra adresserna i variabeln `KAFKAZKHOSTS`:
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-5. När du kör anslutningen i fristående läge, den `/usr/hdp/current/kafka-broker/config/connect-standalone.properties` används för att kommunicera med asynkrona meddelandeköer i Kafka. Så här redigerar du den `connect-standalone.properties` fil ska du använda följande kommando:
+1. När du kör anslutningen i fristående läge används `/usr/hdp/current/kafka-broker/config/connect-standalone.properties`-filen för att kommunicera med Kafka-utjämnare. Om du vill redigera `connect-standalone.properties`-filen använder du följande kommando:
 
     ```bash
     sudo nano /usr/hdp/current/kafka-broker/config/connect-standalone.properties
     ```
 
-    * Hitta raden som börjar med för att konfigurera fristående konfiguration för gränsnoden att hitta Kafka mäklare, `bootstrap.servers=`. Ersätt den `localhost:9092` värde med broker-värdar från föregående steg.
+1. Gör följande redigeringar:
 
-    * Ändra den `key.converter=` och `value.converter=` rader på följande värden:
+    |Aktuellt värde |Nytt värde | Kommentar |
+    |---|---|---|
+    |`bootstrap.servers=localhost:9092`|Ersätt `localhost:9092`-värdet med Service Broker-värdarna från föregående steg|Konfigurerar den fristående konfigurationen för Edge-noden för att hitta Kafka-utjämnare.|
+    |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Med den här ändringen kan du testa att använda konsol tillverkaren som ingår i Kafka. Du kan behöva olika konverterare för andra producenter och konsumenter. Information om hur du använder andra konverterings värden finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
+    |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Samma som ovan.|
+    |Gäller inte|`consumer.max.poll.records=10`|Lägg till i slutet av filen. Den här ändringen är att förhindra timeout i mottagar anslutningen genom att begränsa den till 10 poster i taget. Mer information finns på [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
-        ```ini
-        key.converter=org.apache.kafka.connect.storage.StringConverter
-        value.converter=org.apache.kafka.connect.storage.StringConverter
-        ```
+1. Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
 
-        > [!IMPORTANT]  
-        > Den här ändringen kan du testa med hjälp av konsolen producenten som medföljer Kafka. Du kan behöva olika konverterare för andra producenter och konsumenter. Information om hur du använder andra converter värden finns i [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
-
-    * Lägg till en rad i slutet av filen med följande text:
-
-        ```text
-        consumer.max.poll.records=10
-        ```
-
-        > [!TIP]  
-        > Den här ändringen är att förhindra tidsgränser i mottagare connector genom att begränsa den till 10 poster i taget. Mer information finns på [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
-
-6. Om du vill spara filen, Använd __Ctrl + X__, __Y__, och sedan __RETUR__.
-
-7. Använd följande kommandon för att skapa ämnen som används av kopplingen:
+1. Använd följande kommandon för att skapa ämnen som används av kopplingen:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic iotin --zookeeper $KAFKAZKHOSTS
@@ -153,40 +135,40 @@ Använd följande steg för att konfigurera Kafka för att köra anslutningstjä
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic iotout --zookeeper $KAFKAZKHOSTS
     ```
 
-    Kontrollera att den `iotin` och `iotout` ämnen finns, använder du följande kommando:
+    Om du vill kontrol lera att `iotin` och `iotout` ämnena finns använder du följande kommando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
     ```
 
-    Den `iotin` avsnittet används för att ta emot meddelanden från IoT Hub. Den `iotout` avsnittet används för att skicka meddelanden till IoT Hub.
+    `iotin` avsnittet används för att ta emot meddelanden från IoT Hub. Avsnittet `iotout` används för att skicka meddelanden till IoT Hub.
 
-## <a name="get-iot-hub-connection-information"></a>Anslutningsinformation för IoT Hub
+## <a name="get-iot-hub-connection-information"></a>Hämta IoT Hub anslutnings information
 
-Använd följande steg för att hämta information om IoT hub som används av anslutningen:
+Använd följande steg för att hämta information om IoT Hub som används av anslutningen:
 
-1. Hämta Event Hub-kompatibla slutpunkten och Event Hubs-kompatibla slutpunktnamn för din IoT-hubb. Använd någon av följande metoder för att få den här informationen:
+1. Hämta den Event Hub-kompatibla slut punkten och det Event Hub-kompatibla slut punkts namnet för din IoT Hub. Använd någon av följande metoder för att hämta den här informationen:
 
-   * __Från den [Azure-portalen](https://portal.azure.com/)__ , Använd följande steg:
+   * Använd följande steg __från [Azure Portal](https://portal.azure.com/)__ :
 
-     1. Gå till din IoT-hubb och välj __slutpunkter__.
-     2. Från __inbyggda slutpunkter__väljer __händelser__.
-     3. Från __egenskaper__, Kopiera värdet för följande fält:
+     1. Navigera till IoT Hub och välj __slut punkter__.
+     2. Välj __händelser__från __inbyggda slut punkter__.
+     3. Från __Egenskaper__kopierar du värdet för följande fält:
 
-         * __Event Hub-kompatibla namnet__
-         * __Event Hubs-kompatibla slutpunkten__
+         * __Event Hub-kompatibelt namn__
+         * __Event Hub – kompatibel slut punkt__
          * __Partitioner__
 
         > [!IMPORTANT]  
-        > Slutpunktsvärdet från portalen kan innehålla extra text som inte behövs i det här exemplet. Extrahera text som matchar det här mönstret `sb://<randomnamespace>.servicebus.windows.net/`.
+        > Slut punkt svärdet från portalen kan innehålla extra text som inte behövs i det här exemplet. Extrahera texten som matchar det här mönstret `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Från den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , använder du följande kommando:
+   * Använd följande kommando __från [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ :
 
        ```azure-cli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
        ```
 
-       Ersätt `myhubname` med namnet på din IoT-hubb. Svaret liknar följande text:
+       Ersätt `myhubname` med namnet på din IoT Hub. Svaret liknar följande text:
 
        ```json
        "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
@@ -194,179 +176,187 @@ Använd följande steg för att hämta information om IoT hub som används av an
        "Partitions": 2
        ```
 
-2. Hämta den __delad åtkomstprincip__ och __nyckeln__. Det här exemplet använder den __service__ nyckel. Använd någon av följande metoder för att få den här informationen:
+2. Hämta __principen för delad åtkomst__ och __nyckel__. I det här exemplet använder du __tjänst__ nyckeln. Använd någon av följande metoder för att hämta den här informationen:
 
-    * __Från den [Azure-portalen](https://portal.azure.com/)__ , Använd följande steg:
+    * Använd följande steg __från [Azure Portal](https://portal.azure.com/)__ :
 
-        1. Välj __principer för delad åtkomst__, och välj sedan __service__.
-        2. Kopiera den __primärnyckel__ värde.
-        3. Kopiera den __anslutningssträng – primärnyckel__ värde.
+        1. Välj __principer för delad åtkomst__och välj sedan __tjänst__.
+        2. Kopiera värdet för __primär nyckel__ .
+        3. Kopiera __anslutnings strängen – primär nyckel__ värde.
 
-    * __Från den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , använder du följande kommando:
+    * Använd följande kommando __från [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ :
 
-        1. Om du vill hämta värdet för primära nyckeln, använder du följande kommando:
+        1. Använd följande kommando för att hämta värdet för primär nyckel:
 
             ```azure-cli
             az iot hub policy show --hub-name myhubname --name service --query "primaryKey"
             ```
 
-            Ersätt `myhubname` med namnet på din IoT-hubb. Svaret är den primära nyckeln så att den `service` principen för den här hubben.
+            Ersätt `myhubname` med namnet på din IoT Hub. Svaret är den primära nyckeln till den `service` principen för den här hubben.
 
-        2. Att hämta anslutningssträngen för den `service` princip, använder du följande kommando:
+        2. Använd följande kommando för att hämta anslutnings strängen för den `service` principen:
 
             ```azure-cli
             az iot hub show-connection-string --name myhubname --policy-name service --query "connectionString"
             ```
 
-            Ersätt `myhubname` med namnet på din IoT-hubb. Svaret är anslutningssträngen för den `service` principen.
+            Ersätt `myhubname` med namnet på din IoT Hub. Svaret är anslutnings strängen för den `service` principen.
 
-## <a name="configure-the-source-connection"></a>Konfigurera anslutning datakälla
+## <a name="configure-the-source-connection"></a>Konfigurera käll anslutningen
 
-Utför följande åtgärder för att konfigurera källan för att arbeta med din IoT-hubb, från en SSH-anslutning till gränsnoden:
+Om du vill konfigurera källan så att den fungerar med din IoT Hub utför du följande åtgärder från en SSH-anslutning till Edge-noden:
 
-1. Skapa en kopia av den `connect-iot-source.properties` fil i den `/usr/hdp/current/kafka-broker/config/` directory. För att hämta filen från toketi-kafka-connect-iothub-projektet, använder du följande kommando:
+1. Skapa en kopia av `connect-iot-source.properties`-filen i `/usr/hdp/current/kafka-broker/config/`-katalogen. Om du vill hämta filen från toketi-Kafka-Connect-iothub-projektet använder du följande kommando:
 
     ```bash
     sudo wget -P /usr/hdp/current/kafka-broker/config/ https://raw.githubusercontent.com/Azure/toketi-kafka-connect-iothub/master/connect-iothub-source.properties
     ```
 
-2. Så här redigerar du den `connect-iot-source.properties` filen och Lägg till IoT hub information, använder du följande kommando:
+1. Om du vill redigera `connect-iot-source.properties`-filen och lägga till information om IoT Hub, använder du följande kommando:
 
     ```bash
     sudo nano /usr/hdp/current/kafka-broker/config/connect-iothub-source.properties
     ```
 
-    I redigeraren, hitta och ändra följande poster:
+1. Leta upp och ändra följande poster i redigeraren:
 
-   * `Kafka.Topic=PLACEHOLDER`: Ersätt  med `iotin`. Meddelanden som tas emot från IoT hub är placerade i den `iotin` avsnittet.
-   * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Ersätt `PLACEHOLDER` med Event Hubs-kompatibla namnet.
-   * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Ersätt `PLACEHOLDER` med Event Hubs-kompatibla slutpunkten.
-   * `IotHub.Partitions=PLACEHOLDER`: Ersätt `PLACEHOLDER` med antalet partitioner från föregående steg.
-   * `IotHub.AccessKeyName=PLACEHOLDER`: Ersätt  med `service`.
-   * `IotHub.AccessKeyValue=PLACEHOLDER`: Ersätt `PLACEHOLDER` med den primära nyckeln i den `service` principen.
-   * `IotHub.StartType=PLACEHOLDER`: Ersätt `PLACEHOLDER` med UTC-datum. Det här datumet är när anslutningen startar söker efter meddelanden. Datumformatet är `yyyy-mm-ddThh:mm:ssZ`.
-   * `BatchSize=100`: Ersätt  med `5`. Den här ändringen gör anslutningen kan läsa meddelanden i Kafka när det finns fem nya meddelanden i IoT hub.
+    |Aktuellt värde |Redigera|
+    |---|---|
+    |`Kafka.Topic=PLACEHOLDER`|Ersätt `PLACEHOLDER` med `iotin`. Meddelanden som tas emot från IoT Hub placeras i `iotin` avsnittet.|
+    |`IotHub.EventHubCompatibleName=PLACEHOLDER`|Ersätt `PLACEHOLDER` med Event Hub-kompatibelt namn.|
+    |`IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`|Ersätt `PLACEHOLDER` med den Event Hub-kompatibla slut punkten.|
+    |`IotHub.AccessKeyName=PLACEHOLDER`|Ersätt `PLACEHOLDER` med `service`.|
+    |`IotHub.AccessKeyValue=PLACEHOLDER`|Ersätt `PLACEHOLDER` med den primära nyckeln i `service`s principen.|
+    |`IotHub.Partitions=PLACEHOLDER`|Ersätt `PLACEHOLDER` med antalet partitioner från föregående steg.|
+    |`IotHub.StartTime=PLACEHOLDER`|Ersätt `PLACEHOLDER` med ett UTC-datum. Det här datumet är när kopplingen börjar söka efter meddelanden. Datum formatet är `yyyy-mm-ddThh:mm:ssZ`.|
+    |`BatchSize=100`|Ersätt `100` med `5`. Den här ändringen gör att anslutningen läser meddelanden i Kafka när det finns fem nya meddelanden i IoT Hub.|
 
-     En exempelkonfiguration, se [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
+    En exempel konfiguration finns i [Kafka Connect source Connector för Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-3. Spara ändringarna genom att använda __Ctrl + X__, __Y__, och sedan __RETUR__.
+1. Om du vill spara ändringarna använder du __CTRL + X__, __Y__och __anger__sedan.
 
-Läs mer om hur du konfigurerar anslutningen källan [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
+Mer information om hur du konfigurerar anslutnings källan finns [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-## <a name="configure-the-sink-connection"></a>Konfigurera anslutningen till mottagare
+## <a name="configure-the-sink-connection"></a>Konfigurera Sink-anslutningen
 
-För att konfigurera anslutningen mottagare att arbeta med din IoT-hubb, utför du följande åtgärder från en SSH-anslutning till gränsnoden:
+Om du vill konfigurera Sink-anslutningen så att den fungerar med din IoT Hub utför du följande åtgärder från en SSH-anslutning till Edge-noden:
 
-1. Skapa en kopia av den `connect-iothub-sink.properties` fil i den `/usr/hdp/current/kafka-broker/config/` directory. För att hämta filen från toketi-kafka-connect-iothub-projektet, använder du följande kommando:
+1. Skapa en kopia av `connect-iothub-sink.properties`-filen i `/usr/hdp/current/kafka-broker/config/`-katalogen. Om du vill hämta filen från toketi-Kafka-Connect-iothub-projektet använder du följande kommando:
 
     ```bash
     sudo wget -P /usr/hdp/current/kafka-broker/config/ https://raw.githubusercontent.com/Azure/toketi-kafka-connect-iothub/master/connect-iothub-sink.properties
     ```
 
-2. Så här redigerar du den `connect-iothub-sink.properties` filen och Lägg till IoT hub information, använder du följande kommando:
+1. Om du vill redigera `connect-iothub-sink.properties`-filen och lägga till information om IoT Hub, använder du följande kommando:
 
     ```bash
     sudo nano /usr/hdp/current/kafka-broker/config/connect-iothub-sink.properties
     ```
 
-    I redigeraren, hitta och ändra följande poster:
+1. Leta upp och ändra följande poster i redigeraren:
 
-   * `topics=PLACEHOLDER`: Ersätt  med `iotout`. Meddelanden som skrivs till `iotout` avsnittet vidarebefordras till IoT hub.
-   * `IotHub.ConnectionString=PLACEHOLDER`: Ersätt `PLACEHOLDER` med anslutningssträngen för den `service` principen.
+    |Aktuellt värde |Redigera|
+    |---|---|
+    |`topics=PLACEHOLDER`|Ersätt `PLACEHOLDER` med `iotout`. Meddelanden som skrivs till `iotout` avsnittet vidarebefordras till IoT-hubben.|
+    |`IotHub.ConnectionString=PLACEHOLDER`|Ersätt `PLACEHOLDER` med anslutnings strängen för `service`s principen.|
 
-     En exempelkonfiguration, se [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+    En exempel konfiguration finns i [Kafka Connect Sink Connector för Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-3. Spara ändringarna genom att använda __Ctrl + X__, __Y__, och sedan __RETUR__.
+1. Om du vill spara ändringarna använder du __CTRL + X__, __Y__och __anger__sedan.
 
-Mer information om hur du konfigurerar anslutningen mottagare finns i [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+Mer information om hur du konfigurerar anslutnings mottagaren finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-## <a name="start-the-source-connector"></a>Starta käll-koppling
+## <a name="start-the-source-connector"></a>Starta käll anslutningen
 
-Starta käll-anslutningen med följande kommando från en SSH-anslutning till gränsnoden:
+1. Starta käll anslutningen genom att använda följande kommando från en SSH-anslutning till Edge-noden:
 
-```bash
-/usr/hdp/current/kafka-broker/bin/connect-standalone.sh /usr/hdp/current/kafka-broker/config/connect-standalone.properties /usr/hdp/current/kafka-broker/config/connect-iothub-source.properties
-```
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/connect-standalone.sh /usr/hdp/current/kafka-broker/config/connect-standalone.properties /usr/hdp/current/kafka-broker/config/connect-iothub-source.properties
+    ```
 
-När anslutningen startar, skicka meddelanden till IoT hub från dina enheter. När kopplingen läser meddelanden från IoT hub och lagrar dem i Kafka-ämne, loggar information till konsolen:
+    När kopplingen startar skickar du meddelanden till IoT Hub från din enhet (er). När kopplingen läser meddelanden från IoT-hubben och lagrar dem i Kafka-avsnittet, loggas information till konsolen:
 
-```text
-[2017-08-29 20:15:46,112] INFO Polling for data - Obtained 5 SourceRecords from IotHub (com.microsoft.azure.iot.kafka.co
-nnect.IotHubSourceTask:39)
-[2017-08-29 20:15:54,106] INFO Finished WorkerSourceTask{id=AzureIotHubConnector-0} commitOffsets successfully in 4 ms (
-org.apache.kafka.connect.runtime.WorkerSourceTask:356)
-```
+    ```text
+    [2017-08-29 20:15:46,112] INFO Polling for data - Obtained 5 SourceRecords from IotHub (com.microsoft.azure.iot.kafka.connect.IotHubSourceTask:39)
+    [2017-08-29 20:15:54,106] INFO Finished WorkerSourceTask{id=AzureIotHubConnector-0} commitOffsets successfully in 4 ms (org.apache.kafka.connect.runtime.WorkerSourceTask:356)
+    ```
 
-> [!NOTE]  
-> Du kan se flera varningar som anslutningen startar. Dessa varningar orsakar inte problem med att ta emot meddelanden från IoT hub.
+    > [!NOTE]  
+    > Du kan se flera varningar när anslutningen startar. Dessa varningar orsakar inte problem med att ta emot meddelanden från IoT Hub.
 
-Om du vill stoppa anslutningen, använda __Ctrl + C__.
+1. Stoppa anslutningen efter några minuter med hjälp av **CTRL + C** två gånger. Det tar några minuter för anslutningen att stoppas.
 
-## <a name="start-the-sink-connector"></a>Starta anslutningen mottagare
+## <a name="start-the-sink-connector"></a>Starta Sink-anslutningen
 
-Från en SSH-anslutning till gränsnoden, använder du följande kommando för att starta anslutningen mottagare i fristående läge:
+Från en SSH-anslutning till Edge-noden använder du följande kommando för att starta mottagar anslutningen i fristående läge:
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/connect-standalone.sh /usr/hdp/current/kafka-broker/config/connect-standalone.properties /usr/hdp/current/kafka-broker/config/connect-iothub-sink.properties
 ```
 
-När anslutningen körs visas information liknande följande text:
+När kopplingen körs visas information som liknar följande text:
 
 ```text
 [2017-08-30 17:49:16,150] INFO Started tasks to send 1 messages to devices. (com.microsoft.azure.iot.kafka.connect.sink.
 IotHubSinkTask:47)
-[2017-08-30 17:49:16,150] INFO WorkerSinkTask{id=AzureIotHubSinkConnector-0} Committing offsets (org.apache.kafka.connec
-t.runtime.WorkerSinkTask:262)
+[2017-08-30 17:49:16,150] INFO WorkerSinkTask{id=AzureIotHubSinkConnector-0} Committing offsets (org.apache.kafka.connect.runtime.WorkerSinkTask:262)
 ```
 
 > [!NOTE]  
-> Du kanske ser flera varningar när anslutningen startar. Du kan ignorera dem.
+> Du kan märka flera varningar när anslutningen startar. Du kan ignorera dem.
+
+## <a name="send-messages"></a>Skicka meddelanden
 
 Använd följande steg för att skicka meddelanden via anslutningen:
 
-1. Öppna en annan SSH-session till Kafka-klustret:
+1. Öppna *en andra* SSH-session med Kafka-klustret:
 
     ```bash
-    ssh sshuser@new-edgenode.clustername-ssh.azurehdinsight.net
+    ssh sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net
     ```
-2. Att skicka meddelanden till den `iotout` avsnittet använder du följande kommando:
 
-    > [!WARNING]  
-    > Eftersom detta är en ny SSH-anslutning i `$KAFKABROKERS` variabeln innehåller inte någon information. Använd någon av följande metoder för att konfigurera den:
-    >
-    > * Använd de första tre stegen i den [konfigurerar Apache Kafka](#configure-apache-kafka) avsnittet.
-    > * Använd `echo $KAFKABROKERS` från föregående SSH-anslutningen till värden och Ersätt sedan `$KAFKABROKERS` i följande kommando med de faktiska värdena.
+1. Hämta adressen till Kafka-utlösarna för den nya SSH-sessionen. Ersätt lösen ordet med klustrets inloggnings lösen ord och ange sedan kommandot:
+
+    ```bash
+    export password='PASSWORD'
+
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+
+    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+1. Använd följande kommando för att skicka meddelanden till `iotout` avsnittet:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic iotout
     ```
 
-    Det här kommandot returnerar du inte till normal Bash-Kommandotolken. I stället skickar den tangentbordstryckningar till den `iotout` avsnittet.
+    Det här kommandot går inte tillbaka till den normala bash-prompten. I stället skickar den inmatade tangenter till `iotout` avsnittet.
 
-3. Skicka ett meddelande till din enhet genom att klistra in JSON-dokument i SSH-session för den `kafka-console-producer`.
+1. Om du vill skicka ett meddelande till din enhet klistrar du in ett JSON-dokument i SSH-sessionen för `kafka-console-producer`.
 
     > [!IMPORTANT]  
-    > Du måste ange värdet för den `"deviceId"` post-ID: t för din enhet. I följande exempel heter enheten `fakepi`:
+    > Du måste ange värdet för `"deviceId"` posten till ID: t för enheten. I följande exempel heter enheten `myDeviceId`:
 
     ```json
-    {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
+    {"messageId":"msg1","message":"Turn On","deviceId":"myDeviceId"}
     ```
 
-    Schemat för det här JSON-dokumentet beskrivs i detalj i [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+    Schemat för JSON-dokumentet beskrivs mer detaljerat i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-    Om du använder den simulerade enheten Raspberry Pi och den körs, loggas följande meddelande av enheten:
+    Om du använder den simulerade Raspberry Pi-enheten och den körs, loggas följande meddelande av enheten:
 
     ```text
     Receive message: Turn On
     ```
 
-    Skicka om JSON-dokumentet, men ändra värdet för den `"message"` posten. Det nya värdet loggas av enheten.
+    Skicka JSON-dokumentet igen, men ändra värdet för `"message"` posten. Det nya värdet loggas av enheten.
 
-Mer information om hur du använder anslutningstjänsten mottagare finns i [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+Mer information om hur du använder Sink-anslutningen finns [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig hur du använder Apache Kafka ansluta API för att starta Connector för IoT-Kafka på HDInsight. Använd följande länkar för att upptäcka andra sätt att arbeta med Kafka:
+I det här dokumentet har du lärt dig hur du använder Apache Kafka Connect API för att starta IoT Kafka-anslutaren på HDInsight. Använd följande länkar för att identifiera andra sätt att arbeta med Kafka:
 
 * [Använda Apache Spark med Apache Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Använda Apache Storm med Apache Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)

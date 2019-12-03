@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 225d9b715c56e4813a8e26d881c876e7bd498155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204210"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707103"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Hantera lagrings konto nycklar med Key Vault och Azure PowerShell
 
@@ -42,13 +42,13 @@ En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud nam
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
-| klienter | Molnet | Program-ID:t |
+| Klienter | I molnet | Program-ID:t |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Annat  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Offentlig Azure- | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Övrigt  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här guiden måste du först göra följande:
 
@@ -74,7 +74,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Ange variabler
 
-Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till <YourResourceGroupName>att uppdatera plats hållarna, <YourKeyVaultName> <YourStorageAccountName>och och ange $keyVaultSpAppId till (enligt `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` vad som anges i [program-ID för tjänstens huvud namn](#service-principal-application-id)ovan).
+Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till att uppdatera <YourResourceGroupName>, <YourStorageAccountName>och <YourKeyVaultName> plats hållarna och ange $keyVaultSpAppId till `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (enligt vad som anges i [program-ID för tjänstens huvud namn](#service-principal-application-id)ovan).
 
 Vi kommer också att använda Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) -och [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) -cmdlet: ar för att hämta ditt användar-ID och kontexten för ditt Azure Storage-konto.
 
@@ -133,7 +133,7 @@ Observera att behörigheter för lagrings konton inte är tillgängliga på sida
 
 ### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Lägg till ett hanterat lagrings konto till din Key Vault-instans
 
-Använd cmdleten Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) för att skapa ett hanterat lagrings konto i Key Vault-instansen. `-DisableAutoRegenerateKey` Växeln anger att lagrings konto nycklarna inte ska återskapas.
+Använd cmdleten Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) för att skapa ett hanterat lagrings konto i Key Vault-instansen. Växeln `-DisableAutoRegenerateKey` anger att lagrings konto nycklarna inte ska återskapas.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
@@ -185,18 +185,18 @@ Tags                :
 
 ## <a name="shared-access-signature-tokens"></a>Token för signaturer för delad åtkomst
 
-Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
+Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagrings konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
 
 Kommandona i det här avsnittet Slutför följande åtgärder:
 
 - Ange en definition för signaturen för delad åtkomst till kontot. 
 - Skapa en signatur-token för delad åtkomst för BLOB-, fil-, tabell-och Queue-tjänster. Token skapas för resurs typ tjänst, behållare och objekt. Token skapas med alla behörigheter, över https, och med de angivna start-och slutdatumen.
-- Ange en definition av signaturen för delad åtkomst för en Key Vault hanterad lagring i valvet. Definitionen har mall-URI: n för signaturen för signaturen för delad åtkomst som skapades. Definitionen har signaturen `account` för delad åtkomst och är giltig i N dagar.
+- Ange en definition av signaturen för delad åtkomst för en Key Vault hanterad lagring i valvet. Definitionen har mall-URI: n för signaturen för signaturen för delad åtkomst som skapades. Definitionen har signaturen för delad åtkomst `account` och är giltig i N dagar.
 - Kontrol lera att signaturen för delad åtkomst har sparats i nyckel valvet som en hemlighet.
 - 
 ### <a name="set-variables"></a>Ange variabler
 
-Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till att uppdatera <YourStorageAccountName> plats hållarna och. <YourKeyVaultName>
+Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till att uppdatera <YourStorageAccountName> och <YourKeyVaultName> plats hållare.
 
 Vi kommer också att använda Azure PowerShell cmdlets för [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) för att skapa en kontext för ditt Azure Storage-konto.
 
@@ -225,7 +225,7 @@ Värdet för $sasToken ser ut ungefär så här.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Generera en definition för signatur för delad åtkomst
 
-Använd cmdleten Azure PowerShell [set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) för att skapa en definition av en signatur för delad åtkomst.  Du kan ange namnet på ditt val `-Name` av-parameter.
+Använd cmdleten Azure PowerShell [set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) för att skapa en definition av en signatur för delad åtkomst.  Du kan ange namnet på ditt val av parametern `-Name`.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
@@ -238,7 +238,7 @@ Du kan kontrol lera att definitionen av signaturen för delad åtkomst har lagra
 Börja med att söka efter signaturen för signatur för delad åtkomst i ditt nyckel valv.
 
 ```azurepowershell-interactive
-Get-AzKeyVaultSecret -vault-name <YourKeyVaultName>
+Get-AzKeyVaultSecret -VaultName <YourKeyVaultName>
 ```
 
 Den hemlighet som motsvarar din SAS-definition kommer att ha följande egenskaper:
@@ -251,7 +251,7 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-Nu kan du använda cmdleten [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) och egenskapen Secret `Name` för att visa innehållet i hemligheten.
+Nu kan du använda cmdleten [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) och egenskapen Secret `Name` för att visa innehållet i den hemligheten.
 
 ```azurepowershell-interactive
 $secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 8b1c3184ada743fddb78e1a3d0ce8d67f1f1a94f
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693333"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704550"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Lös felmatchade katalog fel för befintliga Azure AD Domain Services hanterade domäner
 
@@ -26,7 +26,7 @@ I den här artikeln förklaras varför felet uppstår och hur du löser det.
 
 ## <a name="what-causes-this-error"></a>Vad orsakar det här felet?
 
-Ett felmatchat katalog fel inträffar när en Azure AD DS-hanterad domän och ett virtuellt nätverk tillhör två olika Azure AD-klienter. Du kan till exempel ha en Azure AD DS-hanterad domän med namnet *contoso.com* som körs i Contosos Azure AD-klient. Men det virtuella Azure-nätverket för hanterad domän är en del av den Fabrikam Azure AD-klienten.
+Ett felmatchat katalog fel inträffar när en Azure AD DS-hanterad domän och ett virtuellt nätverk tillhör två olika Azure AD-klienter. Du kan till exempel ha en Azure AD DS-hanterad domän med namnet *aadds.contoso.com* som körs i Contosos Azure AD-klient. Men det virtuella Azure-nätverket för hanterad domän är en del av den Fabrikam Azure AD-klienten.
 
 Azure använder rollbaserad åtkomst kontroll (RBAC) för att begränsa åtkomsten till resurser. När du aktiverar Azure AD DS i en Azure AD-klient synkroniseras inloggnings-hashar till den hanterade domänen. Den här åtgärden kräver att du är innehavaradministratör för Azure AD-katalogen och att åtkomsten till autentiseringsuppgifterna måste kontrol leras. Om du vill distribuera resurser till ett virtuellt Azure-nätverk och kontrol lera trafik måste du ha administratörs behörighet för det virtuella nätverk där du distribuerar Azure AD DS.
 

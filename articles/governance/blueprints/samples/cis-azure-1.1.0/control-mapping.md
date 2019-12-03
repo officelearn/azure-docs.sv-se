@@ -1,14 +1,14 @@
 ---
 title: Exempel kontroller för benchmark-Microsoft Azure
 description: Rekommendations mappning av CIS-exemplet Microsoft Azure grunderna för att Azure Policy.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544534"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707414"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekommendations mappning av CIS-exemplet för benchmark-Microsoft Azure grunderna
 
@@ -40,6 +40,12 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
 - Externa konton med skrivbehörigheter bör tas bort från prenumerationen
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1,23 Se till att inga anpassade prenumerations ägar roller skapas
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka för anpassade prenumerations ägar roller som kan behöva tas bort.
+
+- Roller för anpassade prenumerationer får inte finnas
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2,1 se till att standard pris nivån är vald
 
@@ -243,11 +249,35 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 - Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4,12 Se till att Server parametern "log_checkpoints" är inställd på "ON" för PostgreSQL Database Server
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att postgresql loggar kontroll punkter för databas servrar.
+
+- Logg kontroll punkter ska vara aktiverade för PostgreSQL-databas servrar
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4,13 Se till att tvinga SSL-anslutning är inställt på ENABLEd för PostgreSQL Database Server
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper dig att säkerställa att PostgreSQL-databas servrar tvingar SSL-anslutningar.
 
 - Tvinga SSL-anslutning ska vara aktive rad för PostgreSQL-databas servrar
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4,14 Se till att Server parametern "log_connections" är inställd på "ON" för PostgreSQL Database Server
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att databas servrarnas logg anslutningar postgresql.
+
+- Logg anslutningar ska vara aktiverade för PostgreSQL-databas servrar
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4,15 Se till att Server parametern "log_disconnections" är inställd på "ON" för PostgreSQL Database Server
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper dig att säkerställa att PostgreSQL databas servrar loggar från kopplingar.
+
+- Från kopplingar ska loggas för PostgreSQL-databas servrar.
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4,16 Se till att Server parametern "log_duration" är inställd på "ON" för PostgreSQL Database Server
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att PostgreSQL-databas servrar loggar varaktigheten för slutförda instruktioner.
+
+- Loggens varaktighet ska vara aktive rad för PostgreSQL-databas servrar
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4,17 Se till att Server parametern "connection_throttling" är inställd på "ON" för PostgreSQL Database Server
 
@@ -350,6 +380,71 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att webb program bara är tillgängliga via säkra anslutningar.
 
 - Webb program bör endast vara tillgängliga via HTTPS
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9,3 kontrol lera att webb programmet använder den senaste versionen av TLS-kryptering
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att säkerställa att webbappar använder den senaste TLS-versionen.
+
+- Den senaste TLS-versionen ska användas i din API-app
+- Den senaste TLS-versionen ska användas i Funktionsapp
+- Den senaste TLS-versionen ska användas i din webbapp
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9,4 se till att webbappen har "klient certifikat (inkommande klient certifikat)" inställd på "på"
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att se till att endast klienter med giltiga certifikat kan komma åt en webbapp.
+
+- Se till att API-appen har klient certifikat (inkommande klient certifikat) inställd på
+- Se till att Function-appen har klient certifikat (inkommande klient certifikat) inställd på
+- Se till att WEBBAPP har "klient certifikat (inkommande klient certifikat)" inställd på "på"
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9,5 kontrol lera att register med Azure Active Directory är aktiverat på App Service
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder en hanterad identitet.
+
+- Kontrol lera att register med Azure Active Directory är aktiverat i API-appen
+- Kontrol lera att register med Azure Active Directory är aktiverat på Funktionsapp
+- Kontrol lera att register med Azure Active Directory är aktiverat i webbappen
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9,6 Se till att .NET Framework-versionen är den senaste, om den används som en del av webbappen
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av .NET Framework.
+
+- Se till att .NET Framework-versionen är den senaste, om den används som en del av API-appen
+- Se till att .NET Framework-versionen är den senaste, om den används som en del av Funktionsapp
+- Se till att .NET Framework-versionen är den senaste, om den används som en del av webbappen
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9,7 Se till att PHP-versionen är den senaste, om den används för att köra webbappen
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av php.
+
+- Se till att PHP-version är den senaste, om den används som en del av API-appen
+- Se till att PHP-version är den senaste, om den används som en del av Function-appen
+- Se till att PHP-version är den senaste, om den används som en del av webbappen
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9,8 Se till att "python-version" är den senaste, om den används för att köra webbappen
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av python.
+
+- Se till att "python-version" är den senaste, om den används som en del av API-appen
+- Se till att "python-version" är den senaste, om den används som en del av Function-appen
+- Se till att "python-version" är den senaste, om den används som en del av webbappen
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9,9 Se till att Java-version är den senaste, om den används för att köra webbappen
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av Java.
+
+- Se till att Java-version är den senaste, om den används som en del av API-appen
+- Se till att Java-version är den senaste, om den används som en del av funtion-appen
+- Se till att Java-version är den senaste, om den används som en del av webbappen
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9,10 Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
+
+Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av http.
+
+- Se till att "HTTP-version" är den senaste, om den används för att köra API-appen
+- Se till att "HTTP-version" är den senaste, om den används för att köra Function-appen
+- Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
+
 
 ## <a name="next-steps"></a>Nästa steg
 

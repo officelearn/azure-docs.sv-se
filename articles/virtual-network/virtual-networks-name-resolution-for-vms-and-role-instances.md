@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: ebacd386221ed12e1171034eb5d23236bd234849
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176051"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707575"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namn matchning för resurser i virtuella Azure-nätverk
 
@@ -149,7 +149,7 @@ DNS-vidarebefordring möjliggör även DNS-matchning mellan virtuella nätverk o
 > En roll instans kan utföra namn matchning för virtuella datorer i samma virtuella nätverk. Det gör det genom att använda det fullständiga domän namnet, som består av den virtuella datorns värdnamn och **Internal.cloudapp.net** DNS-suffix. Men i det här fallet lyckas namn matchningen bara om roll instansen har det VM-namn som definierats i [roll schemat (. cscfg-fil)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
 > `<Role name="<role-name>" vmName="<vm-name>">`
 >
-> Roll instanser som behöver utföra namn matchning för virtuella datorer i ett annat virtuellt nätverk (FQDN med hjälp av **Internal.cloudapp.net** -suffixet) måste göra detta med hjälp av metoden som beskrivs i det här avsnittet (anpassade DNS-servrar som vidarebefordrar mellan de två virtuella nätverk).
+> Roll instanser som behöver utföra namn matchning för virtuella datorer i ett annat virtuellt nätverk (FQDN med hjälp av **Internal.cloudapp.net** -suffixet) måste göra detta med hjälp av metoden som beskrivs i det här avsnittet (anpassade DNS-servrar som vidarebefordrar mellan de två virtuella nätverken).
 >
 
 ![Diagram över DNS mellan virtuella nätverk](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
@@ -206,7 +206,7 @@ När du använder Azure Resource Manager distributions modell kan du ange DNS-se
 När du använder den klassiska distributions modellen kan du ange DNS-servrar för det virtuella nätverket i Azure Portal eller i [nätverks konfigurations filen](https://msdn.microsoft.com/library/azure/jj157100). För moln tjänster kan du ange DNS-servrar via [tjänst konfigurations filen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell, med [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du starta om varje virtuell dator för att ändringarna ska börja gälla.
+> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du utföra ett förnyat DHCP-lån på alla berörda virtuella datorer i det virtuella nätverket för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt i den virtuella datorn. Stegen varierar beroende på operativ system. Se relevant dokumentation för din OS-typ. 
 >
 >
 

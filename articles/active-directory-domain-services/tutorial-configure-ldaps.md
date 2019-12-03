@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 56283c1e07ec55c753701e86ff8c7c00078cffa2
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664110"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703717"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -63,16 +63,16 @@ Det certifikat som du begär eller skapar måste uppfylla följande krav. Din ha
 
 * **Betrodd utfärdare** – certifikatet måste utfärdas av en utfärdare som är betrodd av datorer som ansluter till den hanterade domänen med hjälp av säker LDAP. Denna myndighet kan vara en offentlig certifikat utfärdare eller en företags certifikat utfärdare som är betrodd av dessa datorer.
 * **Livs längd** -certifikatet måste vara giltigt under minst de kommande 3-6 månaderna. Säkert LDAP åtkomst till din hanterade domän avbryts när certifikatet upphör att gälla.
-* **Ämnes namn** – ämnes namnet för certifikatet måste vara din hanterade domän. Om din domän till exempel heter *contoso.com*, måste certifikatets ämnes namn vara * *. contoso.com*.
+* **Ämnes namn** – ämnes namnet för certifikatet måste vara din hanterade domän. Om din domän till exempel heter *aadds.contoso.com*, måste certifikatets ämnes namn vara **aadds.contoso.com*.
     * Det alternativa DNS-namnet eller det alternativa ämnes namnet för certifikatet måste vara ett certifikat med jokertecken för att säkerställa att det säkra LDAP fungerar korrekt med Azure AD Domain Services. Domänkontrollanter använder slumpmässiga namn och kan tas bort eller läggas till för att säkerställa att tjänsten är tillgänglig.
 * **Nyckel användning** – certifikatet måste konfigureras för *digitala signaturer* och *nyckelchiffrering*.
 * **Certifikat syfte** – certifikatet måste vara giltigt för SSL-serverautentisering.
 
-I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] . Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *contoso.com*:
+I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] . Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *aadds.contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
-$dnsName="contoso.com"
+$dnsName="aadds.contoso.com"
 
 # Get the current date to set a one-year expiration
 $lifetime=Get-Date
@@ -94,7 +94,7 @@ PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 
 Thumbprint                                Subject
 ----------                                -------
-959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=contoso.com
+959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=aadds.contoso.com
 ```
 
 ## <a name="understand-and-export-required-certificates"></a>Förstå och exportera nödvändiga certifikat
@@ -125,7 +125,7 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 
     ![Öppna arkivet personliga certifikat i Microsoft Management Console](./media/tutorial-configure-ldaps/open-personal-store.png)
 
-1. Det självsignerade certifikatet som skapades i föregående steg visas, till exempel *contoso.com*. Högerklicka på det här certifikatet och välj sedan **alla aktiviteter > exportera...**
+1. Det självsignerade certifikatet som skapades i föregående steg visas, till exempel *aadds.contoso.com*. Högerklicka på det här certifikatet och välj sedan **alla aktiviteter > exportera...**
 
     ![Exportera certifikat i Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
@@ -150,7 +150,7 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 
 Klient datorerna måste ha förtroende för utfärdaren av det säkra LDAP-certifikatet för att kunna ansluta till den hanterade domänen med hjälp av LDAP. Klient datorerna behöver ett certifikat för att kunna kryptera data som dekrypteras av Azure AD DS. Om du använder en offentlig certifikat utfärdare bör datorn automatiskt lita på dessa certifikat utfärdare och ha motsvarande certifikat. I den här självstudien använder du ett självsignerat certifikat och genererade ett certifikat som innehåller den privata nyckeln i föregående steg. Nu ska vi exportera och sedan installera det självsignerade certifikatet i det betrodda certifikat arkivet på klient datorn:
 
-1. Gå tillbaka till MMC för *certifikat (lokal dator) > personliga > certifikat* arkiv. Det självsignerade certifikatet som skapades i ett föregående steg visas, till exempel *contoso.com*. Högerklicka på det här certifikatet och välj sedan **alla aktiviteter > exportera...**
+1. Gå tillbaka till MMC för *certifikat (lokal dator) > personliga > certifikat* arkiv. Det självsignerade certifikatet som skapades i ett föregående steg visas, till exempel *aadds.contoso.com*. Högerklicka på det här certifikatet och välj sedan **alla aktiviteter > exportera...**
 1. I **guiden Exportera certifikat**väljer du **Nästa**.
 1. Eftersom du inte behöver den privata nyckeln för-klienter väljer du **Nej, exportera inte den privata nyckeln**på sidan **Exportera privat nyckel** och väljer sedan **Nästa**.
 1. På sidan **fil format för export** väljer du **Base-64-kodad X. 509 (. CER)** som fil format för det exporterade certifikatet:
@@ -180,7 +180,7 @@ Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den
 
     ![Sök efter och välj din Azure AD DS-hanterade domän i Azure Portal](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
-1. Välj din hanterade domän, till exempel *contoso.com*.
+1. Välj din hanterade domän, till exempel *aadds.contoso.com*.
 1. På vänster sida av Azure AD DS-fönstret väljer du **säkert LDAP**.
 1. Som standard är säker LDAP-åtkomst till din hanterade domän inaktive rad. **Aktivera**genom att växla **säkert LDAP** .
 1. Säkert LDAP åtkomst till din hanterade domän via Internet är inaktive rad som standard. När du aktiverar offentlig säker LDAP-åtkomst är din domän sårbar för angrepp av lösen ord i brutet skydd via Internet. I nästa steg konfigureras en nätverks säkerhets grupp för att låsa åtkomsten till de käll-IP-adressintervall som krävs.
@@ -235,10 +235,10 @@ Med säker LDAP-åtkomst aktive rad via Internet uppdaterar du DNS-zonen så att
 
 Konfigurera den externa DNS-providern för att skapa en värd post, till exempel *LDAPS*, för att matcha den externa IP-adressen. Du kan skapa en post i Windows hosts-filen för att testa lokalt på datorn först. För att kunna redigera hosts-filen på den lokala datorn öppnar du *anteckningar* som administratör och öppnar sedan filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
 
-I följande exempel DNS-post, antingen med den externa DNS-providern eller i den lokala värd filen, löser trafik för *LDAPS.contoso.com* till den externa IP-adressen för *40.121.19.239*:
+I följande exempel DNS-post, antingen med den externa DNS-providern eller i den lokala värd filen, löser trafik för *LDAPS.aadds.contoso.com* till den externa IP-adressen för *40.121.19.239*:
 
 ```
-40.121.19.239    ldaps.contoso.com
+40.121.19.239    ldaps.aadds.contoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testa frågor till den hanterade domänen
@@ -246,13 +246,13 @@ I följande exempel DNS-post, antingen med den externa DNS-providern eller i den
 Om du vill ansluta och binda till din Azure AD DS-hanterade domän och söka via LDAP använder du verktyget *Ldp. exe* . Det här verktyget ingår i verktyg för fjärrserveradministration-paketet (RSAT). Mer information finns i [installera verktyg för fjärrserveradministration][rsat].
 
 1. Öppna *Ldp. exe* och Anslut till den hanterade domänen. Välj **anslutning**, välj sedan **Anslut...** .
-1. Ange det säkra LDAP DNS-domännamnet för din hanterade domän som skapats i föregående steg, till exempel *LDAPS.contoso.com*. Om du vill använda säker LDAP ställer du in **port** på *636*och markerar sedan kryss rutan för **SSL**.
+1. Ange det säkra LDAP DNS-domännamnet för din hanterade domän som skapats i föregående steg, till exempel *LDAPS.aadds.contoso.com*. Om du vill använda säker LDAP ställer du in **port** på *636*och markerar sedan kryss rutan för **SSL**.
 1. Välj **OK** för att ansluta till den hanterade domänen.
 
 Bind sedan till din Azure AD DS-hanterade domän. Användare (och tjänst konton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM Password hash-synkronisering på Azure AD DS-instansen. Mer information om hur du inaktiverar hash-synkronisering av NTLM-lösenord finns i [skydda din Azure AD DS-hanterade domän][secure-domain].
 
 1. Välj meny alternativet **anslutning** och välj sedan **BIND...** .
-1. Ange autentiseringsuppgifterna för ett användar konto som hör till *Administratörs* gruppen för AAD-domänkontrollant, till exempel *contosoadmin*. Ange användar kontots lösen ord och ange sedan din domän, till exempel *contoso.com*.
+1. Ange autentiseringsuppgifterna för ett användar konto som hör till *Administratörs* gruppen för AAD-domänkontrollant, till exempel *contosoadmin*. Ange användar kontots lösen ord och ange sedan din domän, till exempel *aadds.contoso.com*.
 1. För **bindnings typ**väljer du alternativet för *BIND med autentiseringsuppgifter*.
 1. Välj **OK** för att binda till din Azure AD DS-hanterade domän.
 
@@ -273,7 +273,7 @@ Om du har lagt till en DNS-post i den lokala värd filen på datorn för att tes
 
 1. Öppna *anteckningar* som administratör på den lokala datorn
 1. Bläddra till och öppna filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
-1. Ta bort raden för den post som du har lagt till, till exempel `40.121.19.239    ldaps.contoso.com`
+1. Ta bort raden för den post som du har lagt till, till exempel `40.121.19.239    ldaps.aadds.contoso.com`
 
 ## <a name="next-steps"></a>Nästa steg
 

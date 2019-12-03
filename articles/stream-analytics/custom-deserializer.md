@@ -1,5 +1,5 @@
 ---
-title: Anpassade .NET-deserialiserare för Azure Stream Analytics moln jobb
+title: Självstudie – anpassade .NET-deserialiserare för Azure Stream Analytics moln jobb
 description: Den här självstudien visar hur du skapar en anpassad .NET-deserialiserare för ett Azure Stream Analytics moln jobb med Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 56d0927bff928929ca55433a812dfe6c1405a738
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991920"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702443"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Självstudie: anpassade .NET-deserialiserare för Azure Stream Analytics
 
@@ -137,4 +137,3 @@ I den här självstudien har du lärt dig hur du implementerar en anpassad .NET-
 
 > [!div class="nextstepaction"]
 > [Skapa olika .NET-deserialiserare för Azure Stream Analytics jobb](custom-deserializer-examples.md)
-

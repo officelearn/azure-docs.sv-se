@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell
+title: Snabb start – skapa ett Stream Analytics jobb med Azure PowerShell
 description: Den här snabbstarten demonstrerar hur du använder Azure PowerShell-modulen för att distribuera och köra ett Azure Stream Analytics-jobb.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44fe16caf6805819b0d942a02f5138fe766ae99c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66116996"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707326"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabb start: skapa ett Stream Analytics jobb med Azure PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser med hjälp av PowerShell-cmdletar eller -skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera och köra ett Azure Stream Analytics-jobb.
 
@@ -32,7 +32,7 @@ Exempeljobbet läser strömmande data från en IoT Hub-enhet. Indata genereras a
 * Vissa IoT-hubbåtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.24 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-cli-iot-ext` för att installera IoT-tillägget.
 
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och ange dina autentiseringsuppgifter för Azure i webbläsarens popup-fönster:
 
@@ -323,7 +323,7 @@ Start-AzStreamAnalyticsJob `
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du låta bli att ta bort det och stoppa det just nu. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten genom att köra följande cmdlet:
+Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du låta bli att ta bort det och stoppa det just nu. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten genom att köra följande cmdlet:
 
 ```powershell
 Remove-AzResourceGroup `

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central'
+title: Självstudie – Skapa ett in-Store Analytics-program i Azure IoT Central
 description: I den här självstudien visas hur du skapar ett program för butiks analys i IoT Central. Du skapar den, anpassar den och lägger till sensor enheter.
 services: iot-central
 ms.service: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 071d432ba2769705213cb98cee644b64e9e81b6e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112894"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702031"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
@@ -34,7 +34,7 @@ Du utvecklar en lösning för utcheckning och villkors övervakning i tre delar:
 * Anpassa instrument panelen för att aktivera operatörer för att övervaka och hantera enheter
 * Konfigurera data export så att butiks hanterare kan köra analyser och visualisera insikter
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Använd Azure IoT Central **in-Store Analytics-** betalningsmall för att skapa ett Retail Store-program
 > * Anpassa program inställningarna
@@ -52,7 +52,7 @@ För att kunna slutföra den här själv studie serien behöver du:
 ## <a name="create-an-application"></a>Skapa ett program
 I det här avsnittet skapar du ett nytt Azure IoT Central-program från en mall. Du använder det här programmet i själv studie serien för att bygga en komplett lösning.
 
-Skapa ett nytt Azure IoT Central-program:
+Så här skapar du ett nytt Azure IoT Central-program:
 
 1. Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) .
 
@@ -186,7 +186,7 @@ För typen `humidity` telemetri gör du följande ändringar:
 
 1. Ändra alternativet för **semantisk typ** från *ingen* till *fukt*.  Du kan också ange schema värden för typen fuktighets telemetri i den expanderade vyn schema. Med schema inställningarna kan du skapa detaljerade verifierings krav för de data som sensorer spårar. Du kan till exempel ange lägsta och högsta värden för drift intervall för ett specifikt gränssnitt.
 
-1. Välj **spara** att spara dina ändringar.
+1. Spara ändringarna genom att välja **Spara** .
 
     ![Anpassning av mall för Azure IoT Central RuuviTag-enhet](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-template-customize.png)
 

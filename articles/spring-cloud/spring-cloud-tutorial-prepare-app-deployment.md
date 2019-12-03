@@ -1,17 +1,17 @@
 ---
-title: Förbereda ett våren-program för distribution i Azure våren Cloud | Microsoft Docs
-description: I den här snabb starten förbereder du ett Java våren-program för distribution.
+title: Självstudie – förbereda ett våren-program för distribution i Azure våren Cloud
+description: I den här självstudien förbereder du ett Java våren-program för distribution.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3c567c54f887afe9ac112970a682b9466515d949
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721247"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708734"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Självstudie: förbereda ett Java våren-program för distribution i Azure våren Cloud
 
@@ -32,7 +32,7 @@ Start version för våren | Våren Cloud-version
 2.0. x | Finchley. RELEASE
 2.1. x | Greenwich. RELEASE
 
-Kontrol lera att din `pom.xml`-fil har moln beroenden våren start och våren som baseras på din version.
+Kontrol lera att din `pom.xml`-fil har moln beroenden våren start och våren baserat på din version.
 
 ### <a name="version-20"></a>Version 2,0:
 
@@ -119,7 +119,7 @@ För att aktivera de inbyggda funktionerna i Azure våren Cloud måste ditt prog
 
 ### <a name="service-registry"></a>Tjänst register
 
-Om du vill använda den hanterade tjänsten för Azure-tjänsten ska du inkludera `spring-cloud-starter-netflix-eureka-client` i `POM.xml` som visas nedan.
+Om du vill använda den hanterade tjänsten för Azure-tjänsten inkluderar du `spring-cloud-starter-netflix-eureka-client` i `POM.xml` som visas nedan.
 
 Slut punkten för tjänst registrerings servern matas automatiskt in som miljövariabler med din app. Program kommer att kunna registrera sig själva med tjänstens register Server och identifiera andra beroende mikrotjänster.
 
@@ -146,7 +146,7 @@ Om du vill aktivera distribuerad konfiguration inkluderar du `spring-cloud-confi
 
 ### <a name="metrics"></a>Mått
 
-Inkludera `spring-boot-starter-actuator` i avsnittet beroenden i din Pom. xml. Måtten kommer att hämtas regelbundet från JMX-slutpunkterna och kan visualiseras med hjälp av Azure Portal.
+Inkludera `spring-boot-starter-actuator` i avsnittet beroenden i Pom. xml. Måtten kommer att hämtas regelbundet från JMX-slutpunkterna och kan visualiseras med hjälp av Azure Portal.
 
 ```xml
 <dependency>
@@ -176,4 +176,3 @@ I den här självstudien har du lärt dig hur du konfigurerar ditt Java våren-p
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du konfigurerar konfigurations servern](spring-cloud-tutorial-config-server.md).
-

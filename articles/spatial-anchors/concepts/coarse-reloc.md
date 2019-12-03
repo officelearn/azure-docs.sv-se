@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 87179cbce9fa99d4c3422ce88b630312b5080481
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270152"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706246"
 ---
 # <a name="coarse-relocalization"></a>Grov omlokalisering
 
@@ -129,7 +129,7 @@ Därefter måste du bestämma vilka sensorer du vill använda för grov omlokali
 |             | Inkorgar | Utomhus |
 |-------------|---------|----------|
 | GPS         | Av | På |
-| Wi-Fi        | På | På (valfritt) |
+| WiFi        | På | På (valfritt) |
 | Bell-beacons | På (valfritt med varningar, se nedan) | Av |
 
 
@@ -495,7 +495,7 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azures avstånds ankare spårar bara de Bluetooth-beacons som finns på listan. Skadliga beacons som är programmerade att ha vitt-listade UUID: er kan fortfarande påverka kvaliteten på tjänsten även. Av den anledningen bör du bara använda signaler i hanterade utrymmen där du kan styra deras distribution.
+Azures avstånds ankare spårar bara de Bluetooth-beacons som finns på listan. Skadliga beacons som är programmerade med tillåtna UUID: er i listan kan fortfarande påverka kvaliteten på tjänsten. Av den anledningen bör du bara använda signaler i hanterade utrymmen där du kan styra deras distribution.
 
 ## <a name="querying-with-sensor-data"></a>Fråga med sensor data
 
@@ -655,7 +655,7 @@ Tabellen nedan uppskattar det förväntade Sök utrymmet för varje sensor typ:
 | Mäta      | Sök efter utrymmes radie (ca.) | Information |
 |-------------|:-------:|---------|
 | GPS         | 20 m – 30 m | Bestäms av en GPS-osäkerhet bland andra faktorer. De rapporterade siffrorna beräknas för median precisionen för median för mobil telefoner med en-GPS, som är 7 meter. |
-| Wi-Fi        | 50 m-100 m | Bestäms av intervallet för de trådlösa åtkomst punkterna. Beror på frekvensen, sändnings styrkan, fysiska hinder, störning och så vidare. |
+| WiFi        | 50 m-100 m | Bestäms av intervallet för de trådlösa åtkomst punkterna. Beror på frekvensen, sändnings styrkan, fysiska hinder, störning och så vidare. |
 | Bell-beacons |  70 m | Bestäms av Beacon-intervallet. Beror på frekvensen, överförings styrkan, fysiska hinder, störning och så vidare. |
 
 ## <a name="per-platform-support"></a>Support per plattform
@@ -666,7 +666,7 @@ I följande tabell sammanfattas de sensor data som samlas in på var och en av d
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | Gäller inte | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
-| Wi-Fi        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
+| WiFi        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
 | Bell-beacons | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/20/2019
+ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052517"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706268"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: vanliga frågor och svar
 
@@ -90,7 +90,7 @@ Ja. Om du vill installera ytterligare komponenter eller anpassa kluster konfigur
 
 Microsoft Support Team kan dock endast erbjuda support i följande situationer:
 
-- Problem eller fel som uppstår vid inläsning av skriptet. Eventuella fel som uppstår under körningen av anpassade skript ligger utanför omfånget för ett support ärende.
+- Problem eller fel som uppstår vid inläsning av skriptet. Eventuella fel vid körningen av anpassade skript ligger utanför omfånget för ett supportärende.
 
 - Ytterligare program som är en del av klustrets skapande process. 
 
@@ -180,6 +180,11 @@ Ja, du kan distribuera en ytterligare virtuell dator i samma undernät som ett H
 - Edge-noder: du kan lägga till en annan Edge-nod i klustret, enligt beskrivningen i [använda tomma Edge-noder i Apache Hadoop kluster i HDInsight](hdinsight-apps-use-edge-node.md).
 
 - Fristående noder: du kan lägga till en fristående virtuell dator i samma undernät och komma åt klustret från den virtuella datorn med hjälp av den privata slut punkten `https://<CLUSTERNAME>-int.azurehdinsight.net`. Mer information finns i [kontrol lera nätverks trafik](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+
+### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Ska jag lagra data på den lokala hård disken på en Edge-nod?
+
+Nej, det är inte en bra idé att lagra data på en lokal disk. Om noden Miss lyckas kommer alla data som lagras lokalt att gå förlorade. Vi rekommenderar att du lagrar data i Azure Data Lake Storage Gen2 eller Azure Blob Storage, eller genom att montera en Azure Files resurs för lagring av data.
+
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>Kan jag lägga till ett befintligt HDInsight-kluster i ett annat virtuellt nätverk?
 

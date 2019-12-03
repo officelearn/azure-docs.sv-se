@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6209d899131a91754c200da831b3739833ade22c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132224"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706601"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -114,20 +114,20 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | samplingPercentage | 100 | Procent andel av händelser som ska skickas. Standardvärdet är 100, vilket innebär att alla händelser skickas. Ange detta om du vill bevara din data Kap för storskaliga program. |
 | autoTrackPageVisitTime | false | Om värdet är true, på en sid visningar, spåras och skickas den föregående instrumenterade sidans visnings tid och skickas som telemetri och en ny timer startas för den aktuella sid visningar. Standardvärdet är false. |
 | disableAjaxTracking | false | Om värdet är true samlas inga AJAX-anrop in. Standardvärdet är false. |
-| disableFetchTracking | true | Om det här värdet är sant samlas inga hämtnings förfrågningar in. Standardvärdet är true |
+| disableFetchTracking | sant | Om det här värdet är sant samlas inga hämtnings förfrågningar in. Standardvärdet är true |
 | overridePageViewDuration | false | Om värdet är true ändras standard beteendet för trackPageView till post end för sid visningens varaktighets intervall när trackPageView anropas. Om värdet är false och ingen anpassad varaktighet anges för trackPageView, beräknas sid visningens prestanda med hjälp av API: t för navigering. Standardvärdet är false. |
 | maxAjaxCallsPerView | 500 | Standard 500-styr hur många AJAX-anrop som ska övervakas per sid visning. Ange till-1 om du vill övervaka alla (obegränsat) AJAX-anrop på sidan. |
-| disableDataLossAnalysis | true | Om det här värdet är falskt kontrol leras den interna telemetri-buffertarna vid start för objekt som ännu inte har skickats. |
+| disableDataLossAnalysis | sant | Om det här värdet är falskt kontrol leras den interna telemetri-buffertarna vid start för objekt som ännu inte har skickats. |
 | disableCorrelationHeaders | false | Om värdet är False kommer SDK att lägga till två huvuden ("Request-ID" och "Request-context") till alla beroende begär Anden för att korrelera dem med motsvarande begär Anden på Server sidan. Standardvärdet är false. |
 | correlationHeaderExcludedDomains |  | Inaktivera korrelations rubriker för vissa domäner |
 | correlationHeaderDomains |  | Aktivera korrelations rubriker för vissa domäner |
 | disableFlushOnBeforeUnload | false | Standard falskt. Om värdet är true anropas inte Flush-metoden när onBeforeUnload event triggers |
-| enableSessionStorageBuffer | true | Default True. Om värdet är true lagras bufferten med all telemetri som inte har skickats i session Storage. Bufferten återställs vid sid inläsning |
+| enableSessionStorageBuffer | sant | Default True. Om värdet är true lagras bufferten med all telemetri som inte har skickats i session Storage. Bufferten återställs vid sid inläsning |
 | isCookieUseDisabled | false | Standard falskt. Om värdet är true kommer SDK inte att lagra eller läsa data från cookies.|
 | cookieDomain | ha | Anpassad cookie-domän. Detta är användbart om du vill dela Application Insights cookies över under domäner. |
 | isRetryDisabled | false | Standard falskt. Om det här värdet är falskt försöker du igen på 206 (delvis utfört), 408 (timeout), 429 (för många begär Anden), 500 (internt Server fel), 503 (tjänsten är inte tillgänglig) och 0 (offline, endast om det har identifierats) |
 | isStorageUseDisabled | false | Om värdet är true kommer SDK inte att lagra eller läsa data från lokal lagring och sessionstoken. Standardvärdet är false. |
-| isBeaconApiDisabled | true | Om det här värdet är falskt skickar SDK all telemetri med hjälp av [Beacon-API: et](https://www.w3.org/TR/beacon) |
+| isBeaconApiDisabled | sant | Om det här värdet är falskt skickar SDK all telemetri med hjälp av [Beacon-API: et](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Standard falskt. När fliken är stängd skickar SDK all återstående telemetri med hjälp av Beacon- [API: et](https://www.w3.org/TR/beacon) |
 | sdkExtension | ha | Anger namnet på SDK-tillägget. Endast alfabetiska tecken tillåts. Tilläggs namnet läggs till som ett prefix till taggen AI. Internal. sdkVersion (till exempel ext_javascript: 2.0.0). Standardvärdet är null. |
 | isBrowserLinkTrackingEnabled | false | Standardvärdet är false. Om värdet är true, kommer SDK att spåra alla förfrågningar om [webb läsar länkar](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
@@ -172,7 +172,7 @@ Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analys 
+### <a name="analytics"></a>Analyser 
 
 Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till en `where`-sats i `client_Type == "Browser"`kommer du bara att se data från Java Script SDK och eventuell telemetri från Server sidan som samlas in av andra SDK: er.
  
@@ -251,7 +251,7 @@ Medan skriptet hämtas från CDN, är all spårning av sidan i kö. När det ned
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-Senaste ✔ | Senaste ✔ | 9 + ✔ | Senaste ✔ | Senaste ✔ |
+Chrome senaste ✔ |  Senaste ✔ för Firefox | IE 9 + & Edge-✔ | Senaste ✔ för Opera | Senaste ✔ för Safari |
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 

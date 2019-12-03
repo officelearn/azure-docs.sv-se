@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera enheten för Azure-IoT Hub Device Provisioning Service'
-description: 'Självstudie: Konfigurera enheten för att etablera via IoT Hub Device Provisioning Service under processen för enhets tillverkning'
+title: Självstudie – konfigurera enheten för Azure-IoT Hub Device Provisioning Service
+description: Den här självstudien visar hur du kan konfigurera enheten för att etablera via IoT Hub Device Provisioning Service under processen för enhets tillverkning
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: bdda46a89fc2bcf8b16b2ce771c6540c9ceaa3e0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112768"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701982"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: Konfigurera en enhet för etablering med hjälp av Azure-IoT Hub Device Provisioning Service
 
@@ -197,8 +197,8 @@ Du kanske också behöver förfina klientregistreringsprogrammet för enhetsetab
 
 I det här läget kanske enhetsetablerings- och IoT-hubbtjänsterna körs i portalen. Om du vill avbryta enhetsetableringsinstallationen och/eller vänta med att slutföra den här kursserien rekommenderar vi att du stänger av dem för att undvika onödiga kostnader.
 
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
+1. I den vänstra menyn i Azure-portalen klickar du på **Alla resurser** och väljer sedan Device Provisioning-tjänsten. Längst upp på bladet **Alla resurser** klickar du på **Ta bort**.  
+1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Längst upp på bladet **Alla resurser** klickar du på **Ta bort**.  
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
@@ -212,4 +212,3 @@ Gå vidare till nästa kurs om du vill lära dig hur du etablerar enheten i din 
 
 > [!div class="nextstepaction"]
 > [Etablera enheten till din IoT-hubb](tutorial-provision-device-to-hub.md)
-

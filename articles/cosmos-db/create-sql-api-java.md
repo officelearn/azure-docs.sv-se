@@ -1,6 +1,6 @@
 ---
-title: Använd Java för att skapa en dokument databas – Azure Cosmos DB
-description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB SQL API:t
+title: Snabb start – Använd Java för att skapa en dokument databas med hjälp av Azure Cosmos DB
+description: I den här snabb starten presenteras ett Java-kod exempel som du kan använda för att ansluta till och fråga Azure Cosmos DB SQL API
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d5a32780f8598c0843958b99f02cd18aa33bea2e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a4a8990b3da534acb39ff87c9f7665fb3b08ef06
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582852"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708171"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data
 
@@ -29,12 +29,12 @@ ms.locfileid: "73582852"
 
 Den här snabb starten visar hur du använder ett Java-program för att skapa och hantera en dokument databas från ditt Azure Cosmos DB SQL API-konto. Först skapar du ett Azure Cosmos DB SQL-API-konto med hjälp av Azure Portal, skapar en Java-app med hjälp av SQL Java SDK och lägger sedan till resurser till ditt Cosmos DB-konto med hjälp av Java-programmet. Anvisningarna i den här snabbstartsguiden gäller alla operativsystem som kan köra Java. När du har slutfört den här snabb starten är du bekant med att skapa och ändra Cosmos DB databaser, behållare i antingen användar gränssnittet eller program mässigt, beroende på vad du föredrar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-Följande gäller också: 
+Dessutom gäller följande: 
 
 * [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.

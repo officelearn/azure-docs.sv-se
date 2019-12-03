@@ -1,5 +1,5 @@
 ---
-title: Åtkomst till Blob Storage med Key Vault – Azure Databricks
+title: Självstudie – åtkomst till Blob Storage med hjälp av Key Vault med hjälp av Azure Databricks
 description: I den här självstudien beskrivs hur du får åtkomst till Azure Blob Storage från Azure Databricks med hemligheter som lagras i ett nyckel valv.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539074"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706144"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
 

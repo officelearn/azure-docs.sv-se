@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e218877ee0d29e493a31091ccbce406ed888f8cc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114739"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705979"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualisera data från Time Series Insights i Power BI
 
@@ -32,7 +32,10 @@ Se till att du registrerar dig för en [kostnads fri Azure-prenumeration](https:
 ## <a name="prerequisites"></a>Krav
 
 * Hämta och installera den senaste versionen av [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Ha eller skapa en [Azure Time Series Insights ga-instans](time-series-insights-get-started.md) eller [Azure Time Series Insights för hands versions instans](time-series-insights-update-how-to-manage.md)
+* Ha eller skapa en [instans av Azure Time Series Insights för hands version](time-series-insights-update-how-to-manage.md)
+
+> [!IMPORTANT]
+> Power BI Connector stöds för närvarande i Time Series Insights för hands versions förhands gransknings miljöer *som* har kon figurer ATS för **varmt lagring**.
 
 ## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Anslut data från Time Series Insights till Power BI
 
@@ -65,12 +68,12 @@ Så här kommer du igång:
 
        [![ansluta](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Om du inte har konfigurerat Time Series Insights-instansen för varm lagring visas en varning.
+   1. Om du inte har konfigurerat Time Series Insights-instansen för **varm lagring**visas en varning.
 
        [![ansluta](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > Du kan konfigurera din befintliga instans för varm lagring i Azure Portal.
+       > Du kan konfigurera din befintliga instans för **varm lagring** i Azure Portal.
 
 1. Välj **Kopiera fråga till Urklipp**.
 1. Starta Power BI Desktop nu.

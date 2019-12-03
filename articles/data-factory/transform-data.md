@@ -11,12 +11,12 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 268c1e66010720d1da052183165ce1cea50a1095
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 40157228e3bb2ab7625d703a25dd1e820ca1bc07
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092016"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703589"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
@@ -96,7 +96,7 @@ Azure Databricks python-aktivitet i en Data Factory pipeline kör en python-fil 
 ### <a name="custom-activity"></a>Anpassad aktivitet
 Om du behöver transformera data på ett sätt som inte stöds av Data Factory, kan du skapa en anpassad aktivitet med din egen data bearbetnings logik och använda aktiviteten i pipelinen. Du kan konfigurera den anpassade .NET-aktiviteten att köras med hjälp av antingen en Azure Batch tjänst eller ett Azure HDInsight-kluster. Mer information finns i artikeln om att [använda anpassade aktiviteter](transform-data-using-dotnet-custom-activity.md) . 
 
-Du kan skapa en anpassad aktivitet som kör R-skript i ditt HDInsight-kluster med R installerat. Se [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) (Köra R-skript med Azure Data Factory). 
+Du kan skapa en anpassad aktivitet som kör R-skript i ditt HDInsight-kluster med R installerat. Se [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) (Köra R-skript med Azure Data Factory). 
 
 ### <a name="compute-environments"></a>Beräknings miljöer
 Du skapar en länkad tjänst för beräknings miljön och använder sedan den länkade tjänsten när du definierar en Transformations aktivitet. Det finns två typer av beräknings miljöer som stöds av Data Factory. 

@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467185"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707950"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
-Azure personanpassar är en molnbaserad API-tjänst som gör att du kan välja den bästa upplevelsen som ska visas för användarna, lära sig från deras kollektiva real tids beteende.
+Azure-personanpassa är en molnbaserad API-tjänst som gör att ditt program kan välja den bästa upplevelsen för användarna, lära sig från deras kollektiva real tids beteende.
 
 * Ange information om dina användare och innehåll och ta emot den främsta åtgärden för att visa dina användare. 
 * Du behöver inte rensa och märka data innan du använder Personanpassaren.
@@ -60,8 +60,8 @@ Personanpassaren är inte en tjänst för att spara och hantera information om a
 
 Tjänsten för personliga tjänster har två API: er:
 
-* Skicka information (_funktioner_) om dina användare och innehållet (_åtgärder_) för att anpassa. En personanpassare svarar med den främsta åtgärden.
-* Skicka feedback till personligare om hur väl rangordningen fungerade som en [belönings Poäng](concept-rewards.md). 
+* *Rankning*: Använd rang-API: et för att avgöra vilken _åtgärd_ som ska visas i den aktuella _kontexten_. Åtgärder skickas som en matris med JSON-objekt, med ID och information (_funktioner_) om var och en. kontexten skickas som ett annat JSON-objekt. API: t returnerar de actionId som programmet ska återge för användaren.
+* *Belöning*: när din användare interagerar med ditt program, mäter du hur väl anpassningen fungerar som ett tal mellan 0 och 1 och skickar den som en [belönings Poäng](concept-rewards.md). 
 
 ![Grundläggande sekvens med händelser för anpassning](media/what-is-personalizer/personalization-intro.png)
 

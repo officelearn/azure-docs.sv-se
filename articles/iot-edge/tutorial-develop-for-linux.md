@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: utveckla modul för Linux-enheter – Azure IoT Edge'
+title: Självstudie – utveckla modul för Linux-enheter med Azure IoT Edge
 description: Den här själv studie kursen beskriver hur du konfigurerar en utvecklings dator och moln resurser för att utveckla IoT Edge moduler med hjälp av Linux-behållare för Linux-enheter
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 01ca118348b3a084c97182338bf656da83d52cb4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e4291c5dcea27699de72b72c52a832a7dc86b97b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114055"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701891"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudie: utveckla IoT Edge moduler för Linux-enheter
 
@@ -24,7 +24,7 @@ I snabb starts artiklarna skapade du en IoT Edge-enhet med en virtuell Linux-dat
 
 I den här självstudien används exemplet på att distribuera en  **C# modul till en Linux-enhet**. Det här exemplet valdes eftersom det är det vanligaste utvecklings scenariot för IoT Edge lösningar. Även om du planerar att använda ett annat språk eller distribuera en Azure-tjänst är den här självstudien fortfarande användbar för att lära dig mer om utvecklingsverktyg och koncept. När du har slutfört introduktionen till utvecklings processen kan du välja önskat språk eller Azure-tjänst för att komma till informationen. 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera din utvecklings dator.
@@ -36,7 +36,7 @@ I den här självstudiekursen får du lära du dig att:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="key-concepts"></a>Viktiga begrepp
+## <a name="key-concepts"></a>Nyckelkoncept
 
 Den här självstudien vägleder dig genom utvecklingen av en IoT Edge modul. En *IoT Edge modul*, eller ibland bara *modul* för kort, är en behållare som innehåller körbar kod. Du kan distribuera en eller flera moduler till en IoT Edge enhet. Moduler utför vissa uppgifter som att mata in data från sensorer, utföra data analyser eller åtgärder för data rensning eller skicka meddelanden till en IoT-hubb. Mer information finns i [förstå Azure IoT Edge moduler](iot-edge-modules.md).
 
@@ -46,7 +46,7 @@ Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda
 
 I följande tabell visas de utvecklings scenarier som stöds för **Linux-behållare** i Visual Studio Code och Visual Studio.
 
-|   | Visual Studio-koden | Visual Studio 2017/2019 |
+|   | Visual Studio-kod | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arkitektur för Linux-enhet** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
@@ -132,7 +132,7 @@ I kommando paletten Visual Studio Code söker du efter och väljer **Azure IoT E
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
-   | Välj modulmall | Välj **C#-modul**. |
+   | Välja modulmall | Välj **C#-modul**. |
    | Ange ett modulnamn | Godkänn standard- **SampleModule**. |
    | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildnings lagrings platsen ser ut som \<register namn\>. azurecr.io/samplemodule. |
  
@@ -168,7 +168,7 @@ För närvarande kan Visual Studio Code utveckla C# moduler för linux amd64-och
 
 2. I paletten kommando väljer du mål arkitekturen i listan med alternativ. I den här självstudien använder vi en virtuell Ubuntu-dator som IoT Edge enhet, så behåller standard- **amd64**. 
 
-### <a name="review-the-sample-code"></a>Granska exempelkoden
+### <a name="review-the-sample-code"></a>Granska exempel koden
 
 I lösnings mal len som du skapade ingår exempel kod för en IoT Edge-modul. Den här exempel modulen tar bara emot meddelanden och skickar dem vidare. Pipeline-funktionen visar ett viktigt begrepp i IoT Edge, vilket är hur moduler kommunicerar med varandra.
 
@@ -257,7 +257,7 @@ Visual Studio Code har nu åtkomst till ditt behållar register, så det är dag
 
 <!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Om du stöter på fel när du skapar och skickar en modultyp måste det ofta göras med Docker-konfiguration på din utvecklings dator. Använd följande kontroller för att granska konfigurationen: 
 
@@ -330,5 +330,5 @@ I den här självstudien ställer du in Visual Studio Code på utvecklings dator
 > [C](tutorial-c-module.md)
 > [C#](tutorial-csharp-module.md)
 > [Java](tutorial-java-module.md)
-> [Node.js](tutorial-node-module.md)
-> [Python](tutorial-python-module.md)
+> [Node. js](tutorial-node-module.md)
+> [python](tutorial-python-module.md)

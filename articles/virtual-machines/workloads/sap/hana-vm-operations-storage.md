@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/27/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8419ce5c5c7144008027a93f985d1f6ffdc1ced4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669113"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707481"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -65,7 +65,7 @@ Ackumulerar ett antal Azure-VHD: er under en RAID-accumulative från en IOPS-och
 Behåll även det övergripande i/O-dataflödet för virtuella datorer i åtanke när du ändrar storlek på eller bestämmer för en virtuell dator. Det totala data flödet för VM-lagring dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Läge för I/O-Schemaläggaren I Linux
-Linux har flera olika I/O-schemaläggnings lägen. Vanliga rekommendationer via Linux-leverantörer och SAP är att konfigurera om I/O Scheduler-läget för disk volymer från **CFQ** -läget till **Noop** -läge. Information finns i [SAP obs #1984798](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux har flera olika I/O-schemaläggnings lägen. Vanliga rekommendationer via Linux-leverantörer och SAP är att konfigurera om I/O Scheduler-läget för disk volymer från **CFQ** -läget till **Noop** -läge. Information finns i [SAP obs #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Lösningar med Premium Storage och Azure Skrivningsaccelerator för virtuella Azure-datorer i M-serien

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546261"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704496"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Konfigurera e-postaviseringar för problem i Azure Active Directory Domain Services
 
@@ -58,7 +58,7 @@ Du kan också välja att ha alla *globala administratörer* i Azure AD-katalogen
 Utför följande steg för att granska befintliga e-postmottagare eller lägga till ytterligare mottagare:
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**.
-1. Välj din Azure AD DS-hanterade domän, till exempel *contoso.com*.
+1. Välj din Azure AD DS-hanterade domän, till exempel *aadds.contoso.com*.
 1. På vänster sida av fönstret Azure AD DS-resurs väljer du **meddelande inställningar**. Befintliga mottagare för e-postaviseringar visas.
 1. Om du vill lägga till en e-postmottagare anger du e-postadressen i tabellen ytterligare mottagare.
 1. När du är färdig väljer du **Spara** i det övre navigerings fältet.

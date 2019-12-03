@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Cosmos-databas från Azure Portal.
-description: Skapa en Azure Cosmos-databas, behållare och objekt med hjälp av Azure Portal.
+title: Snabb start – skapa en Azure Cosmos-databas från Azure Portal
+description: Den här snabb starten visar hur du skapar en Azure Cosmos-databas, behållare och objekt med hjälp av Azure Portal.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,17 +8,17 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/01/2019
-ms.openlocfilehash: b42a442564812f4386eb94b9bd7b7c9aff9e9f29
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0f7102081d5ccd29507917068893b484902a4fb3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220736"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708184"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabb start: skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](create-cosmosdb-resources-portal.md)
+> * [Azure-portalen](create-cosmosdb-resources-portal.md)
 > * [NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
@@ -30,7 +30,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Den här snabb starten visar hur du använder Azure Portal för att skapa ett Azure Cosmos DB [SQL API](sql-api-introduction.md) -konto, skapa en dokument databas och behållare och lägga till data i behållaren. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings konto
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -73,7 +73,7 @@ Lägg till data i den nya databasen med hjälp av Datautforskaren.
 
 1. Expandera **ToDoList** -databasen i **datautforskaren**och expandera behållaren **objekt** . Välj sedan **objekt**och välj sedan **nytt objekt**. 
    
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+   ![Skapa nya dokument i datautforskaren i Azure-portalen](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
 1. Lägg till följande struktur till dokumentet till höger i fönstret **dokument** :
 

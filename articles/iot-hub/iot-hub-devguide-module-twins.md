@@ -1,61 +1,61 @@
 ---
-title: Förstå modultvillingar för Azure IoT Hub | Microsoft Docs
-description: Utvecklarguide – Använd modultvillingar att synkronisera tillstånd och konfiguration data mellan IoT Hub och dina enheter
+title: Lär dig om dubbla Azure IoT Hub-moduler | Microsoft Docs
+description: Utvecklings guide – använda modulen för att synkronisera tillstånds-och konfigurations data mellan IoT Hub och dina enheter
 author: chrissie926
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363630"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701800"
 ---
-# <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och använda modultvillingar i IoT Hub
+# <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och Använd modul dubbla i IoT Hub
 
-Den här artikeln förutsätter att du har läst [förstå och använda enhetstvillingar i IoT Hub](iot-hub-devguide-device-twins.md) första. Under varje enhetsidentitet i IoT Hub kan skapa upp till 20 modulen identiteter. Varje modul identitet genererar implicit en modultvilling. Liknar enhetstvillingar, modultvillingar är JSON-dokument som lagrar tillstånd modulinformation inklusive metadata, konfigurationer och villkor. Azure IoT Hub underhåller en modultvillingen för varje modul som du ansluter till IoT Hub. 
+I den här artikeln förutsätter vi att du har läst [förstå och använder enheten dubbla i IoT Hub](iot-hub-devguide-device-twins.md) först. I IoT Hub, under varje enhets identitet, kan du skapa upp till 20 modul identiteter. Varje moduls identitet genererar implicit en modul med dubbla. Precis som enhets dubbla, är modulerna sammanflätade JSON-dokument som lagrar information om modulens tillstånd, inklusive metadata, konfigurationer och villkor. Azure IoT Hub hanterar en modul som är sammanflätad för varje modul som du ansluter till IoT Hub. 
 
-På enheten kan SDK: er för IoT Hub-enheter du skapa moduler där var och en öppnar en oberoende anslutning till IoT Hub. Den här funktionen kan du använda separata namnområden för olika komponenter på din enhet. Exempelvis kan ha du en Varuautomat som har tre olika sensorer. Varje sensor styrs av olika avdelningar i ditt företag. Du kan skapa en modul för varje sensor. På så sätt kan varje avdelning kan bara skicka jobb eller direkta metoder till sensorn som de styr undvika konflikter och användarfel.
+På enhets sidan kan du med IoT Hub enhets-SDK: er skapa moduler där var och en öppnar en oberoende anslutning till IoT Hub. Med den här funktionen kan du använda separata namn rymder för olika komponenter på enheten. Du kan till exempel ha en Vending-dator som har tre olika sensorer. Varje sensor styrs av olika avdelningar i företaget. Du kan skapa en modul för varje sensor. På så sätt kan varje avdelning bara skicka jobb eller direkta metoder till den sensor som de styr, undvika konflikter och användar fel.
 
- Modulen identitets- och modultvilling innehåller samma funktioner som enhetsidentitet och en enhetstvilling men med en bättre precision. Den här finare granularitet gör det möjligt för kompatibla enheter, till exempel operativsystem-baserade enheter eller firmware-enheter som hanterar flera komponenter, om du vill isolera konfiguration och villkor för var och en av dessa komponenter. Modulen identitets- och modultvillingar ger en management-inkapsling av problem när du arbetar med IoT-enheter som har modulära programvarukomponenter. Vi sträva efter att ge support för alla enheter twin funktioner på modulen twin nivå med modulen twin allmänt tillgängliga. 
+ Modul identitet och modul dubbla ger samma funktioner som enhets identitet och enhet, men med en bättre precision. Med den här bättre precisionen kan enheter, till exempel operativ systembaserade enheter eller inbyggda enheter hantera flera komponenter, för att isolera konfiguration och villkor för var och en av dessa komponenter. Modulens identitet och modul ger en hanterings uppdelning av problem när du arbetar med IoT-enheter som har modulära program varu komponenter. Vi strävar efter att stödja alla enheter med dubbla funktioner i modul dubbla nivåer enligt modul, med en allmän tillgänglighet. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här artikeln beskrivs:
+I den här artikeln beskrivs:
 
-* Strukturen för modultvillingen: *taggar*, *önskade* och *rapporterade egenskaper*.
-* De åtgärder som moduler och serverdelar kan utföra på modultvillingar.
+* Strukturen för modulerna "dubbla: *taggar*, *önskade* och *rapporterade egenskaper*.
+* Åtgärderna som moduler och Server delar kan utföra i modulen är dubbla.
 
-Referera till [enhet till molnet kommunikation vägledning](iot-hub-devguide-d2c-guidance.md) anvisningar om hur du använder rapporterade egenskaper, meddelanden från enheten till molnet eller ladda upp filen.
+Information om hur du använder rapporterade egenskaper, meddelanden från enhet till moln eller fil uppladdning finns i [rikt linjer för kommunikation mellan enheter och moln](iot-hub-devguide-d2c-guidance.md) .
 
-Referera till [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-guidance.md) för hjälp med att använda önskade egenskaper, direkta metoder eller meddelanden från molnet till enheten.
+Information om hur du använder önskade egenskaper, direkta metoder eller meddelanden från moln till enhet finns i [rikt linjer för kommunikation från moln till enhet](iot-hub-devguide-c2d-guidance.md) .
 
-## <a name="module-twins"></a>Modultvillingar
+## <a name="module-twins"></a>Modul, dubbla
 
-Modultvillingar lagra modul-relaterad information som:
+Modul sammanflätar information om Store-modul:
 
-* Moduler på enheten och IoT Hub kan använda för att synkronisera modulen villkor och konfiguration.
+* Moduler på enheten och IoT Hub kan använda för att synkronisera villkor och konfiguration för modulen.
 
-* Lösningens serverdel kan använda för att fråga och mål långvariga åtgärder.
+* Lösningens Server del kan användas för att fråga efter och fokusera på tids krävande åtgärder.
 
-Livscykeln för en modultvilling är länkad till motsvarande [modulen identitet](iot-hub-devguide-identity-registry.md). Moduler twins skapas implicit och tas bort när en modul identitet skapas eller tas bort i IoT Hub.
+Livs cykeln för en modul med dubbla är kopplad till motsvarande [modul identitet](iot-hub-devguide-identity-registry.md). Modulerna skapas implicit och tas bort när en moduls identitet skapas eller tas bort i IoT Hub.
 
-En modultvilling är ett JSON-dokument som innehåller:
+En modul dubbla är ett JSON-dokument som innehåller:
 
-* **Taggar**. En del av JSON-dokument som lösningens serverdel kan läsa från och skriva till. Taggar visas inte för moduler på enheten. Taggar är inställda för att fråga syfte.
+* **Taggar**. Ett avsnitt i JSON-dokumentet som server delen av lösningen kan läsa från och skriva till. Taggarna är inte synliga för moduler på enheten. Taggar har angetts för fråge syfte.
 
-* **Önskade egenskaper**. Används tillsammans med rapporterade egenskaper för att synkronisera modulkonfigurationen eller villkor. Modulen appen kan läsa dem lösningens serverdel kan ange önskade egenskaper. Modulen appen kan också ta emot meddelanden om ändringar i de önskade egenskaperna.
+* **Önskade egenskaper**. Används tillsammans med rapporterade egenskaper för att synkronisera konfiguration eller villkor för modulen. Server delen för lösningen kan ange önskade egenskaper och modulens app kan läsa dem. Module-appen kan också ta emot aviseringar om ändringar i önskade egenskaper.
 
-* **Rapporterade egenskaper**. Används tillsammans med önskade egenskaper för att synkronisera modulkonfigurationen eller villkor. Modulen appen kan ange rapporterade egenskaper och lösningens serverdel kan läsa och skicka frågor mot dem.
+* **Rapporterade egenskaper**. Används tillsammans med önskade egenskaper för att synkronisera konfiguration eller villkor för modulen. Module-appen kan ange rapporterade egenskaper och Server delen för lösningen kan läsa och fråga dem.
 
-* **Modulen identitetsegenskaper**. Roten av modulen twin JSON-dokumentet innehåller skrivskyddade egenskaper från den motsvarande modul identiteten som lagras i den [identitetsregistret](iot-hub-devguide-identity-registry.md).
+* **Modulens identitets egenskaper**. Roten i modulens dubbla JSON-dokument innehåller skrivskyddade egenskaper från motsvarande modul identitet lagrad i [identitets registret](iot-hub-devguide-identity-registry.md).
 
-![Arkitektoniska representation av enhetstvillingen](./media/iot-hub-devguide-device-twins/module-twin.jpg)
+![Arkitektur framställning av enhetens dubbla](./media/iot-hub-devguide-device-twins/module-twin.jpg)
 
-I följande exempel visas en modultvilling JSON-dokument:
+I följande exempel visas ett moduls dubbla JSON-dokument:
 
 ```json
 {
@@ -102,20 +102,20 @@ I följande exempel visas en modultvilling JSON-dokument:
 }
 ```
 
-I rotobjektet är modulen identitetsegenskaper och behållarobjekt för `tags` och både `reported` och `desired` egenskaper. Den `properties` behållaren innehåller vissa skrivskyddade element (`$metadata`, `$etag`, och `$version`) som beskrivs i den [modulen twin metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) och [Optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) avsnitt.
+I rotobjektet finns modulens identitets egenskaper och behållar objekt för `tags` och både `reported`-och `desired` egenskaper. `properties`-behållaren innehåller skrivskyddade element (`$metadata`, `$etag`och `$version`) som beskrivs i avsnitten om [dubbla metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) och [optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
 
-### <a name="reported-property-example"></a>Rapporterad egenskap-exempel
+### <a name="reported-property-example"></a>Exempel på rapporterad egenskap
 
-I exemplet ovan modultvillingen innehåller en `batteryLevel` egenskap som rapporteras av appen modulen. Den här egenskapen gör det möjligt att fråga och arbeta med moduler baserat på senaste rapporterade batterinivå. Andra exempel är modulen app modulen rapporteringsfunktioner eller anslutningsalternativ.
+I det föregående exemplet innehåller modul två en `batteryLevel`-egenskap som rapporteras av modulens app. Den här egenskapen gör det möjligt att fråga och använda moduler baserat på den senaste rapporterade batteri nivån. Andra exempel är funktioner för modulens app repor ting module eller anslutnings alternativ.
 
 > [!NOTE]
-> Rapporterade egenskaper förenkla scenarier där lösningens backend-server är intresserad av det senaste kända värdet för en egenskap. Använd [meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md) om lösningens backend-server som behöver bearbeta modulen telemetri i form av tidsstämplad händelser, till exempel tidsserier.
+> Rapporterade egenskaper fören klar scenarier där lösningens Server del är intresse rad av det sista kända värdet för en egenskap. Använd [enhets-till-moln-meddelanden](iot-hub-devguide-messages-d2c.md) om lösningens Server del måste bearbeta telemetri i form av sekvenser med tidsstämplade händelser, t. ex. tids serier.
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I exemplet ovan den `telemetryConfig` modultvilling önskad och rapporterade egenskaper som används av lösningens backend-server och den modul app för att synkronisera konfigurationen av telemetri för den här modulen. Exempel:
+I föregående exempel används `telemetryConfig` modulens dubbla önskade och rapporterade egenskaper av lösningens Server del och modulens app för att synkronisera telemetri-konfigurationen för den här modulen. Exempel:
 
-1. Lösningens serverdel anger önskad egenskap med det önskade värdet. Här är del av dokumentet med önskad egenskap:
+1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
     ```json
     ...
@@ -128,7 +128,7 @@ I exemplet ovan den `telemetryConfig` modultvilling önskad och rapporterade ege
     ...
     ```
 
-2. Modulen appen meddelas för ändringen direkt om du är ansluten eller i den första reconnect. Modulen appen rapporterar den uppdaterade konfigurationen (eller ett fel villkor med hjälp av den `status` egenskapen). Här är del av rapporterade egenskaper:
+2. Module-appen meddelas om ändringen omedelbart om den är ansluten, eller vid första åter anslutning. Module-appen rapporterar sedan den uppdaterade konfigurationen (eller ett fel tillstånd med hjälp av egenskapen `status`). Här är den del av de rapporterade egenskaperna:
 
     ```json
     "reported": {
@@ -140,19 +140,19 @@ I exemplet ovan den `telemetryConfig` modultvilling önskad och rapporterade ege
     }
     ```
 
-3. Lösningens serverdel kan spåra resultatet av konfigurationsåtgärden mellan flera moduler av [fråga](iot-hub-devguide-query-language.md) modultvillingar.
+3. Lösningens Server del kan spåra resultatet av konfigurations åtgärden över flera moduler, genom att [fråga](iot-hub-devguide-query-language.md) modulerna åt.
 
 > [!NOTE]
-> Föregående kodfragment är exempel som optimerats för läsbarhet på ett sätt att koda ett Modulkonfiguration och dess status. IoT Hub medför inte ett visst schema för modultvillingen önskad och rapporterade egenskaper i modultvillingar.
+> Föregående kodfragment är exempel, optimerade för läsbarhet, av ett sätt att koda en moduls konfiguration och dess status. IoT Hub tillhandahåller inte ett särskilt schema för modulen och rapporterade egenskaper i modulen.
 > 
 > 
 
-## <a name="back-end-operations"></a>Backend-åtgärder
-Lösningens backend-server körs på modultvillingen med hjälp av följande atomiska operationer exponeras via HTTPS:
+## <a name="back-end-operations"></a>Server dels åtgärder
+Lösningens Server del fungerar i modulen dubbla med hjälp av följande atomiska åtgärder som exponeras via HTTPS:
 
-* **Hämta modultvilling efter ID**. Den här åtgärden returnerar modulen twin dokument, inklusive taggar och önskade och rapporterade egenskaper.
+* **Hämta modul dubbla efter ID**. Den här åtgärden returnerar modulens dubbla dokument, inklusive Taggar och önskade och rapporterade system egenskaper.
 
-* **Delvis uppdatera modultvilling**. Den här åtgärden gör att lösningens backend-server att uppdatera taggar och önskade egenskaper i en modultvilling delvis. Deluppdatering uttrycks som ett JSON-dokument som läggs till eller uppdaterar en egenskap. Egenskaper som har angetts till `null` tas bort. I följande exempel skapas en ny önskad egenskap med värdet `{"newProperty": "newValue"}`, skriver över det befintliga värdet för `existingProperty` med `"otherNewValue"`, och tar bort `otherOldProperty`. Inga andra ändringar har gjorts i befintliga önskade egenskaper eller taggar:
+* **Delvis uppdaterad modul, dubbel**. Den här åtgärden gör att lösningens Server del kan användas för att delvis uppdatera taggarna eller önskade egenskaper i en modul. Den partiella uppdateringen uttrycks som ett JSON-dokument som lägger till eller uppdaterar en egenskap. De egenskaper som anges för `null` tas bort. I följande exempel skapas en ny önskad egenskap med Value `{"newProperty": "newValue"}`, skriver över det befintliga värdet för `existingProperty` med `"otherNewValue"`och tar bort `otherOldProperty`. Inga andra ändringar har gjorts i befintliga önskade egenskaper eller Taggar:
 
     ```json
     {
@@ -168,11 +168,11 @@ Lösningens backend-server körs på modultvillingen med hjälp av följande ato
     }
     ```
 
-* **Ersätt önskade egenskaper**. Den här åtgärden gör att lösningens backend-server att skriva över alla befintliga önskade egenskaper och ersätta ett nytt JSON-dokument för `properties/desired`.
+* **Ersätt önskade egenskaper**. Den här åtgärden gör att Server delen av lösningen helt skriver över alla befintliga önskade egenskaper och ersätter ett nytt JSON-dokument för `properties/desired`.
 
-* **Ersätt taggar**. Den här åtgärden gör att lösningens backend-server att skriva över alla befintliga taggar och ersätta ett nytt JSON-dokument för `tags`.
+* **Ersätt Taggar**. Den här åtgärden gör att Server delen av lösningen fullständigt skriver över alla befintliga taggar och ersätter ett nytt JSON-dokument för `tags`.
 
-* **Ta emot meddelanden twin**. Den här åtgärden gör att lösningens serverdel kan meddelas när läsningen ändras. Gör din IoT-lösning behöver du skapar en väg och datakällan ska vara lika med *twinChangeEvents*. Som standard inga dubbla meddelanden skickas, dvs, inga sådana vägar redan finnas. Om ändringsfrekvensen är för hög eller av andra orsaker, till exempel interna fel IoT-hubben kan skicka endast ett meddelande som innehåller alla ändringar. Om ditt program behöver tillförlitlig granskning och loggning av alla mellanliggande tillstånd, bör du därför använda meddelanden från enheten till molnet. Meddelandet twin innehåller egenskaperna och brödtext.
+* **Få dubbla meddelanden**. Den här åtgärden gör att lösnings Server delen får ett meddelande när den dubbla ändras. För att göra det måste IoT-lösningen skapa en väg och ange data källan som lika med *twinChangeEvents*. Som standard skickas inga dubbla meddelanden, det vill säga inga sådana vägar. Om ändrings frekvensen är för hög, eller av andra orsaker, t. ex. interna problem, kan IoT Hub bara skicka ett meddelande som innehåller alla ändringar. Om ditt program behöver tillförlitlig granskning och loggning av alla mellanliggande tillstånd bör du därför använda meddelanden från enheten till molnet. Det dubbla aviserings meddelandet innehåller egenskaper och brödtext.
 
   - Egenskaper
 
@@ -180,20 +180,20 @@ Lösningens backend-server körs på modultvillingen med hjälp av följande ato
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
-    $iothub-message-source | twinChangeEvents |
-    $content-encoding | utf-8 |
+    $iothub-meddelande källa | twinChangeEvents |
+    $content kodning | UTF-8 |
     deviceId | ID för enheten |
     moduleId | ID för modulen |
-    hubName | Namnet på IoT Hub |
-    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpeln för åtgärden |
-    iothub-message-schema | deviceLifecycleNotification |
-    opType | ”replaceTwin” eller ”updateTwin” |
+    hubName | Namn på IoT Hub |
+    operationTimestamp | [Iso8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpel för åtgärd |
+    iothub – meddelande schema | deviceLifecycleNotification |
+    opType | "replaceTwin" eller "updateTwin" |
 
-    Meddelandet Systemegenskaper föregås den `$` symbolen.
+    Meddelande system egenskaper föregås av `$` symbolen.
 
   - Innehåll
         
-    Det här avsnittet innehåller alla twin ändringar i JSON-format. Den använder samma format som en korrigeringsfil, med skillnaden att den kan innehålla alla twin avsnitt: taggar, properties.reported, properties.desired och att den innehåller ”$metadata”-element. Exempel:
+    Det här avsnittet innehåller alla dubbla ändringar i JSON-format. Den använder samma format som en korrigering, med skillnaden att den kan innehålla alla dubbla avsnitt: taggar, egenskaper. rapporterade, egenskaper. önskade och innehåller $metadata element. Exempel:
 
     ```json
     {
@@ -214,33 +214,33 @@ Lösningens backend-server körs på modultvillingen med hjälp av följande ato
     }
     ```
 
-Stöd för alla åtgärder för föregående [Optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) och kräver den **ServiceConnect** behörighet, som definieras i den [styra åtkomsten till IoT Hub](iot-hub-devguide-security.md) artikeln.
+Alla föregående åtgärder har stöd för [optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) och kräver **ServiceConnect** -behörighet, enligt definitionen i artikeln [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md) .
 
-Utöver dessa åtgärder kan lösningens serverdel kan fråga modultvillingar med hjälp av SQL-liknande [IoT Hub-frågespråk](iot-hub-devguide-query-language.md).
+Förutom dessa åtgärder kan lösningens Server del skicka frågor till modulen med SQL-liknande [IoT Hub frågespråk](iot-hub-devguide-query-language.md).
 
-## <a name="module-operations"></a>Modulåtgärder
+## <a name="module-operations"></a>Modul åtgärder
 
-Modulen appen körs på modultvillingen med hjälp av följande atomiska åtgärder:
+Modulens App körs i modulen dubbla med följande atomiska åtgärder:
 
-* **Hämta modultvilling**. Den här åtgärden returnerar modulen twin dokumentet (inklusive taggar och önskade och rapporterade Systemegenskaper) för modulen just nu anslutna.
+* **Hämta modul dubbla**. Den här åtgärden returnerar modulens dubbla dokument (inklusive Taggar och önskade och rapporterade system egenskaper) för den aktuella anslutna modulen.
 
-* **Delvis uppdatera rapporterade egenskaper**. Den här åtgärden aktiverar deluppdatering av rapporterade egenskaper från modulen just nu anslutna. Den här åtgärden använder samma JSON update-format dessa lösningen igen för en deluppdatering av önskade egenskaper.
+* **Delvis uppdatera rapporterade egenskaper**. Den här åtgärden aktiverar den partiella uppdateringen av de rapporterade egenskaperna för den för tillfället anslutna modulen. Den här åtgärden använder samma JSON-uppdaterings format som lösningens Server del använder för att få en del uppdatering av önskade egenskaper.
 
-* **Notera önskade egenskaper**. Just nu anslutna modulen kan du meddelas om uppdateringar de önskade egenskaperna när de inträffar. Modulen får samma formulär för uppdatering (partiell eller fullständig ersättning) som körs av lösningens serverdel.
+* **Observera önskade egenskaper**. Den aktuella anslutna modulen kan välja att bli meddelad om uppdateringar av önskade egenskaper när de sker. Modulen får samma typ av uppdatering (delvis eller fullständig ersättning) som körs av Server delen för lösningen.
 
-Alla föregående åtgärder kräver den **ModuleConnect** behörighet, som definieras i den [styra åtkomsten till IoT Hub](iot-hub-devguide-security.md) artikeln.
+Alla föregående åtgärder kräver **ModuleConnect** -behörighet, enligt definitionen i artikeln [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md) .
 
-Den [SDK: er för Azure IoT-enheter](iot-hub-devguide-sdks.md) gör det enkelt att använda föregående åtgärder från många språk och plattformar.
+SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md) gör det enkelt att använda föregående åtgärder från många olika språk och plattformar.
 
 ## <a name="tags-and-properties-format"></a>Format för taggar och egenskaper
 
-Taggar och önskade egenskaper rapporterade egenskaper är JSON-objekt med följande begränsningar:
+Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med följande begränsningar:
 
-* Alla nycklar i JSON-objekt är skiftlägeskänsliga 64 byte UTF-8 UNICODE-strängar. Tillåtna tecken undanta Unicode-kontrolltecken (segment C0 och C1), och `.`, SP, och `$`.
+* Alla nycklar i JSON-objekt är Skift läges känsliga 64 byte UTF-8 UNICODE-strängar. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.`, SP och `$`.
 
-* Alla värden i JSON-objekt kan vara följande typer av JSON: booleskt värde, tal, string, object. Matriser tillåts inte. Det högsta värdet för Integer-värden är 4503599627370495 och det lägsta värdet för Integer-värden är-4503599627370496.
+* Alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna. Det maximala värdet för heltal är 4503599627370495 och det lägsta värdet för heltal är-4503599627370496.
 
-* Alla JSON-objekt i taggar, önskad och rapporterade egenskaper kan ha högst 5. Följande objekt är exempelvis giltig:
+* Alla JSON-objekt i taggar, önskade och rapporterade egenskaper kan ha ett maximalt djup på 5. Till exempel är följande objekt giltigt:
 
     ```json
     {
@@ -262,19 +262,19 @@ Taggar och önskade egenskaper rapporterade egenskaper är JSON-objekt med följ
     }
     ```
 
-* Alla strängvärden får vara högst 512 byte i längd.
+* Alla sträng värden kan vara högst 512 byte långa.
 
-## <a name="module-twin-size"></a>Modulen twin storlek
+## <a name="module-twin-size"></a>Modulens dubbla storlek
 
-IoT Hub tillämpar en begränsning på 8KB storlek på var och en av de totalt värdena i `tags`, `properties/desired`, och `properties/reported`, exklusive skrivskyddade element.
+IoT Hub tillämpar storleks gränsen på 8 KB på värdet för `tags`, och en storlek på 32 KB som är begränsad till värdet för `properties/desired` och `properties/reported`. Dessa summor är exklusivt för skrivskyddade element.
 
-Storleken beräknas genom att räkna alla tecken, förutom Unicode-kontrolltecken (segment C0 och C1) och blanksteg som är utanför strängkonstanter.
+Storleken beräknas genom att räkna alla tecken, förutom UNICODE-kontrolltecken (segmenten C0 och C1) och blank steg utanför String-konstanter.
 
-IoT Hub avvisar alla åtgärder som kan öka storleken på dessa dokument över gränsen med ett fel.
+IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över gränsen.
 
-## <a name="module-twin-metadata"></a>Modulen twin metadata
+## <a name="module-twin-metadata"></a>Modul, dubbla metadata
 
-IoT Hub underhåller tidsstämpel för senaste uppdateringen för varje JSON-objekt i modultvilling önskad och rapporterade egenskaper. Tidsstämplar i UTC och kodas i den [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i modulen, och rapporterade egenskaper. Tidsstämplar är UTC-formaterade och kodade i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -formatet `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Exempel:
 
 ```json
@@ -322,19 +322,19 @@ Exempel:
 }
 ```
 
-Den här informationen sparas på alla nivåer (inte bara löv av JSON-strukturen) för att spara uppdateringar som tar bort objektnycklar.
+Den här informationen lagras på alla nivåer (inte bara löv till JSON-strukturen) för att bevara uppdateringar som tar bort objekt nycklar.
 
 ## <a name="optimistic-concurrency"></a>Optimistisk samtidighet
 
-Taggar och önskade och rapporterade egenskaper alla stöd för Optimistisk samtidighet.
-Taggar har en ETag enligt [RFC7232](https://tools.ietf.org/html/rfc7232), som representerar den taggen JSON-representation. Du kan använda ETags i villkorlig uppdateringsåtgärder från lösningens backend-server för att garantera konsekvens.
+Taggar, önskade och rapporterade egenskaper alla stöder optimistisk samtidighet.
+Taggar har en ETag, som per [RFC7232](https://tools.ietf.org/html/rfc7232), som representerar TAGGENs JSON-representation. Du kan använda ETags i villkorliga uppdaterings åtgärder från lösningens Server del för att säkerställa konsekvens.
 
-Modultvilling önskad och rapporterade egenskaper har inte ETags, men har en `$version` värdet som garanterat är en inkrementell. På samma sätt till en ETag kan versionen användas av den uppdatera parten för att upprätthålla konsekvens av uppdateringar. Till exempel en modul-app för en rapporterad egenskap eller lösningens backend-server för en önskad egenskap.
+Modulernas dubbla önskade och rapporterade egenskaper har inte ETags, men har ett `$version`-värde som garanterar att det ökar. På samma sätt som en ETag, kan versionen användas av uppdaterings parten för att tvinga fram konsekvens av uppdateringar. Till exempel en modul-app för en rapporterad egenskap eller lösningens Server del för en önskad egenskap.
 
-Versioner är också användbart när en observing agent (till exempel modulen appen får önskade egenskaper) måste stämma av förenkling mellan resultatet av en hämta-åtgärden och ett meddelande. Avsnittet [enheten återanslutning flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) innehåller mer information. 
+Versioner är också användbara när en iakttagit agent (t. ex. module-appen som underrättar önskade egenskaper) måste stämma av races mellan resultatet av en Hämta-åtgärd och ett uppdaterings meddelande. Avsnittet [enhets återkopplings flöde](iot-hub-devguide-device-twins.md#device-reconnection-flow) innehåller mer information. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande självstudier får IoT Hub för att prova några av de koncept som beskrivs i den här artikeln:
+Om du vill testa några av de begrepp som beskrivs i den här artikeln kan du läsa följande IoT Hub Självstudier:
 
-* [Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av .NET-serverdel och .NET-enhet](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Kom igång med IoT Hub modulens identitet och modul dubbla med .NET-Server delen och .NET-enheten](iot-hub-csharp-csharp-module-twin-getstarted.md)

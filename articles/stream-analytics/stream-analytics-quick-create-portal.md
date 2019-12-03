@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen | Microsoft Docs
+title: Snabb start – skapa ett Stream Analytics jobb genom att använda Azure Portal
 description: Den här snabbstarten visar hur du kommer igång genom att skapa ett Stream Analytics-jobb, konfigurera indata och utdata samt definiera en fråga.
 services: stream-analytics
 author: mamccrea
@@ -8,28 +8,28 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449236"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707373"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
-Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser realtidsbaserade strömningsdata och filtrerar meddelanden med en temperatur högre än 27. Ditt Stream Analytics-jobb ska läsa data från IoT Hub, transformera data och skriva data tillbaka till en behållare i blob storage. De indata som används i den här snabbstarten genereras av en Raspberry Pi-onlinesimulator. 
+Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser realtidsbaserade strömningsdata och filtrerar meddelanden med en temperatur högre än 27. Ditt Stream Analyticss jobb kommer att läsa data från IoT Hub, transformera data och skriva tillbaka data till en behållare i Blob Storage. De indata som används i den här snabbstarten genereras av en Raspberry Pi-onlinesimulator. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Förbereda indata
 
-Innan du definierar Stream Analytics-jobb, förbereder du indata. Realtidssensordata matas till IoT Hub som senare har konfigurerats som indata-jobbet. Förbered de indata som krävs för jobbet genom att utföra följande steg:
+Innan du definierar Stream Analytics jobbet bör du förbereda indata. Real tids sensor data matas in till IoT Hub, som senare har kon figurer ATS som indata för jobbet. Förbered de indata som krävs för jobbet genom att utföra följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **Skapa en resurs** > **Sakernas internet** > **IoT Hub**.
 
@@ -82,7 +82,7 @@ Innan du definierar Stream Analytics-jobb, förbereder du indata. Realtidssensor
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.  
 
-3. Välj **Analytics** > **Stream Analytics-jobbet** i resultatlistan.  
+3. Välj **analys** > **Stream Analytics jobb** från resultat listan.  
 
 4. Fyll i sidan för Stream Analytics-jobbet med följande information:
 
@@ -91,9 +91,9 @@ Innan du definierar Stream Analytics-jobb, förbereder du indata. Realtidssensor
    |Jobbnamn   |  MyASAJob   |   Ange ett namn som identifierar Stream Analytics-jobbet. Stream Analytics-jobbets namn får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. |
    |Prenumeration  | \<Din prenumeration\> |  Välj den Azure-prenumeration som du vill använda för jobbet. |
    |Resursgrupp   |   asaquickstart-resourcegroup  |   Använd samma resursgrupp som din IoT-hubb. |
-   |Location  |  \<Välj den region som är närmast dina användare\> | Välj den geografiska plats där du kan ha ditt Stream Analytics-jobb. Använd den plats som är närmast dina användare för att få bättre prestanda och minska kostnaderna för dataöverföring. |
-   |Strömningsenheter  | 1  |   Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).   |
-   |Värdmiljö  |  Molnet  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Molnet kan du distribuera till Azure-molnet och Edge kan du distribuera till en IoT Edge-enhet. |
+   |Plats  |  \<Välj den region som är närmast dina användare\> | Välj den geografiska plats där du kan ha ditt Stream Analytics-jobb. Använd den plats som är närmast dina användare för att få bättre prestanda och minska kostnaderna för dataöverföring. |
+   |Enheter för strömning  | 1  |   Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är inställt på 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).   |
+   |Värdmiljö  |  I molnet  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet. |
 
    ![Skapa jobb](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -179,7 +179,7 @@ I det här avsnittet konfigurerar du en IoT-hubbenhetsinmatning till Stream Anal
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, Stream Analytics-jobb och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
+Ta bort resurs gruppen, Stream Analytics jobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure-portalen och välj sedan namnet på den resurs du skapade.  
 
@@ -187,10 +187,9 @@ Ta bort resursgruppen, Stream Analytics-jobb och alla relaterade resurser när d
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med hjälp Azure-portalen. Du kan också distribuera Stream Analytics-jobb med [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), och [Visual Studio Code](quick-create-vs-code.md).
+I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med hjälp Azure-portalen. Du kan också distribuera Stream Analytics jobb med hjälp av [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md)och [Visual Studio Code](quick-create-vs-code.md).
 
 Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
 
 > [!div class="nextstepaction"]
 > [Identifiering av bedrägerier i realtid med hjälp av Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-

@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar | Microsoft Docs
-description: Lär dig hur du hanterar åtkomst till Azure-resurser för användare, grupper och program med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure Resource Manager mallar.
+title: Lägg till roll tilldelningar med Azure RBAC och Azure Resource Manager mallar
+description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure Resource Manager mallar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 268913fb7aebd1d6c8b377b95939c3bc1f77daca
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383996"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707811"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar
+# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Lägg till roll tilldelningar med Azure RBAC och Azure Resource Manager mallar
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. Förutom att använda Azure PowerShell eller Azure CLI kan du hantera åtkomst till Azure-resurser med hjälp av [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). Mallar kan vara användbara om du behöver distribuera resurser konsekvent och upprepade gånger. I den här artikeln beskrivs hur du kan hantera åtkomst med RBAC och mallar.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] förutom att använda Azure PowerShell eller Azure CLI kan du tilldela roller med [Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md). Mallar kan vara användbara om du behöver distribuera resurser konsekvent och upprepade gånger. I den här artikeln beskrivs hur du tilldelar roller med hjälp av mallar.
 
 ## <a name="get-object-ids"></a>Hämta objekt-ID: n
 
@@ -64,9 +64,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Skapa en roll tilldelning i ett resurs grupps omfång (utan parametrar)
+## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
 
-För att skapa åtkomst i RBAC skapar du rolltilldelningar. Följande mall visar ett enkelt sätt att skapa en roll tilldelning. Vissa värden anges i mallen. Följande mall visar:
+I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
+
+### <a name="resource-group-without-parameters"></a>Resurs grupp (utan parametrar)
+
+Följande mall visar ett enkelt sätt att lägga till en roll tilldelning. Vissa värden anges i mallen. Följande mall visar:
 
 -  Tilldela rollen [läsare](built-in-roles.md#reader) till en användare, grupp eller ett program i ett resurs grupps omfång
 
@@ -107,7 +111,7 @@ Följande visar ett exempel på roll tilldelningen för en användare för en re
 
 ![Roll tilldelning i resurs gruppens omfång](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Skapa en roll tilldelning i en resurs grupp eller ett prenumerations omfång
+### <a name="resource-group-or-subscription"></a>Resurs grupp eller prenumeration
 
 Den tidigare mallen är inte mycket flexibel. Följande mall använder parametrar och kan användas i olika omfång. Följande mall visar:
 
@@ -191,9 +195,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>Skapa en roll tilldelning i ett resurs omfång
+### <a name="resource"></a>Resurs
 
-Om du behöver skapa en roll tilldelning på nivån för en resurs, är formatet för roll tilldelningen annorlunda. Du anger resurs leverantörens namn område och resurs typ för den resurs som rollen ska tilldelas till. Du inkluderar också namnet på resursen i namnet på roll tilldelningen.
+Om du behöver lägga till en roll tilldelning på nivån för en resurs, är formatet för roll tilldelningen annorlunda. Du anger resurs leverantörens namn område och resurs typ för den resurs som rollen ska tilldelas till. Du inkluderar också namnet på resursen i namnet på roll tilldelningen.
 
 Använd följande format för roll tilldelningens typ och namn:
 
@@ -287,7 +291,7 @@ Följande visar ett exempel på roll tilldelningen deltagare till en användare 
 
 ![Roll tilldelning i resurs omfång](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Skapa en roll tilldelning för ett nytt huvud namn för tjänsten
+### <a name="new-service-principal"></a>Nytt huvud namn för tjänsten
 
 Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel skapar en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn i samma Azure Resource Manager mall kan roll tilldelningen Miss Miss förväntat. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot ska du ange `principalType` egenskapen som ska `ServicePrincipal` när du skapar roll tilldelningen.
 

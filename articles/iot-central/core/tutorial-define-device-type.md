@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: definiera en ny enhets typ i Azure IoT Central'
+title: Självstudie – definiera en ny enhets typ i Azure IoT Central
 description: I den här självstudien får du lära dig hur du som byggare definierar en ny enhetstyp i Azure IoT Central-programmet. Du definierar telemetri, tillstånd, egenskaper och inställningar för din typ.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 3d79e710f2c71d96179ab8774ee89c90cb462ca4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d986ddcf4b8eccfbd4ac1819f96157b5dfe6fe91
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112345"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705891"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudie: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -31,7 +31,7 @@ I den här självstudien skapar du enhetsmallen **Ansluten luftkonditioneringsen
 * Har enhetsegenskaper såsom version av inbyggd programvara och serienummer.
 * Har inställningar såsom måltemperatur.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en ny enhetsmall
@@ -112,7 +112,7 @@ Följande steg visar hur du skapar en ny enhetsmall kallad **Ansluten luftkondit
      | Fältnamn           | temperatur   |
      | Enheter                | F             |
      | Min                  | 60            |
-     | Max                  | 110           |
+     | Max.                  | 110           |
      | Antal decimaler       | 0             |
 
      Du kan även välja en färg för telemetrivisningen. Spara telemetri-definitionen genom att välja **Spara**:
@@ -152,7 +152,7 @@ Använd händelser för att definiera tidpunktsdata som enheten skickar när en 
      | -------------------- | -----------       |
      | Visningsnamn         | Fel på fläktmotor   |
      | Fältnamn           | fläktmotorfel       |
-     | Severity             | Fel             |
+     | Allvarsgrad             | Fel             |
 
      Spara händelse definitionen genom att välja **Spara**:
 
@@ -411,7 +411,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
 
 1. Du kan nu se simulerade data för din anslutna luftkonditionering på instrumentpanelen. Du kan redigera paneler och layout för instrumentpanelen:
 
-    ![Visa instrumentpanel](./media/tutorial-define-device-type/dashboard.png)
+    ![Visa instrumentpanelen](./media/tutorial-define-device-type/dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

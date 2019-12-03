@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/04/2019
+ms.date: 12/02/2019
 ms.author: swmachan
-ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 62c101751e07d8ee31789191ad45fbdd33a1bc4b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286626"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707967"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Språk-och region stöd för Translator Text API
 
@@ -57,8 +57,8 @@ Translator Text API har stöd för följande språk för text till text översä
 |Nederländska| `nl`    |Neurala tillgänglig|  Neural|
 |Svenska|   `en`    |Neurala tillgänglig|  Neural|
 |Estniska|  `et`    |Neurala tillgänglig|  Neural|
-|Fijianska|    `fj`    |Endast statistik|  Statistikuppgifter|
-|Filippinska|  `fil`   |Endast statistik|  Statistikuppgifter|
+|Fijian|    `fj`    |Endast statistik|  Statistikuppgifter|
+|Filipino|  `fil`   |Endast statistik|  Statistikuppgifter|
 |Finska|   `fi`    |Neurala tillgänglig|  Neural|
 |Franska|    `fr`    |Neurala tillgänglig|  Neural|
 |Tyska|    `de`    |Neurala tillgänglig|  Neural|
@@ -72,7 +72,7 @@ Translator Text API har stöd för följande språk för text till text översä
 |Indonesiska|    `id`    |Endast statistik|  Statistikuppgifter|
 |Italienska|   `it`    |Neurala tillgänglig|  Neural|
 |Japanska|  `ja`    |Neurala tillgänglig|  Neural|
-|Kiswahili| `sw`    |Endast statistik|  Statistikuppgifter|
+|Swahili| `sw`    |Endast statistik|  Statistikuppgifter|
 |Klingon|   `tlh`   |Endast statistik|  Statistikuppgifter|
 |Klingon (plqaD)|   `tlh-Qaak`  |Endast statistik|  Statistikuppgifter|
 |Koreanska |`ko`   |Neurala tillgänglig|  Neural|
@@ -89,7 +89,7 @@ Translator Text API har stöd för följande språk för text till text översä
 |Queretaro Otomi|   `otq`   |Endast statistik|  Statistikuppgifter|
 |Rumänska|  `ro`    |Neurala tillgänglig|  Neural|
 |Ryska|   `ru`    |Neurala tillgänglig|  Neural|
-|Samoa|    `sm`    |Endast statistik|  Statistikuppgifter|
+|Samoan|    `sm`    |Endast statistik|  Statistikuppgifter|
 |Serbiska (kyrillisk)|    `sr-Cyrl`   |Endast statistik|  Statistikuppgifter|
 |Serbiska (latinsk)|   `sr-Latn`   |Endast statistik   |Statistikuppgifter|
 |Slovakiska|    `sk`    |Neurala tillgänglig|  Neural|
@@ -97,10 +97,10 @@ Translator Text API har stöd för följande språk för text till text översä
 |Spanska|   `es`    |Neurala tillgänglig|  Neural|
 |Svenska|   `sv`    |Neurala tillgänglig   |Neural|
 |Tahitian|  `ty`    |Endast statistik|  Statistikuppgifter|
-|Tamilska| `ta`    |Endast statistik|  Statistikuppgifter|
+|Tamilska| `ta`    |Neurala tillgänglig | Neural|
 |Telugu|    `te`    |Endast neurala|   Neural|
 |Thai|  `th`    |Neurala tillgänglig|  Neural|
-|Tongan|    `to`    |Endast statistik|  Statistikuppgifter|
+|Tonganska|    `to`    |Endast statistik|  Statistikuppgifter|
 |Turkiska|   `tr`    |Neurala tillgänglig   |Neural|
 |Ukrainska| `uk`    |Neurala tillgänglig|  Neural|
 |Urdu|  `ur`    |Endast statistik|  Statistikuppgifter|
@@ -116,10 +116,10 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabiska | `ar` | Arabisk `Arab` | <--> | Latinska `Latn` |
 |Bangla  | `bn` | Bengali-`Beng` | <--> | Latinska `Latn` |
-| Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Latinska `Latn` |
-| Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Traditionell kinesiska `Hant`|
-| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
-| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
+| Kinesiska (förenklad) | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Latinska `Latn` |
+| Kinesiska (förenklad) | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Traditionell kinesiska `Hant`|
+| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
+| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
 | Gujarati | `gu`  | Gujarati-`Gujr` | --> | Latinska `Latn` |
 | Hebreiska | `he` | Hebreisk `Hebr` | <--> | Latinska `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latinska `Latn` |
@@ -166,7 +166,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Indonesiska      | `id`          |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-| Kiswahili      | `sw`          |
+| Swahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
@@ -230,10 +230,10 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Ungerska      | `hu`          |
 | Isländska | `is` |
 | Indonesiska|   `id`    |
-| Iriska | `ga`  |
+| Irländska | `ga`  |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-|Kiswahili| `sw`    |
+|Swahili| `sw`    |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
@@ -245,7 +245,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Portugisiska      | `pt`          |
 | Rumänska      | `ro`          |
 | Ryska      | `ru`          |
-|Samoa|    `sm`    |
+|Samoan|    `sm`    |
 | Serbiska (latinsk)      | `sr-Latn`          |
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |

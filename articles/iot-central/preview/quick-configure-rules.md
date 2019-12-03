@@ -1,5 +1,5 @@
 ---
-title: Konfigurera regler och åtgärder i Azure IoT Central | Microsoft Docs
+title: Snabb start – Konfigurera regler och åtgärder i Azure IoT Central
 description: Den här snabb starten visar dig som ett verktyg för att konfigurera telemetri-baserade regler och åtgärder i ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7e2047ee824c3dc8b6387f7879757a1e7be7a4a9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894077"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706726"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>Snabb start: Konfigurera regler och åtgärder för din enhet i Azure IoT Central (för hands versions funktioner)
 
@@ -24,7 +24,7 @@ ms.locfileid: "73894077"
 
 I den här snabb starten skapar du en regel som skickar ett e-postmeddelande när temperaturen i en miljö sensor enhet överskrider 90&deg; F.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du slutföra de två föregående snabb starterna [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägga till en simulerad enhet till ditt IoT Central-program](./quick-create-pnp-device.md) för att skapa en **miljö sensor** enhets mall att arbeta med.
 

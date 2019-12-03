@@ -1,17 +1,17 @@
 ---
-title: Så här binder du en Azure Database for MySQL-instans till ditt Azure våren Cloud-program | Microsoft Docs
-description: I den här artikeln visas hur du binder en Azure Database for MySQL-instans till ditt Azure våren Cloud-program
+title: Självstudie – så här binder du en Azure Database for MySQL-instans till ditt Azure våren Cloud-program
+description: I den här självstudien får du se hur du binder en Azure Database for MySQL-instans till ditt Azure våren Cloud-program
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c5cd4ac384affaedbd813f9395f997f92eb69c4
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a9911798e42db55d5aaae90c933cfb64945b244c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151118"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708815"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Självstudie: bind en Azure Database for MySQL-instans till ditt Azure våren Cloud-program 
 
@@ -65,4 +65,3 @@ I den här självstudien har du lärt dig hur du binder ditt Azure våren Cloud-
 
 > [!div class="nextstepaction"]
 > [Aktivera tjänst identifiering och registrering genom att använda våren Cloud Service-registret](spring-cloud-service-registration.md)
-

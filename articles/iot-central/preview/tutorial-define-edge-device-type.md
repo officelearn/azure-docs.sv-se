@@ -1,5 +1,5 @@
 ---
-title: Definiera en ny Azure IoT Edge enhets typ i Azure IoT Central | Microsoft Docs
+title: Självstudie – definiera en ny Azure IoT Edge enhets typ i Azure IoT Central
 description: Den här självstudien visar dig som ett verktyg för att skapa en ny Azure IoT Edge-enhet i ditt Azure IoT Central-program. Du definierar telemetri, tillstånd, egenskaper och kommandon för din typ.
 author: rangv
 ms.author: rangv
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 0a293d74c9e37a6771c5bb246b74bda38db3b7c3
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 97bfd2b1e8b571f44c0b782459567f5677dd36a7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406468"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702793"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudie: definiera en ny Azure IoT Edge enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -57,7 +57,7 @@ I den här guiden får du lära dig att:
 > * Lägg till relationer till underordnad enhets mallar.
 > * Publicera din enhets mall.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
 
@@ -103,7 +103,7 @@ På sidan **Välj Malltyp** väljer du **Azure IoT Edge**och väljer **sedan Nä
 
 I IoT Edge kan du distribuera och hantera affärs logik i form av moduler. IoT Edge moduler är den minsta beräknings enheten som hanteras av IoT Edge och kan innehålla Azure-tjänster (till exempel Azure Stream Analytics) eller din egen lösnings specifika kod. Information om hur moduler utvecklas, distribueras och underhålls finns i [IoT Edge moduler](../../iot-edge/iot-edge-modules.md).
 
-På en hög nivå är en lista över modultvillingar som är konfigurerade med deras önskade egenskaper i ett manifest för distribution. Ett distributions manifest talar om för en IoT Edge enhet (eller en grupp av enheter) vilka moduler som ska installeras och hur du konfigurerar dem. Distributions manifest innehåller de önskade egenskaperna för varje modul med dubbla. IoT Edge enheterna rapporterar de rapporterade egenskaperna för varje modul.
+På en hög nivå är ett distributions manifest en lista över moduler som kon figurer ATS med deras önskade egenskaper. Ett distributions manifest talar om för en IoT Edge enhet (eller en grupp av enheter) vilka moduler som ska installeras och hur du konfigurerar dem. Distributions manifest innehåller de önskade egenskaperna för varje modul med dubbla. IoT Edge enheterna rapporterar de rapporterade egenskaperna för varje modul.
 
 Använd Visual Studio Code för att skapa ett distributions manifest. Mer information finns i [Azure IoT Edge för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
@@ -293,8 +293,8 @@ En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT 
 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inga          | Date   |
-    | Kund namn     | Inga          | Sträng |
+    | Senaste servicedatum | Inget          | Datum   |
+    | Kund namn     | Inget          | Sträng |
 
 2. Välj **Spara**.
 

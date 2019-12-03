@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554121"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707034"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -246,7 +246,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > Dessa funktioner håller på att utvecklas.
 >
 
-### <a name="group-administratorgroup-administrator"></a>[Grupp administratör](#group-administrator)
+### <a name="group-administratorgroup-administrator-permissions"></a>[Grupp administratör](#group-administrator-permissions)
 
 Användare med den här rollen kan skapa/hantera grupper och dess inställningar, t. ex. namn och förfallo principer. Det är viktigt att förstå att tilldela en användare till den här rollen och ger dem möjlighet att hantera alla grupper i klient organisationen över olika arbets belastningar som team, SharePoint, Yammer, förutom Outlook. Användaren kan också hantera de olika grupp inställningarna över olika administrations portaler som Microsoft administrations Center, Azure Portal, och även arbets belastningar som team och administrations Center för SharePoint.
 
@@ -279,7 +279,9 @@ Den här rollen kallades tidigare för "lösen ords administratör" i [Azure Por
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune-administratör](#intune-service-administrator-permissions)
 
-Användare med den här rollen har globala behörigheter inom Microsoft Intune online när tjänsten finns. Dessutom innehåller den här rollen möjligheten att hantera användare och enheter för att associera principer, samt skapa och hantera grupper. Mer information finns i [rollbaserad administrations kontroll (RBAC) med Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+Användare med den här rollen har globala behörigheter inom Microsoft Intune online när tjänsten finns. Dessutom innehåller den här rollen möjligheten att hantera användare och enheter för att associera principer, samt skapa och hantera grupper. Mer information finns i [rollbaserad administrations kontroll (RBAC) med Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+
+Den här rollen kan skapa och hantera alla säkerhets grupper. Intune-administratören har dock inte administratörs behörighet för Office-grupper. Det innebär att administratören inte kan uppdatera ägare eller medlemskap i alla Office-grupper i klient organisationen. Han/hon kan dock hantera Office-gruppen som han skapar som ingår i hans/hennes slutanvändares behörigheter. I så fall ska alla Office-grupper (inte säkerhets grupper) som han/hon skapar räknas mot kvoten på 250.
 
 > [!NOTE]
 > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "Intune-tjänsteadministratör". Det är "Intune-administratör" i [Azure Portal](https://portal.azure.com).
@@ -1081,8 +1083,8 @@ Kan läsa allt som en global administratör kan, men inte redigera något.
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
 | Microsoft. Office365. webports/-upplånare/standard/Read   | Läsa standard egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
-### <a name="group-administrator"></a>Grupp administratör
-Kan hantera alla aspekter av grupper och grupp inställningar som namngivnings-och förfallo principer
+### <a name="group-administrator-permissions"></a>Grupp administratörs behörighet
+Kan hantera alla aspekter av grupper och grupp inställningar som namngivnings-och förfallo principer.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |

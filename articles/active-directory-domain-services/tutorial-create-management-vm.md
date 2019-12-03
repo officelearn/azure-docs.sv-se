@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172322"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703638"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
@@ -105,7 +105,7 @@ Slutför följande steg för att installera Active Directory administrations ver
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
 1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
 1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
-1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.contoso.com*, och väljer sedan **Nästa**.
+1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aadds.contoso.com*, och väljer sedan **Nästa**.
 1. På sidan **Server roller** klickar du på **Nästa**.
 1. På sidan **funktioner** expanderar du noden **verktyg för fjärrserveradministration** och expandera sedan noden **roll administrations verktyg** .
 
@@ -125,7 +125,7 @@ När de administrativa verktygen är installerade ska vi se hur de används för
     ![Lista över administrations verktyg som är installerade på servern](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Välj **Active Directory Administrationscenter**.
-1. Om du vill utforska den hanterade domänen i Azure AD DS väljer du domän namnet i den vänstra rutan, till exempel *contoso.com*. Två behållare med namnet *AADDC datorer* och *AADDC-användare* visas överst i listan.
+1. Om du vill utforska den hanterade domänen i Azure AD DS väljer du domän namnet i den vänstra rutan, till exempel *aadds.contoso.com*. Två behållare med namnet *AADDC datorer* och *AADDC-användare* visas överst i listan.
 
     ![Visa en lista över tillgängliga behållare i den hanterade domänen i Azure AD DS](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

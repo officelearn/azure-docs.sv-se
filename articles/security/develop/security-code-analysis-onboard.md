@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839352"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707256"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding och installation
 
@@ -53,7 +53,8 @@ Krav för att komma igång med Microsofts säkerhets kod analys:
 
 1. När tillägget har delats med din Azure DevOps-organisation går du till din Azure DevOps-organisations sida. En exempel-URL för en sådan sida är `https://dev.azure.com/contoso`.
 1. Välj shopping bag-ikonen i det övre högra hörnet bredvid ditt namn och välj sedan **Hantera tillägg**.
-1. Välj tillägget Microsoft säkerhets kod analys och öppna sedan guiden Azure DevOps UI för att starta installationen.
+1. Välj **delad**.
+1. Välj tillägget Microsoft säkerhets kod analys och välj **Installera**.
 1. I list rutan väljer du Azure DevOps-organisationen för att installera tillägget på.
 1. Välj **Installera**. När installationen är klar kan du börja använda tillägget.
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 1016fbc1478ec713d50a2f04bcc80d08288b03f3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827241"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703663"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Felsök problem med domän anslutning med en Azure AD Domain Services hanterad domän
 
@@ -32,7 +32,7 @@ Om den virtuella datorn inte kan hitta den hanterade Azure AD DS-domänen finns 
 
 1. Se till att den virtuella datorn är ansluten till samma eller ett peer-kopplat virtuellt nätverk som är aktiverat för Azure AD DS. Om inte, kan den virtuella datorn inte hitta och ansluta till domänen för att ansluta.
     * Om den virtuella datorn inte är ansluten till samma virtuella nätverk bekräftar du att den virtuella nätverks-peering eller VPN-anslutningen är *aktiv* eller *ansluten* så att trafiken kan flöda korrekt.
-1. Försök att pinga domänen med domän namnet för den hanterade Azure AD DS-domänen, till exempel `ping contoso.com`.
+1. Försök att pinga domänen med domän namnet för den hanterade domänen i Azure AD DS, till exempel `ping aadds.contoso.com`.
     * Om ping-svaret Miss lyckas kan du försöka pinga IP-adresserna för domänen som visas på sidan Översikt i portalen för din Azure AD DS-hanterade domän, till exempel `ping 10.0.0.4`.
     * Om du kan pinga IP-adressen, men inte domänen, kan DNS vara felaktigt konfigurerat. Kontrol lera att du har konfigurerat DNS-servrarna för den hanterade domänen i Azure AD DS för det virtuella nätverket.
 1. Försök att tömma DNS-matcharens cacheminne på den virtuella datorn, till exempel `ipconfig /flushdns`.

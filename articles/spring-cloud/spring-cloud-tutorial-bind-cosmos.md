@@ -1,23 +1,23 @@
 ---
-title: Binda en Azure Cosmos DB till ditt Azure våren Cloud-program | Microsoft Docs
-description: Lär dig hur du binder Azure Cosmos DB till ditt Azure våren Cloud-program
+title: Självstudie – binda en Azure Cosmos DB till ditt Azure våren Cloud-program
+description: I den här självstudien lär du dig att binda Azure Cosmos DB till ditt Azure våren Cloud-program
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 76a2b9f305f041a19b8d7ace8234a804825f6a0e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7e796c6f8b2ae17ba267a19da1d909087163d99c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607137"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708835"
 ---
 # <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Självstudie: bind en Azure Cosmos DB till ditt Azure våren Cloud-program
 
 Med Azure våren Cloud kan du binda utvalda Azure-tjänster till dina program automatiskt, i stället för att manuellt konfigurera ditt våren Boot-program. Den här artikeln visar hur du binder ditt program till en Azure Cosmos DB.
 
-Krav:
+Förutsättningar:
 * En distribuerad Azure våren Cloud-instans.  Följ vår [snabb start](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
 * Ett Azure Cosmos DB konto med lägsta behörighets nivå för deltagare.
 
@@ -86,7 +86,7 @@ Azure Cosmos DB har fem olika API-typer som stöder bindning:
 
 1. Starta om programmet genom att välja knappen **Starta** om på program sidan.
 
-1. För att säkerställa att tjänsten är korrekt bunden väljer du bindnings namnet och kontrollerar dess information. Fältet `property` bör likna följande:
+1. För att säkerställa att tjänsten är korrekt bunden väljer du bindnings namnet och kontrollerar dess information. `property` fältet bör likna följande:
 
     ```
     azure.cosmosdb.uri=https:/<some account>.documents.azure.com:443

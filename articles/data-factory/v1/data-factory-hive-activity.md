@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666999"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703362"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -75,7 +75,7 @@ HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pip
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Nej |
+| beskrivning |Text som beskriver vad aktiviteten används för |Nej |
 | typ |HDinsightHive |Ja |
 | tillför |Indata som används av Hive-aktiviteten |Nej |
 | utdata |Utdata som produceras av Hive-aktiviteten |Ja |
@@ -246,5 +246,5 @@ Gör följande om du vill använda parametriserade Hive-skript
 * [MapReduce-aktivitet](data-factory-map-reduce.md)
 * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 * [Anropa Spark-program](data-factory-spark.md)
-* [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

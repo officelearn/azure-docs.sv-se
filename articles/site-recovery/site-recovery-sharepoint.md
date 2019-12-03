@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622417"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706370"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer för haveri beredskap med hjälp av Azure Site Recovery
 
@@ -34,7 +34,7 @@ Du kan titta på videon nedan om hur du återställer ett program på flera niv�
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du förstår följande:
 
@@ -82,7 +82,7 @@ Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att påbö
 
 * Anvisningar om hur du skyddar Active Directory och DNS finns i [skydda Active Directory och DNS-](site-recovery-active-directory.md) dokument.
 
-* Information om hur du skyddar databas nivån som körs på SQL Server finns i [skydda SQL Server](site-recovery-active-directory.md) -dokument.
+* Information om hur du skyddar databas nivån som körs på SQL Server finns i [skydda SQL Server](site-recovery-sql.md) -dokument.
 
 ## <a name="networking-configuration"></a>Nätverks konfiguration
 
@@ -170,7 +170,7 @@ Du kan distribuera de vanligaste Azure Site Recovery-skripten till ditt Automati
 
     * Den här metoden förutsätter att en säkerhets kopia av databasen "Sök administration" är tillgänglig på DR-webbplatsen.
     * Eftersom de andra Search Service program databaserna inte replikeras måste de skapas på nytt. Det gör du genom att gå till Central administration och ta bort det Search Service programmet. Ta bort indexfilerna på alla servrar som är värdar för Sök indexet.
-    * Återskapa Search Service-programmet och skapa databaserna på nytt. Vi rekommenderar att du har ett för berett skript som återskapar det här tjänst programmet eftersom det inte går att utföra alla åtgärder via det grafiska användar gränssnittet. Det går till exempel att ställa in platsen för index enheten och konfigurera söktopologin med hjälp av SharePoint PowerShell-cmdlets. Använd Windows PowerShell-cmdleten Restore-SPEnterpriseSearchServiceApplication och ange den loggade och replikerade Sök administrations databasen, Search_Service__DB. Denna cmdlet ger Sök konfigurationen, schemat, de hanterade egenskaperna, reglerna och källorna och skapar en standard uppsättning av de andra komponenterna.
+    * Återskapa Search Service-programmet och skapa databaserna på nytt. Vi rekommenderar att du har ett för berett skript som återskapar det här tjänst programmet eftersom det inte går att utföra alla åtgärder via det grafiska användar gränssnittet. Det går till exempel att ställa in platsen för index enheten och konfigurera söktopologin med hjälp av SharePoint PowerShell-cmdlets. Använd Windows PowerShell-cmdleten Restore-SPEnterpriseSearchServiceApplication och ange den loggade och replikerade Sök administrations databasen Search_Service__DB. Denna cmdlet ger Sök konfigurationen, schemat, de hanterade egenskaperna, reglerna och källorna och skapar en standard uppsättning av de andra komponenterna.
     * När Search Service programmet har återskapats måste du starta en fullständig crawlning för varje innehålls källa för att återställa Search Service. Du förlorar lite analys information från den lokala server gruppen, till exempel Sök rekommendationer.
 
 7. När alla steg har slutförts sparar du återställnings planen och den slutliga återställnings planen kommer att se ut så här.

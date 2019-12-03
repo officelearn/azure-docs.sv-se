@@ -1,6 +1,6 @@
 ---
-title: Skriv C# användardefinierade funktioner för Azure Stream Analytics jobb i Visual Studio (för hands version)
-description: Lär dig hur du skriver c#-användardefinierade funktioner för Stream Analytics jobb i Visual Studio.
+title: Självstudie – Skriv C# användardefinierade funktioner för Azure Stream Analytics jobb i Visual Studio (för hands version)
+description: Den här självstudien visar hur du skriver c#-användardefinierade funktioner för Stream Analytics jobb i Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6cf420c8baceb243e8c4d70c8bcbc95ec626c3a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990244"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707348"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Självstudie: skriva en C# användardefinierad funktion för Azure Stream Analytics jobb (förhands granskning)
 
@@ -35,7 +35,7 @@ Innan du börjar bör du kontrollera att du har slutfört följande krav:
 * Installera [Stream Analytics-verktygen för Visual Studio](stream-analytics-tools-for-visual-studio-install.md) och arbetsbelastningen **Azure development** (Azure-utveckling) eller **Data Storage and Processing** (Datalagring och bearbetning).
 * Ta en titt på den befintliga [Stream Analytics Edge Development Guide] om du skapar ett IoT Edge jobb (Stream-Analytics-tools-for-Visual-Studio-Edge-jobs.md).
 
-## <a name="create-a-container-in-your-azure-storage-account"></a>Skapa en behållare i ditt Azure Storage-konto
+## <a name="create-a-container-in-your-azure-storage-account"></a>Skapa en container i ditt Azure Storage-konto
 
 Den behållare som du skapar kommer att användas för att lagra C# det kompilerade paketet. Om du skapar ett Edge-jobb kommer det här lagrings kontot också att användas för att distribuera paketet till din IoT Edge-enhet. Använd en särskild container för varje Stream Analytics-jobb. Det går inte att använda samma container för flera Stream Analytics Edge-jobb. Om du redan har ett lagringskonto med befintliga containrar kan du använda dem. Annars måste du [skapa en ny container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 

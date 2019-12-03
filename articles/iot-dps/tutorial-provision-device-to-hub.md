@@ -1,6 +1,6 @@
 ---
-title: Etablera enhet med Azure IoT Hub Device Provisioning Service
-description: Självstudie – etablera din enhet till en enda IoT-hubb med Azure-IoT Hub Device Provisioning Service
+title: Själv studie kurs – etablera enhet med Azure IoT Hub Device Provisioning Service
+description: Den här självstudien visar hur du kan etablera din enhet till en enda IoT-hubb med hjälp av Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6be3832163d4aa857b15f73671985b96d864b730
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358fa1fdc767919720ecb26497c818f4945badb6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228293"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702464"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: etablera enheten till en IoT-hubb med Azure-IoT Hub Device Provisioning Service
 
@@ -28,7 +28,7 @@ I den förra självstudien lärde du dig att konfigurera en enhet för att anslu
 
 Innan du fortsätter måste du konfigurera din enhet enligt anvisningarna i självstudien [Konfigurera en enhet för etablering med Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-device.md).
 
-Om du inte är bekant med processen för automatisk etablering ska du läsa [Auto-provisioning concepts](concepts-auto-provisioning.md) (Begrepp inom automatisk etablering) innan du fortsätter.
+Om du inte är bekant med processen för automatisk etablering ska du läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md) innan du fortsätter.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>Registrera enheten

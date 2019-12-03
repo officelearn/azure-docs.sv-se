@@ -1,17 +1,17 @@
 ---
-title: 'Självstudie: använda distribuerad spårning med Azure våren Cloud | Microsoft Docs'
-description: Lär dig att använda våren Cloud Distributed tracing via Azure Application Insights
+title: Självstudie – Använd distribuerad spårning med Azure våren Cloud
+description: I den här självstudien visas hur du använder spridning av våren-moln via Azure Application Insights
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607555"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708763"
 ---
 # <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Självstudie: använda distribuerad spårning med Azure våren Cloud
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig att:
 > * Visa beroende kartor för dina mikrotjänst program
 > * Sök spårnings data med olika filter
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -39,7 +39,7 @@ Aktivera zipkin-avsändaren att skicka till webben genom att lägga till följan
 spring.zipkin.sender.type = web
 ```
 
-Du kan hoppa över nästa steg om du följde vår [Guide för att förberedelser ett Azure våren Cloud-program](spring-cloud-tutorial-prepare-app-deployment.md). Annars går du till din lokala utvecklings miljö och redigerar din `pom.xml`-fil för att inkludera våren Cloud Sleuth-beroendet:
+Du kan hoppa över nästa steg om du följde vår [Guide för att förberedelser ett Azure våren Cloud-program](spring-cloud-tutorial-prepare-app-deployment.md). Annars går du till din lokala utvecklings miljö och redigerar `pom.xml`-filen så att den omfattar våren Cloud Sleuth-beroendet:
 
 ```xml
 <dependencyManagement>
@@ -64,7 +64,7 @@ Du kan hoppa över nästa steg om du följde vår [Guide för att förberedelser
 * Bygg och distribuera igen för din Azure våren Cloud-tjänst för att avspegla dessa ändringar. 
 
 ## <a name="modify-the-sample-rate"></a>Ändra samplings frekvensen
-Du kan ändra den hastighet som din telemetri samlas in genom att ändra samplings frekvensen. Om du till exempel vill använda hälften som ofta går du till din `application.properties`-fil och ändrar följande rad:
+Du kan ändra den hastighet som din telemetri samlas in genom att ändra samplings frekvensen. Om du till exempel vill använda hälften som ofta går du till `application.properties`-filen och ändrar följande rad:
 
 ```xml
 spring.sleuth.sampler.probability=0.5
@@ -85,7 +85,7 @@ Om du redan har skapat och distribuerat ett program kan du ändra samplings frek
 
 Gå tillbaka till sidan distribuerad spårning och välj **Visa program karta**. Granska den visuella representationen av dina program och övervaknings inställningar. Information om hur du använder program kartan finns i [den här artikeln](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 Använd Sök funktionen för att fråga andra speciella telemetri-objekt. På sidan **distribuerad spårning** väljer du **Sök**. Mer information om hur du använder Sök funktionen finns i [den här artikeln](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
 

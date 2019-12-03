@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: bilder & Custom Vision Service-Azure IoT Edge'
+title: Självstudie – distribuera Custom Vision klassificerare till en enhet med Azure IoT Edge
 description: I den här självstudien lär du dig att skapa en modell för visuellt innehåll som körs som en container med hjälp av Custom Vision och IoT Edge.
 services: iot-edge
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2303b4f4b639d015e9322e167ffbd956446c5061
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 41a2fac48980cf376c833b022b833cfcf1e99821
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665958"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701876"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 

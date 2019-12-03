@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240889"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707210"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -41,7 +41,7 @@ AKS är inte en fullständigt hanterad kluster lösning. Vissa komponenter, till
 Tjänsterna *hanteras* i den mening att Microsoft och AKS-teamet distribuerar, agerar och ansvarar för tjänstens tillgänglighet och funktioner. Kunder kan inte ändra dessa hanterade komponenter. Microsoft begränsar anpassningen för att säkerställa en konsekvent och skalbar användar upplevelse. En helt anpassningsbar lösning finns i [AKS-motorn](https://github.com/Azure/aks-engine).
 
 > [!NOTE]
-> AKS Worker-noder visas i Azure Portal som vanliga Azure IaaS-resurser. Men de här virtuella datorerna distribueras till en anpassad Azure-resurs grupp (föregås\\av MC *). Det går att ändra AKS Worker-noder. Du kan t. ex. använda SSH (Secure Shell) för att ändra AKS Worker-noder på samma sätt som du ändrar normala virtuella datorer (du kan dock inte ändra bas operativ system avbildningen och ändringar kanske inte behålls genom en uppdatering eller omstart) och du kan koppla andra Azure-resurser till AKS arbetsnoder. Men när du gör ändringar *utanför band-hanteringen och anpassningen* kan AKS-klustret bli oanvändbart. Undvik att ändra arbetsnoder om inte Microsoft Support dirigerar dig om att göra ändringar.
+> AKS Worker-noder visas i Azure Portal som vanliga Azure IaaS-resurser. Men de här virtuella datorerna distribueras till en anpassad Azure-resurs grupp (föregås av MC\\*). Det går att ändra AKS Worker-noder. Du kan t. ex. använda SSH (Secure Shell) för att ändra AKS Worker-noder på samma sätt som du ändrar normala virtuella datorer (du kan dock inte ändra bas operativ system avbildningen och ändringar kanske inte behålls genom en uppdatering eller omstart) och du kan koppla andra Azure-resurser till AKS arbetsnoder. Men när du gör ändringar *utanför band-hanteringen och anpassningen* kan AKS-klustret bli oanvändbart. Undvik att ändra arbetsnoder om inte Microsoft Support dirigerar dig om att göra ändringar.
 
 ## <a name="shared-responsibility"></a>Delat ansvar
 
@@ -95,7 +95,7 @@ Microsoft och våra kunder delar ansvar för Kubernetes arbetsnoder där:
   * Docker eller Moby daemon
 
 > [!NOTE]
-> Om en kontroll Plans komponent inte fungerar på en arbetsnoden kan AKS-teamet behöva starta om enskilda komponenter eller hela arbetsnoden. De här omstarts åtgärderna automatiseras och tillhandahåller automatisk reparation av vanliga problem. Dessa omstarter sker bara på _nodnivå_ och inte i klustret om detta inte är ett katastrof underhåll eller avbrott.
+> Om en kontroll Plans komponent inte fungerar på en arbetsnoden kan AKS-teamet behöva starta om enskilda komponenter eller hela arbetsnoden. De här omstarts åtgärderna automatiseras och tillhandahåller automatisk reparation av vanliga problem. Dessa omstarter sker bara på _nodnivå_ och inte i klustret om det inte finns något underhåll eller avbrott i nödfall.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Kund ansvar för AKS Worker-noder
 

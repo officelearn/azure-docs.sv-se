@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Stream Analytics i kanten – Azure IoT Edge'
+title: Självstudie – Stream Analytics på gränsen med Azure IoT Edge
 description: I den här självstudien distribuerar du Azure Stream Analytics som en modul till en IoT Edge enhet
 author: kgremban
 ms.author: kgremban
@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7fbbe32efcedd4fa2635db1cc21f7ce98557515b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b4c4415819ba614bb584f1bc5cb0acfe136c174c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452526"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707066"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge modul
 
@@ -24,7 +24,7 @@ Azure Stream Analytics ger en omfattande strukturerad frågesyntax för data ana
 
 Stream Analytics-modulen i den här självstudien beräknar medeltemperaturen över ett rullande 30-sekundersschema. När medeltemperaturen når 70 grader skickar modulen en varning så att enheten kan vidta en åtgärd. I det här fallet är åtgärden att återställa den simulerade temperatursensorn. Du kan till exempel använda den här funktionen för att stänga av en dator eller vidta förebyggande åtgärder när temperaturen når farliga nivåer i en produktionsmiljö. 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Stream Analytics-jobb för bearbetning av data på gränsen.
@@ -57,7 +57,7 @@ I det här avsnittet skapar du ett Azure Stream Analytics jobb som gör följand
 * Fråga telemetridata för värden utanför ett uppsättnings intervall.
 * Vidta åtgärder på den IoT Edge enheten baserat på frågeresultaten. 
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-enhet måste det lagras på ett sätt som kan anropas från enheten. Du kan använda ett befintligt Azure Storage-konto eller skapa ett nytt nu. 
 

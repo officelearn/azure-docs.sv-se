@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072343"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707209"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -36,7 +36,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -61,7 +61,7 @@ Så här får du åtkomst till mått:
 
 1. Välj **Mått** på menyn långt ned på sidan.
 
-    ![mått](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
 1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begär Anden**. 
 1. Diagrammet visar det totala antalet API-anrop.
@@ -180,46 +180,46 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 }  
 ```
 
-| Egenskap  | Type | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | ------------- | ------------- | ------------- |
-| isRequestSuccess | boolean | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
-| time | date-time | Tidstämpel för mottagande av HTTP-begäran av gatewayen |
+| isRequestSuccess | boolesk | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
+| time | date-time | Tidsstämpeln för när gatewayen startar bearbetningen av begäran |
 | operationName | sträng | Konstantvärde ”Microsoft.ApiManagement/GatewayLogs” |
 | category | sträng | Konstantvärde ”GatewayLogs” |
-| durationMs | integer | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |
+| durationMs | heltal | Antalet millisekunder från den tidpunkt då gatewayen tog emot begäran tills det svar som har skickats fullständigt. Den innehåller clienTime, cacheTime och backendTime. |
 | callerIpAddress | sträng | IP-adress för anropare av omedelbar gateway (kan vara en mellanhand) |
 | correlationId | sträng | Unik http-begäranidentifierare tilldelad av API Management |
 | location | sträng | Namn på Azure-regionen där gatewayen som behandlade begäran hittades |
 | httpStatusCodeCategory | sträng | Kategori för http-svarsstatuskod: Lyckades (301 eller lägre eller 304 eller 307), Ej auktoriserad (401, 403, 429), Felaktig (400, mellan 500 och 600), Annat |
-| resourceId | sträng | ID för API Management Resource/Subscriptions/\<-prenumerationen >/RESOURCEGROUPS/\<Resource-Group >/providers/Microsoft. API Management/tjänst/\<namn > |
-| properties | object | Egenskaper för aktuell begäran |
-| method | sträng | HTTP-metod för inkommande begäran |
+| resourceId | sträng | ID för API Management resurs/SUBSCRIPTIONS/\<prenumeration >/RESOURCEGROUPS/\<resurs grupp >/PROVIDERS/MICROSOFT. API Management/tjänst/\<namn > |
+| properties | objekt | Egenskaper för aktuell begäran |
+| metod | sträng | HTTP-metod för inkommande begäran |
 | url | sträng | URL för inkommande begäran |
 | clientProtocol | sträng | HTTP-protokollversion för inkommande begäran |
 | responseCode | heltal | Statuskod för HTTP-svar som skickas till klient |
 | backendMethod | sträng | HTTP-metod för begäran som skickats till en serverdel |
 | backendUrl | sträng | URL för begäran som skickats till en serverdel |
-| backendResponseCode | integer | Kod för HTTP-svaret togs emot av en serverdel |
+| backendResponseCode | heltal | Kod för HTTP-svaret togs emot av en serverdel |
 | backendProtocol | sträng | HTTP-protokollversion för begäran som skickats till en serverdel | 
 | requestSize | heltal | Antalet byte som tagits emot från en klient under bearbetning av begäran | 
 | responseSize | heltal | Antalet byte som har skickats till en klient under bearbetning av begäran | 
 | cache | sträng | Status för API Management cachemedverkan i behandling av begäran (t.ex. träff, miss, ingen) | 
-| cacheTime | integer | Antalet millisekunder som ägnats åt övergripande API Management cache-IO (ansluta, skicka och ta emot byte) | 
-| backendTime | integer | Antalet millisekunder som ägnats åt övergripande serverdels-IO (ansluta, skicka och ta emot byte) | 
-| clientTime | integer | Antalet millisekunder som ägnats åt övergripande klient-IO (ansluta, skicka och ta emot byte) | 
+| cacheTime | heltal | Antalet millisekunder som ägnats åt övergripande API Management cache-IO (ansluta, skicka och ta emot byte) | 
+| backendTime | heltal | Antalet millisekunder som ägnats åt övergripande serverdels-IO (ansluta, skicka och ta emot byte) | 
+| clientTime | heltal | Antalet millisekunder som ägnats åt övergripande klient-IO (ansluta, skicka och ta emot byte) | 
 | apiId | sträng | API-entitetsidentifierare för aktuell begäran | 
 | operationId | sträng | Åtgärdsentitetsidentifierare för aktuell begäran | 
 | productId | sträng | Produktentitetsidentifierare för aktuell begäran | 
 | userId | sträng | Användarentitetsidentifierare för aktuell begäran | 
 | apimSubscriptionId | sträng | Prenumerationsentitetsidentifierare för aktuell begäran | 
 | backendId | sträng | Serverdelentitetsidentifierare för aktuell begäran | 
-| LastError | object | Bearbetningsfel för senaste begäran | 
-| elapsed | integer | Antalet förflutna millisekunder sedan gatewayen tog emot begäran till den tidpunkt då felet inträffade | 
-| source | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
-| scope | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
-| section | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
-| reason | sträng | Felorsak | 
-| message | sträng | Felmeddelande | 
+| LastError | objekt | Bearbetningsfel för senaste begäran | 
+| elapsed | heltal | Antalet millisekunder som förflutit mellan när gatewayen tog emot begäran och tidpunkten då felet inträffade | 
+| källa | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
+| omfång | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
+| avsnitt | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
+| orsak | sträng | Felorsak | 
+| meddelande | sträng | Felmeddelande | 
 
 ## <a name="next-steps"></a>Nästa steg
 

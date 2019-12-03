@@ -1,134 +1,134 @@
 ---
-title: Implementera Azure Databricks med en Cosmos DB-slutpunkt
-description: Den här självstudien beskrivs hur du implementerar Azure Databricks i ett virtuellt nätverk med en tjänstslutpunkt aktiverad för Cosmos DB.
+title: Självstudie – implementera Azure Databricks med en Cosmos DB-slutpunkt
+description: I den här självstudien beskrivs hur du implementerar Azure Databricks i ett virtuellt nätverk med en tjänst slut punkt aktive rad för Cosmos DB.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054640"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706153"
 ---
-# <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Självstudier: Implementera Azure Databricks med en Cosmos DB-slutpunkt
+# <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Självstudie: implementera Azure Databricks med en Cosmos DB-slutpunkt
 
-Den här självstudien beskrivs hur du implementerar ett virtuellt nätverk inmatade Databricks-miljö med en tjänstslutpunkt aktiverad för Cosmos DB.
+I den här självstudien beskrivs hur du implementerar en virtuell VNet-Databricks-miljö med en tjänst slut punkt aktive rad för Cosmos DB.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
-> * Skapa en Azure Databricks-arbetsyta i ett virtuellt nätverk
-> * Skapa en tjänstslutpunkt för Cosmos DB
-> * Skapa ett Cosmos DB-konto och importera data
+> * Skapa en Azure Databricks arbets yta i ett virtuellt nätverk
+> * Skapa en tjänst slut punkt för Cosmos DB
+> * Skapa ett Cosmos DB konto och importera data
 > * Skapa ett Azure Databricks-kluster
-> * Fråga Cosmos DB från en Azure Databricks-anteckningsbok
+> * Fråga Cosmos DB från en Azure Databricks Notebook
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du göra följande:
+Innan du börjar gör du följande:
 
-* Skapa en [Azure Databricks-arbetsytan i ett virtuellt nätverk](quickstart-create-databricks-workspace-vnet-injection.md).
+* Skapa en [Azure Databricks arbets yta i ett virtuellt nätverk](quickstart-create-databricks-workspace-vnet-injection.md).
 
-* Ladda ned den [Spark-anslutningsappen](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.4/azure-cosmosdb-spark_2.4.0_2.11-1.3.4-uber.jar).
+* Hämta [Spark-anslutaren](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.4/azure-cosmosdb-spark_2.4.0_2.11-1.3.4-uber.jar).
 
-* Hämta exempeldata från den [noaa: S National Lagringsprotokollet för miljöinformation](https://www.ncdc.noaa.gov/stormevents/). Välj en delstat eller område och välj **Search**. På nästa sida, accepterar du standardvärdena och välj **Search**. Välj sedan **CSV hämta** till vänster på sidan för att hämta resultaten.
+* Hämta exempel data från [NOAA National Centers för miljö information](https://www.ncdc.noaa.gov/stormevents/). Välj ett tillstånd eller område och välj **Sök**. På nästa sida godkänner du standardinställningarna och väljer **Sök**. Sedan väljer du **CSV-hämtning** på vänster sida av sidan för att hämta resultatet.
 
-* Ladda ned den [förkompilerad binär](https://aka.ms/csdmtool) av Migreringsverktyget för Azure Cosmos DB Data.
+* Ladda ned den [förkompilerade binärfilen](https://aka.ms/csdmtool) för verktyget Azure Cosmos DB datamigrering.
 
-## <a name="create-a-cosmos-db-service-endpoint"></a>Skapa en tjänstslutpunkt för Cosmos DB
+## <a name="create-a-cosmos-db-service-endpoint"></a>Skapa en tjänst slut punkt för Cosmos DB
 
-1. När du har distribuerat en Azure Databricks-arbetsyta till ett virtuellt nätverk, går du till det virtuella nätverket i den [Azure-portalen](https://portal.azure.com). Lägg märke till de offentliga och privata undernät som har skapats genom Databricks-distributionen.
+1. När du har distribuerat en Azure Databricks arbets yta till ett virtuellt nätverk, navigerar du till det virtuella nätverket i [Azure Portal](https://portal.azure.com). Lägg märke till offentliga och privata undernät som har skapats via Databricks-distributionen.
 
    ![Undernät för virtuella nätverk](./media/service-endpoint-cosmosdb/virtual-network-subnets.png)
 
-2. Välj den *offentliga undernät* och skapa en tjänstslutpunkt för Cosmos DB. Sedan **spara**.
+2. Välj *offentlig-undernät* och skapa en Cosmos DB tjänst slut punkt. **Spara**sedan.
    
-   ![Lägg till en Cosmos DB-tjänstslutpunkt](./media/service-endpoint-cosmosdb/add-cosmosdb-service-endpoint.png)
+   ![Lägga till en tjänst slut punkt för Cosmos DB](./media/service-endpoint-cosmosdb/add-cosmosdb-service-endpoint.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto
 
-1. Öppna Azure Portal. Längst upp till vänster på skärmen Välj **skapa en resurs > databaser > Azure Cosmos DB**.
+1. Öppna Azure Portal. På den övre vänstra sidan av skärmen väljer du **skapa en resurs > databaser > Azure Cosmos DB**.
 
-2. Fyll i **instansinformation** på den **grunderna** fliken med följande inställningar:
+2. Fyll i **instans informationen** på fliken **grundläggande** med följande inställningar:
 
    |Inställning|Värde|
    |-------|-----|
    |Prenumeration|*din prenumeration*|
-   |Resursgrupp|*din resursgrupp*|
-   |Kontonamn|db-vnet-service-endpoint|
+   |Resursgrupp|*din resurs grupp*|
+   |Kontonamn|DB-VNet-tjänst-slut punkt|
    |API|Core (SQL)|
-   |Location|Västra USA|
+   |Plats|USA, västra|
    |GEO-redundans|Inaktivera|
-   |Skrivningar med flera regioner|Aktivera|
+   |Skrivningar i flera regioner|Aktivera|
 
-   ![Lägg till en Cosmos DB-tjänstslutpunkt](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
+   ![Lägga till en tjänst slut punkt för Cosmos DB](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
-3. Välj den **nätverk** fliken och konfigurera ditt virtuella nätverk. 
+3. Välj fliken **nätverk** och konfigurera ditt virtuella nätverk. 
 
-   a. Välj det virtuella nätverket som du skapade som ett krav och välj sedan *offentliga undernät*. Observera att *privat undernät* har Anmärkning *slutpunkten för ”Microsoft AzureCosmosDB” saknas ”* . Detta beror på att Cosmos DB-tjänstslutpunkt aktiveras endast på den *offentliga undernät*.
+   a. Välj det virtuella nätverk som du skapade som en förutsättning och välj sedan *offentligt-undernät*. Observera att det *privata under nätet* *saknar "Microsoft AzureCosmosDB"-slut punkt saknas*. Detta beror på att du bara har aktiverat Cosmos DB tjänstens slut punkt på *offentliga-undernät*.
 
-   b. Kontrollera att du har **tillåta åtkomst från Azure-portalen** aktiverat. Den här inställningen kan du komma åt ditt Cosmos DB-konto från Azure-portalen. Om det här alternativet är inställt på **neka**, du får fel vid försök att komma åt ditt konto. 
+   b. Se till att du har **Tillåt åtkomst från Azure Portal** aktive rad. Med den här inställningen kan du komma åt ditt Cosmos DB konto från Azure Portal. Om det här alternativet är inställt på **neka**får du fel meddelanden när du försöker komma åt ditt konto. 
 
    > [!NOTE]
-   > Det är inte nödvändigt för den här självstudien, men du kan också aktivera *tillåter åtkomst från Min IP-adress* om du vill kunna komma åt ditt Cosmos DB-konto från din lokala dator. Om du ansluter till ditt konto med Cosmos DB SDK, måste du aktivera den här inställningen. Om det har inaktiverats felmeddelandet ”åtkomst nekad”-fel.
+   > Det är inte nödvändigt för den här självstudien, men du kan också aktivera *Tillåt åtkomst från min IP* om du vill få åtkomst till ditt Cosmos DB konto från den lokala datorn. Om du till exempel ansluter till ditt konto med hjälp av Cosmos DB SDK måste du aktivera den här inställningen. Om den är inaktive rad visas fel meddelandet "åtkomst nekad".
 
-   ![Nätverksinställningar för cosmos DB-konto](./media/service-endpoint-cosmosdb/create-cosmosdb-account-network.png)
+   ![Nätverks inställningar för Cosmos DB konto](./media/service-endpoint-cosmosdb/create-cosmosdb-account-network.png)
 
-4. Välj **granska + skapa**, och sedan **skapa** att skapa Cosmos DB-kontot i virtuella nätverk.
+4. Välj **Granska + skapa**och sedan **skapa** för att skapa ditt Cosmos DB-konto i det virtuella nätverket.
 
-5. När ditt Cosmos DB-konto har skapats går du till **nycklar** under **inställningar**. Kopiera primär anslutningssträng och spara den i en textredigerare för senare användning.
+5. När du har skapat ditt Cosmos DB konto går du till **nycklar** under **Inställningar**. Kopiera den primära anslutnings strängen och spara den i en text redigerare för senare användning.
 
-    ![Sidan för cosmos DB-konto nycklar](./media/service-endpoint-cosmosdb/cosmos-keys.png)
+    ![Sidan Cosmos DB konto nycklar](./media/service-endpoint-cosmosdb/cosmos-keys.png)
 
-6. Välj **Datautforskaren** och **ny samling** att lägga till en ny databas och samling till ditt Cosmos DB-konto.
+6. Välj **datautforskaren** och **ny samling** för att lägga till en ny databas och samling till ditt Cosmos DB-konto.
 
-    ![Ny cosmos DB-samling](./media/service-endpoint-cosmosdb/new-collection.png)
+    ![Cosmos DB ny samling](./media/service-endpoint-cosmosdb/new-collection.png)
 
 ## <a name="upload-data-to-cosmos-db"></a>Ladda upp data till Cosmos DB
 
-1. Öppna den grafiska gränssnitt-versionen av den [datamigreringsverktyget för Cosmos DB](https://aka.ms/csdmtool), **Dtui.exe**.
+1. Öppna den grafiska gränssnitts versionen av [verktyget datamigrering för Cosmos DB](https://aka.ms/csdmtool), **Dtui. exe**.
 
-    ![Cosmos DB-Datamigreringsverktyg](./media/service-endpoint-cosmosdb/cosmos-data-migration-tool.png)
+    ![Azure Cosmos DB-datamigreringsverktyget](./media/service-endpoint-cosmosdb/cosmos-data-migration-tool.png)
 
-2. På den **källinformation** fliken **CSV-filerna** i den **importera från** listrutan. Välj sedan **Lägg till filer** och lägga till storm data CSV som du har hämtat som ett krav.
+2. På fliken **käll information** väljer du **CSV-fil (er)** i list rutan **Importera från** . Välj sedan **Lägg till filer** och Lägg till den storm data CSV som du laddade ned som en förutsättning.
 
-    ![Cosmos DB Datamigreringsverktyget källinformation](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
+    ![Käll information för Cosmos DB Data Migration Tool](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
 
-3. På den **målinformation** fliken, ange anslutningssträngen. Formatet för anslutningssträngen är `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>`. AccountEndpoint och AccountKey ingår i den primära anslutningssträngen som du sparade i föregående avsnitt. Lägg till `Database=<your database name>` i slutet av anslutningssträngen och väljer **Kontrollera**. Lägg sedan till nyckeln samling namn och en partition.
+3. Ange din anslutnings sträng på fliken **mål information** . Formatet för anslutnings strängen är `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>`. AccountEndpoint och AccountKey ingår i den primära anslutnings sträng som du sparade i föregående avsnitt. Lägg till `Database=<your database name>` i slutet av anslutnings strängen och välj **Verifiera**. Lägg sedan till samlings namnet och partitionsnyckel.
 
-    ![Cosmos DB Datamigreringsverktyget målinformation](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
+    ![Cosmos DB mål information för verktyget för datamigrering](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
 
-4. Välj **nästa** tills du kommer till sidan Översikt. Välj **Import**.
+4. Välj **Nästa** tills du kommer till sidan Sammanfattning. Välj sedan **Importera**.
 
-## <a name="create-a-cluster-and-add-library"></a>Skapa ett kluster och lägga till bibliotek
+## <a name="create-a-cluster-and-add-library"></a>Skapa ett kluster och Lägg till bibliotek
 
-1. Gå till din Azure Databricks-tjänst i den [Azure-portalen](https://portal.azure.com) och välj **Starta arbetsyta**.
+1. Gå till din Azure Databricks-tjänst i [Azure Portal](https://portal.azure.com) och välj **Starta arbets yta**.
 
    ![Starta Databricks-arbetsyta](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
-2. Skapa ett nytt kluster. Välj ett klusternamn och acceptera resten av standardinställningarna.
+2. Skapa ett nytt kluster. Välj ett kluster namn och godkänn resten av standardinställningarna.
 
-   ![Ny klusterinställningar](./media/service-endpoint-cosmosdb/create-cluster.png)
+   ![Nya kluster inställningar](./media/service-endpoint-cosmosdb/create-cluster.png)
 
-3. När klustret skapas, gå till sidan kluster och väljer den **bibliotek** fliken. Välj **installera nya** och ladda upp Spark connector jar-filen om du vill installera biblioteket.
+3. När klustret har skapats går du till kluster sidan och väljer fliken **bibliotek** . Välj **installera ny** och överför Spark Connector jar-filen för att installera biblioteket.
 
-    ![Installera Spark connector-biblioteket](./media/service-endpoint-cosmosdb/install-cosmos-connector-library.png)
+    ![Installera Spark Connector-bibliotek](./media/service-endpoint-cosmosdb/install-cosmos-connector-library.png)
 
-    Du kan kontrollera att biblioteket har installerats på den **bibliotek** fliken.
+    Du kan kontrol lera att biblioteket har installerats på fliken **bibliotek** .
 
-    ![Biblioteksfliken i Databricks-kluster](./media/service-endpoint-cosmosdb/installed-library.png)
+    ![Fliken kluster bibliotek i Databricks](./media/service-endpoint-cosmosdb/installed-library.png)
 
-## <a name="query-cosmos-db-from-a-databricks-notebook"></a>Fråga Cosmos DB från en Databricks notebook
+## <a name="query-cosmos-db-from-a-databricks-notebook"></a>Fråga Cosmos DB från en Databricks Notebook
 
-1. Gå till Azure Databricks-arbetsytan och skapa en ny python notebook.
+1. Navigera till din Azure Databricks arbets yta och skapa en ny python-anteckningsbok.
 
-    ![Skapa ny anteckningsbok i Databricks](./media/service-endpoint-cosmosdb/new-python-notebook.png)
+    ![Skapa ny Databricks Notebook](./media/service-endpoint-cosmosdb/new-python-notebook.png)
 
-2. Kör följande python-kod för att ställa in konfigurationen för Cosmos DB-anslutning. Ändra den **Endpoint**, **Masterkey**, **databasen**, och **samling** därefter.
+2. Kör följande python-kod för att ange Cosmos DB anslutnings konfiguration. Ändra **slut punkten**, **MasterKey**, **databasen**och **samlingen** enligt detta.
 
     ```python
     connectionConfig = {
@@ -150,26 +150,26 @@ Innan du börjar måste du göra följande:
     users.createOrReplaceTempView("storm")
     ```
 
-4. Använd kommandot magic för att köra en SQL-instruktion som returnerar data.
+4. Använd följande Magic-kommando för att köra en SQL-instruktion som returnerar data.
 
     ```python
     %sql
     select * from storm
     ```
 
-    Du har anslutit din VNet-installerade Databricks-arbetsyta till en tjänsts slutpunkt-aktiverade Cosmos DB-resurs. Att läsa mer om hur du ansluter till Cosmos DB i [Azure Cosmos DB-Anslutningsapp för Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
+    Du har anslutit din VNet-inmatade Databricks-arbetsyta till en tjänst slut punkt som är aktive rad Cosmos DB resurs. Om du vill läsa mer om hur du ansluter till Cosmos DB, se [Azure Cosmos DB Connector för Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, Azure Databricks-arbetsytan och alla relaterade resurser när de inte längre behövs. Tar bort jobbet undviker onödiga fakturering. Om du planerar att använda Azure Databricks-arbetsytan i framtiden kan du stoppa klustret och sedan starta det igen. Om du inte tänker fortsätta att använda den här Azure Databricks-arbetsytan, ta bort alla resurser som du skapade i den här självstudien med hjälp av följande steg:
+Ta bort resurs gruppen, Azure Databricks arbets ytan och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviks onödig fakturering. Om du planerar att använda arbets ytan Azure Databricks i framtiden kan du stoppa klustret och starta om det senare. Om du inte kommer att fortsätta att använda den här Azure Databricks arbets ytan tar du bort alla resurser som du skapade i den här självstudien med hjälp av följande steg:
 
-1. I den vänstra menyn i Azure portal, klickar du på **resursgrupper** och klicka sedan på namnet på resursgruppen som du skapade.
+1. Klicka på **resurs grupper** på den vänstra menyn i Azure Portal och klicka sedan på namnet på den resurs grupp som du skapade.
 
-2. På sidan med resursgrupper, väljer **ta bort**, skriver du namnet på resursen som ska tas bort i textrutan och välj sedan **ta bort** igen.
+2. På sidan resurs grupp väljer du **ta bort**, skriver in namnet på resursen som ska tas bort i text rutan och väljer sedan **ta bort** igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du distribuerat en Azure Databricks-arbetsyta till ett virtuellt nätverk och används Cosmos DB Spark-anslutningsappen för att fråga Cosmos DB-data från Databricks. Om du vill veta mer om att arbeta med Azure Databricks i ett virtuellt nätverk kan du fortsätta till självstudien för att använda SQL Server med Azure Databricks.
+I den här självstudien har du distribuerat en Azure Databricks-arbetsyta till ett virtuellt nätverk och använt Cosmos DB Spark-anslutningen för att fråga Cosmos DB data från Databricks. Om du vill veta mer om hur du arbetar med Azure Databricks i ett virtuellt nätverk kan du fortsätta till självstudien för att använda SQL Server med Azure Databricks.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks-anteckningsbok](vnet-injection-sql-server.md)
+> [Självstudie: fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks Notebook](vnet-injection-sql-server.md)

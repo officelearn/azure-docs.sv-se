@@ -1,6 +1,6 @@
 ---
-title: Lägga till en simulerad enhet i Azure IoT Central | Microsoft Docs
-description: Skapa en enhets mall och Lägg till en simulerad enhet i IoT Central programmet.
+title: Snabb start – Lägg till en simulerad enhet i Azure IoT Central
+description: Den här snabb starten visar hur du skapar en enhets mall och lägger till en simulerad enhet i IoT Central-programmet.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 8b6720af6328242a1fe297e60c9d413d0b83f3d2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893825"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706697"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Snabb start: lägga till en simulerad enhet till ditt IoT Central program (för hands versions funktioner)
 
@@ -30,7 +30,7 @@ I den här snabb starten skapar du en **miljö sensor** enhets mall och lägger 
 * Svarar på kommandon som aktivera och inaktivera.
 * Rapporterar allmänna enhets egenskaper, t. ex. version och serie nummer för inbyggd program vara.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Slutför snabb starten [skapa ett Azure IoT Central-program (för hands versions funktioner)](./quick-deploy-iot-central.md) för att skapa ett IoT Central program med hjälp av den **anpassade appen > för hands versions program** mal len
 
@@ -72,8 +72,8 @@ En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT 
 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Ingen          | Date   |
-    | Kund namn     | Ingen          | Sträng |
+    | Senaste servicedatum | Inget          | Datum   |
+    | Kund namn     | Inget          | Sträng |
 
 1. Välj **Spara** för att spara ändringarna:
 

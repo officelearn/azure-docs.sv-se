@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2019
+ms.date: 12/02/2019
 ms.author: ramkris
-ms.openlocfilehash: b6685f8524dc1f3ac080abe81389d091c7cf6f1b
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2d573d329ad27a4801c091d0dcfb10c5f530169f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306752"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707271"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulk utförar-bibliotek: Hämta information 
 
@@ -26,7 +26,7 @@ ms.locfileid: "74306752"
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST-resursleverantör](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
@@ -37,7 +37,7 @@ ms.locfileid: "74306752"
 |**SDK-hämtning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Mass utförar-bibliotek i GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API-dokumentation**|[Dokumentation om .NET API-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Kom igång**|[Kom igång med bulk utförar Library .NET SDK](bulk-executor-dot-net.md)|
+|**Komma igång**|[Kom igång med bulk utförar Library .NET SDK](bulk-executor-dot-net.md)|
 | **Aktuellt ramverk som stöds**| Microsoft .NET Framework 4.5.2, 4.6.1 och .NET standard 2,0 |
 
 > [!NOTE]
@@ -72,6 +72,10 @@ ms.locfileid: "74306752"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0 – för hands version
 
 * .NET standard 2,0 har lagts till som en av de mål ramverk som stöds för att utförar-biblioteket ska fungera med .NET Core-program.
+
+### <a name="a-name186186"></a><a name="1.8.6"/>1.8.6
+
+* MongoBulkExecutor implementerar nu IDisposable och förväntas tas bort efter användning.
 
 ### <a name="a-name185185"></a><a name="1.8.5"/>1.8.5
 

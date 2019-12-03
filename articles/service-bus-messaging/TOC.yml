@@ -182,8 +182,6 @@
           href: service-bus-end-to-end-tracing.md
         - name: Skapa en Service Bus-flernivåapp
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-        - name: Migrera Java Enterprise Edition-programmet till Azure
-          href: migrate-java-apps-wild-fly.md
     - name: Hantera
       items:
         - name: Etablera entiteter med Azure PowerShell

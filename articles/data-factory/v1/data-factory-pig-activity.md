@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a6861a22f853bb0b48eb7c9832adb251bc3467ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682399"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703200"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av gris-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -85,7 +85,7 @@ HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipe
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Nej |
+| beskrivning |Text som beskriver vad aktiviteten används för |Nej |
 | typ |HDinsightPig |Ja |
 | tillför |En eller flera indata som används av aktiviteten gris |Nej |
 | utdata |En eller flera utdata som produceras av gris-aktiviteten |Ja |
@@ -224,4 +224,4 @@ Gör följande om du vill använda ett parameter Scripting gris-skript:
 * [MapReduce-aktivitet](data-factory-map-reduce.md)
 * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 * [Anropa Spark-program](data-factory-spark.md)
-* [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

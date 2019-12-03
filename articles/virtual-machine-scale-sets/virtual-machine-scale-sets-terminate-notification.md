@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264674"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705930"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Avsluta avisering för instanser av skalnings uppsättningar för virtuella Azure-datorer (för hands version)
 Skalnings uppsättnings instanser kan välja att ta emot meddelanden om instans avslutning och ange en fördefinierad fördröjnings-timeout för åtgärden avsluta. Uppsägnings meddelandet skickas via Azure Metadata Service – [schemalagda händelser](../virtual-machines/windows/scheduled-events.md), som innehåller aviseringar för och fördröjning av påverkan på åtgärder som omstarter och omdistribueras. För hands versions lösningen lägger till en annan händelse – Avbryt – till listan över Schemalagda händelser och den associerade fördröjningen av händelsen avbryts beror på den fördröjnings gräns som anges av användarna i deras skal uppsättnings modell konfiguration.
@@ -67,7 +67,7 @@ När du har aktiverat *scheduledEventsProfile* i skalnings uppsättnings modelle
 >Avsluta meddelanden i skalnings uppsättnings instanser kan bara aktive ras med API version 2019-03-01 och senare
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-När du skapar en ny skalnings uppsättning kan du aktivera meddelanden om uppsägning i skalnings uppsättningen med hjälp av cmdleten [New-AzVmssVM](/powershell/module/az.compute/new-azvmss) .
+När du skapar en ny skalnings uppsättning kan du aktivera meddelanden om uppsägning i skalnings uppsättningen med hjälp av cmdleten [New-AzVmss](/powershell/module/az.compute/new-azvmss) .
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -84,7 +84,7 @@ New-AzVmss `
 
 Exemplet ovan skapar en ny skalnings uppsättning med avsluta meddelanden aktiverade med en standard tids gräns på 5 minuter. När du skapar en ny skalnings uppsättning kräver inte parametern *TerminateScheduledEvents* ett värde. Om du vill ändra timeout-värdet anger du önskad tids gräns via parametern *TerminateScheduledEventNotBeforeTimeoutInMinutes* .
 
-Använd cmdleten [Update-AzVmssVM](/powershell/module/az.compute/update-azvmss) för att aktivera avslutnings meddelanden för en befintlig skalnings uppsättning.
+Använd cmdleten [Update-AzVmss](/powershell/module/az.compute/update-azvmss) för att aktivera avslutnings meddelanden för en befintlig skalnings uppsättning.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -152,13 +152,13 @@ Se till att varje virtuell dator i skalnings uppsättningen bara godkänner Even
 
 Du kan också referera till exempel skript för frågor och svar på händelser med hjälp av [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) och [python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
-## <a name="tips-and-best-practices"></a>Tips och metod tips
+## <a name="tips-and-best-practices"></a>Tips och regelverk
 -   Avsluta endast meddelanden på Delete-åtgärder – alla borttagnings åtgärder (manuell borttagning eller autoskalning initierad skalning-i) genererar avslutande händelser om skalnings uppsättningen har *scheduledEventsProfile* aktive rad. Andra åtgärder, t. ex. omstart, avbildning, omdistribution och stoppa/frigör genererar inte avslutande händelser. Det går inte att aktivera meddelanden för virtuella datorer med låg prioritet.
 -   Ingen obligatorisk vänte tid för timeout – du kan starta åtgärden avsluta när som helst efter att händelsen har mottagits och innan händelsens *NotBefore* tid upphör att gälla.
 -   Obligatorisk borttagning vid timeout – för hands versionen ger inte möjlighet att förlänga timeout-värdet efter att en händelse har genererats. När tids gränsen har gått ut bearbetas den väntande avslutnings händelsen och den virtuella datorn tas bort.
 -   Ändrings Bart timeout-värde – du kan ändra timeout-värdet när som helst innan en instans tas bort, genom att ändra egenskapen *notBeforeTimeout* i skalnings uppsättnings modellen och uppdatera VM-instanserna till den senaste modellen.
--   Godkänn alla väntande borttagningar – om det finns en väntande borttagning på VM_1 som inte har godkänts, och du har godkänt en annan avbrotts händelse på VM_2, så tas VM_2 inte bort förrän händelsen Avsluta händelse för VM_1 har godkänts eller om tids gränsen har gått ut. När du godkänner händelsen Avsluta för VM_1 raderas både VM_1 och VM_2.
--   Godkänn alla samtidiga borttagningar – genom att utöka exemplet ovan, om VM_1 och VM_2 har samma *NotBefore* -tid, måste båda säga upp-händelserna godkännas eller så tas ingen virtuell dator bort innan tids gränsen upphör att gälla.
+-   Godkänn alla väntande borttagningar – om det finns en väntande borttagning på VM_1 som inte har godkänts, och du har godkänt en annan avbrotts händelse på VM_2, tas VM_2 inte bort förrän avbrotts händelsen för VM_1 har godkänts eller om tids gränsen har gått ut. När du godkänner händelsen Avsluta för VM_1 raderas både VM_1 och VM_2.
+-   Godkänn alla samtidiga borttagningar – utöka ovanstående exempel, om VM_1 och VM_2 har samma *NotBefore* -tid måste båda säga upp-händelserna godkännas eller så tas ingen virtuell dator bort innan tids gränsen upphör att gälla.
 
 ## <a name="troubleshoot"></a>Felsökning
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Det gick inte att aktivera scheduledEventsProfile

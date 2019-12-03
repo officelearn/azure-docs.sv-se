@@ -10,14 +10,14 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1320448b88fa3851196a3dfcb3107921721d364d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133082"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707669"
 ---
-# <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
+# <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskin inlärning?
 
 Automatisk maskin inlärning, som även kallas automatiserad ML, är en process för att automatisera tids krävande, repetitiva uppgifter om utveckling av Machine Learning-modeller. Det gör det möjligt för data experter, analytiker och utvecklare att bygga ML-modeller med hög skalbarhet, effektivitet och produktivitet samtidigt som modell kvaliteten försämras. Automatisk ML baseras på en Ban brytande från vår [Microsoft Research-avdelning](https://arxiv.org/abs/1705.05355).
 
@@ -98,7 +98,7 @@ Ytterligare avancerade för bearbetnings-och funktionalisering är också tillg�
 
 + Azure Machine Learning Studio: Välj **inställningarna för Visa funktionalisering** i avsnittet **konfigurations körning** [med de här stegen](how-to-create-portal-experiments.md).
 
-+ Python SDK: Ange `"feauturization": auto' / 'off' / FeaturizationConfig` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Python SDK: Ange `"feauturization": auto' / 'off' / FeaturizationConfig` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Tidsserieprognoser

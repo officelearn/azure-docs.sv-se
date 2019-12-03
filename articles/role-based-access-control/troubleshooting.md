@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456816"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707782"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -90,7 +90,7 @@ På samma sätt visas en tom `principalName`om du anger den här roll tilldelnin
 }
 ```
 
-Det är inte ett problem att lämna roll tilldelningarna, men du kan ta bort dem med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-role-assignments), [Azure POWERSHELL](role-assignments-powershell.md#remove-access)eller [Azure CLI](role-assignments-cli.md#remove-access)
+Det är inte ett problem att lämna roll tilldelningarna, men du kan ta bort dem med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure POWERSHELL](role-assignments-powershell.md#remove-a-role-assignment)eller [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
 Om du försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet i PowerShell och fler än en roll tilldelning matchar dina parametrar visas följande fel meddelande: "den angivna informationen mappas inte till en roll tilldelning". Följande visar ett exempel på fel meddelandet:
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186428"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707651"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -26,10 +26,10 @@ Den här artikeln sammanfattar och förklarar skillnaderna i syntax och beteende
 
 Det finns vissa PaaS-begränsningar som introduceras i den hanterade instansen och vissa beteende ändringar jämfört med SQL Server. Skillnaderna är indelade i följande kategorier:<a name="Differences"></a>
 
-- [Tillgänglighet](#availability) inkluderar skillnaderna i [Always on](#always-on-availability) och [backups](#backup).
+- [Tillgänglighet](#availability) inkluderar skillnaderna i [Always on-tillgänglighetsgrupper](#always-on-availability-groups) och [säkerhets kopior](#backup).
 - [Säkerhet](#security) omfattar skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), [kryptografiproviders](#cryptographic-providers), [inloggningar och användare](#logins-and-users)samt [tjänst nyckeln och tjänstens huvud nyckel](#service-key-and-service-master-key).
 - [Konfigurationen](#configuration) inkluderar skillnaderna i [tillägg för buffertpooltillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels), [databas spegling](#database-mirroring), [databas alternativ](#database-options), [SQL Server Agent](#sql-server-agent)och [tabell alternativ](#tables).
-- [Funktionerna](#functionalities) omfattar [bulk INSERT/OpenRowSet](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [FILESTREAM och FileTable](#filestream-and-filetable), [full text Semantisk sökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [PolyBase](#polybase), [replikering](#replication), [återställning](#restore-statement), [Service Broker](#service-broker), [lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-and-triggers).
+- [Funktionerna](#functionalities) omfattar [bulk INSERT/OpenRowSet](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [FILESTREAM och FileTable](#filestream-and-filetable), [hel texts semantisk sökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [PolyBase](#polybase), [replikering](#replication), [återställning](#restore-statement), [Service Broker](#service-broker), [lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-and-triggers).
 - [Miljö inställningar](#Environment) som virtuella nätverk och under näts konfiguration.
 
 De flesta av dessa funktioner är arkitektur begränsningar och representerar tjänst funktioner.
@@ -38,7 +38,7 @@ Den här sidan förklarar även [tillfälliga kända problem](#Issues) som uppt�
 
 ## <a name="availability"></a>Tillgänglighet
 
-### <a name="always-on-availability"></a>Always on
+### <a name="always-on-availability-groups"></a>Always on-tillgänglighetsgrupper
 
 [Hög tillgänglighet](sql-database-high-availability.md) är inbyggt i en hanterad instans och kan inte styras av användare. Följande uttryck stöds inte:
 
@@ -95,7 +95,7 @@ Viktiga skillnader i `CREATE AUDIT` syntax för granskning till Azure Blob Stora
 - Det finns en ny syntax `TO URL` som du kan använda för att ange URL: en för Azure Blob storage-behållaren där `.xel`-filerna placeras.
 - Syntaxen `TO FILE` stöds inte eftersom en hanterad instans inte kan komma åt Windows-filresurser.
 
-Mer information finns i: 
+Mer information finns här: 
 
 - [SKAPA SERVER GRANSKNING](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -163,7 +163,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
     - Exportera en databas från en hanterad instans och importera till SQL Server (version 2012 eller senare).
       - I den här konfigurationen skapas alla Azure AD-användare som SQL Database-Huvudkonton (användare) utan inloggningar. Typ av användare visas som SQL (synlig som SQL_USER i sys. database_principals). Deras behörigheter och roller finns kvar i SQL Server metadata för databasen och kan användas för personifiering. De kan dock inte användas för att komma åt och logga in på SQL Server med sina autentiseringsuppgifter.
 
-- Endast huvud inloggningen på server nivå, som skapas av den hanterade instans etablerings processen, medlemmar i Server rollerna, till exempel `securityadmin` eller `sysadmin`eller andra inloggningar med ändra INLOGGNINGs behörighet på server nivå kan skapa Azure AD server säkerhets objekt (inloggningar) i huvud databasen för hanterad instans.
+- Endast huvud inloggningen på server nivå, som skapas av den hanterade instans etablerings processen, medlemmar i Server rollerna, till exempel `securityadmin` eller `sysadmin`eller andra inloggningar med ändra INLOGGNINGs behörighet på server nivå kan skapa Azure AD server-huvudobjekt (inloggningar) i Master-databasen för hanterad instans.
 - Om inloggningen är ett SQL-huvud kan endast inloggningar som är en del av `sysadmin`-rollen använda kommandot Skapa för att skapa inloggningar för ett Azure AD-konto.
 - Azure AD-inloggningen måste vara medlem i en Azure AD i samma katalog som används för Azure SQL Database Hanterad instans.
 - Azure AD server-Huvudkonton (inloggningar) visas i Object Explorer som börjar med SQL Server Management Studio 18,0 Preview 5.
@@ -389,7 +389,7 @@ Länkade servrar i hanterade instanser har stöd för ett begränsat antal mål:
 - Länkade servrar har inte stöd för distribuerade skrivbara transaktioner (MS DTC).
 - Mål som inte stöds är filer, Analysis Services och andra RDBMS. Försök att använda intern CSV-import från Azure Blob Storage att använda `BULK INSERT` eller `OPENROWSET` som ett alternativ för fil import.
 
-Åtgärder
+Operations
 
 - Skriv transaktioner över instanser stöds inte.
 - `sp_dropserver` stöds för att släppa en länkad server. Se [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
@@ -526,7 +526,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 - Antalet virtuella kärnor och typer av instanser som du kan distribuera i en region har vissa [begränsningar och begränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Det finns vissa [säkerhets regler som måste tillämpas på under nätet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-### <a name="vnet"></a>Virtuellt nätverk
+### <a name="vnet"></a>VNET
 - VNet kan distribueras med hjälp av resurs modellen – den klassiska modellen för VNet stöds inte.
 - När en hanterad instans har skapats går det inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resurs grupp eller prenumeration.
 - Vissa tjänster, till exempel App Service miljöer, Logic Apps och hanterade instanser (som används för geo-replikering, Transaktionsreplikering eller via länkade servrar) kan inte komma åt hanterade instanser i olika regioner om deras virtuella nätverk är anslutna med [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
@@ -569,7 +569,7 @@ Löpande `RESTORE`-instruktion, migrering av datamigrerings tjänsten och inbygg
 
 **Datum:** Sep 2019
 
-[Resource Governor](/sql/relational-databases/resource-governor/resource-governor) funktion som gör att du kan begränsa de resurser som är tilldelade till användarens arbets belastning kan klassificera vissa användares arbets belastning efter redundansväxling eller en användarinitierad ändring av tjänst nivån (till exempel ändringen av Max vCore eller Max instans lagrings storlek).
+[Resource Governor](/sql/relational-databases/resource-governor/resource-governor) funktionen som gör att du kan begränsa de resurser som är tilldelade till användarens arbets belastning kan klassificera vissa användares arbets belastning efter redundansväxling eller en användarinitierad ändring av tjänst nivån (till exempel ändringen av Max vCore eller maximal instans lagrings storlek).
 
 **Lösning**: kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av SQL Agent-jobbet som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 

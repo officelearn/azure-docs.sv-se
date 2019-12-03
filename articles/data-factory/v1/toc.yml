@@ -150,9 +150,9 @@
         - name: .NET-anpassad aktivitet
           href: data-factory-use-custom-activities.md
         - name: Anropa R-skript
-          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample'
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample'
         - name: Bearbeta modeller på nytt i Azure Analysis Services
-          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample'
         - name: Länkade tjänster för Compute
           href: data-factory-compute-linked-services.md
     - name: Utveckla

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: e33a7a1360a837df08725b2e592973b465dff38c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4443d1117d0dd08cbe2fe89b8ca8465c0c7083f8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954228"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706941"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Kom igång med IoT Hub modulens identitet och modul (C)
 
@@ -190,7 +190,9 @@ I det här avsnittet skapar du en C-app på din simulerade enhet som uppdaterar 
 
     ![Information om Azure-portalmodulen](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
-2. **Skapa UpdateModuleTwinReportedProperties-app** Lägg till följande `using`-instruktioner överst i **program.cs** -filen:
+2. **Skapa UpdateModuleTwinReportedProperties-app**
+   
+   Lägg till följande i din C-fil:
 
     ```C
     #include <stdio.h>
@@ -383,7 +385,7 @@ int main(void)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
+För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, se:
 
 * [Komma igång med enhets hantering](iot-hub-node-node-device-management-get-started.md)
 * [Komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

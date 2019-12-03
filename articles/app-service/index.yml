@@ -3,15 +3,10 @@ documentType: LandingData
 title: Dokumentation om App Service
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: 'Dokumentation om Azure App Service – självstudier, API-referens'
-  meta.description: 'Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.'
-  services: app-service
-  author: georgewallace
-  manager: gwallace
-  ms.service: app-service
+  title: Dokumentation om Azure App Service
+  meta.description: 'Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.'
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: gwallace
 abstract:
   description: 'Med Azure App Service kan du skapa och vara värd för webbappar, mobila serverdelar och RESTful-API:er i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.'
   aside:

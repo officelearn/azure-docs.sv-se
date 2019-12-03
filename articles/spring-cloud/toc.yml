@@ -26,7 +26,9 @@
       href: spring-cloud-tutorial-scale-manual.md
     - name: Övervaka ditt program med hjälp av distribuerad spårning och App Insights
       href: spring-cloud-tutorial-distributed-tracing.md
-    - name: Bind ditt program till Azure CosmosDB
+    - name: Övervaka Spring Cloud-resurser med aviseringar och åtgärdsgrupper
+      href: spring-cloud-tutorial-alerts-action-groups.md
+    - name: Binda ditt program till Azure CosmosDB
       href: spring-cloud-tutorial-bind-cosmos.md
     - name: Bind ditt program med Azure Cache for Redis
       href: spring-cloud-tutorial-bind-redis.md

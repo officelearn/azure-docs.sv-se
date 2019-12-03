@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9aeef3a2f6a43346a7637c3e2497979632b04762
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5ef9774e63995e00e2a193f3d97b3bbe181f07c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683278"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703900"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till eller från Azure Blob Storage med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -48,9 +48,9 @@ Du kan kopiera data från följande data lager **till Azure Blob Storage**:
 > [!IMPORTANT]
 > Kopierings aktiviteten stöder kopiering av data från/till både generella Azure Storage konton och frekvent/låg frekvent blob-lagring. Aktiviteten har stöd för **läsning från block-, tilläggs-eller sid-blobar**, men stöder **skrivning enbart till block-blobar**. Azure Premium Storage stöds inte som mottagare eftersom den backas upp av Page blobbar.
 >
-> Kopierings aktiviteten tar inte bort data från källan när data har kopierats till målet. Om du behöver ta bort källdata efter en lyckad kopiering skapar du en [anpassad aktivitet](data-factory-use-custom-activities.md) för att ta bort data och använder aktiviteten i pipelinen. Ett exempel finns i [ta bort BLOB-eller Folder-exempel på GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity).
+> Kopierings aktiviteten tar inte bort data från källan när data har kopierats till målet. Om du behöver ta bort källdata efter en lyckad kopiering skapar du en [anpassad aktivitet](data-factory-use-custom-activities.md) för att ta bort data och använder aktiviteten i pipelinen. Ett exempel finns i [ta bort BLOB-eller Folder-exempel på GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från en Azure-Blob Storage med hjälp av olika verktyg/API: er.
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Den här artikeln innehåller en [genom gång](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) av hur du skapar en pipeline för att kopiera data från en Azure Blob Storage plats till en annan Azure Blob Storage plats. En själv studie kurs om hur du skapar en pipeline för att kopiera data från en Azure-Blob Storage till Azure SQL Database finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
@@ -85,7 +85,7 @@ Data Factory stöder följande CLS-kompatibla .NET-baserade typ värden för att
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Ja |
-| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Nej |
+| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Nej |
 | partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i avsnittet om att [använda partitionedBy-egenskapen](#using-partitionedby-property) . |Nej |
 | formatering | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Nej |
 | komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
@@ -164,17 +164,17 @@ I det här avsnittet beskrivs det resulterande beteendet för kopierings åtgär
 
 | rekursiva | copyBehavior | Resulterande beteende |
 | --- | --- | --- |
-| true |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med samma struktur som källan<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| true |flattenHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
-| true |mergeFiles |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2 + File3 + File4 + innehåll i fil 5 sammanfogas till en fil med automatiskt genererat fil namn |
-| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
-| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/><br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
-| false |mergeFiles |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2-innehåll sammanfogas till en fil med automatiskt genererat fil namn. automatiskt genererat namn för fil1<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| sant |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med samma struktur som källan<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| sant |flattenHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
+| sant |mergeFiles |För en källmapp Mapp1 med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2 + File3 + File4 + innehåll i fil 5 sammanfogas till en fil med automatiskt genererat fil namn |
+| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/><br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |mergeFiles |För en källmapp Mapp1 med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2-innehåll sammanfogas till en fil med automatiskt genererat fil namn. automatiskt genererat namn för fil1<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
 
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Genom gång: Använd kopiera guiden för att kopiera data till/från Blob Storage
 Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage. I den här genom gången är både käll-och mål data lager av typen: Azure Blob Storage. Pipelinen i den här genom gången kopierar data från en mapp till en annan mapp i samma BLOB-behållare. Den här genom gången är avsiktligt enkel att Visa inställningar eller egenskaper när du använder Blob Storage som källa eller mottagare.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 1. Skapa ett allmänt **Azure Storage konto** om du inte redan har ett. Du använder Blob Storage som både **käll** -och **mål** data lager i den här genom gången. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 2. Skapa en BLOB-behållare med namnet **adfblobconnector** i lagrings kontot.
 4. Skapa en mapp med namnet **inmatade** i behållaren **adfblobconnector** .
@@ -185,7 +185,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     ```
 
 ### <a name="create-the-data-factory"></a>Skapa data fabriken
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **skapa en resurs** i det övre vänstra hörnet, klicka på **information + analys**och klicka på **Data Factory**.
 3. I fönstret **ny data fabrik** :  
     1. Ange **ADFBlobConnectorDF** som **namn**. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: `*Data factory name “ADFBlobConnectorDF” is not available`ändrar du namnet på data fabriken (till exempel yournameADFBlobConnectorDF) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
@@ -208,7 +208,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     4. Behåll inställningarna för **återkommande mönster**. Den här aktiviteten kör dagligen mellan start-och slut tiderna som du anger i nästa steg.
     5. Ändra **start datum tiden** till **04/21/2017**.
     6. Ändra **slutdatumets tid** till **04/25/2017**. Du kanske vill ange datumet i stället för att bläddra i kalendern.
-    8. Klicka på **Nästa**.
+    8. Klicka på **Next**.
         ![kopierings verktyget – sidan Egenskaper](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
 3. På sidan **Källans datalager** klickar du på ikonen **Azure blobblagring**. Du kan använda den här sidan till att ange källans datalager för kopieringsaktiviteten. Du kan använda en länkad tjänst för ett befintligt datalager (eller) ange ett nytt datalager. Om du vill använda en befintlig länkad tjänst väljer du **från befintliga länkade tjänster** och väljer rätt länkad tjänst.
     ![kopierings verktyget – sidan käll data lager](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
@@ -217,7 +217,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     2. Kontrollera att alternativet **Från Azure-prenumerationer** har valts för **Metod för kontoval**.
     3. Välj din Azure-prenumeration eller Behåll **Välj alla** för **Azure-prenumeration**.
     4. Välj ett **Azure-lagringskonto** i listan med Azure-lagringskonton som är tillgängliga för den prenumeration som du har valt. Du kan också välja att ange inställningar för lagrings kontot manuellt genom att välja alternativet **ange manuellt** för **val metoden konto**.
-    5. Klicka på **Nästa**.  
+    5. Klicka på **Next**.  
         ![kopierings verktyget – ange Azure Blob Storage-kontot](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. På sidan **Välj indatafil eller mapp**:
     1. Dubbelklicka på **adfblobcontainer**.
@@ -228,7 +228,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     2. Ange inte **kopierings filen rekursivt**. Välj det här alternativet för att rekursivt bläddra igenom mappar efter filer som ska kopieras till målet.
     3. Gör inte alternativet för **binär kopia** . Välj det här alternativet om du vill göra en binär kopia av käll filen till målet. Välj inte för den här genom gången så att du kan se fler alternativ på nästa sida.
     4. Bekräfta att **komprimerings typen** är inställd på **ingen**. Välj ett värde för det här alternativet om källfilerna komprimeras i något av de format som stöds.
-    5. Klicka på **Nästa**.
+    5. Klicka på **Next**.
     Verktyget ![kopiering – Välj indatafilen eller mappen](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. På den **formatinställningar** kan du se avgränsare och det schema som upptäcks automatiskt i guiden genom att parsa filen.
     1. Bekräfta följande alternativ:  
@@ -250,7 +250,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     2. Kontrollera att alternativet **Från Azure-prenumerationer** har valts för **Metod för kontoval**.
     3. Välj din Azure-**prenumeration**.
     4. Välj ditt Azure Storage-konto.
-    5. Klicka på **Nästa**.
+    5. Klicka på **Next**.
 10. På sidan **Välj utdatafil eller mapp** :  
     1. Ange **mappsökväg** som **adfblobconnector/output/{year}/{month}/{Day}** . **Fliken**ange.
     1. För **året**väljer du **åååå**.
@@ -258,7 +258,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     1. Bekräfta att den är inställd på **DD**för **dagen**.
     1. Bekräfta att **komprimerings typen** är inställd på **ingen**.
     1. Bekräfta att **kopierings beteendet** är inställt på **sammanfoga filer**. Om utdatafilen med samma namn redan finns, läggs det nya innehållet till i samma fil i slutet.
-    1. Klicka på **Nästa**.
+    1. Klicka på **Next**.
        Verktyget ![kopiering – Välj utdatafil eller mapp](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. På sidan **fil formats inställningar** granskar du inställningarna och klickar på **Nästa**. Ett av de ytterligare alternativen här är att lägga till en rubrik i utdatafilen. Om du väljer det alternativet läggs en rubrik rad till med namnen på kolumnerna från källans schema. Du kan byta namn på standard kolumn namnen när du visar schemat för källan. Du kan till exempel ändra den första kolumnen till förnamnet och andra kolumnen till efter namn. Sedan genereras utdatafilen med ett huvud med dessa namn som kolumn namn.
     ![kopierings verktyg – inställningar för fil format för mål](media/data-factory-azure-blob-connector/file-format-destination.png)

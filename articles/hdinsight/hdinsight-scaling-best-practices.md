@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 11/22/2019
+ms.openlocfilehash: 15d44f95cccf15fd0f7615655f5bbac1b0c35127
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161963"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706063"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -31,11 +31,11 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 
 |Checker | Beskrivning|
 |---|---|
-|[PowerShell-AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - \<kluster namn >-TargetInstanceCount \<NewSize >|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - \<kluster namn >-TargetInstanceCount \<NewSize >|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resurs \<grupp resurs grupp >-namn \<kluster namn >--mål instans antal \<NewSize >|
-|[Azure CLI](hdinsight-administer-use-command-line.md)|Azure HDInsight-kluster ändra \<storlek på \<kluster kluster > mål instans antal > |
-|[Azure Portal](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
+|[PowerShell-AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -kluster namn \<kluster namn >-TargetInstanceCount \<NewSize >|
+|[PowerShell-AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -kluster namn \<kluster namn >-TargetInstanceCount \<NewSize >|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resurs grupp \<resurs grupp >--Name \<kluster namn >--Target-instance-Count \<NewSize >|
+|[Azure CLI](hdinsight-administer-use-command-line.md)|storlek på Azure HDInsight-kluster ändra storlek \<kluster namn > \<mål instans antal > |
+|[Azure-portalen](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
 
 ![Alternativet Azure Portal skalnings kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
@@ -114,7 +114,7 @@ Om du vill se en lista över väntande och pågående jobb kan du använda garn 
 
     ![Apache Ambari Quick Links ResourceManager-gränssnitt](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Du kan komma åt användar gränssnittet för ResourceManager `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`direkt med.
+Du kan komma åt användar gränssnittet för ResourceManager direkt med `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 Du ser en lista över jobb, tillsammans med deras aktuella status. I skärm bilden finns ett jobb som körs för tillfället:
 
@@ -136,7 +136,7 @@ yarn application -kill "application_1499348398273_0003"
 
 När du skalar ned ett kluster använder HDInsight Apache Ambari Management Interfaces för att först inaktivera de extra arbetsnoderna, som replikerar deras HDFS-block till andra online Worker-noder. Därefter skalar HDInsight säkert klustret. HDFS försätts i fel säkert läge under skalnings åtgärden och kommer att tas ut när skalningen är slutförd. I vissa fall fastnar HDFS i fel säkert läge under en skalnings åtgärd på grund av fil block under replikering.
 
-Som standard konfigureras HDFS med `dfs.replication` inställningen 3, som styr hur många kopior av varje fil block som är tillgängliga. Varje kopia av ett fil block lagras på en annan nod i klustret.
+Som standard konfigureras HDFS med en `dfs.replication` inställning på 1, som styr hur många kopior av varje fil block som är tillgängliga. Varje kopia av ett fil block lagras på en annan nod i klustret.
 
 När HDFS upptäcker att det förväntade antalet block kopior inte är tillgängligt, så kommer HDFS att gå in i fel säkert läge och Ambari genererar aviseringar. Om HDFS går in i fel säkert läge för en skalnings åtgärd, men det inte går att avsluta fel säkert läge eftersom antalet noder som krävs inte har identifierats för replikering, kan klustret fastna i fel säkert läge.
 
@@ -150,7 +150,7 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Du kan granska namn-nodens loggar från `/var/log/hadoop/hdfs/` mappen, vid den tidpunkt då klustret skalades, för att se när det angivits i fel säkert läge. Loggfilerna heter `Hadoop-hdfs-namenode-hn0-clustername.*`.
+Du kan granska namn-nodens loggar från `/var/log/hadoop/hdfs/`-mappen, vid den tidpunkt då klustret skalades, för att se när det skrevs i fel säkert läge. Loggfilerna heter `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
 Rotor saken till föregående fel är att Hive är beroende av temporära filer i HDFS när frågor körs. När HDFS går in i fel säkert läge kan Hive inte köra frågor eftersom det inte går att skriva till HDFS. De temporära filerna i HDFS finns på den lokala enheten som är monterad på de enskilda arbetsnoderna VM: ar och replikeras bland andra arbetsnoder på tre repliker, minst.
 
@@ -159,7 +159,7 @@ Rotor saken till föregående fel är att Hive är beroende av temporära filer 
 Det finns flera sätt att förhindra att HDInsight lämnas i fel säkert läge:
 
 * Stoppa alla Hive-jobb innan du skalar ned HDInsight. Du kan också schemalägga skalnings processen för att undvika konflikter med körning av Hive-jobb.
-* Rensa Hives tillfälliga `tmp` katalogfiler manuellt i HDFS innan du skalar ned.
+* Rensa Hive-mappens Scratch `tmp`-katalogfiler manuellt i HDFS innan du skalar ned.
 * Skala bara ned HDInsight till tre arbetsnoder, minimum. Undvik att gå så lågt som en arbetsnod.
 * Kör kommandot för att lämna fel säkert läge vid behov.
 
@@ -175,7 +175,7 @@ Om du stoppar Hive-jobb före skalning, bidrar till att minimera antalet virtuel
 
 Om Hive har lämnat kvar temporära filer kan du rensa filerna manuellt innan du skalar ned för att undvika fel säkert läge.
 
-1. Kontrol lera vilken plats som används för temporära Hive-filer genom att `hive.exec.scratchdir` titta på konfigurations egenskapen. Den här parametern anges inom `/etc/hive/conf/hive-site.xml`:
+1. Kontrol lera vilken plats som används för temporära Hive-filer genom att titta på konfigurations egenskapen `hive.exec.scratchdir`. Den här parametern anges i `/etc/hive/conf/hive-site.xml`:
 
     ```xml
     <property>
@@ -185,7 +185,7 @@ Om Hive har lämnat kvar temporära filer kan du rensa filerna manuellt innan du
     ```
 
 1. Stoppa Hive-tjänster och se till att alla frågor och jobb är slutförda.
-2. Ange innehållet i den tillfälliga katalogen `hdfs://mycluster/tmp/hive/` som finns ovan för att se om den innehåller några filer:
+2. Ange innehållet i den tillfälliga katalogen som finns ovan, `hdfs://mycluster/tmp/hive/` för att se om den innehåller några filer:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive

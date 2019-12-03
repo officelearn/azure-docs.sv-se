@@ -1,6 +1,6 @@
 ---
 title: Ansluta till ett peer-nätverk i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du ansluter ditt labbnätverk med ett annat nätverk som peer. Till exempel ansluta ditt lokala skola/universitet nätverk med övningen virtuellt nätverk i Azure.
+description: Lär dig hur du ansluter ditt labb nätverk till ett annat nätverk som en peer. Du kan till exempel ansluta ditt lokala skol-/University-nätverk med Labbets virtuella nätverk i Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411005"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701672"
 ---
-# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ansluta ditt labb nätverk med en peer virtuellt nätverk i Azure Lab Services 
-Den här artikeln innehåller information om peering labs nätverket med ett annat nätverk. 
+# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Anslut ditt labb nätverk till ett peer-virtuellt nätverk i Azure Lab Services 
+Den här artikeln innehåller information om peering The Labs Network med ett annat nätverk. 
 
 ## <a name="overview"></a>Översikt
-Virtuell nätverkspeering kan du smidigt ansluta virtuella Azure-nätverk. När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peerkopplade virtuella nätverk dirigeras via Microsoft-stamnätsinfrastrukturen, nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk genom endast privata IP-adresser. Mer information finns i [peerkoppling av virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md).
+Med peering för virtuella nätverk kan du sömlöst ansluta virtuella Azure-nätverk. När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplat virtuella nätverk dirigeras via Microsoft stamnät-infrastrukturen, ungefär som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk, via privata IP-adresser. Mer information finns i [peering för virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md).
 
-Du kan behöva ansluta ditt labb nätverk med ett peer virtuellt nätverk i vissa scenarier, inklusive följande:
+Du kan behöva ansluta ditt labbs nätverk till ett peer-virtuellt nätverk i vissa scenarier, inklusive följande:
 
-- De virtuella datorerna i laboratoriet har program som ansluter till lokala servrar för fjärrskrivbordslicenser att förvärva licens
-- De virtuella datorerna i labbet behöver åtkomst till datauppsättningar (eller andra filer) på university's nätverksresurser. 
+- De virtuella datorerna i labbet har program vara som ansluter till lokala licens servrar för att erhålla licens
+- De virtuella datorerna i labbet behöver åtkomst till data uppsättningar (eller andra filer) på Universitys nätverks resurser. 
 
-Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [ExpressRoute](../../expressroute/expressroute-introduction.md) eller [virtuell nätverksgateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). De här tjänsterna måste ställas in utanför Azure Lab Services. Mer information om hur du ansluter ett lokalt nätverk till Azure med ExpressRoute, finns i [översikt över ExpressRoute]) (.. /expressroute/expressroute-Introduction.MD). För lokal anslutning med hjälp av en virtuell nätverksgateway, gateway, angivna virtuella nätverket och labb-kontot måste vara i samma region.
+Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [ExpressRoute](../../expressroute/expressroute-introduction.md) eller [Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Dessa tjänster måste konfigureras utanför Azure Lab Services. Mer information om hur du ansluter ett lokalt nätverk till Azure med hjälp av ExpressRoute finns i [Översikt över ExpressRoute](../../expressroute/expressroute-introduction.md). För lokal anslutning med en Virtual Network Gateway måste gatewayen, det angivna virtuella nätverket och labb kontot vara i samma region.
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera vid tidpunkten för labb har skapats
-När nya lab kontot skapas kan du välja ett befintligt virtuellt nätverk som visas i den **Peerkopplade virtuella nätverket** listrutan. Det valda virtuella nätverket är connected(peered) till övningar som skapats under kontot labb. Alla virtuella datorer i labb som skapas efter att den här ändringen ha åtkomst till resurser i det peer-kopplade virtuella nätverket. 
+## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera när labb kontot skapas
+När du skapar ett nytt labb konto kan du välja ett befintligt virtuellt nätverk som visas i list rutan **peer Virtual Network** . Det valda virtuella nätverket är anslutet (peer-kopplat) till labb som skapats under labb kontot. Alla virtuella datorer i labb som skapas när den här ändringen har gjorts har till gång till resurserna i det peer-virtuella nätverket. 
 
-![Välj virtuellt nätverk som peer-koppla](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
+![Välj VNet till peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
 > [!NOTE]
-> Detaljerade stegvisa instruktioner för att skapa ett labbkonto finns i [konfigurera ett labbkonto](tutorial-setup-lab-account.md)
+> Detaljerade steg-för-steg-instruktioner för att skapa ett labb konto finns i [Konfigurera ett labb konto](tutorial-setup-lab-account.md)
 
 
 ## <a name="configure-after-the-lab-is-created"></a>Konfigurera när labbet har skapats
-Samma egenskap kan aktiveras från den **Labs configuration** fliken den **Labbkonto** sidan om du inte har ställt in en peer-nätverket vid tidpunkten för labb har skapats. Ändringar som gjorts i den här inställningen gäller enbart för labb som skapas efter ändringen. Som du ser i bilden, du kan aktivera eller inaktivera **Peerkopplade virtuella nätverket** för labb i labbkonto. 
+Du kan aktivera samma egenskap på fliken labb **konfiguration** på sidan **labb konto** om du inte har konfigurerat ett peer-nätverk när du skapade labb kontot. Ändringar som görs i den här inställningen gäller bara för de labb som skapas efter ändringen. Som du kan se i avbildningen kan du aktivera eller inaktivera ett **virtuellt dator nätverk** för labb i labb kontot. 
 
 ![Aktivera eller inaktivera VNet-peering när labbet har skapats](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-När du väljer ett virtuellt nätverk för den **Peerkopplade virtuella nätverket** fält, de **Tillåt labbskaparen att välja lab platsen** alternativet är inaktiverat. Det beror på att labs i labb-kontot måste finnas i samma region som labbkonto att ansluta till resurser i det peerkopplade virtuella nätverket. 
+När du väljer ett virtuellt nätverk för det **virtuella peer-nätverket** är alternativet **Tillåt att labb skaparen att välja labb plats** inaktiverat. Det beror på att labb i labb kontot måste finnas i samma region som labb kontot för att de ska kunna ansluta till resurser i det virtuella peer-nätverket. 
 
 > [!IMPORTANT]
-> Den här ändringen gäller enbart för labb som skapas efter att ändringen görs inte till de befintliga övningarna. 
+> Den här inställningen gäller bara för labb som skapas när ändringen har gjorts, inte i de befintliga labben. 
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -59,5 +59,5 @@ Se följande artiklar:
 - [Skapa och hantera labbkonton som administratör](how-to-manage-lab-accounts.md)
 - [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
 - [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
-- [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)
+- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)
 

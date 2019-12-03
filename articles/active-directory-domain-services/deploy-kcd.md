@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546278"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705279"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Konfigurera Kerberos-begränsad delegering (KCD) i Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ Resource-baserad KCD har kon figurer ATS med PowerShell. Du använder cmdletarna
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Konfigurera resursbaserade KCD för ett dator konto
 
-I det här scenariot antar vi att du har en webbapp som körs på datorn med namnet *contoso-webapp.contoso.com*. Webb programmet måste ha åtkomst till ett webb-API som körs på datorn med namnet *contoso-API.contoso.com* i kontexten för domän användare. Utför följande steg för att konfigurera det här scenariot:
+I det här scenariot antar vi att du har en webbapp som körs på datorn med namnet *contoso-webapp.aadds.contoso.com*. Webb programmet måste ha åtkomst till ett webb-API som körs på datorn med namnet *contoso-API.aadds.contoso.com* i kontexten för domän användare. Utför följande steg för att konfigurera det här scenariot:
 
 1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen i Azure AD DS.
 1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm], både den som kör webbappen och den som kör webb-API: t till den hanterade domänen i Azure AD DS. Skapa dessa dator konton i den anpassade ORGANISATIONSENHETen från föregående steg.
@@ -67,8 +67,8 @@ I det här scenariot antar vi att du har en webbapp som körs på datorn med nam
 1. Konfigurera därefter resursbaserade KCD med PowerShell-cmdleten [set-ADComputer][Set-ADComputer] . Kör följande cmdlets från din domänanslutna hanterings-VM och inloggad som användar konto som är medlem i gruppen *Azure AD DC-administratörer* . Ange dina egna dator namn efter behov:
     
     ```powershell
-    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
-    Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
+    Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
 ## <a name="configure-resource-based-kcd-for-a-user-account"></a>Konfigurera resursbaserade KCD för ett användar konto

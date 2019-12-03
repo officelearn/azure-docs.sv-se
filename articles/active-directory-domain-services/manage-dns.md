@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: c225be5a1123c89d8a470a8dea48b3c57eb893b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f47f112991a4fe2e5b245920db98e5ae7617161a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474581"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704939"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrera DNS i en Azure AD Domain Services hanterad domän
 
@@ -52,7 +52,7 @@ Om du vill skapa och ändra DNS-poster i Azure AD DS måste du installera verkty
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
 1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
 1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
-1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.contoso.com*, och väljer sedan **Nästa**.
+1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aadds.contoso.com*, och väljer sedan **Nästa**.
 1. På sidan **Server roller** klickar du på **Nästa**.
 1. På sidan **funktioner** expanderar du noden **verktyg för fjärrserveradministration** och expandera sedan noden **roll administrations verktyg** . Välj funktionen **verktyg för DNS-Server** från listan över roll administrations verktyg.
 
@@ -69,7 +69,7 @@ Med verktyg för DNS-server installerat kan du administrera DNS-poster på den h
 > Om du vill administrera DNS i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **DNS** installerat i föregående avsnitt. Välj **DNS** för att starta konsolen DNS-hantering.
-1. I dialog rutan **Anslut till DNS-Server** väljer **du följande dator**och anger sedan DNS-domännamnet för den hanterade domänen, till exempel *contoso.com*:
+1. I dialog rutan **Anslut till DNS-Server** väljer **du följande dator**och anger sedan DNS-domännamnet för den hanterade domänen, till exempel *aadds.contoso.com*:
 
     ![Ansluta till den hanterade Azure AD DS-domänen i DNS-konsolen](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 

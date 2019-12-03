@@ -1,6 +1,6 @@
 ---
-title: Ansluta en IoT Plug and Play för hands version till Azure IoT Central | Microsoft Docs
-description: Använd en enhets kapacitets modell för att generera enhets kod. Kör sedan enhets koden, se enheten Anslut till ditt IoT Central program och Använd de automatiskt genererade vyerna.
+title: Självstudie – ansluta en IoT Plug and Play för hands version till Azure IoT Central
+description: Den här självstudien visar hur du använder en enhets kapacitets modell för att generera enhets kod. Kör sedan enhets koden, se enheten Anslut till ditt IoT Central program och Använd de automatiskt genererade vyerna.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/08/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: be03684f89382f198c13540bbdfb3de5bf8513a6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 59261d6a1cea034df58bd7e8d53439cdf1fbae6b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404556"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702865"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Självstudie: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play-enhet och ansluta den till ditt IoT Central-program
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > * Kör enhets koden i Windows och se att den är ansluten till ditt IoT Central-program.
 > * Visa den simulerade telemetri som enheten skickar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför snabb starten [skapa ett Azure IoT Central-program (för hands versions funktioner)](./quick-deploy-iot-central.md) för att skapa ett IoT Central program med hjälp av den **anpassade appen > för hands versions program** mal len
 

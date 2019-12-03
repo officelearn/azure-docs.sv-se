@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c2ce39c40ad535b4a66349fcbb4529333218555a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7564d40aa9344288c0368818b0b6501dc22a5a27
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512670"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705510"
 ---
-Premium-SSD stöder burst-överföring på alla disk storlekar < = 512 GiB (P20 eller lägre). Dessa disk storlekar stöder burst-överföring på bästa möjliga sätt och använder ett kredit system för att hantera burst-överföring. Krediterna ackumuleras i en burst-bucke när disk trafik unders tiger det tillhandahållna prestanda målet för disk storleken, och använder krediterna när trafiken överförs bortom målet. Disk trafiken spåras mot både IOPS och bandbredden i det etablerade målet.
+Disk-burst är för närvarande en förhands gransknings funktion för Premium-SSD. Burst-överföring stöds på Premium SSD-disk storlekar < = 512 GiB (P20 eller lägre). Dessa disk storlekar stöder burst-överföring på bästa möjliga sätt och använder ett kredit system för att hantera burst-överföring. Krediterna ackumuleras i en burst-bucke när disk trafik unders tiger det tillhandahållna prestanda målet för disk storleken, och använder krediterna när trafiken överförs bortom målet. Disk trafiken spåras mot både IOPS och bandbredden i det etablerade målet.
 
 Disk-burst är aktiverat som standard på nya distributioner av disk storlekarna som stöder det. Befintliga disk storlekar, om de har stöd för disk burst, kan aktivera burst via någon av följande metoder:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196190"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707698"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning designer (för hands version)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -45,7 +45,7 @@ Designern ger dig en visuell arbets yta för att bygga, testa och distribuera ma
     + Publicera en **pipeline för batch-härledning** för att göra förutsägelser för nya data med hjälp av en tidigare tränad modell.
 + [Distribuera](#deploy) en **pipeline för real tids härledning** till en slut punkt i real tid för att göra förutsägelser om nya data i real tid.
 
-![Arbets flödes diagram för utbildning, batch-härledning och real tids härledning i designern](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![Arbets flödes diagram för utbildning, batch-härledning och real tids härledning i designern](media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -80,17 +80,17 @@ En modul är en algoritm som du kan tillämpa på dina data. Designern har ett a
 
 En modul kan ha en uppsättning parametrar som du kan använda för att konfigurera modulens interna algoritmer. När du väljer en modul på arbets ytan visas modulens parametrar i fönstret Egenskaper till höger om arbets ytan. Du kan ändra parametrarna i det här fönstret för att finjustera din modell. Du kan ställa in beräknings resurser för enskilda moduler i designern. 
 
-![Egenskaper för modul](media/ui-concept-visual-interface/properties.png)
+![Egenskaper för modul](media/concept-designer/properties.png)
 
 För viss hjälp att navigera genom biblioteket med Machine Learning-algoritmer tillgängliga, se [algoritmen & modul referens översikt](../algorithm-module-reference/module-reference.md)
 
 ## <a name="compute"></a>Beräknings resurser
 
-Använd beräknings resurser från din arbets yta för att köra din pipeline och vara värd för dina distribuerade modeller som real tids slut punkter eller pipelines slut punkter (för batch-härledning). Beräkningsmål som stöds är:
+Använd beräknings resurser från din arbets yta för att köra din pipeline och vara värd för dina distribuerade modeller som real tids slut punkter eller pipelines slut punkter (för batch-härledning). De beräknings mål som stöds är:
 
 | Beräkningsmål | Utbildning | Distribution |
 | ---- |:----:|:----:|
-| Azure Machine Learning-beräkning | ✓ | |
+| Azure Machine Learning Compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Compute-målen är kopplade till din Machine Learning- [arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
@@ -107,7 +107,7 @@ Information om hur du distribuerar din modell finns i [Självstudier: Distribuer
 
 Du kan också publicera en pipeline till en **pipeline-slutpunkt**. På samma sätt som en slut punkt i real tid kan du skicka nya pipeline-körningar från externa program med hjälp av REST-anrop för en pipeline-slutpunkt. Du kan dock inte skicka eller ta emot data i real tid med hjälp av en pipeline-slutpunkt.
 
-Publicerade pipelines är flexibla, de kan användas för att träna eller träna modeller, utföra batch-inferencing, bearbeta nya data och mycket mer. Du kan publicera flera pipelines till en enda pipeline-slutpunkt och ange vilken pipeline-version som ska köras.
+Publicerade pipelines är flexibla, de kan användas för att träna eller träna modeller, [utföra batch-inferencing](how-to-run-batch-predictions-designer.md), bearbeta nya data och mycket mer. Du kan publicera flera pipelines till en enda pipeline-slutpunkt och ange vilken pipeline-version som ska köras.
 
 En publicerad pipeline körs på de beräknings resurser som du definierar i pipeline-utkastet för varje modul.
 
@@ -122,7 +122,7 @@ Som ett resultat av dessa uppdateringar har vissa begrepp och villkor för det v
 
 | Koncept i designern | Tidigare i det visuella gränssnittet |
 | ---- |:----:|
-| Pipeline-utkast | Experiment |
+| Pipeline-utkast | Olika |
 | Slut punkt i real tid | Webbtjänst |
 
 ### <a name="migrating-to-the-designer"></a>Migrera till designern

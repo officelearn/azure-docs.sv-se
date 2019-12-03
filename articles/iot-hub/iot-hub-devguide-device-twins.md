@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a800336fb6fda8a0ed0af71f243936d29e8079e7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209719"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706833"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och Använd enheten dubbla i IoT Hub
 
@@ -21,7 +21,7 @@ ms.locfileid: "74209719"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här artikeln beskrivs:
+I den här artikeln beskrivs:
 
 * Enhetens struktur:: *taggar*, *önskade* och *rapporterade egenskaper*.
 * De åtgärder som enhets appar och Server delar kan utföra på enheten är dubbla.
@@ -119,7 +119,7 @@ I föregående exempel innehåller enheten dubbla en `batteryLevel`-egenskap som
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel används den `telemetryConfig` enheten och de rapporterade egenskaperna som används av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Till exempel:
+I föregående exempel används den `telemetryConfig` enheten och de rapporterade egenskaperna som används av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -186,12 +186,12 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
-    $iothub-message-source | twinChangeEvents |
-    $content kodning | utf-8 |
+    $iothub-meddelande källa | twinChangeEvents |
+    $content kodning | UTF-8 |
     deviceId | ID för enheten |
     hubName | Namn på IoT Hub |
     operationTimestamp | [Iso8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpel för åtgärd |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub – meddelande schema | deviceLifecycleNotification |
     opType | "replaceTwin" eller "updateTwin" |
 
     Meddelande system egenskaper föregås av `$` symbolen.
@@ -285,7 +285,7 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
 
 ## <a name="device-twin-size"></a>Enhetens dubbla storlek
 
-IoT Hub tillämpar en begränsning för 8 KB storlek på var och en av de respektive totala värdena för `tags`, `properties/desired`och `properties/reported`, förutom skrivskyddade element.
+IoT Hub tillämpar storleks gränsen på 8 KB på värdet för `tags`, och en storlek på 32 KB som är begränsad till värdet för `properties/desired` och `properties/reported`. Dessa summor är exklusivt för skrivskyddade element.
 
 Storleken beräknas genom att räkna alla tecken, förutom UNICODE-kontrolltecken (segmenten C0 och C1) och blank steg utanför String-konstanter.
 
@@ -295,7 +295,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över g
 
 IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetens dubbla önskade och rapporterade egenskaper. Tidsstämplar är UTC-formaterade och kodade i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -formatet `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Till exempel:
+Exempel:
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: anpassa instrument panelen för operatören i Azure IoT Central'
+title: Självstudie – anpassa instrument panelen för operatören i Azure IoT Central
 description: I den här självstudien visas hur du anpassar instrument panelen för operatören i ett IoT Central program och hanterar enheter.
 services: iot-central
 ms.service: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 0dcabada522bf8189d163936551ea94cb4dd2657
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: f9624f516d5f38f1db02c6a103c40d01f8dc26ca
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112912"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702689"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Självstudie: anpassa instrument panelen för operatör och hantera enheter i Azure IoT Central
 
@@ -24,7 +24,7 @@ ms.locfileid: "74112912"
 
 I den här självstudien får du som ett verktyg som beskriver hur du anpassar instrument panelen för operatören i Azure IoT Central i Store Analytics-program. Program operatörer kan använda den anpassade instrument panelen för att köra programmet och hantera anslutna enheter.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Ändra instrument panelens namn
 > * Anpassa bild paneler på instrument panelen

@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473334"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706233"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) automatisk användar etablering fören klar pr
 
 Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för att bättre förstå funktionerna.
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Inlärning
 
 Användar etablering skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -69,12 +69,12 @@ I den här artikeln används följande villkor:
 
 | Resurser| Länk och beskrivning |
 | - | - |
-| Webbseminarier på begäran| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
-| Videoklipp| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Webbseminarier on-demand| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
+| Videor| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Nätbaserade kurser| SkillUp online: [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
 | Självstudiekurser| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
-| VANLIGA FRÅGOR OCH SVAR| [Vanliga frågor](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) om automatisk användar etablering |
+| FAQ| [Vanliga frågor](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) om automatisk användar etablering |
 
 ### <a name="solution-architectures"></a>Lösningsarkitekturer
 
@@ -98,7 +98,7 @@ I det här exemplet skapas användare och grupper i en HR-databas som är anslut
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Automatisk användar etablering för enbart moln bolag
 
-I det här exemplet sker skapande av användare i Azure AD och Azure AD Provisioning-tjänsten hanterar automatisk användar etablering till mål-(SaaS)-program:
+I det här exemplet sker skapande av användare i Azure AD och Azure AD Provisioning-tjänsten hanterar automatisk användar etablering till mål-(SaaS)-program.
 
 ![Bild 2](media/auto-user-provision-dp/cloudprovisioning.png)
 
@@ -112,16 +112,17 @@ I det här exemplet sker skapande av användare i Azure AD och Azure AD Provisio
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Automatisk användar etablering för moln HR-program 
 
-I det här exemplet skapas användare och grupper i ett moln HR-program som arbets dag.
+I det här exemplet skapas användare och grupper i ett moln HR-program som arbets dag och SuccessFactors. Azure AD Provisioning-tjänsten och Azure AD Connect etablerings agenten etablerar användar data från Cloud HR App-klienten i AD. När kontona har uppdaterats i AD, synkroniseras de med Azure AD via Azure AD Connect, och attributen e-postadresser och användar namn kan skrivas tillbaka till Cloud HR App-klienten.
 
 ![Bild 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. Konton som skapats i Cloud HR system
-1. Data flödar till den lokala AD-tjänsten via Azure AD Provisioning-tjänsten och etablerings agenten.
-1. Azure AD Connect synkroniserar data till Azure AD
-1. Attributet e-post och användar namn kan skrivas tillbaka till Cloud HR-programmet.
-
-Mer information om lösnings arkitektur och distribution finns i [självstudie: Konfigurera arbets dag för automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+1.  **HR team** utför transaktionerna i Cloud HR App-klienten.
+2.  **Azure AD Provisioning-tjänsten** kör de schemalagda cyklerna från Cloud HR App-klienten och identifierar ändringar som behöver bearbetas för synkronisering med AD.
+3.  **Azure AD Provisioning-tjänsten** anropar Azure AD Connect etablerings agenten med en nytto last för begäran som innehåller AD-konto skapa/uppdatera/aktivera/inaktivera åtgärder.
+4.  **Azure AD Connect etablerings agenten** använder ett tjänst konto för att hantera AD-konto data.
+5.  **Azure AD Connect** kör delta-synkronisering för att hämta uppdateringar i AD.
+6.  **AD** -uppdateringar synkroniseras med Azure AD. 
+7.  **Azure AD Provisioning-tjänsten** tillbakaskrivningar e-postattribut och användar namn från Azure AD till Cloud HR App-klienten.
 
 ## <a name="plan-the-deployment-project"></a>Planera distributions projektet
 
@@ -292,7 +293,7 @@ Administratörer bör kontrol lera sammanfattnings rapporten för etablering fö
 
 Vi rekommenderar att du förbrukar ägande rätt till och använder dessa rapporter på en takt som uppfyller organisationens krav. Azure AD behåller de flesta gransknings data i 30 dagar.
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Se följande länkar för att felsöka eventuella problem som kan uppstå under etableringen:
 

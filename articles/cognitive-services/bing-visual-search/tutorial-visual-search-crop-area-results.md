@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Beskär en avbildning med Visuell sökning i Bing SDK'
+title: 'Självstudie: Beskär en bild med Visuell sökning i Bing SDK'
 description: Använd Visuell sökning i Bing SDK för att få insikter från vissa ar på en avbildning.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: a6b625325e2adfe441d8abd2012f100780b659b4
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 7adca44f1710431ad1095cbd0da897d4c7c7f325
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910036"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689355"
 ---
-# <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudier: Beskär en avbildning med Visuell sökning i Bing SDK förC#
+# <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudie: Beskär en avbildning med Visuell sökning i Bing SDK förC#
 
 Med Visuell sökning i Bing SDK kan du beskära en avbildning innan du hittar liknande online-avbildningar. Det här programmet Beskär en enskild person från en avbildning som innehåller flera personer och returnerar sedan Sök resultaten som innehåller liknande avbildningar som finns online.
 
@@ -31,7 +31,7 @@ Den här självstudien visar hur du:
 > * Ta emot och hantera svaret
 > * Hitta URL: er för åtgärds objekt i svaret
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
@@ -49,7 +49,7 @@ Det här programmet beskär ett del av den här avbildningen av Microsoft Senior
 
 ![Microsofts chefsteam](./media/MS_SrLeaders.jpg)
 
-Den här bilden beskärs genom att `ImageInfo` skapa ett objekt från beskärnings ytan och `ImageInfo` läsa in objektet i `VisualSearchRequest`en. `ImageInfo` Objektet innehåller även bildens URL:
+Den här bilden beskärs genom att skapa ett `ImageInfo`-objekt från beskärnings ytan och läsa in `ImageInfo`-objektet i en `VisualSearchRequest`. `ImageInfo`-objektet innehåller även URL: en för avbildningen:
 
 ```csharp
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
@@ -61,7 +61,7 @@ VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: ima
 
 ## <a name="search-for-images-similar-to-the-crop-area"></a>Sök efter bilder som liknar beskärnings ytan
 
-Variabeln `VisualSearchRequest` innehåller information om bildens beskärnings områden och dess URL. `VisualSearchMethodAsync()` Metoden hämtar resultatet:
+Variabeln `VisualSearchRequest` innehåller information om bildens beskärnings områden och dess URL. Metoden `VisualSearchMethodAsync()` hämtar resultatet:
 
 ```csharp
 Console.WriteLine("\r\nSending visual search request with knowledgeRequest that contains URL and crop area");
@@ -69,9 +69,9 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ```
 
-## <a name="get-the-url-data-from-imagemoduleaction"></a>Hämta URL-data från`ImageModuleAction`
+## <a name="get-the-url-data-from-imagemoduleaction"></a>Hämta URL-data från `ImageModuleAction`
 
-Visuell sökning i Bing resultat är `ImageTag` objekt. Varje tagg innehåller en lista med `ImageAction`-objekt. Varje `ImageAction` innehåller ett `Data` fält, som är en lista över värden som är beroende av typen av åtgärd.
+Visuell sökning i Bing resultat är `ImageTag` objekt. Varje tagg innehåller en lista med `ImageAction`-objekt. Varje `ImageAction` innehåller ett `Data` fält, vilket är en lista över värden som är beroende av typen av åtgärd.
 
 Du kan skriva ut de olika typerna med följande kod:
 
@@ -81,22 +81,22 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 Hela programmet returnerar:
 
-|Åtgärdstyp  |URL  | |
+|Åtgärds  |URL  | |
 |---------|---------|---------|
 |PagesIncluding WebSearchURL     |         |
 |MoreSizes WebSearchURL     |         |  
 |VisualSearch WebSearchURL    |         |
 |ImageById WebSearchURL     |         |  
 |RelatedSearches WebSearchURL     |         |
-|Entity -> WebSearchUrl     | https\://www.Bing.com/CR?ig=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3A%2F%2Fwww.Bing.com%2fsearch%3Fq%3dSatya%2bNadella&p=DevEx,5380.1        |
-|TopicResults -> WebSearchUrl    |  https\://www.Bing.com/CR?ig=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3A%2F%2Fwww.Bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1        |
-|ImageResults -> WebSearchUrl    |  https\://www.Bing.com/CR?ig=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3A%2F%2Fwww.Bing.com%2fimages%2fsearch%3Fq%3dSatya%2bNadella&p=DevEx,5384.1        |
+|Entitet-> WebSearchUrl     | https\://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5380.1        |
+|TopicResults-> WebSearchUrl    |  https\://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1        |
+|ImageResults-> WebSearchUrl    |  https\://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5384.1        |
 
-Som du `Entity` ser ovan innehåller åtgärds en Bing-Sök fråga som returnerar information om en identifierbar person, plats eller sak. `TopicResults`- och `ImageResults`-typerna innehåller frågor om relaterade bilder. URL:erna i listan länkar till Bings sökresultat.
+Som visas ovan innehåller `Entity` åtgärds en Bing-Sök fråga som returnerar information om en identifierbar person, plats eller sak. `TopicResults`- och `ImageResults`-typerna innehåller frågor om relaterade bilder. URL:erna i listan länkar till Bings sökresultat.
 
-## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Hämta URL: `PagesIncluding` er för bilder `ActionType`
+## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Hämta URL: er för `PagesIncluding` `ActionType` avbildningar
 
-Att hämta de faktiska bild-URL:erna kräver en omvandling som läser en `ActionType` som `ImageModuleAction`, vilken innehåller ett `Data`-element med en lista med värden. Varje värde är URL:en till en bild. Följande `PagesIncluding` skickar åtgärds typen till `ImageModuleAction` och läser värdena:
+Att hämta de faktiska bild-URL:erna kräver en omvandling som läser en `ActionType` som `ImageModuleAction`, vilken innehåller ett `Data`-element med en lista med värden. Varje värde är URL:en till en bild. Följande skickar åtgärds typen `PagesIncluding` till `ImageModuleAction` och läser värdena:
 
 ```csharp
     if (i.ActionType == "PagesIncluding")

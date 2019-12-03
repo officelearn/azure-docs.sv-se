@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128780"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672563"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -21,6 +21,7 @@ Att mata in historiska data från Sakernas Internet (IoT) för resurser som enhe
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och samlat in historiska data från IoT.
+Du måste också aktivera partner åtkomst som anges i stegen nedan.
 
 ## <a name="enable-partner-access"></a>Aktivera partner åtkomst
 
@@ -29,7 +30,7 @@ Du måste aktivera partner integrering till din Azure FarmBeats-instans. Det hä
 - API-slutpunkt – det här är data hubbens URL, till exempel https://<datahub>. azurewebsites.net
 - Klient-ID:t
 - Klientorganisations-ID
-- Klienthemlighet
+- Klient hemlighet
 - EventHub-anslutningssträng
 
 Generera följande genom att följa stegen nedan:
@@ -125,7 +126,7 @@ Om du vill göra en API-begäran kombinerar du HTTP-metoden (POST), URL: en till
 FarmBeats-datahubben använder Bearer-autentisering, som behöver följande autentiseringsuppgifter som vi skapade i avsnittet ovan.
 
 - Klientorganisations-ID
-- Klienthemlighet
+- Klient hemlighet
 - Klient-ID:t  
 
 Med hjälp av ovanstående autentiseringsuppgifter kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i rubrik avsnittet enligt följande:

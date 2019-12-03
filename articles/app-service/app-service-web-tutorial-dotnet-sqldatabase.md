@@ -1,26 +1,17 @@
 ---
-title: Skapa en ASP.NET-app med SQL Database – Azure App Service | Microsoft Docs
+title: 'Självstudie: ASP.NET-app med SQL Database'
 description: Lär dig hur du distribuerar en C# ASP.NET-app med en SQL Server-databas till Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2a0b3994af48372b8ed0a3c6eaecf4289d0980c1
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471175"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671385"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
@@ -32,7 +23,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
-> * Ansluta en ASP.NET-app till SQL Database
+> * ansluta en ASP.NET-app till SQL Database
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen
@@ -40,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -119,7 +110,7 @@ I dialogrutan **Configure App Service Plan** (Konfigurera App Service-plan) ange
 | Inställning  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
 |**App Service-plan**| myAppServicePlan | [App Service-planer](../app-service/overview-hosting-plans.md) |
-|**Plats**| Västra Europa | [Azure-regioner](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Plats**| Europa, västra | [Azure-regioner](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Storlek**| Kostnadsfri | [Prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Skapa en SQL Server-instans
@@ -128,7 +119,7 @@ Innan du skapar en databas behöver du en [logisk server för Azure SQL Database
 
 Klicka på **Skapa en SQL Database**.
 
-![Skapa en SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
+![Skapa en SQL-databas](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 Dialogrutan **Configure SQL Database** (Konfigurera SQL-databas) öppnas. Klicka på **New** (Nytt) bredvid **SQL Server**. 
 
@@ -143,9 +134,9 @@ Kom ihåg det här användarnamnet och lösenordet. Du behöver dem senare för 
 
 ![Skapa SQL Server-instans](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-Klicka på **OK**. Stäng inte dialogrutan **Configure SQL Database** (Konfigurera SQL Database) ännu.
+Klicka på **OK** Stäng inte dialogrutan **Configure SQL Database** (Konfigurera SQL Database) ännu.
 
-### <a name="create-a-sql-database"></a>Skapa en SQL Database
+### <a name="create-a-sql-database"></a>Skapa en SQL-databas
 
 I dialogrutan **Configure SQL Database** (Konfigurera SQL Database): 
 
@@ -165,7 +156,7 @@ Lägg till några att-göra-uppgifter.
 
 ![Publicerat ASP.NET-program i Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Grattis! Din datadrivna ASP.NET-app körs live i Azure App Service.
+Gratulerar! Din datadrivna ASP.NET-app körs live i Azure App Service.
 
 ## <a name="access-the-sql-database-locally"></a>Lokal åtkomst till SQL Database
 
@@ -364,7 +355,7 @@ Om du vill ändra spårningsnivåerna och ta emot andra spårningsmeddelanden sk
 
 Högerklicka på din Azure-app igen och välj **Visa inställningar**.
 
-I listrutan **Application Logging (File System)** (Programloggning (filsystem)) väljer du **Verbose** (Utförlig). Klicka på **Spara**.
+I listrutan **Application Logging (File System)** (Programloggning (filsystem)) väljer du **Verbose** (Utförlig). Klicka på **Save** (Spara).
 
 ![Ändra spårningsnivån till utförlig](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -414,7 +405,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
-> * Ansluta en ASP.NET-app till SQL Database
+> * ansluta en ASP.NET-app till SQL Database
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen

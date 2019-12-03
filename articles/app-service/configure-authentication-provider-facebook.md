@@ -1,25 +1,16 @@
 ---
-title: Konfigurera Facebook-autentisering – Azure App Service
-description: Lär dig hur du konfigurerar Facebook-autentisering för din App Service-app
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Konfigurera Facebook-autentisering
+description: Lär dig hur du konfigurerar Facebook-autentisering som en identitets leverantör för din App Service-app.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: fb8497f3b9b887e2fd06b350bcc25ac8faaa7b43
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176999"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671938"
 ---
 # <a name="configure-your-app-service-app-to-use-facebook-login"></a>Konfigurera din App Service-app att använda Facebook-inloggning
 
@@ -42,7 +33,7 @@ För att kunna slutföra proceduren i den här artikeln behöver du ett Facebook
    1. Slutför säkerhets kontrollen.
 
    Developer-instrumentpanelen för din nya Facebook-app öppnas.
-1. Välj **instrument panel** > **Facebook-inloggning** > **Konfigurera** > -**webben**.
+1. Välj **instrument panel** > **Facebook-inloggning** > **Konfigurera** > **webb**.
 1. I det vänstra navigerings fältet under **Facebook-inloggning**väljer du **Inställningar**.
 1. I fältet **giltiga OAuth-omdirigerings-URI** anger du `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback`. Kom ihåg att ersätta `<app-name>` med namnet på din Azure App Service-app.
 1. Välj **Spara ändringar**.
@@ -55,7 +46,7 @@ För att kunna slutföra proceduren i den här artikeln behöver du ett Facebook
 
 1. Det Facebook-konto som du använde för att registrera programmet är en administratör för appen. I det här läget kan endast administratörer logga in till det här programmet.
 
-   Om du vill autentisera andra Facebook-konton väljer du **program granskning** och aktiverar **\<your-App-Name > Public** så att allmänheten kan komma åt appen genom att använda Facebook-autentisering.
+   Om du vill autentisera andra Facebook-konton väljer du **program granskning** och aktiverar \<appens **namn > offentlig** för att ge allmänheten till gång till appen med hjälp av Facebook-autentisering.
 
 ## <a name="secrets"> </a>Lägga till Facebook-information i ditt program
 

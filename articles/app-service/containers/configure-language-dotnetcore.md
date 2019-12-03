@@ -1,24 +1,15 @@
 ---
-title: Konfigurera ASP.NET Core appar – Azure App Service | Microsoft Docs
-description: Lär dig hur du konfigurerar ASP.NET Core appar så att de fungerar i Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Konfigurera Linux ASP.NET Core-appar
+description: Lär dig hur du konfigurerar en fördefinierad ASP.NET Core behållare för din app. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
-ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990268"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670454"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Konfigurera en Linux ASP.NET Core-app för Azure App Service
 
@@ -81,7 +72,7 @@ Om du konfigurerar en app-inställning med samma namn i App Service och i *appSe
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** meddelande. Om du vill visa sidan detaljerad undantag i app service lägger du `ASPNETCORE_ENVIRONMENT` till appens inställning i din app genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** meddelande. Om du vill visa den detaljerade undantags sidan i App Service lägger du till inställningen `ASPNETCORE_ENVIRONMENT` app i appen genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -91,7 +82,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din app-logik behöver veta om användarnas begär Anden är krypterade eller inte, konfigurerar du de vidarebefordrade rubrikernas mellanprogram i *startup.cs*:
 
-- Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra `X-Forwarded-For` -och `X-Forwarded-Proto` -rubrikerna i. `Startup.ConfigureServices`
+- Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra `X-Forwarded-For` och `X-Forwarded-Proto` huvuden i `Startup.ConfigureServices`.
 - Lägg till privata IP-adressintervall i de kända nätverken så att mellanprogram kan lita på App Service belastningsutjämnare.
 - Anropa metoden [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) i `Startup.Configure` innan du anropar andra middlewares.
 
@@ -141,7 +132,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Använda appinställningar
 
-I <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>lägger du till en app-inställning i App Service-appen genom att köra följande CLI-kommando. *Ersätt\<App-Name >* ,  *\<resurs grupp-namn >* och  *\<projekt namn >* med lämpliga värden.
+I <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>lägger du till en app-inställning i App Service-appen genom att köra följande CLI-kommando. Ersätt *\<app-name >* , *\<resurs-grupp-namn >* och *\<projekt namn >* med lämpliga värden.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -158,7 +149,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: ASP.NET Core app med SQL Database](tutorial-dotnetcore-sqldb-app.md)
+> [Självstudie: ASP.NET Core app med SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > [Vanliga frågor och svar om App Service Linux](app-service-linux-faq.md)

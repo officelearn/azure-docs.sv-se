@@ -1,27 +1,17 @@
 ---
-title: 'Snabb start: skapa python-app på Linux – Azure App Service'
-description: Distribuera din Hello World-app skriven i Python med Azure App Service i Linux på bara några minuter.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'Snabb start: skapa en Linux python-app'
+description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första python-app till en Linux-behållare i App Service.
 ms.topic: quickstart
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 69e7cfef01005432a99dd10ed5bc7f004562e582
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 67fbffbe96bc32b6ec38fa75c1e754c7f11d38d6
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470808"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687469"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -29,7 +19,7 @@ I den här snabb starten distribuerar du en python-webbapp till [app service på
 
 Om du föredrar att distribuera appar via en IDE, se [distribuera python-appar till App Service från Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3,7</a> (python 3,6 stöds också)
@@ -182,7 +172,7 @@ När distributionen har slutförts växlar du tillbaka till webbläsarfönstret 
 
 Du kan komma åt konsol loggarna som genereras inifrån appen och den behållare där den körs. Loggar innehåller alla utdata som genereras med hjälp av `print`-instruktioner.
 
-Först aktiverar du behållar loggning genom att köra följande kommando i en Terminal, ersätta `<app-name>` med namnet på din app och `<resource-group-name>` med namnet på den resurs grupp som visas i utdata från `az webapp up` kommandot som du använde (till exempel "appsvc_rg_Linux_centralus" ):
+Börja med att aktivera behållar loggning genom att köra följande kommando i en Terminal, och ersätt `<app-name>` med namnet på din app och `<resource-group-name>` med namnet på den resurs grupp som visas i utdata för `az webapp up` kommandot som du använde (till exempel "appsvc_rg_Linux_centralus"):
 
 ```terminal
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
@@ -207,7 +197,7 @@ Om du vill stoppa logg strömningen när som helst, skriver du `Ctrl`+`C`.
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade. Sök efter och välj **app Services**.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade. Sök efter och välj **app Services**.
 
 ![Navigera till App Services i Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 

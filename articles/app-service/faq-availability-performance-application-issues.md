@@ -1,26 +1,20 @@
 ---
-title: Vanliga frågor och svar om program prestanda – Azure App Service | Microsoft Docs
-description: Få svar på vanliga frågor om tillgänglighets-, prestanda-och program problem i Web Apps funktionen i Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Vanliga frågor och svar om program prestanda
+description: Få svar på vanliga frågor om tillgänglighets-, prestanda-och program problem i Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122075"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671696"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om program prestanda för Web Apps i Azure
 
@@ -65,7 +59,7 @@ För att avbilda en minnes dum par i användarläge för din webbapp:
 1. Logga in på din [kudu-webbplats](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Välj menyn **process Utforskaren** .
 3. Högerklicka på processen **W3wp. exe** eller ditt webb jobb.
-4. Välj **Ladda ned minnes dumpning** > **fullständig dump**.
+4. Välj **Ladda ned minnesdump** > **fullständig dump**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Hur gör jag för att visa information på process nivå för min webbapp?
 
@@ -87,7 +81,7 @@ Det här felet kan orsakas av tre villkor:
 * Webbappen har stoppats i portalen.
 * Webb programmet har nått en resurs kvot gräns som kan gälla för en kostnads fri eller delad plan tjänst plan.
 
-Om du vill se vad som orsakar felet och lösa problemet följer du stegen i [Web Apps: "Fel 403 – den här webbappen har stoppats"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Om du vill se vad som orsakar felet och lösa problemet följer du stegen i [Web Apps: "fel 403 – den här webbappen har stoppats"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Var kan jag läsa mer om kvoter och begränsningar för olika App Services planer?
 
@@ -106,7 +100,7 @@ Som standard inaktive ras Web Apps om de är inaktiva under en angiven tids peri
 Aktivera spårning av misslyckade begär Anden:
 
 1. I Azure Portal går du till din webbapp.
-3. Välj **alla inställningar** > **diagnostikloggar.**
+3. Välj **alla inställningar** > **diagnostikloggar**.
 4. För **spårning av misslyckade begär Anden**väljer du **på**.
 5. Välj **Spara**.
 6. På bladet webbapp väljer du **verktyg**.
@@ -147,7 +141,7 @@ Aktivera spårning av misslyckade begär Anden:
     </tracing>
     ```
 13. Om du vill hämta spårningen av misslyckade begär Anden går du till din webbplats i [portalen](https://portal.azure.com).
-15. Välj **verktyg** > kuduGo > .
+15. Välj **verktyg** > **kudu** > **Go**.
 18. I menyn väljer du **Felsök konsol** > **cmd**.
 19. Välj mappen **loggfiler** och välj sedan den mapp med ett namn som börjar med **W3SVC**.
 20. Om du vill se XML-filen väljer du Penn ikonen.
@@ -170,7 +164,7 @@ WebJobs är utformat för bakgrunds bearbetning. Du kan göra så mycket bakgrun
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core program som finns i App Service slutar ibland att svara. Hur gör jag för att åtgärda det här problemet?
 
-Ett känt problem med en tidigare [Kestrel-version](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan orsaka att en ASP.net core 1,0-app som finns i App Service tillfälligt slutar svara. Du kan också se det här meddelandet: "Det angivna CGI-programmet påträffade ett fel och servern avslutade processen."
+Ett känt problem med en tidigare [Kestrel-version](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan orsaka att en ASP.net core 1,0-app som finns i App Service tillfälligt slutar svara. Du kan också se det här meddelandet: "det angivna CGI-programmet påträffade ett fel och servern avslutade processen."
 
 Det här problemet har åtgärd ATS i Kestrel version 1.0.2. Den här versionen ingår i ASP.NET Core 1.0.3 Update. För att lösa det här problemet, se till att du uppdaterar dina program beroenden till att använda Kestrel 1.0.2. Du kan också använda en av de två lösningarna som beskrivs i blogg inlägget [ASP.NET Core 1,0 problem med att minska prestandan i App Service Web Apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 
@@ -179,7 +173,7 @@ Det här problemet har åtgärd ATS i Kestrel version 1.0.2. Den här versionen 
 
 Om du använder den lokala cache-funktionen i App Service påverkas mappstrukturen för loggfiler och datamappar för din App Service instans. När Local cache används skapas undermappar i lagrings-loggfilerna och datamapparna. Undermapparna använder namngivnings mönstret "unik identifierare" + tidsstämpel. Varje undermapp motsvarar en VM-instans där webbappen körs eller har körts.
 
-För att avgöra om du använder lokal cache, se fliken App Service **program inställningar** . Om lokal cache används anges appens inställning `WEBSITE_LOCAL_CACHE_OPTION` till. `Always`
+För att avgöra om du använder lokal cache, se fliken App Service **program inställningar** . Om den lokala cachen används, är inställningen för appen `WEBSITE_LOCAL_CACHE_OPTION` inställd på `Always`.
 
 Om du inte använder lokal cache och har drabbats av det här problemet skickar du en support förfrågan.
 

@@ -1,24 +1,15 @@
 ---
-title: Köra en anpassad Windows-container (förhandsversion) – Azure App Service | Microsoft Docs
-description: Lär dig mer om att distribuera en anpassad Windows-container i Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'Snabb start: Windows-behållare (förhands granskning)'
+description: Distribuera din första anpassade Windows-behållare till Azure App Service. Dra nytta av skapa behållare, anpassa Windows-behållaren på det sätt som du vill.
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 230ff96aaf2c78827c7c4da92abe0f356cc2643e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0b618c4f1a24e4089cac2ddf34e61bab156aefdd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241916"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671340"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Köra en anpassad Windows-container i Azure (förhandsversion)
 
@@ -26,7 +17,7 @@ ms.locfileid: "70241916"
 
 Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avbildning till [Docker Hub](https://hub.docker.com/) från Visual Studio. Du kör appen i en anpassad behållare i Azure App Service.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -35,7 +26,7 @@ För att slutföra den här självstudien behöver du:
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
 
-    - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp** > **sökning efter uppdateringar**.
+    - Installera de senaste uppdateringarna i Visual Studio genom att välja **hjälp** > **söka efter uppdateringar**.
     - Lägg till arbets belastningarna i Visual Studio genom att välja **verktyg** > **Hämta verktyg och funktioner**.
 
 ## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
@@ -64,7 +55,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
    ```
 
-1. Från Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra webbappen lokalt.
+1. Från Visual Studio-menyn väljer du **felsök** > **starta utan fel sökning** för att köra webbappen lokalt.
 
    ![Kör appen lokalt](./media/app-service-web-get-started-windows-container/local-web-app.png)
 
@@ -88,9 +79,9 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 ## <a name="create-a-windows-container-app"></a>Skapa en Windows-containerapp
 
-1. Logga in på [Azure Portal]( https://portal.azure.com).
+1. Logga in på [Azure-portalen]( https://portal.azure.com).
 
-1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
 
 1. Sök efter **Web App for containers**i sökrutan ovanför Azure Marketplace-resurser och välj **skapa**.
 
@@ -112,7 +103,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 När Azure-åtgärden är klar visas ett meddelande.
 
-![Distribueringen lyckades](media/app-service-web-get-started-windows-container/portal-create-finished.png)
+![Distributionen lyckades](media/app-service-web-get-started-windows-container/portal-create-finished.png)
 
 1. Klicka på **Gå till resurs**.
 
@@ -147,7 +138,7 @@ De strömmade loggarna ser ut så här:
 
 ## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och omdistribuera
 
-1. Öppna **vyer** **Start index. cshtml**i Solution Explorer i Visual Studio. >  > 
+1. Öppna **vyer** > **Start** > **index. cshtml**i **Solution Explorer**i Visual Studio.
 
 1. Leta reda på HTML-taggen `<div class="jumbotron">` längst upp på sidan och ersätt hela elementet med följande kod:
 
@@ -179,7 +170,7 @@ Du kan använda en annan anpassad Docker-avbildning för att köra din app. Men 
 
 Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:
 
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
+- [MCR.Microsoft.com/dotNET/Framework/ASPNET](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): 4.7.2-windowsservercore-ltsc2019
 - [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – den här avbildningen är bas behållaren som används i Microsoft [ASP.net Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Nano Server-avbildningar från Microsoft Windows.
 
 ## <a name="next-steps"></a>Nästa steg

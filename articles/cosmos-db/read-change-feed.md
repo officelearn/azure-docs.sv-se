@@ -1,17 +1,17 @@
 ---
 title: Åtkomst till ändrings flöde i Azure Cosmos DB Azure Cosmos DB
 description: I den här artikeln beskrivs olika alternativ som är tillgängliga för läsning och åtkomst av ändrings flöden i Azure Cosmos DB Azure Cosmos DB.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 11/25/2019
+ms.openlocfilehash: fc7e78a44d03af8952c1e178a3e92b1ee0c6fe66
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754872"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688118"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läser Azure Cosmos DB ändra feed
 
@@ -31,7 +31,13 @@ I biblioteket för ändrings matnings processor döljs komplexitet och du får f
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Använda Azure Cosmos DB SQL API SDK
 
-Med SDK får du en kontroll på låg nivå för ändrings flödet. Du kan hantera kontroll punkten, komma åt en viss logisk partitionsnyckel osv. Om du har flera läsare kan du använda `ChangeFeedOptions` för att distribuera Läs belastning till olika trådar eller olika klienter. 
+Med SDK får du en kontroll på låg nivå för ändrings flödet. Du kan hantera kontroll punkten, komma åt en viss logisk partitionsnyckel osv. Om du har flera läsare kan du använda `ChangeFeedOptions` för att distribuera Läs belastning till olika trådar eller olika klienter.
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Ändra feed i API: er för Cassandra och MongoDB
+
+Funktionen ändra feed fungerar som en ändrings ström i MongoDB API och fråga med predikat i API för Cassandra. Mer information om implementerings informationen för MongoDB-API finns i [ändrings strömmar i Azure Cosmos DB API för MongoDB](mongodb-change-streams.md).
+
+Inbyggd Apache Cassandra tillhandahåller registrering av ändrings data (CDC), en mekanism för att flagga specifika tabeller för arkivering och avvisning av skrivningar till dessa tabeller när en konfigurerbar storlek-på disk för CDC-loggen nås. Funktionen ändra feed i Azure Cosmos DB API för Cassandra förbättrar möjligheten att fråga ändringarna med predikat via CQL. Mer information om implementerings informationen finns i [ändra feed i Azure Cosmos DB API för Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

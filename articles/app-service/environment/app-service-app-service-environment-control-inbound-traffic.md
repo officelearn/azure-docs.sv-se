@@ -1,25 +1,18 @@
 ---
-title: Styra inkommande trafik till App Service miljö – Azure
-description: Lär dig hur du konfigurerar nätverks säkerhets regler för att styra inkommande trafik till en App Service-miljön.
-services: app-service
-documentationcenter: ''
+title: Kontrol lera inkommande trafik v1
+description: Lär dig howto-kontroll av inkommande trafik till en App Service-miljön. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: ccompy
-manager: erikre
-editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: c887ae5568bfd0f72f8d90daecd95547ed7b8b7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070407"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687397"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Så här styr du inkommande trafik till en App Service-miljön
 ## <a name="overview"></a>Översikt
@@ -38,16 +31,16 @@ Innan du låser inkommande nätverks trafik med en nätverks säkerhets grupp ä
 
 Följande är en lista över portar som används av en App Service-miljön. Alla portar är **TCP**, om inget annat anges:
 
-* 454:  **Obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via SSL.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
-* 455:  **Obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via SSL.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
-* 80:  Standard porten för inkommande HTTP-trafik till appar som körs i App Service planer i en App Service-miljön.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
-* 443: Standard porten för inkommande SSL-trafik till appar som körs i App Service planer i en App Service-miljön.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
-* 21:  Kontroll kanal för FTP.  Den här porten kan blockeras på ett säkert sätt om FTP inte används.  På en ILB-aktiverad ASE kan den här porten bindas till ILB-adressen för en ASE.
-* 990:  Kontroll kanal för FTPS.  Den här porten kan blockeras på ett säkert sätt om FTPS inte används.  På en ILB-aktiverad ASE kan den här porten bindas till ILB-adressen för en ASE.
-* 10001-10020: Data kanaler för FTP.  Som med kontroll kanalen kan dessa portar blockeras på ett säkert sätt om FTP inte används.  På en ILB-aktiverad ASE kan den här porten bindas till ASE ILB-adress.
-* 4016: Används för fjärrfelsökning med Visual Studio 2012.  Den här porten kan blockeras på ett säkert sätt om funktionen inte används.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
-* 4018: Används för fjärrfelsökning med Visual Studio 2013.  Den här porten kan blockeras på ett säkert sätt om funktionen inte används.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
-* 4020: Används för fjärrfelsökning med Visual Studio 2015.  Den här porten kan blockeras på ett säkert sätt om funktionen inte används.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
+* 454: **obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via SSL.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
+* 455: **obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via SSL.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
+* 80: standard porten för inkommande HTTP-trafik till appar som körs i App Service planer i en App Service-miljön.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
+* 443: standard porten för inkommande SSL-trafik till appar som körs i App Service planer i en App Service-miljön.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
+* 21: kontroll kanal för FTP.  Den här porten kan blockeras på ett säkert sätt om FTP inte används.  På en ILB-aktiverad ASE kan den här porten bindas till ILB-adressen för en ASE.
+* 990: kontroll kanal för FTPS.  Den här porten kan blockeras på ett säkert sätt om FTPS inte används.  På en ILB-aktiverad ASE kan den här porten bindas till ILB-adressen för en ASE.
+* 10001-10020: data kanaler för FTP.  Som med kontroll kanalen kan dessa portar blockeras på ett säkert sätt om FTP inte används.  På en ILB-aktiverad ASE kan den här porten bindas till ASE ILB-adress.
+* 4016: används för fjärrfelsökning med Visual Studio 2012.  Den här porten kan blockeras på ett säkert sätt om funktionen inte används.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
+* 4018: används för fjärrfelsökning med Visual Studio 2013.  Den här porten kan blockeras på ett säkert sätt om funktionen inte används.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
+* 4020: används för fjärrfelsökning med Visual Studio 2015.  Den här porten kan blockeras på ett säkert sätt om funktionen inte används.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Utgående anslutningar och DNS-krav
 För att en App Service-miljön ska fungera korrekt måste även utgående åtkomst till olika slut punkter. En fullständig lista över de externa slut punkter som används av en ASE finns i avsnittet "nödvändig nätverks anslutning" i artikeln [nätverks konfiguration för ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
@@ -95,7 +88,7 @@ Om fjärrfelsökning med Visual Studio används visar följande regler hur du be
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2015" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4020' -Protocol TCP
 
 ## <a name="assigning-a-network-security-group-to-a-subnet"></a>Tilldela en nätverks säkerhets grupp till ett undernät
-En nätverks säkerhets grupp har en standard säkerhets regel som nekar åtkomst till all extern trafik.  Resultatet av att kombinera de nätverks säkerhets regler som beskrivs ovan och standard säkerhets regeln blockerar inkommande trafik, är att endast trafik från käll adress intervall som är associerade med en *Tillåt* -åtgärd kan skicka trafik till appar som körs i en App Service-miljön.
+En nätverks säkerhets grupp har en standard säkerhets regel som nekar åtkomst till all extern trafik.  Resultatet av att kombinera de nätverks säkerhets regler som beskrivs ovan och standard säkerhets regeln blockerar inkommande trafik, är att endast trafik från käll adress intervall som är associerade med en *Tillåt* -åtgärd kan skicka trafik till appar som körs i en app service-miljön.
 
 När en nätverks säkerhets grupp har fyllts med säkerhets regler måste den tilldelas till det undernät som innehåller App Service-miljön.  Tilldelnings kommandot refererar till både namnet på det virtuella nätverk där App Service-miljön finns, samt namnet på under nätet där App Service-miljön skapades.  
 
@@ -103,14 +96,14 @@ I exemplet nedan visas en nätverks säkerhets grupp som tilldelas till ett unde
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
-När nätverks säkerhets grupp tilldelningen lyckas (tilldelningen är en tids krävande åtgärd och det kan ta några minuter att slutföra), kommer endast regler för inkommande trafik att kunna uppnå appar i App Service-miljön.
+När nätverks säkerhets grupp tilldelningen lyckas (tilldelningen är en tids krävande åtgärd och det kan ta några minuter att slutföra), kommer *endast regler för inkommande trafik att kunna* uppnå appar i App Service-miljön.
 
 För klar ande visas följande exempel på hur du tar bort och därmed tar bort nätverks säkerhets gruppen från under nätet:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>Särskilda överväganden för explicit IP-SSL
-Om en app har kon figurer ATS med en explicit IP-SSL-adress (gäller *endast* ASE som har en offentlig VIP), i stället för att använda standard-IP-adressen för App Service-miljön, flödar både http-och HTTPS-trafik till under nätet över en annan port uppsättning Förutom portarna 80 och 443.
+Om en app har kon figurer ATS med en explicit IP-SSL-adress (gäller *endast* ASE som har en offentlig VIP), i stället för att använda standard-IP-adressen för den app service-miljön, flödar både http-och https-trafiken till under nätet över en annan uppsättning portar än portarna 80 och 443.
 
 Det enskilda port paret som används av varje IP-SSL-adress finns i portalens användar gränssnitt från App Service-miljönens informations blads blad.  Välj alla inställningar--> IP-adresser.  Bladet "IP-adresser" visar en tabell med alla explicit konfigurerade IP-SSL-adresser för App Service-miljön, tillsammans med det särskilda port paret som används för att dirigera HTTP-och HTTPS-trafik som är associerad med varje IP-SSL-adress.  Det här port paret måste användas för DestinationPortRange-parametrarna när du konfigurerar regler i en nätverks säkerhets grupp.
 

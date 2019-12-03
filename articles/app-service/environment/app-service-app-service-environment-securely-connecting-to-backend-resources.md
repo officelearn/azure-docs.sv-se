@@ -1,29 +1,21 @@
 ---
-title: Anslut säkert till Server dels resurser från App Service miljö – Azure
-description: Lär dig mer om hur du ansluter säkert till Server dels resurser från en App Service-miljön.
-services: app-service
-documentationcenter: ''
+title: Anslut till Server delen v1
+description: Lär dig mer om hur du ansluter säkert till Server dels resurser från en App Service-miljön. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069966"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687301"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Anslut säkert till Server dels resurser från en App Service-miljö
-## <a name="overview"></a>Översikt
-Eftersom en App Service-miljön alltid skapas **antingen** i ett Azure Resource Manager virtuellt nätverk **eller** i ett klassiskt [virtuellt nätverk][virtualnetwork]för distributions modeller, utgående anslutningar från en app service-miljön till andra server dels resurser kan flöda exklusivt över det virtuella nätverket.  Med en nyligen genomförd ändring i juni 2016 kan ASE också distribueras till virtuella nätverk som använder antingen offentliga adress intervall eller RFC1918 adress utrymmen (dvs. privata adresser).  
+Eftersom en App Service-miljön alltid skapas **antingen** i ett Azure Resource Manager virtuellt nätverk **eller** i ett klassiskt [virtuellt nätverk][virtualnetwork]för distributions modellen, kan utgående anslutningar från en app service-miljön till andra server dels resurser flöda exklusivt över det virtuella nätverket.  Med en nyligen genomförd ändring i juni 2016 kan ASE också distribueras till virtuella nätverk som använder antingen offentliga adress intervall eller RFC1918 adress utrymmen (dvs. privata adresser).  
 
 Det kan till exempel finnas en SQL Server som körs på ett kluster med virtuella datorer med port 1433 låst.  Slut punkten kan vara ACLd att endast tillåta åtkomst från andra resurser i samma virtuella nätverk.  
 
@@ -49,7 +41,7 @@ En vanlig SQL Server konfiguration har en slut punkt som lyssnar på port 1433:
 
 Det finns två metoder för att begränsa trafik till den här slut punkten:
 
-* [Lista över nätverks Access Control][NetworkAccessControlLists] (Nätverks-ACL: er)
+* [Nätverks Access Control listor][NetworkAccessControlLists] (nätverks-ACL: er)
 * [Nätverkssäkerhetsgrupper][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Begränsa åtkomst med en nätverks-ACL

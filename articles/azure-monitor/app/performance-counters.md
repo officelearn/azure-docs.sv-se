@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/13/2018
-ms.openlocfilehash: 229216ee873ade9418574141017aaf88235ba9e4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d313fed6a61ac98e596e6f8caca8f0e46a8c9600
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820708"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689081"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>System prestanda räknare i Application Insights
 
@@ -34,7 +34,7 @@ De aktuella standard räknare som har kon figurer ATS för att samlas in för AS
 - Process\\privata byte
 - Process\\IO-databyte/s
 - ASP.NET-program\\begär anden i program kön
-- Processor (_ total)\\% processor tid
+- Processor (_Total)\\% processor tid
 
 ## <a name="add-counters"></a>Lägg till räknare
 
@@ -139,7 +139,7 @@ Precis som andra telemetri har **performanceCounters** också en kolumn `cloud_R
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Prestanda räknare för program som körs i Azure Web Apps
 
-Både ASP.NET-och ASP.NET Core-program som distribueras till Azure Web Apps köras i en särskild sandbox-miljö. Den här miljön tillåter inte direkt åtkomst till system prestanda räknare. En begränsad del av räknare visas dock som miljövariabler enligt beskrivningen [här](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK för ASP.NET och ASP.NET Core samlar in prestanda räknare från Azure Web Apps från dessa särskilda miljövariabler. Endast en del av räknarna är tillgängliga i den här miljön och den fullständiga listan finns [här.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+Både ASP.NET-och ASP.NET Core-program som distribueras till Azure Web Apps köras i en särskild sandbox-miljö. Den här miljön tillåter inte direkt åtkomst till system prestanda räknare. En begränsad del av räknare visas dock som miljövariabler enligt beskrivningen [här](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK för ASP.NET och ASP.NET Core samlar in prestanda räknare från Azure Web Apps från dessa särskilda miljövariabler. Endast en del av räknarna är tillgängliga i den här miljön och den fullständiga listan finns [här.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Prestanda räknare i ASP.NET Core program
 

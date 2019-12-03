@@ -1,26 +1,18 @@
 ---
-title: Hantera Web App for Containers med Azure CLI – Azure App Service | Microsoft Docs
-description: Hantera Web App for Containers med Azure CLI.
+title: Hantera anpassade Linux-behållare med CLI
+description: Lär dig hur du hanterar anpassade Linux-behållare i Azure App Service från kommando raden. Automatisera etablering eller underhåll av appar.
 keywords: Azure App Service, Web App, CLI, Linux, oss
-services: app-service
-documentationCenter: ''
 author: ahmedelnably
-manager: cfowler
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 5481e9f28d8fc47936ad62bd8d974beb5ca85fcd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 773c8036a345383162013f9f7103164b0f382f12
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071313"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689063"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Hantera Web App for Containers med Azure CLI
 

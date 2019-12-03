@@ -1,24 +1,17 @@
 ---
-title: Distribuera din kod från en CI/CD-pipeline med GitHub-åtgärder – Azure App Service | Microsoft Docs
-description: Lär dig hur du använder GitHub-åtgärder för att distribuera din kod till App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Konfigurera CI/CD med GitHub-åtgärder
+description: Lär dig hur du distribuerar din kod till Azure App Service från en CI/CD-pipeline med GitHub-åtgärder. Anpassa Bygg aktiviteterna och kör komplexa distributioner.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 9842057a590b08f2207a1ea166e0ce0d457e4381
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e3d6e730846388c4b74cfa0b6361629e836b0517
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620502"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670198"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -28,7 +21,7 @@ ms.locfileid: "73620502"
 > GitHub-åtgärder är för närvarande Beta versioner. Du måste först [Registrera dig för att kunna ansluta till förhands granskningen](https://github.com/features/actions) med ditt GitHub-konto.
 > 
 
-Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/`-sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 
 För ett Azure App Service-arbetsflöde har filen tre delar:
 
@@ -62,7 +55,7 @@ Du kan också använda autentiseringsuppgifter på program nivå, t. ex. publice
 
 2. I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**
 
-    ![secrets](media/app-service-github-actions/secrets.png)
+    ![hemligheter](media/app-service-github-actions/secrets.png)
 
 3. Klistra in innehållet för den hämtade publicerings profil filen i fältet hemligt värde.
 
@@ -76,7 +69,7 @@ Du kan också använda autentiseringsuppgifter på program nivå, t. ex. publice
 
 5. Du ser hemligheten som visas nedan när den har definierats.
 
-    ![secrets](media/app-service-github-actions/app-service-secrets.png)
+    ![hemligheter](media/app-service-github-actions/app-service-secrets.png)
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön
 

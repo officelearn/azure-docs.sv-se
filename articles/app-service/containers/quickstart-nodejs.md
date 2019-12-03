@@ -1,18 +1,17 @@
 ---
-title: Skapa en Node. js-webbapp – Azure App Service
-description: Så här distribuerar du en Node. js-app till Azure App Service
-author: msangapu
+title: 'Snabb start: skapa en Linux Node. js-app'
+description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första Node. js-app till en Linux-behållare i App Service.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439204"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688977"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Skapa en Node. js-app i Azure
 
@@ -32,7 +31,7 @@ När tillägget har installerats loggar du in på ditt Azure-konto. I aktivitets
 
 ![Logga in på Azure](./media/quickstart-nodejs/sign-in.png)
 
-### <a name="troubleshooting"></a>Felsökning
+### <a name="troubleshooting"></a>Felsöka
 
 Om du ser felet **"det går inte att hitta prenumerationen med namnet [prenumerations-ID]"** kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY` och `HTTPS_PROXY` miljövariabler med din proxyinformation i terminalen med hjälp av `export`.
 
@@ -135,7 +134,7 @@ I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribue
 
 När distributionen är klar väljer du **Bläddra webbplats** i prompten för att visa din nyligen distribuerade webbapp.
 
-### <a name="troubleshooting"></a>Felsökning
+### <a name="troubleshooting"></a>Felsöka
 
 Om du ser felet **"du har inte behörighet att visa den här katalogen eller sidan."** , kunde programmet antagligen inte starta korrekt. Gå till nästa avsnitt och Visa loggens utdata för att hitta och åtgärda felet. Om du inte kan åtgärda det, kontakta oss genom att välja knappen **jag körde i ett ärende** nedan. Vi är glada att hjälpa!
 

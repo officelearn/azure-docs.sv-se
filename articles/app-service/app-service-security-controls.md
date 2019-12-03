@@ -1,20 +1,16 @@
 ---
-title: Säkerhets kontroller för Azure App Service
-description: En check lista över säkerhets kontroller för utvärdering av Azure App Service
-services: app-service
-documentationcenter: ''
+title: Säkerhetskontroller
+description: Hitta en check lista med säkerhets kontroller för att utvärdera Azure App Service för din organisation.
 author: msmbaldwin
-manager: rkarlin
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a1889def8d177c312618f12b3fa0480cc4b849b3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046865"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671453"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Säkerhets kontroller för Azure App Service
 
@@ -44,7 +40,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 | Säkerhets kontroll | Ja/nej | Anteckningar |  Dokumentation
 |---|---|--|
 | Autentisering| Ja | Kunder kan bygga program på App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.yml) samt andra OAuth-kompatibla identitets leverantörer för hanterings åtkomst till App Service till gångar, och all åtkomst kontrol leras av en kombination av Azure AD-autentiserade huvud konton och Azure Resource Manager RBAC-roller. | [Autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md)
-| Auktorisering| Ja | För hanterings åtkomst till App Service till gångar styrs all åtkomst av en kombination av Azure AD-autentiserade huvud konton och Azure Resource Manager RBAC-roller.  | [Autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md)
+| Autentisering| Ja | För hanterings åtkomst till App Service till gångar styrs all åtkomst av en kombination av Azure AD-autentiserade huvud konton och Azure Resource Manager RBAC-roller.  | [Autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md)
 
 ## <a name="data-protection"></a>Dataskydd
 
@@ -52,7 +48,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Innehållet på webbplats filen lagras i Azure Storage, vilket automatiskt krypterar innehållet i vila. <br><br>Kunder som har tillhandahållit hemligheter är krypterade i vila. Hemligheterna är krypterade i rest medan de lagras i App Service konfigurations databaser.<br><br>Lokalt anslutna diskar kan alternativt användas som temporär lagring av webbplatser (D:\Local och% TMP%). Lokalt anslutna diskar är inte krypterade i vila. | [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md)
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kunder kan välja att lagra program hemligheter i Key Vault och hämta dem vid körning. | [Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)](app-service-key-vault-references.md)
-| Kryptering på kolumn nivå (Azure Data Services)| Saknas | |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Kunder kan konfigurera webbplatser för att kräva och använda HTTPS för inkommande trafik.  | Så [här gör du endast Azure App Service https](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (blogg inlägg)
 | Krypterade API-anrop| Ja | Hanterings anrop för att konfigurera App Service sker via [Azure Resource Manager](../azure-resource-manager/index.yml) -anrop via https. |
 

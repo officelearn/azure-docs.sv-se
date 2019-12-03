@@ -1,25 +1,18 @@
 ---
-title: Hög densitets värd med skalning per app – Azure App Service | Microsoft Docs
-description: Hög densitets värd för Azure App Service
+title: Skalning per app för hög densitets värd
+description: Skala appar oberoende av App Service planer och optimera de utskalade instanserna i planen.
 author: btardif
-manager: erikre
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7130c9547e0778ce40a0ad1c1ea41607a02df23e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088093"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672354"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hög densitets värd för Azure App Service med skalning per app
 
@@ -39,7 +32,7 @@ Plattformen förlitar sig inte på mått för att bestämma tilldelning av arbet
 
 ## <a name="per-app-scaling-using-powershell"></a>Per app-skalning med hjälp av PowerShell
 
-Skapa en plan med skalning per app genom ```-PerSiteScaling $true``` ```New-AzAppServicePlan``` att skicka in parametern till cmdleten.
+Skapa en plan med skalning per app genom att skicka in ```-PerSiteScaling $true```-parametern till ```New-AzAppServicePlan```-cmdleten.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -48,7 +41,7 @@ New-AzAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Aktivera skalning per app med en befintlig App Service plan genom `-PerSiteScaling $true` ```Set-AzAppServicePlan``` att skicka in parametern till cmdleten.
+Aktivera skalning per app med en befintlig App Service plan genom att skicka i `-PerSiteScaling $true`-parametern till ```Set-AzAppServicePlan```-cmdleten.
 
 ```powershell
 # Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
@@ -72,7 +65,7 @@ Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> `$newapp.SiteConfig.NumberOfWorkers`skiljer sig från `$newapp.MaxNumberOfWorkers`. Skalning per app använder `$newapp.SiteConfig.NumberOfWorkers` för att fastställa appens skalnings egenskaper.
+> `$newapp.SiteConfig.NumberOfWorkers` skiljer sig från `$newapp.MaxNumberOfWorkers`. Skalning per app använder `$newapp.SiteConfig.NumberOfWorkers` för att fastställa appens skalnings egenskaper.
 
 ## <a name="per-app-scaling-using-azure-resource-manager"></a>Skalning per app med hjälp av Azure Resource Manager
 
@@ -81,7 +74,7 @@ Följande Azure Resource Manager mall skapar:
 - En App Service plan som skalas ut till 10 instanser
 - en app som har kon figurer ATS för skalning till högst fem instanser.
 
-App Service plan anger egenskapen **PerSiteScaling** till True `"perSiteScaling": true`. Appen anger **antalet arbetare** som ska användas till 5 `"properties": { "numberOfWorkers": "5" }`.
+App Service plan anger egenskapen **PerSiteScaling** till True `"perSiteScaling": true`. Appen anger **antalet arbets tagare** som ska användas för 5 `"properties": { "numberOfWorkers": "5" }`.
 
 ```json
 {
@@ -137,7 +130,7 @@ Per app-skalning är en funktion som är aktive rad i både globala Azure-region
 Följ dessa steg om du vill konfigurera hög densitets värd för dina appar:
 
 1. Ange en App Service plan som hög densitets plan och skala ut den till önskad kapacitet.
-1. Ställ in `PerSiteScaling` flaggan på sant för App Service plan.
+1. Ange `PerSiteScaling` flagga till sant för App Service plan.
 1. Nya appar skapas och tilldelas till den App Service plan med egenskapen **numberOfWorkers** inställd på **1**.
    - Med den här konfigurationen ger högsta möjliga densitet.
 1. Antalet arbetare kan konfigureras oberoende per app för att ge ytterligare resurser vid behov. Exempel:

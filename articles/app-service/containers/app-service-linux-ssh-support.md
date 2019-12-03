@@ -1,26 +1,19 @@
 ---
-title: SSH-stöd för App Service på Linux – Azure | Microsoft Docs
-description: Lär dig mer om att använda SSH med Azure App Service i Linux.
+title: SSH-åtkomst för Linux-behållare
+description: Du kan öppna en SSH-session till en Linux-behållare i Azure App Service. Anpassade Linux-behållare stöds med vissa ändringar av din anpassade avbildning.
 keywords: Azure App Service, webbapp, Linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066867"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687584"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service på Linux
 
@@ -50,14 +43,14 @@ Med TCP-tunnlar kan du skapa en nätverks anslutning mellan din utvecklings dato
 
 För att komma igång måste du installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Öppna [Azure Cloud Shell](../../cloud-shell/overview.md)om du vill se hur det fungerar utan att installera Azure CLI. 
 
-Öppna en fjärr anslutning till din app med kommandot [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . \<Ange \_  _\<prenumerations-ID >_ ,  _\<grupp namn >_ och App-Name > _ för din app.
+Öppna en fjärr anslutning till din app med kommandot [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . Ange _\<prenumerations-id >_ , _\<grupp namn >_ och \_\<App-Name > _ för din app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]
-> `&`i slutet av kommandot är det bara för bekvämlighet om du använder Cloud Shell. Processen körs i bakgrunden så att du kan köra nästa kommando i samma gränssnitt.
+> `&` i slutet av kommandot är bara för bekvämlighet om du använder Cloud Shell. Processen körs i bakgrunden så att du kan köra nästa kommando i samma gränssnitt.
 
 Kommandots utdata ger dig den information du behöver för att öppna en SSH-session.
 
@@ -73,7 +66,7 @@ Start your favorite client and connect to port 21382
 ssh root@127.0.0.1 -p <port>
 ```
 
-När du uppmanas till `yes` det skriver du för att fortsätta ansluta. Du uppmanas sedan att ange lösen ordet. Använd `Docker!`, som visades tidigare.
+När du uppmanas till det skriver du `yes` för att fortsätta ansluta. Du uppmanas sedan att ange lösen ordet. Använd `Docker!`som visades tidigare.
 
 ```
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.

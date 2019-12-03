@@ -1,33 +1,32 @@
 ---
-title: Distribuera en Docker-app på Linux – Azure App Service
-description: Så här distribuerar du en Docker-avbildning till Azure App Services för Linux
-author: msangapu
+title: 'Snabb start: köra en anpassad Linux-behållare'
+description: Kom igång med Linux-behållare på Azure App Service genom att distribuera din första anpassade behållare med hjälp av Azure Container Registration.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
-ms.openlocfilehash: 2a7dc477b4cd0be0c50569d84e10cfe1d666eac9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392116"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688951"
 ---
-# <a name="deploy-to-azure-using-docker"></a>Distribuera till Azure med Docker
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Distribuera en anpassad Linux-behållare till Azure App Service
 
 App Service på Linux ger fördefinierade program stackar i Linux med stöd för språk som .NET, PHP, Node. js och andra. Du kan också använda en anpassad Docker-avbildning för att köra din webbapp på en programstack som inte redan har definierats i Azure. Den här snabb starten visar hur du distribuerar en avbildning från en [Azure Container Registry](/azure/container-registry) (ACR) till App Service.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Azure-konto](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-kod](https://code.visualstudio.com/)
 * [Azure App Service-tillägget för vs Code](vscode:extension/ms-azuretools.vscode-azureappservice). Du kan använda det här tillägget för att skapa, hantera och distribuera Linux-Web Apps på Azure-plattformen as a Service (PaaS).
 * [Docker-tillägget för vs Code](vscode:extension/ms-azuretools.vscode-docker). Du kan använda det här tillägget för att förenkla hanteringen av lokala Docker-avbildningar och-kommandon och för att distribuera inbyggda app-avbildningar till Azure.
 
 ## <a name="create-an-image"></a>Skapa en avbildning
 
-För att slutföra den här snabb starten behöver du en lämplig webb program avbildning som lagras i en [Azure Container Registry](/azure/container-registry). Följ anvisningarna i [snabb start: Skapa ett privat behållar register med](/azure/container-registry/container-registry-get-started-portal)hjälp av Azure Portal, `mcr.microsoft.com/azuredocs/go` men Använd avbildningen `hello-world` i stället för avbildningen.
+För att slutföra den här snabb starten behöver du en lämplig webb program avbildning som lagras i en [Azure Container Registry](/azure/container-registry). Följ anvisningarna i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](/azure/container-registry/container-registry-get-started-portal), men Använd `mcr.microsoft.com/azuredocs/go` avbildningen i stället för `hello-world` avbildningen.
 
 > [!IMPORTANT]
 > Se till att ange alternativet för **Administratörs användare** för att **Aktivera** när du skapar behållar registret. Du kan också ställa in den från avsnittet **åtkomst nycklar** på register sidan i Azure Portal. Den här inställningen krävs för att App Service åtkomst.

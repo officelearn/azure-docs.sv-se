@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 8fada1d944a3d6bb6c0f85b3fd456581b2b0bdc6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: cbdf4a4c9e7f3816a0a5b280c81bfa60b65d9769
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720020"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687892"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Auktorisera användare för Apache Ambari Views
 
@@ -28,11 +28,11 @@ Om du inte redan har gjort det följer du [de här anvisningarna](./domain-joine
 
 ## <a name="access-the-ambari-management-page"></a>Öppna hanterings sidan för Ambari
 
-Öppna **hanterings sidan för Ambari** i [webb gränssnittet Apache Ambari](hdinsight-hadoop-manage-ambari.md)genom att bläddra till **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Ange det användar namn och lösen ord för kluster administratör som du definierade när du skapade klustret. Gå sedan till Ambari-instrumentpanelen och välj **Hantera Ambari** under **Administratörs** menyn:
+Öppna **hanterings sidan för Ambari** i [webb gränssnittet Apache Ambari](hdinsight-hadoop-manage-ambari.md)genom att bläddra till `https://CLUSTERNAME.azurehdinsight.net`. Ange det användar namn och lösen ord för kluster administratör som du definierade när du skapade klustret. Gå sedan till Ambari-instrumentpanelen och välj **Hantera Ambari** under **Administratörs** menyn:
 
 ![Hantera Apache Ambari-instrumentpanel](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
-## <a name="add-users"></a>Lägg till användare
+## <a name="add-users"></a>Lägga till användare
 
 ### <a name="add-users-through-the-portal"></a>Lägg till användare via portalen
 
@@ -46,7 +46,7 @@ Om du inte redan har gjort det följer du [de här anvisningarna](./domain-joine
 
 ### <a name="add-users-through-powershell"></a>Lägg till användare via PowerShell
 
-Redigera variablerna nedan genom att ersätta `CLUSTERNAME`, `NEWUSER` och `PASSWORD` med lämpliga värden.
+Redigera variablerna nedan genom att ersätta `CLUSTERNAME`, `NEWUSER`och `PASSWORD` med lämpliga värden.
 
 ```powershell
 # Set-ExecutionPolicy Unrestricted
@@ -135,7 +135,7 @@ Write-Output $zookeeperHosts
 
 ### <a name="add-users-through-curl"></a>Lägg till användare via sväng
 
-Redigera variablerna nedan genom att ersätta `CLUSTERNAME`, `ADMINPASSWORD`, `NEWUSER` och `USERPASSWORD` med lämpliga värden. Skriptet är utformat för att köras med bash. Små ändringar krävs för kommando tolken i Windows.
+Redigera variablerna nedan genom att ersätta `CLUSTERNAME`, `ADMINPASSWORD`, `NEWUSER`och `USERPASSWORD` med lämpliga värden. Skriptet är utformat för att köras med bash. Små ändringar krävs för kommando tolken i Windows.
 
 ```bash
 export clusterName="CLUSTERNAME"
@@ -179,9 +179,9 @@ Ambari levereras med View-instanser för [Apache Hive](https://hive.apache.org/)
 
 3. Rulla nedåt längst ned på sidan Visa. Under avsnittet *behörigheter* har du två alternativ för att ge domän användare behörighet till vyn:
 
-**Bevilja behörighet till dessa användare** ![Bevilja behörighet till dessa användare](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
+**Bevilja behörighet till dessa användare** ![bevilja behörighet till dessa användare](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**Bevilja behörighet till dessa grupper** ![Bevilja behörighet till dessa grupper](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
+**Bevilja behörighet till de här grupperna** ![bevilja behörighet till dessa grupper](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. Om du vill lägga till en användare väljer du knappen **Lägg till användare** .
 
@@ -232,7 +232,7 @@ Om du vill se en lista över behörigheter för varje roll, klickar du på det b
 
 ![Meny länk behörigheter för Apache Ambari roles](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Meny länk behörigheter för Apache Ambari roles")
 
-På den här sidan finns det två olika vyer som du kan använda för att hantera roller för användare och grupper: Blockera och lista.
+På den här sidan finns det två olika vyer som du kan använda för att hantera roller för användare och grupper: block och lista.
 
 ### <a name="block-view"></a>Blockera vy
 
@@ -242,13 +242,13 @@ I vyn blockera visas varje roll på en egen rad, och den **tilldelas roller till
 
 ### <a name="list-view"></a>Listvy
 
-Listvyn innehåller snabb redigerings funktioner i två kategorier: Användare och grupper.
+Listvyn innehåller snabb redigerings funktioner i två kategorier: användare och grupper.
 
 * Kategorin användare i vyn lista visar en lista över alla användare, så att du kan välja en roll för varje användare i list rutan.
 
     ![List visning för Apache Ambari-roller – användare](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-*  Kategorin grupper i listvyn visar alla grupper och rollen som tilldelats till varje grupp. I vårt exempel synkroniseras listan med grupper från de Azure AD-grupper som anges i **användar grupp egenskapen åtkomst** för klustrets domän inställningar. Se [skapa ett HDInsight-kluster med ESP aktiverat](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
+* Kategorin grupper i listvyn visar alla grupper och rollen som tilldelats till varje grupp. I vårt exempel synkroniseras listan med grupper från de Azure AD-grupper som anges i **användar grupp egenskapen åtkomst** för klustrets domän inställningar. Se [skapa ett HDInsight-kluster med ESP aktiverat](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 
     ![Vyn Apache Ambari roles List-Groups](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

@@ -1,24 +1,18 @@
 ---
-title: Låsa App Service-miljön utgående trafik – Azure
-description: Beskriver hur du integrerar med Azure-brandväggen för att skydda utgående trafik
-services: app-service
-documentationcenter: na
+title: Låsa utgående trafik
+description: Lär dig hur du integrerar med Azure-brandväggen för att skydda utgående trafik inifrån en App Service-miljö.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405661"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687220"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service-miljön
 
@@ -116,7 +110,7 @@ Följande information krävs bara om du vill konfigurera en annan brand vägg ä
 
 #### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| Slutpunkt | Detaljer |
+| Slutpunkt | Information |
 |----------| ----- |
 | \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
 | \*: 12000 | Den här porten används för viss system övervakning. Om den blockeras kommer vissa problem att vara svårare att prioritering, men ASE kommer att fortsätta att arbeta |

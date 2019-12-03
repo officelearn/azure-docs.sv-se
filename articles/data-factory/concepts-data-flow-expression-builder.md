@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/17/2019
-ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184689"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672267"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mappa data flöde uttrycks verktyg
 
@@ -104,7 +104,13 @@ Om du lägger till en kommentar överst i uttrycket visas den i text rutan omvan
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Observera att om du vill inkludera sträng litteraler i dina tidsstämplar måste du omsluta din konvertering i en toString ()
+Observera att om du vill inkludera sträng litteraler i dina tidsstämplar måste du omsluta konverteringen i ```toString()```.
+
+Så här konverterar du sekunder från epok till datum eller tidsstämpel:
+
+```toTimestamp(1574127407*1000l)```
+
+Observera att det avslutande "l" i slutet av uttrycket ovan. Det innebär att konverteras till Long som infogad syntax.
 
 ## <a name="handling-column-names-with-special-characters"></a>Hantera kolumn namn med specialtecken
 

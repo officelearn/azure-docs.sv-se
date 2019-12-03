@@ -1,27 +1,20 @@
 ---
-title: Metod tips – Azure App Service
-description: Lär dig metod tips och fel sökning för Azure App Service.
-services: app-service
-documentationcenter: ''
+title: Bästa metoder
+description: Lär dig metod tips och vanliga fel söknings scenarier för din app som körs i Azure App Service.
 author: dariagrigoriu
-manager: erikre
-editor: mollybos
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: c40191c8682d6ff93f70e0853e767c89248ae887
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071607"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671500"
 ---
-# <a name="best-practices-for-azure-app-service"></a>Metodtips för Azure App Service
+# <a name="best-practices-for-azure-app-service"></a>Bästa metoder för Azure App Service
 I den här artikeln sammanfattas metod tips för hur du använder [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
 
 ## <a name="colocation"></a>Samordning
@@ -38,17 +31,17 @@ När du märker att en app förbrukar mer minne än vad som förväntas via öve
 ## <a name="CPUresources"></a>När appar förbrukar mer processor än förväntat
 När du märker att en app förbrukar mer processor än förväntat eller upplever upprepade CPU-toppar som anges via övervakning eller tjänst rekommendationer, kan du överväga att skala upp eller skala ut App Service plan. Om ditt program är tillstånds känsligt är skala upp det enda alternativet, men om ditt program är tillstånds löst ger du större flexibilitet och bättre skalnings möjligheter. 
 
-För mer information om "tillstånds känsliga" vs "tillstånds lösa" program kan du titta på den här videon: [Planera ett skalbart slut punkt till slut punkt för flera nivåer på Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för App Service skalning och automatisk skalning finns i [skala en webbapp i Azure App Service](manage-scale-up.md).  
+För mer information om "tillstånds känsliga" vs "tillstånds lösa" program kan du titta på den här videon: [planera ett skalbart program på flera nivåer på Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för App Service skalning och automatisk skalning finns i [skala en webbapp i Azure App Service](manage-scale-up.md).  
 
 ## <a name="socketresources"></a>När socket-resurserna är uttömda
 En vanlig orsak till att använda utgående TCP-anslutningar är att använda klient bibliotek, som inte implementeras för att återanvända TCP-anslutningar eller när ett protokoll på högre nivå, till exempel HTTP-Keep-Alive, inte används. Läs dokumentationen för varje bibliotek som refereras av apparna i App Services plan för att säkerställa att de konfigureras eller nås i koden för effektiv åter användning av utgående anslutningar. Följ även vägledningen för biblioteks dokumentation för att skapa och släppa eller rensa för att undvika läckage av anslutningar. Även om granskning av sådana klient bibliotek pågår, kan påverkan minskas genom att skala ut till flera instanser.
 
 ### <a name="nodejs-and-outgoing-http-requests"></a>Node. js och utgående HTTP-begäranden
-När du arbetar med Node. js och många utgående HTTP-begäranden är det viktigt att hantera HTTP-Keep-Alive. Du kan använda [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` -paketet för att göra det enklare i din kod.
+När du arbetar med Node. js och många utgående HTTP-begäranden är det viktigt att hantera HTTP-Keep-Alive. Du kan använda [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) -`npm`-paketet för att göra det enklare i din kod.
 
-Hantera `http` alltid svaret, även om du inte gör något i hanteraren. Om du inte hanterar svaret korrekt kommer ditt program att fastna så småningom, eftersom det inte finns några fler socketar tillgängliga.
+Hantera alltid `http` svar, även om du inte gör något i hanteraren. Om du inte hanterar svaret korrekt kommer ditt program att fastna så småningom, eftersom det inte finns några fler socketar tillgängliga.
 
-Till exempel när du `http` arbetar med-eller `https` -paketet:
+Till exempel när du arbetar med `http`-eller `https`-paketet:
 
 ```javascript
 const request = https.request(options, function(response) {

@@ -1,25 +1,18 @@
 ---
-title: Funktioner för nätverks distribution – Azure App Service | Microsoft Docs
-description: Använda de olika funktionerna för App Service nätverk
+title: Nätverksfunktioner
+description: Lär dig mer om nätverksfunktionerna i Azure App Service och vilka funktioner du behöver för att nätverket ska ha säkerhet eller funktioner.
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928509"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672340"
 ---
 # <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
@@ -163,7 +156,7 @@ Den gateway som krävs för VNet-integrering är mycket användbar men matchar f
 
 Den här funktionen är i för hands version och bör inte användas för produktions arbets belastningar. Läs mer om den här funktionen i dokumenten på [App Service VNet-integrering][vnetintegration].
 
-## <a name="app-service-environment"></a>App Service Environment 
+## <a name="app-service-environment"></a>Miljö för App Service 
 
 En App Service-miljön (ASE) är en enda klient distribution av Azure App Service som körs i ditt VNet. ASE möjliggör användnings fall som:
 

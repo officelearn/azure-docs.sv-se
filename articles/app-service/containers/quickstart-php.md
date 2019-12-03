@@ -1,25 +1,16 @@
 ---
-title: Skapa en PHP-app i Linux – Azure App Service | Microsoft Docs
-description: Distribuera din första Hello World-app med PHP i App Service on Linux på bara några minuter.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Snabb start: skapa en PHP-app i Linux'
+description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första PHP-app till en Linux-behållare i App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 414d34065b78db0f76683752b93d5ed89ebcdf75
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: feab990f1d9b0e26ff134a7232a358fd2bca7cc2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071189"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687548"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Skapa en PHP-app i App Service på Linux
 
@@ -35,7 +26,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -59,7 +50,7 @@ Kör programmet lokalt så att du ser hur det ska se ut när du distribuerar det
 php -S localhost:8080
 ```
 
-Öppna en webbläsare och navigera till exempelappen på `http://localhost:8080`.
+Öppna webbläsaren och navigera till exempelappen på `http://localhost:8080`.
 
 Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
@@ -75,11 +66,11 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Skapa en webbapp
+## <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Gå till webbplatsen för att se din nyligen skapade app med inbyggd avbildning. Ersätt _&lt;<app_name>_ med namnet på din app.
+Gå till webbplatsen för att se din nyligen skapade app med inbyggd avbildning. Ersätt _&lt;app name>_ med namnet på din app.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -151,7 +142,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade.
 
 I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
@@ -168,7 +159,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: PHP-app med MySQL](tutorial-php-mysql-app.md)
+> [Självstudie: PHP-app med MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera PHP-app](configure-language-php.md)

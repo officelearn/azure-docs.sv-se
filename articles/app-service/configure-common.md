@@ -1,26 +1,17 @@
 ---
-title: Konfigurera appar i portalen – Azure App Service
-description: Lär dig att konfigurera vanliga inställningar för en App Service-app i Azure Portal.
+title: Konfigurera appar i portalen
+description: Lär dig att konfigurera vanliga inställningar för en App Service-app i Azure Portal. Appinställningar, anslutnings strängar, plattform, språk stack, behållare osv.
 keywords: Azure App Service, webbapp, app-inställningar, miljövariabler
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470935"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671953"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -34,7 +25,7 @@ Gå till appens hanterings sida i [Azure Portal]. I appens vänstra meny klickar
 
 ![Program inställningar](./media/configure-common/open-ui.png)
 
-För ASP.NET-och ASP.NET Core-utvecklare kan ställa in appinställningar i App Service som att ställa in dem i `<appSettings>` i *Web. config* eller *appSettings. JSON*, men värdena i App Service åsidosätter dem i *Web. config* eller *appSettings. JSON* . Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web. config* eller *appSettings. JSON*, men produktions hemligheter (till exempel Azure MySQL-databasens lösen ord) är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
+För ASP.NET-och ASP.NET Core-utvecklare kan ställa in appinställningar i App Service som att ställa in dem i `<appSettings>` i *Web. config* eller *appSettings. JSON*, men värdena i App Service åsidosätter dem i *Web. config* eller *appSettings. JSON*. Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web. config* eller *appSettings. JSON*, men produktions hemligheter (till exempel Azure MySQL-databasens lösen ord) är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
 Andra språk stackar, på samma sätt, får också appens inställningar som miljövariabler vid körning. För språkspecifika steg, se:
 

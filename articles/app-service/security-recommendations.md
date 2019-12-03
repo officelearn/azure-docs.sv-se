@@ -1,20 +1,18 @@
 ---
-title: Säkerhets rekommendationer för Azure App Service
-description: Säkerhets rekommendationer för Azure App Service. Genom att implementera dessa rekommendationer kan du uppfylla dina säkerhets krav enligt beskrivningen i vår delade ansvars modell och förbättrar den övergripande säkerheten för dina webb programs lösningar.
-services: app-service
+title: Säkerhetsrekommendationer
+description: Implementera säkerhets rekommendationerna så att du kan uppfylla dina säkerhets skyldigheter enligt vad som anges i vår delade ansvars modell. Förbättra säkerheten för din app.
 author: barclayn
 manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 71d564dac43328371e9d34684f2d13a26616a99d
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e3f901fd78436b42729607d38f0ddb533f31cd30
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609771"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684117"
 ---
 # <a name="security-recommendations-for-app-service"></a>Säkerhets rekommendationer för App Service
 
@@ -22,13 +20,13 @@ Den här artikeln innehåller säkerhets rekommendationer för Azure App Service
 
 ## <a name="general"></a>Allmänt
 
-| Rekommendation | Kommentar |
+| Rekommendation | Kommentarer |
 |-|-|----|
 | Håll dig uppdaterad | Använd de senaste versionerna av plattformar som stöds, programmeringsspråk, protokoll och ramverk. |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Rekommendation | Kommentar |
+| Rekommendation | Kommentarer |
 |-|----|
 | Inaktivera anonym åtkomst | Om du inte behöver stöd för anonyma begär Anden inaktiverar du anonym åtkomst. Mer information om Azure App Service autentiseringsalternativ finns [i autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md).|
 | Kräv autentisering | När det är möjligt använder du modulen App Service autentisering i stället för att skriva kod för att hantera autentisering och auktorisering. Se [autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md). |
@@ -37,17 +35,17 @@ Den här artikeln innehåller säkerhets rekommendationer för Azure App Service
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Rekommendation | Kommentar |
+| Rekommendation | Kommentarer |
 |-|-|
 | Omdirigera HTTP till HTTPs | Som standard kan-klienter ansluta till webbappar med hjälp av både HTTP eller HTTPS. Vi rekommenderar att du omdirigerar HTTP till HTTPs eftersom HTTPS använder SSL/TLS-protokollet för att tillhandahålla en säker anslutning, som både är krypterad och autentiserad. |
 | Kryptera kommunikation med Azure-resurser | När appen ansluter till Azure-resurser, till exempel [SQL Database](https://azure.microsoft.com/services/sql-database/) eller [Azure Storage](/azure/storage/), finns anslutningen kvar i Azure. Eftersom anslutningen går igenom det delade nätverket i Azure bör du alltid kryptera all kommunikation. |
 | Kräv att den senaste TLS-versionen är möjlig | Sedan 2018 nya Azure App Service-appar använda TLS 1,2. I nyare versioner av TLS ingår säkerhets förbättringar över äldre protokoll versioner. |
 | Använd FTPS | App Service stöder både FTP-och FTPS för att distribuera dina filer. Använd FTPS i stället för FTP när det är möjligt. När ett eller båda av dessa protokoll inte används bör du [inaktivera dem](deploy-ftp.md#enforce-ftps). |
-| Skydda programdata | Lagra inte program hemligheter, t. ex. autentiseringsuppgifter för databaser, API-token eller privata nycklar i koden eller konfigurationsfilerna. Den vanligaste metoden är att få åtkomst till dem [](https://wikipedia.org/wiki/Environment_variable) som miljövariabler som använder standard mönstret på det språk som du väljer. I Azure App Service kan du definiera miljövariabler genom [appinställningar](web-sites-configure.md) och [anslutnings strängar](web-sites-configure.md). App-inställningar och anslutnings strängar lagras krypterade i Azure. Inställningarna för appar dekrypteras bara innan de matas in i appens process minne när appen startas. Krypterings nycklarna roteras regelbundet. Du kan också integrera din Azure App Service-app med [Azure Key Vault](/azure/key-vault/) för hantering av avancerade hemligheter. Genom att [komma åt Key Vault med en hanterad identitet](../key-vault/tutorial-web-application-keyvault.md)kan din app service-app på ett säkert sätt komma åt de hemligheter du behöver. |
+| Skydda programdata | Lagra inte program hemligheter, t. ex. autentiseringsuppgifter för databaser, API-token eller privata nycklar i koden eller konfigurationsfilerna. Den vanligaste metoden är att få åtkomst till dem som [miljövariabler](https://wikipedia.org/wiki/Environment_variable) som använder standard mönstret på det språk som du väljer. I Azure App Service kan du definiera miljövariabler genom [appinställningar](web-sites-configure.md) och [anslutnings strängar](web-sites-configure.md). App-inställningar och anslutnings strängar lagras krypterade i Azure. Inställningarna för appar dekrypteras bara innan de matas in i appens process minne när appen startas. Krypterings nycklarna roteras regelbundet. Du kan också integrera din Azure App Service-app med [Azure Key Vault](/azure/key-vault/) för hantering av avancerade hemligheter. Genom att [komma åt Key Vault med en hanterad identitet](../key-vault/tutorial-web-application-keyvault.md)kan din app service-app på ett säkert sätt komma åt de hemligheter du behöver. |
 
 ## <a name="networking"></a>Nätverk
 
-| Rekommendation | Kommentar |
+| Rekommendation | Kommentarer |
 |-|-|
 | Använda statiska IP-begränsningar | Azure App Service i Windows kan du definiera en lista med IP-adresser som får åtkomst till din app. Listan över tillåtna kan innehålla enskilda IP-adresser eller ett intervall med IP-adresser som definieras av en under nät mask. Mer information finns i [Azure App Service statiska IP-begränsningar](app-service-ip-restrictions.md).  |
 | Använd den isolerade pris nivån | Förutom den isolerade pris nivån kör alla nivåer dina appar i den delade nätverks infrastrukturen i Azure App Service. Den isolerade nivån ger dig fullständig nätverks isolering genom att köra apparna i en dedikerad [app Services miljö](environment/intro.md). En App Service-miljö körs i din egen instans av [Azure Virtual Network](/azure/virtual-network/).|
@@ -56,7 +54,7 @@ Den här artikeln innehåller säkerhets rekommendationer för Azure App Service
 
 ## <a name="monitoring"></a>Övervakning
 
-| Rekommendation | Kommentar |
+| Rekommendation | Kommentarer |
 |-|-|
 |Använd Azure Security Center standard nivå | [Azure Security Center](../security-center/security-center-app-services.md) integreras internt med Azure App Service. Den kan köra utvärderingar och tillhandahålla säkerhets rekommendationer. |
 

@@ -1,56 +1,49 @@
 ---
-title: Klona app med PowerShell – Azure App Service
-description: Lär dig hur du klonar din App Service-app till en ny app med hjälp av PowerShell.
-services: app-service\web
-documentationcenter: ''
+title: Klona app med PowerShell
+description: Lär dig hur du klonar din App Service-app till en ny app med hjälp av PowerShell. En mängd olika klonings scenarier ingår, inklusive Traffic Manager-integrering.
 author: ahmedelnably
-manager: stefsch
-editor: ''
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 47efcfc4bf2b0268d6720b659786300e751e861d
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ccff07009d2f46f6d91b8e3c57158aa6ede3607e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983698"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671437"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service kloning av appar med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Med versionen av Microsoft Azure PowerShell version 1.1.0 har ett nytt alternativ lagts till i så `New-AzWebApp` att du kan klona en befintlig App Service-app till en nyligen skapad app i en annan region eller i samma region. Med det här alternativet kan kunder distribuera ett antal appar i olika regioner snabbt och enkelt.
+Med versionen av Microsoft Azure PowerShell version 1.1.0 har ett nytt alternativ lagts till `New-AzWebApp` som gör att du kan klona en befintlig App Service-app till en nyligen skapad app i en annan region eller i samma region. Med det här alternativet kan kunder distribuera ett antal appar i olika regioner snabbt och enkelt.
 
 Kloning av appar stöds för standard-, Premium-, Premium v2-och isolerade App Service-planer. Den nya funktionen använder samma begränsningar som App Service säkerhets kopierings funktion, se [säkerhetskopiera en app i Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Klona en befintlig app
-Scenario: En befintlig app i regionen USA, södra centrala, och du vill klona innehållet till en ny app i norra centrala USA-regionen. Det kan åstadkommas med hjälp av den Azure Resource Manager versionen av PowerShell-cmdleten för att skapa en ny `-SourceWebApp` app med alternativet.
+Scenario: en befintlig app i regionen USA, södra centrala, och du vill klona innehållet till en ny app i norra centrala USA-regionen. Det kan åstadkommas med hjälp av Azure Resource Manager versionen av PowerShell-cmdleten för att skapa en ny app med alternativet `-SourceWebApp`.
 
-Om du känner till resurs grupps namnet som innehåller käll-appen kan du använda följande PowerShell-kommando för att hämta käll appens information (i det `source-webapp`här fallet med namnet):
+Om du känner till resurs grupps namnet som innehåller käll-appen kan du använda följande PowerShell-kommando för att hämta käll appens information (i det här fallet med namnet `source-webapp`):
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-Om du vill skapa en ny app service-plan kan `New-AzAppServicePlan` du använda kommandot som i följande exempel
+Om du vill skapa en ny App Service-plan kan du använda `New-AzAppServicePlan` kommandot som i följande exempel
 
 ```powershell
 New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-Med hjälp av kommandot kan du skapa den nya appen i regionen Norra centrala USA och koppla den till en befintlig App Service-plan. `New-AzWebApp` Du kan dessutom använda samma resurs grupp som käll-appen, eller definiera en ny resurs grupp, som du ser i följande kommando:
+Med hjälp av kommandot `New-AzWebApp` kan du skapa den nya appen i regionen Norra centrala USA och koppla den till en befintlig App Service-plan. Du kan dessutom använda samma resurs grupp som käll-appen, eller definiera en ny resurs grupp, som du ser i följande kommando:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Om du vill klona en befintlig app, inklusive alla tillhör ande distributions platser `IncludeSourceWebAppSlots` , måste du använda-parametern.  Observera att `IncludeSourceWebAppSlots` parametern endast stöds för kloning av en hel app, inklusive alla dess fack. Följande PowerShell-kommando visar hur parametern används med `New-AzWebApp` kommandot:
+Om du vill klona en befintlig app, inklusive alla tillhör ande distributions platser, måste du använda `IncludeSourceWebAppSlots`-parametern.  Observera att parametern `IncludeSourceWebAppSlots` bara stöds för kloning av en hel app, inklusive alla fack. Följande PowerShell-kommando visar hur parametern används med kommandot `New-AzWebApp`:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
@@ -63,9 +56,9 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Klona en befintlig app till en App Service-miljön
-Scenario: En befintlig app i regionen USA, södra centrala, och du vill klona innehållet till en ny app till en befintlig App Service-miljön (ASE).
+Scenario: en befintlig app i regionen USA, södra centrala, och du vill klona innehållet till en ny app till en befintlig App Service-miljön (ASE).
 
-Om du känner till resurs grupps namnet som innehåller käll-appen kan du använda följande PowerShell-kommando för att hämta käll appens information (i det `source-webapp`här fallet med namnet):
+Om du känner till resurs grupps namnet som innehåller käll-appen kan du använda följande PowerShell-kommando för att hämta käll appens information (i det här fallet med namnet `source-webapp`):
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
@@ -77,12 +70,12 @@ Om du vet namnet på ASE och namnet på resurs gruppen som ASE tillhör kan du s
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
-`Location` Parametern krävs på grund av en gammal orsak, men den ignoreras när du skapar appen i en ASE. 
+Parametern `Location` måste anges på grund av en gammal orsak, men den ignoreras när du skapar appen i en ASE. 
 
 ## <a name="cloning-an-existing-app-slot"></a>Klona en befintlig app-plats
-Scenario: Du vill klona en befintlig distributions plats för en app till antingen en ny app eller en ny plats. Den nya appen kan finnas i samma region som den ursprungliga app-platsen eller i en annan region.
+Scenario: du vill klona en befintlig distributions plats för en app till antingen en ny app eller en ny plats. Den nya appen kan finnas i samma region som den ursprungliga app-platsen eller i en annan region.
 
-Om du känner till resurs grupps namnet som innehåller käll-appen kan du använda följande PowerShell-kommando för att hämta käll program platsens information (i det `source-appslot`här fallet med `source-app`namnet) som är kopplad till:
+Om du känner till resurs grupps namnet som innehåller käll-appen kan du använda följande PowerShell-kommando för att hämta käll program platsens information (i det här fallet `source-appslot`) som är kopplad till `source-app`:
 
 ```powershell
 $srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
@@ -98,14 +91,14 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 Att skapa appar för flera regioner och konfigurera Azure Traffic Manager för att dirigera trafik till alla dessa appar är ett viktigt scenario för att säkerställa att kundernas appar är hög tillgängliga. När du klonar en befintlig app har du möjlighet att ansluta båda apparna antingen till en ny Traffic Manager-profil eller en befintlig. Endast Azure Resource Manager version av Traffic Manager stöds.
 
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Skapa en ny Traffic Manager-profil vid kloning av en app
-Scenario: Du vill klona en app till en annan region, samtidigt som du konfigurerar en Azure Resource Manager Traffic Manager-profil som innehåller båda apparna. Följande kommando visar hur du skapar en klon av käll programmet till en ny app när du konfigurerar en ny Traffic Manager profil:
+Scenario: du vill klona en app till en annan region, samtidigt som du konfigurerar en Azure Resource Manager Traffic Manager-profil som innehåller båda apparna. Följande kommando visar hur du skapar en klon av käll programmet till en ny app när du konfigurerar en ny Traffic Manager profil:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Lägga till en ny klonad app i en befintlig Traffic Manager-profil
-Scenario: Du har redan en Azure Resource Manager Traffic Manager-profil och vill lägga till båda apparna som slut punkter. För att göra det måste du först sätta samman det befintliga ID: t för Traffic Manager-profilen. Du behöver prenumerations-ID, resurs gruppens namn och namnet på den befintliga Traffic Manager-profilen.
+Scenario: du har redan en Azure Resource Manager Traffic Manager-profil och vill lägga till båda apparna som slut punkter. För att göra det måste du först sätta samman det befintliga ID: t för Traffic Manager-profilen. Du behöver prenumerations-ID, resurs gruppens namn och namnet på den befintliga Traffic Manager-profilen.
 
 ```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"

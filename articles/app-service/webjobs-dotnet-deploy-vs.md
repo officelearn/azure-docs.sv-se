@@ -1,21 +1,19 @@
 ---
-title: Utveckla och distribuera WebJobs med Visual Studio – Azure
-description: Lär dig hur du utvecklar och distribuerar Azure WebJobs för Azure App Service med hjälp av Visual Studio.
+title: Utveckla och distribuera WebJobs med VS
+description: Lär dig hur du utvecklar Azure WebJobs i Visual Studio och distribuerar dem till Azure App Service, inklusive hur du skapar en schemalagd aktivitet.
 author: ggailey777
-manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
-ms.service: app-service
 ms.topic: conceptual
 ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303565"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684172"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med Visual Studio – Azure App Service
 
@@ -66,7 +64,7 @@ Du kan använda Visual Studio för att ändra att webb jobbet körs kontinuerlig
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>Webbjobb som .NET Framework-konsol program  
 
-När Visual Studio distribuerar ett WebJobs-aktiverat .NET Framework-konsol program projekt kopieras runtime-filer till lämplig mapp i webbappen (*App_Data/Jobs/kontinuerligt* för kontinuerliga webbjobb och *App_Data/jobb/utlöses* för schemalagda eller webb jobb på begäran).
+När Visual Studio distribuerar ett WebJobs-aktiverat .NET Framework-konsol program projekt kopieras runtime-filer till lämplig mapp i webbappen (*App_Data/Jobs/Continuous* för kontinuerliga WebJobs och *App_Data/Jobs/triggered* för de schemalagda webbjobben eller på begäran.
 
 Ett WebJobs-aktiverat projekt har följande objekt tillagda:
 
@@ -137,13 +135,13 @@ Om du vill skapa ett nytt WebJobs-aktiverat projekt kan du använda projekt mal 
 > 
 
 #### <a id="createnolink"></a>Använd mallen WebJobs New-Project för ett oberoende webbjobb
-1. Klicka på **fil** > **nytt projekt**och klicka sedan på **Cloud** > **Azure-webbjobb (.NET Framework)** i dialog rutan **nytt projekt** .
+1. Klicka på **fil** > **nytt projekt**och sedan i dialog rutan **nytt projekt** klickar du på **Cloud** > **Azure-webbjobb (.NET Framework)** .
    
     ![Dialog rutan nytt projekt med webbjobb-mall](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Följ anvisningarna som visas ovan för att [göra konsol programmet till projekt ett oberoende projekt för WebJobs](#convertnolink).
 
 #### <a id="createlink"></a>Använd mallen WebJobs New-Project för ett webb jobb som är länkat till ett webb projekt
-1. Högerklicka på webbprojektet i **Solution Explorer**och klicka sedan på **Lägg till** > **nytt Azure webbjobb-projekt**.
+1. Högerklicka på webb projektet i **Solution Explorer**och klicka sedan på **Lägg till** > **nytt Azure-webbjobb-projekt**.
    
     ![Nytt projekt meny alternativ för Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/nawj.png)
    
@@ -165,7 +163,7 @@ Fälten i den här dialog rutan motsvarar fält i dialog rutan **Lägg till webb
 > 
 
 ### <a id="publishsettings"></a>webbjobb – publicera-Settings. JSON
-När du konfigurerar ett konsol program för distribution av WebJobs, installerar Visual Studio [Microsoft. Web. WebJobs. publicera](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-paket och lagrar schemaläggnings information i ett *webb jobb – Publish-Settings. JSON* -fil i projektet  *Mappen egenskaper* för WebJobs-projektet. Här är ett exempel på filen:
+När du konfigurerar ett konsol program för distribution av WebJobs, installerar Visual Studio [Microsoft. Web. WebJobs. publicera](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-paket och lagrar schemaläggnings information i en *webb jobb-Publish-Settings. JSON* -fil i mappen Project *Properties* i projektet WebJobs. Här är ett exempel på filen:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
@@ -215,7 +213,7 @@ WebJobs använder en *Settings. job* -fil för att avgöra när ett webb jobb k�
 }
 ```
 
-Den här filen måste finnas i roten i mappen WebJobs, tillsammans med webbjobbets skript, till exempel `wwwroot\app_data\jobs\triggered\{job name}` eller `wwwroot\app_data\jobs\continuous\{job name}`. När du distribuerar ett webb jobb från Visual Studio markerar du dina `settings.job`-fil egenskaper som **Kopiera om nyare**. 
+Den här filen måste finnas i roten i mappen WebJobs, tillsammans med webbjobbets skript, till exempel `wwwroot\app_data\jobs\triggered\{job name}` eller `wwwroot\app_data\jobs\continuous\{job name}`. När du distribuerar ett webb jobb från Visual Studio markerar du `settings.job` fil egenskaperna som **Kopiera om nyare**. 
 
 När du [skapar ett webb jobb från Azure Portal](webjobs-create.md)skapas inställningar. job-filen åt dig.
 

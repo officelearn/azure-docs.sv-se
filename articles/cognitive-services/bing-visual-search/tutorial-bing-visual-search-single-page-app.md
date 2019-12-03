@@ -8,30 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: e0370be1c10bc0f5813bec833be78ad31a3d61a7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 02095a307e5227f477f51e857ee423d22a8edf8f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880650"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689164"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Skapa en Visuell sökning webb program med en enda sida
 
 API för visuell sökning i Bing returnerar insikter för en bild. Du kan antingen ladda upp en avbildning eller ange en URL till en. Insikter är visuellt likartade bilder, shopping källor, webb sidor som innehåller avbildningen med mera. Insikter som returneras av API för visuell sökning i Bing liknar de som visas på Bing.com/images.
 
-I den här självstudien beskrivs hur du utökar en enskild sidas webbapp för API för bildsökning i Bing. Om du vill visa den själv studie kursen eller hämta käll koden som [används här, se Självstudier: Skapa en app med en sida för API för bildsökning i Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
+I den här självstudien beskrivs hur du utökar en enskild sidas webbapp för API för bildsökning i Bing. Om du vill visa den själv studie kursen eller hämta käll koden som används här, se [Självstudier: skapa en app med en sida för API för bildsökning i Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
 
 Den fullständiga käll koden för det här programmet (när den har utökats för att använda API för visuell sökning i Bing) finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Anropa API för visuell sökning i Bing och hantera svaret
 
-Redigera bildsökning i Bing själv studie kursen och Lägg till följande kod i slutet av `<script>` -elementet (och före den avslutande `</script>` taggen). Följande kod hanterar ett visuellt Sök svar från API: et, itererar igenom resultaten och visar dem:
+Redigera Bildsökning i Bing själv studie kursen och Lägg till följande kod i slutet av `<script>`-elementet (och före den avslutande `</script>`-taggen). Följande kod hanterar ett visuellt Sök svar från API: et, itererar igenom resultaten och visar dem:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,7 +63,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-Följande kod skickar en Sök förfrågan till API: et med hjälp av en händelse lyssnare som `handleVisualSearchResponse()`anropar:
+Följande kod skickar en Sök förfrågan till API: et och använder en händelse lyssnare för att anropa `handleVisualSearchResponse()`:
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -101,7 +101,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>Samla in insikter token
 
-Lägg till följande kod i `searchItemsRenderer` objektet. Den här koden lägger till en **find similar**-länk (sök efter liknande) som anropar `bingVisualSearch`-funktionen när du klickar på den. Funktionen får `imageInsightsToken` som ett argument.
+Lägg till följande kod i `searchItemsRenderer`-objektet. Den här koden lägger till en **find similar**-länk (sök efter liknande) som anropar `bingVisualSearch`-funktionen när du klickar på den. Funktionen tar emot `imageInsightsToken` som ett argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -123,4 +123,4 @@ Med all ny JavaScript-kod och HTML-element på plats visas sökresultatet med en
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Beskär en avbildning med Visuell sökning i Bing SDK förC#](tutorial-visual-search-crop-area-results.md)
+> [Självstudie: Beskär en avbildning med Visuell sökning i Bing SDK förC#](tutorial-visual-search-crop-area-results.md)

@@ -1,24 +1,16 @@
 ---
-title: Konfigurera autentiseringsuppgifter för distribution – Azure App Service | Microsoft Docs
-description: Lär dig hur du använder autentiseringsuppgifterna för Azure App Service distribution.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnoc
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Konfigurera autentiseringsuppgifter för distribution
+description: Lär dig vilka typer av autentiseringsuppgifter för distributionen som finns Azure App Service och hur du konfigurerar och använder dem.
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: fc9445b64baae0e625b62356fee381329b01e8fd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c4e7a66a9535812da505045c26e7b1e6fbc6c661
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098488"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669974"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S-distribution](deploy-ftp.md). Autentiseringsuppgifterna är inte desamma som dina autentiseringsuppgifter för Azure-prenumerationen.
@@ -33,7 +25,7 @@ Du kan konfigurera dina autentiseringsuppgifter på användar nivå på alla app
 
 ### <a name="in-the-cloud-shell"></a>I Cloud Shell
 
-Om du vill konfigurera distributions användaren i [Cloud Shell](https://shell.azure.com)kör du kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Ersätt \<username > och \<Password > med ett användar namn och lösen ord för distributions användare. 
+Om du vill konfigurera distributions användaren i [Cloud Shell](https://shell.azure.com)kör du kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Ersätt \<användar namn > och \<lösen ord > med användar namn och lösen ord för distribution. 
 
 - Användar namnet måste vara unikt inom Azure, och för lokala git-push-meddelanden får inte innehålla symbolen @. 
 - Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler. 
@@ -48,17 +40,17 @@ JSON-utdata visar lösen ordet som `null`. Om du ser felet `'Conflict'. Details:
 
 I Azure Portal måste du ha minst en app innan du kan komma åt sidan autentiseringsuppgifter för distribution. Så här konfigurerar du dina autentiseringsuppgifter på användar nivå:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **app Services** >  **\<any_app >** distributions > Center**FTP**-instrumentpanel > på menyn till vänster. > 
+1. I [Azure Portal](https://portal.azure.com)väljer du **App Services** >  **\<any_app** > > **Deployment Center** > **FTP** > **Dashboard**på den vänstra menyn.
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Om du redan har konfigurerat Git-distribution väljer du **app Services** >  **&lt;any_app >**  > **FTP/autentiseringsuppgifter**för**distributions Center** > .
+    Eller, om du redan har konfigurerat Git-distribution väljer du **App Services** >  **&lt;Any_app >**  > **Deployment Center** > **FTP/autentiseringsuppgifter**.
 
     ![](./media/app-service-deployment-credentials/access-with-git.png)
 
-2. Väljanvändarautentiseringsuppgifter, konfigurera användar namn och lösen ord och välj sedan **Spara autentiseringsuppgifter**.
+2. Välj **användarautentiseringsuppgifter, konfigurera användar namn**och lösen ord och välj sedan **Spara autentiseringsuppgifter**.
 
-När du har angett dina autentiseringsuppgifter för distribution kan du hitta användar namnet för *git* -distributionen på appens översikts sida.
+När du har angett dina autentiseringsuppgifter för distribution kan du hitta användar namnet för *git* -distributionen på appens **översikts** sida.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
@@ -71,14 +63,14 @@ Om Git-distribution har kon figurer ATS visar sidan ett **användar namn för Gi
 
 ## <a name="use-user-level-credentials-with-ftpftps"></a>Använd autentiseringsuppgifter på användar nivå med FTP/FTPS
 
-Autentisering till en FTP/FTPS-slutpunkt med autentiseringsuppgifter på användar nivå kräver ett användar namn i följande format:`<app-name>\<user-name>`
+Autentisering till en FTP/FTPS-slutpunkt med autentiseringsuppgifter på användar nivå kräver ett användar namn i följande format: `<app-name>\<user-name>`
 
 Eftersom autentiseringsuppgifter på användar nivå är länkade till användaren och inte en speciell resurs, måste användar namnet vara i det här formatet för att dirigera inloggnings åtgärden till rätt app-slutpunkt.
 
 ## <a name="appscope"></a>Hämta och Återställ autentiseringsuppgifter på program nivå
 Hämta autentiseringsuppgifter för program nivå:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **app Services** >  **&lt;any_app >**  > **distributions Center** > **FTP/autentiseringsuppgifter**på menyn till vänster.
+1. I [Azure Portal](https://portal.azure.com)väljer du **App Services** >  **&lt;any_app** > > **Deployment Center** > **FTP/autentiseringsuppgifter**på den vänstra menyn.
 
 2. Välj **autentiseringsuppgifter för appen**och kopiera sedan användar namnet eller lösen ordet genom att välja **Kopiera** länk.
 

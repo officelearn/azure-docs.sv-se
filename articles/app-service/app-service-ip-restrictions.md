@@ -1,25 +1,18 @@
 ---
-title: Begränsa åtkomst Azure App Service | Microsoft Docs
-description: Så här använder du åtkomst begränsningar med Azure App Service
+title: Begränsa åtkomsten för IP-adresser
+description: Lär dig hur du skyddar din app i Azure App Service genom uttryckligen vit listning klient-IP-adresser eller adress intervall.
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cee6fc9fb5cc10a2b3442e146ef5688ed74290bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088443"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672171"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Begränsningar för Azure App Service åtkomst #
 
@@ -37,7 +30,7 @@ Möjligheten att begränsa åtkomsten till din webbapp från en Azure-Virtual Ne
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Lägga till och redigera regler för åtkomst begränsning i portalen ##
 
-Om du vill lägga till en regel för åtkomst begränsning i appen använder du menyn för att öppna**begränsningar** för **nätverks**>åtkomst och klickar på **Konfigurera åtkomst begränsningar**
+Om du vill lägga till en regel för åtkomst begränsning i appen kan du använda menyn för att öppna **nätverks**>**åtkomst begränsningar** och klicka på **Konfigurera åtkomst begränsningar**
 
 ![App Service nätverks alternativ](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -57,7 +50,7 @@ När du skapar en regel måste du välja Tillåt/neka och även typ av regel. Du
 
 Om du vill ange en IP-baserad regel väljer du en typ av IPv4 eller IPv6. IP-adress notation måste anges i CIDR-notering för både IPv4-och IPv6-adresser. Om du vill ange en exakt adress kan du använda något som 1.2.3.4/32 där de första fyra oktetterna representerar din IP-adress och/32 är masken. IPv4 CIDR-noteringen för alla adresser är 0.0.0.0/0. Om du vill lära dig mer om CIDR-notering kan du läsa [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
-## <a name="service-endpoints"></a>Tjänstens slutpunkter
+## <a name="service-endpoints"></a>Tjänstslutpunkter
 
 Med tjänst slut punkter kan du begränsa åtkomsten till de valda Azure-undernäten för virtuella nätverk. Om du vill begränsa åtkomsten till ett speciellt undernät skapar du en begränsnings regel med en typ av Virtual Network. Du kan välja prenumeration, VNet och undernät som du vill tillåta eller neka åtkomst med. Om tjänst slut punkter inte redan har Aktiver ATS med Microsoft. Web för det undernät som du har valt aktive ras den automatiskt åt dig om du inte markerar kryss rutan där du inte vill göra det. Situationen där du vill aktivera det i appen, men inte under nätet är i stort sett relaterat till om du har behörighet att aktivera tjänstens slut punkter i under nätet eller inte. Om du behöver få någon annan att aktivera tjänstens slut punkter i under nätet kan du markera kryss rutan och låta appen vara konfigurerad för tjänst slut punkter i förväntat att den aktive ras senare i under nätet. 
 

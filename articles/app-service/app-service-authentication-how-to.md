@@ -1,24 +1,15 @@
 ---
-title: Avancerad användning av autentisering och auktorisering – Azure App Service | Microsoft Docs
-description: Visar hur du anpassar autentisering och auktorisering i App Service och hur du hämtar användar anspråk och olika tokens.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
+title: Avancerad användning av authn/authn
+description: Lär dig att anpassa funktionen för autentisering och auktorisering i App Service för olika scenarier och hämta användar anspråk och olika tokens.
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f453a0276a3448273964a589112e21ca5665c2d2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900126"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672237"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -232,7 +223,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Med både Microsoft-konto och Azure Active Directory kan du logga in från flera domäner. Till exempel kan Microsoft-konto tillåta _Outlook.com_-, _live.com_-och _hotmail.com_ -konton. Azure AD tillåter valfritt antal anpassade domäner för inloggnings kontona. Men du kanske vill påskynda dina användare direkt till din egen anpassade Azure AD-inloggnings sida (till exempel `contoso.com`). Följ dessa steg om du vill föreslå domän namnet för inloggnings kontona.
 
-I [https://resources.azure.com](https://resources.azure.com)går du till **prenumerationer** >  **_\<prenumeration\_namn_**  > **resourceGroups** >  **_\<resurs\_grupp\_namn >_**  > **providers** > **Microsoft. Web** > **Sites** >  **_\<app\_Name >_**  > **config** > **authsettings**. 
+I [https://resources.azure.com](https://resources.azure.com)går du till **prenumerationer** >  **_\< prenumeration\_ namn_**  > **resourceGroups** >  **_\< resurs\_ grupp\_ namn >_**  > **providers** > **Microsoft. Web** > **Sites** >  **_\< app\_ Name >_**  > **config** > **authsettings**. 
 
 Klicka på **Redigera**, ändra följande egenskap och klicka sedan på **Lägg**till. Se till att ersätta _\<domän\_namn >_ med den domän som du vill använda.
 

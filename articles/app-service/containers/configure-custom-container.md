@@ -1,24 +1,14 @@
 ---
-title: Konfigurera anpassad container – Azure App Service | Microsoft Docs
-description: Lär dig hur du konfigurerar Node. js-appar så att de fungerar i Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+title: Konfigurera en anpassad Linux-behållare
+description: Lär dig hur du konfigurerar en anpassad Linux-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
-ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d9d6311e69ba4e3893da81a16b06c8baed78cdcd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668973"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671867"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
@@ -28,7 +18,7 @@ Den här guiden innehåller viktiga begrepp och instruktioner för skapa behåll
 
 ## <a name="configure-port-number"></a>Konfigurera port nummer
 
-Webb servern i din anpassade avbildning kan använda en annan port än 80. Du talar om för Azure om porten som din anpassade behållare använder med hjälp av inställningen `WEBSITES_PORT` app. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in den genom att köra kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Till exempel:
+Webb servern i din anpassade avbildning kan använda en annan port än 80. Du talar om för Azure om porten som din anpassade behållare använder med hjälp av inställningen `WEBSITES_PORT` app. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in den genom att köra kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -36,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-Din anpassade behållare kan använda miljövariabler som behöver anges externt. Du kan skicka dem genom att köra kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Till exempel:
+Din anpassade behållare kan använda miljövariabler som behöver anges externt. Du kan skicka dem genom att köra kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -50,7 +40,7 @@ Du kan använda */Home* -katalogen i appens fil system för att spara filer mell
 
 När beständig lagring är inaktive rad behålls inte skrivningen till den `/home` katalogen i appen startas om eller över flera instanser. Det enda undantaget är `/home/LogFiles` Directory, som används för att lagra Docker-och container loggar. När beständig lagring är aktive rad är alla skrivningar till `/home` katalogen bestående och kan nås av alla instanser av en utskalad app.
 
-Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-inställningen genom att köra [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell. Till exempel:
+Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-inställningen genom att köra [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -75,7 +65,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
 
     Den här konfigurationen tillåter inte externa anslutningar till behållaren. SSH är endast tillgängligt via `https://<app-name>.scm.azurewebsites.net` och autentiseras med autentiseringsuppgifterna för publicering.
 
-- Lägg till [den här sshd_config-filen](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) till avbildnings lagrings platsen och Använd [kopierings](https://docs.docker.com/engine/reference/builder/#copy) instruktionen för att kopiera filen till katalogen */etc/ssh/* . Mer information om *sshd_config* -filer finns i [OpenBSD-dokumentationen](https://man.openbsd.org/sshd_config).
+- Lägg till [den här sshd_config-filen](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) till avbildnings lagrings platsen och Använd [kopierings](https://docs.docker.com/engine/reference/builder/#copy) instruktionen för att kopiera filen till */etc/ssh/* -katalogen. Mer information om *sshd_config* -filer finns i [OpenBSD-dokumentationen](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -122,7 +112,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 I filen *filen Docker. yml* mappar du `volumes` alternativet för att `${WEBAPP_STORAGE_HOME}`. 
 
-`WEBAPP_STORAGE_HOME` är en miljövariabel i App Service som är mappad till beständig lagring för din app. Till exempel:
+`WEBAPP_STORAGE_HOME` är en miljövariabel i App Service som är mappad till beständig lagring för din app. Exempel:
 
 ```yaml
 wordpress:
@@ -149,7 +139,7 @@ I följande listor visas en Docker-konfigurations alternativ som stöds och inte
 - command
 - entrypoint
 - miljö
-- image
+- mallar
 - ports
 - restart
 - services

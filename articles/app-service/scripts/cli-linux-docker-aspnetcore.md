@@ -1,31 +1,24 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en ASP.NET Core-app från Docker Hub | Microsoft Docs
-description: Skriptexempel för Azure CLI – Skapa en ASP.NET Core-app i App Service från Docker Hub
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: skapa ASP.NET Core app från Docker'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en ASP.NET Core app från Docker Hub.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 136d0d6976b046244ee9e6a24e68d5304a5c352b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80190fa767da6c593b99d79a71ebce661d561253
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136707"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685991"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Skapa en ASP.NET Core-app i en Docker-container från Docker Hub med hjälp av Azure CLI
 
-Det här exempelskriptet skapar en resursgrupp, en Linux App Service plan och en app. Det distribuerar sedan ett ASP.NET Core-program med en Docker-container.
+Det här exempelskriptet skapar en resursgrupp, en Linux App Service-plan och en app. Det distribuerar sedan ett ASP.NET Core-program med en Docker-container.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

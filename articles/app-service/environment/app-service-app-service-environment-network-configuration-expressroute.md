@@ -1,25 +1,18 @@
 ---
-title: Nätverks konfigurations information för Azure ExpressRoute – App Service
-description: Nätverks konfigurations information för App Service-miljön för PowerApps i virtuella nätverk som är anslutna till en Azure ExpressRoute-krets.
-services: app-service
-documentationcenter: ''
+title: Konfigurera Azure ExpressRoute v1
+description: Nätverks konfiguration för App Service-miljön för PowerApps med Azure ExpressRoute. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: stefsch
-manager: nirma
-editor: ''
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: b10bd15538ecca7934a397ca63db1150a0bfc32c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070026"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688748"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Nätverks konfigurations information för App Service-miljön för PowerApps med Azure ExpressRoute
 
@@ -92,7 +85,7 @@ Information om hur du skapar och konfigurerar användardefinierade vägar finns 
 
 I det här avsnittet visas ett exempel på en UDR-konfiguration för App Service-miljön.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * Installera Azure PowerShell från [sidan för Azure-nedladdningar][AzureDownloads]. Välj en nedladdning med datumet juni 2015 eller senare. Under **kommando rads verktyg** > **Windows PowerShell**väljer du **Installera** för att installera de senaste PowerShell-cmdletarna.
 
@@ -101,13 +94,13 @@ I det här avsnittet visas ett exempel på en UDR-konfiguration för App Service
 > [!IMPORTANT]
 > Distribuera bara App Service-miljön när du har slutfört konfigurations stegen. Stegen ser till att utgående nätverks anslutning är tillgänglig innan du försöker distribuera App Service-miljön.
 
-### <a name="step-1-create-a-route-table"></a>Steg 1: Skapa en routningstabell
+### <a name="step-1-create-a-route-table"></a>Steg 1: skapa en routningstabell
 
 Skapa en routningstabell med namnet **DirectInternetRouteTable** i Azure-regionen USA, västra, som du ser i det här kodfragmentet:
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>Steg 2: Skapa vägar i tabellen
+### <a name="step-2-create-routes-in-the-table"></a>Steg 2: skapa vägar i tabellen
 
 Lägg till vägar i routningstabellen för att aktivera utgående Internet åtkomst.  
 
@@ -126,13 +119,13 @@ Alternativt kan du hämta en aktuell, fullständig lista över CIDR-intervall so
 > En enda UDR har en övre standard gräns på 100 vägar. Du måste sammanfatta Azure IP-adressintervall så att de passar inom 100-flödes gränsen. UDR vägar måste vara mer exakta än vägar som annonseras av din ExpressRoute-anslutning.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>Steg 3: Koppla tabellen till under nätet
+### <a name="step-3-associate-the-table-to-the-subnet"></a>Steg 3: koppla tabellen till under nätet
 
 Koppla routningstabellen till det undernät där du tänker distribuera App Service-miljön. Det här kommandot kopplar **DirectInternetRouteTable** -tabellen till **ASESubnet** -undernätet som innehåller App Service-miljön.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>Steg 4: Testa och bekräfta vägen
+### <a name="step-4-test-and-confirm-the-route"></a>Steg 4: testa och bekräfta vägen
 
 När routningstabellen är kopplad till under nätet testar du och bekräftar vägen.
 

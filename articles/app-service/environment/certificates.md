@@ -1,24 +1,18 @@
 ---
-title: Certifikat och App Service-miljön – Azure
-description: Förklara flera ämnen som rör certifikat på en ASE
-services: app-service
-documentationcenter: na
+title: Certifikat bindningar
+description: Förklara flera ämnen som rör certifikat på en App Service-miljön. Lär dig hur certifikat bindningar fungerar i appar för en enda klient i en ASE.
 author: ccompy
-manager: stefsch
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a8b8e7270851c71869b1a67f0f0f0ba2187f0e87
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470665"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688647"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certifikat och App Service-miljön 
 
@@ -80,7 +74,7 @@ Ladda upp certifikatet till din app i din ASE:
 2. Gå till den app som behöver certifikatet i Azure Portal
 3. Gå till SSL-inställningar i appen. Klicka på överför certifikat. Välj offentlig. Välj lokal dator. Ange ett namn. Bläddra och välj *CER* -filen. Välj överför. 
 4. Kopiera tumavtrycket.
-5. Gå till program inställningar. Skapa en app Setting WEBSITE_LOAD_ROOT_CERTIFICATES med tumavtrycket som värde. Om du har flera certifikat kan du lägga dem i samma inställning avgränsade med kommatecken och inget blank steg som 
+5. Gå till program inställningar. Skapa en app-inställning WEBSITE_LOAD_ROOT_CERTIFICATES med tumavtrycket som värde. Om du har flera certifikat kan du lägga dem i samma inställning avgränsade med kommatecken och inget blank steg som 
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 

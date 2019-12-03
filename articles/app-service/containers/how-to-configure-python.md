@@ -1,32 +1,22 @@
 ---
-title: Konfigurera Python-appar – Azure App Service
-description: Den här självstudien beskriver alternativ för att redigera och konfigurera Python-appar för Azure App Service i Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Konfigurera Linux python-appar
+description: Lär dig hur du konfigurerar en fördefinierad python-behållare för din app. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 8563e0ac060e5cce6853472dfb1c51c6c2c36a4d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071093"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670487"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
 
 Den här artikeln beskriver hur [Azure App Service](app-service-linux-intro.md) kör Python-appar och hur du kan anpassa beteendet för App Service när det behövs. Python-appar måste distribueras med alla nödvändiga [pip](https://pypi.org/project/pip/) -moduler.
 
-App Service distributions motorn aktiverar automatiskt en virtuell miljö och körs `pip install -r requirements.txt` åt dig när du distribuerar en git- [lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), eller ett [zip-paket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med Bygg processer aktiverade.
+App Service distributions motorn aktiverar automatiskt en virtuell miljö och kör `pip install -r requirements.txt` åt dig när du distribuerar en [git-lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), eller ett [zip-paket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med Bygg processer som har växlats till.
 
 Den här guiden innehåller viktiga begrepp och instruktioner för python-utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service bör du först följa snabb starten för [python](quickstart-python.md) och [python med postgresql](tutorial-python-postgresql-app.md) .
 
@@ -119,7 +109,7 @@ Du kan styra containerns startbeteende genom att ange ett anpassat Gunicorn-star
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-Om du till exempel har en kolv-app vars huvudmodul är *Hello.py* och kolv-Appaketet i filen heter `myapp`,  *\<så är > för anpassad kommando* :
+Om du till exempel har en kolv-app vars huvudmodul är *Hello.py* och mappen kolv i filen heter `myapp`, så är *\<custom-Command >* följande:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -131,9 +121,9 @@ Om din huvudmodul är i en undermapp, till exempel `website`, anger du den mappe
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Du kan också lägga till ytterligare argument för Gunicorn till  *\<> för anpassade kommandon*, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Du kan också lägga till ytterligare argument för Gunicorn till *\<> för anpassade kommandon*, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-Om du vill använda en icke-Gunicorn-Server, till exempel [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), kan du ersätta  *\<> för anpassade kommandon* med något som liknar detta:
+Om du vill använda en icke-Gunicorn-Server, t. ex. [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), kan du ersätta *\<anpassade-kommando >* med något som liknar detta:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -169,7 +159,7 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 - **Du ser standardappen när du har distribuerat din egen appkod.** Standardappen visas eftersom du antingen inte har distribuerat din kod till App Service eller för att App Service inte kunde hitta din appkod och körde standardappen i stället.
 - Starta om App Service, vänta 15–20 sekunder och kontrollera appen igen.
@@ -184,10 +174,10 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudie: python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudie: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [Vanliga frågor och svar om App Service Linux](app-service-linux-faq.md)

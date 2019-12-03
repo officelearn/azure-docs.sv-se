@@ -1,19 +1,19 @@
 ---
 title: Arbeta med stöd för ändrings flöden i Azure Cosmos DB
 description: Använd Azure Cosmos DB ändra feed-stöd för att spåra ändringar i dokument och utföra händelse-baserad bearbetning som utlösare och hålla cacheminnen och analys system uppdaterade.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757027"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689095"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändra feed i Azure Cosmos DB – översikt
 
@@ -33,12 +33,12 @@ Med ändrings flödet i Azure Cosmos DB kan du bygga effektiva och skalbara lös
 
 Den här funktionen stöds för närvarande av följande Azure Cosmos DB-API: er och klient-SDK: er.
 
-| **Klient driv rutiner** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB s API för MongoDB** | **Gremlin-API**|**Table API** |
+| **Klient driv rutiner** | **Azure CLI** | **SQL-API** | **Azure Cosmos DB s API för Cassandra** | **Azure Cosmos DB s API för MongoDB** | **Gremlin-API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Ej tillämpligt | Ja | Nej | Nej | Ja | Nej |
-|Java|Ej tillämpligt|Ja|Nej|Nej|Ja|Nej|
-|Python|Ej tillämpligt|Ja|Nej|Nej|Ja|Nej|
-|Node/JS|Ej tillämpligt|Ja|Nej|Nej|Ja|Nej|
+| .NET | Ej tillämpligt | Ja | Ja | Ja | Ja | Nej |
+|Java|Ej tillämpligt|Ja|Ja|Ja|Ja|Nej|
+|Python|Ej tillämpligt|Ja|Ja|Ja|Ja|Nej|
+|Node/JS|Ej tillämpligt|Ja|Ja|Ja|Ja|Nej|
 
 ## <a name="change-feed-and-different-operations"></a>Ändra feed och olika åtgärder
 
@@ -58,7 +58,7 @@ Om en egenskap för ett TTL-värde (Time to Live) har angetts för ett objekt ti
 
 ### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Ändra feed och _etag, _lsn eller _ts
 
-_Etag-formatet är internt och du bör inte ta beroende på det, eftersom det kan ändras när som helst. _ts är en ändring eller en tidsstämpel för skapande. Du kan använda _ts för kronologisk jämförelse. _lsn är ett batch-ID som endast läggs till för ändrings flöde. den representerar transaktions-ID: t. Många objekt kan ha samma _lsn. ETag på FeedResponse skiljer sig från _etag som visas på objektet. _etag är en intern identifierare som används för samtidighets kontroll och som visar om versionen av objektet, medan ETag används för att sekvensera flödet.
+_Etags formatet är internt och du bör inte ta beroende på det, eftersom det kan ändras när som helst. _ts är en ändring eller en tidsstämpel för skapande. Du kan använda _ts för kronologisk jämförelse. _lsn är ett batch-ID som endast läggs till för ändrings flöde. den representerar transaktions-ID: t. Många objekt kan ha samma _lsn. ETag på FeedResponse skiljer sig från _etag som visas på objektet. _etag är en intern identifierare och används för samtidighets kontroll, vilket visar om versionen av objektet, medan ETag används för att sekvensera flödet.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Ändra användnings fall och scenarier för feed
 
@@ -84,7 +84,7 @@ Med ändra feed kan du till exempel utföra följande uppgifter effektivt:
 
 Nedan följer några av de scenarier som du enkelt kan implementera med ändrings flöden:
 
-* [I dina webb](https://azure.microsoft.com/solutions/serverless/) -eller mobilappar kan du spåra händelser som alla ändringar i kundens profil, inställningar eller deras plats och utlösa vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](change-feed-functions.md).
+* [I dina webb-](https://azure.microsoft.com/solutions/serverless/) eller mobilappar kan du spåra händelser som alla ändringar i kundens profil, inställningar eller deras plats och utlösa vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](change-feed-functions.md).
 
 * Om du använder Azure Cosmos DB för att bygga ett spel kan du till exempel använda ändra feed för att implementera ranknings listor i real tid baserat på poängen från färdiga spel.
 
@@ -119,6 +119,12 @@ Du kan arbeta med ändrings flöden med följande alternativ:
 * Ändringarna är tillgängliga parallellt för alla logiska partitionsnyckel för en Azure Cosmos-behållare. Den här funktionen gör det möjligt att bearbeta ändringar från stora behållare parallellt av flera konsumenter.
 
 * Program kan begära flera ändrings flöden på samma behållare samtidigt. ChangeFeedOptions. StartTime kan användas för att ange en start punkt. Om du till exempel vill hitta en fortsättnings-token som motsvarar en angivet klock slag. ContinuationToken, om det anges, WINS över värdena StartTime och StartFromBeginning. Precisionen för ChangeFeedOptions. StartTime är ~ 5 sekunder. 
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Ändra feed i API: er för Cassandra och MongoDB
+
+Funktionen ändra feed fungerar som en ändrings ström i MongoDB API och fråga med predikat i API för Cassandra. Mer information om implementerings informationen för MongoDB-API finns i [ändrings strömmar i Azure Cosmos DB API för MongoDB](mongodb-change-streams.md).
+
+Inbyggd Apache Cassandra tillhandahåller registrering av ändrings data (CDC), en mekanism för att flagga specifika tabeller för arkivering och avvisning av skrivningar till dessa tabeller när en konfigurerbar storlek-på disk för CDC-loggen nås. Funktionen ändra feed i Azure Cosmos DB API för Cassandra förbättrar möjligheten att fråga ändringarna med predikat via CQL. Mer information om implementerings informationen finns i [ändra feed i Azure Cosmos DB API för Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

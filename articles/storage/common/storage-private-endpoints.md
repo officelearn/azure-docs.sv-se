@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 06b96bf548be45952e1ff21f0433a1607ab36501
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e9781d9c277d19257d9b00bea3106adb3b04ffd6
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227887"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672526"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Använda privata slut punkter för Azure Storage (för hands version)
 
@@ -32,7 +32,9 @@ En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-tjän
 
 Program i det virtuella nätverket kan ansluta till lagrings tjänsten via den privata slut punkten sömlöst **med samma anslutnings strängar och auktoriseringsbeslut som de skulle använda i övrigt**. Privata slut punkter kan användas med alla protokoll som stöds av lagrings kontot, inklusive REST och SMB.
 
-När du skapar en privat slut punkt för en lagrings tjänst i ditt VNet, skickas en begäran om godkännande till lagrings kontots ägare. Om användaren som begär att den privata slut punkten ska skapas även är ägare till lagrings kontot, godkänns den här medgivande förfrågningen automatiskt.
+Privata slut punkter kan skapas i undernät som använder [tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview.md). Klienter i ett undernät kan därmed ansluta till ett lagrings konto med hjälp av privat slut punkt, samtidigt som tjänstens slut punkter används för att komma åt andra.
+
+När du skapar en privat slutpunkt för en lagringstjänst i ditt VNet skickas en begäran om godkännande till lagringskontots ägare. Om användaren som begär att den privata slut punkten ska skapas även är ägare till lagrings kontot, godkänns den här medgivande förfrågningen automatiskt.
 
 Lagrings kontots ägare kan hantera medgivande förfrågningar och privata slut punkter via fliken "*privata slut punkter*" för lagrings kontot i [Azure Portal](https://portal.azure.com).
 
@@ -70,13 +72,13 @@ Vi skapar en [privat DNS-zon](../../dns/private-dns-overview.md) som är kopplad
 
 ## <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
 
-DNS CNAME-resursposten för ett lagrings konto med en privat slut punkt uppdateras till ett alias i en under domän med prefixet*privatelink*. Som standard skapar vi också en [privat DNS-zon](../../dns/private-dns-overview.md) som är kopplad till det virtuella nätverket som motsvarar under domänen med prefixet "*privatelink*" och som innehåller DNS a-resursposterna för de privata slut punkterna.
+När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för lagrings kontot till ett alias i en under domän med prefixet "*privatelink*". Som standard skapar vi också en [privat DNS-zon](../../dns/private-dns-overview.md)som motsvarar under domänen "*privatelink*" med DNS a-resursposter för de privata slut punkterna.
 
 När du löser lagrings slut punktens URL från utanför det virtuella nätverket med den privata slut punkten matchas den offentliga slut punkten för lagrings tjänsten. Vid matchning från det VNet som är värd för den privata slut punkten matchas slut punktens URL-adress till den privata slut punktens IP-adress.
 
 För det illustrerat exemplet ovan blir DNS-resursposterna för lagrings kontot StorageAccountA, när de löses från utanför det virtuella nätverket som är värd för den privata slut punkten,:
 
-| Name                                                  | Typ  | Value                                                 |
+| Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<offentlig slut punkt för lagrings tjänst\>                   |
@@ -86,14 +88,14 @@ Som tidigare nämnts kan du neka eller kontrol lera åtkomsten för klienter uta
 
 DNS-resursposterna för StorageAccountA, när de löses av en klient i det VNet som är värd för den privata slut punkten, blir:
 
-| Name                                                  | Typ  | Value                                                 |
+| Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
 Den här metoden ger åtkomst till lagrings kontot **med samma anslutnings sträng** för klienter på det virtuella nätverk som är värd för privata slut punkter, samt klienter utanför VNet.
 
-Om du använder en anpassad DNS-server i ditt nätverk måste klienterna kunna matcha FQDN för lagrings kontots slut punkt till den privata slut punktens IP-adress. För detta måste du konfigurera DNS-servern så att den delegerar din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera A-posterna för "*StorageAccountA.privatelink.blob.Core.Windows.net*" med den privata slut punkten IP-adress. 
+Om du använder en anpassad DNS-server i ditt nätverk måste klienterna kunna matcha FQDN för lagrings kontots slut punkt till den privata slut punktens IP-adress. Du bör konfigurera DNS-servern för att delegera din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera A-posterna för "*StorageAccountA.privatelink.blob.Core.Windows.net*" med den privata slut punkten IP-adress.
 
 > [!TIP]
 > När du använder en anpassad eller lokal DNS-server bör du konfigurera DNS-servern för att matcha lagrings kontots namn i under domänen "privatelink" till IP-adressen för den privata slut punkten. Du kan göra detta genom att delegera privatelink-underdomänen till det virtuella nätverkets privata DNS-zon eller konfigurera DNS-zonen på DNS-servern och lägga till DNS-posterna.
@@ -125,9 +127,6 @@ Pris information finns i [priser för privata Azure-länkar](https://azure.micro
 ### <a name="copy-blob-support"></a>Kopiera BLOB-stöd
 
 Under för hands versionen stöder vi inte [kopiering av BLOB](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) -kommandon som utfärdats till lagrings konton som nås via privata slut punkter när käll lagrings kontot skyddas av en brand vägg.
-
-### <a name="subnets-with-service-endpoints"></a>Undernät med tjänst slut punkter
-För närvarande kan du inte skapa en privat slut punkt i ett undernät som har tjänst slut punkter. Som en lösning kan du skapa separata undernät i samma VNet för tjänst slut punkter och privata slut punkter.
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Begränsningar för lagrings åtkomst för klienter i virtuella nätverk med privata slut punkter
 

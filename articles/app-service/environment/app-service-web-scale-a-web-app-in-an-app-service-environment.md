@@ -1,30 +1,23 @@
 ---
-title: Så här skalar du en app i en App Service-miljön – Azure
-description: Skala en app i en App Service-miljön
-services: app-service
-documentationcenter: ''
+title: Skala en app i ASE v1
+description: Skala en app i en App Service-miljön. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: ccompy
-manager: stefsch
-editor: jimbe
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 711dc4d59785418d6637eb144b644948ed495e2c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069732"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688670"
 ---
-# <a name="scaling-apps-in-an-app-service-environment"></a>Skala appar i en App Service Environment
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Skala appar i en App Service-miljön v1
 I Azure App Service finns det vanligt vis tre saker du kan skala:
 
-* pris plan
+* Pris plan
 * arbets storlek 
 * antal instanser.
 
@@ -39,7 +32,7 @@ Att ändra något av objekten görs via det gränssnitt som visas för dina ASE-
 
 ![][1]
 
-Du kan inte skala upp ditt ASP-minne utöver antalet tillgängliga beräknings resurser i den arbets grupp som din ASP är i.  Om du behöver beräknings resurser i den arbets gruppen måste du be ASE-administratören att lägga till dem.  Information om hur du konfigurerar om ASE finns i informationen här: [Så här konfigurerar du en app Services miljö][HowtoConfigureASE].  Du kanske också vill dra nytta av funktionerna för autoskalning i ASE för att lägga till kapacitet utifrån schema eller mått.  Mer information om hur du konfigurerar autoskalning för ASE-miljön finns i [så här konfigurerar du autoskalning för en app service-miljön][ASEAutoscale].
+Du kan inte skala upp ditt ASP-minne utöver antalet tillgängliga beräknings resurser i den arbets grupp som din ASP är i.  Om du behöver beräknings resurser i den arbets gruppen måste du be ASE-administratören att lägga till dem.  Information om hur du konfigurerar om ASE finns i informationen här: [så här konfigurerar du en app service miljö][HowtoConfigureASE].  Du kanske också vill dra nytta av funktionerna för autoskalning i ASE för att lägga till kapacitet utifrån schema eller mått.  Mer information om hur du konfigurerar autoskalning för ASE-miljön finns i [så här konfigurerar du autoskalning för en app service-miljön][ASEAutoscale].
 
 Du kan skapa flera App Service-planer med hjälp av beräknings resurser från olika arbetspooler, eller så kan du använda samma arbets grupp.  Om du till exempel har (10) tillgängliga beräknings resurser i Worker-pool 1 kan du välja att skapa en app service-plan med hjälp av (6) beräknings resurser och en andra App Service-plan som använder (4) beräknings resurser.
 
@@ -60,7 +53,7 @@ Som tidigare nämnts kan valet av arbets grupp nås från ASP-ANVÄNDARGRÄNSSNI
 Innan du flyttar ASP från en arbets grupp till en annan är det viktigt att se till att du har tillräcklig kapacitet för din ASP.  I listan över Worker-pooler är inte bara namnet på arbets gruppen i listan, men du kan också se hur många arbetare som är tillgängliga i den arbets gruppen.  Kontrol lera att det finns tillräckligt många instanser för att rymma App Services planen.  Om du behöver fler beräknings resurser i den arbets grupp som du vill flytta till kan du be ASE-administratören att lägga till dem.  
 
 > [!NOTE]
-> Om du flyttar en ASP-modul från en arbets grupp leder det till att apparna i ASP startas.  Detta kan göra att förfrågningar körs långsamt när appen är kall igång på de nya beräknings resurserna.  Kall start kan undvikas genom att använda appens [värme funktion][AppWarmup] i Azure App Service.  Modulen för programinitiering som beskrivs i artikeln fungerar även för kall start eftersom initierings processen också anropas när appar är kall igång med nya beräknings resurser. 
+> Om du flyttar en ASP-modul från en arbets grupp leder det till att apparna i ASP startas.  Detta kan göra att förfrågningar körs långsamt när appen är kall igång på de nya beräknings resurserna.  Kall start kan undvikas genom att använda [appens värme funktion][AppWarmup] i Azure App Service.  Modulen för programinitiering som beskrivs i artikeln fungerar även för kall start eftersom initierings processen också anropas när appar är kall igång med nya beräknings resurser. 
 > 
 > 
 

@@ -1,18 +1,18 @@
 ---
-title: Felsökning
+title: Felsöka
 description: Så här felsöker du Azure-FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131970"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672589"
 ---
-# <a name="troubleshooting"></a>Felsökning
+# <a name="troubleshooting"></a>Felsöka
 
 I följande avsnitt beskrivs vanliga problem med Azure-FarmBeats och hur du kan åtgärda dem.
 
@@ -39,7 +39,17 @@ Om du behöver ytterligare hjälp skriver du till oss på farmbeatssupport@micro
 3. Kontakta din enhets partner om det inte finns **några inkommande meddelanden**.  
 4. Om det finns **inkommande meddelanden**kan du kontakta farmbeatssupport@microsoft.com med data hubb och Accelerator loggar och fånga telemetri.
 
-Mer information om hur du hämtar loggar finns i [avsnittet om loggar](#collect-logs-manually) i dokumentet.    
+Mer information om hur du hämtar loggar finns i [avsnittet om loggar](#collect-logs-manually) i dokumentet.  
+
+### <a name="dont-have-the-eventhub-connection-string"></a>Har inte Eventhub-anslutningssträngen
+
+**Korrigerande åtgärd**: besök Datahub-Swagger och följ de här stegen:
+1. Gå till partner-API
+2. Klicka på GET-> testa det – > köra
+3. Anteckna partner-ID för den sensor partner som du är intresse rad av
+4. Gå tillbaka till partner-API: et och klicka på GET/{ID}
+5. Ange ID: t från steg 3 och klicka på Kör
+6. API-svaret ska ha EventHub-anslutningssträngen
 
 ### <a name="device-appears-offline"></a>Enheten visas offline
 
@@ -84,7 +94,7 @@ Följande är vanliga fel scenarier när du tar bort en enhet:
 
 ## <a name="accelerator-troubleshooting"></a>Accelerator-felsökning
 
-### <a name="access-control"></a>Åtkomstkontroll
+### <a name="access-control"></a>Access Control
 
 **Fel vid tillägg av roll tilldelning**
 

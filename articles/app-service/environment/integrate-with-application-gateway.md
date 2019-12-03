@@ -1,24 +1,18 @@
 ---
-title: Integrera ILB-App Service-miljön med Application Gateway Azure
-description: Genom gång av hur du integrerar en app i din ILB-App Service-miljön med en Application Gateway
-services: app-service
-documentationcenter: na
+title: Integrera med Application Gateway
+description: Lär dig hur du integrerar en app i din ILB-App Service-miljön med ett Application Gateway i den här slut punkt till slut punkt.
 author: ccompy
-manager: stefsch
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 090952a065b8c3b2b25ad737992b68b9bc9aa9ec
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069475"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687140"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrera din ILB-App Service-miljön med Azure Application Gateway #
 
@@ -39,14 +33,14 @@ I den här genomgången kommer du att:
 * Konfigurera din app för att respektera det anpassade domän namnet.
 * Redigera det offentliga DNS-värdnamnet som pekar på din Application Gateway.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill integrera din Application Gateway med din ILB-App Service-miljön behöver du:
 
 * Ett ILB-App Service-miljön.
 * En app som körs i ILB-App Service-miljön.
 * Ett Internet-dirigerbart domän namn som ska användas med din app i ILB-App Service-miljön.
-* ILB-adressen som ILB-App Service-miljön använder. Den här informationen finns i App Service-miljön-portalen under **Inställningar** > **IP-adresser**:
+* ILB-adressen som ILB-App Service-miljön använder. Den här informationen finns i App Service-miljön-portalen under **inställningar** > **IP-adresser**:
 
     ![Exempel lista med IP-adresser som används av ILB-App Service-miljön][9]
     
@@ -62,7 +56,7 @@ Du kan inte heller ange den gateway i under nätet som ILB-App Service-miljön a
 
 ## <a name="configuration-steps"></a>Konfigurationssteg ##
 
-1. I Azure Portal går du till **nytt** > **nätverks** > **Application Gateway**.
+1. I Azure Portal går du till **nytt** > **nätverk** > **Application Gateway**.
 
 2. I avsnittet **grundläggande** :
 
@@ -100,7 +94,7 @@ Du kan inte heller ange den gateway i under nätet som ILB-App Service-miljön a
 
    ![Konfigurera backend-pool][4]
 
-6. När du har konfigurerat backend-poolen slutförd väljer du **hälso**avsökningar. Skapa en hälso avsökning för det domän namn som du vill använda för din app. 
+6. När du har konfigurerat backend-poolen slutförd väljer du **hälso avsökningar**. Skapa en hälso avsökning för det domän namn som du vill använda för din app. 
 
    ![Konfigurera hälsotillståndsavsökningar][5]
     

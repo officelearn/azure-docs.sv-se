@@ -1,27 +1,20 @@
 ---
-title: Skriptexempel för Azure CLI – Ansluta en app till ett lagringskonto | Microsoft Docs
-description: Skriptexempel för Azure CLI – Ansluta en app till ett lagringskonto
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: ansluta en app till ett lagrings konto'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till ett lagrings konto.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 57a1e9ad6bf377fa5148a4d5c716be00db786c84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8fcdae21e1f9b8508649c52480fa4a007a3325b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136838"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688445"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Ansluta en App Service-app till ett lagringskonto med hjälp av CLI
 

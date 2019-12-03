@@ -1,26 +1,17 @@
 ---
-title: Distribuera innehåll med FTP/S-Azure App Service | Microsoft Docs
-description: Lär dig hur du distribuerar din app för att Azure App Service med FTP eller FTPS.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Distribuera innehåll med FTP/S
+description: Lär dig hur du distribuerar din app för att Azure App Service med FTP eller FTPS. Förbättra webbplats säkerheten genom att inaktivera okrypterad FTP.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098100"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671723"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -32,7 +23,7 @@ FTP/S-slutpunkten för din app är redan aktiv. Ingen konfiguration krävs för 
 
 Öppna appens [resurs sida](../azure-resource-manager/manage-resources-portal.md#manage-resources)i [Azure Portal](https://portal.azure.com).
 
-Öppna FTP-instrumentpanelen genom att klicka på **distributions Center** > **FTP-**  > **instrumentpanel**.
+Öppna FTP-instrumentpanelen genom att klicka på **Deployment Center** > **FTP** > **instrument panel**.
 
 ![Öppna FTP-instrumentpanel](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -55,7 +46,7 @@ Vi rekommenderar att du använder **autentiseringsuppgifter för appen** för at
 ## <a name="deploy-files-to-azure"></a>Distribuera filer till Azure
 
 1. Från FTP-klienten (till exempel [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/)eller [WinSCP](https://winscp.net/index.php)) använder du den anslutnings information som du har samlat in för att ansluta till din app.
-2. Kopiera dina filer och deras respektive katalog struktur till [ **/Site/wwwroot** -katalogen](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) i Azure (eller **/Site/wwwroot/App_Data/Jobs/** -katalogen för WebJobs).
+2. Kopiera dina filer och deras respektive katalog struktur till [ **/Site/wwwroot** -katalogen](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) i Azure (eller **/Site/wwwroot/App_Data/Jobs/** Directory för WebJobs).
 3. Bläddra till appens URL för att kontrol lera att appen fungerar som den ska. 
 
 > [!NOTE] 
@@ -72,7 +63,7 @@ Vi rekommenderar att du använder **autentiseringsuppgifter för appen** för at
 
 För förbättrad säkerhet bör du endast tillåta FTP över SSL. Du kan också inaktivera både FTP-och FTPS om du inte använder FTP-distribution.
 
-På din apps resurs sida i [Azure Portal](https://portal.azure.com)väljer du **konfiguration** > av**allmänna inställningar** i det vänstra navigerings fältet.
+På din apps resurs sida i [Azure Portal](https://portal.azure.com)väljer du **konfiguration** > **allmänna inställningar** från det vänstra navigerings fältet.
 
 Om du vill inaktivera okrypterad FTP väljer du **FTPS endast** i **FTP-tillstånd**. Om du vill inaktivera både FTP-och FTPS helt väljer du **inaktive rad**. När det är klart klickar du på **Spara**. Om du **bara använder FTPS**måste du framtvinga TLS 1,2 eller högre genom att gå till bladet **TLS/SSL-inställningar** i din webbapp. TLS 1,0 och 1,1 stöds inte med **FTPS**.
 
@@ -89,7 +80,7 @@ För FTP-distribution med hjälp av [Azure PowerShell](/cli/azure), se [Ladda up
 ## <a name="troubleshoot-ftp-deployment"></a>Felsöka FTP-distribution
 
 - [Hur kan jag felsöka FTP-distribution?](#how-can-i-troubleshoot-ftp-deployment)
-- [Jag kan inte använda FTP och publicera min kod. Hur kan jag lösa problemet?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Jag kan inte FTP och publicera min kod. Hur kan jag lösa problemet?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [Hur kan jag ansluta till FTP i Azure App Service via passivt läge?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Hur kan jag felsöka FTP-distribution?
@@ -105,7 +96,7 @@ Information om distributions-eller körnings problem finns i [distribution vs. R
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Jag kan inte FTP och publicera min kod. Hur kan jag lösa problemet?
 Kontrol lera att du har angett rätt värdnamn och [autentiseringsuppgifter](#open-ftp-dashboard). Kontrol lera också att följande FTP-portar på datorn inte blockeras av en brand vägg:
 
-- Anslutnings port för FTP-kontroll: 21
+- Anslutningsport för FTP-kontroll: 21
 - Anslutnings port för FTP-data: 989, 10001-10300
  
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Hur kan jag ansluta till FTP i Azure App Service via passivt läge?
@@ -115,6 +106,6 @@ Azure App Service stöder anslutning via både aktivt och passivt läge. Passivt
 
 Försök [att distribuera till Azure med git](deploy-local-git.md)för mer avancerade distributions scenarier. Git-baserad distribution till Azure möjliggör versions kontroll, paket återställning, MSBuild med mera.
 
-## <a name="more-resources"></a>Flera resurser
+## <a name="more-resources"></a>Fler resurser
 
 * [Autentiseringsuppgifter för Azure App Service distribution](deploy-configure-credentials.md)

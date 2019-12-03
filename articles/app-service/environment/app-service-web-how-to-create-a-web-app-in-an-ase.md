@@ -1,25 +1,18 @@
 ---
-title: Skapa en webbapp i en App Service-miljön v1 – Azure
-description: Lär dig hur du skapar webbappar och App Service-planer i en App Service-miljön v1
-services: app-service
-documentationcenter: ''
+title: Skapa en webbapp i ASE v1
+description: Lär dig hur du skapar webbappar i en App Service-miljön v1. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cc40c2296e583ab93a7c34d709cfbf1334ae3926
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8fb121999176e43f07283e970d7336a7c569eaca
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069850"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688702"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
@@ -35,10 +28,10 @@ I den här självstudien visas hur du skapar webbappar och App Service-planer i 
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 I den här självstudien förutsätter vi att du har skapat en App Service-miljön. Om du inte har gjort det ännu kan du läsa [skapa en app service-miljön](app-service-web-how-to-create-an-app-service-environment.md). 
 
-## <a name="create-a-web-app"></a>Skapa en webbapp
+## <a name="create-a-web-app"></a>Skapa ett webbprogram
 1. I [Azure-portalen](https://portal.azure.com/)klickar du på **skapa en resurs > webb och mobilt >-webbapp**. 
    
     ![][1]

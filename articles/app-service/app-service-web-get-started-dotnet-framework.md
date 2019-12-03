@@ -1,24 +1,16 @@
 ---
-title: Skapa en ASP.NET Framework-webbapp i C# – Azure App Service | Microsoft Docs
-description: Distribuera den C#-baserade standard-ASP.NET-webbappen och lär dig att köra webbappar i Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: 'Snabb start: skapa C# en ASP.net-app'
+description: Lär dig hur du kör Web Apps i Azure App Service genom att distribuera C# standard mal len för ASP.net-webbappar från Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 10/21/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 04dd7cb55f9a6d4ceb722606f0eb90792413e414
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f2e31723dc2761007994f652d9d6c28ab3f7d47d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471772"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671390"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -28,7 +20,7 @@ Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
@@ -91,7 +83,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
    | Inställning | Föreslaget värde | Beskrivning |
    |-|-|-|
    |App Service-plan| myAppServicePlan | Namnet på App Service-planen. |
-   | Plats | Västra Europa | Datacenter som är värd för webbappen. |
+   | Plats | Europa, västra | Datacenter som är värd för webbappen. |
    | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)

@@ -1,26 +1,19 @@
 ---
-title: 'Självstudie: python (django)-webbapp med PostgreSQL på Linux – Azure App Service'
-description: Lär dig hur du kör en data driven python (django)-webbapp i Azure med anslutning till en PostgreSQL-databas.
-services: app-service\web
-documentationcenter: python
-author: cephalin
-manager: gwallace
-ms.service: app-service-web
-ms.workload: web
+title: 'Självstudie: Linux python-app med Postgre'
+description: Lär dig hur du skaffar en Linux python-app som fungerar i Azure App Service, med anslutning till en PostgreSQL-databas i Azure. Django används i den här självstudien.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: 34dbce2a6da2395bbc627a30d464a9817dfe76fe
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: d23097c9674d2b7e60e779304a2d08c734bd614d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439490"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688866"
 ---
 # <a name="tutorial-build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Självstudie: bygga en python-webbapp (django) med PostgreSQL i Azure App Service
 
@@ -169,7 +162,7 @@ I det här steget skapar du en PostgreSQL-databas i Azure. När appen har distri
 
 Skapa en PostgreSQL-server med kommandot [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) i Cloud Shell.
 
-I följande exempel kommando ersätter du *\<postgresql-name >* med ett unikt server namn och ersätter *\<admin-username >* och *\<admin-Password >* med önskade användarautentiseringsuppgifter. Autentiseringsuppgifterna är till databasadministratörens konto. Det här servernamnet används som en del av PostgreSQL-slutpunkten (`https://<postgresql-name>.postgres.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure.
+I följande exempel kommando ersätter du *\<postgresql-name >* med ett unikt server namn och ersätter *\<admin-username >* och *\<Admin-Password >* med önskade användarautentiseringsuppgifter. Autentiseringsuppgifterna är till databasadministratörens konto. Det här servernamnet används som en del av PostgreSQL-slutpunkten (`https://<postgresql-name>.postgres.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql-name> --location "West Europe" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
@@ -197,7 +190,7 @@ När den logiska Azure Database for PostgreSQL-servern har skapats visar Azure C
 ```
 
 > [!NOTE]
-> Kom ihåg \<admin-username > och \<admin-Password > för senare. Du behöver dem för att kunna logga in på Postgre-servern och databaserna.
+> Kom ihåg \<admin-username > och \<Admin-Password > för senare. Du behöver dem för att kunna logga in på Postgre-servern och databaserna.
 
 ### <a name="create-firewall-rules-for-the-postgresql-server"></a>Skapa brandväggsregler för PostgreSQL-servern
 
@@ -210,7 +203,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Den här inställningen tillåter nätverksanslutningar från alla IP-adresser i Azure-nätverket. För användning i produktion kan du försöka konfigurera de mest restriktiva brandväggsreglerna [med hjälp av endast de utgående IP-adresserna som din app använder](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your-IP-address >* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
+I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<IP-adressen >* med [din lokala IPv4-IP-adress](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
@@ -274,7 +267,7 @@ python manage.py runserver
 
 Gå till `http://localhost:8000` i igen. Du bör se meddelandet `No polls are available.` igen. 
 
-Gå till `http://localhost:8000/admin` och logga in med administratörs användaren som du skapade och skapa en omröstnings fråga som tidigare.
+Gå till `http://localhost:8000/admin` och logga in med administratörs användaren som du har skapat och skapa en omröstnings fråga som tidigare.
 
 ![Kör python django-appen i App Services lokalt](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 

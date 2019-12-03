@@ -1,26 +1,17 @@
 ---
-title: Autentisering och auktorisering-Azure App Service | Microsoft Docs
-description: Konceptuell referens och översikt över funktionen autentisering/auktorisering för Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: Autentisering och auktorisering
+description: Lär dig mer om det inbyggda stödet för autentisering och auktorisering i Azure App Service och hur det kan hjälpa till att skydda din app mot obehörig åtkomst.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808750"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672245"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -32,8 +23,10 @@ Azure App Service tillhandahåller stöd för inbyggd autentisering och auktoris
 
 Säker autentisering och auktorisering kräver djupgående förståelse av säkerhet, inklusive Federation, kryptering, [JSON Web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) -hantering, [beviljande typer](https://oauth.net/2/grant-types/)och så vidare. App Service tillhandahåller de här verktygen så att du kan lägga mer tid och energi på att tillhandahålla affärs värde till din kund.
 
-> [!NOTE]
-> Du behöver inte använda App Service för autentisering och auktorisering. Många webb ramverk levereras med säkerhetsfunktioner och du kan använda dem om du vill. Om du behöver större flexibilitet än App Service tillhandahåller kan du också skriva egna verktyg.  
+> [!IMPORTANT]
+> Du behöver inte använda App Service för authn/authn. Många webb ramverk levereras med säkerhetsfunktioner och du kan använda dem om du vill. Om du behöver större flexibilitet än App Service tillhandahåller kan du också skriva egna verktyg.  
+>
+> Men om du går med någon av de icke-App Service alternativen för fjärrautentisering bör du tänka på att [Chrome 80 gör ändringar i implementeringen av SameSite för cookies](https://www.chromestatus.com/feature/5088147346030592) (lanserings datum runt mars 2020) och appens autentiseringsmekanism kan brytas när klientens webbläsare uppdateras. ASP.NET Core-dokumentationen innehåller information om hur du kan åtgärda detta i din app, vid [http: webbläsare SameSite ändringar påverkar autentiseringen](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Den innehåller användbar vägledning om hur du testar den här avbrytande ändringen mot större webbläsare, oavsett om du använder ASP.NET Core eller inte.
 >
 
 Information som är specifik för interna mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).

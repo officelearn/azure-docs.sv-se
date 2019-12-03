@@ -1,22 +1,17 @@
 ---
-title: Översikt över hanterade identiteter – Azure App Service | Microsoft Docs
-description: Konceptuell referens och installations guide för hanterade identiteter i Azure App Service och Azure Functions
-services: app-service
+title: Hanterade identiteter
+description: Lär dig hur hanterade identiteter fungerar i Azure App Service och Azure Functions, hur du konfigurerar en hanterad identitet och hur du skapar en token för en server dels resurs.
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847308"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688622"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -43,7 +38,7 @@ För att konfigurera en hanterad identitet i portalen skapar du först ett progr
 
 3. Välj **identitet**.
 
-4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Spara**.
+4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Save** (Spara).
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -258,10 +253,10 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 > |Parameternamn|För|Beskrivning|
 > |-----|-----|-----|
-> |klusterresursen|Fråga|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
-> |API-version|Fråga|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
+> |klusterresursen|Söka i data|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
+> |API-version|Söka i data|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
 > |hemlighet|Huvud|Värdet för MSI_SECRET-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).|
-> |clientid|Fråga|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
+> |clientid|Söka i data|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
 
 > [!IMPORTANT]
 > Om du försöker hämta tokens för användarspecifika identiteter måste du inkludera egenskapen `clientid`. Annars försöker token-tjänsten hämta en token för en tilldelad identitet, som kan vara eller inte finns.

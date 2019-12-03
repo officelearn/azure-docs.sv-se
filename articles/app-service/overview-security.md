@@ -1,25 +1,16 @@
 ---
-title: Säkerhets översikt – Azure App Service | Microsoft Docs
+title: Säkerhet
 description: Lär dig mer om hur App Service skyddar din app och hur du kan låsa din app ytterligare.
 keywords: Azure App Service, webbapp, mobilapp, API-app, funktions program, säkerhet, säker, säker, efterlevnad, kompatibel, certifikat, certifikat, https, FTPS, TLS, Trust, kryptering, kryptera, krypterad, IP-begränsning, autentisering, auktorisering, authn, autentisering, MSI, hanterad tjänst identitet, hanterad identitet, hemligheter, hemlighet, korrigering, korrigering, korrigeringar, version, isolering, nätverks isolering, DDoS, MITM
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 28394689048e730aa0c84e3bf807ef3afb898b1e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470098"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688563"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
 
@@ -40,7 +31,7 @@ I följande avsnitt visas hur du skyddar din App Service-app ytterligare från h
 
 ## <a name="https-and-certificates"></a>HTTPS och certifikat
 
-Med App Service kan du skydda dina appar med [https](https://wikipedia.org/wiki/HTTPS). När din app skapas, är dess standard domän namn (\<APP_NAME >. azurewebsites. net) redan tillgängligt via HTTPS. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du även [skydda den med ett SSL-certifikat](configure-ssl-bindings.md) så att klient webbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns flera typer av certifikat som stöds av App Service:
+Med App Service kan du skydda dina appar med [https](https://wikipedia.org/wiki/HTTPS). När din app skapas, är dess standard domän namn (\<app_name >. azurewebsites. net) redan tillgängligt via HTTPS. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du även [skydda den med ett SSL-certifikat](configure-ssl-bindings.md) så att klient webbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns flera typer av certifikat som stöds av App Service:
 
 - App Service – kostnadsfri hanterat certifikat
 - App Service certifikat

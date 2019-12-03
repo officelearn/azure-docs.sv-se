@@ -1,25 +1,16 @@
 ---
-title: Återställ app-Azure App Service
-description: Lär dig hur du återställer din app från en säkerhets kopia.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: Återställ appen från en säkerhets kopia
+description: Lär dig hur du återställer din app från en säkerhets kopia. Vissa länkade databaser kan återställas tillsammans med appen i en åtgärd.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 519cf5388b095c7ca6e0ae7d978608f0824dc3a2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066507"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689254"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
 Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](manage-backup.md)). Du kan återställa din app med dess länkade databaser på begäran till ett tidigare tillstånd, eller skapa en ny app baserat på en av din ursprungliga programs säkerhets kopior. Azure App Service stöder följande databaser för säkerhets kopiering och återställning:
@@ -43,7 +34,7 @@ Den här artikeln visar hur du återställer en app i [Azure App Service](../app
     Alternativet **säkerhets kopiering av app** visar alla befintliga säkerhets kopior av den aktuella appen, och du kan enkelt välja en.
     Med alternativet **lagring** kan du välja valfri säkerhets kopia av zip-filen från alla befintliga Azure Storage konto och behållare i din prenumeration.
     Om du försöker återställa en säkerhets kopia av en annan app använder du alternativet **lagring** .
-3. Ange sedan målet för appen Återställ i återställnings **målet**.
+3. Ange sedan målet för appen Återställ i **återställnings målet**.
    
     ![](./media/web-sites-restore/022ChooseDestination1.png)
    
@@ -59,7 +50,7 @@ Den här artikeln visar hur du återställer en app i [Azure App Service](../app
    
     Du kan välja en **befintlig app** för att återställa säkerhets kopian av appen till en annan app i samma resurs grupp. Innan du använder det här alternativet bör du redan ha skapat en annan app i resurs gruppen med spegling av databas konfigurationen till den som definierats i säkerhets kopieringen av appen. Du kan också skapa en **ny** app för att återställa innehållet till.
 
-4. Klicka på **OK**.
+4. Klicka på **OK**
 
 <a name="StorageAccount"></a>
 

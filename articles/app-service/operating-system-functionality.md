@@ -1,25 +1,16 @@
 ---
-title: Operativ system funktioner i App Service – Azure
-description: Lär dig mer om OS-funktionerna som är tillgängliga för webbappar, Server delar för mobilappar och API apps på Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: Funktioner för operativsystemet
+description: Lär dig mer om OS-funktionerna i Azure App Service i Windows. Ta reda på vilka typer av fil-, nätverks-och register åtkomst appen får.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b108814caaace83cd417dc8858e27ed01d54c39e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066766"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671614"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativ system funktioner på Azure App Service
 I den här artikeln beskrivs vanliga funktioner för bas linje operativ system som är tillgängliga för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen omfattar fil-, nätverks-och register åtkomst samt diagnostikloggar och händelser. 
@@ -31,7 +22,7 @@ I den här artikeln beskrivs vanliga funktioner för bas linje operativ system s
 <a id="tiers"></a>
 
 ## <a name="app-service-plan-tiers"></a>App Service plan-nivåer
-App Service kör kund program i en värd miljö för flera innehavare. Appar som distribueras på nivån **kostnads fri** och **delad** körs i arbets processer på delade virtuella datorer, medan appar som distribueras på **standard** -och **Premium** -nivåerna körs på den eller de virtuella datorerna som är dedikerade specifikt för de appar som är associerade med en enda kund.
+App Service kör kund program i en värd miljö för flera innehavare. Appar som distribueras på nivån **kostnads fri** och **delad** körs i arbets processer på delade virtuella datorer, medan appar som distribueras på **standard** -och **Premium** -nivåerna körs på virtuella datorer som är dedikerade särskilt för de appar som är kopplade till en enskild kund.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -64,7 +55,7 @@ Det är viktigt att du övervakar disk användningen när programmet växer. Om 
 
 - Appen kan utlösa ett fel som anger att det inte finns tillräckligt med utrymme på disken.
 - Du kan se disk fel när du bläddrar till kudu-konsolen.
-- Distribution från Azure DevOps eller Visual Studio kan Miss lyckas `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`med.
+- Distribution från Azure DevOps eller Visual Studio kan Miss lyckas med `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Din app kan medföra sämre prestanda.
 
 <a id="NetworkDrives"></a>
@@ -124,7 +115,7 @@ Områden i diagnostik-loggning och-spårning som inte är tillgängliga för app
 <a id="RegistryAccess"></a>
 
 ## <a name="registry-access"></a>Register åtkomst
-Appar har skrivskyddad åtkomst till mycket (men inte alla) registret på den virtuella datorn som de körs på. I praktiken innebär detta att register nycklar som tillåter skrivskyddad åtkomst till den lokala användar gruppen kan nås av appar. En del av registret som för närvarande inte stöds för antingen Läs-eller skriv åtkomst är den aktuella\_\_användar strukturen för HKEY.
+Appar har skrivskyddad åtkomst till mycket (men inte alla) registret på den virtuella datorn som de körs på. I praktiken innebär detta att register nycklar som tillåter skrivskyddad åtkomst till den lokala användar gruppen kan nås av appar. En del av registret som för närvarande inte stöds för antingen Läs-eller skriv åtkomst är HKEY\_aktuella\_användar struktur.
 
 Skriv åtkomst till registret blockeras, inklusive åtkomst till alla register nycklar per användare. I appens perspektiv ska skriv åtkomst till registret aldrig förlita sig på i Azure-miljön eftersom appar kan (och göra) migreras mellan olika virtuella datorer. Den enda beständiga skrivbara lagring som kan vara beroende av en app är innehålls katalog strukturen per app som lagras på App Service UNC-resurser. 
 

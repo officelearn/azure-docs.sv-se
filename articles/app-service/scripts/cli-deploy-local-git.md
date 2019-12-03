@@ -1,31 +1,24 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en app och distribuera kod från en lokal Git-lagringsplats | Microsoft Docs
-description: Skriptexempel för Azure CLI – Skapa en App Service-app och distribuera kod från en lokal Git-lagringsplats
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Distribuera från lokal git-lagrings platsen'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du distribuerar kod från en lokal git-lagringsplats.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 747d215810710c6810df02dca556d7a685ae4060
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 768b3319b1366f45df1fbcaf1039853c0501a8cf
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136735"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686176"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Skapa en App Service-app och distribuera kod från en lokal Git-lagringsplats med hjälp av Azure CLI
 
-Det här exempelskriptet skapar en app i App Service med dess relaterade resurser och distribuerar sedan din kod på en lokal Git-lagringsplats.
+Det här exempel skriptet skapar en app i App Service med dess relaterade resurser och distribuerar sedan din app-kod i en lokal git-lagringsplats.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

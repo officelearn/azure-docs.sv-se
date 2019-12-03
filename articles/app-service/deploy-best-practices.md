@@ -1,26 +1,18 @@
 ---
-title: Metod tips för distribution – Azure App Service | Microsoft Docs
-description: Lär dig mer om viktiga komponenter för att distribuera till Azure App Service.
+title: Bästa metoder för distribution
+description: Lär dig mer om viktiga mekanismer för att distribuera till Azure App Service. Hitta språkspecifika rekommendationer och andra varningar.
 keywords: Azure App Service, webbapp, distribuera, distribution, pipeliner, build
-services: app-service
-documentationcenter: ''
 author: jasonfreeberg
-manager: ''
-editor: ''
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.custom: ''
-ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199487"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670093"
 ---
 # <a name="deployment-best-practices"></a>Metod tips för distribution
 

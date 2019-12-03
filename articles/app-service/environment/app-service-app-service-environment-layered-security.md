@@ -1,28 +1,20 @@
 ---
-title: Säkerhets arkitektur med skikt med App Service miljöer – Azure
-description: Implementera en lager säkerhets arkitektur med App Service miljöer.
-services: app-service
-documentationcenter: ''
+title: Skiktad säkerhet v1
+description: Lär dig hur du implementerar en lager säkerhets arkitektur i din App Services miljö. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070133"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688789"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementera en lager säkerhets arkitektur med App Service miljöer
-## <a name="overview"></a>Översikt
 Eftersom App Service miljöer tillhandahåller en isolerad körnings miljö som distribuerats till ett virtuellt nätverk, kan utvecklare skapa en lager säkerhets arkitektur som ger olika nivåer av nätverks åtkomst för varje fysisk program nivå.
 
 En vanlig önskan är att dölja API-backend-ändar från allmän Internet åtkomst och bara tillåta att API: er anropas av överordnade webb program.  [Nätverks säkerhets grupper (NSG: er)][NetworkSecurityGroups] kan användas på undernät som innehåller App Service miljöer för att begränsa offentlig åtkomst till API-program.

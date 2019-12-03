@@ -1,27 +1,18 @@
 ---
-title: Skriptexempel för Azure CLI – Mappa en anpassad domän till en app | Microsoft Docs
-description: Skriptexempel för Azure CLI – Mappa en anpassad domän till en app
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'CLI: mappa en anpassad domän till en app'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du mappar en anpassad domän till en app.
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 58d13498e1b86421ae04f5a3aa60cf0c44242a39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f96acf6a57ab254d975d827a3493420dde0662f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136940"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686703"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mappa en anpassad domän till en App Service-app med hjälp av CLI
 

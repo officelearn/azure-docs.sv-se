@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 3613639b43db1cd5310a7ea5d7fa18f34e22ed44
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276718"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671567"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ I den här instruktionen får du lära dig följande uppgifter:
 
 * Information om hur du hanterar din egen miljö och beroenden finns i [instruktionen så här](how-to-configure-environment.md) konfigurerar du din egen miljö. Kör `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` i din miljö för att ladda ned nödvändiga beroenden.
 
-## <a name="set-up-machine-learning-resources"></a>Konfigurera machine learning-resurser
+## <a name="set-up-machine-learning-resources"></a>Konfigurera Machine Learning-resurser
 
 Följande åtgärder konfigurerar de resurser som du behöver för att köra en pipeline för batch-härledning:
 
@@ -241,7 +241,7 @@ def run(mini_batch):
 
 Nu har du allt du behöver för att bygga pipelinen.
 
-### <a name="prepare-the-run-environment"></a>Förbereda körningsmiljön
+### <a name="prepare-the-run-environment"></a>Förbereda körnings miljön
 
 Börja med att ange beroenden för skriptet. Du använder det här objektet senare när du skapar pipeline-steget.
 
@@ -255,7 +255,7 @@ batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
 batch_env.docker.enabled = True
-batch_env.docker.base_image = DEFAULT_CPU_IMAGE
+batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 batch_env.spark.precache_packages = False
 ```
 
@@ -292,7 +292,7 @@ parallel_run_config = ParallelRunConfig(
     node_count=4)
 ```
 
-### <a name="create-the-pipeline-step"></a>Skapa pipeline-steg
+### <a name="create-the-pipeline-step"></a>Skapa pipeline-steget
 
 Skapa pipeline-steget med hjälp av skriptet, miljö konfigurationen och parametrarna. Ange det beräknings mål som du redan har kopplat till din arbets yta som mål för körning av skriptet. Använd `ParallelRunStep` för att skapa pipeline-steget för batch-härledning, som tar alla följande parametrar:
 - `name`: namnet på steget med följande namngivnings begränsningar: unika, 3-32 tecken och regex ^\[a-z\]([-a-Z0-9] * [a-Z0-9])? $.

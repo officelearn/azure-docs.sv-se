@@ -7,26 +7,26 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: bd099b9d76e17eda36be1650ef5081e5aaa7e53a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9338f0e26595c1ab25ab51578880daf8c0c5bbc4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "67303534"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672457"
 ---
-# <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Snabbstart: Utveckla på Azure Kubernetes service (AKS) med Draft
+# <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Snabb start: utveckla på Azure Kubernetes service (AKS) med Draft
 
 Draft är ett verktyg med öppen källkod som hjälper till att paketera och köra program behållare i ett Kubernetes-kluster. Med Draft kan du snabbt distribuera om ett program till Kubernetes när kod ändringar sker utan att du behöver göra ändringar i versions kontrollen. Mer information om utkast finns i [utkast dokumentationen om GitHub][draft-documentation].
 
 Den här artikeln visar hur du använder Draft-paket och kör ett program på AKS.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installerat och konfigurerat. Docker innehåller paket som konfigurerar Docker på en [Mac][docker-for-mac]-, [Windows][docker-for-windows]-eller [Linux][docker-for-linux] -dator.
-* [Helm installerad](https://github.com/helm/helm/blob/master/docs/install.md).
+* [Helm installerad](https://github.com/helm/helm#install).
 * [Utkast har installerats][draft-documentation].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
@@ -113,7 +113,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 Innan du kan distribuera Helm i ett RBAC-aktiverat AKS-kluster behöver du ett tjänst konto och en roll bindning för till-tjänsten. Mer information om hur du skyddar Helm/till i ett RBAC-aktiverat kluster finns i [till exempel, namnrymder och RBAC][tiller-rbac]. Om ditt AKS-kluster inte är RBAC-aktiverat, hoppar du över det här steget.
 
-Skapa en fil med `helm-rbac.yaml` namnet och kopiera i följande yaml:
+Skapa en fil med namnet `helm-rbac.yaml` och kopiera i följande YAML:
 
 ```yaml
 apiVersion: v1
@@ -136,14 +136,14 @@ subjects:
     namespace: kube-system
 ```
 
-Skapa tjänst kontot och roll bindningen med `kubectl apply` kommandot:
+Skapa tjänst kontot och roll bindningen med kommandot `kubectl apply`:
 
 ```console
 kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="configure-helm"></a>Konfigurera Helm
-Om du vill distribuera en Basic-till-till-AKS-kluster använder du kommandot [Helm init][helm-init] . Om klustret inte är RBAC-aktiverat tar du `--service-account` bort argumentet och värdet.
+Om du vill distribuera en Basic-till-till-AKS-kluster använder du kommandot [Helm init][helm-init] . Om klustret inte är RBAC-aktiverat tar du bort `--service-account` argument och värde.
 
 ```console
 helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
@@ -151,7 +151,7 @@ helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="lin
 
 ## <a name="configure-draft"></a>Konfigurera utkast
 
-Om du inte har konfigurerat utkast på den lokala datorn kör `draft init`du:
+Om du inte har konfigurerat utkast på den lokala datorn kör du `draft init`:
 
 ```console
 $ draft init
@@ -162,7 +162,7 @@ Installing default pack repositories...
 Happy Sailing!
 ```
 
-Du måste också konfigurera Draft för att använda *namnet* för din ACR. Följande kommando används `draft config set` för att använda `mydraftacr.azurecr.io` som ett register.
+Du måste också konfigurera Draft för att använda *namnet* för din ACR. Följande kommando använder `draft config set` för att använda `mydraftacr.azurecr.io` som ett register.
 
 ```console
 draft config set registry mydraftacr.azurecr.io
@@ -172,7 +172,7 @@ Du har konfigurerat utkastet till att använda din ACR, och utkastet kan skicka 
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-Den här snabb starten använder [ett exempel på ett Java-program från utkastet GitHub][example-java]-lagringsplatsen. Klona programmet från GitHub och navigera till `draft/examples/example-java/` katalogen.
+Den här snabb starten använder [ett exempel på ett Java-program från utkastet GitHub-lagringsplatsen][example-java]. Klona programmet från GitHub och navigera till katalogen `draft/examples/example-java/`
 
 ```console
 git clone https://github.com/Azure/draft
@@ -181,7 +181,7 @@ cd draft/examples/example-java/
 
 ## <a name="run-the-sample-application-with-draft"></a>Kör exempel programmet med utkast
 
-`draft create` Använd kommandot för att förbereda programmet.
+Använd kommandot `draft create` för att förbereda programmet.
 
 ```console
 draft create
@@ -196,7 +196,7 @@ $ draft create
 --> Ready to sail
 ```
 
-Om du vill köra exempel programmet i AKS-klustret använder du `draft up` kommandot.
+Om du vill köra exempel programmet i AKS-klustret använder du kommandot `draft up`.
 
 ```console
 draft up
@@ -216,7 +216,7 @@ Inspect the logs with `draft logs 01CMZAR1F4T1TJZ8SWJQ70HCNH`
 
 ## <a name="connect-to-the-running-sample-application-from-your-local-machine"></a>Ansluta till exempel programmet som körs från den lokala datorn
 
-Om du vill testa programmet använder du `draft connect` kommandot.
+Om du vill testa programmet använder du kommandot `draft connect`.
 
 ```console
 draft connect
@@ -235,7 +235,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Navigera till programmet i en webbläsare med hjälp `localhost` av URL: en för att se exempel programmet. I exemplet ovan är `http://localhost:49804`URL: en. Stoppa anslutningen med `Ctrl+c`.
+Navigera till programmet i en webbläsare med hjälp av `localhost` URL för att se exempel programmet. I exemplet ovan är URL: en `http://localhost:49804`. Stoppa anslutningen med `Ctrl+c`.
 
 ## <a name="access-the-application-on-the-internet"></a>Öppna programmet på Internet
 
@@ -253,13 +253,13 @@ service:
 ...
 ```
 
-Spara ändringarna, Stäng filen och kör `draft up` sedan programmet igen.
+Spara ändringarna, Stäng filen och kör `draft up` för att köra programmet igen.
 
 ```console
 draft up
 ```
 
-Det tar några minuter för tjänsten att returnera en offentlig IP-adress. För att övervaka förloppet använder du `kubectl get service` kommandot med parametern *Watch* :
+Det tar några minuter för tjänsten att returnera en offentlig IP-adress. Du övervakar förloppet genom att använda kommandot `kubectl get service` med parametern *Watch* :
 
 ```console
 $ kubectl get service --watch
@@ -270,7 +270,7 @@ example-java-java   LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 example-java-java   LoadBalancer   10.0.141.72   52.175.224.118  80:32150/TCP   7m
 ```
 
-Gå till belastningsutjämnare för ditt program i en webbläsare med hjälp av den *externa-IP-adressen* för att se exempel programmet. I exemplet ovan är `52.175.224.118`IP-adressen.
+Gå till belastningsutjämnare för ditt program i en webbläsare med hjälp av den *externa-IP-adressen* för att se exempel programmet. I exemplet ovan är IP-adressen `52.175.224.118`.
 
 ## <a name="iterate-on-the-application"></a>Iterera i programmet
 
@@ -284,7 +284,7 @@ Uppdatera meddelandet som returnerades på [rad 7 i src/main/Java/HelloWorld/Hej
     }
 ```
 
-`draft up` Kör kommandot för att distribuera om programmet:
+Kör kommandot `draft up` för att distribuera om programmet:
 
 ```console
 $ draft up

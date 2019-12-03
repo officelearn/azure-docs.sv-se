@@ -1,24 +1,18 @@
 ---
-title: Använda App Service miljö – Azure
-description: Skapa, publicera och skala appar i en Azure App Services miljö
-services: app-service
-documentationcenter: na
+title: Använda och hantera ASE
+description: Hur du skapar, publicerar och skalar appar i en Azure App Services miljö. Hitta vanliga uppgifter i ett dokument.
 author: ccompy
-manager: stefsch
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470580"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687101"
 ---
 # <a name="use-an-app-service-environment"></a>Använda en App Service-miljö #
 
@@ -135,7 +129,7 @@ Som standard fungerar inte Internetbaserade CI-system, till exempel GitHub och A
 
 Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publicerings profil och i appens Portal blad (i **översikt** > **Essentials** och även i **Egenskaper**). 
 
-## <a name="pricing"></a>Priser ##
+## <a name="pricing"></a>Prissättning ##
 
 Pris-SKU: n som heter **isolerad** skapades endast för användning med ASEv2. Alla App Service planer som finns i ASEv2 finns i den isolerade pris-SKU: n. Isolerade App Service plans priser kan variera per region. 
 

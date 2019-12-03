@@ -2,18 +2,18 @@
 title: Apache Hive & Data Lake verktyg för Visual Studio – Azure HDInsight
 description: Lär dig hur du använder Data Lake verktyg för Visual Studio för att köra Apache Hive frågor med Apache Hadoop på Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5b10cc5a8b7468b222fec3f2e66a8258470047ae
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931844"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687806"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive frågor med hjälp av Data Lake verktyg för Visual Studio
 
@@ -36,11 +36,11 @@ Det finns två sätt att skapa och köra Hive-frågor:
 
 ### <a name="create-an-ad-hoc-hive-query"></a>Skapa en ad hoc Hive-fråga
 
-Ad-hoc-frågor kan köras i antingen **batch** eller **interaktivt** läge.
+Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
-1. Öppna **Visual Studio**.
+1. Starta **Visual Studio** och välj **Fortsätt utan kod**.
 
-2. Gå till **Azure** > **HDInsight**från **Server Explorer**.
+2. Från **Server Explorer**högerklickar du på **Azure**, väljer **Anslut till Microsoft Azure prenumeration...** och slutför inloggnings processen.
 
 3. Expandera **HDInsight**, högerklicka på det kluster där du vill köra frågan och välj sedan **Skriv en Hive-fråga**.
 
@@ -99,7 +99,7 @@ Följ dessa steg om du vill köra en Hive-fråga genom att skapa ett Hive-progra
         > Externa tabeller bör användas när du förväntar dig att underliggande data ska uppdateras av en extern källa, till exempel ett MapReduce-jobb eller en Azure-tjänst.
         >
         > Att släppa en extern tabell tar **inte** bort data, endast tabell definitionen.
-    
+
     * `ROW FORMAT`: anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
 
     * `STORED AS TEXTFILE LOCATION`: anger Hive att data lagras i *exemplet/data* katalogen och att de lagras som text.
@@ -138,7 +138,7 @@ I följande exempel förlitar sig den `log4jLogs` tabellen som du skapade i för
         > Till skillnad från `EXTERNAL` tabeller, tas även underliggande data bort när en intern tabell släpps.
 
     * `STORED AS ORC`: lagrar data i *optimerade rad kolumners* (Orc) format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.
-    
+
     * `INSERT OVERWRITE ... SELECT`: väljer rader från tabellen `log4jLogs` som innehåller `[ERROR]`och infogar sedan data i `errorLogs` tabellen.
 
 3. Ändra **interaktiv** till **batch** vid behov och välj sedan **Skicka**.
@@ -149,14 +149,8 @@ I följande exempel förlitar sig den `log4jLogs` tabellen som du skapade i för
 
 Som du kan se ger HDInsight-verktygen för Visual Studio ett enkelt sätt att arbeta med Hive-frågor i HDInsight.
 
-Allmän information om Hive i HDInsight:
+* Allmän information om Hive i HDInsight finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hdinsight-use-hive.md)
 
-* [Vad är Apache Hive och HiveQL på Azure HDInsight?](hdinsight-use-hive.md)
+* Information om andra sätt att arbeta med Hadoop i HDInsight finns i [använda MapReduce i Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
 
-Information om andra sätt att arbeta med Hadoop i HDInsight:
-
-* [Använda MapReduce i Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
-
-Mer information om HDInsight Tools för Visual Studio:
-
-* [Använd Data Lake verktyg för Visual Studio för att ansluta till Azure HDInsight och köra Apache Hive frågor](apache-hadoop-visual-studio-tools-get-started.md)
+* Mer information om HDInsight Tools för Visual Studio finns i[använda data Lake verktyg för Visual Studio för att ansluta till Azure HDInsight och köra apache Hive frågor](apache-hadoop-visual-studio-tools-get-started.md)

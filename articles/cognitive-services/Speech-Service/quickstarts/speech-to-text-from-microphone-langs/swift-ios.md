@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 661dd94caa2a1998b26ec1270688c0729011c15a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5bc7ce5cee6235125cf65f492d9294af5214a760
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503628"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672608"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Snabb start: identifiera tal i SWIFT på iOS med hjälp av tal-SDK
 
@@ -23,7 +23,7 @@ Snabb Starter är också tillgängliga för [tal syntes](~/articles/cognitive-se
 
 I den här artikeln får du lära dig hur du skapar en iOS-app i Swift genom att använda Azure Cognitive Services Speech SDK för att skriva tal som registrerats från en mikrofon till text.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha:
 
@@ -36,7 +36,7 @@ Innan du börjar måste du ha:
 
 Den här självstudien fungerar inte med en tidigare version av SDK än 1.6.0.
 
-Cognitive Services Speech SDK för iOS distribueras som ett Ramverks paket. Den kan användas i Xcode-projekt som en [CocoaPod](https://cocoapods.org/) eller hämtas från https://aka.ms/csspeech/macosbinary och länkas manuellt. I den här artikeln används en CocoaPod.
+Cognitive Services Speech SDK för iOS distribueras som ett Ramverks paket. Den kan användas i Xcode-projekt som en [CocoaPod](https://cocoapods.org/) eller hämtas från https://aka.ms/csspeech/iosbinary och länkas manuellt. I den här artikeln används en CocoaPod.
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 

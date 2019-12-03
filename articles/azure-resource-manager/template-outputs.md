@@ -3,12 +3,12 @@ title: Utdata i mallar
 description: Beskriver hur du definierar utdata i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61120b9941a6a20812ea046265ecbe13014d769e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149182"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689149"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Utdata i Azure Resource Manager mall
 
@@ -16,7 +16,7 @@ I den här artikeln beskrivs hur du definierar utdataparametrar i Azure Resource
 
 ## <a name="define-output-values"></a>Definiera värden för utdata
 
-I följande exempel visas hur du skickar tillbaka resurs-ID för en offentlig IP-adress:
+I följande exempel visas hur du returnerar resurs-ID för en offentlig IP-adress:
 
 ```json
 "outputs": {
@@ -51,7 +51,7 @@ Om du vill hämta värdet för utdata från en länkad mall använder du funktio
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
 
-När du hämtar en egenskap för utdata från en länkad mall, får inte egenskapsnamnet innehålla ett bindestreck.
+När du hämtar en output-egenskap från en länkad mall får egenskaps namnet inte innehålla något bindestreck.
 
 I följande exempel visas hur du ställer in IP-adressen på en belastningsutjämnare genom att hämta ett värde från en länkad mall.
 
@@ -61,7 +61,7 @@ I följande exempel visas hur du ställer in IP-adressen på en belastningsutjä
 }
 ```
 
-Du kan inte använda den `reference` funktion i avsnittet utdata i en [kapslade mallen](resource-group-linked-templates.md#nested-template). Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
+Du kan inte använda funktionen `reference` i avsnittet utdata i en [kapslad mall](resource-group-linked-templates.md#nested-template). Om du vill returnera värdena för en distribuerad resurs i en kapslad mall konverterar du den kapslade mallen till en länkad mall.
 
 ## <a name="get-output-values"></a>Hämta utgående värden
 
@@ -95,10 +95,9 @@ Följande exempel visar scenarier för att använda utdata.
 |Mall  |Beskrivning  |
 |---------|---------|
 |[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Skapar komplexa variabler och matar ut dessa värden. Distribuerar inte några resurser. |
-|[Offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Skapar en offentlig IP-adress och matar ut resurs-ID. |
+|[Offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Skapar en offentlig IP-adress och matar ut resurs-ID: t. |
 |[Lastbalanserare](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Länkar till föregående mall. Använder resurs-ID i utdata när du skapar belastningsutjämnaren. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om tillgängliga egenskaper för utdata finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](resource-group-authoring-templates.md).
-* Rekommendationer om hur du skapar utdata finns i [metod tips – utdata](template-best-practices.md#outputs).

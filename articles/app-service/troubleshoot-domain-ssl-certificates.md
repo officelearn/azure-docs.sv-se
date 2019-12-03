@@ -1,25 +1,19 @@
 ---
-title: Felsöka domän-och SSL-certifikat – Azure App Service | Microsoft Docs
-description: Felsök problem med domän-och SSL-certifikat i Azure App Service
-services: app-service\web
-documentationcenter: ''
+title: Felsöka domän-och SSL-certifikat
+description: Hitta lösningar på vanliga problem som kan uppstå när du konfigurerar en domän eller ett SSL-certifikat i Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470142"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688350"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsök problem med domän-och SSL-certifikat i Azure App Service
 
@@ -235,17 +229,17 @@ Du kan inte köpa en App Service domän i Azure Portal.
 
 Det här problemet uppstår av någon av följande orsaker:
 
-- Det finns inget kredit kort på Azure-prenumerationen, eller så är kredit kortet ogiltigt.
+- Det finns inget kreditkort på Azure-prenumerationen, eller så är kreditkortet ogiltigt.
 
     **Lösning**: Lägg till ett giltigt kredit kort i prenumerationen.
 
-- Du är inte prenumerations ägare, så du har inte behörighet att köpa en domän.
+- Du är inte prenumerationsägare, så du har inte behörighet att köpa en domän.
 
     **Lösning**: [tilldela ägar rollen](../role-based-access-control/role-assignments-portal.md) till ditt konto. Eller kontakta prenumerations administratören för att få behörighet att köpa en domän.
-- Du har nått gränsen för att köpa domäner i din prenumeration. Den aktuella gränsen är 20.
+- Du har nått gränsen för att köpa domäner i din prenumeration. Den nuvarande gränsen är 20.
 
     **Lösning**: kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill begära en ökning av gränsen.
-- Din prenumerations typ för Azure stöder inte köpet av en App Service domän.
+- Din Azure-prenumerationstyp stöder inte köpet av en App Service-domän.
 
     **Lösning**: uppgradera din Azure-prenumeration till en annan prenumerations typ, till exempel en prenumeration där du betalar per användning.
 
@@ -272,7 +266,7 @@ Det här problemet uppstår av någon av följande orsaker:
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 **Måste jag konfigurera min anpassade domän för min webbplats när jag köper den?**
 

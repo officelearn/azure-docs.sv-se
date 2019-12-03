@@ -1,25 +1,17 @@
 ---
-title: Kontinuerlig distribution – Azure App Service | Microsoft Docs
-description: Läs om hur du aktiverar kontinuerlig distribution till Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: Konfigurera kontinuerlig distribution
+description: Lär dig hur du aktiverar CI/CD för att Azure App Service från GitHub, BitBucket, Azure databaser eller andra databaser. Välj den build-pipeline som passar dina behov.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 98f82914af8216789a04d3cfd2972f83c16b3fa0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 692b07c82c329a93d79ad3a87beec5dbe1c595d3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070668"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669989"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
 
@@ -47,7 +39,7 @@ För BitBucket eller GitHub kan du auktorisera Azure App Service att ansluta til
 
 ## <a name="enable-continuous-deployment"></a>Aktivera kontinuerlig distribution 
 
-När du har auktoriserat en käll kontroll tjänst konfigurerar du din app för kontinuerlig distribution genom den inbyggda [Kudu App Service build-servern](#option-1-use-the-app-service-build-service)eller via [Azure](#option-2-use-azure-pipelines)-pipeliner. 
+När du har auktoriserat en käll kontroll tjänst konfigurerar du din app för kontinuerlig distribution genom den inbyggda [Kudu App Service build-servern](#option-1-use-the-app-service-build-service)eller via [Azure-pipeliner](#option-2-use-azure-pipelines). 
 
 ### <a name="option-1-use-the-app-service-build-service"></a>Alternativ 1: Använd App Service build-tjänsten
 
@@ -71,7 +63,7 @@ Du kan använda den inbyggda kudu App Service build-servern för att kontinuerli
    - För GitHub, list rutan och välj den **organisation**, **lagrings plats**och **gren** som du vill distribuera kontinuerligt.
      
      > [!NOTE]
-     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **Inställningar** > **program** > **auktoriserade OAuth-appar**. Välj **Azure App Service**och välj sedan **bevilja**.
+     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **inställningar** > **program** > **auktoriserade OAuth-appar**. Välj **Azure App Service**och välj sedan **bevilja**.
      
    - För BitBucket väljer du det BitBucket- **team**, den **lagrings plats**och den **gren** som du vill distribuera kontinuerligt.
      
@@ -90,7 +82,7 @@ Du kan använda den inbyggda kudu App Service build-servern för att kontinuerli
    
    ![Spåra incheckningar och distributioner i distributions Center](media/app-service-continuous-deployment/github-finished.png)
 
-### <a name="option-2-use-azure-pipelines"></a>Alternativ 2: Använd Azure Pipelines 
+### <a name="option-2-use-azure-pipelines"></a>Alternativ 2: Använd Azure-pipeline 
 
 Om ditt konto har de behörigheter som krävs kan du konfigurera Azure-pipeliner för att kontinuerligt distribuera från GitHub eller Azure databaser-lagringsplatser. Mer information om hur du distribuerar via Azure-pipeliner finns i [distribuera en webbapp till Azure App tjänster](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps).
 
@@ -115,7 +107,7 @@ Konfigurera Azure-pipeliner (för hands version):
    - För GitHub, list rutan och välj den **organisation**, **lagrings plats**och **gren** som du vill distribuera kontinuerligt.
      
      > [!NOTE]
-     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **Inställningar** > **program** > **auktoriserade OAuth-appar**. Välj **Azure App Service**och välj sedan **bevilja**.
+     > Om du inte ser några databaser kan du behöva auktorisera Azure App Service i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **inställningar** > **program** > **auktoriserade OAuth-appar**. Välj **Azure App Service**och välj sedan **bevilja**.
      
    - För Azure databaser väljer du den **Azure DevOps-organisation**, det **projekt**, den **lagrings plats**och den **gren** som du vill distribuera kontinuerligt, eller så konfigurerar du en ny Azure DevOps-organisation.
      

@@ -1,24 +1,17 @@
 ---
-title: Skydda ett anpassat DNS-namn med en SSL-bindning – Azure App Service | Microsoft Docs
-description: Lär dig hur du köper ett App Service certifikat och binder det till din App Service-app
-services: app-service
-author: cephalin
-manager: gwallace
+title: Skydda en anpassad DNS med en SSL-bindning
+description: Skydda HTTPS-åtkomst till din anpassade domän genom att skapa en TLS/SSL-bindning med ett certifikat. Förbättra din webbplats säkerhet genom att tvinga HTTPS eller TLS 1,2.
 tags: buy-ssl-certificates
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 259a4d33ba6e8c072f8df906da4784119b299822
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b967e4cfad2444e39c7df8cfddcc2154bd48367d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501220"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670683"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service
 
@@ -34,13 +27,13 @@ Att skydda en [anpassad domän](app-service-web-tutorial-custom-domain.md) med e
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Uppgradera prisnivån för din app
+> * Uppgradera appens prisnivå
 > * Skydda en anpassad domän med ett certifikat
 > * Använda HTTPS
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att följa den här instruktions guiden:
 
@@ -88,7 +81,7 @@ Använd följande tabell som hjälp för att konfigurera SSL-bindningen i dialog
 
 | Inställning | Beskrivning |
 |-|-|
-| Anpassad domän | Domän namnet som SSL-bindningen ska läggas till för. |
+| Egen domän | Domän namnet som SSL-bindningen ska läggas till för. |
 | Tumavtryck för privat certifikat | Certifikatet som ska bindas. |
 | TLS/SSL-typ | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** -flera SNI SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information finns i [servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** -det går bara att lägga till en IP SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. När du har konfigurerat bindningen följer du stegen i [mappa om en post för IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL stöds endast i produktions-eller isolerade nivåer. </li></ul> |
 
@@ -136,7 +129,7 @@ Välj **SSL-inställningar** i den vänstra navigeringen på din appsida. I **En
 
 ![Använda HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
-När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Till exempel:
+När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Exempel:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

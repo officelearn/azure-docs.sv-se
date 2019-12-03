@@ -1,26 +1,18 @@
 ---
-title: Vanliga frågor och svar om App Service på Linux – Azure | Microsoft Docs
-description: Vanliga frågor och svar om Azure App Service på Linux.
+title: Vanliga frågor och svar om inbyggda behållare
+description: Få svar på vanliga frågor om de inbyggda Linux-behållarna i Azure App Service.
 keywords: Azure App Service, webbapp, vanliga frågor, Linux, oss, Web App for Containers, multi-container, multibehållare
-services: app-service
-documentationCenter: ''
 author: msangapu-msft
-manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fa7b6a02ba287c7f51284a28ce41b2291317f99c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066910"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687602"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Vanliga frågor och svar om Azure App Service på Linux
 
@@ -38,17 +30,17 @@ Du kan hitta alla Docker-filer på [GitHub](https://github.com/azure-app-service
 
 **Vilka är de förväntade värdena för start filen i avsnittet när jag konfigurerar körnings stacken?**
 
-| Stack           | Förväntat värde                                                                         |
+| Framåt           | Förväntat värde                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
 | Java SE         | kommandot för att starta JAR-appen (till exempel `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
+| Tomcat, WildFly | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | konfigurations filen för PM2 eller skript filen                                |
-| .Net Core       | det kompilerade DLL-namnet som`dotnet <myapp>.dll`                                 |
+| .Net Core       | det kompilerade DLL-namnet som `dotnet <myapp>.dll`                                 |
 | Ruby            | det ruby-skript som du vill initiera din app med                     |
 
 De här kommandona eller skripten körs när den inbyggda Docker-behållaren har startats, men innan program koden startas.
 
-## <a name="management"></a>Hantering
+## <a name="management"></a>Förvaltning
 
 **Vad händer när jag trycker på knappen starta om i Azure Portal?**
 
@@ -66,7 +58,7 @@ Ja, du kan göra det via platsen för käll kontroll hantering (SCM).
 
 Du bör ställa in det **reserverade** fältet i App Service på *True*.
 
-## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integrering och distribution
+## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integration och distribution
 
 **Min webbapp använder fortfarande en gammal Docker-behållar avbildning efter att jag har uppdaterat avbildningen på Docker Hub. Stöder du kontinuerlig integrering och distribution av anpassade behållare?**
 
@@ -78,23 +70,23 @@ Ja.
 
 **Kan jag använda *WebDeploy/MSDeploy* för att distribuera min webbapp?**
 
-Ja, du måste ange en app-inställning som `WEBSITE_WEBDEPLOY_USE_SCM` kallas *false*.
+Ja, du måste ange en app-inställning som kallas `WEBSITE_WEBDEPLOY_USE_SCM` till *false*.
 
 **Git-distribution av mitt program Miss lyckas när Linux-webbappen används. Hur kan jag lösa problemet?**
 
 Om git-distributionen Miss lyckas med din Linux-webbapp väljer du något av följande alternativ för att distribuera program koden:
 
-- Använd funktionen för kontinuerlig leverans (för hands version): Du kan lagra appens källkod i en Azure DevOps git lagrings platsen-eller GitHub-lagrings platsen för att använda Azures kontinuerliga leverans. Mer information finns i [så här konfigurerar du kontinuerlig leverans för Linux-webbappar](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Använd funktionen för kontinuerlig leverans (för hands version): du kan lagra appens källkod i en Azure DevOps git lagrings platsen-eller GitHub-lagrings platsen för att använda Azures kontinuerliga leverans. Mer information finns i [så här konfigurerar du kontinuerlig leverans för Linux-webbappar](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Använd [API: et för zip-distribution](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Använd detta API genom att använda [ssh i din](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) webbapp och gå till den mapp där du vill distribuera din kod. Kör följande kod:
+- Använd [zip Deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): för att använda detta API, [ssh i din webbapp](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) och gå till den mapp där du vill distribuera din kod. Kör följande kod:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
-   Om du får ett fel meddelande om `curl` att kommandot inte hittas kontrollerar du att du installerar en sväng genom `apt-get install curl` att använda innan du kör `curl` föregående kommando.
+   Om du får ett fel meddelande om att `curl` kommandot inte hittas kontrollerar du att du installerar en sväng genom att använda `apt-get install curl` innan du kör föregående `curl`-kommando.
 
-## <a name="language-support"></a>Stöd för språk
+## <a name="language-support"></a>Språkstöd
 
 **Jag vill använda Web Sockets i mitt Node. js-program, eventuella särskilda inställningar eller konfigurationer att ställa in?**
 
@@ -114,15 +106,15 @@ Ja.
 
 Ja, under en Git-distribution ska kudu identifiera att du distribuerar ett PHP-program (tack vare förekomsten av en Composer. lock-fil) och kudu sedan utlöser en Composer-installation.
 
-## <a name="custom-containers"></a>Anpassade behållare
+## <a name="custom-containers"></a>Anpassade containrar
 
 **Jag använder min egen anpassade behållare. Jag vill att plattformen ska montera en SMB-resurs till `/home/` katalogen.**
 
-Om `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är **ospecificerad** eller har värdet *True*, `/home/` kommer katalogen **att delas** mellan skalnings instanser och filer som skrivs behålls över omstarter. Om du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` anger *false* inaktive ras monteringen.
+Om `WEBSITES_ENABLE_APP_SERVICE_STORAGE`s inställningen är **ospecificerad** eller har värdet *true*, kommer `/home/` Directory **att delas** mellan skalnings instanser, och filer som skrivs **behålls** över omstarter. Om du uttryckligen anger `WEBSITES_ENABLE_APP_SERVICE_STORAGE` till *false* inaktive ras monteringen.
 
 **Min anpassade behållare tar lång tid att starta och plattformen startar om behållaren innan den har startats.**
 
-Du kan konfigurera hur lång tid som plattformen ska vänta innan den startar om din behållare. Det gör du genom att ställa `WEBSITES_CONTAINER_START_TIME_LIMIT` in appens inställningar på det värde som du vill använda. Standardvärdet är 230 sekunder och det högsta värdet är 1800 sekunder.
+Du kan konfigurera hur lång tid som plattformen ska vänta innan den startar om din behållare. Det gör du genom att ange den `WEBSITES_CONTAINER_START_TIME_LIMIT` appens inställning till det värde som du vill använda. Standardvärdet är 230 sekunder och det högsta värdet är 1800 sekunder.
 
 **Vad är formatet för den privata register serverns URL?**
 
@@ -130,7 +122,7 @@ Ange fullständig registrerings-URL, inklusive `http://` eller `https://`.
 
 **Vad är formatet för avbildnings namnet i det privata register alternativet?**
 
-Lägg till det fullständiga avbildnings namnet, inklusive URL: en för den privata registret (till exempel myacr.azurecr.io/dotnet:latest). Avbildnings namn som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Använd kommando rads `docker-custom-image-name`verktyget för att ange. [ `az` ](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)
+Lägg till det fullständiga avbildnings namnet, inklusive URL: en för den privata registret (till exempel myacr.azurecr.io/dotnet:latest). Avbildnings namn som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Om du vill ange `docker-custom-image-name`använder du [kommando rads verktyget`az`](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Kan jag exponera fler än en port i min anpassade behållar avbildning?**
 
@@ -146,7 +138,7 @@ SCM-platsen körs i en separat behållare. Du kan inte kontrol lera fil systemet
 
 **Min anpassade behållare lyssnar till en annan port än port 80. Hur konfigurerar jag min app för att dirigera begär anden till den porten?**
 
-Vi har automatisk port identifiering. Du kan också ange en app-inställning med namnet *WEBSITES_PORT* och ge den värdet för det förväntade port numret. Tidigare använde plattformen *porten* app-inställningen. Vi planerar att använda den här inställningen för den här appen och att använda *WEBSITES_PORT* exklusivt.
+Vi har automatisk port identifiering. Du kan också ange en app-inställning som kallas *WEBSITES_PORT* och ge den värdet för det förväntade port numret. Tidigare använde plattformen *porten* app-inställningen. Vi planerar att använda den här appens inställning och använda *WEBSITES_PORT* exklusivt.
 
 **Måste jag implementera HTTPS i min anpassade behållare?**
 
@@ -156,7 +148,7 @@ Nej, plattformen hanterar HTTPS-avslutning på delade klient delar.
 
 **Hur gör jag för att konfigurera Azure Container Registry (ACR) för användning med flera behållare?**
 
-För att kunna använda ACR med flera behållare måste **alla** behållar avbildningar vara värdbaserade på samma ACR-register Server. När de finns på samma register Server måste du skapa program inställningar och sedan uppdatera Docker-bildningens konfigurations fil för att inkludera avbildnings namnet för ACR.
+För att kunna använda ACR med flera behållare måste **alla behållar avbildningar** vara värdbaserade på samma ACR-register Server. När de finns på samma register Server måste du skapa program inställningar och sedan uppdatera Docker-bildningens konfigurations fil för att inkludera avbildnings namnet för ACR.
 
 Skapa följande program inställningar:
 
@@ -177,7 +169,7 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 
 Här följer reglerna för att avgöra vilken behållare som är tillgänglig – i prioritetsordning:
 
-- Program inställningen `WEBSITES_WEB_CONTAINER_NAME` har angetts till behållar namnet
+- Program inställningen `WEBSITES_WEB_CONTAINER_NAME` anges till behållar namnet
 - Den första behållaren för att definiera port 80 eller 8080
 - Om inget av ovanstående är sant kommer den första behållaren som definieras i filen att vara tillgänglig (exponeras)
 

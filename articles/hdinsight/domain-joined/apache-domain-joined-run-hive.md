@@ -1,31 +1,33 @@
 ---
 title: Apache Hive principer i Apache Ranger – Azure HDInsight
 description: Lär dig hur du konfigurerar Apache Ranger-principer för Hive i en Azure HDInsight-tjänst med Enterprise Security Package.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e49e2d103fd9c91824c8e8a1603cddddf16366e1
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: 9005b2e01cdb17d6aa6c630ec8be3d702d5b138c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044861"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688085"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
-Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
+
+Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna använder du Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
 ## <a name="prerequisites"></a>Krav
+
 * Ett HDInsight-kluster med Enterprise Security Package. Se [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * En arbetsstation med Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
 **Så här ansluter du till Ranger Admin-gränssnittet**
 
-1. Anslut till Ranger Admin-gränssnittet från en webbläsare. Webbadressen är https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
+1. Från en webbläsare navigerar du till gränssnittet Ranger admin på `https://CLUSTERNAME.azurehdinsight.net/Ranger/` där kluster namn är namnet på klustret.
 
    > [!NOTE]  
    > Ranger använder andra autentiseringsuppgifter än Apache Hadoop kluster. Om du vill förhindra att webbläsare använder cachelagrade Hadoop-autentiseringsuppgifter använder du nytt InPrivate-webbläsarfönster för att ansluta till användar gränssnittet Ranger.
@@ -37,80 +39,97 @@ Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den hä
     För närvarande fungerar Ranger bara med Yarn och Hive.
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
+
 Information om hur du skapar hiveruser1 och hiveuser2 finns i [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Du använder de två användar kontona i den här artikeln.
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
-I det här avsnittet skapar du två Ranger-principer för att få åtkomst till hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades med att [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). I nästa avsnitt ska du testa två principer i Excel.
+
+I det här avsnittet skapar du två Ranger-principer för att få åtkomst till hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades med att [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). I nästa avsnitt ska du testa de två principerna i Excel.
 
 **Skapa Ranger-principer**
 
 1. Öppna Ranger Admin-gränssnittet. Se Anslut till Apache Ranger admin-gränssnittet.
-2. Klicka på **&lt;Klusternamn>_hive** under **Hive**. Du bör se två förkonfigurerade principer.
-3. Klicka på **Lägg till ny princip** och ange sedan följande värden:
+2. Välj **CLUSTERNAME_Hive**under **Hive**. Du bör se två förkonfigurerade principer.
+3. Välj **Lägg till ny princip**och ange sedan följande värden:
 
-   * Principnamn: read-hivesampletable-all
-   * Hive-database: standard
-   * tabell: hivesampletable
-   * Hive-kolumn: *
-   * Välj användare: hiveuser1
-   * Behörigheter: select
+    |Egenskap |Värde |
+    |---|---|
+    |Principnamn|Read-hivesampletable – alla|
+    |Hive-databas|standard|
+    |partitionstabell|hivesampletable|
+    |Hive-kolumn|*|
+    |Välj användare|hiveuser1|
+    |Behörigheter|Select|
 
-     ![Konfiguration av HDInsight ESP Ranger Hive-princip](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    ![HDInsight ESP Ranger-principer för Hive konfigurera](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
-     > [!NOTE]  
-     > Om en domänanvändare inte är ifylld i Välj användare, vänta en stund för att Ranger ska synkronisera med AAD.
-     >
-     >
-4. Klicka på **Lägg till** för att spara principen.
+    > [!NOTE]  
+    > Om en domänanvändare inte är ifylld i Välj användare, vänta en stund för att Ranger ska synkronisera med AAD.
+
+4. Välj **Lägg till** för att spara principen.
+
 5. Upprepa de två sista stegen för att skapa en annan princip med följande egenskaper:
 
-   * Principnamn: read-hivesampletable-devicemake
-   * Hive-database: standard
-   * tabell: hivesampletable
-   * Hive-kolumn: clientid, devicemake
-   * Välj användare: hiveuser2
-   * Behörigheter: select
+    |Egenskap |Värde |
+    |---|---|
+    |Principnamn|Read-hivesampletable-devicemake|
+    |Hive-databas|standard|
+    |partitionstabell|hivesampletable|
+    |Hive-kolumn|ClientID, devicemake|
+    |Välj användare|hiveuser2|
+    |Behörigheter|Select|
 
 ## <a name="create-hive-odbc-data-source"></a>Skapa Hive ODBC-datakälla
+
 Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
  | Egenskap  |Beskrivning |
  | --- | --- |
  | Namn på datakälla | Namnge din datakälla |
- | Värd | Ange &lt;HDInsightClusterName>.azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |
+ | Värd | Ange CLUSTERNAME.azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |
  | Port | Använd **443**. (Den här porten har ändrats från 563 till 443.) |
  | Databas | Använd **Standard**. |
  | Hive-servertyp | Välj **Hive Server 2** |
  | Mekanism | Välj **Azure HDInsight-tjänst** |
  | HTTP-sökväg | Lämna tomt. |
- | Användarnamn | Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domän namnet om det skiljer sig. |
+ | Användarnamn | Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domän namnet om det är annorlunda. |
  | Lösenord | Ange lösenordet för hiveuser1. |
 
 Se till att klicka på **Test** innan du sparar datakällan.
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>Importera data till Excel från HDInsight
-I det sista avsnittet konfigurerade du två principer.  hiveuser1 har select-behörighet för alla kolumner och hiveuser2 har select-behörighet på två kolumner. I det här avsnittet personifierar du de två användarna för att importera data till Excel.
+
+I det sista avsnittet har du konfigurerat två principer.  hiveuser1 har select-behörighet för alla kolumner och hiveuser2 har select-behörighet på två kolumner. I det här avsnittet personifierar du de två användarna för att importera data till Excel.
 
 1. Öppna en ny eller befintlig arbetsbok i Excel.
-2. På fliken **Data** klickar du på **From Other Data Sources** (Från andra datakällor) och sedan klickar du på **Från guiden Dataanslutning** för att starta den **guiden Dataanslutning**.
 
-    ![Öppna guiden Dataanslutning][img-hdi-simbahiveodbc.excel.dataconnection]
-3. Välj **ODBC DSN** som datakälla och klicka sedan på **Nästa**.
-4. Från ODBC-datakällor väljer du datakällsnamnet som du skapade i det föregående steget och sedan klickar du på **Nästa**.
-5. Ange lösen ordet för klustret i guiden igen och klicka sedan på **OK**. Vänta tills dialogrutan **Markera databas och tabell** öppnas. Det kan ta några sekunder.
-6. Välj **hivesampletable** och klicka sedan på **Nästa**.
-7. Klicka på **Finish**.
-8. I dialogrutan **Importera data** kan du ändra eller specificera frågan. Gör det genom att klicka på **Egenskaper**. Det kan ta några sekunder.
-9. Klicka på fliken **definition** . Kommando texten är:
+1. Från fliken **data** navigerar du till **Hämta data** > **från andra källor** > **från ODBC** för att starta **från ODBC-** fönstret.
+
+    ![Guiden öppna data anslutning](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
+
+1. I list rutan väljer du namnet på den data källa som du skapade i det sista avsnittet och väljer sedan **OK**.
+
+1. För den första användningen öppnas en **ODBC-drivrutins** dialog ruta. Välj **fönster** på den vänstra menyn. Välj **Anslut** för att öppna fönstret **navigatör** .
+
+1. Vänta tills dialogrutan **Markera databas och tabell** öppnas. Det kan ta några sekunder.
+
+1. Välj **hivesampletable**och välj sedan **Nästa**.
+
+1. Välj **Slutför**.
+
+1. I dialogrutan **Importera data** kan du ändra eller specificera frågan. Det gör du genom att välja **Egenskaper**. Det kan ta några sekunder.
+
+1. Välj fliken **definition** . Kommando texten är:
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
    Enligt Ranger-principerna du definierade har hiveuser1 select-behörighet för alla kolumner.  Den här frågan fungerar med hiveuser1's-autentiseringsuppgifter, men den här frågan fungerar inte med autentiseringsuppgifterna hiveuser2-autentiseringsuppgifter.
 
-   ![Anslutningsegenskaper][img-hdi-simbahiveodbc-excel-connectionproperties]
-10. Klicka på **OK** för att stänga dialogrutan Anslutningsegenskaper.
-11. Klicka på **OK** för att stänga dialogrutan **Importera data**.  
-12. Ange lösenordet för hiveuser1 igen och klicka sedan på **OK**. Det tar några sekunder innan data har importerats till Excel. När det är klart bör du se 11 kolumner med data.
+1. Välj **OK** för att stänga dialog rutan anslutnings egenskaper.
+
+1. Stäng dialog rutan **Importera data** genom att klicka på **OK** .  
+
+1. Ange lösenordet för hiveuser1 igen och klicka sedan på **OK**. Det tar några sekunder innan data har importerats till Excel. När den är färdig visas 11 kolumner med data.
 
 Om du vill testa den andra principen (Read-hivesampletable-devicemake) skapade du i det sista avsnittet
 
@@ -118,6 +137,7 @@ Om du vill testa den andra principen (Read-hivesampletable-devicemake) skapade d
 2. Följ föregående procedur för att importera data.  Den enda ändring du gör är att använda autentiseringsuppgifterna hiveuser2-autentiseringsuppgifter i stället för hiveuser1's. Detta Miss lyckas eftersom hiveuser2 endast har behörighet att visa två kolumner. Du bör se följande fel:
 
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
+        
 3. Följ samma procedur för att importera data. Den här gången använder du autentiseringsuppgifterna för hiveuser2 och ändrar också select-uttrycket från:
 
         SELECT * FROM "HIVE"."default"."hivesampletable"
@@ -126,9 +146,10 @@ Om du vill testa den andra principen (Read-hivesampletable-devicemake) skapade d
 
         SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
 
-    När det är klart bör du se två kolumner med importerade data.
+    När den är färdig visas två kolumner med importerade data.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Information om hur du konfigurerar ett HDInsight-kluster med Enterprise Security Package finns i [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * Information om hur du hanterar HDInsight-kluster med ESP finns i [Hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md).
 * Information om hur du kör Hive-frågor med SSH på HDInsight-kluster med ESP finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

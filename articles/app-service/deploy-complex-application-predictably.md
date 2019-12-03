@@ -1,28 +1,19 @@
 ---
-title: Etablera och distribuera mikrotjänster i förutsägbart läge – Azure App Service
-description: Lär dig hur du distribuerar ett program som består av mikrotjänster i Azure App Service som en enda enhet och på ett förutsägbart sätt med hjälp av JSON-mallar för resurs grupper och PowerShell-skript.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: Distribuera appar förutsägbart med ARM
+description: Lär dig hur du distribuerar flera Azure App Service-appar som en enda enhet och på ett förutsägbart sätt med hjälp av Azure Resource Management-mallar och PowerShell-skript.
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b13bc43595c09b3700798935f70c401c9311651c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070882"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671816"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
-Den här självstudien visar hur du etablerar och distribuerar [](https://en.wikipedia.org/wiki/Microservices) ett program som består av mikrotjänster i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enda enhet och på ett förutsägbart sätt med hjälp av JSON-mallar för resurs grupper och PowerShell-skript. 
+Den här självstudien visar hur du etablerar och distribuerar ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enda enhet och på ett förutsägbart sätt med hjälp av JSON-mallar för resurs grupper och PowerShell-skript. 
 
 Vid etablering och distribution av storskaliga program som består av mycket fristående mikrotjänster, är repeterbarhet och förutsägbara för att lyckas. Med [Azure App Service](https://azure.microsoft.com/services/app-service/) kan du skapa mikrotjänster som omfattar webbappar, mobila Server delar och API-appar. Med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) kan du hantera alla mikrotjänster som en enhet, tillsammans med resurs beroenden, till exempel inställningar för databas och käll kontroll. Nu kan du också distribuera ett sådant program med hjälp av JSON-mallar och enkla PowerShell-skript. 
 
@@ -64,13 +55,13 @@ Nu ska vi komma åt det.
 3. Du kommer till webbplatsen för att [distribuera till Azure](https://deploy.azure.com) och uppmanas att ange distributions parametrar. Observera att de flesta fält fylls med databas namnet och vissa slumpmässiga strängar åt dig. Du kan ändra alla fält om du vill, men de enda saker som du måste ange är SQL Server Administratörs inloggning och lösen ordet. Klicka sedan på **Nästa**.
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
-4. Starta sedan distributions processen genom att klicka på **distribuera** . När processen har slutförts klickar du på http://todoapp länken *xxxx*. azurewebsites.net för att bläddra i det distribuerade programmet. 
+4. Starta sedan distributions processen genom att klicka på **distribuera** . När processen har slutförts klickar du på länken http://todoapp*xxxx*. azurewebsites.net för att bläddra i det distribuerade programmet. 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    Användar gränssnittet skulle vara lite långsamt när du först bläddrar till det eftersom apparna bara startas, men är övertygade om att det är ett fullständigt fungerande program.
 5. Tillbaka på sidan distribuera klickar du på länken **Hantera** för att se det nya programmet i Azure-portalen.
-6. I list rutan Essentials klickar du på länken resurs grupp. Observera också att appen redan är ansluten till GitHub-lagringsplatsen under **externt projekt**. 
+6. I list rutan **Essentials** klickar du på länken resurs grupp. Observera också att appen redan är ansluten till GitHub-lagringsplatsen under **externt projekt**. 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. Observera att det redan finns två appar och en SQL Database i resurs gruppen på bladet resurs grupp.
@@ -107,10 +98,10 @@ Vi börjar med en enkel resurs på rot nivå i JSON. I JSON-dispositionen klicka
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
-Observera att `type` elementet anger en sträng för en app service plan (den kallades för en Server grupp för lång tid sedan) och andra element och egenskaper fylls i med hjälp av de parametrar som definierats i JSON-filen och den här resursen har inga kapslade resurser.
+Observera att `type`-elementet anger strängen för en App Service plan (den kallades för en Server grupp för lång tid sedan) och andra element och egenskaper fylls i med hjälp av de parametrar som definierats i JSON-filen och den här resursen har inga kapslade resurser.
 
 > [!NOTE]
-> Observera också att värdet för `apiVersion` talar om för Azure vilken version av REST API som ska använda JSON-resurs definitionen med, och det kan påverka hur resursen ska formateras `{}`inuti. 
+> Observera också att värdet för `apiVersion` talar om för Azure vilken version av REST API som används för att använda JSON-resurs definitionen med, och det kan påverka hur resursen ska formateras inuti `{}`. 
 > 
 > 
 
@@ -122,14 +113,14 @@ Klicka sedan på SQL Server resursen med namnet **SQLServer** i JSON-disposition
 Observera följande om den markerade JSON-koden:
 
 * Användningen av parametrar säkerställer att de skapade resurserna namnges och konfigureras på ett sätt som gör dem konsekventa med varandra.
-* SQLServer-resursen har två kapslade resurser, var och en har ett `type`annat värde för.
-* De kapslade resurserna `“resources”: […]`i, där databasen och brand Väggs reglerna har definierats, `dependsOn` har ett-element som anger resurs-ID: t för rot nivåns SQLServer-resurs. Detta meddelar Azure Resource Manager, "innan du skapar den här resursen måste den andra resursen redan finnas. och om den andra resursen definieras i mallen skapar du den först.
+* SQLServer-resursen har två kapslade resurser, var och en har ett annat värde för `type`.
+* De kapslade resurserna i `“resources”: […]`, där databasen och brand Väggs reglerna har definierats, har ett `dependsOn`-element som anger resurs-ID: t för en rot nivå för SQLServer-resursen. Detta meddelar Azure Resource Manager, "innan du skapar den här resursen måste den andra resursen redan finnas. och om den andra resursen definieras i mallen skapar du den först.
   
   > [!NOTE]
-  > Detaljerad information om hur du använder `resourceId()` funktionen finns i [Azure Resource Manager mall funktioner](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
+  > Detaljerad information om hur du använder funktionen `resourceId()` finns i [Azure Resource Manager mall funktioner](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
   > 
   > 
-* Resultatet av `dependsOn` elementet är att Azure Resource Manager kan se vilka resurser som kan skapas parallellt och vilka resurser som måste skapas i tur och ordning. 
+* Resultatet av `dependsOn`-elementet är att Azure Resource Manager kan se vilka resurser som kan skapas parallellt och vilka resurser som måste skapas i tur och ordning. 
 
 #### <a name="app-service-app"></a>App Service-app
 Nu ska vi gå vidare till själva apparna, vilket är mer komplicerat. Klicka på appen [Variables (' apiSiteName ')] i JSON-dispositionen för att markera dess JSON-kod. Du ser att saker är mycket mer intressanta. För det här ändamålet pratar jag om funktionerna en i taget:
@@ -144,34 +135,34 @@ Inställningarna för appen definieras också som en kapslad resurs.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-I- `config/appsettings`elementetförhar du två app-inställningar i formatet `"<name>" : "<value>"`. `properties`
+I `properties`-elementet för `config/appsettings`har du två inställningar för appar i formatet `"<name>" : "<value>"`.
 
-* `PROJECT`är en [kudu-inställning](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) som talar om för Azure-distribution vilket projekt som ska användas i en Visual Studio-lösning med flera projekt. Jag kommer att visa dig senare hur käll kontroll konfigureras, men eftersom ToDoApp-koden finns i en Visual Studio-lösning med flera projekt behöver vi den här inställningen.
-* `clientUrl`är bara en app-inställning som program koden använder.
+* `PROJECT` är en [kudu-inställning](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) som talar om för Azure-distribution vilket projekt som ska användas i en Visual Studio-lösning med flera projekt. Jag kommer att visa dig senare hur käll kontroll konfigureras, men eftersom ToDoApp-koden finns i en Visual Studio-lösning med flera projekt behöver vi den här inställningen.
+* `clientUrl` är bara en app-inställning som program koden använder.
 
 ##### <a name="connection-strings"></a>Anslutningssträngar
 Anslutnings strängarna definieras också som en kapslad resurs.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-`properties` I -`config/connectionstrings`elementet definieras även varje anslutnings sträng som ett namn: värde-par `"<name>" : {"value": "…", "type": "…"}`med det speciella formatet. `MySql` `SQLServer`För elementet är möjliga värden, `Custom`,, och. `SQLAzure` `type`
+I `properties`-elementet för `config/connectionstrings`definieras även varje anslutnings sträng som ett namn: värde-par med det angivna formatet för `"<name>" : {"value": "…", "type": "…"}`. För `type`-elementet är möjliga värden `MySql`, `SQLServer`, `SQLAzure`och `Custom`.
 
 > [!TIP]
-> Om du vill ha en slutgiltig lista över typer av anslutnings strängar kör du följande kommando i Azure PowerShell: \[Enum]:: GetNames ("Microsoft. WindowsAzure. commands. Utilities. websites. Services. webentities. DatabaseType")
+> Om du vill ha en slutgiltig lista över typer av anslutnings strängar kör du följande kommando i Azure PowerShell: \[Enum]:: GetNames ("Microsoft. WindowsAzure. commands. Utilities. webentities. DatabaseType")
 > 
 > 
 
 ##### <a name="source-control"></a>Källkontroll
-Inställningarna för käll kontroll definieras också som en kapslad resurs. Azure Resource Manager använder den här resursen för att konfigurera kontinuerlig publicering (se `IsManualIntegration` villkoret senare) och även för att starta distributionen av program kod automatiskt under bearbetningen av JSON-filen.
+Inställningarna för käll kontroll definieras också som en kapslad resurs. Azure Resource Manager använder den här resursen för att konfigurera kontinuerlig publicering (se villkor för `IsManualIntegration` senare) och även för att starta distributionen av program kod automatiskt under bearbetningen av JSON-filen.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
-`RepoUrl`och `branch` bör vara ganska intuitivt och ska peka på git-lagringsplatsen och namnet på grenen att publicera från. Dessa definieras av indataparametrarna. 
+`RepoUrl` och `branch` bör vara ganska intuitiva och ska peka på git-lagringsplatsen och namnet på grenen att publicera från. Dessa definieras av indataparametrarna. 
 
-Observera att det `dependsOn` element som, utöver själva app-resursen, `sourcecontrols/web` också är beroende av `config/appsettings` och `config/connectionstrings`. Detta beror på att `sourcecontrols/web` när har kon figurer ATS försöker Azure-distributions processen automatiskt att distribuera, skapa och starta program koden. Det innebär att om du infogar det här beroendet ser du till att programmet har åtkomst till de nödvändiga appinställningar och anslutnings strängarna innan program koden körs. 
+Observera att `dependsOn`-elementet som, utöver själva app-resursen, `sourcecontrols/web` också är beroende av `config/appsettings` och `config/connectionstrings`. Detta beror på att när `sourcecontrols/web` har kon figurer ATS försöker Azures distributions process automatiskt att distribuera, skapa och starta program koden. Det innebär att om du infogar det här beroendet ser du till att programmet har åtkomst till de nödvändiga appinställningar och anslutnings strängarna innan program koden körs. 
 
 > [!NOTE]
-> Observera också att `IsManualIntegration` är inställt på. `true` Den här egenskapen är nödvändig i den här självstudien eftersom du inte äger GitHub-lagringsplatsen, och därför inte kan ge Azure behörighet att konfigurera kontinuerlig publicering från [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (dvs. push-uppdateringar av automatisk lagring i Azure). Du kan bara använda standardvärdet `false` för den angivna lagrings platsen om du har konfigurerat ägarens GitHub-autentiseringsuppgifter i [Azure Portal](https://portal.azure.com/) innan. Med andra ord, om du har konfigurerat käll kontroll till GitHub eller BitBucket för alla appar på Azure- [portalen](https://portal.azure.com/) tidigare, med hjälp av dina användarautentiseringsuppgifter, kommer Azure att komma ihåg autentiseringsuppgifterna och använda dem när du distribuerar en app från GitHub eller BitBucket i längre. Men om du inte redan har gjort det, kommer distributionen av JSON-mallen att Miss Miss kan när Azure Resource Manager försöker konfigurera appens inställningar för käll kontroll eftersom den inte kan logga in på GitHub eller BitBucket med databasens ägares autentiseringsuppgifter.
+> Observera också att `IsManualIntegration` är inställt på `true`. Den här egenskapen är nödvändig i den här självstudien eftersom du inte äger GitHub-lagringsplatsen, och därför inte kan ge Azure behörighet att konfigurera kontinuerlig publicering från [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (dvs. push-uppdateringar av automatisk lagring i Azure). Du kan använda standardvärdet `false` endast för den angivna lagrings platsen om du har konfigurerat ägarens GitHub-autentiseringsuppgifter i [Azure Portal](https://portal.azure.com/) tidigare. Med andra ord, om du har konfigurerat käll kontroll till GitHub eller BitBucket för alla appar på Azure- [portalen](https://portal.azure.com/) tidigare, med hjälp av dina användarautentiseringsuppgifter, kommer Azure att komma ihåg autentiseringsuppgifterna och använda dem när du distribuerar en app från GitHub eller BitBucket i framtiden. Men om du inte redan har gjort det, kommer distributionen av JSON-mallen att Miss Miss kan när Azure Resource Manager försöker konfigurera appens inställningar för käll kontroll eftersom den inte kan logga in på GitHub eller BitBucket med databasens ägares autentiseringsuppgifter.
 > 
 > 
 
@@ -192,7 +183,7 @@ Om du ökar detalj nivån till en app bör du kunna se konfigurations informatio
 Knappen **distribuera till Azure** är perfekt, men du kan distribuera resurs grupp mal len i azuredeploy. JSON endast om du redan har pushat azuredeploy. JSON till GitHub. Azure .NET SDK innehåller även verktyg som du kan använda för att distribuera en JSON-mallfil direkt från den lokala datorn. Det gör du genom att följa stegen nedan:
 
 1. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-2. Klicka **på C#Visual**   >  **Cloud**Azure resurs grupp och sedan på OK. > 
+2. Klicka **på C# Visual** > **Cloud** > **Azure-resurs grupp**och klicka sedan på **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. I **Välj Azure-mall**väljer du **tom mall** och klickar på **OK**.
@@ -211,17 +202,17 @@ Knappen **distribuera till Azure** är perfekt, men du kan distribuera resurs gr
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
 8. I JSON-dispositionen klickar du på **appInsights AutoScale** för att markera dess JSON-kod. Detta är skalnings inställningen för App Service plan.
-9. Leta upp `location` och `enabled` ange egenskaperna i den markerade JSON-koden och ange dem som visas nedan.
+9. Leta upp `location` och `enabled` egenskaper i den markerade JSON-koden och ange dem som visas nedan.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 10. I JSON-dispositionen klickar du på **CPUHigh appInsights** för att markera dess JSON-kod. Detta är en avisering.
-11. Leta upp `isEnabled` och ange egenskaperna och ange dem som visas nedan. `location` Gör samma sak för de andra tre aviseringarna (lila lökar).
+11. Leta upp `location`-och `isEnabled` egenskaperna och ange dem som visas nedan. Gör samma sak för de andra tre aviseringarna (lila lökar).
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
 12. Nu är du redo att distribuera. Högerklicka på projektet och välj **distribuera** > **ny distribution**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
-13. Logga in på ditt Azure-konto om du inte redan gjort det.
+13. Logga in på ditt Azure-konto om du inte redan har gjort det.
 14. Välj en befintlig resurs grupp i din prenumeration eller skapa en ny, Välj **azuredeploy. JSON**och klicka sedan på **Redigera parametrar**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
@@ -229,15 +220,15 @@ Knappen **distribuera till Azure** är perfekt, men du kan distribuera resurs gr
     Nu kan du redigera alla parametrar som definierats i mallfilen i en bra tabell. Parametrar som definierar standardvärden har redan sina standardvärden och parametrar som definierar en lista med tillåtna värden visas som List rutor.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
-15. Fyll i alla tomma parametrar och Använd [GitHub lagrings platsen-adressen för ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) i enhälle. Klicka sedan på **Spara**.
+15. Fyll i alla tomma parametrar och Använd [GitHub lagrings platsen-adressen för ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) i **enhälle**. Klicka sedan på **Spara**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
     
     > [!NOTE]
-    > Automatisk skalning är en funktion som erbjuds på **standard** -eller högre nivå, och aviseringar på plannivå är funktioner som erbjuds på nivån **Basic** eller högre. du måste ange **SKU** -parametern till **standard** eller **Premium** för att se alla nya App Insights-resurser lyser upp.
+    > Automatisk skalning är en funktion som erbjuds på **standard** -eller högre nivå, och aviseringar på plannivå är funktioner som erbjuds på nivån **Basic** eller högre. du måste ange **SKU** -parametern till **standard** eller **Premium** för att se att alla nya App Insights-resurser lyser upp.
     > 
     > 
-16. Klicka på **distribuera**. Om du har valt **Spara lösen ord**, kommer lösen ordet att sparas i parameter filen **i oformaterad text**. Annars uppmanas du att ange lösen ordet för databasen under distributions processen.
+16. Klicka på **Distribuera**. Om du har valt **Spara lösen ord**, kommer lösen ordet att sparas i parameter filen **i oformaterad text**. Annars uppmanas du att ange lösen ordet för databasen under distributions processen.
 
 Klart! Nu behöver du bara gå till Azure- [portalen](https://portal.azure.com/) och [Azure Resource Explorer](https://resources.azure.com) -verktyget för att se de nya aviseringarna och inställningarna för autoskalning som lagts till i ditt JSON-distribuerade program.
 
@@ -251,14 +242,14 @@ Det sista steget utförs enkelt med en PowerShell-cmdlet. Om du vill se vad Visu
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
-Den sista cmdleten `New-AzureResourceGroup`, är den som faktiskt utför åtgärden. Allt detta bör Visa för dig att, med hjälp av verktyg, det är relativt enkelt att distribuera moln programmet. Varje gång du kör cmdleten på samma mall med samma parameter fil kommer du att få samma resultat.
+Den sista cmdleten `New-AzureResourceGroup`är den som faktiskt utför åtgärden. Allt detta bör Visa för dig att, med hjälp av verktyg, det är relativt enkelt att distribuera moln programmet. Varje gång du kör cmdleten på samma mall med samma parameter fil kommer du att få samma resultat.
 
 ## <a name="summary"></a>Sammanfattning
 I DevOps är repeterbarhet och förutsägbara nycklar till en lyckad distribution av ett storskaligt program som består av mikrotjänster. I den här självstudien har du distribuerat ett program med två mikrotjänster till Azure som en enda resurs grupp med hjälp av Azure Resource Manager-mallen. Förhoppnings vis har du fått den kunskap du behöver för att kunna börja konvertera ditt program i Azure till en mall och kan etablera och distribuera det förutsägbart. 
 
 <a name="resources"></a>
 
-## <a name="more-resources"></a>Flera resurser
+## <a name="more-resources"></a>Fler resurser
 * [Azure Resource Manager mallens språk](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Funktioner för Azure Resource Manager mallar](../azure-resource-manager/resource-group-template-functions.md)
@@ -270,10 +261,10 @@ I DevOps är repeterbarhet och förutsägbara nycklar till en lyckad distributio
 
 Information om JSON-syntaxen och egenskaperna för resurs typer som distribueras i den här artikeln finns i:
 
-* [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
-* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft. SQL/Servers](/azure/templates/microsoft.sql/servers)
+* [Microsoft. SQL/Servers/databaser](/azure/templates/microsoft.sql/servers/databases)
 * [Microsoft. SQL/Servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
-* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)
 * [Microsoft. Web/Sites/lotss](/azure/templates/microsoft.web/sites/slots)
-* [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
+* [Microsoft. Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

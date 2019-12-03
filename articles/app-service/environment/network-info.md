@@ -1,24 +1,18 @@
 ---
-title: Nätverks överväganden med App Service-miljön – Azure
-description: 'Förklarar ASE nätverks trafik och hur du ställer in NSG: er och UDR med din ASE'
-services: app-service
-documentationcenter: na
+title: Nätverksöverväganden
+description: Lär dig om nätverks trafiken i ASE och hur du ställer in nätverks säkerhets grupper och användardefinierade vägar med din ASE.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470654"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687131"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverks överväganden för en App Service-miljön #
 
@@ -61,7 +55,7 @@ För att ASE ska fungera kräver ASE att följande portar är öppna:
 
 | Användning | Från | Till |
 |-----|------|----|
-| Hantering | App Service hanterings adresser | ASE-undernät: 454, 455 |
+| Förvaltning | App Service hanterings adresser | ASE-undernät: 454, 455 |
 |  Intern kommunikation med ASE | ASE-undernät: alla portar | ASE-undernät: alla portar
 |  Tillåt inkommande Azure Load Balancer | Azure-lastbalanserare | ASE-undernät: 16001
 

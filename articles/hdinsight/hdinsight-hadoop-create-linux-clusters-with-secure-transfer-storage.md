@@ -1,5 +1,5 @@
 ---
-title: Apache Hadoop & säker transaktions lagring – Azure HDInsight
+title: Apache Hadoop & säker tranfser-lagring – Azure HDInsight
 description: Lär dig hur du skapar HDInsight-kluster med Azure-lagringskonton som använder säker överföring.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: b8a5d48e977009cf592f271760232a3b0138c8c5
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: ed8e20509c4a3f941d6f215dfc476c87e9a813a7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044949"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687783"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Skapa Apache Hadoop kluster med lagrings konton för säker överföring i Azure HDInsight
 
@@ -24,7 +24,7 @@ Funktionen [Säker överföring krävs](../storage/common/storage-require-secure
 Innan du börjar den här artikeln måste du ha:
 
 * **Azure-prenumeration**: Gå till [azure.microsoft.com/free](https://azure.microsoft.com/free) för att skapa ett kostnadsfritt provkonto för en månad.
-* **Ett Azure Storage-konto med säker överföring aktiverat**. Anvisningar finns i [Create a storage account](../storage/common/storage-quickstart-create-account.md) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring).
+* **Ett Azure Storage-konto med säker överföring aktiverat**. Anvisningar finns i [Create a storage account](../storage/common/storage-quickstart-create-account.md) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring). Att aktivera säker lagrings överföring när du har skapat ett kluster kräver ytterligare åtgärder som inte beskrivs i den här artikeln.
 * **En blobcontainer för lagringskontot**.
 
 ## <a name="create-cluster"></a>Skapa kluster

@@ -1,26 +1,17 @@
 ---
-title: App Service plan översikt – Azure | Microsoft Docs
-description: Lär dig hur App Service planerar Azure App Service arbete och hur de förväntar dig din hanterings upplevelse.
+title: App Service-prenumerationer
+description: Lär dig hur App Service planer fungerar i Azure App Service, hur de debiteras för kunden och hur de kan skalas efter dina behov.
 keywords: App Service, Azure App Service, skalning, skalbarhet, skalbarhet, App Service-plan, App Service-kostnad
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c0b28bd7a854d1b4a8b387e40fb045d47160768d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470251"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672286"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Services plan
 

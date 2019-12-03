@@ -1,32 +1,23 @@
 ---
-title: Konfigurera PremiumV2-nivå – Azure App Service | Microsoft Docs
+title: Konfigurera PremiumV2-nivå
 description: Lär dig hur du får bättre prestanda för din webb-, mobil-och API-app i Azure App Service genom att skala till den nya pris nivån för PremiumV2.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/25/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aa1e522e395f869f73c0b250623665a9b175384e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067220"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672213"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivån för Azure App Service
 
 Den nya pris nivån för **PremiumV2** ger dig snabbare processorer, SSD-lagring och dubblar förhållandet mellan minne och kärna för de befintliga pris nivåerna. Med prestanda fördelen kan du spara pengar genom att köra dina appar på färre instanser. I den här artikeln får du lära dig hur du skapar en app i **PremiumV2** -nivån eller skalar upp en app till **PremiumV2** -nivån.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill skala upp en app till **PremiumV2**måste du ha en Azure App Service-app som körs på en pris nivå som är lägre än **PremiumV2**och appen måste köras i en app service-distribution som stöder PremiumV2.
 
@@ -113,7 +104,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande kommando skapar en App Service plan i _P1V2_. `-WorkerSize` Alternativen för är _små_, _medel stora_och _stora_.
+Följande kommando skapar en App Service plan i _P1V2_. Alternativen för `-WorkerSize` är _små_, _medel stora_och _stora_.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
@@ -122,7 +113,7 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Tier "PremiumV2" `
     -WorkerSize "Small"
 ```
-## <a name="more-resources"></a>Flera resurser
+## <a name="more-resources"></a>Fler resurser
 
 [Skala upp en app i Azure](manage-scale-up.md)  
 [Skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681540"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671576"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -120,6 +120,14 @@ Om du till exempel har en lista med datafiler från 2019 juli som du vill bearbe
 ```DateFiles/*_201907*.txt```
 
 Genom att använda jokertecken innehåller pipelinen bara en data flödes aktivitet. Detta kommer att utföra bättre än en sökning mot BLOB Store som sedan itererar över alla matchade filer med hjälp av en förvarsin aktivitet med data flödes aktiviteten Kör i.
+
+### <a name="optimizing-for-cosmosdb"></a>Optimering för CosmosDB
+
+Inställning av data flödes-och batch-egenskaper på CosmosDB-mottagare börjar bara gälla när data flödet körs från en pipeline-dataflöde-aktivitet. De ursprungliga samlings inställningarna kommer att hanteras av CosmosDB när data flödet har körts.
+
+* Batchstorlek: beräkna den grova rad storleken för dina data och se till att rowSize * batchstorleken är mindre än 2 000 000. Om så är fallet ökar du batchstorleken för att få bättre data flöde
+* Througput: Ange en högre data flödes inställning här så att dokument kan skrivas snabbare till CosmosDB. Kom ihåg de högre RU-kostnaderna baserat på en hög data flödes inställning.
+*   Budget för Skriv data flöde: Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitiongs ger en mer balans mellan dessa partitioner genom att ställa in en budget genom strömning.
 
 ## <a name="next-steps"></a>Nästa steg
 

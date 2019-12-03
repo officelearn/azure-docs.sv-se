@@ -1,25 +1,18 @@
 ---
-title: Automatisk skalning och App Service-miljön v1 – Azure
-description: Automatisk skalning och App Service-miljön
-services: app-service
-documentationcenter: ''
+title: Automatisk skalning v1
+description: Automatisk skalning och App Service-miljön v1. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: btardif
-manager: erikre
-editor: ''
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f0c49e1835412b61817ff3571dd3ee1eaa29f21f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070089"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687286"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Automatisk skalning och App Service-miljön v1
 
@@ -27,7 +20,7 @@ ms.locfileid: "70070089"
 > Den här artikeln gäller App Service-miljön v1.  Det finns en nyare version av App Service-miljön som är enklare att använda och som körs på en kraftfullare infrastruktur. Om du vill veta mer om den nya versionen börjar [du med introduktionen till App Service-miljön](intro.md).
 > 
 
-Azure App Service miljöer stöderautoskalning. Du kan skala enskilda Worker-pooler automatiskt baserat på mått eller schema.
+Azure App Service miljöer stöder *autoskalning*. Du kan skala enskilda Worker-pooler automatiskt baserat på mått eller schema.
 
 ![Alternativ för autoskalning för en arbets grupp.][intro]
 
@@ -83,30 +76,30 @@ Frank är mycket bekant med programmet. De vet att belastningen för belastninge
 | --- | --- |
 | **Namn:** Veckodag-profil |**Namn:** Helg profil |
 | **Skala efter:** Schema-och prestanda regler |**Skala efter:** Schema-och prestanda regler |
-| **Upphandlarprofil** Vecko dagar |**Upphandlarprofil** Helgen |
-| **Bastyp** Upprepning |**Bastyp** Upprepning |
+| **Profil:** Vecko dagar |**Profil:** Helgen |
+| **Typ:** Mönster |**Typ:** Mönster |
 | **Mål intervall:** 5 till 20 instanser |**Mål intervall:** 3 till 10 instanser |
-| **Antalet** Måndag, tisdag, onsdag, torsdag, fredag |**Antalet** Lördag, söndag |
-| **Start tid:** 9:00 AM |**Start tid:** 9:00 AM |
-| **Tidszon:** UTC-08 |**Tidszon:** UTC-08 |
+| **Dagar:** Måndag, tisdag, onsdag, torsdag, fredag |**Dagar:** Lördag, söndag |
+| **Start tid:** 9:00 am |**Start tid:** 9:00 am |
+| Tidszon **:** UTC-08 |Tidszon **:** UTC-08 |
 |  | |
 | **Regel för autoskalning (skala upp)** |**Regel för autoskalning (skala upp)** |
-| **Klusterresursen** Produktion (App Service-miljön) |**Klusterresursen** Produktion (App Service-miljön) |
-| **Kostnads** REGISTRERA |**Kostnads** REGISTRERA |
-| **Reparation** Större än 60% |**Reparation** Större än 80% |
-| **Giltighet** 5 minuter |**Giltighet** 10 minuter |
-| **Tids mängd:** Average |**Tids mängd:** Average |
-| **Tgärd** Öka antal med 2 |**Tgärd** Öka antal med 1 |
-| **Låg frekvent (minuter):** 15 |**Låg frekvent (minuter):** 20 |
+| **Resurs:** Produktion (App Service-miljön) |**Resurs:** Produktion (App Service-miljön) |
+| **Mått:** REGISTRERA |**Mått:** REGISTRERA |
+| **Åtgärd:** Större än 60% |**Åtgärd:** Större än 80% |
+| **Varaktighet:** 5 minuter |**Varaktighet:** 10 minuter |
+| **Tids mängd:** Snitt |**Tids mängd:** Snitt |
+| **Åtgärd:** Öka antal med 2 |**Åtgärd:** Öka antal med 1 |
+| Låg frekvent **(minuter):** 15 |Låg frekvent **(minuter):** 20 |
 |  | |
 | **Regel för autoskalning (skala ned)** |**Regel för autoskalning (skala ned)** |
-| **Klusterresursen** Produktion (App Service-miljön) |**Klusterresursen** Produktion (App Service-miljön) |
-| **Kostnads** REGISTRERA |**Kostnads** REGISTRERA |
-| **Reparation** Mindre än 30% |**Reparation** Mindre än 20% |
-| **Giltighet** 10 minuter |**Giltighet** 15 minuter |
-| **Tids mängd:** Average |**Tids mängd:** Average |
-| **Tgärd** Minska antal med 1 |**Tgärd** Minska antal med 1 |
-| **Låg frekvent (minuter):** 20 |**Låg frekvent (minuter):** 10 |
+| **Resurs:** Produktion (App Service-miljön) |**Resurs:** Produktion (App Service-miljön) |
+| **Mått:** REGISTRERA |**Mått:** REGISTRERA |
+| **Åtgärd:** Mindre än 30% |**Åtgärd:** Mindre än 20% |
+| **Varaktighet:** 10 minuter |**Varaktighet:** 15 minuter |
+| **Tids mängd:** Snitt |**Tids mängd:** Snitt |
+| **Åtgärd:** Minska antal med 1 |**Åtgärd:** Minska antal med 1 |
+| Låg frekvent **(minuter):** 20 |Låg frekvent **(minuter):** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>App Service plan inflations takt
 App Service planer som kon figurer ATS för autoskalning så till en högsta pris per timme. Den här hastigheten kan beräknas baserat på de värden som anges i regeln för autoskalning.
@@ -154,30 +147,30 @@ Med den här informationen kan Frank definiera följande profil och regler för 
 | --- | --- |
 | **Namn:** Veckodag-profil |**Namn:** Helg profil |
 | **Skala efter:** Schema-och prestanda regler |**Skala efter:** Schema-och prestanda regler |
-| **Upphandlarprofil** Vecko dagar |**Upphandlarprofil** Helgen |
-| **Bastyp** Upprepning |**Bastyp** Upprepning |
+| **Profil:** Vecko dagar |**Profil:** Helgen |
+| **Typ:** Mönster |**Typ:** Mönster |
 | **Mål intervall:** 13 till 25 instanser |**Mål intervall:** 6 till 15 instanser |
-| **Antalet** Måndag, tisdag, onsdag, torsdag, fredag |**Antalet** Lördag, söndag |
-| **Start tid:** 7:00 AM |**Start tid:** 9:00 AM |
-| **Tidszon:** UTC-08 |**Tidszon:** UTC-08 |
+| **Dagar:** Måndag, tisdag, onsdag, torsdag, fredag |**Dagar:** Lördag, söndag |
+| **Start tid:** 7:00 am |**Start tid:** 9:00 am |
+| Tidszon **:** UTC-08 |Tidszon **:** UTC-08 |
 |  | |
 | **Regel för autoskalning (skala upp)** |**Regel för autoskalning (skala upp)** |
-| **Klusterresursen** Arbets pool 1 |**Klusterresursen** Arbets pool 1 |
-| **Kostnads** WorkersAvailable |**Kostnads** WorkersAvailable |
-| **Reparation** Mindre än 8 |**Reparation** Mindre än 3 |
-| **Giltighet** 20 minuter |**Giltighet** 30 minuter |
-| **Tids mängd:** Average |**Tids mängd:** Average |
-| **Tgärd** Öka antal med 8 |**Tgärd** Öka antalet med 3 |
-| **Låg frekvent (minuter):** 180 |**Låg frekvent (minuter):** 180 |
+| **Resurs:** Arbets pool 1 |**Resurs:** Arbets pool 1 |
+| **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
+| **Åtgärd:** Mindre än 8 |**Åtgärd:** Mindre än 3 |
+| **Varaktighet:** 20 minuter |**Varaktighet:** 30 minuter |
+| **Tids mängd:** Snitt |**Tids mängd:** Snitt |
+| **Åtgärd:** Öka antal med 8 |**Åtgärd:** Öka antalet med 3 |
+| Låg frekvent **(minuter):** 180 |Låg frekvent **(minuter):** 180 |
 |  | |
 | **Regel för autoskalning (skala ned)** |**Regel för autoskalning (skala ned)** |
-| **Klusterresursen** Arbets pool 1 |**Klusterresursen** Arbets pool 1 |
-| **Kostnads** WorkersAvailable |**Kostnads** WorkersAvailable |
-| **Reparation** Större än 8 |**Reparation** Större än 3 |
-| **Giltighet** 20 minuter |**Giltighet** 15 minuter |
-| **Tids mängd:** Average |**Tids mängd:** Average |
-| **Tgärd** Minska antal med 2 |**Tgärd** Minska antalet med 3 |
-| **Låg frekvent (minuter):** 120 |**Låg frekvent (minuter):** 120 |
+| **Resurs:** Arbets pool 1 |**Resurs:** Arbets pool 1 |
+| **Mått:** WorkersAvailable |**Mått:** WorkersAvailable |
+| **Åtgärd:** Större än 8 |**Åtgärd:** Större än 3 |
+| **Varaktighet:** 20 minuter |**Varaktighet:** 15 minuter |
+| **Tids mängd:** Snitt |**Tids mängd:** Snitt |
+| **Åtgärd:** Minska antal med 2 |**Åtgärd:** Minska antalet med 3 |
+| Låg frekvent **(minuter):** 120 |Låg frekvent **(minuter):** 120 |
 
 Det angivna mål intervallet i profilen beräknas av de minsta instanserna som definierats i profilen för App Service plan + buffer.
 
@@ -199,30 +192,30 @@ I det här scenariot vet Frank att fel frekvensen ökar efter att klient lanseri
 | --- |
 | **Namn:** Autoskalning – klient delar |
 | **Skala efter:** Schema-och prestanda regler |
-| **Upphandlarprofil** Varje dag |
-| **Bastyp** Upprepning |
+| **Profil:** Vardag |
+| **Typ:** Mönster |
 | **Mål intervall:** 3 till 10 instanser |
-| **Antalet** Varje dag |
-| **Start tid:** 9:00 AM |
-| **Tidszon:** UTC-08 |
+| **Dagar:** Vardag |
+| **Start tid:** 9:00 am |
+| Tidszon **:** UTC-08 |
 |  |
 | **Regel för autoskalning (skala upp)** |
-| **Klusterresursen** Klient delens pool |
-| **Kostnads** REGISTRERA |
-| **Reparation** Större än 60% |
-| **Giltighet** 20 minuter |
-| **Tids mängd:** Average |
-| **Tgärd** Öka antalet med 3 |
-| **Låg frekvent (minuter):** 120 |
+| **Resurs:** Klient delens pool |
+| **Mått:** REGISTRERA |
+| **Åtgärd:** Större än 60% |
+| **Varaktighet:** 20 minuter |
+| **Tids mängd:** Snitt |
+| **Åtgärd:** Öka antalet med 3 |
+| Låg frekvent **(minuter):** 120 |
 |  |
 | **Regel för autoskalning (skala ned)** |
-| **Klusterresursen** Arbets pool 1 |
-| **Kostnads** REGISTRERA |
-| **Reparation** Mindre än 30% |
-| **Giltighet** 20 minuter |
-| **Tids mängd:** Average |
-| **Tgärd** Minska antalet med 3 |
-| **Låg frekvent (minuter):** 120 |
+| **Resurs:** Arbets pool 1 |
+| **Mått:** REGISTRERA |
+| **Åtgärd:** Mindre än 30% |
+| **Varaktighet:** 20 minuter |
+| **Tids mängd:** Snitt |
+| **Åtgärd:** Minska antalet med 3 |
+| Låg frekvent **(minuter):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png

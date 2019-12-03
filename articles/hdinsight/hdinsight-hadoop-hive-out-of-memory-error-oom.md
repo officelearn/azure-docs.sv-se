@@ -1,57 +1,59 @@
 ---
-title: Åtgärda en Hive minnesfel i Azure HDInsight
-description: Åtgärda en Hive minnesfel i HDInsight. Kund-scenario är en fråga över många stora tabeller.
-keywords: utanför minnesinställningarna fel, OOMA, Hive
+title: Åtgärda fel i en Hive-minnes fel i Azure HDInsight
+description: Åtgärda fel i en Hive-minnes fel i HDInsight. Kund scenariot är en fråga över många stora tabeller.
+keywords: slut på minnes fel, OOM, Hive-inställningar
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2e7328b95aecc8e644d7b9e2ec407a62551fff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712787"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687772"
 ---
-# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Åtgärda en Apache Hive minnesfel i Azure HDInsight
+# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Åtgärda ett Apache Hive slut på minnes fel i Azure HDInsight
 
-Lär dig hur du löser ett Apache Hive minnesfel (OOMA) vid bearbetning av stora tabeller genom att konfigurera minnesinställningarna för Hive.
+Lär dig hur du åtgärdar ett Apache Hive slut på minnes fel (OOM) när du bearbetar stora tabeller genom att konfigurera inställningarna för Hive-minnet.
 
-## <a name="run-apache-hive-query-against-large-tables"></a>Kör Apache Hive-fråga mot stora tabeller
+## <a name="run-apache-hive-query-against-large-tables"></a>Kör Apache Hive fråga mot stora tabeller
 
 En kund körde en Hive-fråga:
 
-    SELECT
-        COUNT (T1.COLUMN1) as DisplayColumn1,
-        …
-        …
-        ….
-    FROM
-        TABLE1 T1,
-        TABLE2 T2,
-        TABLE3 T3,
-        TABLE5 T4,
-        TABLE6 T5,
-        TABLE7 T6
-    where (T1.KEY1 = T2.KEY1….
-        …
-        …
+```sql
+SELECT
+    COUNT (T1.COLUMN1) as DisplayColumn1,
+    …
+    …
+    ….
+FROM
+    TABLE1 T1,
+    TABLE2 T2,
+    TABLE3 T3,
+    TABLE5 T4,
+    TABLE6 T5,
+    TABLE7 T6
+where (T1.KEY1 = T2.KEY1….
+    …
+    …
+```
 
-Vissa olika delarna i den här frågan:
+Vissa olika delarna av den här frågan:
 
-* T1 är ett alias till en stor tabell tabell1 som har massor av STRÄNGEN kolumntyper.
+* T1 är ett alias till en stor tabell, TABLE1, som har massor av sträng kolumn typer.
 * Andra tabeller är inte som stora men har många kolumner.
-* Alla tabeller ansluter till varandra, i vissa fall med flera kolumner i tabell 1 och andra.
+* Alla tabeller är kopplade till varandra, i vissa fall med flera kolumner i TABLE1 och andra.
 
-Hive-frågan tog 26 minuter att slutföra på en 24-nod A3 HDInsight-kluster. Kunden har upptäckt följande varning visas:
+Hive-frågan tog 26 minuter att slutföra i ett 24-nods a3 HDInsight-kluster. Kunden noterade följande varnings meddelanden:
 
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-Med hjälp av Apache Tez-Körningsmotor. Samma fråga kördes i 15 minuter och returnerade följande fel:
+Med hjälp av Apache Tez körnings motor. Samma fråga kördes i 15 minuter och utlöste sedan följande fel:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -77,16 +79,15 @@ Med hjälp av Apache Tez-Körningsmotor. Samma fråga kördes i 15 minuter och r
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
 
-Felet fortfarande när du använder en större virtuell dator (till exempel D12).
+Felet kvarstår när du använder en större virtuell dator (till exempel D12).
 
+## <a name="debug-the-out-of-memory-error"></a>Felsöka slut på minnes fel
 
-## <a name="debug-the-out-of-memory-error"></a>Felsöka out of minnesfel
+Våra support-och teknik team hittade ett av de problem som orsakade att minnet är slut på ett [känt problem som beskrivs i Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):
 
-Vår support och tekniska team tillsammans att hitta en av de problem som orsakar out of minnesfel har en [kända problem som beskrivs i Apache-JIRA](https://issues.apache.org/jira/browse/HIVE-8306):
+"When. noconditionaltask = True vi kontrollerar noconditionaltask. size och om summan av tabell storlekar i kart kopplingen är mindre än noconditionaltask. storleken på planen genererar en kart koppling, problemet med detta är att beräkningen inte tar med hänsyn till den overhead som introduceras av en annan hash-implementation som resultat om summan av indatatyperna är mindre än noconditionaltask storlek med en liten marginal fråga kommer OOM att trycka på. "
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesn't take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
-
-Den **hive.auto.convert.join.noconditionaltask** i hive-site.xml filen var inställd **SANT**:
+**Hive. Auto. convert. Join. noconditionaltask** i filen Hive-site. XML har angetts till **True**:
 
 ```xml
 <property>
@@ -100,24 +101,22 @@ Den **hive.auto.convert.join.noconditionaltask** i hive-site.xml filen var inst�
 </property>
 ```
 
-Det är troligt kartan join var orsaken till området Java Heap vår på minne. Som beskrivs i det här blogginlägget [Hadoop Yarn minnesinställningarna i HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)när Tez-körningsmotorn är används heap använt utrymme faktiskt tillhör Tez-behållaren. Se följande bild som beskriver Tez behållare minne.
+Det är troligt att kopplings koppling var orsaken till minnes felet i Java-heap. Som förklaras i blogg inlägget [Hadoop garn Memory Settings i HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), när Tez körnings motor används, hör det heap-utrymme som används faktiskt till Tez-behållaren. Se följande avbildning som beskriver Tez container Memory.
 
-![Tez behållare minne diagram: Hive minnesfel](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+![Minnes diagram för Tez container: Hive-slut på minnes fel](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Som det här blogginlägget antyder följande två minnesinställningarna definiera container-minne för heap: **hive.tez.container.size** och **hive.tez.java.opts**. Av erfarenhet innebär inte out of undantag med otillräckligt minne behållarens storlek är för liten. Det innebär att Java heap-storlek (hive.tez.java.opts) är för liten. Så att varje gång du ser slut på minne kan du prova att öka **hive.tez.java.opts**. Om det behövs kan du behöva öka **hive.tez.container.size**. Den **java.opts** inställningen ska vara cirka 80% av **container.size**.
+I blogg inlägget föreslår följande två minnes inställningar att behållar minnet för heap: **Hive. Tez. container. size** och **Hive. Tez. java. |. väljer**. Från vår erfarenhet innebär det inte att behållarens storlek är för litet. Det innebär att Java-heap-storleken (Hive. Tez. java. önskad) är för liten. Så när du ser slut på minne kan du försöka öka **Hive. Tez. java.** Välj. Om det behövs kan du behöva öka **Hive. Tez. container. size**. Inställningen **Java.** den ska vara runt 80% av **container. size**.
 
 > [!NOTE]  
-> Inställningen **hive.tez.java.opts** måste alltid vara mindre än **hive.tez.container.size**.
-> 
-> 
+> Inställningen **Hive. Tez. java.** Välj måste alltid vara mindre än **Hive. Tez. container. size**.
 
-Eftersom en D12 dator har 28GB minne, beslutat att använda en behållarstorlek på 10GB (10240MB) och tilldela java.opts 80%:
+Eftersom en D12-dator har 28 GB minne valde vi att använda en behållar storlek på 10 GB (10240 MB) och tilldela 80% till Java. väljer du:
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m
 
-Med de nya inställningarna kördes frågan på under 10 minuter.
+Med de nya inställningarna har frågan körts under 10 minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Får ett OOMA fel innebär inte nödvändigtvis att behållarens storlek är för liten. I stället bör du konfigurera minnesinställningarna så att heap-storlek ökas och minst 80% av minnesstorlek behållare. Optimera Hive-frågor finns i [optimera Apache Hive-frågor för Apache Hadoop i HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Att få ett OOM-fel innebär inte nödvändigt vis att behållarens storlek är för liten. I stället bör du konfigurera minnes inställningarna så att heap-storleken höjs och minst 80% av behållarens minnes storlek. Information om hur du optimerar Hive-frågor finns i [optimera Apache Hive frågor för Apache Hadoop i HDInsight](hdinsight-hadoop-optimize-hive-query.md).

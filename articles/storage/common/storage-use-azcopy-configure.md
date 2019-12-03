@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7097faa64319a46b1efc91233e30ea992d064246
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595134"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687640"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -62,15 +62,15 @@ Om du vill visa detaljerad hjälp guide för det här kommandot skriver du `azco
 
 ### <a name="optimize-throughput"></a>Optimera data flödet
 
-Du kan använda flaggan `cap-mbps` för att placera ett tak på data flödets data hastighet. Till exempel kan följande kommando CapsLock till `10` megabit (MB) per sekund.
+Du kan använda flaggan `cap-mbps` för att placera ett tak på data flödets data hastighet. Till exempel följande kommando CapsLock till `10` megabit (MB) per sekund.
 
 ```azcopy
-azcopy cap-mbps 10
+azcopy --cap-mbps 10
 ```
 
 Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ange `AZCOPY_CONCURRENCY_VALUE`-miljövariabeln. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  
 
-Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här variabeln är `3000`, men du kan ange det här värdet högre eller lägre. 
+Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här variabeln är `3000`, men du kan ange värdet manuellt eller lägre. 
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -80,7 +80,7 @@ Om datorn har färre än 5 processorer anges värdet för den här variabeln til
 
 Använd `azcopy env` för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt kan du läsa vilket värde som används genom att titta i början av en AzCopy logg fil. Det valda värdet, och orsaken till det valdes, rapporteras där.
 
-Innan du anger den här variabeln rekommenderar vi att du kör ett benchmark-test. Test processen för benchmark rapporterar det rekommenderade samtidiga värdet. Om ditt nätverks villkor och dina nytto laster varierar kan du ange den här variabeln till ordet `AUTO` i stället för ett visst tal. Detta gör att AzCopy alltid kör samma automatiska justerings process som används i benchmark-tester.
+Innan du anger den här variabeln rekommenderar vi att du kör ett benchmark-test. Test processen för benchmark rapporterar det rekommenderade samtidiga värdet. Om ditt nätverks villkor och dina nytto laster varierar kan du ange den här variabeln till ordet `AUTO` i stället för till ett visst tal. Detta gör att AzCopy alltid kör samma automatiska justerings process som används i benchmark-tester.
 
 ### <a name="optimize-memory-use"></a>Optimera minnes användning
 
@@ -97,7 +97,7 @@ Express detta värde i gigabyte (GB).
 
 AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. 
 
-Loggarna innehåller status för ett haveri (`UPLOADFAILED`, `COPYFAILED` och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
+Loggarna innehåller status för ett haveri (`UPLOADFAILED`, `COPYFAILED`och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
 
 Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE$\.azcopy` i Windows eller `$HOME$\.azcopy` Directory på Mac och Linux, men du kan ändra platsen om du vill.
 
@@ -106,7 +106,7 @@ Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE$\.azcopy` i W
 
 ### <a name="review-the-logs-for-errors"></a>Granska loggarna för fel
 
-Följande kommando får alla fel med status `UPLOADFAILED` från `04dc9ca9-158f-7945-5933-564021086c79`-loggen:
+Följande kommando får alla fel `UPLOADFAILED` status från `04dc9ca9-158f-7945-5933-564021086c79` loggen:
 
 **Windows (PowerShell)**
 
@@ -179,14 +179,14 @@ Använd `azcopy env` för att kontrol lera det aktuella värdet för den här va
 
 ## <a name="change-the-default-log-level"></a>Ändra standard logg nivån
 
-Som standard har logg nivån AzCopy angetts till `INFO`. Om du vill minska loggens utförlighet för att spara disk utrymme skriver du över den här inställningen med alternativet ``--log-level``. 
+Som standard har logg nivån AzCopy angetts till `INFO`. Om du vill minska loggens utförlighet för att spara disk utrymme skriver du över den här inställningen med hjälp av alternativet ``--log-level``. 
 
-Tillgängliga logg nivåer är: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` och `FATAL`.
+Tillgängliga logg nivåer är: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`och `FATAL`.
 
 ## <a name="remove-plan-and-log-files"></a>Ta bort plan-och loggfiler
 
 Om du vill ta bort alla plan-och loggfiler från den lokala datorn för att spara disk utrymme, använder du kommandot `azcopy jobs clean`.
 
-Om du vill ta bort plan-och loggfilerna som är associerade med endast ett jobb använder du `azcopy jobs rm <job-id>`. Ersätt plats hållaren `<job-id>` i det här exemplet med jobb-ID: t för jobbet.
+Om du vill ta bort plan-och loggfilerna som är associerade med endast ett jobb använder du `azcopy jobs rm <job-id>`. Ersätt `<job-id>` placeholder i det här exemplet med jobb-ID: t för jobbet.
 
 

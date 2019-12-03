@@ -1,26 +1,20 @@
 ---
 title: Vanliga frågor om distribution – Azure App Service | Microsoft Docs
 description: Få svar på vanliga frågor om distribution för den Web Apps funktionen i Azure App Service.
-services: app-service\web
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121211"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671688"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Vanliga frågor om distribution för Web Apps i Azure
 
@@ -39,7 +33,7 @@ Mer information finns i [distribuera din app till App Service](deploy-local-git.
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Jag får ett fel meddelande när jag försöker distribuera från Visual Studio. Hur gör jag för att lösa det här felet?
 
-Om du ser följande meddelande kanske du använder en äldre version av SDK: "Fel vid distribution för resursen" YourResourceName "i resurs gruppen" YourResourceGroup ": MissingRegistrationForLocation: Prenumerationen är inte registrerad för resurs typens komponenter på platsen centrala USA. Registrera den här providern igen för att få åtkomst till den här platsen. " 
+Om du ser följande meddelande kanske du använder en äldre version av SDK: "fel vid distribution för resursen" YourResourceName "i resurs gruppen" YourResourceGroup ": MissingRegistrationForLocation: prenumerationen har inte registrerats för resurs typens komponenter på platsen centrala USA. Registrera den här providern igen för att få åtkomst till den här platsen. " 
 
 Lös problemet genom att uppgradera till den [senaste SDK: n](https://azure.microsoft.com/downloads/). Om du ser det här meddelandet och du har den senaste SDK: n skickar du en support förfrågan.
 
@@ -74,7 +68,7 @@ Så här löser du FTP-problem:
 
 1. Kontrol lera att du har angett rätt värdnamn och autentiseringsuppgifter. Detaljerad information om olika typer av autentiseringsuppgifter och hur du använder dem finns i [distributions uppgifter](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Kontrol lera att FTP-portarna inte blockeras av en brand vägg. Portarna måste ha följande inställningar:
-    * Anslutnings port för FTP-kontroll: 21
+    * Anslutningsport för FTP-kontroll: 21
     * Anslutnings port för FTP-data: 989, 10001-10300
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Hur gör jag för att publicera min kod till App Service?

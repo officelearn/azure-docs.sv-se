@@ -1,25 +1,22 @@
 ---
-title: Hantera innehåll från Azure Storage på Linux – App Service
-description: Så här konfigurerar och hanterar du innehåll från Azure Storage i Azure App Service i Linux.
-author: msangapu
-manager: jeconnoc
-ms.service: app-service
-ms.workload: web
+title: Bifoga anpassad lagrings behållare på Linux
+description: Lär dig hur du kopplar en anpassad nätverks resurs till din Linux-behållare i Azure App Service. Dela filer mellan appar, hantera statiskt innehåll via fjärr anslutning och komma åt lokalt, osv.
+author: msangapu-msft
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018263"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671796"
 ---
-# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Hantera innehåll från Azure Storage i App Service på Linux
+# <a name="attach-azure-storage-containers-to-linux-containers"></a>Bifoga Azure Storage behållare till Linux-behållare
 
-Den här guiden visar hur du hanterar statiskt innehåll i App Service på Linux med hjälp av [Azure Storage](/azure/storage/common/storage-introduction). Fördelarna är skyddat innehåll, innehålls portabilitet, beständig lagring, åtkomst till flera appar och flera överförings metoder.
+Den här guiden visar hur du ansluter nätverks resurser till App Service i Linux från att använda [Azure Storage](/azure/storage/common/storage-introduction). Fördelarna är skyddat innehåll, innehålls portabilitet, beständig lagring, åtkomst till flera appar och flera överförings metoder.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En befintlig webbapp (App Service på Linux eller Web App for Containers).
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 eller senare).
@@ -44,7 +41,7 @@ az storage container create --name <storage_container_name> --account-name <stor
 
 ## <a name="upload-files-to-azure-storage"></a>Ladda upp filer till Azure Storage
 
-Om du vill överföra en lokal katalog till lagrings kontot använder [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) du kommandot som i följande exempel:
+Om du vill överföra en lokal katalog till lagrings kontot använder du kommandot [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) som i följande exempel:
 
 ```azurecli
 az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
@@ -56,7 +53,7 @@ az storage blob upload-batch -d <full_path_to_local_directory> --account-name <s
 > Om du länkar en befintlig katalog i en webbapp till ett lagrings konto tas katalog innehållet bort. Om du migrerar filer för en befintlig app, gör en säkerhets kopia av din app och dess innehåll innan du börjar.
 >
 
-Om du vill montera ett lagrings konto till en katalog i App Service-appen använder [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) du kommandot. Lagrings typen kan vara AzureBlob eller migreringsåtgärden. Du använder AzureBlob för den här behållaren.
+Om du vill montera ett lagrings konto till en katalog i App Service-appen använder du kommandot [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) . Lagrings typen kan vara AzureBlob eller migreringsåtgärden. Du använder AzureBlob för den här behållaren.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
@@ -74,9 +71,9 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 ## <a name="use-custom-storage-in-docker-compose"></a>Använd anpassad lagring i Docker Compose
 
-Azure Storage kan monteras med appar för flera behållare med hjälp av anpassade-ID. Om du vill visa namnet på ID för anpassad [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)identitet kör du.
+Azure Storage kan monteras med appar för flera behållare med hjälp av anpassade-ID. Om du vill visa namnet på ID för anpassad identitet kör [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-I filen *filen Docker. yml* mappar du `volumes` alternativet till `custom-id`. Exempel:
+I filen *filen Docker. yml* mappar du `volumes` alternativet för att `custom-id`. Exempel:
 
 ```yaml
 wordpress:

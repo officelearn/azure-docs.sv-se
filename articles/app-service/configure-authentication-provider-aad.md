@@ -1,25 +1,16 @@
 ---
-title: Konfigurera Azure Active Directory autentisering – Azure App Service
-description: Lär dig hur du konfigurerar Azure Active Directory autentisering för din App Service-app.
-author: cephalin
-services: app-service
-documentationcenter: ''
-manager: gwallace
-editor: ''
+title: Konfigurera Azure AD-autentisering
+description: Lär dig hur du konfigurerar Azure Active Directory-autentisering som identitets leverantör för din App Service-app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
-ms.service: app-service
-ms.workload: web,mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6812f99d8433ef318eca37eb2615d43f4749e944
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b833604ce18873e22c22990a26dcbae1d9928628
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886175"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670891"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Konfigurera din App Service-app att använda Azure AD-inloggning
 
@@ -38,7 +29,7 @@ Följ dessa rekommendationer när du konfigurerar din app och autentisering:
 
 ## <a name="express"> </a>Konfigurera med Express inställningar
 
-1. Gå till din App Service-app i [Azure Portal].
+1. Gå till din App Service-app i [Azure-portalen].
 1. Välj **inställningar** > **autentisering/auktorisering** i det vänstra fönstret och se till att **App Service autentisering** är **aktiverat**.
 1. Välj **Azure Active Directory**och välj sedan **Express** under **hanterings läge**.
 1. Välj **OK** för att registrera App Service-appen i Azure Active Directory. En ny app-registrering skapas.
@@ -74,7 +65,7 @@ Du behöver följande information när du konfigurerar din App Service-app:
 
 Utför följande steg:
 
-1. Logga in på [Azure Portal] och gå till din app service-app. Anteckna appens **URL**. Du använder den för att konfigurera din Azure Active Directory app-registrering.
+1. Logga in på [Azure-portalen] och gå till din app service-app. Anteckna appens **URL**. Du använder den för att konfigurera din Azure Active Directory app-registrering.
 1. Välj **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 1. På sidan **Registrera ett program** anger du ett **namn** för din app-registrering.
 1. I **omdirigerings-URI**väljer du webb och anger URL: en för din app service **-** app och lägger till sökvägen `/.auth/login/aad/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
@@ -95,7 +86,7 @@ Utför följande steg:
 
 ### <a name="secrets"> </a>Lägg till Azure Active Directory information till din app service-app
 
-1. Gå till din App Service-app i [Azure Portal]. 
+1. Gå till din App Service-app i [Azure-portalen]. 
 1. Välj **inställningar > autentisering/auktorisering** i det vänstra fönstret och se till att **App Service autentisering** är **aktiverat**.
 1. Valfritt Som standard tillåter App Service autentisering oautentiserad åtkomst till din app. Om du vill framtvinga användarautentisering anger du **åtgärden som ska vidtas när begäran inte autentiseras** att **logga in med Azure Active Directory**.
 1. Under autentiseringsproviders väljer du **Azure Active Directory**.
@@ -118,7 +109,7 @@ Du är nu redo att använda Azure Active Directory för autentisering i din App 
 
 Du kan registrera interna klienter för att tillåta autentisering med hjälp av ett klient bibliotek som **Active Directory-autentiseringsbibliotek**.
 
-1. I [Azure Portal]väljer du **Active Directory** > **Appregistreringar** > **ny registrering**.
+1. I [Azure-portalen]väljer du **Active Directory** > **Appregistreringar** > **ny registrering**.
 1. På sidan **Registrera ett program** anger du ett **namn** för din app-registrering.
 1. I **omdirigerings-URI**väljer du **offentlig klient (mobil & Station ära datorer)** och anger URL: en för din app service-app och lägger till sökvägen `/.auth/login/aad/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Välj **Skapa**.
@@ -152,5 +143,5 @@ Nu har du konfigurerat ett internt klient program som har åtkomst till din App 
 
 <!-- URLs. -->
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [alternative method]:#advanced

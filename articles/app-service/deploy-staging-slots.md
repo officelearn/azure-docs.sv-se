@@ -1,31 +1,21 @@
 ---
-title: Konfigurera mellanlagrings miljöer för webbappar i Azure App Service | Microsoft Docs
-description: Lär dig hur du använder mellanlagrad publicering för webb program i Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: Konfigurera mellanlagrings miljöer
+description: Lär dig hur du distribuerar appar till en icke-produktions plats och en Autobyte till produktion. Öka tillförlitligheten och ta bort avbrott i appen från distributioner.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f98ba9851216737712b6be1ec29156ba0b1a68b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382269"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671761"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
 
-När du distribuerar din webbapp, webbapp på Linux, mobil Server del eller API-app till [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)kan du använda en separat distributions plats i stället för standard produktions platsen när du kör som **standard**, **Premium**eller **isolerad** App Service plan nivå. Distributions platser är Live-appar med sina egna värdnamn. App-innehåll och konfigurations element kan växlas mellan två distributions platser, inklusive produktions platsen. 
+När du distribuerar din webbapp, webbapp på Linux, mobil Server del eller API-appen till [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)kan du använda en separat distributions plats i stället för standard produktions platsen när du kör på **standard**-, **Premium**-eller **isolerade** App Service plans nivå. Distributions platser är Live-appar med sina egna värdnamn. App-innehåll och konfigurations element kan växlas mellan två distributions platser, inklusive produktions platsen. 
 
 Distribution av ditt program till en icke-produktions plats har följande fördelar:
 
@@ -295,7 +285,7 @@ Azure PowerShell är en modul som tillhandahåller cmdlets för att hantera Azur
 Information om hur du installerar och konfigurerar Azure PowerShell och hur du autentiserar Azure PowerShell med din Azure-prenumeration finns i [så här installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 ---
-### <a name="create-a-web-app"></a>Skapa en webbapp
+### <a name="create-a-web-app"></a>Skapa ett webbprogram
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

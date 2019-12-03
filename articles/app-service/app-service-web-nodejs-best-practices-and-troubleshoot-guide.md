@@ -1,26 +1,19 @@
 ---
-title: Metod tips och fel sökning för Node. js – Azure App Service
-description: Lär dig metod tips och fel söknings steg för Node-program på Azure App Service.
-services: app-service\web
-documentationcenter: nodejs
+title: Metod tips och fel sökning för Node. js
+description: Lär dig metod tips och fel söknings steg för Node. js-program som körs i Azure App Service.
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024231"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672049"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metod tips och fel söknings guide för Node-program i Azure App Service Windows
 
@@ -94,7 +87,7 @@ En semikolonavgränsad lista över filer som är bevakade för ändringar. Alla 
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-Standardvärdet är FALSKT. Om aktive rad kan Node-programmet ansluta till en namngiven pipe (miljövariabeln IISNODE\_kontroll\_PIPE) och skicka ett meddelande om "åter användning". Detta gör att W3wp återanvänds på ett smidigt sätt.
+Standardvärdet är false. Om aktive rad kan Node-programmet ansluta till en namngiven pipe (miljövariabeln IISNODE\_kontroll\_PIPE) och skicka ett meddelande om "åter användning". Detta gör att W3wp återanvänds på ett smidigt sätt.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -106,7 +99,7 @@ Standardvärdet är 0, vilket innebär att den här funktionen är inaktive rad.
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-Standardvärdet är FALSKT. Om värdet är true lägger iisnode till ett HTTP-svarshuvuden `iisnode-debug` till varje HTTP-svar som det skickar `iisnode-debug`s huvudets värde är en URL. Enskilda delar av diagnostikinformation kan fås genom att titta på URL-fragment, men en visualisering är tillgänglig genom att öppna URL: en i en webbläsare.
+Standardvärdet är false. Om värdet är true lägger iisnode till ett HTTP-svarshuvuden `iisnode-debug` till varje HTTP-svar som det skickar `iisnode-debug`s huvudets värde är en URL. Enskilda delar av diagnostikinformation kan fås genom att titta på URL-fragment, men en visualisering är tillgänglig genom att öppna URL: en i en webbläsare.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -114,7 +107,7 @@ Den här inställningen styr loggningen av STDOUT och stderr från iisnode. Iisn
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-Standardvärdet är FALSKT. När värdet är true, visar iisnode HTTP-statuskod och Win32-felkoden i webbläsaren. Win32-koden är till hjälp vid fel sökning av vissa typer av problem.
+Standardvärdet är false. När värdet är true, visar iisnode HTTP-statuskod och Win32-felkoden i webbläsaren. Win32-koden är till hjälp vid fel sökning av vissa typer av problem.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (Aktivera inte på Live producting site)
 
@@ -264,12 +257,12 @@ Aktivera FREB för ditt program för att se Win32-felkoden (se till att du bara 
 
 | Http-status | Http-understatus | Möjlig orsak? |
 | --- | --- | --- |
-| 500 |1000 |Det uppstod ett problem med att skicka begäran till IISNODE – kontrol lera om Node. exe startades. Node. exe kunde krascha vid start. Kontrol lera om Web. config-konfigurationen innehåller fel. |
+| 500 |1 000 |Det uppstod ett problem med att skicka begäran till IISNODE – kontrol lera om Node. exe startades. Node. exe kunde krascha vid start. Kontrol lera om Web. config-konfigurationen innehåller fel. |
 | 500 |1001 |-Win32Error 0x2-appen svarar inte på URL: en. Kontrol lera reglerna för URL-omskrivning eller kontrol lera om rätt vägar har definierats för Express-appen. -Win32Error 0x6d – namngiven pipe är upptagen – Node. exe accepterar inte begär Anden eftersom pipe är upptagen. Kontrol lera hög CPU-användning. -Andra fel – kontrol lera om Node. exe har kraschat. |
 | 500 |1002 |Node. exe har kraschat – check d:\\start\\loggfiler\\Logging-errors. txt för stack spårning. |
 | 500 |1003 |Problem med pipe-konfiguration – den namngivna pipe-konfigurationen är felaktig. |
 | 500 |1004-1018 |Det uppstod ett fel vid sändning av begäran eller bearbetning av svaret till/från Node. exe. Kontrol lera om Node. exe har kraschat. Check d:\\start\\loggfiler\\Logging-errors. txt för stack spårning. |
-| 503 |1000 |Det finns inte tillräckligt med minne för att allokera fler namngivna pipe-anslutningar. Kontrol lera varför din app förbrukar så mycket minne. Kontrol lera värdet för maxConcurrentRequestsPerProcess-inställning. Om den inte är oändlig och du har många begär Anden ökar du värdet för att förhindra det här felet. |
+| 503 |1 000 |Det finns inte tillräckligt med minne för att allokera fler namngivna pipe-anslutningar. Kontrol lera varför din app förbrukar så mycket minne. Kontrol lera värdet för maxConcurrentRequestsPerProcess-inställning. Om den inte är oändlig och du har många begär Anden ökar du värdet för att förhindra det här felet. |
 | 503 |1001 |Det gick inte att skicka begäran till Node. exe eftersom programmet återvinning. När programmet har återvunnits ska begär Anden behandlas normalt. |
 | 503 |1002 |Kontrol lera Win32-felkoden för faktisk orsak – det gick inte att skicka begäran till en Node. exe. |
 | 503 |1003 |Namngiven pipe är för upptagen – kontrol lera om Node. exe förbrukar överdriven CPU |

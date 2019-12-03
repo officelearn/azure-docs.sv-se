@@ -1,26 +1,17 @@
 ---
-title: Node. js (MEAN. js) med MongoDB på Linux – Azure App Service | Microsoft Docs
-description: Lär dig att få en Node.js-app att fungera i Azure App Service på Linux, med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng. MEAN. js används i självstudien.
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Självstudie: Linux Node. js-app med MongoDB'
+description: Lär dig hur du skaffar en Linux Node. js-app som fungerar i Azure App Service, med anslutning till en MongoDB-databas i Azure (Cosmos DB). MEAN. js används i självstudien.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cf145e04ca0e0ddf336521e72f6dc230dc8fc86b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ca73c7e610b8bd818355f30b9d08bceffeddfc73
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024948"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688894"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-app i Azure App Service på Linux
 
@@ -28,15 +19,15 @@ ms.locfileid: "72024948"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js- och MongoDB-app i Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-Med [App Service on Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här självstudien visar hur du skapar en Node.js-app, ansluter den lokalt till en MongoDB-databas och sedan distribuerar den till en databas i Azure Cosmos DB:s API för MongoDB. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i App Service på Linux. För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här självstudien visar hur du skapar en Node.js-app, ansluter den lokalt till en MongoDB-databas och sedan distribuerar den till en databas i Azure Cosmos DB:s API för MongoDB. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i App Service på Linux. För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa en databas med Azure Cosmos DB:s API för MongoDB
-> * ansluta en Node.js-app till MongoDB
+> * Anslut en Node.js-app till MongoDB
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma diagnostikloggar från Azure
@@ -46,7 +37,7 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 2. [Installera Node.js v6.0 eller senare och NPM](https://nodejs.org/)
@@ -113,7 +104,7 @@ MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa e
 
 ![MEAN.js ansluter till MongoDB](./media/tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar.
+Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
 
 Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen.
 
@@ -216,7 +207,7 @@ I ett lokalt terminalfönster kör du följande kommando för att använda anslu
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production` ställer in miljövariabeln som anvisar Node.js att köra i produktionsmiljön.  `node server.js` startar Node.js-servern med `server.js` i roten för lagringsplatsen. Så här läses Node.js-programmet in i Azure.
+`NODE_ENV=production` ställer in miljövariabeln som uppmanar Node.js att köra i produktionsmiljön.  `node server.js` startar Node.js-servern med `server.js` i roten för lagringsplatsen. Så här läses Node.js-programmet in i Azure.
 
 När appen är inläst ska du kontrollera att den körs i produktionsmiljön:
 
@@ -235,7 +226,7 @@ Gå till `http://localhost:8443` i en webbläsare. Klicka på alternativet för 
 
 I terminalen stoppar du Node.js genom att skriva `Ctrl+C`.
 
-## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
 I det här steget distribuerar du ditt Node.js-program till Azure App Service.
 
@@ -249,7 +240,7 @@ I det här steget distribuerar du ditt Node.js-program till Azure App Service.
 
 <a name="create"></a>
 
-### <a name="create-a-web-app"></a>Skapa en webbapp
+### <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
@@ -315,13 +306,13 @@ Bläddra till den distribuerade appen i webbläsaren.
 http://<app-name>.azurewebsites.net
 ```
 
-Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en låtsasanvändare.
+Klicka på alternativet för att **registrera** på den översta menyn och skapa en låtsasanvändare.
 
 Om du lyckas och appen loggar in automatiskt till den skapade användaren har din MEAN.js-app i Azure anslutning till Azure Cosmos DB:s API för MongoDB.
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar.
+Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
 
 **Grattis!** Du kör en datadriven Node.js-app i Azure App Service i Linux.
 
@@ -333,7 +324,7 @@ I det här steget ändrar du datamodellen `article` och publicerar din ändring 
 
 I din lokala MEAN.js-katalog öppnar du _modules/articles/server/models/article.server.model.js_.
 
-I `ArticleSchema` lägger du till `String`-typ med namnet `comment`. När du är klar bör schemakoden se ut så här:
+I `ArticleSchema` lägger du till `String` en typ som heter `comment`. När du är klar bör schemakoden se ut så här:
 
 ```javascript
 let ArticleSchema = new Schema({
@@ -457,7 +448,7 @@ Om du lade till några artiklar tidigare kan du fortfarande se dem. Befintliga d
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) för att se den app du skapade.
 
 Klicka på **App Services** på menyn till vänster och klicka sedan på din Azure-apps namn.
 
@@ -483,7 +474,7 @@ Vad du lärt dig:
 > * strömma loggar från Azure till terminalen
 > * hantera appen i Azure-portalen.
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
+Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
 > [Självstudie: mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)

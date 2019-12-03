@@ -3,19 +3,19 @@ title: Ansluta till API för nyhetssökning i Bing med anslutna tjänster i Visu
 titleSuffix: Azure Cognitive Services
 description: Du kan aktivera appar och tjänster för att dra nytta av en annonsfri sökmotor som omfattar webben.
 services: cognitive-services
-author: ghogen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.author: ghogen
-ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 9cac13f8fb42959e79cafedcc7057d1cb7c2f7d5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111510"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689388"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Självstudie: Anslut till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio ochC#
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller information om att använda Visual Studio-funktion
 ## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2019 med arbets belastningen webb utveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 med arbets belastningen webb utveckling installerad. [Ladda ned nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -43,13 +43,13 @@ Den här artikeln innehåller information om att använda Visual Studio-funktion
 
    ![Skärmbild av listan över anslutna tjänster](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer. Välj den prenumeration som du vill använda och välj sedan ett namn på API:et för nyhetssökning i Bing. Du kan också välja **Redigera** för att ändra det automatiskt genererade namnet.
+   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerade med ditt konto visas en sida med en listruta med dina prenumerationer. Välj den prenumeration som du vill använda och välj sedan ett namn på API:et för nyhetssökning i Bing. Du kan också välja **Redigera** för att ändra det automatiskt genererade namnet.
 
    ![Skärmbild av prenumerationen och namnfälten](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
 1. Välj resursgruppen och prisnivån.
 
-   ![Skärmbild av fälten resursgrupp och prisnivå](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
+   ![Skärmbild av fälten för resursgrupp och prisnivå](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
    Om du vill veta mer om prisnivåerna väljer du **Review pricing** (Se prissättning).
 
@@ -87,7 +87,7 @@ Den här artikeln innehåller information om att använda Visual Studio-funktion
 
 Nu när du har lagt till stöd för API för nyhetssökning i Bing i projektet ser du här hur du använder API:et för att lägga till intelligenta sökfunktioner till en webbsida.
 
-1. I *-metoden i* Startup.cs`ConfigureServices` lägger du till ett anrop till `IServiceCollection.AddSingleton`. På så sätt blir konfigurationsobjektet som innehåller de viktiga inställningarna tillgängligt för koden i projektet.
+1. I `ConfigureServices`-metoden i *Startup.cs* lägger du till ett anrop till `IServiceCollection.AddSingleton`. På så sätt blir konfigurationsobjektet som innehåller de viktiga inställningarna tillgängligt för koden i projektet.
  
    ```csharp
        public void ConfigureServices(IServiceCollection services)

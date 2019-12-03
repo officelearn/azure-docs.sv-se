@@ -1,25 +1,16 @@
 ---
-title: Konfigurera Twitter-autentisering – Azure App Service
-description: Lär dig hur du konfigurerar Twitter-autentisering för din App Service-app.
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Konfigurera Twitter-autentisering
+description: Lär dig hur du konfigurerar Twitter-autentisering som identitets leverantör för din App Service-app.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/19/2018
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 02008b7dc1609a5f28ac6ba2a582933a96428198
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b5ec17c18cec8053f0732366c0cc5d0c5003e4de
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176961"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670802"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>Konfigurera din App Service-app att använda Twitter-inloggning
 
@@ -50,7 +41,7 @@ För att kunna slutföra proceduren i den här artikeln behöver du ett Twitter-
 1. Gå till ditt program i [Azure-portalen].
 1. Välj **inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
 1. Välj **Twitter**.
-1. Klistra in värdena `API Key` och `API Secret` som du har fått tidigare.
+1. Klistra in `API Key` och `API Secret` värden som du har fått tidigare.
 1. Välj **OK**.
 
    ![Skärm bild av Twitter-inställningar för mobilapp][1]

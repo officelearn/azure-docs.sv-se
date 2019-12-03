@@ -7,18 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73644597"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688197"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Använd ett-Klicka för att mata in data i Azure Datautforskaren
 
-I den här artikeln visas hur du använder ett enda klick för att snabbt mata in en ny tabell i JSON-eller CSV-format från lagring till Azure Datautforskaren. När data har matats in kan du redigera tabellen och köra frågor med hjälp av webb gränssnittet.
+I den här artikeln beskrivs hur du använder ett enda klick för att snabbt mata in en ny tabell i JSON-eller CSV-format från lagrings plats eller lokal fil till en befintlig tabell eller en ny tabell i Azure Datautforskaren. Använd den intuitiva guiden och inom några minuter. dina data matas in, du kan redigera tabellen och köra frågor med hjälp av webb gränssnittet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Logga in på [programmet](https://dataexplorer.azure.com/).
@@ -72,7 +72,7 @@ I den här artikeln visas hur du använder ett enda klick för att snabbt mata i
 
     ![ett klicknings schema för JSON-format](media/ingest-data-one-click/one-click-json-format.png) 
  
-## <a name="query-data"></a>Frågedata
+## <a name="query-data"></a>Söka i data
 
 1. I fönstret **data inmatning har slutförts** markeras alla tre stegen med gröna markeringar, om data inmatning har slutförts. 
  

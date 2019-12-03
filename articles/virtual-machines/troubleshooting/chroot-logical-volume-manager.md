@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 0dd07b3394e385b3931e01867d467af7559b4f8b
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664173"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684131"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Felsöka en virtuell Linux-dator när det inte finns någon åtkomst till Azures serie konsol och disklayouten använder LVM (Logical Volume Manager)
 
@@ -211,6 +211,29 @@ Om det behövs tar du bort eller uppgraderar **kernel** -
 ### <a name="example-3---enable-serial-console"></a>Exempel 3 – Aktivera serie konsol
 Om det inte går att få åtkomst till Azures serie konsol kontrollerar du GRUB konfigurations parametrar för den virtuella Linux-datorn och korrigerar dem. Detaljerad information finns [i det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
 
+### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Exempel 4 – kernel-inläsning med problematisk LVM växlings volym
+
+En virtuell dator kanske inte kan starta helt och hållet i **dracut** -prompten.
+Mer information om felen finns i Azures serie konsol eller navigera till Azure Portal-> startdiagnostik-> serie logg
+
+
+Ett fel som liknar detta kan finnas:
+
+```
+[  188.000765] dracut-initqueue[324]: Warning: /dev/VG/SwapVol does not exist
+         Starting Dracut Emergency Shell...
+Warning: /dev/VG/SwapVol does not exist
+```
+
+Grub. cfg konfigureras i det här exemplet för att läsa in en LV med namnet **Rd. LVM. lv = VG/SwapVol** och den virtuella datorn kan inte hitta detta. Den här raden visar hur kärnan läses in som hänvisar till LV-SwapVol
+
+```
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
+[    0.000000] e820: BIOS-provided physical RAM map:
+```
+
+ Ta bort den felaktiga LV-konfigurationen från/etc/default/grub-konfigurationen och återskapa grub2. cfg
+
 
 ## <a name="exit-chroot-and-swap-the-os-disk"></a>Avsluta chroot och Byt OS-disk
 
@@ -247,4 +270,8 @@ Om den virtuella datorn kör disk växlingen stängs den av, startar om den virt
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [Azures serie konsol]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Lär dig mer om
+
+ [Azures serie konsol]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+
+[Läge för enkel användare](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)

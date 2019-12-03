@@ -1,28 +1,20 @@
 ---
-title: Översikt över nätverks arkitektur i App Service miljöer – Azure
-description: Arkitektur översikt över nätverk sto pol ofApp tjänst miljöer.
-services: app-service
-documentationcenter: ''
+title: Nätverks arkitektur v1
+description: Arkitektur översikt över nätverk sto pol Ogin i App Service miljöer. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070069"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687355"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Översikt över nätverksarkitekturen i App Service-miljöer
-## <a name="introduction"></a>Introduktion
 App Service miljöer skapas alltid i ett undernät för ett [virtuellt nätverk][virtualnetwork] – appar som körs i en app service-miljön kan kommunicera med privata slut punkter i samma virtuella nätverk sto pol Ogin.  Eftersom kunder kan låsa delar av sin virtuella nätverks infrastruktur är det viktigt att förstå de typer av nätverks kommunikations flöden som sker med en App Service-miljön.
 
 ## <a name="general-network-flow"></a>Allmänt nätverks flöde
@@ -72,7 +64,7 @@ I diagrammet ovan:
 ## <a name="calls-between-app-service-environments"></a>Anrop mellan App Service miljöer
 Ett mer komplext scenario kan uppstå om du distribuerar flera App Service miljöer i samma virtuella nätverk och gör utgående anrop från ett App Service-miljön till en annan App Service-miljön.  Dessa typer av kors App Service-miljöns anrop behandlas också som "Internet-anrop".
 
-I följande diagram visas ett exempel på en lager arkitektur med appar på en App Service-miljön (t. ex. "Front dörr" Web Apps) som anropar appar på en andra App Service-miljön (t. ex. interna backend API-appar som inte är avsedda att vara tillgängliga från Internet). 
+I följande diagram visas ett exempel på en lager arkitektur med appar på en App Service-miljön (t. ex. "Front dörr"-webbappar) som anropar appar på en andra App Service-miljön (t. ex. interna Server-API-appar som inte är avsedda att vara tillgängliga från Internet). 
 
 ![Anrop mellan App Service miljöer][CallsBetweenAppServiceEnvironments] 
 

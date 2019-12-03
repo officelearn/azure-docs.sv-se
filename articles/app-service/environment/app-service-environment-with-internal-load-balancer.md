@@ -1,25 +1,18 @@
 ---
-title: Skapa och Använd en intern belastningsutjämnare med App Service miljö – Azure | Microsoft Docs
-description: Skapa och använda en ASE med en ILB
-services: app-service
-documentationcenter: ''
+title: Skapa en ILB-ASE v1
+description: Skapa och använda en ASE med en ILB. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069904"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688724"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Använda en intern Load Balancer med ett App Service-miljön
 
@@ -100,14 +93,14 @@ Om du vill testa flödet med dina egna certifikat och testa både HTTP-och HTTPS
 4. Skapa en webbapp i ASE när du har skapat den. 
 5. Skapa en virtuell dator om du inte har en i detta VNET (inte i samma undernät som ASE eller sakernas rast).
 6. Ange DNS för under domänen. Du kan använda ett jokertecken med under domänen i din DNS eller om du vill göra några enkla tester, redigera hosts-filen på den virtuella datorn för att ange webb program namn till VIP-IP-adress. Om din ASE hade under domän namnet. ilbase.com och du har skapat webbappen mytestapp så att den kan åtgärdas på mytestapp.ilbase.com, ange det i värd filen. (I Windows är Hosts-filen på C:\Windows\System32\drivers\etc\)
-7. Använd en webbläsare på den virtuella datorn och gå https://mytestapp.ilbase.com till (eller något annat namn på din webbapp med din under domän).
+7. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com (eller vad ditt webb program namn är med under domänen).
 8. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Du måste acceptera bristen på säkerhet om du använder ett självsignerat certifikat. 
 
 IP-adressen för din ILB visas i egenskaperna som den virtuella IP-adressen.
 
 ![][4]
 
-## <a name="using-an-ilb-ase"></a>Med intern belastningsutjämnare i apptjänstmiljö
+## <a name="using-an-ilb-ase"></a>Använda en ILB-ASE
 #### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 En ILB-ASE möjliggör nätverks isolering för dina appar. Apparna är inte tillgängliga eller även kända av Internet. Den här metoden är utmärkt för att vara värd för intranät platser, till exempel branschspecifika program. När du behöver begränsa åtkomst ytterligare kan du fortfarande använda nätverks säkerhets grupper (NSG: er) för att kontrol lera åtkomst på nätverks nivå. 
 

@@ -1,26 +1,20 @@
 ---
-title: Vanliga frågor och svar om öppen källkod – Azure App Service | Microsoft Docs
-description: Få svar på vanliga frågor om tekniker med öppen källkod i Web Apps funktionen i Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Vanliga frågor och svar om öppen källkod
+description: Få svar på vanliga frågor om tekniker med öppen källkod i Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169689"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672433"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om öppen källkod för Web Apps i Azure
 
@@ -78,7 +72,7 @@ Om du vill ändra versionen för Node. js-programmet kan du använda något av f
   Distributions processen för Azure käll kontroll omfattar följande steg:
   1. Flyttar innehåll till Azure-webbappen.
   2. Skapar ett standard skript för distribution, om det inte finns en (Deploy. cmd,. distributions-filer) i rotmappen för webbappar.
-  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node. js-versionen i Package. JSON-filen > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node. js-versionen i Package. JSON-filen > Engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. Filen iisnode. yml har följande kodrad:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -86,14 +80,14 @@ Om du vill ändra versionen för Node. js-programmet kan du använda något av f
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Jag ser meddelandet "Det gick inte att upprätta en databas anslutning" i min WordPress-app som finns App Service. Hur gör jag för att felsöka detta?
 
-Om du ser det här felet i din Azure WordPress-app för att aktivera php_errors. log och debug. log slutför du stegen som beskrivs i [Aktivera fel loggar för WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Om du ser det här felet i din Azure WordPress-app för att aktivera php_errors. log och debug. log, slutför du stegen som beskrivs i [Aktivera fel loggar för WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 När loggarna är aktiverade kan du återskapa felet och sedan kontrol lera loggarna för att se om du har slut på anslutningar:
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```
 
-Om du ser det här felet i fel söknings-eller php_errors. log-filerna är din app överstigande antalet anslutningar. Om du är värd för ClearDB kontrollerar du antalet anslutningar som är tillgängliga i din [service plan](https://www.cleardb.com/pricing.view).
+Om du ser det här felet i fel söknings. log-eller php_errors. log-filerna överskrider din app antalet anslutningar. Om du är värd för ClearDB kontrollerar du antalet anslutningar som är tillgängliga i din [service plan](https://www.cleardb.com/pricing.view).
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Hur gör jag för att felsöka en Node. js-app som finns i App Service?
 
@@ -144,7 +138,7 @@ Så här löser du felet:
 
 1. Ta bort filen sqljdbc*. jar från mappen app/lib.
 2. Om du använder den anpassade Tomcat eller Tomcat webb server för Azure Marketplace kopierar du den här jar-filen till mappen Tomcat lib.
-3. Om du aktiverar Java från Azure Portal (Välj **java 1,8** >  Tomcat-**Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
+3. Om du aktiverar Java från Azure Portal (Välj **java 1,8** > Tomcat- **Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
 
     ```xml
     <httpPlatform>
@@ -175,7 +169,7 @@ En annan lösning är att skriva ett webb jobb som körs enligt ett schema och k
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>Var hittar jag loggfilerna för Jetty?
 
-För Marketplace och anpassade distributioner finns logg filen i mappen D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Observera att mappens plats beror på vilken version av Jetty du använder. Till exempel är sökvägen som visas här för Jetty 9.1.2. Sök efter jetty_*YYYY_MM_DD*. stderrout. log.
+För Marketplace och anpassade distributioner finns logg filen i mappen D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Observera att mappens plats beror på vilken version av Jetty du använder. Till exempel är sökvägen som visas här för Jetty 9.1.2. Leta efter jetty_*YYYY_MM_DD*. stderrout. log.
 
 För Portal App Settings-distributioner är logg filen i D:\home\LogFiles. Sök efter jetty_*YYYY_MM_DD*. stderrout. log
 

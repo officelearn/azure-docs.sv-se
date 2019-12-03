@@ -1,34 +1,25 @@
 ---
-title: Felsök prestanda försämring – Azure App Service | Microsoft Docs
-description: Den här artikeln hjälper dig att felsöka problem med långsam program prestanda i Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Felsöka prestanda försämring
+description: Lär dig hur du felsöker problem med långsam program prestanda i Azure App Service, inklusive övervakning av appens beteende, insamling av data och åtgärder för att åtgärda problemet.
 tags: top-support-issue
 keywords: webb program prestanda, långsam app, appen är långsam
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066531"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688304"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsam program prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka problem med långsam program prestanda i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och klicka på alternativet för att **få support**.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 När du bläddrar i appen inaktive ras sidorna långsamt och ibland tids gräns.
 
 ## <a name="cause"></a>Orsak
@@ -59,15 +50,15 @@ Med det här alternativet kan du ta reda på om ditt program har problem. Klicka
 
 Några av de mått som du kanske vill övervaka för din app är
 
-* Genomsnittligt arbetsminne
-* Genomsnittlig svarstid
+* Genomsnittlig arbets mängd för minne
+* Genomsnittlig svars tid
 * CPU-tid
-* Arbetsminne
+* Minnes arbets mängd
 * Begäranden
 
 ![övervaka app-prestanda](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Mer information finns i:
+Mer information finns här:
 
 * [Övervaka appar i Azure App Service](web-sites-monitor.md)
 * [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -95,7 +86,7 @@ Varje App Service app tillhandahåller en utöknings bar hanterings slut punkt s
 
 <a name="collect" />
 
-### <a name="2-collect-data"></a>2. Samla in data
+### <a name="2-collect-data"></a>2. samla in data
 App Service innehåller diagnostiska funktioner för loggning av information från både webb servern och webb programmet. Informationen är uppdelad i Web Server Diagnostics och Application Diagnostics.
 
 #### <a name="enable-web-server-diagnostics"></a>Aktivera diagnostik för webb server
@@ -123,7 +114,7 @@ Fjärrprofilering är användbart om processor användningen är hög och proces
 Mer information finns i [stöd för fjär profilering i Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
 ##### <a name="set-up-diagnostic-traces-manually"></a>Konfigurera diagnostiska spårningar manuellt
-Om du har åtkomst till käll koden för webb program kan du använda Application Diagnostics för att avbilda information som produceras av ett webb program. ASP.NET-program kan använda `System.Diagnostics.Trace` -klassen för att logga information till Application Diagnostics-loggen. Du måste dock ändra koden och distribuera programmet igen. Den här metoden rekommenderas om din app körs i en test miljö.
+Om du har åtkomst till käll koden för webb program kan du använda Application Diagnostics för att avbilda information som produceras av ett webb program. ASP.NET-program kan använda `System.Diagnostics.Trace`-klassen för att logga information i Application Diagnostics-loggen. Du måste dock ändra koden och distribuera programmet igen. Den här metoden rekommenderas om din app körs i en test miljö.
 
 Detaljerade anvisningar om hur du konfigurerar programmet för loggning finns i [Aktivera diagnostikloggning för appar i Azure App Service](troubleshoot-diagnostic-logs.md).
 
@@ -133,9 +124,9 @@ App Service ger en intelligent och interaktiv upplevelse som hjälper dig att fe
 Om du vill komma åt App Service diagnostik navigerar du till din App Service app eller App Service-miljön i [Azure Portal](https://portal.azure.com). Klicka på **diagnostisera och lös problem**i det vänstra navigerings fältet.
 
 #### <a name="use-the-kudu-debug-console"></a>Använda fel söknings konsolen kudu
-App Service levereras med en fel söknings konsol som du kan använda för att felsöka, utforska, ladda upp filer, samt JSON-slutpunkter för att få information om din miljö. Den här konsolen kallas *kudu-konsolen* eller *SCM* -instrumentpanelen för din app.
+App Service levereras med en fel söknings konsol som du kan använda för att felsöka, utforska, ladda upp filer, samt JSON-slutpunkter för att få information om din miljö. Den här konsolen kallas *kudu-konsolen* eller *SCM-instrumentpanelen* för din app.
 
-Du kan komma åt den här instrument panelen genom att gå till länken **https://&lt;ditt program namn >. scm. azurewebsites. net/** .
+Du kan komma åt den här instrument panelen genom att gå till länken **https://&lt;ditt app-namn >. scm. azurewebsites. net/** .
 
 Några av de saker som kudu tillhandahåller är:
 
@@ -150,7 +141,7 @@ Mer information om vilka funktioner som är tillgängliga i kudu finns i [Azure 
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3. Åtgärda problemet
+### <a name="3-mitigate-the-issue"></a>3. åtgärda problemet
 #### <a name="scale-the-app"></a>Skala appen
 I Azure App Service kan du, för bättre prestanda och data flöde, ändra skalan då du kör programmet. Att skala upp en app innefattar två relaterade åtgärder: att ändra App Service plan till en högre pris nivå och konfigurera vissa inställningar när du har bytt till den högre pris nivån.
 

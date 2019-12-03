@@ -1,26 +1,17 @@
 ---
-title: Skapa en Ruby-webbapp i Linux – Azure App Service | Microsoft Docs
-description: Lär dig att skapa en Ruby on Rails-app med App Service i Linux.
+title: 'Snabb start: skapa en Linux Ruby-app'
+description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första Ruby-app till en Linux-behållare i App Service.
 keywords: azure app service, linux, oss, ruby, rails
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cfcea4c4450ea806b36d1d46c17c6676f7d92893
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 17c81ab71352f57731d9b36138c88c34421e374c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071072"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689017"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Skapa en Ruby on Rails-app med App Service i Linux
 
@@ -33,7 +24,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installera ruby 2,6 eller senare</a>
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
@@ -50,7 +41,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Kör programmet lokalt så att du ser hur det ska se ut när du distribuerar det till Azure. Öppna ett terminalfönster, ändra till katalogen `hello-world` och använd kommandot `rails server` för att starta servern.
 
-Första steget är att installera de gems du behöver. Det finns ett `Gemfile` inkluderat i exemplet, så kör bara följande kommando:
+Första steget är att installera de gems du behöver. Det finns ett `Gemfile` som ingår i exemplet, så kör bara följande kommando:
 
 ```bash
 bundle install
@@ -74,7 +65,7 @@ Navigera till `http://localhost:3000` i webbläsaren om du vill testa appen loka
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Skapa en webbapp
+## <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
@@ -125,7 +116,7 @@ http://<app-name>.azurewebsites.net
 ![uppdaterad webbapp](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
-> När appen startas om kan du se http-statuskoden `Error 503 Server unavailable` i webbläsaren eller på `Hey, Ruby developers!` standard sidan. Det kan ta några minuter innan appen har startats om helt.
+> När appen startas om kan du se HTTP-statuskoden `Error 503 Server unavailable` i webbläsaren eller på `Hey, Ruby developers!` standard sidan. Det kan ta några minuter innan appen har startats om helt.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
@@ -133,7 +124,7 @@ http://<app-name>.azurewebsites.net
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Ruby on-räler med postgres](tutorial-ruby-postgres-app.md)
+> [Självstudie: Ruby on-räler med postgres](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera Ruby-app](configure-language-ruby.md)

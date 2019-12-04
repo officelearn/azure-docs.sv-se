@@ -1,22 +1,18 @@
 ---
-title: Ansluta till Trello från Azure Logic Apps | Microsoft Docs
+title: Anslut till Trello från Azure Logic Apps
 description: Automatisera aktiviteter och arbets flöden som övervakar och hanterar listor, tavlor och kort i dina Trello-projekt med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ae77488df6ce58d8cab61933f50d24edec35b1ab
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5c4fcb9b4fea1a4d982b5cf665564599d371b7cb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050722"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789145"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Övervaka och hantera Trello med Azure Logic Apps
 
@@ -30,7 +26,7 @@ Med Azure Logic Apps och Trello-anslutningen kan du skapa automatiserade uppgift
 
 Du kan använda utlösare som får svar från ditt Trello-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Trello-konto. Du kan också använda de andra åtgärderna för att använda utdata från Trello-åtgärder. Till exempel när ett nytt kort läggs till i tavlan eller listan, kan du skicka meddelanden med slack-anslutningen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

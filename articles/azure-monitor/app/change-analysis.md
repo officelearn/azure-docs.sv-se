@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885012"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665365"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -73,7 +73,7 @@ Välj resurs grupp och resurser för att starta visning av ändringar.
 Du kan se insikter och relaterade beroende resurser som är värdar för ditt program. Den här vyn är utformad för att vara programinriktad för utvecklare för att felsöka problem.
 
 Resurser som stöds för närvarande är:
-- Virtuella datorer
+- Virtual Machines
 - Skalnings uppsättning för virtuell dator
 - Nätverks resurser för Azure
 - Webbapp med ändringar i gäst fil spårning och miljövariabler
@@ -102,7 +102,7 @@ I Azure Monitor är även ändrings analys inbyggd i självbetjänings **diagnos
 
    ![Skärm bild av alternativen för "program krascher"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Aktivera **ändrings analys** och välj **Spara**. Verktyget visar alla webbappar under ett App Services abonnemang. Du kan använda plan nivå växeln för att aktivera ändrings analyser för alla webbappar under en plan.
+1. Aktivera **ändrings analys** och välj **Spara**. Verktyget visar alla webbappar under en App Service plan. Du kan använda plan nivå växeln för att aktivera ändrings analyser för alla webbappar under en plan.
 
     ![Skärm bild av användar gränssnittet "Aktivera ändrings analys"](./media/change-analysis/change-analysis-on.png)
 

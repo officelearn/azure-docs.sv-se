@@ -1,17 +1,17 @@
 ---
-title: Query Store i Azure Database for MySQL
+title: Frågearkivet – Azure Database for MySQL
 description: Lär dig mer om Query Store-funktionen i Azure Database for MySQL som hjälper dig att spåra prestanda över tid.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: 4ac6e4c71b028b66ef50ac949c169a1e02a2c0e3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603031"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770856"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database for MySQL prestanda med Query Store
 
@@ -87,7 +87,7 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parametern** | **Beskrivning** | **Standard** | **Område** |
+| **ProfileServiceApplicationProxy** | **Beskrivning** | **Standard** | **Område** |
 |---|---|---|---|
 | query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. OBS! om performance_schema är avstängd aktiverar query_store_capture_mode performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen. | VISSA | INGEN, ALLA |
 | query_store_capture_interval | Hämtnings intervallet för frågearkivet i minuter. Tillåter att du anger det intervall som används för att aggregera frågeresultaten | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ Följande alternativ är tillgängliga för att konfigurera parametrar för Frå
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parametern** | **Beskrivning** | **Standard** | **Område** |
+| **ProfileServiceApplicationProxy** | **Beskrivning** | **Standard** | **Område** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Gör det möjligt att aktivera/inaktivera väntande statistik. | ALTERNATIVET | INGEN, ALLA |
 | query_store_wait_sampling_frequency | Ändrar frekvensen för vänta-sampling i sekunder. 5 till 300 sekunder. | 30 | 5-300 |
@@ -112,7 +112,7 @@ Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen
 
 Frågorna normaliseras genom att titta på deras struktur efter att du tagit bort litteraler och konstanter. Om två frågor är identiska förutom literala värden, har de samma hash.
 
-### <a name="mysqlquery_store"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>MySQL. query_store
 
 Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID och fråge-ID.
 
@@ -123,7 +123,7 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 | `timestamp_id` | tidsstämpel| NO| Tidsstämpeln som frågan körs i. Detta baseras på query_store_interval konfigurationen|
 | `query_digest_text`| longtext| NO| Den normaliserade frågetexten efter borttagning av alla litteraler|
 | `query_sample_text` | longtext| NO| Det första utseendet på den faktiska frågan med litteraler|
-| `query_digest_truncated` | bit| Ja| Anger om frågetexten har trunkerats. Värdet blir Ja om frågan är längre än 1 KB|
+| `query_digest_truncated` | bitmask| Ja| Anger om frågetexten har trunkerats. Värdet blir Ja om frågan är längre än 1 KB|
 | `execution_count` | bigint (20)| NO| Antalet gånger som frågan kördes för det här tidsstämpel-ID: t/under den konfigurerade intervall perioden|
 | `warning_count` | bigint (20)| NO| Antal varningar som frågan genererade under den interna|
 | `error_count` | bigint (20)| NO| Antal fel som den här frågan genererade under intervallet|
@@ -145,7 +145,7 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 | `first_seen` | tidsstämpel| NO| Frågans första förekomst (UTC) under agg regerings perioden|
 | `last_seen` | tidsstämpel| NO| Den sista förekomsten (UTC) av frågan under detta agg regerings fönster|
 
-### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>MySQL. query_store_wait_stats
 
 Den här vyn returnerar information om väntande händelser i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
 
@@ -161,7 +161,7 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 | `count_star` | bigint (20) | NO| Antal väntande händelser som samplats under intervallet för frågan |
 | `sum_timer_wait_ms` | double | NO| Total vänte tid (i millisekunder) för den här frågan under intervallet |
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 | **Namn**| **Beskrivning** |
 |---|---|

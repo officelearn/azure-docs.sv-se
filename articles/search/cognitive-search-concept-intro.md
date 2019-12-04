@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720157"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791027"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduktion till AI i Azure Kognitiv sökning
 
@@ -69,7 +69,7 @@ En pipeline för anrikning baseras på [*indexerare*](search-indexer-overview.md
 
 I början av pipelinen har du ostrukturerad text eller innehåll som inte är text (till exempel bilder och skannade dokument JPEG-filer). Data måste finnas i en Azure Data Storage-tjänst som kan nås av en indexerare. Indexerare kan "knäcka" käll dokument för att extrahera text från källdata.
 
-![Dokument sprickors fas](./media/cognitive-search-intro/document-cracking-phase-blowup.png "Dokument sprickor")
+![Dokument sprickors fas](./media/cognitive-search-intro/document-cracking-phase-blowup.png "dokument sprickor")
 
  Källor som stöds är Azure Blob Storage, Azure Table Storage, Azure SQL Database och Azure Cosmos DB. Textbaserat innehåll kan extraheras från följande filtyper: PDF-filer, Word-, PowerPoint-och CSV-filer. En fullständig lista finns i [format som stöds](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
@@ -116,6 +116,8 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 | Indexerare |  En Crawler som extraherar sökbara data och metadata från en extern data källa och fyller i ett index baserat på fält-till-fält-mappningar mellan indexet och data källan för dokument sprickor. För AI-anrikninger anropar indexeraren en färdigheter och innehåller fält mappningarna som kopplar anriknings utdata till mål fält i indexet. Index definitions definitionen innehåller alla instruktioner och referenser för pipeline-åtgärder och pipelinen anropas när du kör indexeraren. Med ytterligare konfiguration kan du återanvända befintlig bearbetning och endast köra de steg och kunskaper som har ändrats. | Se [indexerare](search-indexer-overview.md) och [stegvis indexering (för hands version)](cognitive-search-incremental-indexing-conceptual.md). |
 | Data Källa  | Ett objekt som används av en indexerare för att ansluta till en extern data källa med typer som stöds i Azure. | Se [Översikt över indexerare](search-indexer-overview.md) |
 | Index | Ett beständigt sökindex i Azure Kognitiv sökning som skapats från ett index schema som definierar fält strukturen och användningen. | Se [skapa ett grundläggande index](search-what-is-an-index.md) | 
+| Knowledge Store | Ett lagrings konto där de berikade dokumenten kan vara formade och projiceras utöver Sök indexet | Se [Introduktion till kunskaps lager](knowledge-store-concept-intro.md) | 
+| Indexerare-cache | Ett lagrings konto för kunskaps utdata cachelagras av indexeraren. Cachen gör att indexeer minimerar kostnaden för att bearbeta ett stort antal dokument när en färdigheter redige ras. | Se [stegvis indexering](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 

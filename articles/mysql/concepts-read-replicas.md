@@ -1,17 +1,17 @@
 ---
-title: Läs repliker i Azure Database for MySQL.
+title: Läs repliker – Azure Database for MySQL.
 description: 'Lär dig mer om att läsa repliker i Azure Database for MySQL: välja regioner, skapa repliker, ansluta till repliker, övervaka replikering och stoppa replikering.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158307"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790089"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -41,7 +41,9 @@ Du kan ha en huvud server i valfri [Azure Database for MySQL region](https://azu
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. De Universal Replica-regioner som stöds är:
 
-Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2.
+Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA.
+
+\* Västra USA 2 är tillfälligt otillgängligt som en replikerings plats mellan regioner.
 
 
 ### <a name="paired-regions"></a>Länkade regioner
@@ -146,7 +148,7 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 
 Parametern [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) är låst på replik servrarna. 
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 
 - Globala transaktions-ID: n (GTID) stöds inte.
 - Det finns inte stöd för att skapa en replik av en replik.

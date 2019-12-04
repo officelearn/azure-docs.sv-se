@@ -1,5 +1,5 @@
 - name: Dokumentation för Anpassad sökning i Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Översikt
   expanded: true
   items:

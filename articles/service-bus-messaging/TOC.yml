@@ -205,7 +205,7 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Felsöka
       items:
-        - name: Undantag
+        - name: Felsökningsguide
           href: service-bus-messaging-exceptions.md
 - name: Referens
   items:

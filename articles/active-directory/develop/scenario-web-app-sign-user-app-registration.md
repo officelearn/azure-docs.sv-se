@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482051"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766080"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Webbapp som loggar in användare: app-registrering
 
@@ -68,27 +68,27 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
    1. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användare av appen. Ange till exempel **MailApp-openidconnect-v2**.
    1. I avsnittet **omdirigerings-URI (valfritt)** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI: **https://localhost:44326/** .
 1. Välj **Registrera** för att skapa programmet.
-1. Välj menyn **autentisering** . 
+1. Välj menyn **autentisering** .
 1. I avsnittet **Avancerade inställningar** | **implicita bidrag** väljer du **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren.
 1. Välj **Spara**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. När **sidan Registrera ett program** visas anger du ett visnings namn för programmet. Ange till exempel **Java-webapp**. 
+1. När **sidan Registrera ett program** visas anger du ett visnings namn för programmet. Ange till exempel **Java-webapp**.
 1. Välj **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** och välj sedan **webbapp/API** för **program typ**.
 1. Välj **Registrera** för att registrera programmet.
-1. Välj **autentisering**på den vänstra menyn. Under **omdirigerings-URI: er**väljer du **webb**. 
+1. Välj **autentisering**på den vänstra menyn. Under **omdirigerings-URI: er**väljer du **webb**.
 
 1. Ange två omdirigerings-URI: er: en för inloggnings sidan och en för diagram sidan. För båda använder du samma värd och port nummer, följt av **/msal4jsample/Secure/AAD** för inloggnings sidan och **msal4jsample/graf/me** för sidan med användar information.
- 
+
    Som standard använder exemplet:
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. I avsnittet **Avancerade inställningar** ställer du in **utloggnings-URL** till **http://localhost:8080/msal4jsample/sign_out** . Välj sedan **Spara**.
+  Välj sedan **Spara**.
 
-1. Välj **certifikat & hemligheter** på menyn. 
+1. Välj **certifikat & hemligheter** på menyn.
 1. I avsnittet **klient hemligheter** väljer du **ny klient hemlighet**och sedan:
 
    1. Ange en nyckel beskrivning.
@@ -104,7 +104,6 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
    1. I avsnittet **omdirigerings-URI (valfritt)** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI: **http://localhost:5000/getAToken** .
 1. Välj **Registrera** för att skapa programmet.
 1. På sidan **Översikt** för appen letar du reda på **programmets (klient) ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för projektet.
-1. Välj avsnittet **Authentication (autentisering** ). I **Avancerade inställningar**anger du **en utloggnings-URL** till **http://localhost:5000/logout** . Välj sedan **Spara**.
 1. På den vänstra menyn väljer du **certifikat & hemligheter**.
 1. I avsnittet **klient hemligheter** väljer du **ny klient hemlighet**och sedan:
 

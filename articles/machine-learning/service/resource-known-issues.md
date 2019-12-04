@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286985"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784620"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -44,11 +44,11 @@ Före korrigeringen kan du ansluta data uppsättningen till en datatransformerin
 
 Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
-## <a name="sdk-installation-issues"></a>SDK-installationsproblem
+## <a name="sdk-installation-issues"></a>Installations problem för SDK
 
 **Fel meddelande: det går inte att avinstallera ' PyYAML '**
 
-Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils installerad. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
+Azure Machine Learning SDK för python: PyYAML är ett distutils-installerat projekt. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta att installera SDK och ignorera det här felet använder du:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -62,13 +62,13 @@ conda create -n <env-name> python=3.7.3
 ```
 Som skapar en Conda-miljö med python 3.7.3, som inte har installations problemet som finns i 3.7.4.
 
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa beräkning av Azure Machine Learning
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa Azure Machine Learning Compute
 
-Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart.
+Det är en sällsynt risk att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan GA-versionen inte kan skapa Azure Machine Learning beräkning på den arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
 
-## <a name="image-building-failure"></a>Bild byggnad fel
+## <a name="image-building-failure"></a>Det gick inte att skapa bild
 
-Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.
+Det gick inte att skapa bild när du distribuerar webb tjänsten. Lösning är att lägga till "pynacl = = 1.2.1" som ett pip-beroende av Conda-filen för avbildnings konfiguration.
 
 ## <a name="deployment-failure"></a>Distributions problem
 
@@ -76,7 +76,7 @@ Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 ## <a name="fpgas"></a>FPGA:er
 
-Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
+Du kommer inte att kunna distribuera modeller på FPGAs förrän du har begärt och godkänts för FPGA-kvoten. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
@@ -108,7 +108,7 @@ pip install --upgrade azureml-dataprep
 
 ## <a name="databricks"></a>Databricks
 
-Databricks och Azure Machine Learning-problem.
+Databricks-och Azure Machine Learning problem.
 
 ### <a name="failure-when-installing-packages"></a>Det gick inte att installera paket
 
@@ -159,13 +159,13 @@ Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks k
 * Lägg till `azureml-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
-Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
+Om du går direkt till att visa din arbets yta från en resurs länk från SDK eller portalen, kan du inte visa sidan för normal översikt med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
+Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
 
 > [!NOTE]
 > Azure Machine Learning loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
@@ -278,10 +278,10 @@ Detta är en känd begränsning i den aktuella versionen.
 
 Uppdatera sidan manuellt. Initieringen bör fortsätta ungefär 20 Datapoints per sekund. Bristen på Autouppdatering är ett känt problem. 
 
-### <a name="bounding-box-cannot-be-drawn-all-the-way-to-right-edge-of-image"></a>Det går inte att rita en markerings ruta på samma sätt som bildens högra kant 
-
-Försök att ändra storlek på webbläsarfönstret. Vi undersöker för att ta reda på orsaken till det här problemet. 
-
 ### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>När du visar bilder visas nyligen märkta bilder inte
 
 Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den **första** knappen tar dig tillbaka till början av listan, men läser in alla etiketterade data.
+
+### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Tryck på ESC-tangenten när du etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.
+
+Ta bort etiketten genom att klicka på kryss rutan bredvid det.

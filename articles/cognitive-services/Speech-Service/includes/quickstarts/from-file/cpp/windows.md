@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 09e0b6fbfcb8541a0756a855d4548e456a7b5c90
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a52ddd7bcf711f64860b6598cc982e961075ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504223"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795871"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -25,6 +25,8 @@ Innan du börjar ska du se till att:
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=windows)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
@@ -83,6 +85,9 @@ Innan du börjar ska du se till att:
 1. Ersätt strängen `whatstheweatherlike.wav` med ditt eget fil namn.
 
 1. Välj **arkiv** > **Spara alla**på Meny raden.
+
+> [!NOTE]
+> Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 

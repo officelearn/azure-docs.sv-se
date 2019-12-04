@@ -1,17 +1,17 @@
 ---
-title: Säkerhets kopiering och återställning i Azure Database for PostgreSQL-enskild server
+title: Säkerhets kopiering och återställning – Azure Database for PostgreSQL-enskild server
 description: Lär dig mer om automatisk säkerhets kopiering och att återställa Azure Database for PostgreSQL Server – en server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cbd434f2f9e1217a3a481a28988f4e1d855ba08b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: be6b9c30fe462b0754ae5e5c1a7eeac242af00f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209647"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769871"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-enskild server
 
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL säkerhetskopierar datafilerna och transaktions lo
 
 ### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
-I allmänhet sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag för servrar med en högsta lagring på 4 TB som stöds. Ögonblicks bild säkerhets kopieringar sker minst en gång per dag för servrar som har stöd för upp till 16 TB lagrings utrymme. Säkerhets kopiering av transaktions loggar i båda fallen sker var femte minut. Den första ögonblicks bilden av fullständig säkerhets kopiering schemaläggs direkt efter att en server har skapats. Den första fullständiga säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar. När ögonblicks bilder är instantanious kan servrar med stöd för upp till 16 TB lagrings utrymme återställas till skapande tiden igen.
+I allmänhet sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag för servrar med en högsta lagring på 4 TB som stöds. Säkerhetskopiering av ögonblicksbilder görs minst en gång per dag för servrar som har stöd för upp till 16 TB lagringsutrymme. I båda fallen säkerhetskopieras transaktionsloggar var femte minut. Den första ögonblicks bilden av fullständig säkerhets kopiering schemaläggs direkt efter att en server har skapats. Den första fullständiga säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar. När ögonblicks bilder tas i gång kan servrar med stöd för upp till 16 TB lagrings utrymme återställas till skapande tiden igen.
 
 ### <a name="backup-redundancy-options"></a>Alternativ för redundans för säkerhets kopiering
 
@@ -52,7 +52,7 @@ Den uppskattade återställnings tiden beror på flera faktorer, till exempel da
 > [!IMPORTANT]
 > **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
-### <a name="point-in-time-restore"></a>Återställning från tidpunkt
+### <a name="point-in-time-restore"></a>Återställning av lagring vid olika tidpunkter
 
 Oberoende av ditt alternativ för säkerhets kopiering kan du utföra en återställning till vilken tidpunkt som helst inom lagrings perioden för säkerhets kopiorna. En ny server skapas i samma Azure-region som den ursprungliga servern. Den skapas med den ursprungliga serverns konfiguration för pris nivån, beräknings generering, antalet virtuella kärnor, lagrings storlek, kvarhållning av säkerhets kopior och alternativet för redundans.
 

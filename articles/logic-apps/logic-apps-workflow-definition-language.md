@@ -1,20 +1,17 @@
 ---
-title: Schema för språk för arbets flödes definition – Azure Logic Apps
+title: Schema för språk för arbets flödes definition
 description: Schema referens för språk för arbets flödes definition i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 64c01baf0852e7e09ce9ffed2d079b47e95f7190
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 9c235c76e3d96ce02efc113c65c62081fcba20ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680084"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790803"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Schema referens guide för språket för arbets flödes definition i Azure Logic Apps
 
@@ -79,14 +76,14 @@ Här är den allmänna strukturen för en parameter definition:
 
 | Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| <*parameter-name* > | Ja | Sträng | Namnet på den parameter som du vill definiera |
-| <*parameter-type* > | Ja | int, Float, String, bool, array, Object, SecureString, secureobject <p><p>**Obs**: för alla lösen ord, nycklar och hemligheter använder du `securestring`-eller `secureobject`s typerna eftersom `GET` åtgärden inte returnerar dessa typer. Mer information om hur du skyddar parametrar finns i [säkerhets rekommendationer för åtgärder och indataparametrar](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Parameterns typ |
-| <*standard parameter-värde* > | Ja | Samma som `type` | Det standard parameter värde som ska användas om inget värde anges när arbets flödet instansieras. Attributet `defaultValue` krävs så att Logic Apps Designer kan visa parametern korrekt, men du kan ange ett tomt värde. |
-| <*matris – med-tillåtet parameter värde* > | Nej | Matris | En matris med värden som parametern kan acceptera |
-| <*parameter-description* > | Nej | JSON-objekt | Alla andra parameter uppgifter, till exempel en beskrivning av parametern |
+| <*parameter-name*> | Ja | Sträng | Namnet på den parameter som du vill definiera |
+| <*parameter-type*> | Ja | int, Float, String, bool, array, Object, SecureString, secureobject <p><p>**Obs**: för alla lösen ord, nycklar och hemligheter använder du `securestring`-eller `secureobject`s typerna eftersom `GET` åtgärden inte returnerar dessa typer. Mer information om hur du skyddar parametrar finns i [säkerhets rekommendationer för åtgärder och indataparametrar](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Parameterns typ |
+| <*standard parameter-värde*> | Ja | Samma som `type` | Det standard parameter värde som ska användas om inget värde anges när arbets flödet instansieras. Attributet `defaultValue` krävs så att Logic Apps Designer kan visa parametern korrekt, men du kan ange ett tomt värde. |
+| <*matris – med-tillåtet parameter värde*> | Nej | Matris | En matris med värden som parametern kan acceptera |
+| <*parameter-description*> | Nej | JSON-objekt | Alla andra parameter uppgifter, till exempel en beskrivning av parametern |
 ||||
 
-Skapa sedan en [Azure Resource Manager mall](../azure-resource-manager/resource-group-overview.md) för arbets flödes definitionen, definiera mallparametrar som godkänner de värden som du vill ha vid distributionen, Ersätt hårdkodad-värden med referenser till mall-eller arbets flödes definitions parametrar som lämpligt och lagra de värden som ska användas vid distributionen i en separat [parameter fil](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). På så sätt kan du enkelt ändra dessa värden genom parameter filen utan att behöva uppdatera och distribuera om din Logic app. För information som är känslig eller måste skyddas, t. ex. användar namn, lösen ord och hemligheter, kan du lagra dessa värden i Azure Key Vault och låta parameter filen hämta dessa värden från ditt nyckel valv. Mer information och exempel på hur du definierar parametrar på mall-och arbets flödes definitions nivåer finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
+Skapa sedan en [Azure Resource Manager mall](../azure-resource-manager/resource-group-overview.md) för arbets flödes definitionen, definiera mallparametrar som godkänner de värden som du vill ha vid distributionen, Ersätt hårdkodad-värden med referenser till mall-eller arbets flödes definitions parametrar efter behov och lagra värdena som ska användas vid distributionen i en separat [parameter fil](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). På så sätt kan du enkelt ändra dessa värden genom parameter filen utan att behöva uppdatera och distribuera om din Logic app. För information som är känslig eller måste skyddas, t. ex. användar namn, lösen ord och hemligheter, kan du lagra dessa värden i Azure Key Vault och låta parameter filen hämta dessa värden från ditt nyckel valv. Mer information och exempel på hur du definierar parametrar på mall-och arbets flödes definitions nivåer finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
 <a name="static-results"></a>
 
@@ -117,11 +114,11 @@ I `staticResults`-attributet definierar du en åtgärds modell `outputs` och `st
 
 | Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| <*statiskt resultat-definition-namn* > | Ja | Sträng | Namnet på en statisk resultat definition som en åtgärds definition kan referera till via ett `runtimeConfiguration.staticResult`-objekt. Mer information finns i [konfigurations inställningar för körning](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda valfritt unikt namn. Som standard läggs det här unika namnet till med ett nummer, vilket ökar efter behov. |
-| <*utdata-attribut-och-Values-returnerade* > | Ja | Varierar | Kraven för dessa attribut varierar beroende på olika villkor. Om `status` till exempel är `Succeeded`, innehåller attributet `outputs` attribut och värden som returneras som bildutdata av åtgärden. Om `status` är `Failed` innehåller attributet `outputs` attributet `errors`, som är en matris med ett eller flera fel `message` objekt med fel information. |
-| <*rubrik – värden* > | Nej | JSON | Alla rubrik värden som returneras av åtgärden |
-| <*status-kod returnerad* > | Ja | Sträng | Status koden som returnerades av åtgärden |
-| <*åtgärd – status* > | Ja | Sträng | Åtgärdens status, till exempel `Succeeded` eller `Failed` |
+| <*statiskt resultat-definition-namn*> | Ja | Sträng | Namnet på en statisk resultat definition som en åtgärds definition kan referera till via ett `runtimeConfiguration.staticResult`-objekt. Mer information finns i [konfigurations inställningar för körning](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda valfritt unikt namn. Som standard läggs det här unika namnet till med ett nummer, vilket ökar efter behov. |
+| <*utdata-attribut-och-Values-returnerade*> | Ja | Varierar | Kraven för dessa attribut varierar beroende på olika villkor. Om `status` till exempel är `Succeeded`, innehåller attributet `outputs` attribut och värden som returneras som bildutdata av åtgärden. Om `status` är `Failed`innehåller attributet `outputs` attributet `errors`, som är en matris med ett eller flera fel `message` objekt med fel information. |
+| <*rubrik – värden*> | Nej | JSON | Alla rubrik värden som returneras av åtgärden |
+| <*status-kod returnerad*> | Ja | Sträng | Status koden som returnerades av åtgärden |
+| <*åtgärd – status*> | Ja | Sträng | Åtgärdens status, till exempel `Succeeded` eller `Failed` |
 |||||
 
 I den här definitionen av HTTP-åtgärden refererar exempelvis `runtimeConfiguration.staticResult.name`-attributet `HTTP0` inuti `staticResults`-attributet där de blå utmatningarna för åtgärden definieras. Attributet `runtimeConfiguration.staticResult.staticResultOptions` anger att den statiska resultat inställningen är `Enabled` för HTTP-åtgärden.
@@ -202,7 +199,7 @@ Resultatet är alltid en sträng, vilket innebär att den här funktionen liknar
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-Om du har en tecken sträng som börjar med \@-tecken, ska du använda prefixet \@ tecken med ett annat \@ tecken som ett escape-tecken: \@ \@
+Om du har en tecken sträng som börjar med \@-tecken, ska du använda prefixet \@ tecken med ett annat \@ tecken som ett escape-tecken: \@\@
 
 Följande exempel visar hur uttryck utvärderas:
 
@@ -210,7 +207,7 @@ Följande exempel visar hur uttryck utvärderas:
 |------------|--------|
 | "Sophia Owen" | Returnera följande tecken: ' Sophia Owen ' |
 | "matris [1]" | Returnera följande tecken: ' matris [1] ' |
-| "\@ \@" | Returnera dessa tecken som en tecken sträng: "\@" |
+| "\@\@" | Returnera dessa tecken som en tecken sträng: "\@" |
 | "\@" | Returnera dessa tecken som en sträng med två tecken: "\@" |
 |||
 
@@ -225,13 +222,13 @@ Följande exempel visar hur följande uttryck utvärderas:
 
 | JSON-uttryck | Resultat |
 |-----------------|--------|
-| "\@parameters (' myBirthMonth ')" | Returnera den här strängen: "januari" |
-| "\@ {parameters (' myBirthMonth ')}" | Returnera den här strängen: "januari" |
-| "\@parameters (' myAge ')" | Returnera det här talet: 42 |
-| "\@ {parameters (' myAge ')}" | Returnera det här talet som en sträng: "42" |
-| "Min ålder är \@ {parameters (' myAge ')}" | Returnera den här strängen: "min ålder är 42" |
-| "\@concat (' min ålder är ', String (parameters (' myAge ')))" | Returnera den här strängen: "min ålder är 42" |
-| "Min ålder är \@ \@ {parameters (' myAge ')}" | Returnera den här strängen, som innehåller uttrycket: "min ålder är \@ {parameters (' myAge ')} ' |
+| "\@parametrar (' myBirthMonth ')" | Returnera den här strängen: "januari" |
+| "\@{parameters (' myBirthMonth ')}" | Returnera den här strängen: "januari" |
+| "\@parametrar (' myAge ')" | Returnera det här talet: 42 |
+| "\@{parameters (' myAge ')}" | Returnera det här talet som en sträng: "42" |
+| "Min ålder är \@{parameters (' myAge ')}" | Returnera den här strängen: "min ålder är 42" |
+| "\@concat (" min ålder är ", sträng (parametrar (' myAge ')))) | Returnera den här strängen: "min ålder är 42" |
+| "Min ålder är \@\@{parameters (' myAge ')}" | Returnera den här strängen, som innehåller uttrycket: "min ålder är \@{parameters (' myAge ')} ' |
 |||
 
 När du arbetar visuellt i Logic Apps Designer kan du skapa uttryck genom uttrycks verktyget, till exempel:
@@ -280,9 +277,9 @@ Här är den allmänna strukturen för en utmatnings definition:
 
 | Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| <*nyckel namn* > | Ja | Sträng | Nyckel namnet för returvärdet för utdata |
-| <*nyckel typ* > | Ja | int, Float, String, SecureString, bool, array, JSON-objekt | Retur värdets typ |
-| <*nyckel värde* > | Ja | Samma som <*nyckel typ* > | Retur värde för utdata |
+| <*nyckel namn*> | Ja | Sträng | Nyckel namnet för returvärdet för utdata |
+| <*nyckel typ*> | Ja | int, Float, String, SecureString, bool, array, JSON-objekt | Retur värdets typ |
+| <*nyckel värde*> | Ja | Samma som <*nyckel typ*> | Retur värde för utdata |
 |||||
 
 Om du vill hämta utdata från en arbets flödes körning granskar du din Logic Apps körnings historik och information i Azure Portal eller använder [arbets flödes REST API](https://docs.microsoft.com/rest/api/logic/workflows). Du kan också skicka utdata till externa system, till exempel Power BI så att du kan skapa instrument paneler.

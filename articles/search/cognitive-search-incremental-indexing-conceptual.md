@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113598"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790925"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Vad är stegvis indexering i Azure Kognitiv sökning?
 
@@ -47,7 +47,7 @@ Du måste ange egenskapen `cache` på indexeraren för att starta får från ste
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 
@@ -83,7 +83,7 @@ Indexerare flyttar inte bara framåt och bearbetar nya dokument, men kan nu flyt
 
 ### <a name="invalidating-changes"></a>Ogiltig ändring
 
-Invalideringen av ändringar är sällsynt men har en betydande inverkan på statusen för din pipeline. En ogiltig ändring är en där hela cachen inte längre är giltig. Ett exempel på en ogiltig ändring är en plats där data källan uppdateras. För scenarier när du vet att ändringen inte ska göra en ogiltig verifiering av cachen, t. ex. genom att rotera nyckeln på lagrings kontot, ska parametern `ignoreResetRequirement` QueryString anges till `true` på uppdaterings åtgärden för den aktuella resursen för att säkerställa att åtgärden är ej avvisad.
+Invalideringen av ändringar är sällsynt men har en betydande inverkan på statusen för din pipeline. En ogiltig ändring är en där hela cachen inte längre är giltig. Ett exempel på en ogiltig ändring är en plats där data källan uppdateras. För scenarier när du vet att ändringen inte ska göra en ogiltig verifiering av cachen, t. ex. genom att rotera nyckeln på lagrings kontot, ska parametern `ignoreResetRequirement` QueryString anges till `true` på uppdaterings åtgärden för den aktuella resursen för att säkerställa att åtgärden inte avvisas.
 
 Här är en fullständig lista över ändringar som skulle göra din cache ogiltig:
 
@@ -142,7 +142,7 @@ Färdighetsuppsättningar har inte stöd för nya åtgärder, men har stöd för
 
 Data källor har inte stöd för några nya åtgärder, men har stöd för en ny QueryString-parameter: `ignoreResetRequirement` ska vara inställt på `true` när uppdaterings åtgärden inte ska ogiltig förklara cachen.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 Den rekommenderade metoden för att använda stegvis indexering är att konfigurera stegvis indexering genom att ange egenskapen cache i en ny indexerare eller återställa en befintlig indexerare och ange egenskapen cache.
 

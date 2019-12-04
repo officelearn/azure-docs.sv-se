@@ -1,24 +1,21 @@
 ---
-title: Skapa Logic app-mallar för distribution – Azure Logic Apps
+title: Skapa Logic app-mallar för distribution
 description: Lär dig hur du skapar Azure Resource Manager mallar för att automatisera distribution i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845445"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793202"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager mallar för att automatisera distributionen av Azure Logic Apps
 
-I den här artikeln beskrivs hur du kan skapa en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md) för din Logi Kap par, som hjälper dig att automatisera skapandet och distributionen av din Logic app. En översikt över strukturen och syntaxen för en mall som innehåller din arbets flödes definition och andra resurser som krävs för distribution [finns i Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)mallar.
+I den här artikeln beskrivs hur du kan skapa en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md) för din Logi Kap par, som hjälper dig att automatisera skapandet och distributionen av din Logic app. En översikt över strukturen och syntaxen för en mall som innehåller din arbets flödes definition och andra resurser som krävs för distribution finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md).
 
 Azure Logic Apps innehåller en [fördefinierad Logic app Azure Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) som du kan återanvända, inte bara för att skapa Logi Kap par, utan även för att definiera de resurser och parametrar som ska användas för distributionen. Du kan använda den här mallen för egna affärs scenarier eller anpassa mallen efter dina behov.
 
@@ -79,7 +76,7 @@ Alternativt kan du installera manuellt genom att följa stegen i GitHub för [Lo
 
 För att LogicAppTemplate-modulen ska fungera med valfri Azure-klient och prenumerations-åtkomsttoken, installerar du [Azure Resource Manager client-verktyget](https://github.com/projectkudu/ARMClient), som är ett enkelt kommando rads verktyg som anropar Azure Resource Manager-API: et.
 
-När du kör `Get-LogicAppTemplate` kommandot med det här verktyget hämtar kommandot först en åtkomsttoken via verktyget ARMClient, rör token till PowerShell-skriptet och skapar mallen som en JSON-fil. Mer information om verktyget finns i den här [artikeln om klient verktyget Azure Resource Manager](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
+När du kör kommandot `Get-LogicAppTemplate` med det här verktyget får kommandot först en åtkomsttoken via verktyget ARMClient, pipe-token till PowerShell-skriptet och skapar mallen som en JSON-fil. Mer information om verktyget finns i den här [artikeln om klient verktyget Azure Resource Manager](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
 
 ### <a name="generate-template-with-powershell"></a>Skapa mall med PowerShell
 
@@ -89,7 +86,7 @@ Om du vill skapa din mall efter att ha installerat LogicAppTemplate-modulen och 
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-Om du vill följa rekommendationen för rörledningar i en token från [Azure Resource Manager klient verktyget](https://github.com/projectkudu/ARMClient)kör du det `$SubscriptionId` här kommandot i stället för ditt Azure-prenumerations-ID:
+Om du vill följa rekommendationen för rörledningar i en token från [Azure Resource Manager klient verktyget](https://github.com/projectkudu/ARMClient), kör du det här kommandot i stället där `$SubscriptionId` är ditt Azure-prenumerations-ID:
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -107,7 +104,7 @@ Kör det här kommandot för extraktion med Azure Key Vault referenser (endast s
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| Parametrar | Obligatorisk | Beskrivning |
+| Parametrar | Krävs | Beskrivning |
 |------------|----------|-------------|
 | TemplateFile | Ja | Fil Sök vägen till mallfilen |
 | KeyVault | Nej | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |

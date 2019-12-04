@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-exempel för Azure Database for MariaDB
+title: Azure CLI-exempel – Azure Database for MariaDB
 description: Den här artikeln innehåller kodexempel för Azure CLI för att interagera med Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/27/2018
-ms.openlocfilehash: 8b38c5b94a3019b0c4ccaaa5c0cb86f74380469e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: affb7efc4c93561472bc006cb13ac93ab19aeec0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911335"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771733"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Azure CLI-exempel för Azure Database for MariaDB 
 Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure Database for MariaDB.

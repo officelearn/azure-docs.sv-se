@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383063"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790327"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Självstudie: visualisera och analysera händelser från Azure Digitals dubbla med hjälp av Time Series Insights
 
@@ -24,7 +24,7 @@ I [den första självstudien](tutorial-facilities-setup.md) konfigurerade du ett
 
 Den här kursen visar hur du kan integrera meddelanden och data från din Azure Digital Twins-konfiguration med Azure Time Series Insights. Sedan kan du visualisera dina sensorvärden över tid. Du kan söka efter trender som vilket rum som får mest användning och de mest använda tiderna på dagen. Du kan också identifiera avvikelser, till exempel vilka rum som känns kvava och varma, eller vilken del av huset som konsekvent skickar höga temperaturvärden som indikerar en bristfällig luftkonditionering.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Strömma data med Azure Event Hubs.
@@ -48,7 +48,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 ### <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
@@ -82,7 +82,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
     > [!TIP]
     > Kontrol lera att du skapar en SAS-princip för Event Hub-instansen i stället för ditt namn område.
 
-1. Öppna principen **ManageSend** som du har skapat och kopiera värdena för **Anslutningssträng – primär nyckel** och **Anslutningssträng – sekundär nyckel** till en temporär fil. Du behöver dessa värden för att skapa en slutpunkt för händelsehubben i nästa avsnitt.
+1. Öppna **ManageSend** -principen som du skapade och Kopiera värdena för **anslutnings strängen – primär nyckel** och **anslutnings sträng – sekundär nyckel** till en temporär fil. Du behöver dessa värden för att skapa en slutpunkt för händelsehubben i nästa avsnitt.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Skapa en slutpunkt för händelsehubb
 
@@ -108,13 +108,13 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
       path: Name_of_your_Event_Hub
     ```
 
-1. Ersätt platshållarna `Primary_connection_string_for_your_event_hub` med värdet för **Anslutningssträng – primär nyckel** för händelsehubben. Kontrollera att formatet för den här anslutningssträngen är följande:
+1. Ersätt plats hållarna `Primary_connection_string_for_your_event_hub` med värdet för **anslutnings sträng – primär nyckel** för händelsehubben. Kontrollera att formatet för den här anslutningssträngen är följande:
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Ersätt platshållarna `Secondary_connection_string_for_your_event_hub` med värdet för **Anslutningssträng – sekundär nyckel** för händelsehubben. Kontrollera att formatet för den här anslutningssträngen är följande: 
+1. Ersätt plats hållarna `Secondary_connection_string_for_your_event_hub` med värdet för **anslutnings sträng – sekundär nyckel** för händelsehubben. Kontrollera att formatet för den här anslutningssträngen är följande: 
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
@@ -137,7 +137,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 ## <a name="analyze-with-time-series-insights"></a>Analysera med Time Series Insights
 
-1. Välj [Skapa en resurs](https://portal.azure.com) längst upp till vänster i **Azure-portalen**. 
+1. Välj **Skapa en resurs** längst upp till vänster i [Azure-portalen](https://portal.azure.com). 
 
 1. Sök efter och välj en resurs för **Time Series Insights** allmän tillgänglighet (ga). Välj **Skapa**.
 
@@ -145,7 +145,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
     [![val för att skapa en Time Series Insights instans](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. På fliken **händelse källa** anger du ett **namn**, väljer **händelsehubben** som **typ av källa**och kontrollerar att de andra värdena är korrekt markerade. Välj **ManageSend** för **åtkomst princip namnet för händelsehubben**och välj sedan den konsument grupp som du skapade i föregående avsnitt för **konsument gruppen Event Hub**. Välj **Granska + skapa**.
+1. På fliken **händelse källa** anger du ett **namn**, väljer **händelsehubben** som **typ av källa**och kontrollerar att de andra värdena är korrekt markerade för att referera till händelsehubben som du skapade. Välj **ManageSend** för **åtkomst princip namnet för händelsehubben**och välj sedan den konsument grupp som du skapade i föregående avsnitt för **konsument gruppen Event Hub**. Välj **Granska + skapa**.
 
     [![val för att skapa en händelse källa](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
@@ -183,4 +183,4 @@ Om du inte vill utforska Azure Digital Twins vidare kan du ta bort resurser som 
 Gå till nästa artikel för att läsa mer om diagram för spatial intelligens och objektmodeller i Azure Digital Twins.
 
 > [!div class="nextstepaction"]
-> [Förstå Digital Twins-objektmodeller och diagram för spatial intelligens](concepts-objectmodel-spatialgraph.md)
+> [Förstå grafen för objektmodell och rumslig intelligens i Digital Twins](concepts-objectmodel-spatialgraph.md)

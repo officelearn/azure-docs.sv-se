@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 10a3c2bf421c7182dca00dfcbf7c3f559141a745
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084068"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792202"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster med Premium-filresurs på virtuella Azure-datorer
 
@@ -45,9 +45,7 @@ Du bör också ha en allmän förståelse för dessa tekniker:
 - [Resurs grupper i Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med läget för [förenklad](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) hantering i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill ändra från läget för fullständig förlängning till läge för förenklad borttagning, tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i [Lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) -läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal avmarkerar du kryss rutan bredvid rätt virtuell dator.
->
-> Det fullständiga tillägget har stöd för funktioner som automatiserad säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för SQL Server virtuella datorer när agenten har installerats om i läget för [förenklad](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) hantering.
+> För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med [läget för förenklad hantering](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i Lightweight-läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal **avmarkerar du kryss rutan bredvid rätt virtuell dator**. Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har installerats om i läget för förenklad hantering.
 
 Premium-filresurser ger IOPS och alla kapaciteter som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du överväga att [SQL Server instanser av redundanskluster med Lagringsdirigering](virtual-machines-windows-portal-sql-create-failover-cluster.md), baserat på hanterade Premium diskar eller Ultra disks.  
 
@@ -461,7 +459,7 @@ På Azure Virtual Machines stöds inte MSDTC på Windows Server 2016 eller tidig
 - Det går inte att konfigurera den klustrade MSDTC-resursen att använda delad lagring. Om du skapar en MSDTC-resurs i Windows Server 2016 visas inga delade lagrings enheter som är tillgängliga för användning, även om lagring är tillgängligt. Det här problemet har åtgärd ATS i Windows Server 2019.
 - Den grundläggande belastningsutjämnaren hanterar inte RPC-portar.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Windows kluster tekniker](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server instanser av redundanskluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

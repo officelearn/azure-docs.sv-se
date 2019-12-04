@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: 677ea48244f8417670a2645ab67fa08c1f869f1a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142591"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764481"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Kom igång med Azure Cosmos DB Tabell-API och Azure Table Storage med hjälp av .NET SDK
 
@@ -23,9 +23,9 @@ ms.locfileid: "70142591"
 
 Du kan använda Azure Cosmos DB Tabell-API eller Azure Table Storage för att lagra strukturerade NoSQL-data i molnet, vilket ger ett Arkiv för nyckel/attribut med ett schema som är mindre design. Eftersom Azure Cosmos DB Tabell-API-och table-lagring är ett schema som är mindre, är det enkelt att anpassa dina data när dina program behöver utvecklas. Du kan använda Azure Cosmos DB Tabell-API eller tabell lagringen för att lagra flexibla data uppsättningar, till exempel användar data för webb program, adress böcker, enhets information eller andra typer av metadata som din tjänst kräver. 
 
-I den här självstudien beskrivs ett exempel som visar hur du använder [Microsoft Azure Cosmos DB tabell bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) med Azure Cosmo DB tabell-API-och Azure Table Storage-scenarier. Du måste använda den anslutning som är speciell för Azure-tjänsten. De här scenarierna är bekanta C# med exempel som illustrerar hur du skapar tabeller, infogar/uppdaterar data, frågedata och tar bort tabeller.
+I den här självstudien beskrivs ett exempel som visar hur du använder [Microsoft Azure Cosmos DB tabell bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) med Azure Cosmos DB tabell-API och Azure Table Storage-scenarier. Du måste använda den anslutning som är speciell för Azure-tjänsten. De här scenarierna är bekanta C# med exempel som illustrerar hur du skapar tabeller, infogar/uppdaterar data, frågedata och tar bort tabeller.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna följa med i det här exemplet:
 
@@ -59,7 +59,7 @@ Följ dessa steg för att hämta NuGet-paketet:
 
 1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
 
-1. Sök online efter `Microsoft.Azure.Cosmos.Table`, `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json` och`Microsoft.Extensions.Configuration.Binder` Välj **Installera** för att installera Microsoft Azure Cosmos DB tabell bibliotek.
+1. Sök online efter `Microsoft.Azure.Cosmos.Table`, `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json`, `Microsoft.Extensions.Configuration.Binder` och välj **Installera** för att installera Microsoft Azure Cosmos DB Table-biblioteket.
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
@@ -149,7 +149,7 @@ namespace CosmosTableSamples
 
 ## <a name="create-a-table"></a>Skapa en tabell 
 
-Med klassen [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) kan du hämta tabeller och de entiteter som lagras i Table Storage. Eftersom vi inte har några tabeller i Cosmos DB tabell-API-kontot ska vi lägga till `CreateTableAsync` metoden i klassen **common.cs** för att skapa en tabell:
+Med klassen [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) kan du hämta tabeller och de entiteter som lagras i Table Storage. Eftersom vi inte har några tabeller i Cosmos DB Tabell-API-kontot ska vi lägga till `CreateTableAsync`-metoden i **common.cs** -klassen för att skapa en tabell:
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)

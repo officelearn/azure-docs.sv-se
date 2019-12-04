@@ -1,43 +1,39 @@
 ---
-title: Anslut till Office 365-användare – Azure Logic Apps | Microsoft Docs
-description: 'Hantera användarprofiler med Office 365 användare REST API: er och Azure Logic Apps'
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
+title: Anslut till Office 365-användare
+description: 'Hantera användar profiler med Office 365-användare REST-API: er och Azure Logic Apps'
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
-ms.service: logic-apps
-services: logic-apps
-ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 3865fbc4fbc39da0860218565b0a8956b2dad8ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: addb64a9b43c51af8363caa6f0fb3261a618e893
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105879"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789535"
 ---
-# <a name="get-started-with-the-office-365-users-connector"></a>Kom igång med anslutningsappen för Office 365-användare
-Anslut till Office 365-användare att hämta profiler och Sök efter användare. Med Office 365-användare kan du:
+# <a name="get-started-with-the-office-365-users-connector"></a>Kom igång med Office 365-användarens koppling
+Anslut till Office 365-användare för att hämta profiler, Sök efter användare med mera. Med Office 365-användare kan du:
 
-* Skapa ditt flöde för företag som baseras på data som du får från Office 365-användare. 
-* Använd åtgärder som hämta direktrapporter, hämta en chef användarprofil och mycket mer. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. Exempelvis kan du hämta direktrapporter för en person, och sedan tar den här informationen och uppdatera en SQL Azure-databas. 
+* Skapa ditt affärs flöde baserat på de data du får från Office 365-användare. 
+* Använd åtgärder som hämtar direkt rapporter, hämta en chefs användar profil med mera. De här åtgärderna får ett svar och gör sedan resultatet tillgängligt för andra åtgärder. Du kan till exempel hämta en persons direkt rapporter och sedan ta den här informationen och uppdatera en SQL Azure databas. 
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office-365-users"></a>Skapa en anslutning till Office 365-användare
-När du lägger till den här anslutningen i logikappar, måste du logga in på ditt Office 365-användare och ge logic apps för att ansluta till ditt konto.
+När du lägger till den här anslutningen i dina Logi Kap par måste du logga in på ditt konto för Office 365-användare och tillåta att Logi Kap par ansluter till ditt konto.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
 > 
 
-När du har skapat anslutningen kan ange du egenskaper för Office 365-användare, t.ex. användar-ID. Den **REST API-referens** i den här artikeln beskriver de här egenskaperna.
+När du har skapat anslutningen anger du Office 365-användarens egenskaper, t. ex. användar-ID. **REST API-referensen** i den här artikeln beskriver dessa egenskaper.
 
-## <a name="connector-specific-details"></a>Information om specifika
+## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/officeusers/).
+Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/officeusers/).
 
-## <a name="more-connectors"></a>Fler anslutningsappar
-Gå tillbaka till den [API: er lista](apis-list.md).
+## <a name="more-connectors"></a>Fler anslutningar
+Gå tillbaka till [listan med API: er](apis-list.md).

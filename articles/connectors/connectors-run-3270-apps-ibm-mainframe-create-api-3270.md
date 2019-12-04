@@ -1,8 +1,7 @@
 ---
-title: Ansluta till 3270-appar i IBM-stordatorer – Azure Logic Apps
+title: Ansluta till 3270-appar i IBM-stordatorer
 description: Integrera och automatisera 3270-skärm drivna appar med Azure med hjälp av Azure Logic Apps och IBM 3270-anslutning
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
@@ -10,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: f039d0cbfa2b34fecbcdee53ebe2b56b6e9b6d69
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787565"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789247"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270-skärm drivna appar i IBM-stordatorer med Azure med hjälp av Azure Logic Apps och IBM 3270-anslutning
 
@@ -361,8 +360,8 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Anslutningsnamn** | Ja | <*anslutnings namn* > | Namnet på anslutningen |
-   | **Integrations konto-ID** | Ja | <*integration – konto namn* > | Integrations kontots namn |
+   | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet på anslutningen |
+   | **Integrations konto-ID** | Ja | <*integration – konto namn*> | Integrations kontots namn |
    | **SAS-URL för integrations konto** | Ja | <*integration-Account-SAS-URL*> | Ditt integrations kontos URL för signatur för delad åtkomst (SAS), som du kan generera från integrations kontots inställningar i Azure Portal. <p>1. i menyn integrations konto **väljer du** **återanrops-URL**. <br>2. i den högra rutan kopierar du det **genererade URL** -värdet för motringning. |
    | **Server** | Ja | <*TN3270-server-name*> | Server namnet för din TN3270-tjänst |
    | **Port** | Nej | <*TN3270-server-port*> | Porten som används av TN3270-servern. Om värdet är tomt använder anslutaren `23` som standardvärde. |

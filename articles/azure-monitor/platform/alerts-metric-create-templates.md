@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 0d3cbe8c3d2d7931e3e4cc052eedc844a296ccf0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099756"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775798"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
@@ -22,7 +22,7 @@ ms.locfileid: "73099756"
 Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/resource-group-authoring-templates.md) för att konfigurera [nya mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (d.v.s.) `Microsoft.OperationalInsights/workspaces`, kräver ytterligare åtgärder. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (d.v.s.) `Microsoft.OperationalInsights/workspaces`, kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 De grundläggande stegen är följande:
 
@@ -551,9 +551,11 @@ az group deployment create \
 >
 > Även om mått aviseringen kan skapas i en annan resurs grupp till mål resursen rekommenderar vi att du använder samma resurs grupp som mål resursen.
 
-## <a name="template-for-a-more-advanced-static-threshold-metric-alert"></a>Mall för en mer avancerad statisk tröskelvärdes mått avisering
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Mall för en statisk tröskel mått avisering som övervakar flera villkor
 
-Nya mått aviseringar stöder aviseringar om flerdimensionella mått och stöd för flera villkor. Du kan använda följande mall för att skapa en mer avancerad mått avisering på dimensions mått och ange flera kriterier.
+Nya mått aviseringar stöder aviseringar om flerdimensionella mått och stöd för flera villkor. Du kan använda följande mall för att skapa en mer avancerad mått varnings regel för mått och ange flera kriterier.
+
+Observera att när aviserings regeln innehåller flera villkor, är användningen av dimensioner begränsad till ett värde per dimension i varje kriterium.
 
 Spara JSON-filen nedan som advancedstaticmetricalert. JSON för den här genom gången.
 
@@ -757,7 +759,7 @@ Spara och ändra JSON nedan som advancedstaticmetricalert. Parameters. JSON för
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mall-och parameter filen med PowerShell eller Azure CLI från din aktuella arbets katalog
+Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
 
 Använda Azure PowerShell
 ```powershell
@@ -784,13 +786,243 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Även om mått aviseringen kan skapas i en annan resurs grupp till mål resursen rekommenderar vi att du använder samma resurs grupp som mål resursen.
+> När en varnings regel innehåller flera villkor är användningen av dimensioner begränsad till ett värde per dimension i varje kriterium.
 
-## <a name="template-for-a-more-advanced-dynamic-thresholds-metric-alert"></a>Mall för en mer avancerad dynamisk Tröskelvärdes mått avisering
+## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Mall för en statisk mått avisering som övervakar flera dimensioner
 
-Du kan använda följande mall för att skapa en mer avancerad dynamisk Tröskelvärdes mått avisering på dimensions mått. Det finns för närvarande inte stöd för flera villkor.
+Du kan använda följande mall för att skapa en statisk mått varnings regel för mått.
 
-Aviserings regeln för dynamiska tröskelvärden kan skapa skräddarsydda tröskelvärden för hundratals mått serier (även olika typer) i taget, vilket leder till att färre aviserings regler hanteras.
+En enda varnings regel kan övervaka flera tids serier i taget, vilket leder till att färre varnings regler hanteras.
+
+I exemplet nedan övervakar varnings regeln dimensions värde kombinationerna för **ResponseType** -och **ApiName** -dimensionerna för **transaktionernas** mått:
+1. **ResponsType** – användningen av jokertecknet "\*" innebär att för varje värde av **ResponseType** -dimensionen, inklusive framtida värden, kommer en annan tids serie att övervakas separat.
+2. **ApiName** – en annan tids serie kommer endast att övervakas för **GetBlob** -och **PutBlob** -dimensionsvärdena.
+
+Till exempel är några av de tänkbara tids serier som ska övervakas av den här aviserings regeln:
+- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
+- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
+
+Spara JSON-filen nedan som multidimensionalstaticmetricalert. JSON för den här genom gången.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the resource emitting the metric that will be used for the comparison."
+            }
+        },
+        "criterion":{
+            "type": "object",
+            "metadata": {
+                "description": "Criterion includes metric name, dimension values, threshold and an operator. The alert rule fires when ALL criteria are met"
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": { 
+        "criteria": "[array(parameters('criterion'))]"
+     },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": "[variables('criteria')]"
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
+
+Spara och ändra JSON nedan som multidimensionalstaticmetricalert. Parameters. JSON för den här genom gången.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New multi-dimensional metric alert rule (replace with your alert name)"
+        },
+        "alertDescription": {
+            "value": "New multi-dimensional metric alert rule created via template (replace with your alert description)"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
+        },
+        "criterion": {
+            "value": {
+                    "name": "Criterion",
+                    "metricName": "Transactions",
+                    "dimensions": [
+                        {
+                            "name":"ResponseType",
+                            "operator": "Include",
+                            "values": ["*"]
+                        },
+                        {
+                "name":"ApiName",
+                            "operator": "Include",
+                            "values": ["GetBlob", "PutBlob"]    
+                        }
+                    ],
+                    "operator": "GreaterThan",
+                    "threshold": "5",
+                    "timeAggregation": "Total"
+                }
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
+        }
+    }
+}
+```
+
+
+Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+
+Använda Azure PowerShell
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+  -TemplateFile multidimensionalstaticmetricalert.json -TemplateParameterFile multidimensionalstaticmetricalert.parameters.json
+```
+
+
+
+Använda Azure CLI
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupofTargetResource \
+    --template-file multidimensionalstaticmetricalert.json \
+    --parameters @multidimensionalstaticmetricalert.parameters.json
+```
+
+
+## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>Mall för en mått avisering för dynamiska tröskelvärden som övervakar flera dimensioner
+
+Du kan använda följande mall för att skapa en mer avancerad dynamisk tröskel varnings regel för mått.
+
+En varnings regel för ett enskilt dynamiskt tröskelvärden kan skapa skräddarsydda tröskelvärden för hundratals tids serier (även olika typer) i taget, vilket resulterar i färre varnings regler.
+
+I exemplet nedan övervakar varnings regeln dimensions värde kombinationerna för **ResponseType** -och **ApiName** -dimensionerna för **transaktionernas** mått:
+1. **ResponsType** – för varje värde i dimensionen **ResponseType** , inklusive framtida värden, kommer en annan tids serie att övervakas separat.
+2. **ApiName** – en annan tids serie kommer endast att övervakas för **GetBlob** -och **PutBlob** -dimensionsvärdena.
+
+Till exempel är några av de tänkbara tids serier som ska övervakas av den här aviserings regeln:
+- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
+- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
 
 Spara JSON-filen nedan som advanceddynamicmetricalert. JSON för den här genom gången.
 
@@ -936,7 +1168,7 @@ Spara och ändra JSON nedan som advanceddynamicmetricalert. Parameters. JSON fö
         "resourceId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
         },
-        "criterion1": {
+        "criterion": {
             "value": {
                     "criterionType": "DynamicThresholdCriterion",
                     "name": "1st criterion",
@@ -945,12 +1177,12 @@ Spara och ändra JSON nedan som advanceddynamicmetricalert. Parameters. JSON fö
                         {
                             "name":"ResponseType",
                             "operator": "Include",
-                            "values": ["Success"]
+                            "values": ["*"]
                         },
                         {
                             "name":"ApiName",
                             "operator": "Include",
-                            "values": ["GetBlob"]
+                            "values": ["GetBlob", "PutBlob"]
                         }
                     ],
                     "operator": "GreaterOrLessThan",
@@ -961,7 +1193,7 @@ Spara och ändra JSON nedan som advanceddynamicmetricalert. Parameters. JSON fö
                     },
                     "timeAggregation": "Total"
                 }
-        }
+        },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
         }
@@ -970,7 +1202,7 @@ Spara och ändra JSON nedan som advanceddynamicmetricalert. Parameters. JSON fö
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mall-och parameter filen med PowerShell eller Azure CLI från din aktuella arbets katalog
+Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
 
 Använda Azure PowerShell
 ```powershell
@@ -997,11 +1229,11 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Även om mått aviseringen kan skapas i en annan resurs grupp till mål resursen rekommenderar vi att du använder samma resurs grupp som mål resursen.
+> Flera kriterier stöds för närvarande inte för mått varnings regler som använder dynamiska tröskelvärden.
 
-## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>Mall för mått avisering som övervakar flera resurser
+## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Mall för en mått avisering som övervakar flera resurser
 
-I föregående avsnitt beskrivs exempel Azure Resource Manager mallar för att skapa mått aviseringar som övervakar en enskild resurs. Azure Monitor har nu stöd för övervakning av flera resurser med en enda mått varnings regel. Den här funktionen stöds för närvarande endast i Azures offentliga moln och endast för virtuella datorer och dataedge-enheter.
+I föregående avsnitt beskrivs exempel Azure Resource Manager mallar för att skapa mått aviseringar som övervakar en enskild resurs. Azure Monitor har nu stöd för övervakning av flera resurser med en enda mått varnings regel. Den här funktionen stöds för närvarande endast i Azures offentliga moln och endast för virtuella datorer, SQL-databaser, elastiska SQL-pooler och dataedge-enheter.
 
 Aviserings regeln för dynamiska tröskelvärden kan också hjälpa dig att skapa skräddarsydda tröskelvärden för hundratals mått serier (även olika typer) i taget, vilket leder till att färre aviserings regler hanteras.
 
@@ -1836,6 +2068,7 @@ Spara JSON-filen nedan som alla-VM-in-Subscription-static. JSON för den här ge
             "type": "string",
             "defaultValue": "PT1M",
             "allowedValues": [
+                "PT1M",
                 "PT5M",
                 "PT15M",
                 "PT30M",

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Utforma Azure Database för PostgreSQL – enskild Server med Azure CLI'
-description: Den här självstudiekursen visar hur du skapar, konfigurerar och fråga efter din första Azure Database för PostgreSQL – enskild Server med Azure CLI.
+title: 'Självstudie: utforma en Azure Database for PostgreSQL-enskild server – Azure CLI'
+description: Den här självstudien visar hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-enskilda server med Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,20 +8,20 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447227"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773701"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudier: Utforma Azure Database för PostgreSQL – enskild Server med Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 > [!div class="checklist"]
 > * Skapa en Azure Database för PostgreSQL-server
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
-> * Läsa in exempeldata
+> * Läs in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
@@ -51,7 +51,7 @@ I följande exempel skapas en server som heter `mydemoserver` i din resursgrupp 
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
-+ `--sku-name B_Gen5_2` mappar till Basic, generation 5 och 2 virtuella kärnor.
++ `--sku-name B_Gen5_2` mappar till Basic, gen 5 och 2 virtuella kärnor.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
 + `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
 
@@ -125,14 +125,14 @@ Om din klientdator har PostgreSQL installerat kan du använda en lokal instans a
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   Följande kommando ansluter till exempel till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange den `<server_admin_password>` som du valde när du uppmanades att ange lösenordet.
+   Följande kommando ansluter exempelvis till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange den `<server_admin_password>` som du valde när du uppmanades att ange lösenordet.
   
    ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
    > [!TIP]
-   > Om du vill använda en URL-sökväg för att ansluta till Postgres URL koda den @-tecknet användarnamn med `%40`. Exempel är anslutningssträngen för psql,
+   > Om du föredrar att använda en URL-sökväg för att ansluta till postgres, kodar URL @-tecknet i användar namnet med `%40`. Anslutnings strängen för psql skulle exempelvis vara,
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```
@@ -202,7 +202,7 @@ Följande parametrar behövs för kommandot `az postgres server restore`:
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
-| name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan använda din egen lokala tidszon som t.ex. `2017-04-13T05:59:00-08:00`, eller använda UTC Zulu-formatet `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 
@@ -217,9 +217,9 @@ I den här självstudien lärde du dig att använda Azure CLI (kommandoradsgrän
 > * Skapa en Azure Database för PostgreSQL-server
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
-> * Läsa in exempeldata
+> * Läs in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
 
-Gå igenom följande självstudie och lär dig hur du använder Azure-portalen till att utföra liknande aktiviteter: [Skapa din första Azure Database for PostgreSQL med Azure-portalen](tutorial-design-database-using-azure-portal.md)
+Nu ska du lära dig hur du använder Azure Portal för att utföra liknande aktiviteter. Gå till följande självstudie: [Utforma din första Azure Database for PostgreSQL med Azure Portal](tutorial-design-database-using-azure-portal.md)

@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014305"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786375"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -181,7 +181,8 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |90051| Ogiltig Delegerings-token. Ogiltigt nationellt moln-ID ({cloudId}) har angetts.|
 |90072| Kontot måste läggas till som en extern användare i klient organisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
 |90094| Tilldelningen kräver administratörs behörighet. Be klient administratören att tillhandahålla medgivande för det här programmet.|
-|500021|Klienten är begränsad av företagets proxy. Neka resurs åtkomst.|
+|500011| Det gick inte att hitta resurs huvud namnet <site address> i klient organisationen med namnet <tenant ID>. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kanske har skickat din begäran om autentisering till fel klient.|
+|500021| Klienten är begränsad av företagets proxy. Neka resurs åtkomst.|
 |500121| Autentiseringen misslyckades under begäran om stark autentisering.|
 |500133| Kontrollen ligger inte inom det giltiga tidsintervallet. Se till att åtkomsttoken inte har upphört att gälla innan du använder den för användar kontroll eller begär en ny token.|
 |530021|Programmet uppfyller inte kraven för godkända appar för villkorlig åtkomst.|

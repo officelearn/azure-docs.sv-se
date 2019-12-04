@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326597"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789999"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Arbeta med projektioner i ett kunskaps lager i Azure Kognitiv sökning
 
@@ -28,11 +28,11 @@ Projektioner kan vara tabell, med data som lagras i rader och kolumner i Azure T
 
 Kunskaps lagret stöder tre typer av projektioner:
 
-+ **Tabeller**: för data som bäst visas som rader och kolumner kan du med tabell projektioner definiera en schematiserade-form eller projektion i Table Storage.
++ **Tabeller**: för data som bäst visas som rader och kolumner kan du med tabell projektioner definiera en schematiserade-form eller projektion i Table Storage. Endast giltiga JSON-objekt kan projiceras som tabeller, det berikade dokumentet kan innehålla noder som inte heter JSON-objekt och när de projiceras, skapar du ett giltigt JSON-objekt med en formaren-kompetens eller infogad form.
 
-+ **Objekt**: när du behöver en JSON-representation av dina data och hur de ska berikas, sparas objekt projektion som blobbar.
++ **Objekt**: när du behöver en JSON-representation av dina data och hur de ska berikas, sparas objekt projektion som blobbar. Endast giltiga JSON-objekt kan projiceras som objekt, det berikade dokumentet kan innehålla noder som inte heter JSON-objekt och när de projiceras, skapar du ett giltigt JSON-objekt med en formaren-kompetens eller infogad form.
 
-+ **Filer**: när du behöver spara de avbildningar som extraheras från dokumenten kan du spara de normaliserade avbildningarna med fil prognoser.
++ **Filer**: när du behöver spara de avbildningar som extraheras från dokumenten kan du spara de normaliserade avbildningarna i Blob Storage.
 
 Om du vill se projektioner som definierats i sammanhanget steg [för steg hur du kommer igång med kunskaps lager](knowledge-store-howto.md).
 
@@ -47,7 +47,7 @@ Detta oberoende innebär att du kan ha samma data formad annorlunda, men upprepa
 
 ### <a name="relatedness"></a>Relateradhet
 
-Med projektions grupper kan du nu projicera dokumenten över projektions typer samtidigt som du bevarar relationerna mellan projektions typerna. Allt innehåll som projiceras inom en enskild projektions grupp bevarar relationer i data mellan projektions typer. I tabeller baseras relationer på en genererad nyckel och varje underordnad nod behåller en referens till den överordnade noden. Mellan typer (tabeller, objekt och filer) bevaras relationer när en enskild nod projiceras mellan olika typer. Anta till exempel ett scenario där du har ett dokument som innehåller bilder och text. Du kan projicera texten till tabeller eller objekt och bilderna till filer där tabellerna eller objekten har en egenskap som innehåller fil-URL: en.
+Med projektions grupper kan du nu projicera dokumenten över projektions typer samtidigt som du bevarar relationerna mellan projektions typerna. Allt innehåll som projiceras inom en enskild projektions grupp bevarar relationer i data mellan projektions typer. I tabeller baseras relationer på en genererad nyckel och varje underordnad nod behåller en referens till den överordnade noden. Mellan typer (tabeller, objekt och filer) bevaras relationer när en enskild nod projiceras mellan olika typer. Anta till exempel ett scenario där du har ett dokument som innehåller bilder och text. Du kan projicera texten till tabeller eller objekt och bilderna till filer där tabellerna eller objekten har en kolumn/egenskap som innehåller fil-URL: en.
 
 ## <a name="input-shaping"></a>Inmatad form
 

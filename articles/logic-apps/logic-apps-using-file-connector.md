@@ -1,20 +1,19 @@
 ---
-title: Ansluta till fil system lokalt – Azure Logic Apps
+title: Anslut till fil system lokalt
 description: Automatisera aktiviteter och arbets flöden som ansluter till lokala fil system med fil system anslutningen via den lokala datagatewayen i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 1b5cf27c49a003042086cd9452f288c7f348d343
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: bc2067dbde1e99619fb6e384be4e70f606c8518d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799696"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792784"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala fil system med Azure Logic Apps
 
@@ -68,7 +67,7 @@ Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt bes
 
    | Egenskap | Krävs | Värde | Beskrivning |
    | -------- | -------- | ----- | ----------- |
-   | **Anslutningsnamn** | Ja | <*anslutnings namn* > | Det namn som du vill använda för anslutningen |
+   | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Det namn som du vill använda för anslutningen |
    | **Rotmapp** | Ja | <*rot-mapp-namn*> | Rotmappen för ditt fil system, till exempel om du har installerat din lokala datagateway, till exempel en lokal mapp på datorn där den lokala datagatewayen är installerad, eller mappen för en nätverks resurs som datorn har åtkomst till. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är den överordnade huvudmappen som används för relativa sökvägar för alla filrelaterade åtgärder. |
    | **Autentiseringstyp** | Nej | <*autentiserings typ*> | Den typ av autentisering som fil systemet använder, till exempel **Windows** |
    | **Användarnamn** | Ja | <*domän*>\\<*användar namn*> | Användar namnet för den dator där du har fil systemet |

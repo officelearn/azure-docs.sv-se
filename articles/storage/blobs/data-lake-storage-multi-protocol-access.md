@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aebd7b58a2107ac109a03d3ce12f27d65ba0ab90
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033968"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769820"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Åtkomst till flera protokoll på Azure Data Lake Storage
 
@@ -48,10 +48,13 @@ De objekt som visas i den här tabellen ändras med tiden att stöd för Blob St
 |Blob Storage-funktion | Support nivå |
 |---|---|
 |[Låg frekvent åtkomst nivå](storage-blob-storage-tiers.md)|Allmänt tillgänglig|
-|BLOB-SDK: er |Allmänt tillgänglig|
 |BLOB REST-API: er|Allmänt tillgänglig|
-|[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Allmänt tillgänglig|
-|[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Allmänt tillgänglig|
+|BLOB-SDK: er |Allmänt tillgänglig|
+|[PowerShell (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Allmänt tillgänglig|
+|[CLI (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Allmänt tillgänglig|
+|BLOB-SDK: er med semantiska fil system ([.net](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Förhandsversion|
+|[PowerShell med semantiska fil system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Förhandsversion|
+|[CLI med semantiska fil system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Förhandsversion|
 |[Diagnostikloggar](../common/storage-analytics-logging.md)| Förhandsversion|
 |[Principer för livs cykel hantering](storage-lifecycle-management-concepts.md)| Förhandsversion|
 |[Meddelanden via Azure Event Grid](data-lake-storage-events.md)|Förhandsversion|

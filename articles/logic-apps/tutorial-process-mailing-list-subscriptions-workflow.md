@@ -1,22 +1,18 @@
 ---
-title: Bygg godkännande-baserade automatiserade arbets flöden – Azure Logic Apps
+title: Bygg godkännande-baserade automatiserade arbets flöden
 description: Självstudie – Skapa ett godkännande baserat automatiserat arbets flöde som bearbetar prenumerationer på e-postlistor med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: f720e22542533d17fc7ab581f8ba8d9c03a89570
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025601"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784671"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiska godkännande-baserade arbets flöden med hjälp av Azure Logic Apps
 
@@ -51,7 +47,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integrations** > **Logic app**.
+1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integration** > **Logic app**.
 
    ![Skapa din nya Logic app-resurs](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
@@ -68,7 +64,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar**  > **gå till resurs** för din distribuerade Logic-app.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar** > **gå till resurs** för din distribuerade Logic-app.
 
    ![Gå till din nya Logic app-resurs](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 

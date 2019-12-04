@@ -1,17 +1,17 @@
 ---
-title: Migrera din MariaDB-databas med dump och Restore i Azure Database for MariaDB
+title: Migrera med dump och Restore-Azure Database for MariaDB
 description: I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MariaDB med hjälp av verktyg som mysqldump, MySQL Workbench och PHPMyAdmin.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 05626535a2ab2d8da29b8c817ebfe84c257c76aa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 12/02/2019
+ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845064"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776013"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrera MariaDB-databasen till Azure Database for MariaDB med dump och Återställ
 I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MariaDB
@@ -39,18 +39,18 @@ Du kan använda MySQL-verktyg som mysqldump och mysqlpump för att dumpa och lä
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- För att undvika eventuella kompatibilitetsproblem bör du se till att samma version av MariaDB används i käll- och målsystemen när databaser dumpas. Om din befintliga MariaDB-server till exempel är version 10,2 bör du migrera till Azure Database for MariaDB konfigurerad för att köra version 10,2. `mysql_upgrade` Kommandot fungerar inte i en Azure Database for MariaDB-Server och stöds inte. Om du behöver uppgradera över MariaDB-versioner måste du först dumpa eller exportera den lägre versions databasen till en högre version av MariaDB i din egen miljö. Kör `mysql_upgrade`sedan innan du försöker migrera till en Azure Database for MariaDB.
+- För att undvika eventuella kompatibilitetsproblem bör du se till att samma version av MariaDB används i käll- och målsystemen när databaser dumpas. Om din befintliga MariaDB-server till exempel är version 10,2 bör du migrera till Azure Database for MariaDB konfigurerad för att köra version 10,2. Kommandot `mysql_upgrade` fungerar inte i en Azure Database for MariaDB-Server och stöds inte. Om du behöver uppgradera över MariaDB-versioner måste du först dumpa eller exportera den lägre versions databasen till en högre version av MariaDB i din egen miljö. Kör sedan `mysql_upgrade`innan du försöker migrera till en Azure Database for MariaDB.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 För att optimera prestanda bör du tänka på följande när det gäller dumpning av stora databaser:
 -   Använd alternativet `exclude-triggers` i mysqldump när det är dumpnings databaser. Exkludera utlösare från dumpfiler för att undvika att Utlös ande kommandon utlöses under data återställningen. 
--   `single-transaction` Använd alternativet för att ställa in transaktions isolerings läget till repeterbar läsning och skicka ett SQL-uttryck för starttransaktion till servern innan du påbörjar dumpnings data. Dumpning av många tabeller i en enda transaktion medför att en extra lagring används under återställningen. `single-transaction` Alternativet`lock-tables` och alternativet är ömsesidigt uteslutande eftersom lås tabeller gör att eventuella väntande transaktioner kan bekräftas implicit. Om du vill dumpa stora tabeller `single-transaction` kombinerar du alternativet `quick` med alternativet. 
--   Använd syntax med flera rader som innehåller flera värde listor. `extended-insert` Detta resulterar i en mindre dumpfil och påskyndar infogningar när filen läses in igen.
--  `order-by-primary` Använd alternativet i mysqldump när det gäller dumpnings databaser, så att data skriptas i primär nyckel ordning.
--   `disable-keys` Använd alternativet i mysqldump när dumpnings data ska inaktivera begränsningar för sekundär nyckel före belastningen. Att inaktivera kontroller av sekundär nyckel ger prestanda vinster. Aktivera begränsningarna och kontrol lera data efter belastningen för att säkerställa referens integriteten.
+-   Använd `single-transaction` alternativet för att ställa in transaktions isolerings läget till REPETERBARt läst och skickar ett SQL-uttryck för starttransaktion till servern innan du påbörjar dumpnings data. Dumpning av många tabeller i en enda transaktion medför att en extra lagring används under återställningen. Alternativet `single-transaction` och alternativet `lock-tables` är ömsesidigt uteslutande, eftersom lås tabeller gör att eventuella väntande transaktioner kan bekräftas implicit. Om du vill dumpa stora tabeller kombinerar du alternativet `single-transaction` med alternativet `quick`. 
+-   Använd syntaxen `extended-insert` flera rader som innehåller flera värde listor. Detta resulterar i en mindre dumpfil och påskyndar infogningar när filen läses in igen.
+-  Använd `order-by-primary` alternativet i mysqldump när det gäller dumpning av databaser, så att data skriptas i primär nyckel ordning.
+-   Använd alternativet `disable-keys` i mysqldump när dumpnings data ska inaktivera begränsningar för sekundär nyckel före belastningen. Att inaktivera kontroller av sekundär nyckel ger prestanda vinster. Aktivera begränsningarna och kontrol lera data efter belastningen för att säkerställa referens integriteten.
 -   Använd partitionerade tabeller när det är lämpligt.
 -   Läs in data parallellt. Undvik för mycket parallellitet som skulle innebära att du träffar en resurs gräns och övervaka resurser med hjälp av de mått som är tillgängliga i Azure Portal. 
--   `defer-table-indexes` Använd alternativet i mysqlpump när det gäller dumpnings databaser, så att skapandet av index sker efter att tabell data har lästs in.
+-   Använd alternativet `defer-table-indexes` i mysqlpump när det gäller dumpning av databaser, så att skapandet av indexet sker efter att tabell data har lästs in.
 -   Kopiera säkerhetskopieringsfilerna till en Azure Blob/Store och utför återställningen därifrån, vilket bör vara mycket snabbare än att utföra återställningen via Internet.
 
 ## <a name="create-a-backup-file"></a>Skapa en säkerhets kopia

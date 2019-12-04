@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 7a2b15ffdcc1a611c2cb165b4f2657ad7276e05b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706343"
+ms.locfileid: "74790306"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
 
@@ -98,7 +98,7 @@ I andra fall kan du koppla ihop dem för att skapa en händelse och datapipeline
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 
-- [Asynkrona meddelande alternativ i Azure](/azure/architecture/guide/technology-choices/messaging.md)
+- [Asynkrona meddelande alternativ i Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Händelser, datapunkter och meddelanden – välja rätt Azure-meddelandetjänsten för dina data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Storage-köer och Service Bus-köer – jämförelser och skillnader](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Kom igång med Event Grid genom att läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

@@ -1,21 +1,19 @@
 ---
-title: B2B-Enterprise-integration – Azure Logic Apps
+title: B2B-företagsintegration
 description: Lär dig mer om att skapa automatiserade B2B-arbetsflöden för företags integrering med hjälp av Azure Logic Apps och Enterprise-integrationspaket
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 08/01/2019
-ms.openlocfilehash: 54d665d6a4fd9aa0216d9eccf821f5af539a3636
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 141f1a7fc8f966132cb3570fd9d9cfa911127eed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71087566"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792446"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>B2B-lösningar för företags integrering med Azure Logic Apps och Enterprise-integrationspaket
 

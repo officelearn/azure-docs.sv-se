@@ -1,17 +1,17 @@
 ---
-title: Läsa repliker i Azure Database for PostgreSQL-enskild server
+title: Läsa repliker – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs funktionen Läs replik i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 5d3d752f549fe336f584fa3534b61cb5a009c3bd
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: 35d568afa0c45529b33b7918fd453213f432ba06
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158804"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792293"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -40,7 +40,9 @@ Du kan ha en huvud server i valfri [Azure Database for PostgreSQL region](https:
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan alltid skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. Det här är Universal Replica-regionerna:
 
-Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2.
+Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA.
+
+\* Västra USA 2 är tillfälligt otillgängligt som en replikerings plats mellan regioner.
 
 
 ### <a name="paired-regions"></a>Länkade regioner
@@ -123,7 +125,7 @@ När du stoppar replikering förlorar repliken alla länkar till sin tidigare hu
 
 Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.md).
 
-## <a name="failover"></a>Redundans
+## <a name="failover"></a>växling vid fel
 Det finns ingen automatisk redundans mellan huvud-och replik servrar. 
 
 Eftersom replikeringen är asynkron finns det en fördröjning mellan huvud servern och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög belastningen på huvud servern som körs på huvud servern och fördröjningen mellan data Center. I de flesta fall är replik fördröjningen mellan några sekunder till några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.

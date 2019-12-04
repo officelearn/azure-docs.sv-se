@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 22c304b26eddaee4444f6eb12957e2a6fedf7810
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672589"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793293"
 ---
 # <a name="troubleshooting"></a>Felsöka
 
@@ -34,12 +34,12 @@ Om du behöver ytterligare hjälp skriver du till oss på farmbeatssupport@micro
 
 **Korrigerande åtgärd**: gå till Azure Portal och följ de här stegen:
 
-1. Gå till resurs gruppen FarmBeats data Hub.   
-2. Välj **Event Hub** (DatafeedEventHubNamespace...)  och kontrol lera antalet inkommande meddelanden.   
+1. Gå till resurs gruppen FarmBeats data Hub.   
+2. Välj **Event Hub** (DatafeedEventHubNamespace...) och Sök efter antalet inkommande meddelanden.   
 3. Kontakta din enhets partner om det inte finns **några inkommande meddelanden**.  
 4. Om det finns **inkommande meddelanden**kan du kontakta farmbeatssupport@microsoft.com med data hubb och Accelerator loggar och fånga telemetri.
 
-Mer information om hur du hämtar loggar finns i [avsnittet om loggar](#collect-logs-manually) i dokumentet.  
+Mer information om hur du hämtar loggar finns i [avsnittet om loggar](#collect-logs-manually) i dokumentet.  
 
 ### <a name="dont-have-the-eventhub-connection-string"></a>Har inte Eventhub-anslutningssträngen
 
@@ -55,7 +55,7 @@ Mer information om hur du hämtar loggar finns i [avsnittet om loggar](#collect-
 
 **Symptom**: enheterna är installerade och du har länkat FarmBeats med din enhets partner. Enheterna är online och skickar telemetridata, men de visas offline.
 
-**Korrigerande åtgärd**: rapporterings intervallet har inte kon figurer ATS för den här enheten. Kontakta enhets tillverkaren för att ange rapporterings intervallet. 
+**Korrigerande åtgärd**: rapporterings intervallet har inte kon figurer ATS för den här enheten. Kontakta enhets tillverkaren för att ange rapporterings intervallet. 
 
 ### <a name="error-deleting-a-resource"></a>Fel vid borttagning av resurs
 
@@ -135,44 +135,44 @@ Stäng alla webb läsar flikar som har acceleratorn öppen och Stäng webbläsar
 
 **Korrigerande åtgärd**: kör om misslyckat jobb eller kör ett satellit index jobb för datum intervallet 5-7 dagar och kontrol lera om jobbet har slutförts.
 
-### <a name="sentinel-hub-wrongurlor-not-accessible"></a>Fel webb adress för Sentinel Hub eller inte tillgänglig 
+### <a name="sentinel-hub-wrong-url-or-not-accessible"></a>Fel webb adress för Sentinel Hub eller inte tillgänglig 
 
-**Jobb fel meddelande**: Hoppsan, något gick fel. Sidan som du försökte komma åt är (tillfälligt) inte tillgänglig. 
+**Jobb fel meddelande**: Hoppsan, något gick fel. Sidan som du försökte komma åt är (tillfälligt) inte tillgänglig. 
 
 **Korrigerande åtgärd**:
-1.  Öppna kontroll webb adress (https://scihub.copernicus.eu/dhus/) i webbläsare och kontrol lera om webbplatsen är tillgänglig. 
-2.  Om webbplatsen inte är tillgänglig kontrollerar du om några brand Väggs-eller företags nätverk osv. blockerar webbplatsen och vidtar nödvändiga steg för att tillåta ovanstående URL. 
+1.  Öppna kontroll webb adress (https://scihub.copernicus.eu/dhus/) i webbläsare och kontrol lera om webbplatsen är tillgänglig. 
+2.  Om webbplatsen inte är tillgänglig kontrollerar du om några brand Väggs-eller företags nätverk osv. blockerar webbplatsen och vidtar nödvändiga steg för att tillåta ovanstående URL. 
 3.  Kör om misslyckade jobb eller kör ett satellit index jobb för ett datum intervall på 5-7 dagar och kontrol lera om jobbet har slutförts.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Kontroll Server för underhåll
 
-**Jobb fel meddelande**: Copernicus öppna Access Hub kommer snart att gå tillbaka! Vi beklagar besväret, men vi utför vissa underhåll för tillfället. Vi kommer snart att bli online igen. 
+**Jobb fel meddelande**: Copernicus öppna Access Hub kommer snart att gå tillbaka! Vi beklagar besväret, men vi utför vissa underhåll för tillfället. Vi kommer snart att bli online igen. 
 
 **Korrigerande åtgärd**:
 
-1.  Det här problemet kan inträffa om några underhålls aktiviteter utförs på Sentinel-servern. 
-2.  Om något jobb/pipeline Miss lyckas med ovanstående orsak, skicka jobbet igen om en stund. 
-3.  Användaren kan besöka https://scihub.copernicus.eu/news/ för att kontrol lera information om planerade/oplanerade kontroll underhålls aktiviteter.  
+1.  Det här problemet kan inträffa om några underhålls aktiviteter utförs på Sentinel-servern. 
+2.  Om något jobb/pipeline Miss lyckas med ovanstående orsak, skicka jobbet igen om en stund. 
+3.  Användaren kan besöka https://scihub.copernicus.eu/news/ för att kontrol lera information om planerade/oplanerade kontroll underhålls aktiviteter.  
 4.  Kör om misslyckade jobb eller kör ett satellit index jobb för ett datum intervall på 5-7 dagar och kontrol lera om jobbet har slutförts.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Högsta antalet anslutningar har uppnåtts för Sentinel
 
-**Jobb fel meddelande**: maximalt antal två samtidiga flöden som uppnås av användaren<username> 
+**Jobb fel meddelande**: maximalt antal två samtidiga flöden som uppnås av användaren<username> 
 
 **Korrigerande åtgärd**
-1.  Om ett jobb Miss lyckas med ovanstående orsak används samma Sentinel-konto i en annan distribution/program vara. 
+1.  Om ett jobb Miss lyckas med ovanstående orsak används samma Sentinel-konto i en annan distribution/program vara. 
 2.  Användaren kan skapa ett nytt Sentinel-konto och köra installations programmet igen för att uppgradera datahubben med nytt kontroll användar namn och lösen ord.  
 3.  Kör om misslyckade jobb eller kör ett satellit index jobb för datum intervallet 5-7 dagar och kontrol lera om jobbet har slutförts.
 
-### <a name="sentinel-server-refused-connection"></a>Indikator servern nekade anslutning 
+### <a name="sentinel-server-refused-connection"></a>Indikator servern nekade anslutning 
 
 **Jobb fel meddelande**:
 
-Servern nekade anslutning på: http://172.30.175.69:8983/solr/dhus 
+Servern nekade anslutning på: http://172.30.175.69:8983/solr/dhus 
 
-**Korrigerande åtgärd**: det här problemet kan inträffa om några underhålls aktiviteter utförs på Sentinel-servern. 
-1.  Om något jobb/pipeline Miss lyckas med ovanstående orsak, skicka jobbet igen om en stund. 
-2.  Användaren kan besöka https://scihub.copernicus.eu/news/ för att kontrol lera information om planerade/oplanerade kontroll underhålls aktiviteter.  
+**Korrigerande åtgärd**: det här problemet kan inträffa om några underhålls aktiviteter utförs på Sentinel-servern. 
+1.  Om något jobb/pipeline Miss lyckas med ovanstående orsak, skicka jobbet igen om en stund. 
+2.  Användaren kan besöka https://scihub.copernicus.eu/news/ för att kontrol lera information om planerade/oplanerade kontroll underhålls aktiviteter.  
 3.  Kör om misslyckade jobb eller kör ett satellit index jobb för datum intervallet 5-7 dagar och kontrol lera om jobbet har slutförts.
 
 
@@ -281,11 +281,11 @@ I instrument panelen för resurs gruppen söker du efter lagrings kontot (datahu
 
 ## <a name="high-cpu-usage"></a>Hög processoranvändning
 
-**Fel**: du får en e-postavisering som refererar till aviseringen om hög CPU-användning. 
+**Fel**: du får en e-postavisering som refererar till aviseringen om hög CPU-användning. 
 
-**Korrigerande åtgärd**: 
+**Korrigerande åtgärd**: 
 1.  Gå till resurs gruppen FarmBeats data Hub.
-2.  Välj app service.  
+2.  Välj app service.  
 3.  Gå till skala upp (App Service plan) och välj en lämplig [pris nivå](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
 ## <a name="next-steps"></a>Nästa steg

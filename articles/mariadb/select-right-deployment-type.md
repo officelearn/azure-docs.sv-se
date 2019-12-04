@@ -1,17 +1,17 @@
 ---
-title: Välja rätt distributions typ för Azure Database for MariaDB
+title: Välja rätt distributions typ – Azure Database for MariaDB
 description: I den här artikeln beskrivs vilka faktorer du bör tänka på innan du distribuerar Azure Database for MariaDB som antingen infrastruktur som en tjänst (IaaS) eller Platform as a Service (PaaS).
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: 59064c71d19f81a5edc322bc4c8158773a104b5d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/02/2019
+ms.openlocfilehash: d53a3f270c1de3c8d533b5886e0051f6aa1ef10d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151979"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776746"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Välj rätt MariaDB Server-alternativ i Azure
 

@@ -1,22 +1,18 @@
 ---
-title: Ansluta till SharePoint från Azure Logic Apps | Microsoft Docs
+title: Ansluta till SharePoint från Azure Logic Apps
 description: Automatisera aktiviteter och arbets flöden som övervakar och hanterar resurser i SharePoint Online eller SharePoint Server lokalt genom att använda Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 8a34ee4e90b551da35aff8802c8badc0d74ff539
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050781"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789264"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Övervaka och hantera SharePoint-resurser med Azure Logic Apps
 
@@ -37,7 +33,7 @@ Med Azure Logic Apps och SharePoint Connector kan du skapa automatiserade uppgif
 Du kan använda utlösare som får svar från SharePoint och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder i Logi Kap par för att utföra uppgifter i SharePoint. Du kan också använda andra åtgärder för att använda utdata från SharePoint-åtgärder. Om du till exempel regelbundet hämtar filer från SharePoint kan du skicka meddelanden till ditt team med hjälp av slack-kopplingen.
 Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

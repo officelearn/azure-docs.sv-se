@@ -1,27 +1,27 @@
 ---
-title: Pris nivåer för Azure Database for MariaDB
+title: Pris nivåer – Azure Database for MariaDB
 description: Lär dig mer om de olika pris nivåerna för Azure Database for MariaDB inklusive Compute-generationer, lagrings typer, lagrings storlek, virtuella kärnor, minne och kvarhållning av säkerhets kopior.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: ca9552ee60237158bd570ede4a13dbc349b6d1d1
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 36563e11d7a5fb7cfd5878294c3b83977f6bb619
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973570"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772405"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB pris nivåer
 
-Du kan skapa en Azure Database for MariaDB-server på någon av tre olika pris nivåer: Grundläggande, generell användning och minnesoptimerad. Pris nivåerna åtskiljs av mängden data bearbetning i virtuella kärnor som kan tillhandahållas, minne per vCore och lagrings teknik som används för att lagra data. Alla resurser har allokerats på MariaDB server nivå. En server kan ha en eller flera databaser.
+Du kan skapa en Azure Database for MariaDB-server på en av tre olika pris nivåer: Basic, Generell användning och Minnesoptimerade. Pris nivåerna åtskiljs av mängden data bearbetning i virtuella kärnor som kan tillhandahållas, minne per vCore och lagrings teknik som används för att lagra data. Alla resurser har allokerats på MariaDB server nivå. En server kan ha en eller flera databaser.
 
 |    | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Beräkningsgeneration | Generation 5 |Generation 5 | Generation 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Minne per vCore | 2 GB | 5 GB | 10 GB |
+| Beräknings generation | Generation 5 |Generation 5 | Generation 5 |
+| Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
+| Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
 | Lagringstyp | Azure standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
@@ -40,7 +40,7 @@ När du har skapat en server kan du ändra antalet virtuella kärnor och pris ni
 
 Beräknings resurser tillhandahålls som virtuella kärnor, som representerar den underliggande maskin varans logiska processor. Logiska generation 5-processorer baseras på Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är tillgänglig för din Azure Database for MariaDB-Server. Lagrings utrymmet används för databasfilerna, temporära filer, transaktions loggar och MariaDB-Server loggarna. Den totala mängden lagrings utrymme som du tillhandahåller definierar också den I/O-kapacitet som är tillgänglig för servern.
 
@@ -78,7 +78,7 @@ Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska anvä
 
 Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="backup"></a>Säkerhetskopiera
+## <a name="backup"></a>Backup
 
 Tjänsten tar automatiskt säkerhets kopior av servern. Den minsta kvarhållningsperioden för säkerhets kopieringar är sju dagar. Du kan ställa in en kvarhållningsperiod på upp till 35 dagar. Kvarhållning kan justeras när som helst under serverns livstid. Du kan välja mellan lokalt redundanta och geo-redundanta säkerhets kopieringar. Geo-redundanta säkerhets kopieringar lagras också i den [geo-kopplade regionen](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) i den region där servern skapas. Den här redundansen ger en skydds nivå i händelse av en katastrof. Du får också möjlighet att återställa servern till andra Azure-regioner där tjänsten är tillgänglig med geo-redundanta säkerhets kopieringar. Det går inte att ändra mellan de två lagrings alternativen för säkerhets kopiering när servern har skapats.
 

@@ -1,21 +1,18 @@
 ---
-title: Ansluta till IBM DB2 – Azure Logic Apps
+title: Ansluta till IBM DB2
 description: 'Hantera resurser med IBM DB2 REST-API: er och Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a7079115b381d094cec77f96015342b5bc568c27
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051029"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789898"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Hantera IBM DB2-resurser med Azure Logic Apps
 
@@ -25,7 +22,7 @@ Den här artikeln visar hur du kan skapa en Logic app som utför olika databas �
 
 ## <a name="supported-platforms-and-versions"></a>Plattformar och versioner som stöds
 
-DB2-anslutaren innehåller en Microsoft-klient som kommunicerar med fjär DB2-servrar över ett TCP/IP-nätverk. Du kan använda den här anslutningen för att komma åt moln databaser som IBM DB2 för Windows som körs i Azure Virtualization. Du kan också komma åt lokala DB2-databaser när du [har installerat och konfigurerat den lokala](../logic-apps/logic-apps-gateway-connection.md)datagatewayen.
+DB2-anslutaren innehåller en Microsoft-klient som kommunicerar med fjär DB2-servrar över ett TCP/IP-nätverk. Du kan använda den här anslutningen för att komma åt moln databaser som IBM DB2 för Windows som körs i Azure Virtualization. Du kan också komma åt lokala DB2-databaser när du [har installerat och konfigurerat den lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md).
 
 IBM DB2 Connector stöder dessa IBM DB2-plattformar och-versioner tillsammans med IBM DB2-kompatibla produkter som stöder DRDA (Distributed Relations databas arkitektur) för SQL Access Manager (SQLAM), version 10 och 11:
 
@@ -46,11 +43,11 @@ IBM DB2 Connector stöder dessa databas åtgärder som mappar till motsvarande �
 | Läs en rad med SELECT | Hämta rad |
 | Läs alla rader med SELECT | Hämta rader |
 | Lägg till en rad med hjälp av Infoga | Infoga rad |
-| Redigera en rad med UPDATE | Uppdatera raden |
+| Redigera en rad med UPDATE | Uppdatera rad |
 | Ta bort en rad med hjälp av ta bort | Ta bort rad |
 |||
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -59,7 +56,7 @@ IBM DB2 Connector stöder dessa databas åtgärder som mappar till motsvarande �
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Den Logic app där du vill få åtkomst till DB2-databasen. Den här kopplingen tillhandahåller endast åtgärder, så för att starta din Logi Kap par väljer du en separat utlösare, till exempel utlösaren **upprepning** .
-I exemplen i den här artikeln används upprepnings utlösaren.
+I exemplen i den här artikeln används **upprepnings** utlösaren.
 
 <a name="add-db2-action"></a>
 
@@ -69,7 +66,7 @@ I exemplen i den här artikeln används upprepnings utlösaren.
 
 1. Under utlösaren väljer du **nytt steg**.
 
-1. I rutan Sök anger du "DB2" som filter. I det här exemplet går du till listan åtgärder och väljer den här åtgärden: **Hämta tabeller (förhands granskning)**
+1. I rutan Sök anger du "DB2" som filter. I det här exemplet väljer du den här åtgärden i listan åtgärder: **Hämta tabeller (förhands granskning)**
 
    ![Välj åtgärd](./media/connectors-create-api-db2/select-db2-action.png)
 
@@ -83,13 +80,13 @@ I exemplen i den här artikeln används upprepnings utlösaren.
 
 Om du vill konfigurera din anslutning anger du följande information när du uppmanas till det, väljer **skapa**och sparar sedan din Logic app:
 
-| Egenskap | Obligatorisk | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
 | **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
 | **Anslutningsnamn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" |
-| **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** Det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
-| **Databas** | Ja | Namnet på din databas <p><p>**Obs!** Det här värdet är en sträng som representerar ett DRDA-RDBNAM (Relations databas namn): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
-| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** Det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
+| **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
+| **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
+| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
 | **Lösenord** | Ja | Ditt lösen ord för databasen |
 ||||
 
@@ -103,16 +100,16 @@ Exempel:
 
 Innan du skapar anslutningen måste du redan ha din lokala datagateway installerad. Annars kan du inte slutföra konfigurationen av anslutningen. Om du har en gateway-installation fortsätter du med att tillhandahålla dessa anslutnings uppgifter och väljer sedan **skapa**.
 
-| Egenskap | Obligatorisk | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
 | **Anslut via lokal gateway** | Ja | Gäller när du vill ha en lokal anslutning och visar de lokala anslutnings egenskaperna. |
 | **Anslutningsnamn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" | 
-| **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server: 50000" <p><p>**Obs!** Det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
-| **Databas** | Ja | Namnet på din databas <p><p>**Obs!** Det här värdet är en sträng som representerar ett DRDA-RDBNAM (Relations databas namn): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
-| **Autentisering** | Ja | Autentiseringstypen för anslutningen, till exempel "grundläggande" <p><p>**Obs!** Välj det här värdet i listan, som innehåller Basic eller Windows (Kerberos). |
-| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** Det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
+| **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server: 50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
+| **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
+| **Autentisering** | Ja | Autentiseringstypen för anslutningen, till exempel "grundläggande" <p><p>**Obs**: Välj det här värdet i listan, som innehåller Basic eller Windows (Kerberos). |
+| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
 | **Lösenord** | Ja | Ditt lösen ord för databasen |
-| **Gateway** | Ja | Namnet på din installerade lokala datagateway <p><p>**Obs!** Välj det här värdet i listan, som innehåller alla installerade datagatewayer i din Azure-prenumeration och resurs grupp. |
+| **Gateway** | Ja | Namnet på din installerade lokala datagateway <p><p>**Obs**: Välj det här värdet i listan, som innehåller alla installerade datagatewayer i din Azure-prenumeration och resurs grupp. |
 ||||
 
 Exempel:
@@ -144,7 +141,7 @@ Expandera åtgärden **Hämta tabeller** .
 
 ## <a name="get-row"></a>Hämta rad
 
-Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hämta rad** i din Logic-app. Den här åtgärden kör en `SELECT WHERE` DB2-instruktion, till `SELECT FROM AREA WHERE AREAID = '99999'`exempel.
+Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hämta rad** i din Logic-app. Den här åtgärden kör en DB2 `SELECT WHERE`-instruktion, till exempel `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 1. Om du aldrig har använt DB2-åtgärder före i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Hämta rad** i stället och sedan återgå hit för att fortsätta.
 
@@ -154,7 +151,7 @@ Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hä
 
 1. Ange värden för alla obligatoriska egenskaper (*). När du har valt en tabell visar åtgärden de relevanta egenskaper som är relevanta för poster i tabellen.
 
-   | Egenskap | Obligatorisk | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabell namn** | Ja | Den tabell som innehåller den post som du vill ha, till exempel "AREA" i det här exemplet |
    | **Area-ID** | Ja | ID för den post som du vill ha, till exempel "99999" i det här exemplet |
@@ -185,7 +182,7 @@ Expandera åtgärden **Hämta rad** .
 
 ## <a name="get-rows"></a>Hämta rader
 
-Om du vill hämta alla poster i en DB2-databas tabell använder du åtgärden **Hämta rader** i din Logic-app. Den här åtgärden kör en `SELECT` DB2-instruktion, till `SELECT * FROM AREA`exempel.
+Om du vill hämta alla poster i en DB2-databas tabell använder du åtgärden **Hämta rader** i din Logic-app. Den här åtgärden kör en DB2 `SELECT`-instruktion, till exempel `SELECT * FROM AREA`.
 
 1. Om du aldrig har använt DB2-åtgärder före i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Hämta rader** i stället och sedan återgå hit för att fortsätta.
 
@@ -222,7 +219,7 @@ Expandera åtgärden **Hämta rader** .
 
 ## <a name="insert-row"></a>Infoga rad
 
-Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtgärden **Infoga rad** i din Logic-app. Den här åtgärden kör en `INSERT` DB2-instruktion, till `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`exempel.
+Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtgärden **Infoga rad** i din Logic-app. Den här åtgärden kör en DB2 `INSERT`-instruktion, till exempel `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 1. Om du aldrig har använt DB2-åtgärder innan i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Infoga rad** i stället och sedan återgå hit för att fortsätta.
 
@@ -234,7 +231,7 @@ Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtg
 
    I det här exemplet är följande egenskaper:
 
-   | Egenskap | Obligatorisk | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabell namn** | Ja | Tabellen där posten ska läggas till, till exempel "AREA" |
    | **Area-ID** | Ja | ID för det utrymme som ska läggas till, till exempel "99999" |
@@ -267,9 +264,9 @@ Expandera åtgärden **Infoga rad** .
 
    ![Visa utdata med infogad rad](./media/connectors-create-api-db2/db2-connector-insert-row-outputs.png)
 
-## <a name="update-row"></a>Uppdatera raden
+## <a name="update-row"></a>Uppdatera rad
 
-Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgärden **Uppdatera rad** i din Logic-app. Den här åtgärden kör en `UPDATE` DB2-instruktion, till `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`exempel.
+Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgärden **Uppdatera rad** i din Logic-app. Den här åtgärden kör en DB2 `UPDATE`-instruktion, till exempel `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
 
 1. Om du aldrig har använt DB2-åtgärder innan i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Uppdatera rad** i stället och sedan återgå hit för att fortsätta.
 
@@ -281,7 +278,7 @@ Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgä
 
    I det här exemplet är följande egenskaper:
 
-   | Egenskap | Obligatorisk | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabell namn** | Ja | Den tabell där posten ska uppdateras, t. ex. "AREA" |
    | **Rad-ID** | Ja | ID för den post som ska uppdateras, till exempel "99999" |
@@ -317,7 +314,7 @@ Expandera åtgärden **Uppdatera rad** .
 
 ## <a name="delete-row"></a>Ta bort rad
 
-Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtgärden **ta bort rad** i din Logic-app. Den här åtgärden kör en `DELETE` DB2-instruktion, till `DELETE FROM AREA WHERE AREAID = '99999'`exempel.
+Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtgärden **ta bort rad** i din Logic-app. Den här åtgärden kör en DB2 `DELETE`-instruktion, till exempel `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 1. Om du aldrig har använt DB2-åtgärder innan i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **ta bort rad** i stället och sedan återgå hit för att fortsätta.
 
@@ -329,7 +326,7 @@ Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtg
 
    I det här exemplet är följande egenskaper:
 
-   | Egenskap | Obligatorisk | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabell namn** | Ja | Den tabell där posten ska tas bort, till exempel "AREA" |
    | **Rad-ID** | Ja | ID för den post som ska tas bort, till exempel "99999" |

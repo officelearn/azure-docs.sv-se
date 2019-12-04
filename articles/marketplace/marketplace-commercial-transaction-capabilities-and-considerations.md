@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823009"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791363"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funktioner och överväganden för kommersiella Marketplace-transaktioner
 
@@ -66,7 +66,7 @@ Beroende på vilket transaktions alternativ som används kan utgivarens licens a
 
 * Betala per användning: licens avgifter för program vara presenteras som en pris taxa per timme, per kärna (vCPU) baserat på den Azure-infrastruktur som används. Detta gäller endast för Virtual Machines och Azure-program.
 
-* • Prenumerations prissättning: licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande avgift debiteras som en fast taxa eller per plats. Detta gäller endast för SaaS-appar och appar som hanteras av Azure program.
+* Prenumerations pris: licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande avgift som faktureras som en fast taxa eller per plats. Detta gäller endast för SaaS-appar och appar som hanteras av Azure program.
 
 * Kostnads fri utvärderings version av program vara: ingen avgift för program varu licenser i 30 dagar eller 90 dagar.
 
@@ -163,7 +163,7 @@ Kunder kan också betala med hjälp av ett kredit kort och en månads faktura. I
 
 Exempel: om kunden köper med ett kredit kort:
 
-|Beskrivning    |    Date  |
+|Beskrivning    |    Datum  |
 |----------|----------|
 |Order period   | Aug, 15, 2018-Aug 30, 2018 |
 |Slut period (månad)   | 30 aug 2018 |
@@ -177,12 +177,12 @@ Exempel: om kunden köper med ett kredit kort:
 
 Om kunden köper med en Enterprise-avtal:
 
-| Beskrivning |    Date  |
+| Beskrivning |    Datum  |
 |----------|----------|
 |Order period | Aug, 15, 2018-Aug 30, 2018 |
 |Slut period (kvartal) | 30 september 2018 |
 |Fakturerings datum | 15 oktober 2018 |
-|Depositions period (endast kredit kort, 30 dagar) | Saknas |
+|Depositions period (endast kredit kort, 30 dagar) | Ej tillämpligt |
 |Start för samlings period | 15 oktober 2018 |
 |Samlings period slut (maximalt 90 dagar) | 15 Jan 2019 |
 |Kund betalnings datum | 30 december 2018 |

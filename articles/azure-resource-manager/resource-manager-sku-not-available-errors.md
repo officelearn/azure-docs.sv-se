@@ -3,12 +3,12 @@ title: SKU är inte tillgängliga, fel
 description: Beskriver hur du felsöker fel meddelandet SKU är inte tillgängligt när du distribuerar resurser med Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 10/19/2018
-ms.openlocfilehash: 56afca6b6a59ca08f3fd59c4d9b3ebf12bda415a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 0b3696d3207a88d87b11e65f4697473963f960d5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150488"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769157"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Lösa fel för SKU: n är inte tillgänglig
 
@@ -29,6 +29,8 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 ## <a name="cause"></a>Orsak
 
 Du får det här felet när resurs-SKU: n som du har valt (till exempel VM-storlek) inte är tillgänglig för den plats som du har valt.
+
+Om du distribuerar en instans av en virtuell Azure-dator eller en punkt skalnings uppsättning finns det ingen kapacitet för Azure-platsen på den här platsen. Mer information finns i [fel meddelanden på plats](../virtual-machines/error-codes-spot.md).
 
 ## <a name="solution-1---powershell"></a>Lösning 1 – PowerShell
 
@@ -68,7 +70,7 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ```
 
 
-## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure-portalen
+## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure Portal
 
 Använd [portalen](https://portal.azure.com)för att avgöra vilka SKU: er som är tillgängliga i en region. Logga in på portalen och Lägg till en resurs via gränssnittet. När du anger värden visas tillgängliga SKU: er för resursen. Du behöver inte slutföra distributionen.
 

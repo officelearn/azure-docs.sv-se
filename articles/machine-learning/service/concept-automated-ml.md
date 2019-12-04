@@ -1,5 +1,5 @@
 ---
-title: Vad är automatiserad ML/automl
+title: Vad är automatiserad ML/AutoML
 titleSuffix: Azure Machine Learning
 description: Lär dig hur Azure Machine Learning automatiskt kan välja en algoritm åt dig och generera en modell från den för att spara tid genom att använda de parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 1320448b88fa3851196a3dfcb3107921721d364d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4ed27009a3549757881c84d92b3b29b60ecbfbc1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707669"
+ms.locfileid: "74790562"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskin inlärning?
 
@@ -100,8 +100,58 @@ Ytterligare avancerade för bearbetnings-och funktionalisering är också tillg�
 
 + Python SDK: Ange `"feauturization": auto' / 'off' / FeaturizationConfig` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).
 
+## <a name="prevent-over-fitting"></a>Förhindra överanpassning
+
+Överanpassning i maskin inlärning sker när en modell passar inlärnings data för bra, och det kan leda till att det inte är korrekt förutsägelse på osett test data. Med andra ord har modellen helt enkelt bevisat vissa mönster och brus i tränings data, men är inte tillräckligt flexibel för att göra förutsägelser på verkliga data. I de flesta egregious-fall förutsätter en överordnad modell att de kombinationer av funktions värden som visas under utbildningen alltid ger exakt samma utdata för målet. 
+
+Det bästa sättet att förhindra överanpassning är att följa ML Best-Practices, inklusive:
+
+* Använda fler utbildnings data och ta bort statistisk kompensation
+* Förhindra mål läckage
+* Använda mindre funktioner
+* **Regulariseringshastigheten och dess parameter optimering**
+* **Komplexitets begränsningar för modeller**
+* **Kors validering**
+
+I samband med automatisk ML är de första tre objekten ovan de **bästa metoderna som du implementerar**. De tre sista objekten med fet stil är **bästa metoder för automatisk ml-implementering** som standard för att skydda mot överanpassning. I andra inställningar än automatiserade ML är alla sex bästa metoder följande för att undvika överanpassnings modeller.
+
+### <a name="best-practices-you-implement"></a>Metod tips som du implementerar
+
+Att använda **mer data** är det enklaste och bästa möjliga sättet att förhindra överanpassning, och som en extra bonus ökar precisionen ofta. När du använder mer data blir det svårare för modellen att memorera exakta mönster, och det tvingas att uppnå lösningar som är mer flexibla för att hantera fler villkor. Det är också viktigt att känna igen **statistisk kompensation**för att säkerställa att dina utbildnings data inte innehåller isolerade mönster som inte finns i real tids förutsägelse data. Det här scenariot kan vara svårt att lösa eftersom det kanske inte finns överanvändning mellan dina tåg-och test uppsättningar, men det kan finnas överanvändning i jämförelse med Live test-data.
+
+Mål läckage är ett liknande problem, där du kanske inte ser överanvändning mellan träna/test-uppsättningar, men i stället visas den i förutsägelse tiden. Mål läckage uppstår när din modell "fuskar" under utbildningen genom att ha åtkomst till data som den inte bör ha vid förutsägelse tiden. Om ditt problem till exempel är att förutsäga på måndagen är ett råvaru pris på fredag, men en av dina funktioner av misstag som innehåller data från torsdagar, som skulle vara data modellen kommer inte att ha vid förutsägelse, eftersom den inte kan se i framtiden. Mål läckage är ett enkelt misstag att sakna, men karakteriseras ofta av onormalt hög precision för ditt problem. Om du försöker förutsäga börs priset och tränat en modell med 95% noggrannhet, finns det mycket troligt att det är mycket troligt att det finns en funktion i dina funktioner.
+
+Att ta bort funktioner kan också bidra till överanpassning genom att förhindra att modellen har för många fält att använda för att komma ihåg vissa mönster, vilket gör att det blir mer flexibelt. Det kan vara svårt att mäta kvantitativt, men om du kan ta bort funktioner och behålla samma precision har du förmodligen gjort modellen mer flexibel och minskat risken för överanpassning.
+
+### <a name="best-practices-automated-ml-implements"></a>Best-Practices med automatisk ML-implementering
+
+Regulariseringshastigheten är en process för att minimera en kostnads funktion för att beivra komplexa och över-anpassade modeller. Det finns olika typer av regulariseringshastigheten-funktioner, men i allmänhet tar de med sig en koefficient för modell effektiv storlek, varians och komplexitet. Med automatisk ML används L1 (lasso), L2 (Ridge) och ElasticNet (L1 och L2 samtidigt) i olika kombinationer med olika modell inställningar för en modell som styr överanpassningen. I enkla termer varierar automatiserade ML till hur mycket en modell är reglerad och väljer det bästa resultatet.
+
+Med automatisk ML implementeras även explicita begränsningar för modell komplexitet för att förhindra överanpassning. I de flesta fall är detta specifikt för besluts träd eller skogs algoritmer, där det enskilda trädets max djup är begränsat och det totala antalet träd som används i skogs-eller Ensemble-teknikerna är begränsade.
+
+Kors validering (ka) är en process där du tar många del mängder av dina fullständiga tränings data och tränar en modell på varje delmängd. Idén är att en modell kan få "fram" och ha stor precision med en delmängd, men genom att använda många del uppsättningar kan modellen inte uppnå denna höga noggrannhet varje gång. När du gör CV anger du en data uppsättning för en verifierings spärr, anger dina CV-vikningar (antal del mängder) och automatiserade ML tränar din modell och justerar de båda parametrarna för att minimera fel i validerings uppsättningen. En ka-vikning kan vara överdrivet, men genom att använda många av dem minskar sannolikheten att den slutliga modellen är överdrivet. Kompromissen är att ka resulterar i längre inlärnings tider och därmed högre kostnad, eftersom i stället för att träna en modell en gång, träna den en gång för varje *n* CV-deluppsättning.
+
+> [!NOTE]
+> Kors validering är inte aktiverat som standard. den måste konfigureras i automatiserade ML-inställningar. Men efter att ka har kon figurer ATS och en verifierings data uppsättning har angetts automatiseras processen.
+
+### <a name="identifying-over-fitting"></a>Identifiera överanpassning
+
+Tänk på följande utbildade modeller och deras motsvarande tåg-och test noggrannhet.
+
+| Modell | Träna precision | Test noggrannhet |
+|-------|----------------|---------------|
+| A | 99,9 % | 95% |
+| B | 87% | 87% |
+| C | 99,9 % | 45% |
+
+Med tanke på modell **A**, finns det en vanlig felbegrepp att om test precisionen för osett-data är lägre än den korrekta inlärningen är modellen överdrivet. Test precisionen bör dock alltid vara mindre än inlärnings precisionen och skillnaden för överanpassning jämfört med lämplig anpassning visas till *hur mycket* mindre exakt. 
+
+När du jämför modeller **a** och **B**är modell **a** en bättre modell eftersom den har högre test precision, och även om test noggrannheten är något lägre vid 95% är det inte en stor skillnad som tyder på överanpassning. Du väljer inte modell **B** eftersom tågets och testernas noggrannhet är närmare tillsammans.
+
+Modell **C** är ett tydligt Skift läge vid överanpassning. inlärnings precisionen är mycket hög men test noggrannheten är inte tillgänglig någonstans i närheten. Den här skillnaden är lite Underkänd, men kommer från kännedom om ditt problem och dina data och vilka fel som kan uppstå. 
 
 ## <a name="time-series-forecasting"></a>Tidsserieprognoser
+
 Att skapa prognoser är en viktig del av alla verksamheter, vare sig det gäller intäkter, inventering, försäljning eller kund efter frågan. Du kan använda automatiserad ML för att kombinera teknik och metoder och få en rekommenderad prognos för tids serier med hög kvalitet.
 
 Ett automatiserat experiment med tids serier behandlas som ett multivarierad Regressions problem. Tidigare tids serie värden är "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. Den här metoden, till skillnad från klassiska Time Series-metoder, har en fördel med att använda flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. Med automatisk ML får du en enda, men ofta ingrenad modell för alla objekt i data uppsättningen och förutsägelserna. Mer data är därför tillgängliga för att uppskatta modell parametrar och generalisering till osett-serien blir möjlig.

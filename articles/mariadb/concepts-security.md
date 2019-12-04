@@ -1,19 +1,19 @@
 ---
-title: Säkerhet i Azure Database for MariaDB-enskild server
-description: En översikt över säkerhetsfunktionerna i Azure Database for MariaDB-enskild server.
+title: Säkerhet – Azure Database for MariaDB
+description: En översikt över säkerhetsfunktionerna i Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 1a2d7ac449c131519473afaa80eb3a57c287eb28
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: d23eabdacc57a3f5a10d9e3b132a6daac42fbd4d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485190"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772161"
 ---
-# <a name="security-in-azure-database-for-mariadb---single-server"></a>Säkerhet i Azure Database for MariaDB-enskild server
+# <a name="security-in-azure-database-for-mariadb"></a>Säkerhet i Azure Database for MariaDB
 
 Det finns flera säkerhets lager som är tillgängliga för att skydda data på din Azure Database for MariaDB-Server. Den här artikeln beskriver de här säkerhets alternativen.
 

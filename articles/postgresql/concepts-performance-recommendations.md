@@ -1,17 +1,17 @@
 ---
-title: Prestanda rekommendationer i Azure Database for PostgreSQL-enskild server
+title: Prestanda rekommendationer – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs funktionen prestanda rekommendation i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5f1b64753d19158b17d4de1b3fbbe50d30ea0254
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764674"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768477"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Prestanda rekommendationer i Azure Database for PostgreSQL-enskild server
 
@@ -39,7 +39,7 @@ Rekommendationerna tillämpas inte automatiskt. Om du vill tillämpa rekommendat
 
 ## <a name="recommendation-types"></a>Rekommendations typer
 
-För närvarande stöds två typer av rekommendationer: *Skapa index* och *släpp index*.
+För närvarande stöds två typer av rekommendationer: *skapa index* och *släpp index*.
 
 ### <a name="create-index-recommendations"></a>Skapa index rekommendationer
 *Skapa index* rekommendationer föreslå nya index för att påskynda de vanligaste frågorna för körning eller tids krävande frågor i arbets belastningen. Den här rekommendations typen kräver att [query Store](concepts-query-store.md) är aktiverat. Query Store samlar in frågedata och ger detaljerad information om fråge körning och frekvens statistik som används av analysen för att göra rekommendationen.

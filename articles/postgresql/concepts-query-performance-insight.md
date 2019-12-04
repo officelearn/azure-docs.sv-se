@@ -1,17 +1,17 @@
 ---
-title: Query Performance Insight i Azure Database for PostgreSQL-enskild server
+title: Query Performance Insight-Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs Query Performance Insight funktionen i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 748c6f08da535013724f68b8be424e50a2d49dfd
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764435"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768392"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -22,7 +22,7 @@ Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta 
 ## <a name="permissions"></a>Behörigheter
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att Query Performance Insight ska fungera måste data finnas i [frågearkivet](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Visa prestanda insikter

@@ -1,17 +1,17 @@
 ---
-title: Felsöka anslutnings problem till Azure Database for MariaDB
+title: Felsöka anslutnings problem – Azure Database for MariaDB
 description: Lär dig hur du felsöker anslutnings problem till Azure Database for MariaDB, inklusive tillfälliga fel som kräver nya försök, brand Väggs problem och avbrott.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a8354cdc364f221a086f4d2f4ec7da95c55baf6e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 613de96ee58d37e6270266852e513e53857a441a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973520"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765740"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Felsöka anslutnings problem till Azure Database for MariaDB
 
@@ -39,15 +39,15 @@ Tillfälliga fel uppstår när underhåll utförs, ett fel uppstår i systemet m
 1. Kontrol lera [instrument panelen för Microsoft Azures tjänsten](https://azure.microsoft.com/status) för eventuella kända avbrott som uppstod under den tid då felen rapporterades av programmet.
 2. Program som ansluter till en moln tjänst som Azure Database for MariaDB ska förvänta sig tillfälliga fel och implementera omprövnings logik för att hantera dessa fel i stället för att visa dem som program fel till användare. Granska [hanteringen av tillfälliga anslutnings fel för Azure Database for MariaDB](concepts-connectivity.md) för bästa praxis och design rikt linjer för att hantera tillfälliga fel.
 3. När en server närmar sig resurs begränsningarna kan det verka som om ett tillfälligt anslutnings problem uppstår. Se [begränsningar i Azure Database for MariaDB](concepts-limits.md).
-4. Om problem med anslutningen fortsätter, eller om varaktigheten för programmet stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en specifik dag, kan du skicka en support förfrågan till Azure genom att välja **få support** på [Azure Support](https://azure.microsoft.com/support/options) webbplats.
+4. Om problem med anslutningen fortsätter eller om varaktigheten för programmet stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en dag, kan du skicka en support förfrågan till Azure genom att välja **få support** på support webbplatsen för [Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Felsöka beständiga fel
 
 Om programmet inte kan ansluta till Azure Database for MariaDB, indikerar det vanligt vis ett problem med något av följande:
 
-* Brandväggskonfiguration: Azure Database for MariaDB-servern eller brand väggen på klient sidan blockerar anslutningar.
-* Omkonfiguration av nätverk på klient sidan: En ny IP-adress eller proxyserver har lagts till.
-* Användar fel: Du kan till exempel ha felangede anslutnings parametrar, till exempel Server namnet i anslutnings strängen eller en *\@servername-* suffix som saknas i användar namnet.
+* Brand Väggs konfiguration: Azure Database for MariaDB Server eller brand vägg för klient sidan blockerar anslutningar.
+* Omkonfiguration av nätverk på klient sidan: en ny IP-adress eller proxyserver har lagts till.
+* Användar fel: du kan till exempel ha felangede anslutnings parametrar, till exempel Server namnet i anslutnings strängen eller ett saknat *\@servername* -suffix i användar namnet.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 

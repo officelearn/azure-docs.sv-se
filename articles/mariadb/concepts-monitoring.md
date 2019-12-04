@@ -1,17 +1,17 @@
 ---
-title: Övervakning i Azure Database for MariaDB
+title: Övervakning – Azure Database for MariaDB
 description: Den här artikeln beskriver måtten för övervakning och aviseringar för Azure Database for MariaDB, inklusive CPU, lagring och anslutnings statistik.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: e3c25798be8af26c1f5e5c1178395cd1688bb132
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/02/2019
+ms.openlocfilehash: 15a396a86103f41f49d3b49878ec51c1e71add40
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382052"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772487"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -24,21 +24,21 @@ Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MariaDB:
 
-|Mått|Metrisk visningsnamn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Beskrivning|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
 |io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används.|
 |storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
-|storage_used|Använt lagringsutrymme|Byte|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
+|storage_used|Använt lagringsutrymme|Skickade|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
 |serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|
-|serverlog_storage_usage|Server logg lagring används|Byte|Mängden Server logg lagring som används.|
-|serverlog_storage_limit|Server logg lagrings gräns|Byte|Den maximala Server logg lagringen för den här servern.|
-|storage_limit|Lagrings gräns|Byte|Det maximala lagrings utrymmet för den här servern.|
+|serverlog_storage_usage|Server logg lagring används|Skickade|Mängden Server logg lagring som används.|
+|serverlog_storage_limit|Server logg lagrings gräns|Skickade|Den maximala Server logg lagringen för den här servern.|
+|storage_limit|Lagrings gräns|Skickade|Det maximala lagrings utrymmet för den här servern.|
 |active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
 |connections_failed|Misslyckade anslutningar|Antal|Antalet misslyckade anslutningar till servern.|
-|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
+|network_bytes_egress|Nätverk – utgående|Skickade|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk – inkommande|Skickade|Nätverk i över aktiva anslutningar.|
 
 ## <a name="server-logs"></a>Serverloggar
 
@@ -56,7 +56,7 @@ Du kan aktivera långsam loggning av frågor på servern. Dessa loggar är ocks�
 
 Funktionen [prestanda rekommendationer](concepts-performance-recommendations.md) identifierar möjligheter att förbättra arbets Belastningens prestanda. Prestanda rekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbets belastningar. För att skapa index rekommendationer tar funktionen hänsyn till olika databas egenskaper, inklusive schema och arbets belastningen som rapporteras av Frågearkivet. När du har implementerat en prestanda rekommendation bör kunderna testa prestanda för att utvärdera effekten av dessa ändringar.
 
-## <a name="service-health"></a>Service Health:
+## <a name="service-health"></a>Service Health
 [Azure Service Health](../service-health/overview.md) ger en översikt över alla meddelanden om tjänst hälsa i din prenumeration. Du kan ställa in Service Health aviseringar för att meddela dig via önskade kommunikations kanaler när det finns problem eller ändringar som kan påverka de Azure-tjänster och regioner som du använder.
 
 Du kan visa schemalagda underhålls händelser för Azure Database for MariaDB med hjälp av händelse typen **planerat underhåll** . Information om hur du skapar **tjänstens hälso aviseringar**finns i artikeln [skapa aktivitets aviseringar i tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md) .

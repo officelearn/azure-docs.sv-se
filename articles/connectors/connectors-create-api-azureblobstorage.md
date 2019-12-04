@@ -1,22 +1,18 @@
 ---
-title: Ansluta till Azure Blob Storage-Azure Logic Apps
+title: Ansluta till Azure Blob Storage
 description: Skapa och hantera blobbar i Azure Storage-konton med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/28/2019
 tags: connectors
-ms.openlocfilehash: c431f917f6fc1ac080b13184bd9ce205a20afbaa
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 86e8415cf2076819e23226e5e7878a2c96343f69
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199637"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789915"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -127,7 +123,7 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Anslutningsnamn** | Ja | <*anslutnings namn* > | Namnet som ska skapas för anslutningen |
+   | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
    | **Lagringskonto** | Ja | <*Storage – account*> | Välj ditt lagrings konto i listan. |
    ||||
 

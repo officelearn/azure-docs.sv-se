@@ -1,29 +1,30 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 752c43604349a2361a8f5b26cd6d0bce7b516bc0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: a7290e46a0c5e228689dd1f1a0dc7f9a1182ad60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187604"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789643"
 ---
-### <a name="prerequisites"></a>Nödvändiga komponenter
-* En [MailChimp](https://www.MailChimp.com/) konto 
+## <a name="prerequisites"></a>Krav
 
-Innan du kan använda ditt MailChimp-konto i en logikapp, måste du godkänna logikappen som ska ansluta till ditt MailChimp-konto. Som tur är kan göra du det enkelt från i logikappen på Azure Portal. 
+* Ett [MailChimp](https://www.MailChimp.com/) -konto 
 
-Här följer stegen för att auktorisera din logikapp för att ansluta till ditt MailChimp-konto:
+Innan du kan använda ditt MailChimp-konto i en Logic app måste du godkänna att Logic-appen ansluter till ditt MailChimp-konto. Lyckligt vis kan du enkelt göra det i din Logic-app på Azure-portalen. 
 
-1. Om du vill skapa en anslutning till MailChimp, i Logic appdesigner väljer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *MailChimp* i sökrutan. Välj utlösaren eller åtgärden som du kommer att tycka att använda:  
-   ![MailChimp step 1](./media/connectors-create-api-mailchimp/mailchimp-1.png)
-2. Om du inte skapat några anslutningar till MailChimp innan du kan hämta uppmanas du att ange dina autentiseringsuppgifter för MailChimp. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt data i ditt MailChimp-konto:  
-   ![MailChimp step 2](./media/connectors-create-api-mailchimp/mailchimp-2.png)
-3. Ange ditt MailChimp-användarnamn och lösenord för att auktorisera din logikapp:  
-   ![MailChimp step 3](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
-4. Lägg märke till anslutningen har skapats och du kan nu fortsätta med andra steg i logikappen:  
-   ![MailChimp step 4](./media/connectors-create-api-mailchimp/mailchimp-4.png)
+Här följer stegen för att godkänna din Logic app för att ansluta till ditt MailChimp-konto:
+
+1. För att skapa en anslutning till MailChimp, i Logic App Designer, väljer du **Visa Microsoft-hanterade API: er** i list rutan och anger sedan *MailChimp* i sökrutan. Välj den utlösare eller åtgärd som du vill använda:  
+   ![MailChimp steg 1](./media/connectors-create-api-mailchimp/mailchimp-1.png)
+2. Om du inte har skapat några anslutningar till MailChimp tidigare uppmanas du att ange dina MailChimp-autentiseringsuppgifter. Dessa autentiseringsuppgifter används för att auktorisera din Logi Kap par för att ansluta till och komma åt ditt MailChimp-kontos data:  
+   ![MailChimp steg 2](./media/connectors-create-api-mailchimp/mailchimp-2.png)
+3. Ange ditt MailChimp användar namn och lösen ord för att auktorisera din Logic app:  
+   ![MailChimp steg 3](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
+4. Observera att anslutningen har skapats och att du nu är kostnads fri att fortsätta med de andra stegen i din Logic app:  
+   ![MailChimp steg 4](./media/connectors-create-api-mailchimp/mailchimp-4.png)
 

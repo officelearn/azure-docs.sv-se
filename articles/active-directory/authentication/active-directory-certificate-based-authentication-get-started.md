@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 90dc42ed6ca16947902622cba0e5a81a2bc900e3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382014"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786002"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Kom igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -36,13 +36,16 @@ Det här avsnittet:
 
 Följande uttryck måste vara uppfyllda för att du ska kunna konfigurera certifikatbaserad autentisering:
 
-- Certifikatbaserad autentisering (CBA) stöds bara för federerade miljöer för webb läsar program eller interna klienter med modern autentisering (ADAL). Det enda undantaget är Exchange Active Sync (EAS) för Exchange Online (EXO), som kan användas för federerade och hanterade konton.
+- Certifikatbaserad autentisering (CBA) stöds bara för federerade miljöer för webb läsar program, inbyggda klienter som använder moderna autentisering (ADAL) eller MSAL-bibliotek. Det enda undantaget är Exchange Active Sync (EAS) för Exchange Online (EXO), som kan användas för federerade och hanterade konton.
 - Rot certifikat utfärdaren och alla mellanliggande certifikat utfärdare måste konfigureras i Azure Active Directory.
 - Varje certifikat utfärdare måste ha en lista över återkallade certifikat (CRL) som kan refereras via en Internet-riktad URL.
 - Du måste ha minst en certifikat utfärdare som kon figurer ATS i Azure Active Directory. Du kan hitta relaterade steg i avsnittet [Konfigurera certifikat utfärdare](#step-2-configure-the-certificate-authorities) .
 - För Exchange ActiveSync-klienter måste klient certifikatet ha användarens dirigerbart e-postadress i Exchange Online antingen i huvud namnet eller RFC822 namn-värdet i fältet Alternativt namn på certifikat mottagare. Azure Active Directory mappar RFC822-värdet till attributet proxy i katalogen.
 - Klient enheten måste ha åtkomst till minst en certifikat utfärdare som utfärdar klient certifikat.
 - Ett klient certifikat för klientautentisering måste ha utfärdats till klienten.
+
+>[!IMPORTANT]
+>Den maximala storleken för en lista över återkallade certifikat för att Azure Active Directory hämta och cachelagra är 20 MB och den tid det tar att hämta listan över återkallade certifikat får inte överstiga 10 sekunder.  Om Azure Active Directory inte kan hämta en lista över återkallade certifikat, kommer certifikatbaserade autentiseringar som använder certifikat som utfärdats av motsvarande CA att Miss Miss Metod tips för att se till att CRL-filer är inom storleks begränsningarna är att behålla certifikat livs längderna inom rimliga gränser och rensa ut certifikat som har upphört att gälla. 
 
 ## <a name="step-1-select-your-device-platform"></a>Steg 1: Välj din enhets plattform
 
@@ -96,7 +99,7 @@ För-konfigurationen kan du använda [Azure Active Directory PowerShell version 
 
 Som ett första konfigurations steg måste du upprätta en anslutning till din klient organisation. Så snart en anslutning till din klient organisation finns kan du granska, lägga till, ta bort och ändra betrodda certifikat utfärdare som definieras i din katalog.
 
-### <a name="connect"></a>Anslut
+### <a name="connect"></a>Connect
 
 Använd cmdleten [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) för att upprätta en anslutning till klienten:
 

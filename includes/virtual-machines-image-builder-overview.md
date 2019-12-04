@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 04/30/2019
+ms.date: 11/25/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 2bd40db51d82bd2278bd716615636968adf8277b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2a763bbd50f009ae469be889e6ebae0b0d90848b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391800"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795951"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -35,18 +35,18 @@ I för hands versionen stöds dessa funktioner:
 
 ## <a name="regions"></a>Regioner
 Azure Image Builder-tjänsten är tillgänglig för för hands version i dessa regioner. Avbildningar kan distribueras utanför dessa regioner.
-- Östra USA
+- USA, östra
 - USA, östra 2
-- Västra centrala USA
-- Västra USA
-- Västra USA 2
+- USA, västra centrala
+- USA, västra
+- USA, västra 2
 
 ## <a name="os-support"></a>OS-stöd
 AIB kommer att ha stöd för Azure Marketplace Base OS-avbildningar:
 - Ubuntu 18.04
 - Ubuntu 16.04
 - RHEL 7,6
-- CentOS 7.6
+- CentOS 7,6
 - Windows 10 RS5 Enterprise/Professional/Enterprise för Virtual Desktop (EVD) 
 - Windows 2016
 - Windows 2019
@@ -58,7 +58,7 @@ AIB kommer att stödja RHEL ISO som källa för:
 
 RHEL 7,6-ISO stöds inte, men testas.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 
 ![Konceptuell ritning i Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -73,7 +73,7 @@ Azure Image Builder är en fullständigt hanterad Azure-tjänst som kan nås av 
 
 1. Skapa avbildnings mal len som en. JSON-fil. Den här. JSON-filen innehåller information om avbildningens källa, anpassningar och distribution. Det finns flera exempel i [Azure Image Builder GitHub-lagringsplatsen](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 1. Skicka den till tjänsten. då skapas en avbildnings mal len artefakt i den resurs grupp som du anger. I bakgrunden kommer Image Builder att ladda ned käll avbildningen eller ISO och skript efter behov. De lagras i en separat resurs grupp som skapas automatiskt i din prenumeration i formatet: IT_\<DestinationResourceGroup > _\<TemplateName >. 
-1. När du har skapat avbildnings mal len kan du skapa avbildningen. I Background Image Builder används mall-och källfilerna för att skapa en virtuell dator (D1v2), nätverk, offentlig IP och lagring i IT_\<DestinationResourceGroup > _\<TemplateName > resurs grupp.
+1. När du har skapat avbildnings mal len kan du skapa avbildningen. I Background Image Builder används mall-och källfilerna för att skapa en virtuell dator (standard storlek: Standard_D1_v2), nätverk, offentlig IP, NSG och lagring i IT_\<DestinationResourceGroup > _\<TemplateName > resurs grupp.
 1. Som en del av avbildningen distribuerar Image Builder avbildningen enligt mallen och tar sedan bort de ytterligare resurserna i IT_\<DestinationResourceGroup > _\<TemplateName > resurs grupp som har skapats för processen.
 
 

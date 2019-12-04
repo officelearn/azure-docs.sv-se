@@ -1,44 +1,44 @@
 ---
-title: Förstå kontroll resultatet av Windows-agenten i Azure Uppdateringshantering
-description: Lär dig hur du felsöker problem med hantering av agenten.
+title: Förstå Windows Hybrid Runbook Worker Health i Azure Uppdateringshantering
+description: Lär dig hur du felsöker problem med Hybrid Runbook Worker i Windows som stöder Uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480771"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763665"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Förstå kontroll resultatet av Windows-agenten i Uppdateringshantering
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Förstå Windows Hybrid Runbook Worker-hälso tillståndet i Uppdateringshantering
 
-Det kan finnas många orsaker till att datorn inte visas som **klar** i uppdateringshantering. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa det underliggande problemet i hantering av uppdateringar. Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline).
+Det kan finnas många orsaker till att datorn inte visas som **klar** i uppdateringshantering. I Uppdateringshantering kan du kontrol lera hälso tillståndet för en Hybrid Runbook Worker agent för att fastställa det underliggande problemet. Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline).
 
 Följande lista är de tre beredskaps tillstånd som en dator kan vara i:
 
-* **Klar** – uppdaterings agenten har distribuerats och setts senast under 1 timme sedan.
-* **Frånkopplad** – uppdaterings agenten distribueras och lästes senast för 1 timme sedan.
-* **Inte konfigurerad** – uppdaterings agenten hittades inte eller har inte kon figurer ATS.
+* **Redo** – hybrid Runbook Worker distribueras och granskades senast för 1 timme sedan.
+* **Frånkopplad** – hybrid Runbook Worker distribueras och lästes senast för 1 timme sedan.
+* **Inte konfigurerad** – hybrid Runbook Worker hittas inte eller har inte registrerats.
 
 > [!NOTE]
 > Det kan uppstå en liten fördröjning mellan det Azure Portal visar och datorns aktuella tillstånd.
 
-## <a name="start-the-troubleshooter"></a>Starta felsökaren
+## <a name="start-the-troubleshooter"></a>Starta fel sökaren
 
 För Azure-datorer öppnar du sidan Felsök **uppdaterings agent** genom att klicka på länken **Felsök** i kolumnen **Uppdatera agent beredskap** i portalen. För datorer som inte är Azure-datorer går länken till den här artikeln. Se [offline-instruktionerna](#troubleshoot-offline) för att felsöka en dator som inte är en Azure-dator.
 
 ![Uppdaterings hanterings lista över virtuella datorer](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Om du vill kontrol lera agentens hälso tillstånd måste den virtuella datorn köras. Om den virtuella datorn inte körs visas knappen **starta den virtuella datorn** .
+> Om du vill kontrol lera hälso tillståndet för den Hybrid Runbook Worker måste den virtuella datorn köras. Om den virtuella datorn inte körs visas knappen **starta den virtuella datorn** .
 
-På sidan **Felsök uppdaterings agent** väljer du **Kör kontroller** för att starta fel sökaren. Fel sökaren använder [kommandot kör](../../virtual-machines/windows/run-command.md) för att köra ett skript på datorn för att verifiera agent beroenden. När fel sökaren är färdig returneras resultatet av kontrollerna.
+På sidan **Felsök uppdaterings agent** väljer du **Kör kontroller** för att starta fel sökaren. Fel sökaren använder [Kör-kommandot](../../virtual-machines/windows/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När fel sökaren är färdig returneras resultatet av kontrollerna.
 
 ![Felsöka sidan uppdatera agent](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -46,7 +46,7 @@ Resultaten visas på sidan när de är klara. I avsnittet kontroller visas vad s
 
 ![Felsök uppdateringar av agent kontroller](../media/update-agent-issues/update-agent-checks.png)
 
-## <a name="prerequisite-checks"></a>Nödvändiga kontroller
+## <a name="prerequisite-checks"></a>Krav kontroller
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -65,23 +65,23 @@ Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av f�
 
 WMF-kontrollen verifierar att systemet har den version av Windows Management Framework (WMF) som krävs – [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
-### <a name="tls-12"></a>TLS 1.2
+### <a name="tls-12"></a>TLS 1,2
 
 Den här kontrollen avgör om du använder TLS 1,2 för att kryptera din kommunikation. TLS 1,0 stöds inte längre av plattformen. Vi rekommenderar att klienter använder TLS 1,2 för att kommunicera med Uppdateringshantering.
 
-## <a name="connectivity-checks"></a>Anslutningskontroller
+## <a name="connectivity-checks"></a>Anslutnings kontroller
 
-### <a name="registration-endpoint"></a>Registreringsslutpunkt
+### <a name="registration-endpoint"></a>Registrerings slut punkt
 
 Den här kontrollen avgör om agenten kan kommunicera korrekt med Agent tjänsten.
 
-Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med slutpunkten för registrering. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med registrerings slut punkten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="operations-endpoint"></a>Operations-slutpunkt
+### <a name="operations-endpoint"></a>Åtgärds slut punkt
 
 Den här kontrollen avgör om agenten kan kommunicera korrekt med jobbets körnings data tjänst.
 
-Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med tjänsten jobbet Runtime Data. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med jobb körnings data tjänsten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Hälso kontroller för VM-tjänst
 
@@ -206,4 +206,3 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill felsöka fler problem med dina hybrid Runbook Worker läser du [Felsöka hybrid Runbook Worker](hybrid-runbook-worker.md).
-

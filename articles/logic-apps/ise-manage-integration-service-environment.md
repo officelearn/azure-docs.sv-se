@@ -2,19 +2,16 @@
 title: Hantera integrerings tjänst miljöer i Azure Logic Apps
 description: Kontrol lera nätverks hälsa och hantera Logi Kap par, anslutningar, anpassade anslutningar och integrations konton i integrerings tjänst miljön (ISE) för Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6a6b096911ac8596fe29aeb4596f1da6d5266794
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 1d91813e0f39207bcf7768de89600a6bdee0fc53
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967816"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792618"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Hantera integrerings tjänst miljön (ISE) i Azure Logic Apps
 
@@ -22,7 +19,7 @@ Följ stegen i det här avsnittet för att kontrol lera nätverks hälsan för [
 
 ## <a name="view-your-ise"></a>Visa din ISE
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. I portalens sökruta anger du "integrerings tjänst miljöer" och väljer sedan **integrerings tjänst miljöer**.
 

@@ -1,6 +1,6 @@
 ---
-title: Ensidesapplikation (appregistrering) - Microsoft identity-plattformen
-description: Lär dig hur du skapar ett enkelsidigt program (appregistrering)
+title: Program med en enda sida (app-registrering) – Microsoft Identity Platform
+description: Lär dig hur du skapar ett program med en enda sida (app Registration)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,36 +15,36 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1faf4669dca2aaaf3f873e66f859473ccd99f10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ef23b08beeee4cd7e82a5fc33a01b4988ddffb6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074837"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764703"
 ---
-# <a name="single-page-application---app-registration"></a>Ensidesprogram - appregistrering
+# <a name="single-page-application-app-registration"></a>Program med en sida: app-registrering
 
-Den här sidan förklaras informationen för app-registrering för för en ensidesapplikation (SPA).
+På den här sidan förklaras registrerings information för appar för ett enda sid program (SPA).
 
-Följ stegen för att [registrera ett nytt program med Microsoft identity-plattformen](quickstart-register-app.md), och välj kontona som stöds för ditt program. SPA-scenariot har stöd för autentisering med konton i din organisation eller en organisation och personliga Microsoft-konton.
+Följ stegen för att [Registrera ett nytt program med Microsoft Identity Platform](quickstart-register-app.md)och välj de konton som stöds för programmet. SPA-scenariot har stöd för autentisering med konton i din organisation eller i alla organisationer och personliga Microsoft-konton.
 
-Lär dig sedan specifika aspekter av programregistrering som gäller enkelsidigt program.
+Läs sedan de specifika aspekter av program registrering som gäller för program på en enda sida.
 
 ## <a name="register-a-redirect-uri"></a>Registrera en omdirigerings-URI
 
-Implicit flöde skickar token i en omdirigering till ensidesprogram som körs i en webbläsare. Därför är det ett viktigt krav att registrera en omdirigerings-URI där ditt program kan ta emot token. Kontrollera att omdirigerings-URI: N matchar exakt med URI: N för ditt program.
+Det implicita flödet skickar token i en omdirigering till ett program med en enda sida som körs i en webbläsare. Det är därför viktigt att registrera en omdirigerings-URI där ditt program kan ta emot tokens. Se till att omdirigerings-URI: n matchar exakt URI för ditt program.
 
-I den [Azure-portalen](https://go.microsoft.com/fwlink/?linkid=2083908), navigera till ditt registrerade program på den **autentisering** för programmet, Välj den **Web** plattform och ange värdet för den omdirigerings-URI för ditt program i den **omdirigerings-URI** fält.
+I [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2083908)går du till ditt registrerade program. På sidan **autentisering** i programmet väljer du **webb** plattformen. Ange värdet för omdirigerings-URI för programmet i fältet **omdirigerings-URI** .
 
 ## <a name="enable-the-implicit-flow"></a>Aktivera det implicita flödet
 
-På samma **autentisering** sidan under **avancerade inställningar**, måste du aktivera den **Implicit beviljande**. Om ditt program fungerar endast inloggning av användare och hämta ID-token, räcker det att aktivera **ID-token** kryssrutan.
+På sidan samma **autentisering** , under **Avancerade inställningar**, måste du även aktivera **implicit beviljande**. Om ditt program bara loggar in användare och hämtar ID-token, räcker det att markera kryss rutan **ID-token** .
 
-Om ditt program behöver också hämta åtkomsttoken för att anropa API: er, se till att aktivera den **åtkomsttoken** samt kryssrutan. Mer information finns i [ID-token](./id-tokens.md) och [åtkomsttoken](./access-tokens.md).
+Om ditt program också behöver hämta åtkomsttoken för att anropa API: er, måste du även markera kryss rutan **åtkomsttoken** . Mer information finns i [ID-tokens](./id-tokens.md) och [åtkomsttoken](./access-tokens.md).
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Enkelsidigt program kan anropa API: er åt den inloggade användaren. De måste begära delegerade behörigheter. Mer information finns i [Lägg till behörigheter för att få åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+Program med en enda sida kan anropa API: er åt den inloggade användaren. De måste begära delegerade behörigheter. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Nästa steg
 

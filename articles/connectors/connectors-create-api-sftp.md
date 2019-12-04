@@ -1,21 +1,19 @@
 ---
-title: Anslut till SFTP-konto – Azure Logic Apps
+title: Anslut till SFTP-konto
 description: Automatisera uppgifter och processer som övervakar, skapar, hanterar, skickar och tar emot filer för en SFTP-server via SSH med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
+author: divyaswarnkar
+ms.reviewer: divswa, klam, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 20702f5bc0dfc513d1fba84b69595dec885613ac
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837112"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789281"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
 
@@ -35,7 +33,7 @@ Du kan använda utlösare som övervakar händelser på din SFTP-server och gör
 
 SFTP-anslutaren hanterar endast filer som är *50 MB eller mindre* och stöder inte [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). För större filer använder du [SFTP-SSH-anslutningsprogrammet](../connectors/connectors-sftp-ssh.md). Om du vill ha skillnader mellan SFTP-anslutningen och SFTP-SSH-anslutningen kan du läsa [jämföra SFTP – SSH jämfört med SFTP](../connectors/connectors-sftp-ssh.md#comparison) i SFTP-SSH-artikeln.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 

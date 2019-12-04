@@ -1,18 +1,18 @@
 ---
-title: Säkerhetskopiera och återställa en server i Azure Database for MariaDB
+title: Säkerhets kopiering och återställning – Azure CLI – Azure Database for MariaDB
 description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database for MariaDB med hjälp av Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965230"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765881"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med Azure CLI
 

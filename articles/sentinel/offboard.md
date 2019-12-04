@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 4c0c415235fd290bc47ac402a6b81a1afa7af903
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464133"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777442"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>Ta bort Azure Sentinel från din klient organisation
+# <a name="remove-azure-sentinel-from-your-workspace"></a>Ta bort Azure Sentinel från din arbets yta
 
-Om du inte längre vill använda Azure Sentinel förklarar den här artikeln hur du tar bort den från din klient organisation.
+Om du inte längre vill använda Azure Sentinel förklarar den här artikeln hur du tar bort den från din arbets yta.
 
 ## <a name="how-to-delete-azure-sentinel"></a>Ta bort Azure Sentinel
 
@@ -49,7 +49,7 @@ När du tar bort lösningen tar Azure Sentinel upp till 48 timmar innan den för
 När från kopplingen har identifierats börjar offboarding-processen.
 
 **Konfigurationen av dessa anslutningar tas bort:**
--   Office 365
+-   Office 365
 
 -   AWS
 

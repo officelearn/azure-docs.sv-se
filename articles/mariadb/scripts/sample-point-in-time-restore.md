@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-skript – Återställa en Azure Database for MariaDB-server
+title: CLI-skript – återställa Server-Azure Database for MariaDB
 description: Det här Azure CLI-exempelskriptet visar hur du återställer en Azure Database for MariaDB-server och dess databaser till en tidigare tidpunkt.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: 2d294f5b43ba3fb7587ca1d03903e39d75291754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: d7591c4f88026644ee2453150cfa226a155ab32d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171358"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771736"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Återställa en Azure Database for MariaDB-server med hjälp av Azure CLI
 Det här CLI-exempelskriptet återställer en enskild Azure Database for MariaDB-server till en tidigare tidpunkt.
@@ -42,4 +42,4 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure).
-- Prova ytterligare skript: [Azure CLI-exempel för Azure Database for MariaDB](../sample-scripts-azure-cli.md)
+- Prova fler skript: [Azure CLI-exempel för Azure Database for MariaDB](../sample-scripts-azure-cli.md)

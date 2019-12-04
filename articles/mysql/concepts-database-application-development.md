@@ -1,48 +1,48 @@
 ---
-title: Databasen översikt över programutveckling för Azure Database for MySQL
-description: Introducerar designöverväganden som utvecklare bör följa när du skriver programkod för att ansluta till Azure Database for MySQL
+title: Program utveckling – Azure Database for MySQL
+description: Introducerar design överväganden som en utvecklare bör följa när program koden skrivs för att ansluta till Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 74abf680223d562522a11ecb8999fedb37de9907
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615644"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770279"
 ---
-# <a name="application-development-overview-for-azure-database-for-mysql"></a>Översikt över programutveckling för Azure Database for MySQL 
-Den här artikeln beskriver designöverväganden som utvecklare bör följa när du skriver programkod för att ansluta till Azure Database for MySQL. 
+# <a name="application-development-overview-for-azure-database-for-mysql"></a>Översikt över program utveckling för Azure Database for MySQL 
+Den här artikeln beskriver design överväganden som en utvecklare bör följa när de skriver program kod för att ansluta till Azure Database for MySQL. 
 
 > [!TIP]
-> Se en självstudie som visar hur du skapar en server, skapar en serverbaserad brandvägg, visar serveregenskaper, skapa databas och ansluta och fråga med hjälp av workbench och mysql.exe, [utforma din första Azure Database for MySQL-databas](tutorial-design-database-using-portal.md)
+> En själv studie kurs som visar hur du skapar en server, skapar en serverbaserad brand vägg, visar Server egenskaper, skapar databas och ansluter och frågar med hjälp av Workbench och MySQL. exe finns i [utforma din första Azure Database for MySQL databas](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>Språk och plattform
-Det finns kodexempel för olika programmeringsspråk och plattformar. Du hittar länkar till kodexemplen på: [Anslutningsbibliotek som används för att ansluta till Azure Database for MySQL](concepts-connection-libraries.md)
+Det finns kodexempel för olika programmeringsspråk och plattformar. Du kan hitta länkar till kod exempel på: [anslutnings bibliotek som används för att ansluta till Azure Database for MySQL](concepts-connection-libraries.md)
 
 ## <a name="tools"></a>Verktyg
-Azure Database för MySQL som använder MySQL community version, kompatibel med MySQL vanliga hanteringsverktyg, till exempel Workbench eller MySQL-verktyg, till exempel mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), med mera. Du kan också använda Azure-portalen, Azure CLI och REST API: er för att interagera med tjänsten.
+Azure Database for MySQL använder MySQL community-versionen som är kompatibel med MySQLs vanliga hanterings verktyg som Workbench eller MySQL-verktyg som MySQL. exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)och andra. Du kan också använda Azure Portal, Azure CLI och REST-API: er för att interagera med databas tjänsten.
 
 ## <a name="resource-limitations"></a>Resursbegränsningar
-Azure Database för MySQL hanterar resurserna som är tillgängliga för en server med hjälp av två olika sätt: 
-- Resursstyrning.
-- Verkställandet av gränser.
+Azure Database for MySQL hanterar resurserna som är tillgängliga för en server med hjälp av två olika metoder: 
+- Resurser styrning.
+- Tillämpning av gränser.
 
 ## <a name="security"></a>Säkerhet
-Azure Database för MySQL innehåller resurser för att begränsa åtkomst, skydda data, konfigurera användare och roller och övervakningsaktiviteter på en MySQL-databas.
+Azure Database for MySQL ger resurser för att begränsa åtkomst, skydda data, konfigurera användare och roller och övervaka aktiviteter på en MySQL-databas.
 
 ## <a name="authentication"></a>Autentisering
-Azure Database för MySQL stöder server-autentisering av användare och inloggningar.
+Azure Database for MySQL stöder serverautentisering för användare och inloggningar.
 
-## <a name="resiliency"></a>Återhämtning
-När ett tillfälligt fel uppstår vid anslutning till en MySQL-databas, bör din kod göra om anropet. Vi rekommenderar att logik för omprövning använder backoff logic så att den inte överbelastar SQL-databas med flera klienter som försöker samtidigt.
+## <a name="resiliency"></a>Elasticitet
+När ett tillfälligt fel uppstår vid anslutning till en MySQL-databas, bör din kod försöka anropa igen. Vi rekommenderar att logiken för omprövning använder en annan logik så att den inte överbelastar SQL-databasen med flera klienter och försöker igen samtidigt.
 
-- Kodexempel: För kodexempel som illustrerar logik för omprövning, se exempel för valfritt på språk: [Anslutningsbibliotek som används för att ansluta till Azure Database for MySQL](concepts-connection-libraries.md)
+- Kod exempel: för kod exempel som illustrerar logik för omprövning, se exempel för det språk som du väljer på: [anslutnings bibliotek som används för att ansluta till Azure Database for MySQL](concepts-connection-libraries.md)
 
 ## <a name="managing-connections"></a>Hantera anslutningar
-Databasanslutningar är en begränsad resurs, så vi rekommenderar användningstyperna användning av anslutningar vid åtkomst till din MySQL-databas för att uppnå bättre prestanda.
-- Åtkomst till databasen med hjälp av anslutningspooler eller beständiga anslutningar.
-- Åtkomst till databasen med hjälp av kort anslutning livslängd. 
-- Använd omprövning i ditt program vid anslutningsförsöket att fånga upp fel som härrör från samtidiga anslutningar har nått det högsta tillåtna. Ange en kort fördröjning i logik för omprövning och vänta sedan en slumpmässig tid innan de ytterligare anslutningsförsök.
+Databas anslutningar är en begränsad resurs, så vi rekommenderar lämpliga användning av anslutningar vid åtkomst till MySQL-databasen för att uppnå bättre prestanda.
+- Få åtkomst till databasen med hjälp av anslutningspoolen eller permanenta anslutningar.
+- Få åtkomst till databasen med hjälp av kort tids längd för anslutning. 
+- Använd logiken för omprövning i programmet vid tidpunkten för anslutnings försöket för att fånga fel som uppstår till följd av samtidiga anslutningar har nått det högsta tillåtna antalet. I logiken för omförsök anger du en kort fördröjning och väntar sedan en slumpmässig tid innan ytterligare anslutnings försök görs.

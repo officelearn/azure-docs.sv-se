@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-exempel för Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln innehåller flera Azure CLI kodexempel för att interagera med Azure Database för PostgreSQL – enskild Server.
+title: Azure CLI-exempel – Azure Database for PostgreSQL-enskild server
+description: Den här artikeln innehåller flera kod exempel för Azure CLI som är tillgängliga för interaktion med Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 5/6/2019
-ms.openlocfilehash: 9b8ff3334c8e31397f68e890c15bec3e2515a1a2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 154dc8b8569162992f4fc231caee2a43682db456
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073116"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774728"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Azure CLI-exempel för Azure Database för PostgreSQL – enskild Server
+# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Azure CLI-exempel för Azure Database for PostgreSQL-enskild server
 Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure Database for PostgreSQL.
 
 | |  |

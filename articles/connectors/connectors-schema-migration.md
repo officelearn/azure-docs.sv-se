@@ -1,46 +1,43 @@
 ---
-title: Migrera appar till senaste schema – Azure Logic Apps | Microsoft Docs
-description: Så här migrerar du logikappar till den senaste schemaversionen
+title: Migrera appar till det senaste schemat
+description: Så här migrerar du Logi Kap par till den senaste schema versionen
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc967c90f28b29a63a1f26d0aae86b6d769c1ccf
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447169"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786936"
 ---
-# <a name="migrate-logic-apps-to-latest-schema-version"></a>Så här migrerar du logikappar till senaste schemaversionen
+# <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrera Logic Apps till den senaste schema versionen
 
-Följ dessa steg om du vill flytta dina befintliga logikappar till det senaste schemat: 
+Följ dessa steg om du vill flytta dina befintliga Logic Apps till det nyaste schemat: 
 
-1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer.
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-2. På menyn för din logikapp, Välj **översikt**. I verktygsfältet, välja **uppdatera Schema**.
+2. På din Logic Apps-meny väljer du **Översikt**. Välj **Uppdatera schema**i verktygsfältet.
 
    > [!NOTE]
-   > När du väljer **uppdatera Schema**, Azure Logic Apps som automatiskt kör migreringsstegen och ger dig kodens utdata för. Du kan använda dessa utdata för att uppdatera sina logikapp-definitioner. Se dock till att du följer bästa praxis som beskrivs i följande **bästa praxis** avsnittet.
+   > När du väljer **Uppdatera schema**kör Azure Logic Apps automatiskt migreringen och ger dig kod resultatet. Du kan använda dessa utdata för att uppdatera din Logic app-definition. Tänk dock på att följa bästa praxis enligt beskrivningen i följande **metod tips** .
 
-   ![Uppdatera Schema](./media/connectors-schema-migration/update-schema.png)
+   ![Uppdatera schema](./media/connectors-schema-migration/update-schema.png)
 
-   Sidan uppdatera Schema visas och visar en länk till ett dokument som beskriver förbättringarna i det nya schemat.
+   Sidan uppdatera schema visas och visar en länk till ett dokument som beskriver förbättringarna i det nya schemat.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
-Här följer några rekommendationer för att migrera dina logikappar till den senaste schemaversionen:
+Här följer några metod tips för att migrera dina Logi Kap par till den senaste schema versionen:
 
-* Kopiera det migrerade skriptet till en ny logikapp. Skriv inte över den gamla versionen tills du slutför testet och bekräfta att migrerade appen fungerar som förväntat.
+* Kopiera det migrerade skriptet till en ny Logic-app. Skriv inte över den gamla versionen förrän du har slutfört testningen och bekräftat att den migrerade appen fungerar som förväntat.
 
-* Testa din logikapp **innan** i produktion.
+* Testa din Logic app **innan** du sätter i produktion.
 
-* När du har slutfört migreringen, börja uppdatera logikapparna och använda den [hanterade API: er](../connectors/apis-list.md) där det är möjligt. Till exempel börja använda Dropbox v2 var som helst att du använder DropBox v1.
+* När du har slutfört migreringen kan du börja uppdatera dina Logi Kap par för att använda [hanterade API: er](../connectors/apis-list.md) . Börja exempelvis med Dropbox v2 överallt där du använder DropBox v1.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [migrera dina logikappar manuellt](../logic-apps/logic-apps-schema-2015-08-01.md)
+* Lär dig hur du [migrerar dina Logic Apps manuellt](../logic-apps/logic-apps-schema-2015-08-01.md)

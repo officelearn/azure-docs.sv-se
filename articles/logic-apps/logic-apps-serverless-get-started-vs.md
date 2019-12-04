@@ -1,21 +1,17 @@
 ---
-title: Bygg den första appen utan server i Visual Studio – Azure Logic Apps
+title: Bygg den första appen utan server i Visual Studio
 description: Bygg, distribuera och hantera en app utan server genom att använda Azure Logic Apps och Azure Functions i Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: vs-azure
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 76ab76440ddc25f4b1cf51f7d540a6e21614541d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680132"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792961"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Bygg din första app utan server genom att använda Azure Logic Apps och Azure Functions i Visual Studio
 
@@ -68,7 +64,7 @@ Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-
 
    ![Skapa ett nytt projekt i Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. Under **Installerad** väljer du **Visual C#** eller **Visual Basic**. Välj sedan **moln**  > **Azure-resurs grupp**.
+1. Under **Installerad** väljer du **Visual C#** eller **Visual Basic**. Välj sedan **moln** > **Azure-resurs grupp**.
 
    > [!NOTE]
    > Om **moln** kategorin eller **Azures resurs grupps** projekt inte finns kontrollerar du att du har installerat Azure SDK för Visual Studio.
@@ -104,7 +100,7 @@ Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-
 
 Innan du kan öppna din Logic app i Logic App Designer i Visual Studio måste du ha en Azure-resurs grupp som redan har distribuerats i Azure. Designern kan sedan skapa anslutningar till resurser och tjänster i din Logic app. För den här uppgiften följer du de här stegen för att distribuera lösningen från Visual Studio till Azure Portal:
 
-1. I Solution Explorer, från resurs projektets snabb meny, väljer du **distribuera**  > **ny**.
+1. I Solution Explorer, från resurs projektets snabb meny, väljer du **distribuera** > **ny**.
 
    ![Skapa ny distribution för resurs grupp](./media/logic-apps-serverless-get-started-vs/deploy.png)
 

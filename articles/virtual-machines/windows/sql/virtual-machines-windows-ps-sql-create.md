@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 072c58377645c807328bfcd79028daad70df7338
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102114"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790630"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Så här etablerar du SQL Server virtuella datorer med Azure PowerShell
 
@@ -63,7 +63,7 @@ $StorageName = $ResourceGroupName + "storage"
 $StorageSku = "Premium_LRS"
 ```
 
-### <a name="network-properties"></a>Nätverksegenskaper
+### <a name="network-properties"></a>Nätverks egenskaper
 Definiera de egenskaper som ska användas av nätverket på den virtuella datorn. 
 
 - Nätverksgränssnitt
@@ -103,7 +103,7 @@ $OSDiskName = $VMName + "OSDisk"
 
 Använd följande variabler för att definiera SQL Server avbildningen som ska användas för den virtuella datorn. 
 
-1. Börja med att lista ut alla SQL Server avbildnings erbjudanden med `Get-AzVMImageOffer` kommandot. Det här kommandot listar aktuella avbildningar som är tillgängliga i Azure-portalen och även äldre avbildningar som bara kan installeras med PowerShell:
+1. Börja med att lista ut alla SQL Server avbildnings erbjudanden med kommandot `Get-AzVMImageOffer`. Det här kommandot listar aktuella avbildningar som är tillgängliga i Azure-portalen och även äldre avbildningar som bara kan installeras med PowerShell:
 
    ```powershell
    Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
@@ -337,12 +337,13 @@ Den virtuella datorn skapas.
 > Om du får ett fel meddelande om startdiagnostik kan du ignorera det. Ett standard lagrings konto skapas för startdiagnostik eftersom det angivna lagrings kontot för den virtuella datorns disk är ett Premium Storage-konto.
 
 ## <a name="install-the-sql-iaas-agent"></a>Installera SQL Iaas-agenten
-SQL Server virtuella datorer stöder automatiserade hanterings funktioner med [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill installera agenten på den nya virtuella datorn kör du följande kommando när den har skapats.
+SQL Server virtuella datorer stöder automatiserade hanterings funktioner med [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill installera agenten på den nya virtuella datorn och registrera den med-resurs leverantören kör du kommandot [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) när den virtuella datorn har skapats. Ange licens typ för din SQL Server VM, välja mellan antingen betala per användning eller hämta egen licens via [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Mer information om licensiering finns i [licensierings modell](virtual-machines-windows-sql-ahb.md). 
 
 
    ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
 
 ## <a name="stop-or-remove-a-vm"></a>Stoppa eller ta bort en virtuell dator
 
@@ -419,8 +420,8 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $Publis
 # Create the VM in Azure
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
-# Add the SQL IaaS Extension
-Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+# Add the SQL IaaS Extension, and choose the license type
+New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -13,15 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201713"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766794"
 ---
-# <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda nätverks resurserna i Azure Security Center
+# <a name="protect-your-network-resources"></a>Skydda dina nätverks resurser
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
+
+I den här artikeln beskrivs sidan **nätverk** i avsnittet resurs säkerhet i Azure Security Center och några av de rekommendationer som du ser där.
+
+En fullständig lista över rekommendationerna för nätverk finns i [nätverks rekommendationer](recommendations-network.md).
 
 Den här artikeln beskriver rekommendationer som gäller för dina Azure-resurser från ett nätverks säkerhets perspektiv. Nätverks rekommendationer Center kring nästa generations brand väggar, nätverks säkerhets grupper, JIT VM-åtkomst för att tillåta inkommande trafik regler med mera. En lista över nätverks rekommendationer och reparations åtgärder finns [i hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
 
@@ -32,13 +36,13 @@ Den här artikeln beskriver rekommendationer som gäller för dina Azure-resurse
 Sidan **nätverk** ger en översikt över de avsnitt som du kan ta del av för att få mer information om hälso tillståndet för dina nätverks resurser:
 
 - Nätverks karta (endast Azure Security Center standard nivå)
-- Adaptiv nätverkshärdning
+- Anpassningsbar nätverkshärdning
 - Rekommendationer för nätverks säkerhet.
 - Bladet äldre **nätverk** (det tidigare nätverks bladet) 
  
 ![Fönstret nätverk](./media/security-center-network-recommendations/networking-pane.png)
 
-## <a name="network-map"></a>Nätverkskarta
+## <a name="network-map"></a>Nätverks karta
 Den interaktiva nätverks kartan är en grafisk vy med säkerhets överlägg som ger dig rekommendationer och insikter för att härdning av dina nätverks resurser. Med hjälp av kartan kan du se nätverk sto pol Ogin för dina Azure-arbetsbelastningar, anslutningar mellan dina virtuella datorer och undernät och möjligheten att öka detalj nivån från kartan till vissa resurser och rekommendationerna för dessa resurser.
 
 Så här öppnar du nätverks kartan:
@@ -75,9 +79,9 @@ Eftersom kartan är interaktiv och dynamisk går det att klicka på varje nod oc
 
 1. Du kan ändra vad som visas på nätverks kartan genom att använda filtren överst. Du kan fokusera kartan baserat på:
 
-   -  **Säkerhets hälsa**: Du kan filtrera kartan baserat på allvarlighets grad (hög, medel, låg) för dina Azure-resurser.
-   - **Rekommendationer**: Du kan välja vilka resurser som ska visas baserat på vilka rekommendationer som är aktiva för dessa resurser. Du kan till exempel bara visa resurser för vilka Security Center rekommenderar att du aktiverar nätverks säkerhets grupper.
-   - **Nätverks zoner**: Som standard visar kartan endast Internet-riktade resurser. du kan även välja interna virtuella datorer.
+   -  **Säkerhets hälsa**: du kan filtrera kartan baserat på allvarlighets grad (hög, medel, låg) för dina Azure-resurser.
+   - **Rekommendationer**: du kan välja vilka resurser som ska visas baserat på vilka rekommendationer som är aktiva för dessa resurser. Du kan till exempel bara visa resurser för vilka Security Center rekommenderar att du aktiverar nätverks säkerhets grupper.
+   - **Nätverks zoner**: som standard visar kartan endast Internet-riktade resurser. du kan även välja interna virtuella datorer.
  
 2. Du kan när som helst klicka på **Återställ** i det övre vänstra hörnet för att återställa kartan till dess standard tillstånd.
 
@@ -131,31 +135,8 @@ I den här Topology-vyn visar den första nivån virtuella nätverk. Den andra v
 
 På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ovan. Du kan klicka på en resurs för att lära dig mer eller använda den säkerhets kontroll eller konfiguration som krävs.
 
-## <a name="network-recommendations"></a>Nätverksrekommendationer
-
-|Rekommendationens namn|Beskrivning|severity|Säkerhetspoäng|Resurstyp|
-|----|----|----|----|----|----|
-|Nätverks säkerhets grupper på under näts nivån måste vara aktiverade|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst till resurser som har distribuerats i dina undernät.|Hög/medel|30|Subnet|
-|Virtuella datorer ska associeras med en nätverks säkerhets grupp|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst för dina virtuella datorer.|Hög/medel|30|Virtuell dator|
-|Åtkomsten ska begränsas för tillåtade nätverks säkerhets grupper med virtuella datorer som riktas mot Internet|Skärp nätverks säkerhets grupperna för dina Internet-riktade virtuella datorer genom att begränsa åtkomsten till dina befintliga Tillåt-regler.|Hög|20|Virtuell dator|
-|Reglerna för webb program på IaaS NSG: er bör vara härdade|Skärp nätverks säkerhets gruppen (NSG) för dina virtuella datorer som kör webb program, med NSG-regler som kan tillåtas med avseende på webb program portar.|Hög|20|Virtuell dator|
-|Åtkomst till App Services bör vara begränsad|Begränsa åtkomsten till din App Services genom att ändra nätverks konfigurationen för att neka inkommande trafik från intervall som är för breda.|Hög|10|Apptjänst|
-|Hanterings portar bör stängas på dina virtuella datorer|Skärp nätverks säkerhets gruppen för dina virtuella datorer för att begränsa åtkomsten till hanterings portar.|Hög|10|Virtuell dator|
-DDoS Protection standard ska vara aktive rad|Skydda virtuella nätverk som innehåller program med offentliga IP-adresser genom att aktivera DDoS Protection Service standard. DDoS Protection möjliggör minskning av nätverks-och protokoll attacker.|Hög|10|Virtuellt nätverk|
-|IP-vidarebefordran på den virtuella datorn bör inaktive ras|Inaktivera IP-vidarebefordring. När IP-vidarebefordring är aktiverat på en virtuell dators nätverkskort kan datorn ta emot trafik som är adresserad till andra mål. IP-vidarebefordran krävs sällan (till exempel när du använder den virtuella datorn som en virtuell nätverks installation) och därför bör detta granskas av nätverks säkerhets teamet.|Medel|10|Virtuell dator|
-|Webbprogram bör enbart vara åtkomliga via HTTPS|Aktivera "endast HTTPS"-åtkomst för webb program. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.|Medel|20|Webbprogram|
-|Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer|Använd just-in-Time (JIT)-åtkomst kontroll för att permanent låsa åtkomsten till valda portar och aktivera behöriga användare för att öppna dem via JIT, under en begränsad tid.|Hög|20|Virtuell dator|
-|Function-appar bör endast vara tillgängliga via HTTPS|Aktivera "endast HTTPS"-åtkomst för Function Apps. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.|Medel|20|Funktionsapp|
-|Säker överföring till lagrings konton ska vara aktiverat|Aktivera säker överföring till lagrings konton. Säker överföring är ett alternativ som tvingar ditt lagrings konto att endast godkänna begär Anden från säkra anslutningar (HTTPS). Användning av HTTPS garanterar autentisering mellan servern och tjänsten och skyddar data i överföring från angrepp på nätverks nivå, till exempel man-in-the-Middle, avlyssning och session-kapning.|Hög|20|Lagringskonto|
-
 ## <a name="see-also"></a>Se också
-Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
+Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande avsnitt:
 
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 * [Skydda din Azure SQL-tjänst i Azure Security Center](security-center-sql-service-recommendations.md)
-
-I följande avsnitt kan du lära dig mer om Security Center:
-
-* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.

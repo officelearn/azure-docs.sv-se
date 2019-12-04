@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 420a046ddf66270f52001d4ff4f3ad49895d4c11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208404"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784567"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -77,7 +77,7 @@ När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autent
 
 Organisationer använder en mängd olika Azure-tjänster som hanteras via Azure Resource Manager API, inklusive:
 
-- Azure Portal 
+- Azure portal 
 - Azure PowerShell 
 - Azure CLI
 
@@ -124,6 +124,20 @@ Så här aktiverar du säkerhets inställningar i din katalog:
 1. Bläddra till **Azure Active Directory** > **Egenskaper**.
 1. Välj **hantera säkerhets inställningar**.
 1. Ställ in **Aktivera säkerhets inställningar** växla till **Ja**.
+1. Välj **Spara**.
+
+## <a name="disabling-security-defaults"></a>Inaktivera säkerhets inställningar
+
+Organisationer som väljer att implementera principer för villkorlig åtkomst som ersätter säkerhets standarder måste inaktivera säkerhets inställningar. 
+
+![Varnings meddelande inaktivera säkerhets inställningar för att aktivera villkorlig åtkomst](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+Så här inaktiverar du säkerhets inställningar i din katalog:
+
+1. Logga in på [Azure Portal](https://portal.azure.com) som säkerhets administratör, administratör för villkorlig åtkomst eller global administratör.
+1. Bläddra till **Azure Active Directory** > **Egenskaper**.
+1. Välj **hantera säkerhets inställningar**.
+1. Ställ in **Aktivera säkerhets standardvärden** växla till **Nej**.
 1. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg

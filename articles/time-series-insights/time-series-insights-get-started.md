@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc3f21c95ad6f4bb033336018dddb9e966e9cc9a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cc99b469701b3974a5b8a2f235ee3a9edb798368
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006904"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790264"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 
@@ -34,13 +34,13 @@ Följ de här stegen för att skapa en miljö:
 
 1. Välj kategorin **Sakernas Internet** och välj **Time Series Insights**.
 
-   [![skapa Time Series Insightss miljön](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
+   [![skapa Time Series Insightss miljön](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
 
 1. På sidan **Time Series Insights** väljer du **skapa**.
 
 1. Fyll i de obligatoriska parametrarna. I följande tabell beskrivs varje parameter:
    
-   [![skapa Time Series Insights resurs gruppen](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   [![skapa Time Series Insights resurs gruppen](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
    
    Inställning|Föreslaget värde|Beskrivning
    ---|---|---
@@ -55,13 +55,13 @@ Följ de här stegen för att skapa en miljö:
 
 1. Välj **aviserings** symbolen (klock ikonen) för att övervaka distributions processen.
 
-   [![se meddelanden](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
+   [![se meddelanden](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-    När distributionen har slutförts kan du välja **gå till resurs** om du vill konfigurera andra egenskaper, ange säkerhet med principer för data åtkomst, lägga till händelse källor och andra åtgärder.
+1. Kontrol lera distributions konfigurations inställningarna i resurs **översikten**.
 
-1. I resurs **översikten**väljer du **PIN-ikonen** i det övre högra hörnet för att enkelt få åtkomst till din Time Series Insightss miljö i framtiden.
+   [![skapa Time Series Insights fäst vid instrument panelen](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
-   [![skapa Time Series Insights fäst vid instrument panelen](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
+1. **(Valfritt)** Välj **PIN-ikonen** i det övre högra hörnet för att enkelt få åtkomst till din Time Series Insightss miljö i framtiden.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -69,6 +69,6 @@ Följ de här stegen för att skapa en miljö:
 
 * [Lägg till händelse källan för Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) i Azure Time Series Insightss miljön.
 
-* [Skicka händelser](time-series-insights-send-events.md) till händelsekällan.
+* [Skicka händelser](time-series-insights-send-events.md) till händelse källan.
 
 * Visa din miljö i [Time Series Insights Explorer](https://insights.timeseries.azure.com).

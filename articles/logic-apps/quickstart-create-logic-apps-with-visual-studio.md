@@ -1,23 +1,18 @@
 ---
-title: Automatisera arbets flöden för aktiviteter i Visual Studio – Azure Logic Apps
+title: Automatisera arbets flöden för aktiviteter i Visual Studio
 description: Skapa, Schemalägg och kör återkommande arbets flöden för företags integrering med hjälp av Azure Logic Apps och Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.manager: carmonm
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: e7ce31f489ae274eddb02c1bfb7e57eb486f5851
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 49269cf2171269063de4a3cf5de1f22ebc545005
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796971"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790819"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio
 
@@ -31,7 +26,7 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -117,7 +112,7 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
    | Inställning | Exempelvärde | Beskrivning |
    | ------- | ------------- | ----------- |
    | Användar konto | Produkter <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
-   | **Prenumeration** | Betala per användning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
+   | **Prenumeration** | Användningsbaserad betalning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
    | **Resursgrupp** | MyLogicApp-RG <br> (Västra USA) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
    | **Plats** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen**. <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
    ||||
@@ -178,7 +173,7 @@ Grattis, du har skapat och distribuerat din Logic app med Visual Studio. Om du v
 
 När du har ett befintligt Azure Resource Group-projekt kan du lägga till en ny tom Logic-app i projektet med hjälp av JSON-dispositions fönstret.
 
-1. Öppna filen `<logic-app-name>.json` i Solution Explorer.
+1. Öppna `<logic-app-name>.json`-filen i Solution Explorer.
 
 1. I menyn **Visa** väljer du annan **JSON-disposition**för **Windows** > .
 

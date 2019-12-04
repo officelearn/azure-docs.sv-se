@@ -1,17 +1,17 @@
 ---
-title: Loggar i Azure Database for PostgreSQL-enskild server
-description: Begrepp för loggning av konfiguration, lagring och analys i Azure Database for PostgreSQL-enskild server
+title: Loggar – Azure Database for PostgreSQL-enskild server
+description: Beskriver loggning av konfiguration, lagring och analys i Azure Database for PostgreSQL-enskild server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 9e8b1d08e950849773c9d8413c3ba4188d257d5b
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965937"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768222"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
 Med Azure Database for PostgreSQL kan du konfigurera och få åtkomst till postgres standard loggar. Loggarna kan användas för att identifiera, felsöka och reparera konfigurations fel och underoptimala prestanda. Loggnings information som du kan konfigurera och komma åt innehåller fel, fråga efter information, autovakuum-poster, anslutningar och kontroll punkter. (Åtkomst till transaktions loggar är inte tillgänglig).
@@ -96,13 +96,13 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 
 |**Fält** | **Beskrivning** |
 |---|---|
-| TenantId | Ditt klient-ID |
+| tenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tidstämpel när loggen registrerades i UTC |
-| Typ | Loggens typ. Always `AzureDiagnostics` |
+| Typ | Loggens typ. `AzureDiagnostics` alltid |
 | SubscriptionId | GUID för den prenumeration som servern tillhör |
 | ResourceGroup | Namnet på den resurs grupp som servern tillhör |
-| ResourceProvider | Namnet på resurs leverantören. Always `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceProvider | Namnet på resurs leverantören. `MICROSOFT.DBFORPOSTGRESQL` alltid |
 | ResourceType | `Servers` |
 | ResourceId | Resurs-URI |
 | Resurs | Namnet på servern |
@@ -111,7 +111,7 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 | Nivå | Loggnings nivå, exempel: logg, fel, meddelande |
 | Meddelande | Primärt logg meddelande | 
 | Domain | Server version, exempel: postgres-10 |
-| Noggrant | Sekundärt logg meddelande (om tillämpligt) |
+| noggrant | Sekundärt logg meddelande (om tillämpligt) |
 | Kolumn | Namnet på kolumnen (om tillämpligt) |
 | SchemaName | Schemats namn (om tillämpligt) |
 | DatatypeName | Namnet på data typen (om tillämpligt) |

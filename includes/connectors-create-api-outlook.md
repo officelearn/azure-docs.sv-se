@@ -1,27 +1,27 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 187906a912c999142d764de6ad5da3daccf63ba7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: e42292f7848eba0b4545b713f7bbc491f35fe4a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187597"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789382"
 ---
-1. I sökrutan anger du ”outlook.com” som filter. Välj den här utlösaren i det här exemplet: **När ett nytt e-postmeddelande**
+1. I rutan Sök anger du "outlook.com" som filter. I det här exemplet väljer du den här utlösaren: **när ett nytt e-postmeddelande tas emot**
 
-   ![Hitta Outlook.com utlösare eller åtgärder](./media/connectors-create-api-outlook/select-outlook.png)
+   ![Hitta Outlook.com-utlösare eller åtgärder](./media/connectors-create-api-outlook/select-outlook.png)
 
-1. När du har valt utlösaren (eller åtgärden) uppmanas du att logga in på ditt Outlook.com-konto om du redan inte loggar in. Välj **logga in**.
+1. När du har valt utlösaren (eller åtgärden) uppmanas du att logga in på ditt Outlook.com-konto om du redan har loggat in. Välj **Logga**in.
 
    ![Logga in på ditt Outlook.com-konto](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
-3. Välj dina autentiseringsuppgifter för Outlook.com-konto.
+1. Välj dina autentiseringsuppgifter för Outlook.com-kontot.
 
-   ![Välj inloggningskonto](./media/connectors-create-api-outlook/outlook-sign-in.png)  
+   ![Välj inloggnings konto](./media/connectors-create-api-outlook/outlook-sign-in.png)  
 
-   Dina autentiseringsuppgifter används för att ansluta och komma åt data i din Outlook.com-konto.
-   Du kan återanvända den här anslutningen med logic app i Azure-prenumerationen. 
+   Dina autentiseringsuppgifter används för att ansluta och komma åt ditt Outlook.com-kontos data.
+   Du kan återanvända den här anslutningen med andra Logic-appar i din Azure-prenumeration. 

@@ -1,17 +1,17 @@
 ---
-title: Server koncept i Azure Database for PostgreSQL-enskild server
+title: Servrar – Azure Database for PostgreSQL-enskild server
 description: Den här artikeln innehåller överväganden och rikt linjer för att konfigurera och hantera Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029963"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768171"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-enskild server
 Den här artikeln innehåller överväganden och rikt linjer för att arbeta med Azure Database for PostgreSQL-en server.
@@ -46,7 +46,7 @@ Följande element hjälper till att säkerställa säker åtkomst till databasen
 ## <a name="managing-your-server"></a>Hantera servern
 Du kan hantera Azure Database for PostgreSQL-servrar med hjälp av [Azure Portal](https://portal.azure.com) eller [Azure CLI](/cli/azure/postgres).
 
-När du skapar en server konfigurerar du autentiseringsuppgifterna för administratörs användaren. Administratörs användaren är den högsta behörighets användaren som du har på servern. Den tillhör rollen azure_pg_admin. Den här rollen har inte fullständig behörighet för superanvändare. 
+När du skapar en server konfigurerar du autentiseringsuppgifterna för administratörs användaren. Administratörs användaren är den högsta behörighets användaren som du har på servern. Den tillhör roll azure_pg_admin. Den här rollen har inte fullständig behörighet för superanvändare. 
 
 Attributet PostgreSQL superanvändare tilldelas till azure_superuser, som tillhör den hanterade tjänsten. Du har inte åtkomst till den här rollen.
 

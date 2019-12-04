@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124019"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775841"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
 
@@ -95,7 +95,7 @@ Om du inte hittar några självsignerade certifikat genom att följa dessa steg 
 
 Tomma inloggnings dialog rutor inträffar oftast när Active Directory Federation Services (AD FS) (AD FS) begär Storage Explorer att utföra en omdirigering, vilket inte stöds av Electron. För att undvika det här problemet kan du försöka använda enhets kod flödet för inloggning. Det gör du genom att följa dessa steg:
 
-1. På menyn går du till **förhands granskning** > **använder enhets kod inloggning**.
+1. Öppna **Inställningar**i det vänstra lodräta verktygsfältet. I panelen Inställningar går du till **program** > **loggar**in. Aktivera **Använd enhets kod flödes inloggning**.
 2. Öppna dialog rutan **Anslut** (antingen via plugin-ikonen på vänster lodrätt fält eller genom att välja **Lägg till konto** på konto panelen).
 3. Välj den miljö som du vill logga in på.
 4. Välj **Logga**in.

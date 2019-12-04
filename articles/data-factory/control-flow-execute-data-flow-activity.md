@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679952"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769583"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
@@ -98,6 +98,43 @@ Fel söknings pipelinen körs mot det aktiva fel söknings klustret, inte integr
 ## <a name="monitoring-the-data-flow-activity"></a>Övervaka data flödes aktiviteten
 
 Data flödes aktiviteten har en särskild övervaknings upplevelse där du kan visa information om partitionering, fas tid och data härkomst. Öppna fönstret övervakning via glasögon-ikonen under **åtgärder**. Mer information finns i [övervaka data flöden](concepts-data-flow-monitoring.md).
+
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Använd data flödes aktivitets resultat i en efterföljande aktivitet
+
+Data flödes aktiviteten matar ut mått för antalet rader som skrivs till varje mottagare och rader läses från varje källa. De här resultaten returneras i avsnittet `output` i resultatet av aktivitets körningen. De värden som returneras är i formatet under JSON.
+
+``` json
+{
+    "runStatus": {
+        "metrics": {
+            "<your sink name1>": {
+                "rowsWritten": <number of rows written>,
+                "sinkProcessingTime": <sink processing time in ms>,
+                "sources": {
+                    "<your source name1>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    "<your source name2>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    ...
+                }
+            },
+            "<your sink name2>": {
+                ...
+            },
+            ...
+        }
+    }
+}
+```
+
+Om du till exempel vill komma till antalet rader som skrivs till en mottagare med namnet "sink1" i en aktivitet med namnet "dataflowActivity" använder du `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`.
+
+Använd `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`om du vill hämta antalet rader från en källa med namnet ' source1 ' som användes i denna mottagare.
+
+> [!NOTE]
+> Om en Sink har noll rader skrivna visas den inte i mått. Förekomst kan verifieras med hjälp av funktionen `contains`. `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` kan till exempel kontrol lera om några rader skrevs till sink1.
 
 ## <a name="next-steps"></a>Nästa steg
 

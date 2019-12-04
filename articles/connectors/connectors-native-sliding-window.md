@@ -1,20 +1,17 @@
 ---
-title: Schemalägg aktiviteter för att hantera sammanhängande data Azure Logic Apps
+title: Schemalägg aktiviteter för att hantera sammanhängande data
 description: Skapa och kör återkommande uppgifter som hanterar sammanhängande data med hjälp av glidande fönster i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0312d9480d00d4430cd5d42dc22ef9dac005ee2e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679050"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786919"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Schemalägg och kör aktiviteter för sammanhängande data med hjälp av den glidande fönster utlösaren i Azure Logic Apps
 

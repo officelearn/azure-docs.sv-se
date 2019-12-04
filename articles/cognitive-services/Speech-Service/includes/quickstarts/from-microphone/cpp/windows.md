@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 1a08a5413ae41ef8c17e817a01be9e9efcb7ff99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dd31ae7b0fbbd9c411cf1bb511551bfba57a1838
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503642"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795744"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=windows)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
@@ -39,6 +40,9 @@ Innan du börjar ska du se till att:
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
 1. Välj **arkiv** > **Spara alla**på Meny raden.
+
+> [!NOTE]
+> Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 

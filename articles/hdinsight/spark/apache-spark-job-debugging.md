@@ -5,42 +5,43 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 0e80aa44652efbc58f8259944058aabe59ca5d1a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: hdinsightactive
+ms.date: 11/29/2019
+ms.openlocfilehash: 110a8e86fc1916254ab914630ce10d2b7ae073b7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338470"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775341"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark jobb som körs på Azure HDInsight
 
-I den här artikeln får du lära dig att spåra och felsöka [Apache Spark](https://spark.apache.org/) jobb som körs på HDInsight-kluster med hjälp av [Apache Hadoop garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) gränssnittet, Spark-användargränssnittet och Spark-historiken. Du startar ett Spark-jobb med en bärbar dator som är tillgänglig med **Spark-klustret, Machine Learning: Förutsägelse analys av livsmedels inspektions data med MLLib**. Du kan använda följande steg för att spåra ett program som du har skickat med någon annan metod, till exempel **Spark-Submit**.
+I den här artikeln får du lära dig att spåra och felsöka [Apache Spark](https://spark.apache.org/) jobb som körs på HDInsight-kluster med hjälp av [Apache Hadoop garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) gränssnittet, Spark-användargränssnittet och Spark-historiken. Du startar ett Spark-jobb med en bärbar dator som är tillgänglig med Spark-klustret, **Machine Learning: förutsägande analys av livsmedels inspektions data med MLLib**. Du kan använda följande steg för att spåra ett program som du har skickat med någon annan metod, till exempel **Spark-Submit**.
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Du måste ha följande:
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Du bör ha börjat köra antecknings **boken, [Machine Learning: Förutsägelse analys av livsmedels inspektions data med MLLib](apache-spark-machine-learning-mllib-ipython.md).** Följ länken om du vill ha mer information om hur du kör den här antecknings boken.  
+
+* Du bör ha börjat köra antecknings boken, **[Machine Learning: förutsägande analys av livsmedels inspektions data med MLLib](apache-spark-machine-learning-mllib-ipython.md)** . Följ länken om du vill ha mer information om hur du kör den här antecknings boken.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Spåra ett program i garn gränssnittet
 
-1. Starta garn gränssnittet. Klicka på **garn** under **kluster instrument paneler**.
+1. Starta garn gränssnittet. Välj **garn** under **kluster instrument paneler**.
 
     ![Azure Portal starta garn gränssnittet](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
 
    > [!TIP]  
-   > Du kan också starta garn gränssnittet från Ambari-ANVÄNDARGRÄNSSNITTET. Starta Ambari-ANVÄNDARGRÄNSSNITTET genom att klicka på **Ambari start** under **kluster instrument paneler**. Klicka på **garn**i AMBARI-användargränssnittet, klicka på **snabb länkar**, klicka på den aktiva Resource Manager och klicka sedan på **Resource Manager-användargränssnitt**.
+   > Du kan också starta garn gränssnittet från Ambari-ANVÄNDARGRÄNSSNITTET. Starta Ambari-ANVÄNDARGRÄNSSNITTET genom att välja **Ambari Home** under **kluster instrument paneler**. Från Ambari-ANVÄNDARGRÄNSSNITTET navigerar du till **garn** > **snabb länkar** > active Resource Manager-> **Resource Manager-användargränssnittet**.
 
-2. Eftersom du startade Spark-jobbet med Jupyter-anteckningsböcker har programmet namnet **remotesparkmagics** (detta är namnet på alla program som startas från antecknings böckerna). Klicka på program-ID: t mot program namnet om du vill ha mer information om jobbet. Detta startar programvisningen.
+2. Eftersom du startade Spark-jobbet med Jupyter-anteckningsböcker har programmet namnet **remotesparkmagics** (detta är namnet på alla program som startas från antecknings böckerna). Välj program-ID: t mot program namnet för att få mer information om jobbet. Detta startar programvisningen.
 
     ![Spark-historik Server hitta Spark-programid](./media/apache-spark-job-debugging/find-application-id1.png)
 
     För sådana program som startas från Jupyter Notebooks **körs** alltid statusen tills du avslutar antecknings boken.
+
 3. Från programvyn kan du öka detalj nivån ytterligare för att ta reda på de behållare som är kopplade till programmet och loggarna (STDOUT/STDERR). Du kan också starta Spark-ANVÄNDARGRÄNSSNITTET genom att klicka på länken som motsvarar **spårnings-URL: en**, som visas nedan.
 
     ![Spark historik Server Hämta behållar loggar](./media/apache-spark-job-debugging/download-container-logs.png)
@@ -49,21 +50,21 @@ Du måste ha följande:
 
 I Spark-ANVÄNDARGRÄNSSNITTET kan du öka detalj nivån i Spark-jobben som har skapats av det program som du startade tidigare.
 
-1. Starta Spark-ANVÄNDARGRÄNSSNITTET från vyn program genom att klicka på länken mot **spårnings-URL: en**, som visas i skärmdumpen ovan. Du kan se alla Spark-jobb som startas av programmet som körs i Jupyter Notebook.
+1. Starta Spark-ANVÄNDARGRÄNSSNITTET från vyn program genom att välja länken mot **spårnings-URL: en**, som visas i skärmdumpen ovan. Du kan se alla Spark-jobb som startas av programmet som körs i Jupyter Notebook.
 
     ![Fliken jobb i Spark historik Server](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 
-2. Klicka på fliken **körningar** om du vill se bearbetnings-och lagrings information för varje utförar. Du kan också hämta anrops stacken genom att klicka på länken **tråd dum par** .
+2. Välj fliken **körningar** om du vill se bearbetnings-och lagrings information för varje utförar. Du kan också hämta anrops stacken genom att välja länken **tråd dum par** .
 
     ![Fliken körningar av Spark historik Server](./media/apache-spark-job-debugging/view-spark-executors.png)
 
-3. Klicka på fliken **steg** för att se de steg som är kopplade till programmet.
+3. Välj fliken **steg** för att se de steg som är kopplade till programmet.
 
-    ![Fliken Spark-historik Server etapper](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Visa Spark-steg")
+    ![Fliken Server faser i Spark-historik](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Visa Spark-faser")
 
     Varje steg kan ha flera aktiviteter som du kan använda för att Visa körnings statistik, som du ser nedan.
 
-    ![Fliken Detaljer för Server etapper i Spark historik](./media/apache-spark-job-debugging/view-spark-stages-details.png "Visa Detaljer för Spark-faser")
+    ![Fliken Detaljer för Server etapper för Spark-historik](./media/apache-spark-job-debugging/view-spark-stages-details.png "Visa information om Spark-faser")
 
 4. På sidan information om scenen kan du starta DAG visualisering. Expandera länken **dag visualisering** överst på sidan, som du ser nedan.
 
@@ -83,7 +84,7 @@ I Spark-ANVÄNDARGRÄNSSNITTET kan du öka detalj nivån i Spark-jobben som har 
 6. Andra flikar i Spark-ANVÄNDARGRÄNSSNITTET ger också värdefull information om Spark-instansen.
 
    * Fliken lagring – om ditt program skapar en RDD kan du hitta information om dem på fliken lagring.
-   * Fliken miljö – den här fliken ger mycket värdefull information om din spark-instans, till exempel:
+   * Fliken miljö – den här fliken innehåller användbar information om din spark-instans, till exempel:
      * Scala-version
      * Händelse logg katalog som är kopplad till klustret
      * Antal utförar-kärnor för programmet
@@ -93,16 +94,16 @@ I Spark-ANVÄNDARGRÄNSSNITTET kan du öka detalj nivån i Spark-jobben som har 
 
 När ett jobb har slutförts sparas informationen om jobbet på Spark-historik servern.
 
-1. Starta Spark-historik servern genom att klicka på **Spark historik Server** under **kluster instrument paneler**på översikts bladet.
+1. Om du vill starta Spark-historik servern väljer du **Spark historik Server** under **kluster instrument paneler**på sidan **Översikt** .
 
-    ![Azure Portal starta Spark historik Server](./media/apache-spark-job-debugging/launch-spark-history-server.png "Starta Spark historik server1")
+    ![Azure Portal starta Spark-historik Server](./media/apache-spark-job-debugging/launch-spark-history-server.png "Starta Spark-historik server1")
 
    > [!TIP]  
-   > Du kan också starta Spark-historik serverns användar gränssnitt från Ambari-ANVÄNDARGRÄNSSNITTET. Starta Ambari-ANVÄNDARGRÄNSSNITTET från översikts bladet genom att klicka på **Ambari start** under **kluster instrument paneler**. Klicka på **Spark**från AMBARI-användargränssnittet, klicka på **snabb länkar**och klicka sedan på **Server gränssnitt för Spark-historik**.
+   > Du kan också starta Spark-historik serverns användar gränssnitt från Ambari-ANVÄNDARGRÄNSSNITTET. Om du vill starta Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Ambari start** under **kluster instrument paneler**på bladet översikt. I Ambari-ANVÄNDARGRÄNSSNITTET navigerar du till **Spark2** > **snabb länkar** > **Spark2 historik serverns användar gränssnitt**.
 
-2. Alla slutförda program visas. Klicka på ett program-ID för att öka detalj nivån i ett program för mer information.
+2. Alla slutförda program visas. Välj ett program-ID för att öka detalj nivån i ett program för mer information.
 
-    ![Spark-historik Server slutförda program](./media/apache-spark-job-debugging/view-completed-applications.png "Starta Spark-historik Server2")
+    ![Spark-historik Server slutförde program](./media/apache-spark-job-debugging/view-completed-applications.png "Starta Spark-historik server2")
 
 ## <a name="see-also"></a>Se också
 
@@ -111,8 +112,8 @@ När ett jobb har slutförts sparas informationen om jobbet på Spark-historik s
 
 ### <a name="for-data-analysts"></a>För data analyser
 
-* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Program insiktering telemetri data analys med Apache Spark i HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Använda Caffe på Azure HDInsight Spark för distribuerad djup inlärning](apache-spark-deep-learning-caffe.md)

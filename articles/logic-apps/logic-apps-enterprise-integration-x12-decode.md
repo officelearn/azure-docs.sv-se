@@ -1,109 +1,107 @@
 ---
-title: Avkoda X12 meddelanden – Azure Logic Apps | Microsoft Docs
-description: Validera EDI och generera bekräftelser med X12 meddelande avkodaren i Azure Logic Apps med Enterprise-Integrationspaket
+title: Avkoda X12-meddelanden
+description: Verifiera EDI och generera bekräftelser med X12 Message decoder i Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701454"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792366"
 ---
-# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Avkoda X12 meddelanden i Azure Logic Apps med Enterprise-Integrationspaket
+# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Avkoda X12-meddelanden i Azure Logic Apps med Enterprise-integrationspaket
 
-Med avkodningen X12 meddelande-anslutningen kan kan du verifiera kuvert mot ett handelspartneravtal, verifiera EDI och partner-specifika egenskaper, dela utbyten till transaktioner uppsättningar eller bevara hela utbyten och generera bekräftelser för bearbetade transaktioner. Om du vill använda denna anslutning måste du lägga till anslutningen till en befintlig utlösare i din logikapp.
+Med avkoda X12 Message Connector kan du verifiera kuvertet mot ett handels partner avtal, validera EDI-och partner-/regionsspecifika egenskaper, dela upp ändringar i transaktioner eller bevara hela mellan ändringar och generera bekräftelser för bearbetade transaktioner. Om du vill använda den här anslutningen måste du lägga till anslutningen till en befintlig utlösare i din Logic app.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Här är de objekt som du behöver:
+Här är de objekt du behöver:
 
-* Ett Azure-konto; Du kan skapa en [kostnadsfritt konto](https://azure.microsoft.com/free)
-* En [integrationskontot](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierat och som är associerade med din Azure-prenumeration. Du måste ha ett integrationskonto för att använda anslutningstjänsten avkodningen X12 meddelande.
-* Minst två [partner](logic-apps-enterprise-integration-partners.md) som redan är definierade i ditt integrationskonto
-* En [X12 avtal](logic-apps-enterprise-integration-x12.md) som redan har definierats i ditt integrationskonto
+* Ett Azure-konto; Du kan skapa ett [kostnads fritt konto](https://azure.microsoft.com/free)
+* Ett [integrations konto](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierats och associerats med din Azure-prenumeration. Du måste ha ett integrations konto för att kunna använda meddelandet avkoda X12 Message Connector.
+* Minst två [partner](logic-apps-enterprise-integration-partners.md) som redan har definierats i ditt integrations konto
+* Ett [X12-avtal](logic-apps-enterprise-integration-x12.md) som redan har definierats i ditt integrations konto
 
-## <a name="decode-x12-messages"></a>Avkoda X12 meddelanden
+## <a name="decode-x12-messages"></a>Avkoda X12-meddelanden
 
-1. [Skapa en logikapp](quickstart-create-first-logic-app-workflow.md).
+1. [Skapa en Logic-app](quickstart-create-first-logic-app-workflow.md).
 
-2. Avkoda X12 meddelande kopplingen har utlösare, så måste du lägga till en utlösare för att starta logikappen, som en begäransutlösare. Lägg till en utlösare i Logic App Designer, och sedan lägga till en åtgärd i din logikapp.
+2. X12 Message Connector har inte utlösare, så du måste lägga till en utlösare för att starta din Logic app, t. ex. en begäran-utlösare. Lägg till en utlösare i Logic Apps designer och Lägg sedan till en åtgärd i din Logic app.
 
-3.  I sökrutan anger du ”x12” som filter. Välj **X12-avkoda X12 meddelande**.
+3.  I rutan Sök anger du "x12" för ditt filter. Välj **X12-avkoda X12-meddelande**.
    
-    ![Sök efter ”x12”](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
+    ![Sök efter "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
-3. Om du inte tidigare skapade alla anslutningar till ditt integrationskonto, uppmanas du att skapa anslutningen nu. Namnge din anslutning och välj integrationskontot som du vill ansluta till. 
+3. Om du inte tidigare skapade några anslutningar till ditt integrations konto uppmanas du att skapa anslutningen nu. Ge anslutningen ett namn och välj det integrations konto som du vill ansluta. 
 
-    ![Ger information om kontot för anslutning för integrering](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
+    ![Ange anslutnings information för integrations kontot](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
 
-    Egenskaper med en asterisk krävs.
+    Egenskaper med en asterisk måste anges.
 
     | Egenskap | Information |
     | --- | --- |
-    | Anslutningsnamn * |Ange ett namn för anslutningen. |
-    | Integrationskontot * |Ange ett namn för ditt integrationskonto. Se till att din app med integration-kontot och logik finns i samma Azure-plats. |
+    | Anslutnings namn * |Ange ett namn för anslutningen. |
+    | Integrations konto * |Ange ett namn för ditt integrations konto. Se till att ditt integrations konto och din Logic app finns på samma Azure-plats. |
 
-5.  När du är klar bör anslutningen likna det här exemplet. För att du har skapat anslutningen, Välj **skapa**.
+5.  När du är klar bör din anslutnings information se ut ungefär som i det här exemplet. Klicka på **skapa**om du vill slutföra skapandet av anslutningen.
    
-    ![information om integrering av kontot för anslutning](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+    ![anslutnings information för integrations konto](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
-6. När anslutningen har skapats, som visas i det här exemplet väljer du X12 platt filmeddelande att avkoda.
+6. När anslutningen har skapats, som du ser i det här exemplet, väljer du det X12 platt fil meddelande som ska avkodas.
 
-    ![anslutning till integrering skapas](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
+    ![integrerings konto anslutningen har skapats](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
     Exempel:
 
-    ![Välj X12 meddelande för platt fil för avkodning](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+    ![Välj X12 platt fil meddelande för avkodning](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
    > [!NOTE]
-   > Den faktiska meddelandeinnehåll eller nyttolast för meddelande-matris, bra eller dålig, är base64-kodad. Därför måste du ange ett uttryck som bearbetar det här innehållet.
-   > Här är ett exempel som bearbetar innehållet i XML-format som du kan ange i kodvyn eller genom att använda Uttrycksverktyget i designern.
+   > Det faktiska innehållet eller nytto lasten för meddelande mat ris, bra eller dåligt är Base64-kodat. Så du måste ange ett uttryck som bearbetar det här innehållet.
+   > Här är ett exempel som bearbetar innehållet som XML-kod som du kan ange i kodvyn eller med uttrycks verktyget i designern.
    > ``` json
    > "content": "@xml(base64ToBinary(item()?['Payload']))"
    > ```
-   > ![Innehåll exempel](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   > ![Innehålls exempel](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
    >
 
 
-## <a name="x12-decode-details"></a>X12 avkoda information
+## <a name="x12-decode-details"></a>Information om X12-avkodning
 
-X12 avkodningen connector utför dessa uppgifter:
+X12 avkodnings koppling utför följande uppgifter:
 
-* Verifierar kuvert mot handel partneravtalet
-* Verifierar EDI- och egenskaper för partner
-  * Strukturella EDI-validering och utökade schemavalidering
-  * Validering av strukturen för kuvert utbytet.
-  * Schemavalideringen kuvertets mot kontrollschemat.
-  * Schemavalideringen transaktionsuppsättningen dataelement mot meddelande-schemat.
-  * EDI-validering utförs på transaktionsuppsättningen dataelement 
-* Verifierar att kontrollnummer för set-utbytet, grupp och transaktionen inte är dubbletter
-  * Kontrollerar interchange-kontrollnummer mot tidigare mottagna utbyten.
-  * Kontrollerar gruppkontrollnummer mot andra gruppen kontrollnummer i utbytet.
-  * Kontrollerar transaktionen angetts kontrollnummer mot andra transaktion set kontrollnummer i gruppen.
-* Delar upp interchange i transaktionsuppsättningar eller bevarar hela utbytet:
-  * Dela upp Interchange i transaktionsuppsättningar – inaktivera transaktionsuppsättningar vid fel: Delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
-  X12 avkodningen åtgärdens utdata bara dessa transaktion anger som inte kan valideras till `badMessages`, och övriga transaktioner som anger att utdata `goodMessages`.
-  * Dela upp Interchange i transaktionsuppsättningar – inaktivera interchange vid fel: Delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
-  Om en eller flera transaktion anger i utbytet verifieringen, X12 avkodningen åtgärdens utdata alla transaktioner som anger i det utbytet till `badMessages`.
-  * Bevara Interchange – inaktivera transaktionsuppsättningar vid fel: Bevara utbytet och bearbeta hela gruppbaserade utbytet. 
-  X12 avkodningen åtgärdens utdata bara dessa transaktion anger som inte kan valideras till `badMessages`, och övriga transaktioner som anger att utdata `goodMessages`.
-  * Bevara Interchange – inaktivera interchange vid fel: Bevara utbytet och bearbeta hela gruppbaserade utbytet. 
-  Om en eller flera transaktion anger i utbytet verifieringen, X12 avkodningen åtgärdens utdata alla transaktioner som anger i det utbytet till `badMessages`. 
-* Genererar en teknisk och/eller funktionella bekräftelse (om konfigurerad).
-  * En teknisk bekräftelse genererar till följd av huvud-verifiering. Teknisk bekräftelsen rapporterar status för bearbetning av ett interchange rubrik och trailer av adress-mottagare.
-  * En funktionell bekräftelse genererar ett resultat av brödtext verifiering. Funktionella bekräftelsen rapporterar varje fel vid bearbetning av mottagna dokumentet
+* Validerar kuvertet mot handels partner avtal
+* Validerar EDI-och partner-/regionsspecifika egenskaper
+  * Strukturell validering av EDI och utökad schema validering
+  * Validering av strukturen för Interchange-kuvertet.
+  * Schema validering av kuvertet mot kontroll schema.
+  * Schema validering av transaktions uppsättningens data element mot meddelande schemat.
+  * EDI-verifiering utförs på transaktions uppsättnings data element 
+* Verifierar att kontroll numren för växling, grupp och transaktions uppsättning inte är dubbletter
+  * Kontrollerar växlings kontroll numret mot tidigare mottagna ändringar.
+  * Kontrollerar grupp kontroll numret mot andra grupp kontroll nummer i Interchange.
+  * Kontrollerar transaktions uppsättningens kontroll nummer mot andra kontroll nummer för transaktions uppsättningar i gruppen.
+* Delar upp Interchange i transaktions uppsättningar eller bevarar hela utbytet:
+  * Dela upp utbyte som transaktions uppsättningar – inaktivera transaktions uppsättningar vid fel: delar upp Interchange i transaktions uppsättningar och parsar varje transaktions uppsättning. 
+  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som inte kan verifieras till `badMessages`, och de återstående transaktions uppsättningarna matas ut till `goodMessages`.
+  * Dela upp utbyte som transaktions uppsättningar – pausa utbyte vid fel: delar upp Interchange i transaktions uppsättningar och parsar varje transaktions uppsättning. 
+  Om en eller flera transaktions uppsättningar i växlingen växlar misslyckad, kommer X12-avkodnings åtgärden att mata ut alla transaktions uppsättningar i detta utbyte till `badMessages`.
+  * Bevara Interchange – pausa transaktions uppsättningar vid fel: bevara Interchange och bearbeta hela det batchade utbytet. 
+  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som inte kan verifieras till `badMessages`, och de återstående transaktions uppsättningarna matas ut till `goodMessages`.
+  * Bevara Interchange – pausa utbyte vid fel: bevara Interchange och bearbeta hela det batchade utbytet. 
+  Om en eller flera transaktions uppsättningar i växlingen växlar misslyckad, kommer X12-avkodnings åtgärden att mata ut alla transaktions uppsättningar i detta utbyte till `badMessages`. 
+* Genererar en teknisk och/eller funktionell bekräftelse (om den är konfigurerad).
+  * En teknisk bekräftelse skapas till följd av huvud verifiering. Den tekniska bekräftelsen rapporterar statusen för bearbetningen av ett utbytes huvud och en släpvagn från mottagar adressen.
+  * En funktionell bekräftelse skapas till följd av verifiering av brödtext. Funktions bekräftelsen rapporterar varje fel som påträffades vid bearbetning av det mottagna dokumentet
 
-## <a name="view-the-swagger"></a>Visa swagger
-Se den [swagger information](/connectors/x12/). 
+## <a name="view-the-swagger"></a>Visa Swagger
+Se [Swagger-informationen](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Mer information om Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket") 
+[Läs mer om Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket") 
 

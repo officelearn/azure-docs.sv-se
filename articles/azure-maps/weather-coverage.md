@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0af2d306a5f5923f5e14eb0ebc4707f9c5caee90
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288573"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769038"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
@@ -23,7 +23,7 @@ Azure Maps har inte samma nivå av information och exakthet för alla länder oc
 
 Följande tabell innehåller information om vilken typ av väder information som du kan begära från varje land/region.
 
-| Symbol | Betydelse |
+| Hakparentes | Betydelse |
 |--------|---------|
 |*       |Täcker väder utmed väg, aktuella villkor, Tim prognos, kvartals dags prognos och dagliga prognos-API: er |
 
@@ -58,7 +58,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | El Salvador                              | ✓ |   |  ✓| 
 | Falklandsöarna                         | ✓ |   |  ✓| 
 | Franska Guyana                            | ✓ |   |  ✓| 
-| Grönland (Danmark)                                | ✓ |   |  ✓| 
+| Grönland                                | ✓ |   |  ✓| 
 | Grenada                                  | ✓ |   |  ✓| 
 | Guadeloupe                               | ✓ |   |  ✓| 
 | Guatemala                                | ✓ |   |  ✓| 
@@ -183,7 +183,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Bangladesh                        | ✓ |   |  ✓| 
 | Bhutan                            | ✓ |   |  ✓| 
 | Brittiska territoriet i Indiska oceanen    | ✓ |   |  ✓| 
-| Brunei                            | ✓ |   |  ✓| 
+| Darussalam                            | ✓ |   |  ✓| 
 | Kambodja                          | ✓ |   |  ✓| 
 | Kina                             | ✓ | ✓ |  ✓| 
 | Julön                  | ✓ |   |  ✓| 
@@ -193,7 +193,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Franska Polynesien                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
 | Heard-och McDonaldöarna | ✓ |   |  ✓| 
-| Hongkong SAR                     | ✓ |   |  ✓| 
+| Hong Kong SAR                     | ✓ |   |  ✓| 
 | Indien                             | ✓ |   |  ✓| 
 | Indonesien                         | ✓ |   |  ✓| 
 | Japan                             | ✓ | ✓ |  ✓| 
@@ -222,7 +222,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Papua Nya Guinea                  | ✓ |   |  ✓| 
 | Filippinerna                       | ✓ |   |  ✓| 
 | Pitcairn                  | ✓ |   |  ✓| 
-| Samoaöarna                             | ✓ |   |  ✓| 
+| Samoa                             | ✓ |   |  ✓| 
 | Singapore                         | ✓ |   |  ✓| 
 | Salomonöarna                   | ✓ |   |  ✓| 
 | Sri Lanka                         | ✓ |   |  ✓| 
@@ -276,7 +276,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Liechtenstein          | ✓ | ✓ |  ✓| 
 | Litauen              | ✓ |   |  ✓| 
 | Luxemburg             | ✓ | ✓ |  ✓| 
-| Nordmakedonien        | ✓ |   |  ✓| 
+| Nord Makedonien        | ✓ |   |  ✓| 
 | Malta                  | ✓ |   |  ✓| 
 | Moldavien                | ✓ | ✓ |  ✓| 
 | Monaco                 | ✓ | ✓ |  ✓| 

@@ -2,26 +2,23 @@
 title: Schemalägga återkommande aktiviteter och arbets flöden i Azure Logic Apps
 description: En översikt över schemaläggning av återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 31260be6c65f5948eba6b9c6228b5ead695278d1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 972b9360fa95b528bd955a07451e7347f3e1791d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350716"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792741"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Schemalägg och kör återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps
 
-Logic Apps hjälper dig att skapa och köra automatiserade återkommande uppgifter och processer enligt ett schema. Genom att skapa ett Logic app-arbetsflöde som börjar med en inbyggd upprepnings utlösare eller en överordnad fönster utlösare, som är schema-typ utlösare, kan du köra aktiviteter direkt, vid ett senare tillfälle eller på ett återkommande intervall. Du kan anropa tjänster i och utanför Azure, till exempel HTTP-eller HTTPS-slutpunkter, skicka meddelanden till Azure-tjänster som Azure Storage och Azure Service Bus eller hämta filer som laddats upp till en fil resurs. Med upprepnings utlösaren kan du också ställa in komplexa scheman och avancerade upprepningar för aktiviteter som körs. Mer information om inbyggda schema utlösare och åtgärder finns i [schema](#schedule-triggers) utlösare och [schema åtgärder](#schedule-actions). 
+Logic Apps hjälper dig att skapa och köra automatiserade återkommande uppgifter och processer enligt ett schema. Genom att skapa ett Logic app-arbetsflöde som börjar med en inbyggd upprepnings utlösare eller en överordnad fönster utlösare, som är schema-typ utlösare, kan du köra aktiviteter direkt, vid ett senare tillfälle eller på ett återkommande intervall. Du kan anropa tjänster i och utanför Azure, till exempel HTTP-eller HTTPS-slutpunkter, skicka meddelanden till Azure-tjänster som Azure Storage och Azure Service Bus eller hämta filer som laddats upp till en fil resurs. Med upprepnings utlösaren kan du också ställa in komplexa scheman och avancerade upprepningar för aktiviteter som körs. Mer information om inbyggda schema utlösare och åtgärder finns i [schema utlösare](#schedule-triggers) och [schema åtgärder](#schedule-actions). 
 
 > [!TIP]
-> Du kan schemalägga och köra återkommande arbets belastningar utan att skapa en separat logisk app för varje schemalagt jobb och köra [arbets flöden per region och prenumeration](../logic-apps/logic-apps-limits-and-config.md#definition-limits). I stället kan du använda Det Logic app-mönster som skapats av [Azure snabb starts mal len: Logic Apps jobb schema](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
+> Du kan schemalägga och köra återkommande arbets belastningar utan att skapa en separat logisk app för varje schemalagt jobb och köra [arbets flöden per region och prenumeration](../logic-apps/logic-apps-limits-and-config.md#definition-limits). I stället kan du använda Det Logic app-mönster som skapats av [Azure snabb starts mal len: Logic Apps Job Scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
 >
 > Mallen för Logic Apps jobb schema skapar en CreateTimerJob Logic-app som anropar en TimerJob Logic-app. Du kan sedan anropa CreateTimerJob Logic-appen som ett API genom att göra en HTTP-begäran och skicka ett schema som inpasset för begäran. Varje anrop till CreateTimerJob Logic-appen anropar också TimerJob Logic-appen, som skapar en ny TimerJob-instans som kontinuerligt körs baserat på det angivna schemat eller tills en angiven gräns har uppnåtts. På så sätt kan du köra så många TimerJob-instanser som du vill utan att oroa dig för arbets flödes gränser eftersom instanser inte är enskilda logik definitioner eller resurser för Logic app-arbetsflöden.
 
@@ -55,9 +52,9 @@ Du kan starta ditt Logic app-arbetsflöde med utlösaren upprepnings utlösare e
 
 Här följer skillnaderna mellan dessa utlösare:
 
-* **Upprepning**: Kör arbets flödet med jämna tidsintervall baserat på det angivna schemat. Om upprepningar saknas bearbetar upprepnings utlösaren missade upprepningar men startar om upprepningar med nästa schemalagda intervall. Du kan ange start datum och-tid samt tidszon. Om du väljer dag kan du ange timmar på dagen och minuterna i timmen, till exempel varje dag vid 2:30. Om du väljer "vecka" kan du också välja vecko dagar, till exempel onsdag och lördag. Mer information finns i [skapa, schemalägga och köra återkommande uppgifter och arbets flöden med upprepnings](../connectors/connectors-native-recurrence.md)utlösaren.
+* **Upprepning**: kör arbets flödet med jämna tidsintervall baserat på det angivna schemat. Om upprepningar saknas bearbetar upprepnings utlösaren missade upprepningar men startar om upprepningar med nästa schemalagda intervall. Du kan ange start datum och-tid samt tidszon. Om du väljer dag kan du ange timmar på dagen och minuterna i timmen, till exempel varje dag vid 2:30. Om du väljer "vecka" kan du också välja vecko dagar, till exempel onsdag och lördag. Mer information finns i [skapa, schemalägga och köra återkommande uppgifter och arbets flöden med upprepnings utlösaren](../connectors/connectors-native-recurrence.md).
 
-* **Glidande fönster**: Kör arbets flödet med jämna tidsintervall som hanterar data i kontinuerliga segment. Om upprepningar missas går den glidande fönster utlösaren tillbaka och bearbetar de missade upprepningarna. Du kan ange start datum och tid, tidszon och varaktighet för att försena varje upprepning i arbets flödet. Den här utlösaren har inte alternativ för att ange dagar, veckor och månader, timmar på dagen, minuter i timmen och dagar i veckan. Mer information finns i [skapa, schemalägga och köra återkommande uppgifter och arbets flöden med den glidande fönster](../connectors/connectors-native-sliding-window.md)utlösaren.
+* **Glidande fönster**: kör arbets flödet med regelbundna tidsintervall som hanterar data i kontinuerliga segment. Om upprepningar missas går den glidande fönster utlösaren tillbaka och bearbetar de missade upprepningarna. Du kan ange start datum och tid, tidszon och varaktighet för att försena varje upprepning i arbets flödet. Den här utlösaren har inte alternativ för att ange dagar, veckor och månader, timmar på dagen, minuter i timmen och dagar i veckan. Mer information finns i [skapa, schemalägga och köra återkommande uppgifter och arbets flöden med den glidande fönster utlösaren](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 
@@ -65,9 +62,9 @@ Här följer skillnaderna mellan dessa utlösare:
 
 Efter en åtgärd i ditt Logic app-arbetsflöde kan du använda fördröjningen och fördröjningen tills åtgärder för att göra arbets flödet vänta innan nästa åtgärd körs.
 
-* **Fördröjning**: Vänta på att köra nästa åtgärd för det angivna antalet tidsenheter, till exempel sekunder, minuter, timmar, dagar, veckor eller månader. Mer information finns i [försena nästa åtgärd i arbets flöden](../connectors/connectors-native-delay.md).
+* **Fördröjning**: vänta på att köra nästa åtgärd för det angivna antalet tidsenheter, till exempel sekunder, minuter, timmar, dagar, veckor eller månader. Mer information finns i [försena nästa åtgärd i arbets flöden](../connectors/connectors-native-delay.md).
 
-* **Fördröjning till**: Vänta på att köra nästa åtgärd fram till angivet datum och tid. Mer information finns i [försena nästa åtgärd i arbets flöden](../connectors/connectors-native-delay.md).
+* **Fördröjning till**: vänta på att köra nästa åtgärd tills angivet datum och tid. Mer information finns i [försena nästa åtgärd i arbets flöden](../connectors/connectors-native-delay.md).
 
 ## <a name="patterns-for-start-date-and-time"></a>Mönster för start datum och-tid
 
@@ -78,7 +75,7 @@ Här följer några mönster som visar hur du kan styra upprepningen av start da
 | Starttid | Upprepning utan schema | Upprepning med schema (endast upprepnings utlösare) |
 |------------|-----------------------------|----------------------------------------------------|
 | alternativet | Kör den första arbets belastningen direkt. <p>Kör framtida arbets belastningar baserat på den senaste körnings tiden. | Kör den första arbets belastningen direkt. <p>Kör framtida arbets belastningar baserat på det angivna schemat. |
-| Start tid tidigare | **Upprepnings** utlösare: Beräknar körnings tider baserat på den angivna start tiden och tar bort de senaste körnings tiderna. Kör den första arbets belastningen vid nästa framtida körnings tillfälle. <p>Kör framtida arbets belastningar baserat på beräkningar från den senaste körnings tiden. <p><p>Utlösare för **glidnings fönster** : Beräknar körnings tider baserat på den angivna start tiden och följer de senaste körnings tiderna. <p>Kör framtida arbets belastningar baserat på beräkningar från den angivna start tiden. <p><p>Mer förklaringar finns i exemplet som följer efter den här tabellen. | Kör den första arbets belastningen *tidigare* än start tiden, baserat på schemat som beräknas från start tiden. <p>Kör framtida arbets belastningar baserat på det angivna schemat. <p>**Obs:** Om du anger en upprepning med ett schema, men inte anger timmar eller minuter för schemat, beräknas framtida körnings tider med timmarna eller minuterna från den första körnings tiden. |
+| Start tid tidigare | **Upprepnings** utlösare: beräknar körnings tider baserat på den angivna start tiden och tar bort de senaste körnings tiderna. Kör den första arbets belastningen vid nästa framtida körnings tillfälle. <p>Kör framtida arbets belastningar baserat på beräkningar från den senaste körnings tiden. <p><p>Utlösare för **glidning** : beräknar körnings tider baserat på den angivna start tiden och följer de senaste körnings tiderna. <p>Kör framtida arbets belastningar baserat på beräkningar från den angivna start tiden. <p><p>Mer förklaringar finns i exemplet som följer efter den här tabellen. | Kör den första arbets belastningen *tidigare* än start tiden, baserat på schemat som beräknas från start tiden. <p>Kör framtida arbets belastningar baserat på det angivna schemat. <p>**Obs:** Om du anger en upprepning med ett schema, men inte anger timmar eller minuter för schemat, beräknas framtida körnings tider med timmarna eller minuterna från den första körnings tiden. |
 | Start tid för närvarande eller i framtiden | Kör den första arbets belastningen vid den angivna start tiden. <p>Kör framtida arbets belastningar baserat på beräkningar från den senaste körnings tiden. | Kör den första arbets belastningen *tidigare* än start tiden, baserat på schemat som beräknas från start tiden. <p>Kör framtida arbets belastningar baserat på det angivna schemat. <p>**Obs:** Om du anger en upprepning med ett schema, men inte anger timmar eller minuter för schemat, beräknas framtida körnings tider med timmarna eller minuterna från den första körnings tiden. |
 ||||
 
@@ -88,7 +85,7 @@ Anta att aktuellt datum och tid är 8 september 2017 till 1:00 PM. Du anger star
 
 | Starttid | Aktuell tid | Upprepning | Schema |
 |------------|--------------|------------|----------|
-| 2017-09-**07**T14:00:00Z <br>(2017-09 –**07** vid 2:00 PM) | 2017-09-**08**T13:00:00Z <br>(2017-09 –**08** vid 1:00 PM) | Varannan dag | alternativet |
+| 2017-09-**07**T14:00:00Z <br>(2017-09 –**07** vid 2:00 PM) | 2017-09-**08**t13:00:00Z <br>(2017-09 –**08** vid 1:00 PM) | Varannan dag | alternativet |
 |||||
 
 För upprepnings utlösaren beräknar Logic Apps motor kör tid baserat på Start tiden, tar bort de senaste körnings tiderna, använder nästa framtida start tid för den första körningen och beräknar framtida körningar baserat på den senaste körnings tiden.
@@ -119,38 +116,38 @@ Så, oavsett hur långt tidigare du angav start tiden, till exempel 2017-09 –*
 
 Här är olika exempel upprepningar som du kan ställa in för utlösare som stöder alternativen:
 
-| Utlösare | Upprepning | Interval | Frekvens | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
+| Utlösare | Upprepning | Intervall | Frequency | Starttid | På dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Mönster <br>Skjutfönster | Kör var 15: e minut (inget start datum och-tid) | 15 | Minut | alternativet | otillgänglig | alternativet | alternativet | Schemat startar omedelbart och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |
-| Mönster <br>Skjutfönster | Kör var 15: e minut (med start datum och-tid) | 15 | Minut | *startDate*T*startTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |
+| Mönster <br>Skjutfönster | Kör var 15: e minut (med start datum och-tid) | 15 | Minut | *StartDate* T*StartTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |
 | Mönster <br>Skjutfönster | Kör varje timme, på timmen (med start datum och-tid) | 1 | Timme | *StartDate* THH: 00:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida upprepningar körs varje timme vid "00" minut angivelse, vilket beräknas från start tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
 | Mönster <br>Skjutfönster | Kör varje timme, varje dag (inget start datum och-tid) | 1 | Timme | alternativet | otillgänglig | alternativet | alternativet | Schemat startar omedelbart och beräknar framtida upprepningar baserat på den senaste körnings tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
-| Mönster <br>Skjutfönster | Kör varje timme, varje dag (med start datum och-tid) | 1 | Timme | *startDate*T*startTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
-| Mönster <br>Skjutfönster | Körs var 15: e minut efter timmen, varje timme (med start datum och-tid) | 1 | Timme | *startDate*T00:15:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida upprepningar körs vid "15"-minuten, som beräknas från start tiden, så kl. 00:15, 1:15, 2:15 AM, och så vidare. |
-| Upprepning | Körs var 15: e minut efter timmen, varje timme (inget start datum och-tid) | 1 | Dag | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Det här schemat körs kl. 00:15, 1:15, 2:15 AM, och så vidare. Detta schema motsvarar också en frekvens på "timme" och en start tid med "15" minuter. |
-| Upprepning | Kör var 15: e minut vid de angivna minut tecknen (inget start datum och tid). | 1 | Dag | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Det här schemat startar inte förrän nästa angivna 15-minuters tecken. |
-| Upprepning | Kör varje dag kl. 8, *plus* minuten – Markera när du sparar din Logic app | 1 | Dag | alternativet | otillgänglig | 8 | alternativet | Utan start datum och start tid körs det här schemat utifrån den tidpunkt då du sparar Logi Kap par (PLACERINGs åtgärd). |
-| Upprepning | Kör dagligen vid 8:00 AM (med start datum och-tid) | 1 | Dag | *startDate*T08:00:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida förekomster körs dagligen vid 8:00. | 
-| Upprepning | Kör dagligen vid 8:30 AM (inget start datum och-tid) | 1 | Dag | alternativet | otillgänglig | 8 | 30 | Det här schemat körs vid 8:30 varje dag. |
-| Upprepning | Kör dagligen kl. 8:30 och 4:30 PM | 1 | Dag | alternativet | otillgänglig | 8, 16 | 30 | |
-| Upprepning | Kör dagligen kl. 8:30 AM, 8:45, 4:30 PM och 4:45 PM | 1 | Dag | alternativet | otillgänglig | 8, 16 | 30, 45 | |
+| Mönster <br>Skjutfönster | Kör varje timme, varje dag (med start datum och-tid) | 1 | Timme | *StartDate* T*StartTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. <p>Om frekvensen är "vecka" eller "månad", kör det här schemat bara en dag per vecka eller en dag per månad. |
+| Mönster <br>Skjutfönster | Körs var 15: e minut efter timmen, varje timme (med start datum och-tid) | 1 | Timme | *StartDate* T00:15:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida upprepningar körs vid "15"-minuten, som beräknas från start tiden, så kl. 00:15, 1:15, 2:15 AM, och så vidare. |
+| Upprepning | Körs var 15: e minut efter timmen, varje timme (inget start datum och-tid) | 1 | Day | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | 15 | Det här schemat körs kl. 00:15, 1:15, 2:15 AM, och så vidare. Detta schema motsvarar också en frekvens på "timme" och en start tid med "15" minuter. |
+| Upprepning | Kör var 15: e minut vid de angivna minut tecknen (inget start datum och tid). | 1 | Day | alternativet | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | 0, 15, 30, 45 | Det här schemat startar inte förrän nästa angivna 15-minuters tecken. |
+| Upprepning | Kör varje dag kl. 8, *plus* minuten – Markera när du sparar din Logic app | 1 | Day | alternativet | otillgänglig | 8 | alternativet | Utan start datum och start tid körs det här schemat utifrån den tidpunkt då du sparar Logi Kap par (PLACERINGs åtgärd). |
+| Upprepning | Kör dagligen vid 8:00 AM (med start datum och-tid) | 1 | Day | *StartDate* T08:00:00Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid. Framtida förekomster körs dagligen vid 8:00. | 
+| Upprepning | Kör dagligen vid 8:30 AM (inget start datum och-tid) | 1 | Day | alternativet | otillgänglig | 8 | 30 | Det här schemat körs vid 8:30 varje dag. |
+| Upprepning | Kör dagligen kl. 8:30 och 4:30 PM | 1 | Day | alternativet | otillgänglig | 8, 16 | 30 | |
+| Upprepning | Kör dagligen kl. 8:30 AM, 8:45, 4:30 PM och 4:45 PM | 1 | Day | alternativet | otillgänglig | 8, 16 | 30, 45 | |
 | Upprepning | Kör varje lördag 5 PM (inget start datum och-tid) | 1 | Vecka | alternativet | Söndag | 17 | 00 | Det här schemat körs varje lördag kl 5:00 PM. |
-| Upprepning | Kör varje lördag 5 PM (med start datum och-tid) | 1 | Vecka | *startDate*T17:00:00Z | Söndag | alternativet | alternativet | Det här schemat startar inte *tidigare* än det angivna start datumet och-tiden, i det här fallet den 9 september 2017 vid 5:00 PM. Framtida upprepningar körs varje lördag vid 5:00 PM. |
+| Upprepning | Kör varje lördag 5 PM (med start datum och-tid) | 1 | Vecka | *StartDate* T17:00:00Z | Söndag | alternativet | alternativet | Det här schemat startar inte *tidigare* än det angivna start datumet och-tiden, i det här fallet den 9 september 2017 vid 5:00 PM. Framtida upprepningar körs varje lördag vid 5:00 PM. |
 | Upprepning | Kör varje tisdag, torsdag 5 PM *plus* minuten – Markera när du sparar din Logic app| 1 | Vecka | alternativet | "Tisdag", "torsdag" | 17 | alternativet | |
 | Upprepning | Kör varje timme under arbets tid | 1 | Vecka | alternativet | Välj alla dagar förutom lördag och söndag. | Välj de timmar på dagen som du vill ha. | Välj några minuter i timmen som du vill ha. | Om dina arbets timmar till exempel är 8:00 till 5:00 PM väljer du "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" som timmar på dagen. <p>Om dina arbets timmar är 8:30 till 5:30 PM väljer du de föregående timmarna på dagen plus "30" som minuter i timmen. |
 | Upprepning | Kör en gång varje dag på helger | 1 | Vecka | alternativet | "Lördag", "söndag" | Välj de timmar på dagen som du vill ha. | Välj några minuter i timmen efter behov. | Det här schemat körs varje lördag och söndag enligt det angivna schemat. |
-| Upprepning | Kör var 15: e minut varannan vecka på enbart måndagar | 2 | Vecka | alternativet | Kl | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Det här schemat körs varannan måndag vid varje 15-minuters markering. |
-| Upprepning | Kör varje månad | 1 | Månad | *startDate*T*startTime*Z | otillgänglig | otillgänglig | otillgänglig | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar framtida upprepningar på start datum och start tid. Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. |
-| Upprepning | Kör varje timme för en dag per månad | 1 | Månad | {Se Obs!} | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {Se Obs!} | Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. Om du vill kontrol lera minuterna för upprepnings schemat anger du antalet minuter i timmen, en start tid eller när du använder skapande tiden. Om start tiden eller skapande tiden är 8:25 AM, körs det här schemat vid 8:25 AM, 9:25 AM, 10:25 och så vidare. |
+| Upprepning | Kör var 15: e minut varannan vecka på enbart måndagar | 2 | Vecka | alternativet | Kl | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | 0, 15, 30, 45 | Det här schemat körs varannan måndag vid varje 15-minuters markering. |
+| Upprepning | Kör varje månad | 1 | Månad | *StartDate* T*StartTime*Z | otillgänglig | otillgänglig | otillgänglig | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar framtida upprepningar på start datum och start tid. Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. |
+| Upprepning | Kör varje timme för en dag per månad | 1 | Månad | {Se Obs!} | otillgänglig | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 19 | {Se Obs!} | Om du inte anger start datum och start tid använder det här schemat skapande datum och-tid. Om du vill kontrol lera minuterna för upprepnings schemat anger du antalet minuter i timmen, en start tid eller när du använder skapande tiden. Om start tiden eller skapande tiden är 8:25 AM, körs det här schemat vid 8:25 AM, 9:25 AM, 10:25 och så vidare. |
 |||||||||
 
 <a name="run-once"></a>
 
 ## <a name="run-one-time-only"></a>Kör endast en tid
 
-Om du bara vill köra din Logi Kap par på en gång i framtiden kan du använda **Scheduler: Mall för körning** av jobb. När du har skapat en ny Logic-app men innan du öppnar Logic Apps designer går du till avsnittet **mallar** , i listan **kategori** , väljer **schema**och väljer sedan den här mallen:
+Om du bara vill köra din Logi Kap par på en gång i framtiden kan du använda mallen **Scheduler: kör en gång jobb** . När du har skapat en ny Logic-app men innan du öppnar Logic Apps designer går du till avsnittet **mallar** , i listan **kategori** , väljer **schema**och väljer sedan den här mallen:
 
-![Välj Schemaläggaren: Mall för körning av jobb](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
+![Välj mallen Schemaläggaren: kör när jobb](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
 Eller, om du kan starta din Logi Kap par med **när en http-begäran tas emot – begär** utlösare och skicka start tiden som en parameter för utlösaren. För den första åtgärden använder du åtgärden **fördröj tills-Schedule** och anger hur lång tid det tar innan nästa åtgärd börjar köras.
 

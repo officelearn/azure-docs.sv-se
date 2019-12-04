@@ -1,145 +1,144 @@
 ---
-title: Testa logic apps med fingerade data – Azure Logic Apps
-description: Konfigurera statiska resultat för att testa logic apps med fingerade data utan att påverka produktionsmiljöer
+title: Testa logikappar med testdata
+description: Konfigurera statiska resultat för att testa Logi Kap par med produktionskostnader utan att påverka produktions miljöer
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597208"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790274"
 ---
-# <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testa logic apps med fingerade data genom att ställa in statisk resultat
+# <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testa Logic Apps med bilddata genom att konfigurera statiska resultat
 
-När du testar dina logic apps kan kanske du inte redo att faktiskt anropa eller få åtkomst till appar, tjänster och system för olika anledningar. Vanligtvis i dessa scenarier kan behöva du köra olika villkor sökvägar, tvinga fel, tillhandahålla specifikt meddelande svar organ eller ens försöker hoppa över några steg. Genom att ställa in statisk resultat för en åtgärd i din logikapp, kan du testa utdata från åtgärden. Aktivera statisk resultat på en åtgärd köra inte instruktionen, men returnerar fingerade data i stället.
+När du testar dina Logi Kap par kanske du inte är redo att faktiskt anropa eller komma åt appar, tjänster och system av olika anledningar. I dessa scenarier kan du behöva köra olika villkors sökvägar, tvinga fel, tillhandahålla speciella meddelande svars texter eller till och med försöka hoppa över vissa steg. Genom att ställa in statiska resultat för en åtgärd i din Logic app, kan du skriva ut data från den åtgärden. Att aktivera statiska resultat för en åtgärd kör inte åtgärden, men returnerar de blå data i stället.
 
-Till exempel om du ställer in statisk resultat för Outlook 365 skicka e-post-åtgärd, Logic Apps-motorn returnerar bara fingerade data som du angav som statiska resultat, i stället för att anropa Outlook och skicka ett e-postmeddelande.
+Om du till exempel ställer in statiska resultat för åtgärden skicka e-post i Outlook 365 returnerar Logic Apps-motorn bara de blå data som du har angett som statiska resultat, i stället för att anropa Outlook och skicka ett e-postmeddelande.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill ställa in statisk resultat
+* Den Logic app där du vill konfigurera statiska resultat
 
 <a name="set-up-static-results"></a>
 
 ## <a name="set-up-static-results"></a>Konfigurera statiska resultat
 
-1. Om du inte redan har gjort i den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic Apps Designer.
+1. Om du inte redan har gjort det går du till [Azure Portal](https://portal.azure.com)och öppnar din Logic-app i Logic Apps designer.
 
-1. På åtgärden där du vill ställa in statisk resultat, följer du dessa steg: 
+1. Följ dessa steg på den åtgärd där du vill konfigurera statiska resultat: 
 
-   1. I åtgärdens övre högra hörnet väljer du ellipserna ( *...* ) och välj **statiska resultatet**, till exempel:
+   1. I åtgärdens övre högra hörn väljer du knappen med tre punkter ( *...* ) och väljer **statiskt resultat**, till exempel:
 
-      ![Välj ”statiska resultat” > ”Aktivera statisk resultatet”](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
+      ![Välj "statiskt resultat" > Aktivera statiskt resultat "](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
-   1. Välj **aktivera statisk resultatet**. Ange fingerad utdatavärden som du vill returnera åtgärdens svar för egenskaperna krävs (*).
+   1. Välj **Aktivera statiskt resultat**. För obligatoriska (*) egenskaper anger du de värden för de värden som ska returneras för åtgärdens svar.
 
-      Här är till exempel de nödvändiga egenskaperna för HTTP-åtgärd:
+      Här är till exempel de obligatoriska egenskaperna för HTTP-åtgärden:
 
       | Egenskap | Beskrivning |
       |----------|-------------|
-      | **Status** | Åtgärdens status ska returneras |
-      | **Statuskod** | Specifika statuskoden ska returneras |
-      | **Headers** | Huvud-innehållet så att |
+      | **Status** | Åtgärdens status att returnera |
+      | **Statuskod** | Den angivna status koden som ska returneras |
+      | **Headers** | Det rubrik innehåll som ska returneras |
       |||
 
-      ![Välj ”Aktivera statisk resultatet”](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
+      ![Välj "Aktivera statiskt resultat"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
 
-      Om du vill ange fingerade data i JavaScript Object Notation (JSON)-format, Välj **växla till JSON-läget** (![Välj ”växel till JSON-läget”](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+      Om du vill ange ett JSON-format (modell data i JavaScript Object Notation) väljer du **Växla till JSON-läge** (![Välj "växla till JSON-läge"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
 
-   1. Valfria egenskaper, öppna den **Välj valfria fält** och välj de egenskaper som du vill testa.
+   1. För valfria egenskaper öppnar du listan **Välj valfria fält** och väljer de egenskaper som du vill använda för att modellera.
 
-      ![Välj valfri egenskaper](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
+      ![Välj valfria egenskaper](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. När du är redo att spara väljer **klar**.
+1. När du är redo att spara väljer du **klar**.
 
-   I åtgärdens övre högra hörnet i namnlisten visas nu en bägare testikon (![ikonen för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), vilket betyder att du har aktiverat statiska resultat.
+   I åtgärdens övre högra hörn visar namn listen nu en testbägare ikon (![ikon för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), som anger att du har aktiverat statiska resultat.
 
-   ![Ikon som visar aktiverat statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
+   ![Ikon som visar aktiverade statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
-   Du hittar tidigare körningar som använder fingerade data [hitta körningar som använder statiska resultat](#find-runs-mock-data) senare i det här avsnittet.
+   För att hitta tidigare körningar som använder blå data, se [find-körningar som använder statiska resultat](#find-runs-mock-data) senare i det här avsnittet.
 
 <a name="reuse-sample-outputs"></a>
 
-## <a name="reuse-previous-outputs"></a>Återanvända tidigare utdata
+## <a name="reuse-previous-outputs"></a>Återanvänd tidigare utdata
 
-Om din logikapp har en tidigare kan kör med utdata som du kan återanvända som fingerad utdata du kopiera och klistra in utdata från som körs.
+Om din Logic-app har en tidigare körning med utdata som du kan återanvända som blå utdata, kan du kopiera och klistra in de utdata som körs.
 
-1. Om du inte redan har gjort i den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic Apps Designer.
+1. Om du inte redan har gjort det går du till [Azure Portal](https://portal.azure.com)och öppnar din Logic-app i Logic Apps designer.
 
-1. På huvudmenyn för din logikapp, Välj **översikt**.
+1. På din Logic Apps huvud meny väljer du **Översikt**.
 
-1. I den **Körningshistorik** sektionen, Välj den logikappskörningen om du vill.
+1. I avsnittet **körnings historik** väljer du den logiska app som du vill använda.
 
-1. Hitta och expandera den åtgärd som har de utdata som du vill ha i logikappens arbetsflöde.
+1. Leta upp och expandera den åtgärd som har de utdata du vill ha i din Logic app-arbetsflöde.
 
-1. Välj den **visa råutdata** länk.
+1. Välj länken **Visa rå utdata** .
 
-1. Kopiera objektet fullständig JavaScript Object Notation (JSON) eller specifika avsnitt som du vill använda, till exempel, outputs-avsnittet eller bara avsnittet rubriker.
+1. Kopiera antingen det fullständiga JavaScript Object Notation (JSON)-objektet eller det speciella underavsnitt som du vill använda, till exempel avsnittet utdata eller till och med bara rubrik avsnittet.
 
-1. Följ stegen för att öppna den **Statiska resultatet** box för din åtgärd i [ställa in statisk resultat](#set-up-static-results).
+1. Följ stegen för att öppna den **statiska resultat** rutan för åtgärden i [Konfigurera statiska resultat](#set-up-static-results).
 
-1. Efter den **Statiska resultatet** öppnas, Välj antingen steg:
+1. När den **statiska resultat** rutan öppnas väljer du något av stegen:
 
-   * Om du vill klistra in ett fullständigt JSON-objekt, Välj **växla till JSON-läget** (![Välj ”växel till JSON-läget”](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
+   * Om du vill klistra in ett fullständigt JSON-objekt väljer du **Växla till JSON-läge** (![väljer växla till JSON-läge](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
 
-     ![Välj ”växel till JSON-läget” för fullständigt objekt](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
+     ![Välj växla till JSON-läge för det fullständiga objektet](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
 
-   * Om du vill klistra in bara ett JSON avsnitt, bredvid den områdesetikett väljer **växla till JSON-läget** för avsnittet, till exempel:
+   * Om du vill klistra in bara ett JSON-avsnitt, bredvid avsnittets etikett, väljer du **Växla till JSON-läge** för avsnittet, till exempel:
 
-     ![Välj ”växel till JSON-läget” för utdata](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-outputs.png)
+     ![Välj växla till JSON-läge för utdata](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-outputs.png)
 
-1. Klistra in din tidigare kopierade JSON i JSON-redigerare.
+1. Klistra in din tidigare kopierade JSON i JSON-redigeraren.
 
-   ![JSON-läget](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
+   ![JSON-läge](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. När du är klar väljer du **Klar**. Eller, om du vill återgå till designern, välja **växel redigeringsläget** (![Välj ”växel redigeringsläget”](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. När du är klar väljer du **Klar**. Om du vill återgå till designern väljer du **Växla redigerings läge** (![väljer "växla redigerings läge"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
 
 <a name="find-runs-mock-data"></a>
 
 ## <a name="find-runs-that-use-static-results"></a>Hitta körningar som använder statiska resultat
 
-Logikappens körnings identifierar körningar där åtgärderna som använder statiska resultat. Följ dessa steg för att hitta dessa körs:
+Din Logic Apps körnings historik identifierar de körningar där åtgärderna använder statiska resultat. Följ dessa steg om du vill ta reda på de här körningarna:
 
-1. På huvudmenyn för din logikapp, Välj **översikt**. 
+1. På din Logic Apps huvud meny väljer du **Översikt**. 
 
-1. I den högra rutan under **Körningshistorik**, hitta den **statiska resultat** kolumn. 
+1. Leta upp kolumnen **statiska resultat** i den högra rutan under **körnings historik**. 
 
-   Alla körningar som innehåller åtgärder med resultat har den **Statiska resultat** kolumnen **aktiverad**, till exempel:
+   Alla körningar som innehåller åtgärder med resultat har kolumnen **statiska resultat** inställt på **aktive rad**, till exempel:
 
-   ![Körningshistorik - statisk resultat kolumn](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   ![Körnings historik – statisk resultat kolumn](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
-1. Om du vill visa åtgärder som använder statiska resultat, Välj det kör som du vill var den **Statiska resultat** kolumn har angetts till **aktiverad**.
+1. Om du vill visa åtgärder som använder statiska resultat väljer du den plats där kolumnen **statiska resultat** är inställd på **aktive rad**.
 
-   Åtgärder som använder statiska resultat visa test bägaren (![ikonen för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) ikonen, till exempel:
+   Åtgärder som använder statiska resultat visar ikonen test bägare (![ikon för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), till exempel:
 
-   ![Körningshistorik - åtgärder som använder statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
+   ![Kör historik – åtgärder som använder statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
-## <a name="disable-static-results"></a>Inaktivera statisk resultat
+## <a name="disable-static-results"></a>Inaktivera statiska resultat
 
-Om du inaktiverar statiska resultatet slänga inte värdena från din senaste konfiguration. Så när du aktiverar statisk resultat nästa gång kan du fortsätta använda dina tidigare värden.
+Om du inaktiverar statiska resultat kastas inte värdena från den senaste konfigurationen. Så när du aktiverar statiska resultat nästa gång kan du fortsätta att använda dina tidigare värden.
 
-1. Hitta åtgärden som du vill inaktivera statiska utdata. I åtgärdens övre högra hörnet väljer du ikonen test bägare (![ikonen för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
+1. Hitta den åtgärd där du vill inaktivera statiska utdata. I åtgärdens övre högra hörn väljer du ikonen test bägare (![ikonen för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
 
-   ![Inaktivera statisk resultat](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![Inaktivera statiska resultat](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Välj **inaktivera statiska resultatet** > **klar**.
+1. Välj **inaktivera statiskt resultat** > **slutfört**.
 
-   ![Inaktivera statisk resultat](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![Inaktivera statiska resultat](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## <a name="reference"></a>Referens
 
-Läs mer om den här inställningen i dina underliggande arbetsflödesdefinitioner [Statiska results - Schemareferens för Definitionsspråk för arbetsflödet](../logic-apps/logic-apps-workflow-definition-language.md#static-results) och [runtimeConfiguration.staticResult - Runtime konfigurationsinställningar](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
+Mer information om den här inställningen i de underliggande arbets flödes definitionerna finns i [statiska resultat – schema referens för arbets flödets definitions språk](../logic-apps/logic-apps-workflow-definition-language.md#static-results) och [runtimeConfiguration. staticResult-runtime Configuration Settings](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>Nästa steg
 

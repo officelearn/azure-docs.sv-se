@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821903"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767780"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering för att övervaka frågor och förbättra arbets Belastningens prestanda
 
@@ -34,7 +34,7 @@ Automatisk justering kan aktive ras på servern eller databas nivån via [Azure 
 
 På server nivå kan du välja att ärva konfigurationen för automatisk justering från "Azure-standardvärden" eller att inte ärva konfigurationen. Standardinställningarna för Azure är FORCE_LAST_GOOD_PLAN aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX har inaktiverats.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Om du vill aktivera automatisk justering på Azure SQL Database logisk **Server**navigerar du till servern i Azure Portal och väljer sedan **Automatisk justering** i menyn.
 
@@ -60,7 +60,7 @@ Med Azure SQL Database kan du individuellt ange konfigurationen för automatisk 
 > Den allmänna rekommendationen är att hantera konfigurationen för automatisk justering på **Server nivå** så att samma konfigurations inställningar kan tillämpas automatiskt på alla databaser. Konfigurera automatisk justering endast på en enskild databas om du behöver att databasen har andra inställningar än andra som ärver inställningar från samma server.
 >
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Om du vill aktivera automatisk justering på en **enskild databas**går du till databasen i Azure Portal och väljer **Automatisk justering**.
 
@@ -92,7 +92,7 @@ Om du vill konfigurera enskilda alternativ för automatisk justering via T-SQL a
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-Om du ställer in alternativet för enskild justering till på, åsidosätter alla inställningar som databasen har ärvt och aktiverar justerings alternativet. Att ställa in det på av, åsidosätter även alla inställningar som databasen har ärvt och inaktiverar justerings alternativet. Alternativet för automatisk justering, för vilka DEFAULT anges, kommer att ärva konfigurationen från inställningen för automatisk justering i databas nivån.  
+Om du ställer in alternativet för enskild justering till på, åsidosätter alla inställningar som databasen har ärvt och aktiverar justerings alternativet. Att ställa in det på av, åsidosätter även alla inställningar som databasen har ärvt och inaktiverar justerings alternativet. Alternativet för automatisk justering, för vilka standardvärdet har angetts, kommer att ärva konfigurationen för automatisk justering från inställningarna på server nivå.  
 
 > [!IMPORTANT]
 > I händelse av [aktiv geo-replikering](sql-database-auto-failover-group.md)behöver automatisk justering bara konfigureras på den primära databasen. Automatiskt tillämpade justerings åtgärder, t. ex. när indexet Create eller Delete replikeras automatiskt till den skrivskyddade sekundära. Om du försöker aktivera automatisk justering via T-SQL på den skrivskyddade sekundära sekundären, resulterar det i ett haveri att en annan inställnings konfiguration på den skrivskyddade sekundären inte stöds.

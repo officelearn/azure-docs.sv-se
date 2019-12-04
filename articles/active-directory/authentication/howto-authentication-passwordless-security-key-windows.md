@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452943"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766369"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Aktivera lösen ords lös säkerhets nyckel logga in på Windows 10-enheter (för hands version)
 
@@ -56,7 +56,7 @@ Azure AD-anslutna enheter som du ska pilot med måste köra Windows 10 version 1
 Organisationer kan välja att använda en eller flera av följande metoder för att aktivera användning av säkerhets nycklar för Windows-inloggning baserat på deras organisations krav.
 
 - [Aktivera med Intune](#enable-with-intune)
-   - [Riktad Intune-distribution](#targeted-intune-deployment)
+- [Riktad Intune-distribution](#targeted-intune-deployment)
 - [Aktivera med ett konfigurations paket](#enable-with-a-provisioning-package)
 
 ### <a name="enable-with-intune"></a>Aktivera med Intune
@@ -67,7 +67,7 @@ Organisationer kan välja att använda en eller flera av följande metoder för 
 
 Konfiguration av säkerhets nycklar för inloggning, är inte beroende av att konfigurera Windows Hello för företag.
 
-#### <a name="targeted-intune-deployment"></a>Riktad Intune-distribution
+### <a name="targeted-intune-deployment"></a>Riktad Intune-distribution
 
 Om du vill använda specifika enhets grupper för att aktivera Credential-providern använder du följande anpassade inställningar via Intune.
 
@@ -80,7 +80,7 @@ Om du vill använda specifika enhets grupper för att aktivera Credential-provid
    1. Profil typ: anpassad
    1. Anpassade OMA-URI-inställningar:
       1. Namn: Aktivera FIDO säkerhets nycklar för Windows-inloggning
-      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. Datatyp: heltal
       1. Värde: 1
 1. Den här principen kan tilldelas till vissa användare, enheter eller grupper. Mer information hittar du i artikeln [Tilldela användar-och enhets profiler i Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
@@ -133,7 +133,7 @@ Om du vill dela feedback eller om du får problem med att för hands Visa den h�
    1. Under kategori: FIDO
 1. För att avbilda loggar använder du alternativet: **återskapa mitt problem**
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="does-this-work-in-my-on-premises-environment"></a>Fungerar det här i min lokala miljö?
 

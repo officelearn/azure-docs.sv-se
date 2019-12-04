@@ -1,17 +1,17 @@
 ---
-title: Skrivskyddad replik i Azure Database for MariaDB
+title: Läsa repliker – Azure Database for MariaDB
 description: 'Lär dig mer om att läsa repliker i Azure Database for MariaDB: välja regioner, skapa repliker, ansluta till repliker, övervaka replikering och stoppa replikering.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: f761cb1c4e895cd0960a0a07033e609acf9ef601
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158422"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790447"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
@@ -45,7 +45,9 @@ Du kan ha en huvud server i valfri [Azure Database for MariaDB region](https://a
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. De Universal Replica-regioner som stöds är:
 
-Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2.
+Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA.
+
+\* Västra USA 2 är tillfälligt otillgängligt som en replikerings plats mellan regioner.
 
 
 ### <a name="paired-regions"></a>Länkade regioner
@@ -151,7 +153,7 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 
 Parametern [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) är låst på replik servrarna.
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 
 - Det finns inte stöd för att skapa en replik av en replik.
 - InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MariaDB-replikerings teknik.

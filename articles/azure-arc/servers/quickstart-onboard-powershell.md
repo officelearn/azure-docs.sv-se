@@ -10,18 +10,18 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: ddade9472517d080d01b04c853db9dd1848fe0f3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7fb24d53876ab8c06fca4fbfe929c06a889335f3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668474"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786358"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Snabb start: ansluta datorer till Azure med Azure Arc for servers – PowerShell
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Granska de klienter som stöds och nödvändig nätverks konfiguration i [översikten över Azure-bågen för servrar](overview.md).
 
@@ -175,7 +175,7 @@ När åtgärden har slutförts är datorn ansluten till Azure. Du kan visa dator
 Om servern kräver en proxyserver för **Linux**kan du antingen:
 
 * Kör `install_linux_hybrid_agent.sh`-skriptet från avsnittet [Installera agent](#download-and-install-the-agent) ovan, med `--proxy`.
-* Om du redan har installerat agenten kör du kommandot `/opt/azcmagent/bin/hybridrp_proxy add https://{proxy-url}:{proxy-port}`, som konfigurerar proxyservern och startar om agenten.
+* Om du redan har installerat agenten kör du kommandot `/opt/azcmagent/bin/hybridrp_proxy add http://{proxy-url}:{proxy-port}`, som konfigurerar proxyservern och startar om agenten.
 
 #### <a name="windows"></a>Windows
 
@@ -183,7 +183,7 @@ För **Windows**, om servern kräver proxyserver för åtkomst till Internet res
 
 ```powershell
 # If a proxy server is needed, execute these commands with actual proxy URL
-[Environment]::SetEnvironmentVariable("https_proxy", "{https:\\proxy-url:proxyport}", "Machine")
+[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
 $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
 # The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
 Restart-Service -Name himds

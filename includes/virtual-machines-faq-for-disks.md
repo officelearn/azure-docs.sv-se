@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008580"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795782"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -137,7 +137,9 @@ Du kan inte byta namn på hanterade diskar. Men du kan byta namn på en ohantera
 
 **Kan jag använda GPT-partitionering på en Azure-disk?**
 
-GPT-partitionering kan bara användas på data diskar, inte på OS-diskar. OS-diskar måste ha partitionstypen MBR-partition.
+Generation 1-avbildningar kan bara använda GPT-partitionering på data diskar, inte på OS-diskar. OS-diskar måste ha partitionstypen MBR-partition.
+
+[Generation 2-avbildningar](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) kan använda GPT-partitionering på OS-disken och data diskarna.
 
 **Vilka disk typer stöder ögonblicks bilder?**
 

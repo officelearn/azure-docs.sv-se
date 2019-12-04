@@ -1,21 +1,18 @@
 ---
-title: Anslut till Box – Azure Logic Apps
+title: Anslut till Box
 description: 'Skapa och hantera filer med REST-API: er för Box och Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 5fbc64194182c41a70eb27a4049234973c39fffe
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 38e061e918d445de07961af1789891f44c59090a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050925"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789876"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Skapa och hantera filer i box med Azure Logic Apps
 
@@ -30,7 +27,7 @@ I den här artikeln visas hur du kan skapa och hantera dina filer i Box från en
   När de här åtgärderna får svar gör de utdata tillgängliga för andra åtgärder. 
   När en fil ändras i rutan kan du till exempel skicka filen i ett e-postmeddelande med Office 365.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Box-konto](https://www.box.com/home)
 

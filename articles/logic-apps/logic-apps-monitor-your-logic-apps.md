@@ -1,20 +1,19 @@
 ---
-title: Kontrol lera status, Konfigurera loggning och hämta aviseringar – Azure Logic Apps
+title: Kontrol lera status, Konfigurera loggning och hämta aviseringar
 description: Övervaka status, logg diagnostikdata och konfigurera aviseringar för Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/21/2017
-ms.openlocfilehash: 336e2ac93a954c35b7afc8dbb98dd1fca1838985
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ca1e2836ddfb38de640a5a90cf53e416b8923c04
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680307"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791909"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -179,7 +178,7 @@ Konfigurera [aviseringar i Azure](../azure-monitor/platform/alerts-overview.md)o
 
 Följ dessa steg om du vill konfigurera aviseringar utan [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Mer avancerade aviserings kriterier och åtgärder får du genom att konfigurera [Azure Monitor loggar](#azure-diagnostics) .
 
-1. Välj **diagnostik**  > **varnings regler**  > **Lägg till avisering** som visas här under **övervakning**i bladet Logic app-bladet.
+1. Välj **diagnostik** > **varnings regler** > **Lägg till avisering** som visas här under **övervakning**i bladet Logic app-bladet.
 
    ![Lägg till en avisering för din Logic app](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
@@ -210,7 +209,7 @@ Följ dessa steg om du vill konfigurera aviseringar utan [Azure Monitor loggar](
 
 Varje diagnostisk händelse innehåller information om din Logic app och händelsen, till exempel status, start tid, slut tid och så vidare. Om du vill konfigurera övervakning, spårning och loggning program mässigt kan du använda den här informationen med [REST API för Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure-diagnostik](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
-@No__t_0 händelsen har till exempel `clientTrackingId`-och `trackedProperties` egenskaper som du kan använda för att spåra och övervaka:
+`ActionCompleted` händelsen har till exempel `clientTrackingId`-och `trackedProperties` egenskaper som du kan använda för att spåra och övervaka:
 
 ``` json
 {

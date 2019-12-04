@@ -1,20 +1,17 @@
 ---
-title: Referens guide för funktioner i uttryck – Azure Logic Apps
+title: Referens guide för funktioner i uttryck
 description: Referens guide till funktioner i uttryck för Azure Logic Apps och energi automatisering
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 08/23/2019
-ms.openlocfilehash: db33708fb96ff3e1982579c11a3928750a076f65
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e449eed0a8ae9ed6e1847ea70db6968bf9ede9bd
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582677"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784535"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering
 
@@ -114,7 +111,7 @@ Om du vill arbeta med samlingar, vanligt vis matriser, strängar och ibland kan 
 | [krävande](../logic-apps/workflow-definition-language-functions-reference.md#length) | Returnera antalet objekt i en sträng eller matris. |
 | [Ignorera](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Ta bort objekt från början av en samling och returnera *alla andra* objekt. |
 | [gå](../logic-apps/workflow-definition-language-functions-reference.md#take) | Returnera objekt från början av en samling. |
-| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Returnera en samling som innehåller *alla* objekt från de angivna samlingarna. |
+| [Union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Returnera en samling som innehåller *alla* objekt från de angivna samlingarna. |
 |||
 
 <a name="comparison-functions"></a>
@@ -1771,7 +1768,7 @@ Och returnerar följande resultat:
 
 <a name="endswith"></a>
 
-### <a name="endswith"></a>EndsWith
+### <a name="endswith"></a>endsWith
 
 Kontrol lera om en sträng slutar med en angiven under sträng.
 Returnera true när under strängen hittas eller returnera falskt när den inte hittas.
@@ -2171,7 +2168,7 @@ Och returnerar följande resultat:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>guid
+### <a name="guid"></a>LED
 
 Generera en globalt unik identifierare (GUID) som en sträng, till exempel "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 
@@ -2317,7 +2314,7 @@ item()
 
 *Exempel*
 
-Det här exemplet hämtar `body`-elementet från det aktuella meddelandet för åtgärden "Send_an_email" inuti en för-varje Loops aktuella iteration:
+Det här exemplet hämtar `body`-elementet från det aktuella meddelandet för åtgärden "Send_an_email" i en för-varje Loops aktuella iteration:
 
 ```
 item().body
@@ -2444,7 +2441,7 @@ Det här exemplet skapar en Counter-variabel och ökar den variabeln med ett vä
 
 <a name="json"></a>
 
-### <a name="json"></a>utgör
+### <a name="json"></a>Utgör
 
 Returnera värdet för JavaScript Object Notation (JSON) av typen eller objektet för en sträng eller XML.
 
@@ -3875,7 +3872,7 @@ Och returnerar det här resultatet med det valfria "D"-formatet: `"Monday, Janua
 
 <a name="take"></a>
 
-### <a name="take"></a>Gå
+### <a name="take"></a>gå
 
 Returnera objekt från början av en samling.
 
@@ -3932,7 +3929,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-### <a name="tolower"></a>toLower
+### <a name="tolower"></a>ToLower
 
 Returnera en sträng med gemener. Om ett tecken i strängen inte har en gemen version, är det tecken oförändrat i den returnerade strängen.
 
@@ -3962,7 +3959,7 @@ Och returnerar följande resultat: `"hello world"`
 
 <a name="toUpper"></a>
 
-### <a name="toupper"></a>toUpper
+### <a name="toupper"></a>ToUpper
 
 Returnera en sträng i versal format. Om ett tecken i strängen inte har en versal version, är det tecken oförändrat i den returnerade strängen.
 
@@ -3992,7 +3989,7 @@ Och returnerar följande resultat: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
-### <a name="trigger"></a>Utlösare
+### <a name="trigger"></a>utlösare
 
 Returnera en utlösare utdata vid körning eller värden från andra JSON-namn och värde-par som du kan tilldela till ett uttryck.
 
@@ -4129,7 +4126,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-### <a name="trim"></a>Reducera
+### <a name="trim"></a>reducera
 
 Ta bort inledande och avslutande blank steg från en sträng och returnera den uppdaterade strängen.
 
@@ -4159,7 +4156,7 @@ Och returnerar följande resultat: `"Hello World"`
 
 <a name="union"></a>
 
-### <a name="union"></a>union
+### <a name="union"></a>Union
 
 Returnera en samling som innehåller *alla* objekt från de angivna samlingarna.
 För att visas i resultatet kan ett objekt visas i alla samlingar som skickas till den här funktionen. Om ett eller flera objekt har samma namn visas det sista objektet med det namnet i resultatet.
@@ -4468,7 +4465,7 @@ Och returnerar följande resultat: `"http"`
 
 <a name="utcNow"></a>
 
-### <a name="utcnow"></a>UtcNow
+### <a name="utcnow"></a>utcNow
 
 Returnera den aktuella tidsstämpeln.
 
@@ -4513,7 +4510,7 @@ Och returnerar följande resultat: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
-### <a name="variables"></a>Användarvariabler
+### <a name="variables"></a>användarvariabler
 
 Returnera värdet för en angiven variabel.
 

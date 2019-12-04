@@ -1,67 +1,66 @@
 ---
-title: Fel och lösningar för B2B - scenarier för Azure Logic Apps | Microsoft Docs
+title: Fel och lösningar för B2B-scenarier
 description: Hitta fel och lösningar för B2B-scenarier i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 176bc3642f7c923b50cbf2f7a97096f88dc02817
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60998838"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790710"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B-fel och lösningar för Azure Logic Apps
 
-Den här artikeln hjälper dig att felsöka fel som kan inträffa i Logic Apps B2B-scenarier och ger förslag på åtgärder för att korrigera dessa fel.
+Den här artikeln hjälper dig att felsöka fel som kan uppstå i Logic Apps B2B scenarier och ger förslag på lämpliga åtgärder för att korrigera felen.
 
-## <a name="agreement-resolution"></a>Avtalsmatchningen
+## <a name="agreement-resolution"></a>Avtals lösning
 
-### <a name="no-agreement-found"></a>Hitta något avtal 
+### <a name="no-agreement-found"></a>Inget avtal hittades 
 
 |   |   |  
 |---|---|
-| Felbeskrivning | Hitta något avtal med avtal upplösning parametrar. | 
-| Användaråtgärd | Avtalet ska läggas till integrationskontot med överenskomna företagsidentiteter. </br>Företagsidentiteter måste matcha det inkommande meddelandet ID: N. |  
+| Felbeskrivning | Det gick inte att hitta några avtal med avtals matchnings parametrar. | 
+| Användar åtgärd | Avtalet bör läggas till i integrations kontot med överenskomna affärs identiteter. </br>Affärs identiteter bör matcha ID: n för indatamängden. |  
 |   |   |
 
-### <a name="no-agreement-found-with-identities"></a>Hitta något avtal med identiteter
+### <a name="no-agreement-found-with-identities"></a>Inget avtal hittades med identiteter
 
 |   |   | 
 |---|---|
-| Felbeskrivning | Hitta något avtal med identiteter: ”AS2Identity”:: ”Partner1' och 'AS2Identity”:: ”Partner3” | 
-| Användaråtgärd | Ogiltigt AS2-från eller AS2-till konfigurerade för avtalet. </br>Korrigera AS2-meddelandet ”AS2-från” eller ”AS2-att” rubriker eller avtalet som matchar AS2-ID: N i meddelandehuvudena AS2 med avtal konfigurationer. |
+| Felbeskrivning | Inget avtal hittades med identiteter: "AS2Identity":: "Partner1" and'AS2Identity "::" Partner3 " | 
+| Användar åtgärd | Ogiltig AS2-från-eller AS2-till-konfigurerad för avtal. </br>Korrigera AS2-meddelandets "AS2-from"-eller "AS2-to"-rubriker eller avtalet för att matcha AS2-ID: na i AS2 meddelande rubriker med avtals konfigurationer. |
 |   |   |     
 
 ## <a name="as2"></a>AS2
 
-### <a name="missing-as2-message-headers"></a>Saknas rubriker för AS2-meddelande  
+### <a name="missing-as2-message-headers"></a>AS2 meddelande huvud saknas  
 
 |   |   |  
 |---|---|
-| Felbeskrivning | Ogiltigt AS2-huvuden. En av de ”AS2-att” eller ”AS2-från” sidhuvuden är tomma. | 
-| Användaråtgärd | Ett AS2-meddelande togs emot, vilket inte innehöll AS2-från eller AS2-att eller båda rubriker. </br> Kontrollera AS2-meddelandet AS2-från och AS2-sidhuvuden och korrekt dem baserat på konfigurationen för avtalet. |
+| Felbeskrivning | Ogiltiga AS2-rubriker. En av rubrikerna "AS2-till" eller "AS2-from" är tom. | 
+| Användar åtgärd | Ett AS2-meddelande togs emot som inte innehöll AS2-från-eller AS2-till-eller båda huvudena. </br> Kontrol lera AS2-meddelandet AS2-from och AS2-to-headers och korrigera dem baserat på avtals konfigurationen. |
 |  |  | 
 
-### <a name="missing-as2-message-body-and-headers"></a>Saknade AS2 meddelandetexten och rubriker    
+### <a name="missing-as2-message-body-and-headers"></a>Meddelande text och rubriker för AS2 saknas    
 
 |   |   |  
 |---|---|
 | Felbeskrivning | Innehållet i begäran är null eller tomt. | 
-| Användaråtgärd | Ett AS2-meddelande togs emot, vilket inte innehöll meddelandetexten. |
+| Användar åtgärd | Ett AS2-meddelande togs emot som inte innehöll meddelande texten. |
 |  |  | 
 
-### <a name="as2-message-decryption-failure"></a>Krypteringsfel för AS2-meddelande
+### <a name="as2-message-decryption-failure"></a>Fel vid dekryptering av AS2-meddelande
 
 |   |   | 
 |---|---|
-| Felbeskrivning |  [bearbetas/fel: Dekrypteringen misslyckades] | 
-| Användaråtgärd | Lägg till @base64ToBinary till AS2Message innan de skickas till partner. |
+| Felbeskrivning |  [bearbetade/fel: dekryptering-misslyckades] | 
+| Användar åtgärd | Lägg till @base64ToBinary i AS2Message innan du skickar till partner. |
 |||
 
 Exempel:
@@ -76,12 +75,12 @@ Exempel:
 },
 ``` 
 
-### <a name="mdn-decryption-failure"></a>MDN krypteringsfel
+### <a name="mdn-decryption-failure"></a>MDN-dekrypterings problem
 
 |   |   | 
 |---|---|
-| Felbeskrivning |  [bearbetas/fel: Dekrypteringen misslyckades] | 
-| Användaråtgärd | Lägg till @base64ToBinary till MDN innan de skickas till partner. | 
+| Felbeskrivning |  [bearbetade/fel: dekryptering-misslyckades] | 
+| Användar åtgärd | Lägg till @base64ToBinary i MDN innan du skickar till partner. | 
 |||
 
 Exempel:
@@ -95,57 +94,57 @@ Exempel:
 },               
 ``` 
 
-### <a name="missing-signing-certificate"></a>Signeringscertifikatet saknas
+### <a name="missing-signing-certificate"></a>Signerings certifikat saknas
 
 |   |   |  
 |---|---|
-| Felbeskrivning| Signeringscertifikatet har inte konfigurerats för AS2-parten. </br>AS2-från: partner1 AS2-till: partner2 | 
-| Användaråtgärd | Konfigurera inställningar för AS2-avtal med rätt certifikat för signaturen. |
+| Felbeskrivning| Signerings certifikatet har inte kon figurer ATS för AS2-parten. </br>AS2 – från: partner1 AS2-till: partner2 | 
+| Användar åtgärd | Konfigurera inställningar för AS2-avtal med rätt certifikat för signatur. |
 |  |  | 
 
 ## <a name="x12-and-edifact"></a>X12 och EDIFACT
 
-### <a name="leading-or-trailing-space-found"></a>Inledande eller avslutande blanksteg har påträffats    
+### <a name="leading-or-trailing-space-found"></a>Inledande eller avslutande blank steg hittades    
     
 |   |   | 
 |---|---|
-| Felbeskrivning | Ett fel påträffades under parsning. Ange EDIFACT-transaktionsuppsättningen med ID ”123456” som finns i utbytet (utan grupp) med ID: t 987654 ”, med avsändar-ID: 'Partner1', Mottagar-ID:” Partner2 ”har inaktiverats med följande fel: <p>”Inledande avslutande avgränsare har påträffats” |
-| Användaråtgärd | Inställningar för avtal att konfigureras för att tillåta inledande och avslutande blanksteg. </br>Redigera avtal inställningar för att tillåta ledande och avslutande blanksteg. |
+| Felbeskrivning | Ett fel uppstod vid parsning. EDIFACT-transaktions uppsättningen med ID: t 123456 som finns i Interchange (utan grupp) med ID: t 987654, med avsändar-ID: t Partner1, mottagarens ID partner2, pausas med följande fel: <p>"Inledande avslutande separator hittades" |
+| Användar åtgärd | Avtals inställningarna som ska konfigureras för att tillåta inledande och avslutande blank steg. </br>Redigera avtals inställningar för att tillåta inledande och avslutande blank steg. |
 |   |   |
 
 ![Tillåt utrymme](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
-### <a name="duplicate-check-has-enabled-in-the-agreement"></a>Dubbla Kontrollera har aktiverats i avtalet
+### <a name="duplicate-check-has-enabled-in-the-agreement"></a>Duplicerad kontroll har Aktiver ATS i avtalet
 
 |   |   | 
 |---|---| 
-| Felbeskrivning | Dubblettkontrollnummer |
-| Användaråtgärd | Det här felet tyder det mottagna meddelandet har duplicerade kontrollnummer. </br>Korrigera kontrollnummer och skicka meddelandet igen. |
+| Felbeskrivning | Duplicerat kontroll nummer |
+| Användar åtgärd | Det här felet indikerar att det mottagna meddelandet har dubbla kontroll nummer. </br>Korrigera kontroll numret och skicka meddelandet igen. |
 |   |   |
 
-### <a name="missing-schema-in-the-agreement"></a>Saknas schemat i avtalet
+### <a name="missing-schema-in-the-agreement"></a>Schema som saknas i avtalet
 
 |   |   | 
 |---|---| 
-| Felbeskrivning | Ett fel påträffades under parsning. X12 transaktionsuppsättningen med ID '564220001' ingår i funktionsgruppen med ID '56422', i utbytet med ID '000056422 ”, med avsändar-ID: t 12345678-, Mottagar-ID: t 87654321” har inaktiverats med följande fel: <p>”Meddelandet har en okänd dokumenttyp och matchade inte till någon av de befintliga scheman som konfigurerats i avtalet” |
-| Användaråtgärd | Konfigurera schema i inställningarna för avtalet.  |
+| Felbeskrivning | Ett fel uppstod vid parsning. X12-transaktions uppsättningen med ID: t 564220001 i funktions gruppen med ID: t 56422, i Interchange med ID: t 000056422, med avsändar-ID: t "12345678", mottagarens ID "87654321" pausas med följande fel: <p>"Meddelandet har en okänd dokument typ och matchade inte något av de befintliga scheman som kon figurer ATS i avtalet" |
+| Användar åtgärd | Konfigurera schemat i avtals inställningarna.  |
 |   |   |
 
 ### <a name="incorrect-schema-in-the-agreement"></a>Felaktigt schema i avtalet
 
 |   |   | 
 |---|---| 
-| Felbeskrivning | Meddelandet har en okänd dokumenttyp och matchade inte till någon av de befintliga scheman som konfigurerats i avtalet. |
-| Användaråtgärd | Konfigurera rätt schema i inställningarna för avtalet. |
+| Felbeskrivning | Meddelandet har en okänd dokument typ och matchade inte något av de befintliga scheman som kon figurer ATS i avtalet. |
+| Användar åtgärd | Konfigurera rätt schema i avtals inställningarna. |
 |   |   |
 
 ## <a name="flat-file"></a>Flat fil
 
-### <a name="input-message-with-no-body"></a>Indatameddelande med ingen brödtext
+### <a name="input-message-with-no-body"></a>Indatameddelande utan brödtext
 
 |   |   | 
 |---|---|
-| Felbeskrivning | InvalidTemplate. Det går inte att bearbeta mallspråksuttryck i praktiken 'Flat_File_Decoding' indata på rad '1' och kolumnen '1902 ”: ”Krävs för egenskapen” innehåll ”förväntar sig ett värde men har null. Sökvägen '.'. |
-| Användaråtgärd | Det här felet indikerar det inkommande meddelandet inte innehåller en brödtext. |
+| Felbeskrivning | InvalidTemplate. Det gick inte att bearbeta mallens språk uttryck i åtgärdens Flat_File_Decoding indata på rad 1 och kolumn 1902: obligatoriskt egenskaps innehåll förväntar sig ett värde men null returnerades. Sökväg ' '. '. |
+| Användar åtgärd | Det här felet anger att meddelandet inte innehåller någon brödtext. |
 |   |   | 
 

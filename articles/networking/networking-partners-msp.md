@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824367"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766490"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -28,12 +28,13 @@ Kunder kan köpa MSP-hanterade tjänster i Azure Marketplace eller direkt från 
 
 Använd länkarna i det här avsnittet för mer information om hanterade moln nätverks tjänster som erbjuds av Azure Network MSP-partner. Om din moln nätverks tjänst partner inte visas i avsnittet nedan, ber du leverantören att kontakta oss. De kan kontakta oss genom att skicka ett e-postmeddelande till ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Cloud Network Transformation Services** | **Hanterade ExpressRoute** | **Hanterat virtuellt WAN** | **Hanterade nätverks säkerhets tjänster** |**Beräkning av hanterade nätverks Edge** |
+| **MSP** | **Cloud Network Transformation Services** | **Hanterade ExpressRoute** | **Hanterat virtuellt WAN** | **Hanterade nätverks säkerhets tjänster** |**Hanterad Edge-beräkning för flera användare** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Ja|
 |[ANS-grupp Storbritannien](https://www.ans.co.uk/)|Ja|Ja||||
 |[Aryaka nätverk](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Ja |Ja |Ja | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Ja|Ja|Ja|||
+|[Samutvecklande](https://www.coevolve.com/services/azure-networking-services/)|Ja||Ja|Ja||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Ja|||||
 |[Dimensions data](https://www.dimensiondata.com/)|Ja|||||
 |[Equinix](https://www.equinix.com/)|Ja|Ja||||

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489077"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790547"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Mass registrering av virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 
@@ -30,7 +30,7 @@ Registrerings processen har ingen risk, har ingen stillestånds tid och kommer i
 
 Mer information om resurs leverantören finns i [SQL VM Resource Provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna registrera SQL Server VM med resurs leverantören: 
 
@@ -214,7 +214,7 @@ Rapporten skapas som en `.txt` fil med namnet `RegisterSqlVMScriptReport<Timesta
 | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server på Windows | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server eller inte är en virtuell Windows-dator. De virtuella datorerna visas i formatet `SubscriptionID, Resource Group, Virtual Machine`. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Logga 
+### <a name="log"></a>Logg 
 
 Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` där tidsstämpel är den tid då skriptet startades. Om felet finns på prenumerations nivån innehåller loggen det kommaavgränsade SubscriptionID och fel meddelandet. Om felet är med den virtuella dator registreringen innehåller loggen prenumerations-ID, resurs gruppens namn, namn på virtuell dator, felkod och meddelande avgränsade med kommatecken. 
 
@@ -222,7 +222,7 @@ Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` d
 
 Tänk på följande när du registrerar SQL Server virtuella datorer med resurs leverantören med det tillhandahållna skriptet:
 
-- Registrering med resurs leverantören kräver att en gästa Gent körs på SQL Server VM. Windows Server 2008-avbildningar har ingen gästa Gent, så de här virtuella datorerna kommer att Miss Miss sen och måste registreras manuellt med [hanterings läget för noagent](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
+- Registrering med resurs leverantören kräver att en gästa Gent körs på SQL Server VM. Windows Server 2008-avbildningar har ingen gästa Gent, så de här virtuella datorerna kommer att Miss Miss sen och måste registreras manuellt med [hanterings läget för noagent](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).
 - Det finns ett omprövnings logik som är inbyggt för att lösa transparenta fel. Om den virtuella datorn har registrerats är det en snabb åtgärd. Men om registreringen Miss lyckas görs ett nytt försök för varje virtuell dator.  Därför bör du tillåta betydande tid att slutföra registrerings processen – även om det faktiska tids kravet är beroende av typ och antal fel. 
 
 ## <a name="full-script"></a>Fullständigt skript

@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706233"
+ms.locfileid: "74786426"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -90,11 +90,11 @@ I det här exemplet skapas användare och grupper i en HR-databas som är anslut
 
 1. Användare/grupper skapas i ett lokalt HR-program/-system, till exempel SAP. 
 
-1. Azure AD Connect agent kör schemalagda synkroniseringar av identiteter (användare och grupper) från den lokala AD till Azure AD.
+1. **Azure AD Connect agent** kör schemalagda synkroniseringar av identiteter (användare och grupper) från den lokala AD till Azure AD.
 
-1. Azure AD Provisioning-tjänsten startar en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) mot käll systemet och mål systemet. 
+1. **Azure AD Provisioning-tjänsten** startar en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) mot käll systemet och mål systemet. 
 
-1. Azure AD Provisioning-tjänsten skickar frågor till käll systemet för alla användare och grupper som har ändrats sedan den första cykeln, och skickar ändringar i [stegvisa cykler](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD Provisioning-tjänsten** skickar frågor till käll systemet för alla användare och grupper som har ändrats sedan den första cykeln, och skickar ändringar i [stegvisa cykler](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Automatisk användar etablering för enbart moln bolag
 
@@ -106,9 +106,9 @@ I det här exemplet sker skapande av användare i Azure AD och Azure AD Provisio
 
 1. Användare/grupper skapas i Azure AD.
 
-1. Azure AD Provisioning-tjänsten startar en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) mot käll systemet och mål systemet. 
+1. **Azure AD Provisioning-tjänsten** startar en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) mot käll systemet och mål systemet. 
 
-1. Azure AD Provisioning-tjänsten skickar frågor till käll systemet för användare och grupper som har uppdaterats sedan den första cykeln och utför eventuella [stegvisa cykler](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD Provisioning-tjänsten** skickar frågor till käll systemet för användare och grupper som har uppdaterats sedan den första cykeln och utför eventuella [stegvisa cykler](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Automatisk användar etablering för moln HR-program 
 

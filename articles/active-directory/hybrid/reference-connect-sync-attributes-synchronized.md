@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e95b230d4f9699f15296ba94946c7063cabd0516
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847195"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766097"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect synkronisering: attribut synkroniserade till Azure Active Directory
 I det här avsnittet visas de attribut som synkroniseras med Azure AD Connect Sync.  
@@ -64,7 +64,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| description | | |X | |
+| beskrivning | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -174,7 +174,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
-## <a name="sharepoint-online"></a>sharepoint online
+## <a name="sharepoint-online"></a>SharePoint Online
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
@@ -185,7 +185,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -209,7 +209,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
 | statusinformation |X |X |X | |
-| Initialer |X |X | | |
+| initialer |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
 | e-post |X |X |X | |
@@ -265,7 +265,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | företag |X |X | | |
 | company |X |X | | |
 | avdelning |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -325,7 +325,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | e-post |X |X |X | |
 | MailNickName |X |X |X | |
@@ -346,7 +346,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | företag |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -430,7 +430,7 @@ Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när 
 | msExchSafeRecipientsHash| MS-SafeRecipientsHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
 | msExchSafeSendersHash| MS-SafeSendersHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
 | msExchUCVoiceMailSettings| MS-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – online röst meddelande: används av Microsoft Lync Server integration för att indikera att den lokala Lync-servern har röst meddelanden i onlinetjänster. |
-| msExchUserHoldPolicies| MS-EXC-hUserHoldPolicies |X | | |Tvister: aktiverar moln tjänster för att avgöra vilka användare som omfattas av tvister. |
+| msExchUserHoldPolicies| MS-UserHoldPolicies |X | | |Tvister: aktiverar moln tjänster för att avgöra vilka användare som omfattas av tvister. |
 | proxyAddresses| proxyAddresses |X |X |X |Endast x500-adressen från Exchange Online har infogats. |
 | publicDelegates| MS-multikommunikation – offentligt – ombud  |X | | |Tillåter att en Exchange Online-postlåda beviljas SendOnBehalfTo-rättigheter till användare med lokal Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 

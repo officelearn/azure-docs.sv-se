@@ -7,23 +7,23 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: 3ad82a1312ccce5029685d903a3c5e3caff50f8a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: edee0e2efadd8e92ebf3533f0716c82029a0c680
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495986"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791698"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett allmänt-syfte v2-lagrings konto
 
-Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage funktionerna och inkluderar alla funktioner i generella v1-och Blob Storage-konton. Allmänna-Purpose v2-konton rekommenderas för de flesta lagrings scenarier. Allmänna-Purpose v2-konton ger de lägsta priserna per Gigabyte för Azure Storage, samt priser för priser som är konkurrerande för branschen.
+Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage funktionerna och inkluderar alla funktioner i generella v1-och Blob Storage-konton. Allmänna-Purpose v2-konton rekommenderas för de flesta lagrings scenarier. Allmänna-Purpose v2-konton ger de lägsta priserna per Gigabyte för Azure Storage, samt priser för priser som är konkurrerande för branschen. General-testning v2-konton har stöd för standard konto åtkomst nivåer för frekvent eller låg frekvent lagrings nivå och blobnivå mellan frekvent, låg frekvent eller Arkiv lag ring.
 
 Det är enkelt att uppgradera till ett allmänt lagrings konto från generella v1-eller Blob Storage-konton. Du kan uppgradera med hjälp av Azure Portal, PowerShell eller Azure CLI.
 
 > [!IMPORTANT]
 > Att uppgradera ett allmänt v1-eller Blob Storage-konto till General-Purpose v2 är permanent och kan inte ångras.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till ditt lagringskonto.
@@ -40,19 +40,19 @@ Det är enkelt att uppgradera till ett allmänt lagrings konto från generella v
 
 Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av PowerShell, måste du först uppdatera PowerShell för att använda den senaste versionen av modulen **AZ. Storage** . Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-Anropa sedan följande kommando för att uppgradera kontot, och ersätt namnet på resurs gruppen och lagrings kontot:
+Anropa sedan följande kommando för att uppgradera kontot, och ersätta resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av Azure CLI installerar du först den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Anropa sedan följande kommando för att uppgradera kontot, och ersätt namnet på resurs gruppen och lagrings kontot:
+Anropa sedan följande kommando för att uppgradera kontot, och ersätta resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
 ```cli
-az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
 ---
@@ -72,7 +72,7 @@ I båda fallen är den första prioriteten att uppskatta kostnaden för att lagr
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
-Att uppgradera ett v1-lagrings konto till ett allmänt-syfte v2-konto är kostnads fritt. Att ändra lagrings åtkomst nivån kan dock leda till ändringar i din faktura. 
+Att uppgradera ett v1-lagrings konto till ett allmänt-syfte v2-konto är kostnads fritt. Du kan ange önskad konto nivå under uppgraderings processen. Om ingen konto nivå har angetts vid uppgradering kommer standard konto nivån för det uppgraderade kontot att `Hot`. Men om du ändrar lagrings åtkomst nivån efter uppgraderingen kan det leda till ändringar i fakturan så att du bör ange den nya konto nivån under uppgraderingen.
 
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
 

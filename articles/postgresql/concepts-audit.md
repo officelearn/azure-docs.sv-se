@@ -1,17 +1,17 @@
 ---
-title: Gransknings loggning med pgAudit i Azure Database for PostgreSQL-enskild server
+title: Gransknings loggning – Azure Database for PostgreSQL-enskild server
 description: Begrepp för pgAudit gransknings loggning i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 49ad7334c418e29c821320608be729e060b4a8ae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331337"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764567"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Gransknings loggning i Azure Database for PostgreSQL-enskild server
 
@@ -37,7 +37,7 @@ Information om hur du ställer in loggning för Azure Storage, Event Hubs eller 
 
 ## <a name="installing-pgaudit"></a>Installerar pgAudit
 
-Om du vill installera pgAudit måste du ta med den i serverns delade preload-bibliotek. En ändring av postgres-parameterns `shared_preload_libraries`-parameter kräver att en omstart av servern börjar gälla. Du kan ändra parametrar med hjälp av [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)eller [REST API](/rest/api/postgresql/configurations/createorupdate).
+Om du vill installera pgAudit måste du ta med den i serverns delade preload-bibliotek. En ändring i `shared_preload_libraries` postgres-parametern måste startas om för att en server ska börja gälla. Du kan ändra parametrar med hjälp av [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)eller [REST API](/rest/api/postgresql/configurations/createorupdate).
 
 Använda [Azure Portal](https://portal.azure.com):
 
@@ -68,24 +68,24 @@ När du har [installerat pgAudit](#installing-pgaudit)kan du konfigurera dess pa
 > Om du anger `pgaudit.log_client` till på omdirigeras loggarna till en klient process (t. ex. psql) i stället för att skrivas till filen. Den här inställningen bör normalt vara inaktiverad.
 
 > [!NOTE]
-> `pgaudit.log_level` aktive ras bara när `pgaudit.log_client` är på. I Azure Portal finns det för närvarande en bugg med `pgaudit.log_level`: en kombinations ruta visas, vilket innebär att flera nivåer kan väljas. Dock bör endast en nivå väljas. 
+> `pgaudit.log_level` aktive ras endast när `pgaudit.log_client` är på. I Azure Portal finns det för närvarande en bugg med `pgaudit.log_level`: en kombinations ruta visas, vilket innebär att flera nivåer kan väljas. Dock bör endast en nivå väljas. 
 
 > [!NOTE]
-> I Azure Database for PostgreSQL går det inte att ange `pgaudit.log` med en `-` (minus) tecken gen väg enligt beskrivningen i pgAudit-dokumentationen. Alla obligatoriska instruktionsklasser (READ, WRITE osv.) ska anges var för sig.
+> I Azure Database for PostgreSQL kan `pgaudit.log` inte anges med en `-` (minus) tecken gen väg enligt beskrivningen i pgAudit-dokumentationen. Alla obligatoriska instruktionsklasser (READ, WRITE osv.) ska anges var för sig.
 
 ### <a name="audit-log-format"></a>Gransknings logg format
-Varje gransknings post anges av `AUDIT:` nära början av logg raden. Formatet på resten av posten beskrivs i [pgAudit-dokumentationen](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
+Varje gransknings post anges genom `AUDIT:` nära logg radens början. Formatet på resten av posten beskrivs i [pgAudit-dokumentationen](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Om du behöver andra fält för att uppfylla gransknings kraven använder du parametern postgres `log_line_prefix`. `log_line_prefix` är en sträng som matas in i början av varje postgres-loggfil. Följande `log_line_prefix`-inställning ger till exempel tidsstämpel, användar namn, databas namn och process-ID:
+Om du behöver andra fält för att uppfylla dina gransknings krav använder du parametern postgres `log_line_prefix`. `log_line_prefix` är en sträng som matas in i början av varje postgres-loggfil. Till exempel tillhandahåller följande `log_line_prefix` inställning tidstämpel, användar namn, databas namn och process-ID:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
 ```
 
-Mer information om `log_line_prefix` finns i postgresql- [dokumentationen](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
+Mer information om `log_line_prefix`finns i postgresql- [dokumentationen](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
 ### <a name="getting-started"></a>Komma igång
-Kom igång snabbt genom att ange `pgaudit.log` till `WRITE` och öppna loggarna för att granska utdata. 
+Kom igång snabbt genom att ange `pgaudit.log` till `WRITE`och öppna loggarna för att granska utdata. 
 
 
 ## <a name="next-steps"></a>Nästa steg

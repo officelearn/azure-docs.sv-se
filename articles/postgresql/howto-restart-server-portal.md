@@ -1,51 +1,51 @@
 ---
-title: Starta om Azure Database för PostgreSQL – enskild Server med hjälp av Azure portal
-description: Den här artikeln beskrivs hur du kan starta om en Azure Database för PostgreSQL – enskild Server med Azure portal.
+title: Starta om Server-Azure Portal-Azure Database for PostgreSQL-enskild server
+description: I den här artikeln beskrivs hur du kan starta om en Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52ffb3943e6e3f209fd236216cc44026dff59dad
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65066841"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770092"
 ---
-# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Starta om Azure Database för PostgreSQL – enskild Server med Azure portal
-Det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Starta om Azure Database for PostgreSQL – en server med hjälp av Azure Portal
+I det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-Server. Du kan behöva starta om servern för underhålls orsaker, vilket orsakar ett kort avbrott eftersom servern utför åtgärden.
 
-Starta om servern kommer att blockeras om tjänsten är upptagen. Tjänsten kan till exempel behandlar tidigare åtgärden, till exempel skala virtuella kärnor.
+Servern kommer att startas om när tjänsten är upptagen. Tjänsten kan till exempel bearbeta en tidigare begärd åtgärd, till exempel skalnings virtuella kärnor.
  
-Den tid som krävs för att slutföra en omstart är beroende av PostgreSQL återställningsprocessen. Om du vill minska tiden för omstart, rekommenderar vi du minska mängden aktiviteten på server före omstarten.
+Tiden som krävs för att slutföra en omstart beror på återställnings processen för PostgreSQL. För att minska omstarts tiden rekommenderar vi att du minimerar mängden aktivitet som inträffar på servern innan du startar om.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Du behöver följande för att slutföra den här guiden:
-- En [Azure Database for PostgreSQL-server](quickstart-create-server-database-portal.md)
+## <a name="prerequisites"></a>Krav
+För att slutföra den här instruktions guiden behöver du:
+- En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md)
 
-## <a name="perform-server-restart"></a>Utföra omstart av servern
+## <a name="perform-server-restart"></a>Utför omstart av Server
 
-Starta följande steg om PostgreSQL-server:
+Följande steg startar om PostgreSQL-servern:
 
-1. I den [Azure-portalen](https://portal.azure.com/), Välj din Azure Database for PostgreSQL-server.
+1. I [Azure Portal](https://portal.azure.com/)väljer du Azure Database for PostgreSQL-servern.
 
-2. I verktygsfältet på serverns **översikt** klickar du på **starta om**.
+2. I verktygsfältet på serverns **översikts** sida klickar du på **starta om**.
 
-   ![Azure Database för PostgreSQL – översikt – starta](./media/howto-restart-server-portal/2-server.png)
+   ![Azure Database for PostgreSQL-översikt – knappen starta om](./media/howto-restart-server-portal/2-server.png)
 
-3. Klicka på **Ja** att bekräfta att starta om servern.
+3. Bekräfta att du vill starta om servern genom att klicka på **Ja** .
 
-   ![Azure Database för PostgreSQL – omstart bekräfta](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Bekräfta Azure Database for PostgreSQL omstart](./media/howto-restart-server-portal/3-restart-confirm.png)
 
-4. Observera att Serverstatusen ändras till ”startar om”.
+4. Observera att Server statusen ändras till "omstart".
 
-   ![Azure Database för PostgreSQL – omstart status](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database for PostgreSQL-restart-status](./media/howto-restart-server-portal/4-restarting-status.png)
 
-5. Bekräfta omstart av servern är klar.
+5. Bekräfta att servern har startats om.
 
-   ![Azure Database för PostgreSQL – omstart lyckades](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database for PostgreSQL-omstart lyckades](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [hur du ställer in parametrarna i Azure Database för PostgreSQL](howto-configure-server-parameters-using-portal.md)
+Lär dig hur [du ställer in parametrar i Azure Database for PostgreSQL](howto-configure-server-parameters-using-portal.md)

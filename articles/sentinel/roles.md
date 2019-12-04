@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 02d87ed5f26d36b7cd438b0d818c7bdcce43520d
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464124"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762727"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
@@ -30,9 +30,9 @@ Med RBAC kan du använda och skapa roller i din säkerhets åtgärds grupp för 
 
 Det finns tre inbyggda Azure Sentinel-roller.  
 **Alla inbyggda Azure Sentinel-roller ger Läs åtkomst till data i Azure Sentinel-arbetsytan.**
-- **Azure Sentinel Reader**: Mer information finns i [inbyggda roller](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- **Azure Sentinel-svarare**: Mer information finns i [inbyggda roller](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- **Azure Sentinel-deltagare**: Mer information finns i [inbyggda roller](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+- [Azure Sentinel-läsare](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
+- [Azure Sentinel-svarare](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
+- [Azure Sentinel-deltagare](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
 Förutom Azure Sentinel-dedikerade RBAC-roller finns det Azure och Log Analytics RBAC-roller som kan ge en bredare uppsättning behörigheter som inkluderar åtkomst till din Azure Sentinel-arbetsyta och andra resurser:
 

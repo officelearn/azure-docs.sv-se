@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: a01455da36e8ab573773fec2a6da1f7903b8ea20
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: eb2d663a56084fc625c95f1f1a6236385880180d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224497"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796151"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Virtuella datorer per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |25 000<sup>1</sup> per region. |25 000 per region. |
 | Totalt antal VM-kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Kontakta supporten. |
+| Totalt antal kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) i Azure-VM |20<sup>1</sup> per region. | Kontakta supporten. |
 | VM per serie, till exempel Dv2 och F, kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Kontakta supporten. |
 | [Medadministratörer](../articles/billing-add-change-azure-subscription-administrator.md) per prenumeration |Många. |Många. |
 | [Lagrings konton](../articles/storage/common/storage-quickstart-create-account.md) per region per prenumeration |250 |250 |

@@ -1,20 +1,20 @@
 ---
-title: 'Självstudier: Utforma en Azure Database for MariaDB med hjälp av Azure-portalen'
+title: 'Självstudie: utforma en Azure Database for MariaDB-Azure Portal'
 description: I den här självstudien beskrivs hur du skapar och hanterar en Azure Database for MariaDB-server och -databas med Azure-portalen.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515670"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776716"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudier: Skapa en Azure Database for MariaDB-databas med hjälp av Azure-portalen
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudie: skapa en Azure Database for MariaDB-databas med Azure-portalen
 
 Azure Database for MariaDB är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Med Azure-portalen kan du enkelt hantera servern och utforma en databas.
 
@@ -24,7 +24,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Skapa en Azure Database for MariaDB
 > * Konfigurera serverbrandväggen
 > * Använda kommandoradsverktyget mysql till att skapa en databas
-> * Läsa in exempeldata
+> * Läs in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
@@ -56,16 +56,16 @@ Du skapar en Azure Database for MariaDB-server med en definierad uppsättning [b
     Resursgrupp | **myresourcegroup** | Ange ett nytt resursgruppsnamn eller välj en befintlig resursgrupp.
     Välj källa | **Tom** | Välj **Tom** om du vill skapa en ny server. (Välj **Säkerhetskopiering** om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for MariaDB-server).
     inloggning för serveradministratör | **myadmin** | Ett inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-    Lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: Engelska versala bokstäver, engelska gemena bokstäver, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
+    Lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *ditt val*| Bekräfta administratörslösenordet.
-    Location | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+    Plats | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *den senaste versionen*| Välj den senaste versionen (om du inte har särskilda krav på att använda en annan version).
-    Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå** > **Generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Storage** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå** > **Generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Lagring** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
     
    ![Prisnivå](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Med **automatisk tillväxt** aktiverade servern ökar lagring när du närmar dig allokerade gränsen, utan att påverka din arbetsbelastning.
+   > När den **automatiska tillväxten** är aktive rad ökar lagringen när du närmar dig den tilldelade gränsen, utan att påverka arbets belastningen.
 
 4. Välj **Skapa**. Efter några minuter körs en ny Azure Database for MariaDB-server i molnet. Välj **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
@@ -93,7 +93,7 @@ Hämta värden för **servernamnet** (fullständigt kvalificerat) och **inloggni
 
    ![Serveregenskaper](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-I vårt exempel är servernamnet **mydemoserver.mariadb.database.azure.com** och inloggningsnamnet för serveradministratören är **myadmin\@mydemoserver**.
+I vårt exempel är Server namnet **mydemoserver.MariaDB.Database.Azure.com** och inloggnings namnet för Server administratören är **admin\@mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Anslut till servern med mysql
 
@@ -168,13 +168,13 @@ Anta att du av misstag har tagit bort en viktig databastabell och inte enkelt ka
 
 1. Leta rätt på din Azure Database for MariaDB i Azure-portalen. På **översiktssidan** väljer du **Återställ**.
 
-   ![Återställa en databas](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
+   ![Återställ en databas](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. Ange eller välj följande information på sidan **Återställa**:
    
    ![Återställningsformulär](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Återställningspunkt**: Välj en tidpunkt som du vill återställa till i den tidsperiod som visas. Var noga med att konvertera din lokala tidszon till UTC.
+   - **Återställningspunkt**: Välj en tidpunkt du vill återställa till, inom den tidsperiod som visas. Var noga med att konvertera din lokala tidszon till UTC.
    - **Återställ till ny server**: Ange ett nytt servernamn som du vill återställa till.
    - **Plats**: Regionen är samma som källservern och kan inte ändras.
    - **Prisnivå**: Prisnivån är samma som källservern och kan inte ändras.
@@ -188,7 +188,7 @@ I den här kursen har du använt Azure Portal till följande:
 > * Skapa en Azure Database for MariaDB
 > * Konfigurera serverbrandväggen
 > * Använda kommandoradsverktyget mysql till att skapa en databas
-> * Läsa in exempeldata
+> * Läs in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data

@@ -1,36 +1,36 @@
 ---
-title: Koncept för hög tillgänglighet i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln innehåller information för hög tillgänglighet med Azure Database för PostgreSQL – enskild Server.
+title: Hög tillgänglighet – Azure Database for PostgreSQL-enskild server
+description: Den här artikeln innehåller information om hög tillgänglighet i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: f54c83099957b4d8795c4049be52d70e8a0e2a61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80229ff78c4570db583f1218d5d2f72da2dec388
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073442"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768579"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Koncept för hög tillgänglighet i Azure Database för PostgreSQL – enskild Server
-Tjänsten Azure Database for PostgreSQL ger garanterat hög tillgänglighet. Ekonomisk servicenivåavtalet (SLA) är 99,99% vid allmän tillgänglighet. Det är praktiskt taget ingen program driftstopp när du använder den här tjänsten.
+# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Koncept med hög tillgänglighet i Azure Database for PostgreSQL-enskild server
+Tjänsten Azure Database for PostgreSQL ger en garanterad hög tillgänglighets nivå. Det ekonomiskt åtgärdade service nivå avtalet (SLA) är 99,99% vid allmän tillgänglighet. Det finns praktiskt taget ingen programs otillgänglig tid när du använder den här tjänsten.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
-Modell med hög tillgänglighet (HA) baseras på mekanismer för inbyggd växling vid fel när en nod på servernivå avbrott inträffar. Ett avbrott för noden på servernivå kan inträffa på grund av ett maskinvarufel eller som svar på en tjänstdistribution.
+Modellen med hög tillgänglighet (HA) baseras på inbyggda funktioner för redundansväxling när ett avbrott uppstår på nod-nivå. En avbrotts tid på radnivå kan inträffa på grund av ett maskin varu fel eller som svar på en tjänst distribution.
 
-Vid alla tidpunkter uppstå ändringar som gjorts i en Azure Database for PostgreSQL-databasservern i samband med en transaktion. Ändringar sparas synkront i Azure storage när transaktionen genomförs. Om en nod på servernivå avbrott inträffar, databasservern automatiskt skapar en ny nod och lagring av data till den nya noden. Alla aktiva anslutningar tas bort och alla aktiva transaktioner genomförs inte.
+Vid alla tillfällen sker ändringar som gjorts i en Azure Database for PostgreSQL databas server i samband med en transaktion. Ändringar registreras synkront i Azure Storage när transaktionen har genomförts. Om ett avbrott på radnivå uppstår skapar databas servern automatiskt en ny nod och kopplar data lagring till den nya noden. Alla aktiva anslutningar släpps och eventuella synlighetssekvensnummer transaktioner är inte allokerade.
 
-## <a name="application-retry-logic-is-essential"></a>Logik för omprövning av program som är viktigt
-Det är viktigt att PostgreSQL databasprogram har skapats för att identifiera och försök avbrutna anslutningar och misslyckats transaktioner. När programmet försöker omdirigeras transparent programmets anslutning till den nya instansen, som tar för den felaktiga instansen.
+## <a name="application-retry-logic-is-essential"></a>Logik för omprövning av program är viktigt
+Det är viktigt att PostgreSQL Database-program har skapats för att identifiera och försöka ansluta som har släppts, och transaktioner som misslyckades. När programmet försöker igen omdirigeras programmets anslutning transparent till den nyss skapade instansen, som tar över för den misslyckade instansen.
 
-Internt i Azure används en gateway för att omdirigera anslutningar till den nya instansen. Redundansväxla hela processen tar normalt tio sekunder eller vid ett avbrott. Eftersom omdirigeringen hanteras internt av gatewayen, detsamma externa anslutningssträngen för klientprogram.
+Internt i Azure används en gateway för att omdirigera anslutningarna till den nya instansen. Vid en avbrotts process tar hela processen normalt på flera sekunder. Eftersom omdirigeringen hanteras internt av gatewayen, förblir den externa anslutnings strängen densamma för klient programmen.
 
 ## <a name="scaling-up-or-down"></a>Skala upp eller ned
-Liknar modellen hög tillgänglighet när en Azure Database for PostgreSQL skalas upp eller ned, en ny server-instansen med den angivna storleken skapas. Befintliga datalagring är frånkopplat från den ursprungliga instansen och kopplat till den nya instansen.
+Precis som för HA-modellen skapas en ny Server instans med den angivna storleken när en Azure Database for PostgreSQL skalas upp eller ned. Den befintliga data lagringen kopplas från den ursprungliga instansen och kopplas till den nya instansen.
 
-Under åtgärden sker ett avbrott i databasanslutningar. Klientprogrammen är frånkopplade och öppna ogenomförda transaktioner har avbrutits. När klientprogrammet försöker ansluta igen, eller gör en ny anslutning, dirigeras gatewayen anslutningen till den nya storlekar instansen. 
+Under skalnings åtgärden sker ett avbrott i databas anslutningarna. Klient programmen är frånkopplade och öppna ej allokerade transaktioner avbryts. När klient programmet försöker ansluta igen eller skapar en ny anslutning, dirigerar gatewayen anslutningen till den nya instansen. 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [hantering av tillfälliga anslutningsfel](concepts-connectivity.md)
-- Lär dig hur du [replikera dina data med skrivskyddade repliker](howto-read-replicas-portal.md)
+- Lär dig mer om [hantering av tillfälliga anslutnings fel](concepts-connectivity.md)
+- Lär dig hur du [replikerar dina data med Läs repliker](howto-read-replicas-portal.md)

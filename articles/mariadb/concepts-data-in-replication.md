@@ -1,17 +1,17 @@
 ---
-title: Replikera data till Azure Database for MariaDB
+title: Data-i replikering – Azure Database for MariaDB
 description: Lär dig mer om att använda datareplikering för att synkronisera från en extern server till tjänsten Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: 826a6db289bf8b938e85d270f91836b3d8790206
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: e98f0dffe1ae004905c2b0969d825a1bca89014a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973643"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772646"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikera data till Azure Database for MariaDB
 
@@ -31,15 +31,15 @@ Huvud scenarierna för att överväga att använda Datareplikering är:
 ### <a name="requirements"></a>Krav
 - Huvud Server versionen måste vara minst MariaDB version 10,2.
 - Huvud-och replik Server versionerna måste vara desamma. Till exempel måste båda vara MariaDB version 10,2.
-- Varje tabell måste ha en primärnyckel.
+- Varje tabell måste ha en primär nyckel.
 - Huvud servern bör använda InnoDB-motorn.
 - Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på huvud servern.
-- Om huvud servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den lagrade proceduren `mariadb.az_replication_change_master`. Se följande [exempel](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) och parametern `master_ssl_ca`.
+- Om huvud servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mariadb.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) och parametern `master_ssl_ca`.
 - Se till att huvudserverns IP-adress har lagts till i Azure Database for MariaDB-replikserverns brandväggsregler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
 - Se till att datorn som är värd för huvudservern tillåter både inkommande och utgående trafik på port 3306.
 - Se till att huvud servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.
 
 ## <a name="next-steps"></a>Nästa steg

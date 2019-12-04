@@ -1,17 +1,17 @@
 ---
-title: Migrera MySQL-databasen med dump och Restore i Azure Database for MySQL
+title: Migrera med dump och Restore-Azure Database for MySQL
 description: I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MySQL med hjälp av verktyg som mysqldump, MySQL Workbench och PHPMyAdmin.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2018
-ms.openlocfilehash: a2a879ed677b981adcd50aea0468e0c5976c2a8a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: 65cd5e637434c717ab9ba1b5598c467eea9b4a74
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390550"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770942"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databasen till Azure Database for MySQL med dumpa och Återställ
 I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MySQL
@@ -37,19 +37,19 @@ Du kan använda MySQL-verktyg som mysqldump och mysqlpump för att dumpa och lä
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- För att undvika eventuella kompatibilitetsproblem bör du se till att samma version av MySQL används i käll- och målsystemen när databaser dumpas. Om din befintliga MySQL-server till exempel är version 5,7 bör du migrera till Azure Database for MySQL konfigurerad för att köra version 5,7. `mysql_upgrade` Kommandot fungerar inte i en Azure Database for MySQL-server och stöds inte. Om du behöver uppgradera mellan MySQL-versioner måste du först dumpa eller exportera den lägre versions databasen till en högre version av MySQL i din egen miljö. Kör `mysql_upgrade`sedan innan du försöker migrera till en Azure Database for MySQL.
+- För att undvika eventuella kompatibilitetsproblem bör du se till att samma version av MySQL används i käll- och målsystemen när databaser dumpas. Om din befintliga MySQL-server till exempel är version 5,7 bör du migrera till Azure Database for MySQL konfigurerad för att köra version 5,7. Kommandot `mysql_upgrade` fungerar inte i en Azure Database for MySQL-server och stöds inte. Om du behöver uppgradera mellan MySQL-versioner måste du först dumpa eller exportera den lägre versions databasen till en högre version av MySQL i din egen miljö. Kör sedan `mysql_upgrade`innan du försöker migrera till en Azure Database for MySQL.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 För att optimera prestanda bör du tänka på följande när det gäller dumpning av stora databaser:
 -   Använd alternativet `exclude-triggers` i mysqldump när det är dumpnings databaser. Exkludera utlösare från dumpfiler för att undvika att Utlös ande kommandon utlöses under data återställningen. 
--   `single-transaction` Använd alternativet för att ställa in transaktions isolerings läget till repeterbar läsning och skicka ett SQL-uttryck för starttransaktion till servern innan du påbörjar dumpnings data. Dumpning av många tabeller i en enda transaktion medför att en extra lagring används under återställningen. `single-transaction` Alternativet`lock-tables` och alternativet är ömsesidigt uteslutande eftersom lås tabeller gör att eventuella väntande transaktioner kan bekräftas implicit. Om du vill dumpa stora tabeller `single-transaction` kombinerar du alternativet `quick` med alternativet. 
--   Använd syntax med flera rader som innehåller flera värde listor. `extended-insert` Detta resulterar i en mindre dumpfil och påskyndar infogningar när filen läses in igen.
--  `order-by-primary` Använd alternativet i mysqldump när det gäller dumpnings databaser, så att data skriptas i primär nyckel ordning.
--   `disable-keys` Använd alternativet i mysqldump när dumpnings data ska inaktivera begränsningar för sekundär nyckel före belastningen. Att inaktivera kontroller av sekundär nyckel ger prestanda vinster. Aktivera begränsningarna och kontrol lera data efter belastningen för att säkerställa referens integriteten.
+-   Använd `single-transaction` alternativet för att ställa in transaktions isolerings läget till REPETERBARt läst och skickar ett SQL-uttryck för starttransaktion till servern innan du påbörjar dumpnings data. Dumpning av många tabeller i en enda transaktion medför att en extra lagring används under återställningen. Alternativet `single-transaction` och alternativet `lock-tables` är ömsesidigt uteslutande, eftersom lås tabeller gör att eventuella väntande transaktioner kan bekräftas implicit. Om du vill dumpa stora tabeller kombinerar du alternativet `single-transaction` med alternativet `quick`. 
+-   Använd syntaxen `extended-insert` flera rader som innehåller flera värde listor. Detta resulterar i en mindre dumpfil och påskyndar infogningar när filen läses in igen.
+-  Använd `order-by-primary` alternativet i mysqldump när det gäller dumpning av databaser, så att data skriptas i primär nyckel ordning.
+-   Använd alternativet `disable-keys` i mysqldump när dumpnings data ska inaktivera begränsningar för sekundär nyckel före belastningen. Att inaktivera kontroller av sekundär nyckel ger prestanda vinster. Aktivera begränsningarna och kontrol lera data efter belastningen för att säkerställa referens integriteten.
 -   Använd partitionerade tabeller när det är lämpligt.
 -   Läs in data parallellt. Undvik för mycket parallellitet som skulle innebära att du träffar en resurs gräns och övervaka resurser med hjälp av de mått som är tillgängliga i Azure Portal. 
--   `defer-table-indexes` Använd alternativet i mysqlpump när det gäller dumpnings databaser, så att skapandet av index sker efter att tabell data har lästs in.
--   `skip-definer` Använd alternativet i mysqlpump för att utelämna definar-och SQL-säkerhetssatser från Create-instruktionerna för vyer och lagrade procedurer.  När du läser in dumpfilen igen skapas objekt som använder standardvärdena för avrundning och SQL-säkerhet.
+-   Använd alternativet `defer-table-indexes` i mysqlpump när det gäller dumpning av databaser, så att skapandet av indexet sker efter att tabell data har lästs in.
+-   Använd alternativet `skip-definer` i mysqlpump om du vill utesluta definar-och SQL-säkerhetssatser från Create-instruktionerna för vyer och lagrade procedurer.  När du läser in dumpfilen igen skapas objekt som använder standardvärdena för avrundning och SQL-säkerhet.
 -   Kopiera säkerhetskopieringsfilerna till en Azure Blob/Store och utför återställningen därifrån, vilket bör vara mycket snabbare än att utföra återställningen via Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Skapa en säkerhets kopierings fil från kommando raden med mysqldump

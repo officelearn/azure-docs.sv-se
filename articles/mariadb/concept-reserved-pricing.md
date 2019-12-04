@@ -1,17 +1,17 @@
 ---
-title: Förskotts betalning för Azure Database for MariaDB beräknings resurser med reserverad kapacitet
+title: Förskotts beräkning med reserverad kapacitet – Azure Database for MariaDB
 description: Förskotts betalning för Azure Database for MariaDB beräknings resurser med reserverad kapacitet
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 61736d4f7e6b17c6037837bfdfe6d9cb8a00c5f6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 12/02/2019
+ms.openlocfilehash: 5821fb03dcf4331cbab5744f056521468a56d5d2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076874"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773115"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Förskotts betalning för Azure Database for MariaDB beräknings resurser med reserverad kapacitet
 
@@ -25,7 +25,7 @@ Du kan köpa Azure Database for MariaDB reserverad kapacitet i [Azure Portal](ht
 * För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
 * För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure Database for MariaDB reserverad kapacitet. </br>
 
-Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp, se [förstå Azure reservation-användning för din företags registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) och [förstå Azure reservation-användning för ditt företag som du betalar per användning prenumeration](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp, se [förstå Azure reservation-användning för företagets registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) och [förstå Azure reservation-användning för din prenumeration enligt principen betala per](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)användning.
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Fastställ rätt server storlek innan köpet

@@ -1,24 +1,24 @@
 ---
-title: Hantera Läs repliker för Azure Database for PostgreSQL-enskild server från Azure Portal
+title: Hantera Läs repliker – Azure Portal-Azure Database for PostgreSQL-enskild server
 description: Lär dig hur du hanterar Läs repliker Azure Database for PostgreSQL-enskild server från Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 0ff6cd50a5a6cb1599a2248fbc61b0b6b307e791
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995454"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770228"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for PostgreSQL-enskild server från Azure Portal
 
 I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for PostgreSQL från Azure Portal. Mer information om Läs repliker finns i [översikten](concepts-read-replicas.md).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md) som ska vara huvud servern.
 
 ## <a name="prepare-the-master-server"></a>Förbered huvud servern
@@ -47,7 +47,7 @@ De här stegen måste användas för att förbereda en huvud server i Generell a
 Att aktivera stöd för replikering är en engångs åtgärd per huvud server. En knapp för att **Inaktivera stöd för replikering** tillhandahålls för din bekvämlighet. Vi rekommenderar inte att du inaktiverar stöd för replikering, såvida du inte är säker på att du aldrig kommer att skapa en replik på den här huvud servern. Du kan inte inaktivera stöd för replikering medan huvud servern har befintliga repliker.
 
 
-## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
+## <a name="create-a-read-replica"></a>Skapa en Läs replik
 Följ dessa steg om du vill skapa en Läs replik:
 
 1. Välj den befintliga Azure Database for PostgreSQL-server som ska användas som huvud server. 
@@ -106,7 +106,7 @@ Följ dessa steg om du vill stoppa replikeringen mellan en huvud server och en L
    ![Bekräfta att replikeringen ska stoppas](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
 
-## <a name="delete-a-master-server"></a>Ta bort en huvudserver
+## <a name="delete-a-master-server"></a>Ta bort en huvud server
 Om du vill ta bort en huvud server använder du samma steg som för att ta bort en fristående Azure Database for PostgreSQL Server. 
 
 > [!IMPORTANT]

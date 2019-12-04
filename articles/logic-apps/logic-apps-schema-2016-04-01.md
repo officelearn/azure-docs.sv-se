@@ -1,21 +1,19 @@
 ---
-title: Schema uppdateringar juni – 1-2016 – Azure Logic Apps | Microsoft Docs
+title: Schema uppdateringar juni – 1-2016
 description: Uppdaterad schema version 2016-06-01 för Logic app-definitioner i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 0558c309cc22f39c2ed439b7930443ca0adb071e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385371"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792873"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema uppdateringar för Azure Logic Apps – 1 juni 2016
 
@@ -23,13 +21,13 @@ Den [uppdaterade schema](https://schema.management.azure.com/schemas/2016-06-01/
 
 * Med [omfattningar](#scopes) kan du gruppera eller kapsla åtgärder som en mängd åtgärder.
 * [Villkor och slingor](#conditions-loops) är nu de första klass åtgärderna.
-* Mer exakt ordning för att köra åtgärder med `runAfter` egenskapen, ersätta`dependsOn`
+* Mer exakt ordning för att köra åtgärder med egenskapen `runAfter`, ersätter `dependsOn`
 
 Om du vill uppgradera dina Logi Kap par från den 1 augusti 2015-förhands gransknings schema till den 1 juni 2016 schemat, [Se avsnittet Uppgradera](#upgrade-your-schema).
 
 <a name="scopes"></a>
 
-## <a name="scopes"></a>Scope
+## <a name="scopes"></a>Omfattningar
 
 Det här schemat innehåller omfång, som gör att du kan gruppera åtgärder tillsammans eller kapsla åtgärder i varandra. Ett villkor kan till exempel innehålla ett annat villkor. Läs mer om [syntax för omfattningar](../logic-apps/logic-apps-loops-and-scopes.md), eller Läs detta exempel på grundläggande omfattning:
 
@@ -87,7 +85,7 @@ I tidigare schema versioner var villkor och slingor kopplade till en enda åtgä
 
 ## <a name="runafter-property"></a>egenskapen ' runAfter '
 
-`runAfter` Egenskapen ersätter`dependsOn`, vilket ger mer precision när du anger körnings ordningen för åtgärder baserat på status för tidigare åtgärder. `dependsOn` Egenskapen anger om åtgärden kördes och lyckades, baserat på om föregående åtgärd lyckades, misslyckades eller hoppades över – inte antalet gånger som du ville köra åtgärden. `runAfter` Egenskapen ger flexibilitet som ett objekt som anger alla åtgärds namn som objektet körs efter. Den här egenskapen definierar också en matris med statusar som är godtagbara som utlösare. Om du till exempel vill att en åtgärd ska köras efter att åtgärden lyckades och även efter att åtgärd B lyckas eller Miss lyckas, ställer du in `runAfter` den här egenskapen:
+Egenskapen `runAfter` ersätter `dependsOn`, vilket ger mer precision när du anger körnings ordningen för åtgärder baserat på status för tidigare åtgärder. Egenskapen `dependsOn` anger om åtgärden kördes och lyckades, baserat på om föregående åtgärd lyckades, misslyckades eller hoppades över – inte antalet gånger som du ville köra åtgärden. Egenskapen `runAfter` ger flexibilitet som ett objekt som anger alla åtgärds namn som objektet körs efter. Den här egenskapen definierar också en matris med statusar som är godtagbara som utlösare. Om du till exempel vill att en åtgärd ska köras efter att åtgärden lyckades och även efter att åtgärd B lyckas eller Miss lyckas, ställer du in den här `runAfter` egenskapen:
 
 ```json
 {
@@ -123,13 +121,13 @@ Om du vill uppgradera till det [senaste schemat](https://schema.management.azure
    > [!NOTE]
    > Om du använder en manuell eller begär ande utlösare ändras återanrops-URL: en för den nya Logic-appen. Testa den nya URL: en för att se till att slut punkt till slut punkt fungerar. För att bevara tidigare URL: er kan du klona över din befintliga Logic-app.
 
-6. *Valfritt* Om du vill skriva över din tidigare Logic-app med den nya schema versionen väljer du **klona**bredvid uppdaterings **schema**i verktygsfältet. Det här steget är bara nödvändigt om du vill behålla samma resurs-ID eller begär Utlösar-URL för din Logic app.
+6. *Valfritt* Om du vill skriva över din tidigare Logic-app med den nya schema versionen väljer du **klona**bredvid **uppdaterings schema**i verktygsfältet. Det här steget är bara nödvändigt om du vill behålla samma resurs-ID eller begär Utlösar-URL för din Logic app.
 
 ## <a name="upgrade-tool-notes"></a>Information om uppgraderings verktyget
 
 ### <a name="mapping-conditions"></a>Mappnings villkor
 
-I den uppgraderade definitionen gör verktyget det bästa arbetet vid gruppering av sant och falskt gren åtgärder tillsammans som ett omfång. Mer specifikt visas mönster i `@equals(actions('a').status, 'Skipped')` designern som en `else` åtgärd. Men om verktyget identifierar okända mönster kan verktyget skapa separata villkor för både True och false-grenen. Du kan mappa om åtgärder efter uppgraderingen, om det behövs.
+I den uppgraderade definitionen gör verktyget det bästa arbetet vid gruppering av sant och falskt gren åtgärder tillsammans som ett omfång. Mer specifikt visas design mönstret för `@equals(actions('a').status, 'Skipped')` som en `else` åtgärd. Men om verktyget identifierar okända mönster kan verktyget skapa separata villkor för både True och false-grenen. Du kan mappa om åtgärder efter uppgraderingen, om det behövs.
 
 #### <a name="foreach-loop-with-condition"></a>"förgrunds"-loop med villkor
 
@@ -143,19 +141,19 @@ När du har uppgraderat tas resurs taggarna bort, så du måste återställa dem
 
 ### <a name="renamed-manual-trigger-to-request-trigger"></a>Omdöpt till "Request"-utlösaren
 
-Utlösarens typ var inaktuell och har bytt namn till `request` av typen `http`. `manual` Den här ändringen skapar mer konsekvens för den typ av mönster som utlösaren används för att skapa.
+Typen av utlösare för `manual` är inaktuell och har fått ett nytt namn till `request` med typen `http`. Den här ändringen skapar mer konsekvens för den typ av mönster som utlösaren används för att skapa.
 
 ### <a name="new-filter-action"></a>Ny filter åtgärd
 
-För att filtrera en stor matris nedåt till en mindre uppsättning objekt, accepterar den `filter` nya typen en matris och ett villkor, utvärderar villkoret för varje objekt och returnerar en matris med objekt som uppfyller villkoret.
+Om du vill filtrera en stor matris nedåt till en mindre uppsättning objekt, accepterar den nya `filter` typen en matris och ett villkor, utvärderar villkoret för varje objekt och returnerar en matris med objekt som uppfyller villkoret.
 
 ### <a name="restrictions-for-foreach-and-until-actions"></a>Begränsningar för åtgärderna "förgrunds åtgärder" och "till"
 
-`foreach` Och`until` -loopen är begränsad till en enda åtgärd.
+Loopen `foreach` och `until` är begränsad till en enda åtgärd.
 
 ### <a name="new-trackedproperties-for-actions"></a>New ' trackedProperties ' för åtgärder
 
-Åtgärder kan nu ha en ytterligare egenskap som `trackedProperties`kallas, som är på samma `runAfter` nivå `type` som egenskaperna och. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Exempel:
+Åtgärder kan nu ha ytterligare en egenskap med namnet `trackedProperties`, som är på samma nivå som `runAfter` och `type` egenskaper. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Exempel:
 
 ``` json
 {

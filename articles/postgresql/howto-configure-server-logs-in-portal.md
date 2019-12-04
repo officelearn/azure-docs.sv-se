@@ -1,29 +1,29 @@
 ---
-title: Konfigurera och få åtkomst till Server loggar i Azure Database for PostgreSQL-enskild server från Azure Portal
-description: Den här artikeln beskriver hur du konfigurerar och kommer åt Server loggar i Azure Database for PostgreSQL-enskild server från Azure Portal.
+title: Hantera loggar – Azure Portal-Azure Database for PostgreSQL-enskild server
+description: Den här artikeln beskriver hur du konfigurerar och kommer åt Server loggar (. log-filer) i Azure Database for PostgreSQL-enskild server från Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c77e708e14d34545754ca38095aedb63ff0172a1
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841507"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763699"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Konfigurera och få åtkomst till Azure Database for PostgreSQL-enstaka server loggar från Azure Portal
 
 Du kan konfigurera, lista och hämta [Azure Database for PostgreSQL loggar](concepts-server-logs.md) från Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Anvisningarna i den här artikeln kräver att du har [Azure Database for postgresql server](quickstart-create-server-database-portal.md).
 
 ## <a name="configure-logging"></a>Konfigurera loggning
 Konfigurera åtkomst till frågans loggar och fel loggar. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj din Azure Database for PostgreSQL-server.
 
@@ -53,7 +53,7 @@ När loggningen har påbörjats kan du Visa en lista över tillgängliga loggar 
    ![Skärm bild av sidan Server loggar med lista över loggar markerade](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > Namngivnings konventionen för loggen är **postgresql-yyyy-mm-dd_hh0000. log**. Datum och tid som används i fil namnet är den tidpunkt då loggen utfärdades. Loggfilerna roterar varje timme eller 100 MB, beroende på vilket som kommer först.
+   > Namngivnings konventionen för loggen är **postgresql-åååå-mm-dd_hh0000. log**. Datum och tid som används i fil namnet är den tidpunkt då loggen utfärdades. Loggfilerna roterar varje timme eller 100 MB, beroende på vilket som kommer först.
 
 4. Om det behövs kan du använda sökrutan för att snabbt begränsa till en specifik logg baserat på datum och tid. Sökningen har samma namn som loggen.
 

@@ -1,20 +1,17 @@
 ---
-title: Gränser och konfiguration – Azure Logic Apps
+title: Begränsningar och konfiguration
 description: Tjänst begränsningar, till exempel varaktighet, data flöde och kapacitet, plus konfigurations värden, till exempel IP-adresser som ska tillåtas, för Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 13bced5cb692366f46032d51c3b635533110d781
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547534"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791971"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -71,7 +68,7 @@ Följ dessa steg om du vill ändra standard gränsen för körnings tid och lagr
 
    > [!NOTE]
    > För logi Kap par i Azure med flera innehavare, är standard gränsen på 90 samma som den maximala gränsen. Du kan bara minska det här värdet.
-   > För Logic Apps i en integrerings tjänst miljö kan du decreause eller öka standard gränsen på 90 dagar.
+   > För Logic Apps i en integrerings tjänst miljö kan du minska eller öka standard gränsen på 90 dagar.
 
 <a name="looping-debatching-limits"></a>
 

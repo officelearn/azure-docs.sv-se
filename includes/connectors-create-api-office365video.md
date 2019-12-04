@@ -1,29 +1,30 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 20729d1e73dd0ff9010201a1c6597b616b364a09
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: c0dcba2dd003dfebdd9ce67bf4d78082c32824ba
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187600"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789501"
 ---
-### <a name="prerequisites"></a>Nödvändiga komponenter
-* En [Office 365 Video](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) konto  
+## <a name="prerequisites"></a>Krav
 
-Innan du kan använda ditt konto för Office 365 Video i en logikapp, måste du godkänna logikappen som ska ansluta till ditt Office 365 Video-konto. Som tur är kan göra du det enkelt från i logikappen på Azure Portal.  
+* Ett [Office 365-Video](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) konto  
 
-Här följer stegen för att auktorisera din logikapp för att ansluta till ditt Office 365 Video-konto:  
+Innan du kan använda ditt Office 365-videokonto i en Logic app måste du godkänna att Logic-appen ansluter till ditt Office 365-videokonto. Lyckligt vis kan du enkelt göra det i din Logic-app på Azure-portalen.  
 
-1. Om du vill skapa en anslutning till Office 365 Video i Logic appdesigner väljer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *Office 365 Video* i sökrutan. Välj utlösaren eller åtgärden som du kommer att tycka att använda:  
-   ![Office 365 Video-anslutning skapas steg](./media/connectors-create-api-office365video/office365video-1.png)  
-2. Om du inte skapat några anslutningar till Office 365 Video innan du kan hämta uppmanas du att ange dina autentiseringsuppgifter för Office 365 Video. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt data i ditt Office 365 Video-konto:  
-   ![Office 365 Video-anslutning skapas steg](./media/connectors-create-api-office365video/office365video-2.png)  
-3. Ange dina autentiseringsuppgifter för att ansluta till Office 365 Video:  
-   ![Office 365 Video-anslutning skapas steg](./media/connectors-create-api-office365video/office365video-3.png)  
-4. Lägg märke till anslutningen har skapats och du kan nu fortsätta med andra steg i logikappen:  
-   ![Office 365 Video-anslutning skapas steg](./media/connectors-create-api-office365video/office365video-4.png)  
+Här följer stegen för att godkänna din Logic app för att ansluta till ditt Office 365-Video konto:  
+
+1. Om du vill skapa en anslutning till Office 365-videon, i Logic App Designer, väljer du **Visa Microsoft Managed API: er** i list rutan och anger sedan *Office 365 Video* i sökrutan. Välj den utlösare eller åtgärd som du vill använda:  
+   steg för att skapa ![Office 365-Video anslutning](./media/connectors-create-api-office365video/office365video-1.png)  
+2. Om du inte har skapat några anslutningar till Office 365-videon tidigare uppmanas du att ange dina autentiseringsuppgifter för Office 365-Video. Dessa autentiseringsuppgifter används för att auktorisera din Logi Kap par för att ansluta till och få åtkomst till dina Office 365-Video konto data:  
+   ![Steg för att skapa video anslutning i Office 365](./media/connectors-create-api-office365video/office365video-2.png)  
+3. Ange dina autentiseringsuppgifter för att ansluta till Office 365-Video:  
+   ![Steg för att skapa video anslutning i Office 365](./media/connectors-create-api-office365video/office365video-3.png)  
+4. Observera att anslutningen har skapats och att du nu är kostnads fri att fortsätta med de andra stegen i din Logic app:  
+   ![Steg för att skapa video anslutning i Office 365](./media/connectors-create-api-office365video/office365video-4.png)  
 

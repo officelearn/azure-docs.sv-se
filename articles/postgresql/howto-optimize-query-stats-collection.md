@@ -1,42 +1,42 @@
 ---
-title: Optimera fråga stats samlingen på en Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln beskrivs hur du kan optimera frågan stats samlingen på en Azure Database för PostgreSQL – enskild Server
+title: Optimera fråga statistik samling – Azure Database for PostgreSQL-enskild server
+description: Den här artikeln beskriver hur du kan optimera insamling av frågor på en Azure Database for PostgreSQL-enskild server
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068966"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770177"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimera fråga statistiksamling på en Azure Database för PostgreSQL – enskild Server
-Den här artikeln beskriver hur du optimerar insamling av frågekörningsstatistik fråga på en Azure Database for PostgreSQL-server.
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimera frågan statistik samling på en Azure Database for PostgreSQL-enskild server
+I den här artikeln beskrivs hur du optimerar frågans statistik samling på en Azure Database for PostgreSQL-Server.
 
-## <a name="use-pgstatsstatements"></a>Använda pg_stats_statements
-**Pg_stat_statements** är en PostgreSQL-tillägg som är aktiverad som standard i Azure Database för PostgreSQL. Tillägget ger dig möjlighet att spåra körning statistik för alla SQL-instruktioner som körs av en server. Den här modulen hookar i varje frågekörning och levereras med en icke-trivialt prestandakostnad. Aktivera **pg_stat_statements** framtvingar fråga text skrivningar till filer på disk.
+## <a name="use-pg_stats_statements"></a>Använd pg_stats_statements
+**Pg_stat_statements** är ett postgresql-tillägg som är aktiverat som standard i Azure Database for PostgreSQL. Tillägget är ett sätt att spåra körnings statistik för alla SQL-uttryck som körs av en server. Den här modulen hookar i varje frågekörning och levereras med en icke-trivial prestanda kostnad. När du aktiverar **pg_stat_statements** tvingar det att skriva text till filer på disk.
 
-Om du har unika frågor med lång frågetexten eller inte övervakar aktivt **pg_stat_statements**, inaktivera **pg_stat_statements** för bästa prestanda. Du gör detta genom att ändra inställningen till `pg_stat_statements.track = NONE`.
+Om du har unika frågor med lång frågetext eller om du inte aktivt övervakar **pg_stat_statements**kan du inaktivera **pg_stat_statements** för bästa prestanda. Det gör du genom att ändra inställningen till `pg_stat_statements.track = NONE`.
 
-Vissa slutkundsarbetsbelastningar har sett upp till en 50 procent prestandaförbättring när **pg_stat_statements** är inaktiverad. Du måste du göra när du inaktiverar pg_stat_statements är det inte går att felsöka prestandaproblem.
+Vissa kund arbets belastningar har sett upp till en 50 procents prestanda förbättring när **pg_stat_statements** har inaktiverats. Den kompromiss som du gör när du inaktiverar pg_stat_statements är möjligheten att felsöka prestanda problem.
 
 Ange `pg_stat_statements.track = NONE`:
 
-- I Azure-portalen går du till den [PostgreSQL resurshantering och välj parametrar serverbladet](howto-configure-server-parameters-using-portal.md).
+- I Azure Portal går du till [resurs hanterings sidan för postgresql och väljer bladet Server parametrar](howto-configure-server-parameters-using-portal.md).
 
-  ![PostgreSQL server parametern-bladet](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
+  ![PostgreSQL Server parameter blad](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
-- Använd den [Azure CLI](howto-configure-server-parameters-using-cli.md) az postgres server configuration inställd `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
+- Använd [Azure CLI](howto-configure-server-parameters-using-cli.md) -AZ postgres-serverkonfigurationen för att `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
-## <a name="use-the-query-store"></a>Använda Query Store 
-Den [Query Store](concepts-query-store.md) funktion i Azure Database för PostgreSQL erbjuder en mer effektiv metod för att spåra frågestatistik. Vi rekommenderar den här funktionen som ett alternativ till *pg_stats_statements*. 
+## <a name="use-the-query-store"></a>Använda Frågearkivet 
+Funktionen [query Store](concepts-query-store.md) i Azure Database for PostgreSQL ger en mer effektiv metod för att spåra statistik för frågor. Vi rekommenderar den här funktionen som ett alternativ till att använda *pg_stats_statements*. 
 
 ## <a name="next-steps"></a>Nästa steg
-Överväg att ställa in `pg_stat_statements.track = NONE` i den [Azure-portalen](howto-configure-server-parameters-using-portal.md) eller genom att använda den [Azure CLI](howto-configure-server-parameters-using-cli.md).
+Överväg att ange `pg_stat_statements.track = NONE` i [Azure Portal](howto-configure-server-parameters-using-portal.md) eller med hjälp av [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
-Mer information finns i: 
+Mer information finns här: 
 - [Query Store-användningsscenarier](concepts-query-store-scenarios.md) 
-- [Metodtips för Query Store](concepts-query-store-best-practices.md) 
+- [Metod tips för Query Store](concepts-query-store-best-practices.md) 

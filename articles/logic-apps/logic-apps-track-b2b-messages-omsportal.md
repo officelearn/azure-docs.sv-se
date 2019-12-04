@@ -1,20 +1,19 @@
 ---
-title: Spåra B2B-meddelanden med Azure Monitor loggar – Azure Logic Apps | Microsoft Docs
+title: Spåra B2B-meddelanden med Azure Monitor-loggar
 description: Spåra B2B-kommunikation för integrations konton och Azure Logic Apps med Azure Log Analytics
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997849"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792929"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Spåra B2B-meddelanden med Azure Monitor-loggar
 
@@ -31,7 +30,7 @@ När du har konfigurerat B2B-kommunikation mellan handels partner i ditt integra
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Logic-app som är konfigurerad med diagnostikloggning. Lär dig [hur du skapar en logisk app](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den Logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
@@ -148,15 +147,15 @@ Här är egenskaps beskrivningarna för varje AS2-meddelande.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Avsändaren | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett AS2-avtal |
+| Avsändare | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett AS2-avtal |
 | Mottagare | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett AS2-avtal |
-| Logikapp | Den Logic app där AS2-åtgärderna har kon figurer ATS |
-| State | Status för AS2-meddelande <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. Ingen MDN har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. MDN konfigureras och tas emot, eller så skickas MDN. <br>Misslyckades = ett ogiltigt AS2-meddelande togs emot. Ingen MDN har kon figurer ATS. <br>Väntar = tar emot eller skickade ett giltigt AS2-meddelande. MDN har ställts in och MDN förväntas. |
+| Logisk app | Den Logic app där AS2-åtgärderna har kon figurer ATS |
+| Status | Status för AS2-meddelande <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. Ingen MDN har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. MDN konfigureras och tas emot, eller så skickas MDN. <br>Misslyckades = ett ogiltigt AS2-meddelande togs emot. Ingen MDN har kon figurer ATS. <br>Väntar = tar emot eller skickade ett giltigt AS2-meddelande. MDN har ställts in och MDN förväntas. |
 | Följ | Status för MDN-meddelande <br>Accepterad = mottagen eller skickad positiv MDN. <br>Väntar = väntar på att ta emot eller skicka en MDN. <br>Avvisad = ta emot eller skicka ett negativt MDN. <br>Krävs inte = MDN har inte ställts in i avtalet. |
-| Direction | AS2 meddelande riktning |
+| Riktning | AS2 meddelande riktning |
 | Korrelations-ID | Det ID som motsvarar alla utlösare och åtgärder i en Logic app |
 | Meddelande-ID | AS2 meddelande-ID från AS2-meddelandehuvuden |
-| Timestamp | Tiden då AS2-åtgärden bearbetade meddelandet |
+| Tidsstämpel | Tiden då AS2-åtgärden bearbetade meddelandet |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -167,8 +166,8 @@ Här är namn formaten för varje nedladdad AS2-mapp och filer.
 
 | Mapp eller fil | Namn format |
 | :------------- | :---------- |
-| Mapp för meddelanden | ingen \_\_[mottagare]\_AS2\_[korrelations-ID] [meddelande-ID] [tidsstämpel] \_ |
-| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [\_avsändare] [mottagare]\_AS2\_[korrelations\_-ID] input_payload. txt </p>**Utmatnings nytto Last**:\_[Sender]\_[\_mottagare] AS2 [korrelations\_-ID]\_utdata nytto Last. txt </p></p>**Indata**: [Sender\_] [mottagare\_]\_AS2 [korrelations-\_ID] Inputs. txt </p></p>**Utdata**: [Sender]\_[mottagare]\_AS2\_[korrelations-ID]\_utdata. txt |
+| Mapp för meddelanden | [Sender]\_[mottagare]\_AS2\_[korrelations-ID]\_[meddelande-ID]\_[tidsstämpel] |
+| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [avsändare]\_[mottagare]\_AS2\_[korrelations-ID]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_AS2\_[korrelations-ID]\_utdata\_nytto Last. txt </p></p>**Indata**: [sender]\_[mottagare]\_AS2\_[KORRELATIONS-ID]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_AS2\_[korrelations-ID]\_utdata. txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -179,17 +178,17 @@ Här är egenskaps beskrivningarna för varje X12-meddelande.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Avsändaren | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett X12-avtal |
+| Avsändare | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett X12-avtal |
 | Mottagare | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett X12-avtal |
-| Logikapp | Den Logic app där X12-åtgärderna har kon figurer ATS |
-| State | Status för X12-meddelande <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottog eller skickade ett ogiltigt X12-meddelande. <br>Väntar = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
+| Logisk app | Den Logic app där X12-åtgärderna har kon figurer ATS |
+| Status | Status för X12-meddelande <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottog eller skickade ett ogiltigt X12-meddelande. <br>Väntar = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
 | Följ | Status för funktionell ack (997) <br>Accepterad = mottagen eller skickade en positiv funktionell ack. <br>Nekad = mottagen eller skickad negativ funktionell ack. <br>Väntar = en funktions ack förväntas men tas inte emot. <br>Väntar = genererar en funktionell ack men kan inte skicka till partner. <br>Inte obligatoriskt = funktions ack har inte kon figurer ATS. |
-| Direction | X12 meddelande riktning |
+| Riktning | X12 meddelande riktning |
 | Korrelations-ID | Det ID som motsvarar alla utlösare och åtgärder i en Logic app |
 | Typ av meddelande | Meddelande typen EDI-X12 |
 | ICN | Utbytes kontroll numret för X12-meddelandet |
 | TSCN | Kontroll nummer för transaktions uppsättning för X12-meddelandet |
-| Timestamp | Tiden då X12-åtgärden bearbetade meddelandet |
+| Tidsstämpel | Tiden då X12-åtgärden bearbetade meddelandet |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -200,8 +199,8 @@ Här är namn formaten för varje nedladdad X12-mapp och filer.
 
 | Mapp eller fil | Namn format |
 | :------------- | :---------- |
-| Mapp för meddelanden | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [\_avsändare] [mottagare]\_X12\_[Interchange-Control-\_Number] input_payload. txt </p>**Utdatatyp för utdata**: [\_Sender] [\_mottagare\_] X12 [Interchange-Control-\_Number\_] utdata nytto Last. txt </p></p>**Indata**: [Sender\_] [mottagare\_]\_X12 [Interchange-Control-Number\_] Inputs. txt </p></p>**Utdata**: [Sender]\_[mottagare]\_X12\_[Interchange-Control-Number]\_outputs. txt |
+| Mapp för meddelanden | [Sender]\_[mottagare]\_X12\_[Interchange-Control-Number]\_[global-Control-Number]\_[Transaction-set-Control-Number]\_[tidsstämpel] |
+| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [avsändare]\_[mottagare]\_X12\_[Interchange-Control-number]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_utdata\_Payload. txt </p></p>**Indata**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_utdata. txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -212,17 +211,17 @@ Här är egenskaps beskrivningarna för varje EDIFACT-meddelande.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Avsändaren | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
+| Avsändare | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
 | Mottagare | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
-| Logikapp | Den Logic app där EDIFACT-åtgärderna har kon figurer ATS |
-| State | Status för EDIFACT-meddelande <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottaget eller skickat ett ogiltigt EDIFACT-meddelande <br>Väntar = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
+| Logisk app | Den Logic app där EDIFACT-åtgärderna har kon figurer ATS |
+| Status | Status för EDIFACT-meddelande <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottaget eller skickat ett ogiltigt EDIFACT-meddelande <br>Väntar = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
 | Följ | Status för funktionell ack (CONTRL) <br>Accepterad = mottagen eller skickade en positiv funktionell ack. <br>Nekad = mottagen eller skickad negativ funktionell ack. <br>Väntar = en funktions ack förväntas men tas inte emot. <br>Väntar = genererar en funktionell ack men kan inte skicka till partner. <br>Inte obligatoriskt = funktions ack har inte kon figurer ATS. |
-| Direction | EDIFACT meddelande riktning |
+| Riktning | EDIFACT meddelande riktning |
 | Korrelations-ID | Det ID som motsvarar alla utlösare och åtgärder i en Logic app |
 | Typ av meddelande | Meddelande typen EDIFACT |
 | ICN | Utbytes kontroll numret för EDIFACT-meddelandet |
 | TSCN | Kontroll nummer för transaktions uppsättning för EDIFACT-meddelandet |
-| Timestamp | Tiden då EDIFACT-åtgärden bearbetade meddelandet |
+| Tidsstämpel | Tiden då EDIFACT-åtgärden bearbetade meddelandet |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
@@ -233,8 +232,8 @@ Här är namn formaten för varje nedladdad EDIFACT-mapp och filer.
 
 | Mapp eller fil | Namn format |
 | :------------- | :---------- |
-| Mapp för meddelanden | ingen \_\_\_[mottagare]\_EDIFACT\_[Interchange-Control-Number] [global-Control-Number] [Transaction-set-Control-Number] [timestamp] \_ |
-| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [\_avsändare] [mottagare]\_EDIFACT\_[Interchange-Control-\_Number] input_payload. txt </p>**Utdatatyp för utdata**: [\_Sender] [\_mottagare\_] EDIFACT [Interchange-Control-\_Number\_] utdata nytto Last. txt </p></p>**Indata**: [Sender\_] [mottagare\_]\_EDIFACT [Interchange-Control-Number\_] Inputs. txt </p></p>**Utdata**: [Sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-Number]\_outputs. txt |
+| Mapp för meddelanden | [Sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-Number]\_[global-Control-Number]\_[Transaction-set-Control-Number]\_[tidsstämpel] |
+| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [avsändare]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_utdata\_Payload. txt </p></p>**Indata**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_utdata. txt |
 |          |             |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,22 +1,18 @@
 ---
-title: Ansluta till Wunderlist från Azure Logic Apps | Microsoft Docs
+title: Anslut till Wunderlist från Azure Logic Apps
 description: Automatisera uppgifter och arbets flöden som övervakar och hanterar listor, uppgifter, påminnelser och mer i ditt Wunderlist-konto med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5ac13595bd77238aaede5fa3bdc3a35ef69e8504
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050657"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789128"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Övervaka och hantera Wunderlist med hjälp av Azure Logic Apps
 
@@ -29,7 +25,7 @@ Med Azure Logic Apps och Wunderlist-kopplingen kan du skapa automatiserade uppgi
 
 [Wunderlist](https://www.wunderlist.com/) är en tjänst som hjälper dig att planera, hantera och slutföra dina projekt, göra listor och uppgifter – på valfri enhet, var som helst. Du kan använda utlösare som får svar från ditt Wunderlist-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Wunderlist-konto. Du kan också använda andra åtgärder för att använda utdata från Wunderlist-åtgärder. Till exempel när nya aktiviteter förfaller kan du skicka meddelanden med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

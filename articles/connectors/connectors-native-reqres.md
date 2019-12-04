@@ -1,23 +1,18 @@
 ---
-title: Ta emot och svara på HTTPS-anrop – Azure Logic Apps
+title: Ta emot och svara på HTTPS-anrop
 description: Hantera HTTPS-begäranden och händelser i real tid med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewers: klam, LADocs
-manager: carmonm
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264360"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787003"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps
 
@@ -169,7 +164,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    Du kan till exempel svara på begäran genom att [lägga till en svars åtgärd](#add-response), som du kan använda för att returnera ett anpassat svar och beskrivs senare i det här avsnittet.
 
-   Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Annars, om din Logic app inte innehåller någon svars åtgärd, returnerar din Logic app omedelbart ett `202 ACCEPTED`-svar till anroparen.
+   Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Annars, om din Logic app inte innehåller någon svars åtgärd, returnerar din Logic app omedelbart ett `202 ACCEPTED` svar till anroparen.
 
 1. När du är klar sparar du din Logic app. I verktygsfältet designer väljer du **Spara**. 
 
@@ -195,7 +190,7 @@ Här är mer information om utdata från begär ande utlösare:
 
 Du kan använda svars åtgärden för att svara med en nytto Last (data) till en inkommande HTTPS-begäran, men endast i en Logic-app som utlöses av en HTTPS-begäran. Du kan lägga till svars åtgärden när som helst i arbets flödet. Mer information om den underliggande JSON-definitionen för den här utlösaren finns i [Åtgärds typen svar](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Annars, om din Logic app inte innehåller någon svars åtgärd, returnerar din Logic app omedelbart ett `202 ACCEPTED`-svar till anroparen.
+Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Annars, om din Logic app inte innehåller någon svars åtgärd, returnerar din Logic app omedelbart ett `202 ACCEPTED` svar till anroparen.
 
 1. I Logic App Designer, under steget där du vill lägga till en svars åtgärd väljer du **nytt steg**.
 

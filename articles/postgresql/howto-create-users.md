@@ -1,17 +1,17 @@
 ---
-title: Skapa användare i Azure Database for PostgreSQL-enskild server
+title: Skapa användare – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs hur du kan skapa nya användar konton för att interagera med en Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2019
-ms.openlocfilehash: 91ba485347aeb19ce9b173bd4cec944a655a56dc
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8e4c95c4c6c653854864aa4996f926177d3d55c7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203494"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763612"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Skapa användare i Azure Database for PostgreSQL-enskild server
 I den här artikeln beskrivs hur du kan skapa användare i en Azure Database for PostgreSQL-Server. 
@@ -21,14 +21,14 @@ Om du vill lära dig mer om hur du skapar och hanterar användare av Azure-prenu
 ## <a name="the-server-admin-account"></a>Serveradministratörskontot
 När du först skapade din Azure Database for PostgreSQL angav du ett användar namn och lösen ord för Server administratören. För mer information, kan du följa [snabb](quickstart-create-server-database-portal.md) starten för att se steg för steg-metoden. Eftersom Server administratörens användar namn är ett anpassat namn, kan du hitta det valda Server administratörs användar namnet från Azure Portal.
 
-Azure Database for PostgreSQL servern skapas med de tre definierade standard rollerna. Du kan se dessa roller genom att köra kommandot:`SELECT rolname FROM pg_roles;`
+Azure Database for PostgreSQL servern skapas med de tre definierade standard rollerna. Du kan se dessa roller genom att köra kommandot: `SELECT rolname FROM pg_roles;`
 - azure_pg_admin
 - azure_superuser
 - din server administratörs användare
 
-Din server administratörs användare är medlem i azure_pg_admin-rollen. Men Server administratörs kontot ingår inte i azure_superuser-rollen. Eftersom den här tjänsten är en hanterad PaaS-tjänst ingår endast Microsoft i superanvändarens roll. 
+Din server administratörs användare är medlem i azure_pg_admins rollen. Men Server administratörs kontot ingår inte i azure_superusers rollen. Eftersom den här tjänsten är en hanterad PaaS-tjänst ingår endast Microsoft i superanvändarens roll. 
 
-PostgreSQL-motorn använder behörigheter för att kontrol lera åtkomsten till databas objekt, enligt beskrivningen i [produkt dokumentationen för postgresql](https://www.postgresql.org/docs/current/static/sql-createrole.html). I Azure Database for PostgreSQL tilldelas Server administratörs användaren följande behörigheter: INLOGGNING, SUPERANVÄNDA, ÄRV, CREATEDB, CREATEROLE, NOREPLIKERING
+PostgreSQL-motorn använder behörigheter för att kontrol lera åtkomsten till databas objekt, enligt beskrivningen i [produkt dokumentationen för postgresql](https://www.postgresql.org/docs/current/static/sql-createrole.html). I Azure Database for PostgreSQL beviljas Server administratörs användaren följande behörigheter: inloggning, superanvändare, Ärv, CREATEDB, CREATEROLE, noreplikering
 
 Användar kontot för Server administratör kan användas för att skapa ytterligare användare och ge dessa användare till azure_pg_admin-rollen. Server administratörs kontot kan också användas för att skapa mindre privilegierade användare och roller som har åtkomst till enskilda databaser och scheman.
 
@@ -39,7 +39,7 @@ Användar kontot för Server administratör kan användas för att skapa ytterli
 2. Använd administratörs kontot och lösen ordet för att ansluta till din databas server. Använd önskat klient verktyg, till exempel pgAdmin eller psql.
    Om du är osäker på hur du ansluter, se [snabb](./quickstart-create-server-database-portal.md) starten
 
-3. Redigera och kör följande SQL-kod. Ersätt det nya användar namnet för plats hållarens värde < new_user > och ersätt plats hållaren med ditt eget starka lösen ord. 
+3. Redigera och kör följande SQL-kod. Ersätt det nya användar namnet för plats hållarens värde < new_user > och ersätt plats hållarens lösen ord med ditt eget starka lösen ord. 
 
    ```sql
    CREATE ROLE <new_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
@@ -54,7 +54,7 @@ Användar kontot för Server administratör kan användas för att skapa ytterli
 
 2. Använd administratörs kontot och lösen ordet för att ansluta till din databas server. Använd önskat klient verktyg, till exempel pgAdmin eller psql.
 
-3. Redigera och kör följande SQL-kod. Ersätt placeholder-värdet `<db_user>` med ditt avsedda nya användar namn och plats hållarens `<newdb>` värde med ditt eget databas namn. Ersätt plats hållarens lösen ord med ditt eget starka lösen ord. 
+3. Redigera och kör följande SQL-kod. Ersätt placeholder-värdet `<db_user>` med ditt avsedda nya användar namn och plats hållarens värde `<newdb>` med ditt eget databas namn. Ersätt plats hållarens lösen ord med ditt eget starka lösen ord. 
 
    Den här SQL-koden skapar en ny databas med namnet testdb, till exempel. Sedan skapar den en ny användare i PostgreSQL-tjänsten och tilldelar Connect-behörigheter till den nya databasen för den användaren. 
 
@@ -78,6 +78,6 @@ Användar kontot för Server administratör kan användas för att skapa ytterli
    ```
 
 ## <a name="next-steps"></a>Nästa steg
-Öppna brand väggen för IP-adresserna för de nya användarnas datorer så att de kan ansluta: [Skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure Portal](howto-manage-firewall-using-portal.md) eller [Azure CLI](howto-manage-firewall-using-cli.md).
+Öppna brand väggen för IP-adresserna för de nya användarnas datorer så att de kan ansluta: [skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure Portal](howto-manage-firewall-using-portal.md) eller [Azure CLI](howto-manage-firewall-using-cli.md).
 
 Mer information om hantering av användar konton finns i produkt dokumentation för PostgreSQL för [databas roller och behörigheter](https://www.postgresql.org/docs/current/static/user-manag.html), [beviljande av syntax](https://www.postgresql.org/docs/current/static/sql-grant.html)och [behörigheter](https://www.postgresql.org/docs/current/static/ddl-priv.html).

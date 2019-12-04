@@ -1,17 +1,17 @@
 ---
-title: Prestanda rekommendationer i Azure Database for MySQL
+title: Prestanda rekommendationer – Azure Database for MySQL
 description: Den här artikeln beskriver prestanda rekommendations funktionen i Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1371b286f5e9bd82345e17c11e910c68fac9fed2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: f957459cf20a018ae53ba6ec90fb478dd0c69044
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603153"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770908"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Prestanda rekommendationer i Azure Database for MySQL
 
@@ -33,7 +33,7 @@ Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) 
 
 Välj **analysera** och välj en databas som kommer att påbörja analysen. Det kan ta flera minuter att slutföra analysen, beroende på din arbets belastning. När analysen är klar, visas ett meddelande i portalen. Analysen utför en djup granskning av din databas. Vi rekommenderar att du utför analyser under perioder med låg belastning.
 
-I fönstret **rekommendationer** visas en lista med rekommendationer om de hittades och det relaterade fråge-ID som skapade rekommendationen. Med fråge-ID kan du använda vyn [MySQL. query_store](concepts-query-store.md#mysqlquery_store) för att lära dig mer om frågan.
+I fönstret **rekommendationer** visas en lista med rekommendationer om de hittades och det relaterade fråge-ID som skapade rekommendationen. Med fråge-ID kan du använda vyn [MySQL. query_store](concepts-query-store.md#mysqlquery_store) för att läsa mer om frågan.
 
 ![Ny sida med prestanda rekommendationer](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 

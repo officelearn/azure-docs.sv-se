@@ -1,18 +1,18 @@
 ---
-title: Felsöka anslutnings problem till Azure Database for MySQL
+title: Felsöka anslutnings problem – Azure Database for MySQL
 description: Lär dig hur du felsöker anslutnings problem till Azure Database for MySQL, inklusive tillfälliga fel som kräver nya försök, brand Väggs problem och avbrott.
 keywords: MySQL-anslutning, anslutnings sträng, anslutnings problem, tillfälligt fel, anslutnings fel
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a0203ceeb36352a16814345f5ecdff8271691fd0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972835"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773538"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Felsöka anslutnings problem till Azure Database for MySQL
 
@@ -40,15 +40,15 @@ Tillfälliga fel uppstår när underhåll utförs, ett fel uppstår i systemet m
 1. Kontrol lera [instrument panelen för Microsoft Azures tjänsten](https://azure.microsoft.com/status) för eventuella kända avbrott som uppstod under den tid då felen rapporterades av programmet.
 2. Program som ansluter till en moln tjänst som Azure Database for MySQL ska förvänta sig tillfälliga fel och implementera omprövnings logik för att hantera dessa fel i stället för att visa dem som program fel till användare. Granska [hanteringen av tillfälliga anslutnings fel för Azure Database for MySQL](concepts-connectivity.md) för bästa praxis och design rikt linjer för att hantera tillfälliga fel.
 3. När en server närmar sig resurs begränsningarna kan det verka som om ett tillfälligt anslutnings problem uppstår. Se [begränsningar i Azure Database for MySQL](concepts-limits.md).
-4. Om problem med anslutningen fortsätter, eller om varaktigheten för programmet stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en specifik dag, kan du skicka en support förfrågan till Azure genom att välja **få support** på [Azure Support](https://azure.microsoft.com/support/options) webbplats.
+4. Om problem med anslutningen fortsätter eller om varaktigheten för programmet stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en dag, kan du skicka en support förfrågan till Azure genom att välja **få support** på support webbplatsen för [Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Felsöka beständiga fel
 
 Om programmet inte kan ansluta till Azure Database for MySQL, indikerar det vanligt vis ett problem med något av följande:
 
-* Konfiguration av Server brand vägg: Kontrol lera att Azure Database for MySQL server-brandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
-* Konfiguration av klient brand vägg: Brand väggen på klienten måste tillåta anslutningar till din databas server. IP-adresser och portar på den server som du inte kan tillåta måste vara tillåtna samt program namn som MySQL i vissa brand väggar.
-* Användar fel: Du kan ha felangede anslutnings parametrar, till exempel Server namnet i anslutnings strängen eller en *\@servername-* suffix som saknas i användar namnet.
+* Konfiguration av Server brand vägg: kontrol lera att Azure Database for MySQL server-brandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
+* Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. IP-adresser och portar på den server som du inte kan tillåta måste vara tillåtna samt program namn som MySQL i vissa brand väggar.
+* Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett saknat *\@servername* -suffix i användar namnet.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 

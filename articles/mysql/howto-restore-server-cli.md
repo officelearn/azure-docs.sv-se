@@ -1,18 +1,18 @@
 ---
-title: Säkerhetskopiera och återställa en server i Azure Database for MySQL
+title: Säkerhets kopiering och återställning – Azure CLI – Azure Database for MySQL
 description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database for MySQL med hjälp av Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: b265b77e08dda582153efa51c036f4f7a9de8d41
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: b2458c42a77ffee6985165252b0ebab836fce457
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965208"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774224"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for MySQL med Azure CLI
 

@@ -1,35 +1,35 @@
 ---
-title: Skapa användare i Azure Database for MariaDB-server
-description: Den här artikeln beskrivs hur du kan skapa nya användarkonton för att interagera med en Azure Database for MariaDB-server.
+title: Skapa användare – Azure Database for MariaDB
+description: I den här artikeln beskrivs hur du kan skapa nya användar konton för att interagera med en Azure Database for MariaDB-Server.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ed373cfa0ac755d56e7bc2601c65e0e6482ff6d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: cbfcb097b4fda30bdeed940a5acb609b02f5d788
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038879"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764277"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Skapa användare i Azure Database for MariaDB 
-Den här artikeln beskrivs hur du kan skapa användare i Azure Database for MariaDB.
+I den här artikeln beskrivs hur du kan skapa användare i Azure Database for MariaDB.
 
-När du först skapade Azure Database for MariaDB, som du angav en användare för serveradministratör och ett lösenord. Mer information kan du följa den [snabbstarten](quickstart-create-mariadb-server-database-using-azure-portal.md). Du kan hitta din användarens inloggningsnamn för serveradministratören i Azure Portal.
+När du först skapade din Azure Database for MariaDB angav du ett användar namn och lösen ord för Server Administratörs inloggning. För mer information, kan du följa [snabb](quickstart-create-mariadb-server-database-using-azure-portal.md)starten. Du kan hitta inloggnings användar namnet för Server administratören från Azure Portal.
 
-Administratörsanvändare server hämtar viss behörighet för servern som anges: VÄLJ, INFOGA, UPPDATERA, TA BORT, TA BORT, LÄSA IN, BEARBETA, REFERENSER, INDEX, ALTER, VISA DATABASER, SKAPA TEMPORÄRA TABELLER, LÅSA TABELLER, KÖRA SKAPAR UNDERORDNAD REPLIKERING, REPLIKERINGSKLIENT, VISA, VISA, SKAPA RUTINUNDERHÅLL, ALTER RUTINEN, SKAPA ANVÄNDARE , HÄNDELSE, UTLÖSARE
+Server administratörs användaren får vissa behörigheter för servern enligt listan: Välj, infoga, uppdatera, ta bort, skapa, släppa, läsa in, bearbeta, REFERERA, INDEXERA, ändra, Visa databaser, skapa TEMPORÄRa tabeller, Lås tabeller, köra, replikering SLAVar, replikering KLIENT, SKAPA, VISA, VISA, SKAPA RUTIN, ÄNDRA RUTIN, SKAPA ANVÄNDARE, HÄNDELSE, UTLÖSARE
 
-När Azure Database for MariaDB-server har skapats kan använda du första användarkontot för server-administratör att skapa ytterligare användare och ge administratörsåtkomst till dem. Serveradministratörskontot kan också användas för att skapa mindre privilegierade användare som har åtkomst till enskilda databasscheman.
+När Azure Database for MariaDB-servern har skapats kan du använda det första server administratörs användar kontot för att skapa ytterligare användare och ge administratörs åtkomst till dem. Server administratörs kontot kan också användas för att skapa mindre privilegierade användare som har åtkomst till enskilda databas scheman.
 
-## <a name="create-additional-admin-users"></a>Skapa ytterligare administrativa användare
-1. Hämta anslutning administration och information användarnamn.
-   Du behöver det fullständiga servernamnet och inloggningsuppgifterna för administratör för att ansluta till databasservern. Hittar du enkelt servernamnet och inloggningsuppgifter från servern **översikt** sidan eller **egenskaper** sidan på Azure portal. 
+## <a name="create-additional-admin-users"></a>Skapa ytterligare administratörs användare
+1. Hämta anslutnings informationen och administratörs användar namnet.
+   Du behöver det fullständiga servernamnet och inloggningsuppgifterna för administratör för att ansluta till databasservern. Du kan enkelt hitta server namn och inloggnings information från sidan Server **Översikt** eller sidan **Egenskaper** i Azure Portal. 
 
-2. Använda administratörskonto och lösenord för att ansluta till databasservern. Använd din önskade klientverktyg, till exempel MySQL Workbench, mysql.exe, HeidiSQL eller andra. 
-   Om du är osäker på hur du ansluter kan du läsa [använda MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
+2. Använd administratörs kontot och lösen ordet för att ansluta till din databas server. Använd önskat klient verktyg, till exempel MySQL Workbench, MySQL. exe, HeidiSQL eller andra. 
+   Om du är osäker på hur du ansluter, se [Använd MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
 
-3. Redigera och kör följande SQL-kod. Ersätt ditt nya användarnamn för platshållarvärdet `new_master_user`. Den här syntaxen ger de listade behörigheter på alla databasscheman ( *.* ) till användarnamn (new_master_user i det här exemplet). 
+3. Redigera och kör följande SQL-kod. Ersätt det nya användar namnet för plats hållarens värde `new_master_user`. Den här syntaxen beviljar de angivna behörigheterna för alla databas scheman ( *.* ) till användar namnet (new_master_user i det här exemplet). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -39,24 +39,24 @@ När Azure Database for MariaDB-server har skapats kan använda du första anvä
    FLUSH PRIVILEGES;
    ```
 
-4. Kontrollera beviljar 
+4. Verifiera bidragen 
    ```sql
    USE sys;
    
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
 
-## <a name="create-database-users"></a>Skapa databasanvändare
+## <a name="create-database-users"></a>Skapa databas användare
 
-1. Hämta anslutning administration och information användarnamn.
-   Du behöver det fullständiga servernamnet och inloggningsuppgifterna för administratör för att ansluta till databasservern. Hittar du enkelt servernamnet och inloggningsuppgifter från servern **översikt** sidan eller **egenskaper** sidan på Azure portal. 
+1. Hämta anslutnings informationen och administratörs användar namnet.
+   Du behöver det fullständiga servernamnet och inloggningsuppgifterna för administratör för att ansluta till databasservern. Du kan enkelt hitta server namn och inloggnings information från sidan Server **Översikt** eller sidan **Egenskaper** i Azure Portal. 
 
-2. Använda administratörskonto och lösenord för att ansluta till databasservern. Använd din önskade klientverktyg, till exempel MySQL Workbench, mysql.exe, HeidiSQL eller andra. 
-   Om du är osäker på hur du ansluter kan du läsa [använda MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
+2. Använd administratörs kontot och lösen ordet för att ansluta till din databas server. Använd önskat klient verktyg, till exempel MySQL Workbench, MySQL. exe, HeidiSQL eller andra. 
+   Om du är osäker på hur du ansluter, se [Använd MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
 
-3. Redigera och kör följande SQL-kod. Ersätt platshållarvärdet `db_user` med avsedda nytt användarnamn och platshållarvärdet `testdb` med databasnamn på din.
+3. Redigera och kör följande SQL-kod. Ersätt placeholder-värdet `db_user` med ditt avsedda nya användar namn och plats hållarens värde `testdb` med ditt eget databas namn.
 
-   Den här sql-syntax i koden skapar en ny databas med namnet testdb exempelsyfte. Därefter skapar en ny användare i tjänsten Azure Database for MariaDB, och beviljar alla behörigheter till det nya databasschemat (testdb.\*) för användaren. 
+   Den här SQL-koden skapar en ny databas med namnet testdb i exempel syfte. Sedan skapas en ny användare i Azure Database for MariaDBs tjänsten och alla behörigheter beviljas till det nya databasschemat (testdb.\*) för den användaren. 
 
    ```sql
    CREATE DATABASE testdb;
@@ -68,21 +68,21 @@ När Azure Database for MariaDB-server har skapats kan använda du första anvä
    FLUSH PRIVILEGES;
    ```
 
-4. Kontrollera beviljar i databasen.
+4. Verifiera bidragen i databasen.
    ```sql
    USE testdb;
    
    SHOW GRANTS FOR 'db_user'@'%';
    ```
 
-5. Logga in på servern, om du anger den avsedda databas med nytt användarnamn och lösenord. Det här exemplet visar mysql-kommandoraden. Med det här kommandot uppmanas du lösenordet för användarnamnet. Ersätt dina egna servernamnet, databasnamnet och användarnamn.
+5. Logga in på servern och ange den angivna databasen med hjälp av det nya användar namnet och lösen ordet. I det här exemplet visas mysql-kommandoraden. Med det här kommandot uppmanas du att ange lösen ordet för användar namnet. Ersätt ditt eget Server namn, databas namn och användar namn.
 
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-   Mer information om hantering av användarkonton, finns i MariaDB-dokumentationen för [Användarkontohantering](https://mariadb.com/kb/en/library/user-account-management/), [BEVILJA Syntax](https://mariadb.com/kb/en/library/grant/), och [privilegier](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+   Mer information om hantering av användar konton finns i MariaDB-dokumentationen för [användar konto hantering](https://mariadb.com/kb/en/library/user-account-management/), [beviljande av syntax](https://mariadb.com/kb/en/library/grant/)och [privilegier](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Nästa steg
-Öppna brandväggen för IP-adresserna för de nya användarna datorer så att de kan ansluta: [Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal](howto-manage-firewall-portal.md)  
+Öppna brand väggen för IP-adresserna för de nya användarnas datorer så att de kan ansluta: [skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure Portal](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

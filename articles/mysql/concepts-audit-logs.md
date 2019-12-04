@@ -1,17 +1,17 @@
 ---
-title: Gransknings loggar för Azure Database for MySQL
+title: Gransknings loggar – Azure Database for MySQL
 description: Beskriver de gransknings loggar som är tillgängliga i Azure Database for MySQL och de tillgängliga parametrarna för att aktivera loggnings nivåer.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 12/02/2019
+ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434399"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773576"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Gransknings loggar i Azure Database for MySQL
 
@@ -22,18 +22,18 @@ I Azure Database for MySQL är gransknings loggen tillgänglig för användare. 
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 
-Som standard är gransknings loggen inaktive rad. Om du vill aktivera det anger du `audit_log_enabled` till på.
+Som standard är gransknings loggen inaktive rad. Ange `audit_log_enabled` till på för att aktivera det.
 
 Andra parametrar som du kan justera är:
 
 - `audit_log_events`: styr vilka händelser som ska loggas. Se nedanstående tabell för vissa gransknings händelser.
-- `audit_log_include_users`: MySQL-användare ska inkluderas för loggning. Standardvärdet för den här parametern är tomt, som innehåller alla användare som ska loggas. Detta har högre prioritet än `audit_log_exclude_users`. Parameterns max längd är 512 tecken.
+- `audit_log_include_users`: MySQL-användare ska inkluderas för loggning. Standardvärdet för den här parametern är tomt, som innehåller alla användare som ska loggas. Detta har högre prioritet jämfört med `audit_log_exclude_users`. Parameterns max längd är 512 tecken.
 > [!Note]
-> `audit_log_include_users` har högre prioritet än `audit_log_exclude_users` till exempel om audit_log_include_users = `demouser` och audit_log_exclude_users = `demouser`, så granskar den loggarna eftersom `audit_log_include_users` har högre prioritet.
-- `audit_log_exclude_users`: MySQL-användare undantas från loggning. Parameterns max längd är 512 tecken.
+> `audit_log_include_users` har högre prioritet än `audit_log_exclude_users` till exempel om audit_log_include_users = `demouser` och audit_log_exclude_users = `demouser`så granskar den loggarna eftersom `audit_log_include_users` har högre prioritet.
+- `audit_log_exclude_users`: MySQL-användare ska undantas från loggning. Parameterns max längd är 512 tecken.
 
 > [!Note]
-> För `sql_text` trunkeras loggen om den innehåller fler än 2048 tecken.
+> För `sql_text`kommer loggen att trunkeras om den överskrider 2048 tecken.
 
 | **Händelse** | **Beskrivning** |
 |---|---|
@@ -62,10 +62,10 @@ I följande avsnitt beskrivs vad som utdata av MySQLs gransknings loggar baserat
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Always `AzureDiagnostics` |
+| `Type` | Loggens typ. `AzureDiagnostics` alltid |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Always `MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMYSQL` alltid |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -73,7 +73,7 @@ I följande avsnitt beskrivs vad som utdata av MySQLs gransknings loggar baserat
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (endast tillgängligt för MySQL 5,7) |
+| `event_subclass_s` | `CONNECT``DISCONNECT``CHANGE USER` (endast tillgängligt för MySQL 5,7) |
 | `connection_id_d` | Unikt anslutnings-ID som genererats av MySQL |
 | `host_s` | Tom |
 | `ip_s` | IP-adressen för klienten som ansluter till MySQL |
@@ -83,17 +83,17 @@ I följande avsnitt beskrivs vad som utdata av MySQLs gransknings loggar baserat
 
 ### <a name="general"></a>Allmänt
 
-Schemat nedan gäller för händelse typerna GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL och ADMIN.
+Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT, DML, DDL, DCL och ADMIN.
 
 | **Egenskap** | **Beskrivning** |
 |---|---|
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Always `AzureDiagnostics` |
+| `Type` | Loggens typ. `AzureDiagnostics` alltid |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Always `MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMYSQL` alltid |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -101,7 +101,7 @@ Schemat nedan gäller för händelse typerna GENERAL, DML_SELECT, DML_NONSELECT,
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `general_log` |
-| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (endast tillgängligt för MySQL 5,6) |
+| `event_subclass_s` | `LOG``ERROR``RESULT` (endast tillgängligt för MySQL 5,6) |
 | `event_time` | Frågans start tid i UTC-tidsstämpel |
 | `error_code_d` | Felkod om frågan misslyckades. `0` innebär inget fel |
 | `thread_id_d` | ID för tråd som körde frågan |
@@ -118,10 +118,10 @@ Schemat nedan gäller för händelse typerna GENERAL, DML_SELECT, DML_NONSELECT,
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Always `AzureDiagnostics` |
+| `Type` | Loggens typ. `AzureDiagnostics` alltid |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Always `MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMYSQL` alltid |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -129,7 +129,7 @@ Schemat nedan gäller för händelse typerna GENERAL, DML_SELECT, DML_NONSELECT,
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` eller `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`eller `DELETE` |
 | `connection_id_d` | Unikt anslutnings-ID som genererats av MySQL |
 | `db_s` | Namnet på databasen som används |
 | `table_s` | Namnet på tabellen har öppnats |

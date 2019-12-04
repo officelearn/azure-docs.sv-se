@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 08549935c7a0651709a08bef61624e4e436d4aad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084095"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792181"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster på virtuella Azure-datorer
 
@@ -81,9 +81,7 @@ Du bör också ha en allmän förståelse för dessa tekniker:
 - [Resurs grupper i Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med läget för [förenklad](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) hantering i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Avinstallera det fullständiga tillägget från de virtuella datorer som ingår i redundansklustret och registrera dem sedan med resurs leverantören för SQL-VM i lättviktigt läge.
->
-> Det fullständiga tillägget har stöd för funktioner som automatiserad säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för SQL Server virtuella datorer när agenten har installerats om i läget för förenklad hantering.
+> För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med [läget för förenklad hantering](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i Lightweight-läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal **avmarkerar du kryss rutan bredvid rätt virtuell dator**. Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har installerats om i läget för förenklad hantering.
 
 ### <a name="what-to-have"></a>Vad ska jag ha
 
@@ -294,7 +292,7 @@ Moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage-blob. D
 
 1. Konfigurera ett kvorumlogg för redundanskluster. Se [Konfigurera kvorumdisken i användar gränssnittet](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
-### <a name="add-storage"></a>Lägg till lagringsutrymme
+### <a name="add-storage"></a>Lägg till lagring
 
 Diskarna för Lagringsdirigering måste vara tomma. De får inte innehålla partitioner eller andra data. Följ [stegen i den här guiden](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives)om du vill rensa diskarna.
 
@@ -501,7 +499,7 @@ På Azure Virtual Machines stöds inte MSDTC på Windows Server 2016 eller tidig
 - Det går inte att konfigurera den klustrade MSDTC-resursen att använda delad lagring. Om du skapar en MSDTC-resurs i Windows Server 2016 visas inga delade lagrings enheter som är tillgängliga för användning, även om lagring är tillgängligt. Det här problemet har åtgärd ATS i Windows Server 2019.
 - Den grundläggande belastningsutjämnaren hanterar inte RPC-portar.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Konfigurera Lagringsdirigering med fjärr skrivbord (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

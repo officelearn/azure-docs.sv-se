@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8604df894367ccc25d7e9ffae4453a6b3080b7d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 24bee8ffe23d524553143b2097560979a39329d7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226702"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784722"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -211,7 +211,7 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
 Även om du använder Storage-emulatorn för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-create-storage-account.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
 
-- Sök efter och välj **lagrings konton**från [Azure Portal]. 
+- Sök efter och välj **lagrings konton**från [Azure-portalen]. 
   ![väljer du lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
   
   Välj ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar**och kopiera sedan ett av värdena för **anslutnings strängen** .
@@ -295,7 +295,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 Kör Functions-värden om du vill köra ett Functions-projekt. Värden aktiverar utlösare för alla funktioner i projektet. 
 
-### <a name="version-2x"></a>Version 2.x
+### <a name="version-2x"></a>Version 2. x
 
 I version 2. x av körnings miljön varierar Start kommandot beroende på ditt projekt språk.
 
@@ -318,7 +318,7 @@ npm install
 npm start     
 ```
 
-### <a name="version-1x"></a>Version 1.x
+### <a name="version-1x"></a>Version 1. x
 
 Version 1. x av Functions-körningen kräver kommandot `host`, som i följande exempel:
 
@@ -517,13 +517,13 @@ Den här typen av strömnings loggar kräver att du [aktiverar Application Insig
 
 ## <a name="next-steps"></a>Nästa steg
 
-Azure Functions Core Tools är [öppen källkod och finns på GitHub](https://github.com/azure/azure-functions-cli).  
+Lär dig hur du utvecklar, testar och publicerar Azure Functions med Azure Functions Core Tools [Microsoft lära](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools är [öppen källkod och finns på GitHub](https://github.com/azure/azure-functions-cli).  
 Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-problem](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure-portalen]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

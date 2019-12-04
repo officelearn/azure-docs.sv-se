@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184643"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790540"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar om Azure-tjänsten för front dörr
 
@@ -180,6 +180,8 @@ Följande är de aktuella chiffersviter som stöds av tjänsten Azure frontend-d
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>Stöder Azure frontend-tjänsten även Omkryptering av trafik till Server delen?
 
@@ -213,5 +215,5 @@ Ja, Azure-tjänsten för front dörr stöder aviseringar. Aviseringar har kon fi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Lär dig hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

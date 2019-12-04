@@ -1,42 +1,39 @@
 ---
-title: Ansluta till MailChimp – Azure Logic Apps | Microsoft Docs
-description: 'Skapa och hantera marknadsföring med MailChimp REST API: er och Azure Logic Apps'
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 08/18/2016
-ms.topic: article
-ms.service: logic-apps
+title: Anslut till MailChimp
+description: 'Skapa och hantera marknadsförings-e-postmeddelanden med MailChimp REST API: er och Azure Logic Apps'
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 08/18/2016
 tags: connectors
-ms.openlocfilehash: ffe2760c004db24d503ee381b8752c875c286fca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a440f702058abc25bb360111418c451d59c3ab1b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105844"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789626"
 ---
-# <a name="get-started-with-the-mailchimp-connector"></a>Kom igång med MailChimp-anslutningsapp
-MailChimp är en SaaS-tjänst som låter företag hantera och automatisera marknadsföringsaktiviteter för e-post, inklusive utskick av marknadsföringsmail, automatiserade meddelanden och riktade kampanjer.
+# <a name="get-started-with-the-mailchimp-connector"></a>Kom igång med MailChimp-anslutningen
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+MailChimp är en SaaS-tjänst som gör det möjligt för företag att hantera och automatisera e-postmarknadsförings aktiviteter, inklusive att skicka marknadsförings e-post, automatiserade meddelanden och riktade kampanjer.
+
+Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-mailchimp"></a>Skapa en anslutning till MailChimp
-För att skapa logikappar med MailChimp, måste du först skapa en **anslutning** anger du detaljerna för följande egenskaper:
+
+Om du vill skapa Logi Kap par med MailChimp måste du först skapa en **anslutning** och sedan ange information om följande egenskaper:
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| Token |Ja |Provide MailChimp Credentials |
+| Token |Ja |Ange autentiseringsuppgifter för MailChimp |
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
-> 
 
+## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-## <a name="connector-specific-details"></a>Information om specifika
+Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/mailchimp/).
 
-Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/mailchimp/).
+## <a name="more-connectors"></a>Fler anslutningar
 
-## <a name="more-connectors"></a>Fler anslutningsappar
-Gå tillbaka till den [API: er lista](apis-list.md).
+Gå tillbaka till [listan med API: er](apis-list.md).

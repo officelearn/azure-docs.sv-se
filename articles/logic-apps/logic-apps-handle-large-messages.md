@@ -1,25 +1,18 @@
 ---
-title: Hantera stora meddelanden – Azure Logic Apps | Microsoft Docs
+title: Hantera stora meddelanden
 description: Lär dig hur du hanterar stora meddelande storlekar med segment i Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
+ms.suite: integration
 author: shae-hurst
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
+ms.author: shhurst
 ms.topic: article
 ms.date: 4/27/2018
-ms.author: shhurst
-ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989927"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792020"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med segment i Azure Logic Apps
 
@@ -73,23 +66,23 @@ Om en HTTP-åtgärd inte redan aktiverar segment, måste du också konfigurera s
 
 Många slut punkter skickar automatiskt stora meddelanden i segment när de hämtas via en HTTP GET-begäran. Om du vill hämta segmenterade meddelanden från en slut punkt över HTTP måste slut punkten ha stöd för partiella innehålls begär Anden eller *segmenterade hämtningar*. När din Logi Kap par skickar en HTTP GET-begäran till en slut punkt för nedladdning av innehåll, och slut punkten svarar med status koden "206", innehåller svaret segment innehåll. Logic Apps kan inte kontrol lera om en slut punkt stöder partiella begär Anden. Men när din Logic-app får det första "206"-svaret skickar din Logic-app automatiskt flera begär Anden för att ladda ned allt innehåll.
 
-Om du vill kontrol lera om en slut punkt har stöd för partiellt innehåll skickar du en HEAD-begäran. Den här begäran hjälper dig att avgöra om svaret innehåller `Accept-Ranges` rubriken. På så sätt kan du *föreslå* det här alternativet genom att ange `Range` rubriken i HTTP GET-begäran om slut punkten stöder segment hämtningar men inte skickar segmenterat innehåll. 
+Om du vill kontrol lera om en slut punkt har stöd för partiellt innehåll skickar du en HEAD-begäran. Den här begäran hjälper dig att avgöra om svaret innehåller `Accept-Ranges`s huvudet. På så sätt kan du *föreslå* det här alternativet genom att ange `Range` rubriken i HTTP GET-begäran om slut punkten stöder segment hämtningar men inte skickar segmenterat innehåll. 
 
 De här stegen beskriver den detaljerade processen Logic Apps använder för att ladda ned segmenterat innehåll från en slut punkt till din Logic app:
 
 1. Din Logic-App skickar en HTTP GET-begäran till slut punkten.
 
-   Rubriken för begäran kan alternativt innehålla ett `Range` fält som beskriver ett byte-intervall för att begära innehålls segment.
+   Begär ande huvudet kan också innehålla ett `Range`-fält som beskriver ett byte-intervall för att begära innehålls segment.
 
 2. Slut punkten svarar med status koden "206" och HTTP-meddelandets text.
 
-    Information om innehållet i det här segmentet visas i svarets `Content-Range` rubrik, inklusive information som hjälper Logic Apps att fastställa början och slutet för segmentet, plus den totala storleken på hela innehållet innan segmentning.
+    Information om innehållet i det här segmentet visas i svarets `Content-Range` rubrik, inklusive information som hjälper till att Logic Apps fastställa början och slutet för segmentet, plus den totala storleken på hela innehållet innan segmentning.
 
 3. Din Logic-App skickar automatiskt uppföljning av HTTP GET-begäranden.
 
     Din Logic App skickar uppföljnings begär anden tills hela innehållet hämtas.
 
-Denna åtgärds definition visar till exempel en HTTP GET-begäran som anger `Range` sidhuvudet. Rubriken *föreslår* att slut punkten ska svara med segmenterat innehåll:
+Denna åtgärds definition visar till exempel en HTTP GET-begäran som anger `Range`s huvudet. Rubriken *föreslår* att slut punkten ska svara med segmenterat innehåll:
 
 ```json
 "getAction": {
@@ -117,18 +110,18 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
 1. Din Logi Kap par skickar en initial HTTP POST eller en skicka begäran med en tom meddelande text. Begär ande huvudet innehåller den här informationen om det innehåll som din Logic app vill överföra i segment:
 
-   | Fält för Logic Apps begär ande huvud | Value | type | Beskrivning |
+   | Fält för Logic Apps begär ande huvud | Värde | Typ | Beskrivning |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | segment vis | String | Anger att innehållet har laddats upp i segment |
-   | **x-ms-content-length** | <*innehålls längd*> | Integer | Hela innehålls storleken i byte innan segmentning |
+   | **x-MS-Transfer-Mode** | segment vis | Sträng | Anger att innehållet har laddats upp i segment |
+   | **x-MS-Content-Length** | <*innehålls längd*> | Integer | Hela innehålls storleken i byte innan segmentning |
    ||||
 
 2. Slut punkten svarar med status koden 200 och denna valfria information:
 
-   | Rubrik fält för slut punkts svar | type | Obligatoriskt | Beskrivning |
+   | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segment storleken i byte |
-   | **Location** | String | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
+   | **x-MS-segment-storlek** | Integer | Nej | Den föreslagna segment storleken i byte |
+   | **Plats** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
    ||||
 
 3. Din Logi Kap par skapar och skickar uppföljning av HTTP-meddelanden – var och en med den här informationen:
@@ -137,22 +130,22 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
    * Den här rubrik informationen om innehålls segmentet som skickas i varje KORRIGERINGs meddelande:
 
-     | Fält för Logic Apps begär ande huvud | Value | type | Beskrivning |
+     | Fält för Logic Apps begär ande huvud | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
      | **Innehålls intervall** | <*intervall*> | Sträng | Byte-intervallet för det aktuella innehålls segmentet, inklusive startvärdet, slut värde och total innehålls storlek, till exempel: "byte = 0-1023/10100" |
-     | **Content-Type** | <*content-type*> | Sträng | Typ av segmenterat innehåll |
+     | **Innehålls typ** | <> av *innehålls typ* | Sträng | Typ av segmenterat innehåll |
      | **Innehålls längd** | <*innehålls längd*> | Sträng | Längden på storleken i byte för det aktuella segmentet |
      |||||
 
 4. Efter varje PATCH-begäran bekräftar slut punkten kvittot för varje segment genom att svara med status koden "200" och följande svarshuvuden:
 
-   | Rubrik fält för slut punkts svar | type | Obligatoriskt | Beskrivning |
+   | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **Område** | Sträng | Ja | Byte-intervallet för innehåll som har tagits emot av slut punkten, till exempel: "byte = 0-1023" |   
-   | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segment storleken i byte |
+   | **x-MS-segment-storlek** | Integer | Nej | Den föreslagna segment storleken i byte |
    ||||
 
-Denna åtgärds definition visar till exempel en HTTP POST-begäran om att överföra segment innehåll till en slut punkt. I åtgärdens `runTimeConfiguration` egenskap `contentTransfer` anges `transferMode` egenskapen till `chunked`:
+Denna åtgärds definition visar till exempel en HTTP POST-begäran om att överföra segment innehåll till en slut punkt. I åtgärdens `runTimeConfiguration` egenskap anger egenskapen `contentTransfer` `transferMode` till `chunked`:
 
 ```json
 "postAction": {

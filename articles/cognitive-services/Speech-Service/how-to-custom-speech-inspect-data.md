@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: cf0deffb6fe484f7e3ee38b95f285bb4b7cc809c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 07426e096858dec61f501581be565dc4137d6316
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072565"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773373"
 ---
 # <a name="inspect-custom-speech-data"></a>Granska Custom Speech data
 
@@ -40,6 +40,8 @@ Följ de här anvisningarna för att skapa ett test:
 6. Klicka på **Skapa**.
 
 När du har skapat ett test kan du jämföra modellerna sida vid sida.
+
+[!INCLUDE [service-pricing-advisory](includes/service-pricing-advisory.md)]
 
 ## <a name="side-by-side-model-comparisons"></a>Jämförelser av modeller sida vid sida
 

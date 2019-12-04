@@ -1,20 +1,17 @@
 ---
-title: Gruppera och kör åtgärder efter omfattning – Azure Logic Apps
+title: Gruppera och kör åtgärder efter omfattning
 description: Skapa begränsade åtgärder som körs baserat på grupp status i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b0f53d1dbcd5b8bbbe38ffe3dd9ba62087ed3432
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680009"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791485"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på grupp status med hjälp av omfång i Azure Logic Apps
 
@@ -78,8 +75,8 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
 
       | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** (Platsmarkör 1) | <*starta* > | Ange din flödes ursprung. | 
-      | **Waypoint 2** (Platsmarkör 2) | <*slut* > | Ange vägens mål. | 
+      | **Waypoint 1** (Platsmarkör 1) | <*starta*> | Ange din flödes ursprung. | 
+      | **Waypoint 2** (Platsmarkör 2) | <*slut*> | Ange vägens mål. | 
       | **Avoid** (Undvik) | Inget | Ange objekt som ska undvikas på vägen, till exempel vägar, väg tullar och så vidare. För möjliga värden, se [Beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimize** (Optimera) | timeWithTraffic | Välj en parameter för att optimera vägen, till exempel avstånd, tid med aktuell trafik information och så vidare. I det här exemplet används detta värde: "timeWithTraffic" | 
       | **Avståndsenhet** | <*your-preference*> | Ange avstånds enheten för att beräkna din väg. I det här exemplet används detta värde: "mil" | 
@@ -150,7 +147,7 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
   
        Ditt **Body** -fält ser nu ut så här:
 
-       ![Finished "Body"-fältet ](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![slut för ande av "Body"-fältet](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Spara din logikapp.

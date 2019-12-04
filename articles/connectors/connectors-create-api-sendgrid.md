@@ -1,22 +1,18 @@
 ---
-title: Ansluta till SendGrid från Azure Logic Apps | Microsoft Docs
+title: Anslut till SendGrid från Azure Logic Apps
 description: Automatisera aktiviteter och arbets flöden som skickar e-post och hantera e-postlistor i SendGrid med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 4f5efd73ef2a08069e3b9f2c7d60be99c209ddca
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050806"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789315"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Skicka e-postmeddelanden och hantera e-postlistor i SendGrid med hjälp av Azure Logic Apps
 
@@ -31,7 +27,7 @@ Du kan använda SendGrid åtgärder i dina Logi Kap par för att utföra dessa u
 Den här kopplingen tillhandahåller endast åtgärder, så för att starta din Logi Kap par, använder du en separat utlösare, till exempel en **upprepnings** utlösare. Om du till exempel regelbundet lägger till mottagare i dina listor kan du skicka e-post om mottagare och listor med hjälp av Office 365 Outlook Connector eller Outlook.com Connector.
 Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

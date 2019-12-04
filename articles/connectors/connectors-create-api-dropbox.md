@@ -1,22 +1,18 @@
 ---
-title: Ansluta till Dropbox – Azure Logic Apps
+title: Anslut till Dropbox
 description: 'Ladda upp och hantera filer med REST-API: er för Dropbox och Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 4e0689454ec074348fcbc775373a48d6825cfac4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050988"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789810"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Ladda upp och hantera filer i Dropbox med hjälp av Azure Logic Apps
 
@@ -24,7 +20,7 @@ Med Dropbox-kopplingen och Azure Logic Apps kan du skapa automatiserade arbets f
 
 Den här artikeln visar hur du ansluter till Dropbox från din Logic app och lägger sedan till Dropbox **när en fil skapas** och Dropbox **Hämta fil innehåll med hjälp av Sök vägs** åtgärden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -37,7 +33,7 @@ Den här artikeln visar hur du ansluter till Dropbox från din Logic app och lä
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 1. Under sökrutan väljer du **Alla**. Skriv "Dropbox" som filter i rutan Sök.
-Välj den här utlösaren i listan utlösare: **När en fil skapas**
+Välj den här utlösaren i listan utlösare: **när en fil skapas**
 
    ![Välj Dropbox-utlösare](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
 
@@ -54,7 +50,7 @@ Lägg nu till en åtgärd som hämtar innehållet från en ny fil.
 1. Under utlösaren väljer du **Nästa steg**. 
 
 1. Under sökrutan väljer du **Alla**. Skriv "Dropbox" som filter i rutan Sök.
-I listan åtgärder väljer du den här åtgärden: **Hämta fil innehåll med hjälp av sökväg**
+Välj den här åtgärden i listan åtgärder: **Hämta fil innehåll med hjälp av sökväg**
 
 1. Om du inte redan har auktoriserat Azure Logic Apps för åtkomst till Dropbox ska du godkänna åtkomst nu.
 

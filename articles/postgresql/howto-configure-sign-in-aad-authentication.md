@@ -1,17 +1,17 @@
 ---
-title: Konfigurera och logga in med Azure AD för Azure Database for PostgreSQL-enskild server
-description: Lär dig hur du konfigurerar Azure Active Directory för autentisering med Azure Database for PostgreSQL-enskild server
+title: Använd Azure Active Directory-Azure Database for PostgreSQL-enskild server
+description: Lär dig hur du konfigurerar Azure Active Directory (AAD) för autentisering med Azure Database for PostgreSQL-enskild server
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5abfe4cc6aa0679d8009343fa24c1059700bb79
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c929ac1c171547a4ff485fc43f0f329440f9c3b5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516037"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763648"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Använda Azure Active Directory för autentisering med PostgreSQL
 
@@ -45,7 +45,7 @@ Om du vill lägga till en Azure AD-användare till din Azure Database for Postgr
 1. Se först till att Azure AD-användaren `<user>@yourtenant.onmicrosoft.com` är en giltig användare i Azure AD-klienten.
 2. Logga in på Azure Database for PostgreSQL-instansen som administratörs användare för Azure AD.
 3. Skapa roll `<user>@yourtenant.onmicrosoft.com` i Azure Database for PostgreSQL.
-4. Gör `<user>@yourtenant.onmicrosoft.com` medlem i rollen azure_ad_user. Detta måste bara ges till Azure AD-användare.
+4. Skapa `<user>@yourtenant.onmicrosoft.com` en medlem i roll azure_ad_user. Detta måste bara ges till Azure AD-användare.
 
 **Exempel:**
 
@@ -193,7 +193,7 @@ De kan nu logga in med autentiseringsuppgifter för Azure AD i stället för att
 
 ### <a name="case-2-postgresql-username-is-different-than-the-azure-ad-user-principal-name"></a>Fall 2: PostgreSQL användar namn skiljer sig från användar huvud namnet för Azure AD
 
-Om en PostgreSQL-användare antingen inte finns i Azure AD eller har ett annat användar namn kan du använda Azure AD-grupper för att autentisera som den här PostgreSQL-användaren. Du kan migrera befintliga Azure Database for PostgreSQL användare till Azure AD genom att skapa en Azure AD-grupp med ett namn som matchar PostgreSQL-användaren och sedan bevilja rollen azure_ad_user till den befintliga PostgreSQL-användaren:
+Om en PostgreSQL-användare antingen inte finns i Azure AD eller har ett annat användar namn kan du använda Azure AD-grupper för att autentisera som den här PostgreSQL-användaren. Du kan migrera befintliga Azure Database for PostgreSQL användare till Azure AD genom att skapa en Azure AD-grupp med ett namn som matchar PostgreSQL-användaren och sedan bevilja roll azure_ad_user till den befintliga PostgreSQL-användaren:
 
 ```sql
 GRANT azure_ad_user TO "DBReadUser";

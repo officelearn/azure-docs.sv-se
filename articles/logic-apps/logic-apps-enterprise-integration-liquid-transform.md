@@ -1,20 +1,19 @@
 ---
-title: Konvertera JSON-data med flytande transformeringar – Azure Logic Apps | Microsoft Docs
+title: Konvertera JSON-data med flytande transformeringar
 description: Skapa transformeringar eller kartor för avancerade JSON-omvandlingar med hjälp av Logic Apps och flytande mall
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900664"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792504"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-omvandlingar med flytande mallar i Azure Logic Apps
 
@@ -22,7 +21,7 @@ Du kan utföra grundläggande JSON-omvandlingar i Logi Kap par med åtgärder f�
 
 Innan du kan utföra en flytande omvandling i din Logic app måste du först definiera JSON-till-JSON-mappningen med en flytande mall och lagra mappningen i ditt integrations konto. Den här artikeln visar hur du skapar och använder den här vätske mal len eller kartan. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Eller [Registrera dig för en prenumeration där du betalar per](https://azure.microsoft.com/pricing/purchase-options/)användning.
 
@@ -58,7 +57,7 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
    }
    ```
 
-2. Logga in på [Azure Portal](https://portal.azure.com). På huvud menyn i Azure väljer du **alla resurser**. I sökrutan söker du efter och väljer ditt integrations konto.
+2. Logga in på [Azure-portalen](https://portal.azure.com). På huvud menyn i Azure väljer du **alla resurser**. I sökrutan söker du efter och väljer ditt integrations konto.
 
    ![Välj integrations konto](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
@@ -68,11 +67,11 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
 
 4. Välj **Lägg till** och ange den här informationen för kartan:
 
-   | Egenskap | Value | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | JsonToJsonTemplate | Namnet på kartan, som är "JsonToJsonTemplate" i det här exemplet | 
-   | **Kart typ** | **liquid** | Kartans typ. För JSON till JSON-transformering måste du välja **flytande**. | 
-   | **Mappa** | "SimpleJsonToJsonTemplate.liquid" | En befintlig flytande mall eller kart fil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate. flytande" i det här exemplet. Du kan använda fil väljaren för att hitta den här filen. |
+   | **Kart typ** | **flytande** | Kartans typ. För JSON till JSON-transformering måste du välja **flytande**. | 
+   | **Mappa** | "SimpleJsonToJsonTemplate. flytande" | En befintlig flytande mall eller kart fil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate. flytande" i det här exemplet. Du kan använda fil väljaren för att hitta den här filen. |
    ||| 
 
    ![Lägg till flytande mall](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
@@ -84,7 +83,7 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
 2. Lägg till [utlösaren för begäran](../connectors/connectors-native-reqres.md#add-request) till din Logic app i Logic App Designer.
 
 3. Under utlösaren väljer du **nytt steg**. 
-   I sökrutan anger du "flytande" som filter och väljer den här åtgärden: **Transformera JSON till JSON-flytande**
+   I sökrutan anger du "flytande" som filter och väljer den här åtgärden: **TRANSFORMERA JSON till JSON-flytande**
 
    ![Sök och välj flytande åtgärd](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -152,6 +151,6 @@ Flytande är inte begränsad till JSON-transformationer. Här följer andra till
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om Enterprise-integrationspaket] (../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket")  
-* [Läs mer om Maps] (../logic-apps/logic-apps-enterprise-integration-maps.md "Lär dig mer om Enterprise integration Maps")  
+* [Läs mer om Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket")  
+* [Läs mer om Maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Lär dig mer om Enterprise integration Maps")  
 

@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889775"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775936"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage
 
@@ -121,8 +121,8 @@ Det finns ett konto för redundans för alla kunder som använder GRS eller RA-G
 
 - Asien, östra
 - Sydostasien
-- Östra Australien
-- Sydöstra Australien
+- Australien, östra
+- Australien, sydöstra
 - USA, centrala
 - USA, östra 2
 - USA, västra centrala
@@ -139,7 +139,7 @@ Connect-AzAccount -SubscriptionId <subscription-id>
 Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-Det kan ta 1-2 dagar att få godkännande för för hands versionen. Kontrol lera att registreringen har godkänts genom att köra följande kommando:
+Det kan ta 5-7 dagar att ta emot godkännande för förhands granskningen. Kontrol lera att registreringen har godkänts genom att köra följande kommando:
 
 ```powershell
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
@@ -149,7 +149,7 @@ Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace
 
 Granska ytterligare överväganden som beskrivs i det här avsnittet för att förstå hur dina program och tjänster kan påverkas när du tvingar fram en redundansväxling under för hands versions perioden.
 
-#### <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
+#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. 
 
@@ -186,7 +186,7 @@ Om ditt lagrings konto har kon figurer ATS för RA-GRS har du Läs behörighet t
 
 I extrema fall där en region försvinner på grund av en betydande katastrof kan Microsoft initiera en regional redundansväxling. I det här fallet krävs ingen åtgärd på din del. Du har inte skriv åtkomst till ditt lagrings konto förrän den Microsoft-hanterade redundansväxlingen har slutförts. Dina program kan läsa från den sekundära regionen om ditt lagrings konto har kon figurer ATS för RA-GRS. 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md)
 * [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)

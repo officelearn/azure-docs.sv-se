@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3ea77eb5dd8a03f877164179e3accc3a6f6d0aef
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548321"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793360"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -48,14 +48,12 @@ Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. 
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="api-scope-for-data-lake-storage-client-library-for-sdk-powershell-and-cli"></a>API-omfattning för Data Lake Storage klient bibliotek för SDK, PowerShell och CLI
-
-### <a name="filesystem-support-in-sdks"></a>Filesystem-stöd i SDK: er
+## <a name="filesystem-support-in-sdks"></a>Filesystem-stöd i SDK: er
 
 - .NET, Java och python finns i offentlig för hands version. Andra SDK: er stöds inte för närvarande.
 - Get-och set ACL-åtgärder är för närvarande inte rekursiva.
 
-### <a name="filesystem-support-in-powershell-and-azure-cli"></a>Filesystem-stöd i PowerShell och Azure CLI
+## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Filesystem-stöd i PowerShell och Azure CLI
 
 Get-och set ACL-åtgärder är för närvarande inte rekursiva.
 
@@ -77,7 +75,6 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 | **Diagnostikloggning** |Diagnostikloggar stöds (för hands version).<br><br>Aktivering av loggar i Azure Portal stöds inte för närvarande. Här är ett exempel på hur du aktiverar loggarna med hjälp av PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Se till att ange `Blob` som värde för parametern `-ServiceType` som visas i det här exemplet. <br><br>Azure Storage Explorer kan för närvarande inte användas för att Visa diagnostikloggar. Om du vill visa loggar använder du AzCopy eller SDK: er.
 | **Oåterkalleligt lagrings utrymme** |Stöds inte ännu <br><br>Oföränderlig lagring ger möjlighet att lagra data i en [mask (Skriv en gång, läsa många)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Objekt nivå nivåer** |Låg frekvent nivå och Arkiv lag ring stöds. Arkiv nivån är i för hands version. Alla andra åtkomst nivåer stöds inte ännu. <br><br> Det finns för närvarande vissa buggar som påverkar Arkiv åtkomst nivån.  Registrera dig för för hands versionen av Arkiv åtkomst nivån [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
-| **Stöd för PowerShell och CLI** | Begränsade funktioner <br><br>BLOB-åtgärder stöds. Att arbeta med kataloger och ange åtkomst kontrol listor (ACL) stöds inte ännu. |
 | **Statiska webbplatser** |Stöds inte ännu <br><br>Mer specifikt möjlighet att betjäna filer till [statiska webbplatser](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Program från tredje part** | Begränsat stöd <br><br>Program från tredje part som använder REST-API: er för arbete fortsätter att fungera om du använder dem med Data Lake Storage Gen2. <br>Program som anropar BLOB-API: er kommer förmodligen att fungera.|
 |**Mjuk borttagning** |Stöds inte ännu|

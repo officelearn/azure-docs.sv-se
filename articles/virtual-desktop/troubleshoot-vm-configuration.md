@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607401"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791151"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -201,7 +201,7 @@ Granska register posterna i listan nedan och bekräfta att värdena stämmer öv
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Fel: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE-felkod.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![O_REVERSE_CONNECT_STACK_FAILURE fel kod.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Orsak:** Stacken sida vid sida är inte installerad på den virtuella datorn för sessionen.
 
@@ -309,7 +309,7 @@ Om något av dessa meddelanden visas innebär det att avbildningen inte har de s
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Inaktivera grup princip inställningen för fjärr skrivbords licensierings läge
 
-Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** för fjärrskrivbordssession > **licens** > **ställer in licensierings läget för fjärr skrivbord**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
+Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** för fjärrskrivbordssession > **licens** > **Ange licens läge för fjärr skrivbord**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
 
 >[!NOTE]
 >Om du anger grup princip via din domän inaktiverar du den här inställningen för principer som riktar sig mot de här Windows 10 Enterprise-datorer med flera sessioner.
@@ -333,7 +333,7 @@ Om versions numret säger "1809" installerar [du KB4516077-uppdateringen](https:
 
 ### <a name="version-1903"></a>Version 1903
 
-Om versions numret säger "1903" installerar [du KB4517211-uppdateringen](https://support.microsoft.com/help/4517211).
+Distribuera om värd operativ systemet med den senaste versionen av Windows 10, version 1903-avbildningen från Azure-galleriet.
 
 ## <a name="next-steps"></a>Nästa steg
 

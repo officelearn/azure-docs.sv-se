@@ -1,20 +1,19 @@
 ---
-title: Bearbeta meddelanden i batch-läge som en grupp-Azure Logic Apps
+title: Bearbeta meddelanden i grupp
 description: Skicka och ta emot meddelanden som batchar i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, jonfan, LADocs
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: b56a50fceec8ac6be966c0c58a82e94e0c977143
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680428"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791574"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och gruppera process meddelanden i Azure Logic Apps
 
@@ -88,7 +87,7 @@ Innan du kan skicka meddelanden till en batch måste den batch först finnas som
       Om du har ett Gmail-konto väljer du Gmail Connector. 
       I det här exemplet används Office 365 Outlook. 
 
-   3. Välj den här åtgärden: **skicka en e- *< e-postprovider* >**
+   3. Välj den här åtgärden: **skicka en e- *< e-postprovider*>**
 
       Exempel:
 
@@ -163,9 +162,9 @@ Skapa nu en eller flera Logic-appar för batch-avsändare som skickar meddelande
       > 
       > Om du använder Visual Studio och du inte ser några batch-mottagare att välja, kontrollerar du att du har distribuerat batch-mottagaren till Azure. Om du inte har det kan du lära dig hur du [distribuerar din Logic app för batch-mottagare till Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-   4. Välj den här åtgärden: **Batch_messages-<*ditt-batch-mottagare* >**
+   4. Välj den här åtgärden: **Batch_messages-<*din-batch-mottagare*>**
 
-      ![Välj den här åtgärden: "Batch_messages-< din-Logic-app >"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Välj den här åtgärden: "Batch_messages-< din Logic-app >"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. Ange egenskaperna för batch-avsändaren:
 
@@ -181,7 +180,7 @@ Skapa nu en eller flera Logic-appar för batch-avsändare som skickar meddelande
 
    2. När listan med dynamiskt innehåll visas väljer du **uttryck**. 
 
-   3. Ange uttrycket `utcnow()` och välj sedan **OK**. 
+   3. Ange uttrycket `utcnow()`och välj sedan **OK**. 
 
       ![I "meddelande innehåll" väljer du "uttryck", anger "utcnow ()" och väljer "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
@@ -199,7 +198,7 @@ Skapa nu en eller flera Logic-appar för batch-avsändare som skickar meddelande
 
    2. Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.
    
-   3. Ange uttrycket `rand(1,6)` och välj sedan **OK**.
+   3. Ange uttrycket `rand(1,6)`och välj sedan **OK**.
 
       ![Konfigurera en partition för mål gruppen](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 

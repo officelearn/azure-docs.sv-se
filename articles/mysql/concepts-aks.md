@@ -1,53 +1,53 @@
 ---
-title: Ansluta Azure Kubernetes Service (AKS) med Azure Database for MySQL
-description: Läs om hur du ansluter Azure Kubernetes Service med Azure Database for MySQL
+title: Ansluta till Azure Kubernetes service – Azure Database for MySQL
+description: Lär dig mer om att ansluta Azure Kubernetes-tjänsten med Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/28/2018
-ms.openlocfilehash: d9f2e26a2bc89329ca9038c666c0d960289e2670
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 71b266231b7ed3012e5ea7f65fe9487eeb5fb358
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790529"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773619"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ansluta Azure Kubernetes Service och Azure Database for MySQL
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ansluta Azure Kubernetes-tjänsten och Azure Database for MySQL
 
-Azure Kubernetes Service (AKS) innehåller ett hanterat Kubernetes-kluster som du kan använda i Azure. Nedan visas några alternativ att överväga med AKS och Azure Database för MySQL tillsammans för att skapa ett program.
+Azure Kubernetes service (AKS) tillhandahåller ett hanterat Kubernetes-kluster som du kan använda i Azure. Nedan visas några alternativ att tänka på när du använder AKS och Azure Database for MySQL tillsammans för att skapa ett program.
 
 
 ## <a name="accelerated-networking"></a>Snabbare nätverk
-Använda accelererat nätverk aktiverat underliggande virtuella datorer i AKS-klustret. Om accelererat nätverk är aktiverat på en virtuell dator, är det kortare svarstider, reducerat jitter och minskad CPU-belastning på den virtuella datorn. Mer information om hur accelererat nätverk fungerar, de OS-versionerna som stöds och stöd för VM-instanser till [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
+Använd accelererade nätverk-aktiverade underliggande virtuella datorer i ditt AKS-kluster. När accelererat nätverk har Aktiver ATS på en virtuell dator finns det kortare svars tider, färre Darr och minskad processor användning på den virtuella datorn. Lär dig mer om hur påskyndat nätverk fungerar, vilka OS-versioner som stöds och vilka virtuella dator instanser som stöds för [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
 
-Från November 2018 AKS har stöd för accelererat nätverk på dessa VM-instanser som stöds. Accelererat nätverk är aktiverat som standard på nya AKS-kluster som använder dessa virtuella datorer.
+Från november 2018 har AKS stöd för accelererat nätverk på de virtuella dator instanser som stöds. Accelererat nätverk är aktiverat som standard på nya AKS-kluster som använder de virtuella datorerna.
 
-Du kan bekräfta om AKS-klustret har accelererat nätverk:
-1. Gå till Azure-portalen och välj AKS-klustret.
+Du kan kontrol lera om ditt AKS-kluster har accelererat nätverk:
+1. Gå till Azure Portal och välj ditt AKS-kluster.
 2. Välj fliken Egenskaper.
-3. Kopiera namnet på den **Infrastrukturresursgrupp**.
-4. Använda portalen sökfältet för att hitta och öppna resursgruppen infrastruktur.
-5. Välj en virtuell dator i den resursgruppen.
-6. Gå till Virtuellt datorns **nätverk** fliken.
-7. Bekräfta om **Accelerated networking** 'Aktiveras ”.
+3. Kopiera namnet på **infrastruktur resurs gruppen**.
+4. Använd Portal Sök fältet för att hitta och öppna infrastruktur resurs gruppen.
+5. Välj en virtuell dator i resurs gruppen.
+6. Gå till fliken **nätverk** på den virtuella datorn.
+7. Bekräfta om det **accelererade nätverket** är aktiverat.
 
-Eller via Azure CLI med hjälp av följande två kommandon:
+Eller via Azure CLI med följande två kommandon:
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
 ```
-Följande utdata returneras genererade resursgruppen att AKS skapar som innehåller nätverksgränssnittet. Ta med namnet ”nodeResourceGroup” och använda den i nästa kommando. **EnableAcceleratedNetworking** ska antingen vara true eller false:
+Utdata blir den genererade resurs gruppen som AKS skapar med nätverks gränssnittet. Ta namnet "nodeResourceGroup" och Använd det i nästa kommando. **EnableAcceleratedNetworking** är antingen sant eller falskt:
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
-[Öppna Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) kan du etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [Open Service Broker API](https://www.openservicebrokerapi.org/) implementering för Azure.
+[Öppna Service Broker för Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) gör att du kan etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [öppen service BROKER API](https://www.openservicebrokerapi.org/) -implementering för Azure.
 
-Du kan skapa en Azure Database for MySQL-server och koppla det till AKS-klustret med hjälp av Kubernetes' modersmål med OSBA. Lär dig mer om hur du använder OSBA och Azure Database för MySQL tillsammans på den [OSBA GitHub-sidan](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
+Med OSBA kan du skapa en Azure Database for MySQL-server och binda den till ditt AKS-kluster med Kubernetes inbyggda språk. Lär dig mer om hur du använder OSBA och Azure Database for MySQL tillsammans på [sidan OSBA GitHub](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa ett Azure Kubernetes Service-kluster](../aks/kubernetes-walkthrough.md)
-- Lär dig hur du [installera WordPress från ett Helm-diagram med OSBA och Azure Database for MySQL](../aks/integrate-azure.md)
+- [Skapa ett Azure Kubernetes service-kluster](../aks/kubernetes-walkthrough.md)
+- Lär dig hur du [installerar WordPress från ett Helm-diagram med OSBA och Azure Database for MySQL](../aks/integrate-azure.md)

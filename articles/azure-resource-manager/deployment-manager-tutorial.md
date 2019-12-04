@@ -1,16 +1,16 @@
 ---
-title: Använda Azure Deployment Manager med Resource Manager-mallar | Microsoft Docs
-description: Använda Resource Manager-mallar med Azure Deployment Manager för att distribuera Azure-resurser.
+title: Använd Azure Deployment Manager för att distribuera mallar
+description: Lär dig hur du använder Resource Manager-mallar med Azure Deployment Manager för att distribuera Azure-resurser.
 author: mumian
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: f8091aedcf1f03ef83dbab3b27e9af6b2912d25a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307026"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789983"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig förhandsversion)
 
@@ -64,7 +64,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 Mallen för tjänsttopologin beskriver de Azure-resurser som utgör din tjänst och var de ska distribueras. Definitionen av tjänsttopologin har följande hierarki:
 
 * Tjänsttopologi
-  * Tjänster
+  * Services
     * Tjänstenheter
 
 Följande diagram visar tjänsttopologin som används i den här självstudien:
@@ -186,7 +186,7 @@ Senare i självstudien ska du distribuera en distribution. En användartilldelad
 
 Du måste skapa en användartilldelad hanterad identitet och konfigurera åtkomstkontrollen för din prenumeration.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Skapa en [användartilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Från portalen väljer du **Prenumerationer** på den vänstra menyn och väljer sedan din prenumeration.
 4. Välj **Åtkomstkontroll (IAM)** och sedan **Lägg till rolltilldelning**.

@@ -1,17 +1,17 @@
 ---
-title: Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
+title: Verksamhets kontinuitet – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs verksamhets kontinuitet (tidpunkt för återställning, data Center avbrott, geo-återställning) när du använder Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 3623611bcd22486d90651c6e8b6880c6de1de0c5
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 13fbab52c16fcde72da8073b429fe6fb4665c21b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950099"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763886"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
 
@@ -48,7 +48,7 @@ Ett alternativ är att vänta tills servern kommer tillbaka online när avbrott 
 Funktionen geo-Restore återställer servern med geo-redundanta säkerhets kopieringar. Säkerhets kopiorna finns i serverns [kopplade region](../best-practices-availability-paired-regions.md). Du kan återställa från dessa säkerhets kopior till andra regioner. Geo-Restore skapar en ny server med data från säkerhets kopiorna. Lär dig mer om geo-återställning från [artikeln säkerhets kopiering och återställning av begrepp](concepts-backup.md).
 
 > [!IMPORTANT]
-> Geo-återställning är bara möjlig om du har upprättat servern med Geo-redundant lagring av säkerhets kopior. Om du vill växla från lokalt redundant till Geo-redundant säkerhets kopiering för en befintlig server måste du ta en dump med pg_dump av din befintliga server och återställa den till en nyskapad server som kon figurer ATS med geo-redundanta säkerhets kopieringar.
+> Geo-återställning är bara möjlig om du har upprättat servern med Geo-redundant lagring av säkerhets kopior. Om du vill växla från lokalt redundant till geo-redundanta säkerhets kopieringar för en befintlig server måste du ta en dump med pg_dump av din befintliga server och återställa den till en nyligen skapad server som kon figurer ATS med geo-redundanta säkerhets kopior.
 
 ## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
 Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av PostgreSQL-teknik för fysisk replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 

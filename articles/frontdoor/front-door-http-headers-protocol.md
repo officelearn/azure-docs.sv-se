@@ -1,6 +1,6 @@
 ---
-title: Protokoll som stöds för HTTP-huvuden i Azure ytterdörren Service | Microsoft Docs
-description: Den här artikeln beskriver HTTP-huvud protokoll som stöds av ytterdörren Service.
+title: Protokoll stöd för HTTP-huvuden i Azures tjänst för frontend-dörr | Microsoft Docs
+description: I den här artikeln beskrivs HTTP-huvudprotokoll som stöds av front dörr tjänsten.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,51 +11,52 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3579aee46c610e5bb3efc0942944bbfc3fcb801d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736656"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790509"
 ---
-# <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Protokollstöd för HTTP-huvuden i Azure ytterdörren Service
-Den här artikeln beskriver det protokoll som ytterdörren tjänsten stöder med delar av anropet sökvägen (se bild). Följande avsnitt innehåller mer information om HTTP-huvuden som stöds av ytterdörren-tjänsten.
+# <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Protokoll stöd för HTTP-huvuden i Azures frontend-tjänst
+Den här artikeln beskriver protokollet som frontend-tjänsten stöder med delar av anrops Sök vägen (se avbildning). I följande avsnitt finns mer information om HTTP-huvuden som stöds av frontend-tjänsten.
 
-![Azure ytterdörren Service HTTP-huvuden-protokoll][1]
+![HTTP headers-protokoll för Azure frontend-tjänsten][1]
 
 >[!IMPORTANT]
->Ytterdörren Service certifiera inte alla HTTP-huvuden som inte beskrivs här.
+>Frontend-tjänsten certifierar inte några HTTP-huvuden som inte dokumenteras här.
 
-## <a name="client-to-front-door-service"></a>Klient till ytterdörren-tjänsten
-Ytterdörren Service accepterar de flesta meddelandehuvuden från den inkommande begäranden utan att ändra dem. Vissa reserverade huvuden tas bort från den inkommande begäran om skickas, inklusive rubriker med X - FD-* prefix.
+## <a name="client-to-front-door-service"></a>Klient till front dörr tjänst
+Frontend-tjänsten accepterar de flesta huvuden från den inkommande begäran utan att ändra dem. Vissa reserverade huvuden tas bort från den inkommande begäran om de skickas, inklusive huvuden med prefixet X-FD-*.
 
-## <a name="front-door-service-to-backend"></a>Ytterdörren Service till serverdelen
+## <a name="front-door-service-to-backend"></a>Frontend-tjänst till Server del
 
-Ytterdörren Service innehåller rubriker från en inkommande begäran om inte bort på grund av begränsningar. Ytterdörren lägger även till följande rubriker:
+Frontend-tjänsten innehåller sidhuvuden från en inkommande begäran om den inte tas bort på grund av begränsningar. Front dörren lägger också till följande rubriker:
 
 | Huvud  | Exempel och beskrivning |
 | ------------- | ------------- |
-| Via |  Via: 1.1 azure </br> Ytterdörren lägger till klientens HTTP-version följt av *Azure* som värde för sidhuvudet Via. Detta anger klientens HTTP-version och den åtkomsten har en mellanliggande mottagare för förfrågan mellan klienten och serverdelen.  |
-| X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representerar klientens IP-adress som är associerade med begäran bearbetas. En begäran kommer från en proxy kan till exempel lägga till rubriken X-vidarebefordrade-för att ange IP-adressen för den ursprungliga anroparen. |
-| X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representerar socket-IP-adress som är associerad med TCP-anslutningen som den aktuella begäran kommer från. En begäran klientens IP-adress kanske inte är lika med dess socket IP-adress eftersom godtyckligt kan åsidosättas av en användare.|
-| X-Azure-Ref |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> En unik referens-sträng som identifierar en begäran som hanteras av ytterdörren. Används för att söka åtkomst loggarna och kritiska för felsökning.|
-| X-Azure-RequestChain |  X-Azure-RequestChain: hops=1 </br> Ett huvud att åtkomsten för att identifiera begäran loopar och användare som inte ska ett beroende på den. |
-| X-Forwarded-For | X-Forwarded-For: 127.0.0.1 </br> Fältet X-Forwarded-For (XFF) HTTP-huvud identifierar ofta den ursprungliga IP-adressen för en klient som ansluter till en server via en HTTP-proxy eller belastningsutjämnare. Om det finns en befintlig XFF rubrik, ytterdörren lägger till klientens socket IP-Adressen eller lägger till rubriken XFF med klientens socket IP-Adressen. |
-| X-Forwarded-Host | X-vidarebefordrade-värd: contoso.azurefd.net </br> Fältet X-vidarebefordrade-värd HTTP-huvud är en vanlig metod som används för att identifiera den ursprungliga värden som begärs av klienten i värden http-rubriken. Det beror på att du värdnamnet från ytterdörren kan skilja sig för backend-servern som hanterar begäran. |
-| X-Forwarded-Proto | X-Forwarded-Proto: http </br> Fältet för X-vidarebefordrade-Proto HTTP-huvud används ofta för att identifiera det ursprungliga protokollet för en HTTP-begäran eftersom åtkomsten baserat på konfigurationen, kan kommunicera med serverdelen med hjälp av HTTPS. Detta gäller även om förfrågan om att den omvända proxyn är HTTP. |
+| Rapportör |  Via: 1,1 Azure </br> Front dörren lägger till klientens HTTP-version följt av *Azure* som värde för via-huvudet. Detta anger klientens HTTP-version och den främre dörren var en mellanliggande mottagare för begäran mellan klienten och Server delen.  |
+| X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representerar den klient-IP-adress som är kopplad till den begäran som bearbetas. En begäran som kommer från en proxyserver kan till exempel lägga till den X-vidarebefordrade-för-rubriken för att ange IP-adressen för den ursprungliga anroparen. |
+| X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representerar den IP-adress för socket som är kopplad till den TCP-anslutning som den aktuella begäran kommer från. En begär ande klients IP-adress kanske inte är lika med dess IP-adress för socket eftersom den kan skrivas över av en användare.|
+| X-Azure-Ref |  X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> En unik referens sträng som identifierar en begäran som betjänas av front dörren. Den används för att söka efter åtkomst loggar och viktiga för fel sökning.|
+| X-Azure-RequestChain |  X-Azure-RequestChain: hopp = 1 </br> En rubrik som används av front dörren för att identifiera begär ande slingor och användare bör inte ta ett beroende på den. |
+| X-vidarebefordrad – för | X-vidarebefordrad – för: 127.0.0.1 </br> HTTP-huvudfältet X-forwarded – for (XFF)-HTTP-huvud identifierar ofta den ursprungliga IP-adressen för en klient som ansluter till en webb server via en HTTP-proxy eller belastningsutjämnare. Om det finns ett befintligt XFF-huvud lägger front dörren till klient-socket-IP: en eller lägger till XFF-huvudet med klientens IP-adress för socket. |
+| X-vidarebefordrad-värd | X-vidarebefordrad-värd: contoso.azurefd.net </br> Fältet X-forwarded-Host-HTTP-huvud är en gemensam metod som används för att identifiera den ursprungliga värddatorn som begärs av klienten i rubriken HTTP-begäran för värd. Detta beror på att värd namnet från Front dörren kan skilja sig för Server dels servern som hanterar begäran. |
+| X-vidarebefordrad – proto | X-vidarebefordrad-proto: http </br> Fältet X-forwarded-proto HTTP-huvud används ofta för att identifiera ursprungs protokollet för en HTTP-begäran, eftersom front dörren, baserat på konfiguration, kan kommunicera med Server delen med hjälp av HTTPS. Detta gäller även om begäran till den omvända proxyn är HTTP. |
+| X-FD-HealthProbe | Fältet X-FD-HealthProbe HTTP-huvud används för att identifiera hälso avsökningen från Front dörren. Om den här rubriken har angetts till 1 är begäran hälso avsökning. Du kan använda när du vill begränsa åtkomst från paticular front dörr med X-vidarebefordrad-värd huvud fält. |
 
-## <a name="front-door-service-to-client"></a>Ytterdörren Service till klienten
+## <a name="front-door-service-to-client"></a>Frontend-tjänst till klient
 
-Rubriker som skickas till ytterdörren från serverdelen skickas också till klienten. Här följer huvuden som skickas från åtkomsten till klienter.
+Alla rubriker som skickas till frontend-dörren från Server delen skickas även till klienten. Följande är huvuden som skickas från klientens dörr till klienter.
 
 | Huvud  | Exempel |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Det här är en unik referens-sträng som identifierar en begäran som hanteras av ytterdörren. Detta är viktigt för att felsöka som används för att söka åtkomst loggarna.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Detta är en unik referens sträng som identifierar en begäran som hanteras av en front dörr. Detta är avgörande för fel sökning eftersom det används för att söka i åtkomst loggar.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en ytterdörren](quickstart-create-front-door.md)
-- [Hur ytterdörren fungerar](front-door-routing-architecture.md)
+- [Skapa en front dörr](quickstart-create-front-door.md)
+- [Så här fungerar en front dörr](front-door-routing-architecture.md)
 
 <!--Image references-->
 [1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

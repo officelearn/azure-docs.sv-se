@@ -1,19 +1,19 @@
 ---
-title: Konfigurera och få åtkomst till Server loggar i Azure Database for MariaDB från Azure Portal
-description: Den här artikeln beskriver hur du konfigurerar och kommer åt Server loggar i Azure Database for MariaDB från Azure Portal.
+title: Åtkomst till långsamma Query-loggar – Azure Portal-Azure Database for MariaDB
+description: Den här artikeln beskriver hur du konfigurerar och kommer åt långsamma frågemeddelanden i Azure Database for MariaDB från Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: c7e95521e503ad2d92bf13ae7e410b71ed6dfcd3
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 12/02/2019
+ms.openlocfilehash: 69a01ec021ecbade235a693b1be502353420fde0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844705"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767474"
 ---
-# <a name="configure-and-access-server-logs-from-the-azure-portal"></a>Konfigurera och få åtkomst till Server loggar från Azure Portal
+# <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Konfigurera och komma åt långsamma Query-loggar från Azure Portal
 
 Du kan konfigurera, lista och ladda ned [Azure Database for MariaDB långsamma frågemeddelanden](concepts-server-logs.md) från Azure Portal.
 

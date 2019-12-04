@@ -1,20 +1,17 @@
 ---
-title: Flytta Logic Apps över prenumerationer, resurs grupper eller regioner – Azure Logic Apps
+title: Flytta Logic Apps över prenumerationer, resurs grupper eller regioner
 description: Migrera Logic Apps eller integrations konton till andra Azure-prenumerationer, resurs grupper eller platser (regioner)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: de646c790fc21ef17bf78789e0531503f2f32052
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679115"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790781"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Flytta logiska app-resurser till andra Azure-prenumerationer, resurs grupper eller regioner
 

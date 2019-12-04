@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: 23e3116a0cc3283191d00079e0926dc206e677f0
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819351"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784603"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java trace-loggar i Application Insights
 Om du använder logback eller Log4J (v 1.2 eller v 2.0) för spårning kan du låta spårnings loggarna skickas automatiskt till Application Insights där du kan utforska och söka efter dem.
@@ -22,27 +22,41 @@ Om du använder logback eller Log4J (v 1.2 eller v 2.0) för spårning kan du l�
 
 ## <a name="using-the-application-insights-java-agent"></a>Använda Application Insights Java-agenten
 
-Du kan konfigurera Application Insights Java-agenten att automatiskt avbilda dina loggar genom att aktivera funktionen i `AI-Agent.xml`-filen:
+Som standard fångar Application Insights Java-agenten automatiskt loggningen som utförs på `WARN` nivå och över.
+
+Du kan ändra tröskelvärdet för loggning som samlas in med `AI-Agent.xml`-filen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
-      <BuiltIn enabled="true">
-         <Logging enabled="true" />
+      <BuiltIn>
+         <Logging threshold="info"/>
       </BuiltIn>
    </Instrumentation>
-   <AgentLogger />
 </ApplicationInsightsAgent>
 ```
 
-Alternativt kan du följa anvisningarna nedan.
+Du kan inaktivera loggnings avbildningen av Java-agenten med hjälp av `AI-Agent.xml`-filen:
 
-## <a name="install-the-java-sdk"></a>Installera Java SDK
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Du kan också (till skillnad från Java-agenten) följa anvisningarna nedan
+
+### <a name="install-the-java-sdk"></a>Installera Java SDK
 
 Följ anvisningarna för att installera [Application Insights SDK för Java][java], om du inte redan har gjort det.
 
-## <a name="add-logging-libraries-to-your-project"></a>Lägg till logg bibliotek i projektet
+### <a name="add-logging-libraries-to-your-project"></a>Lägg till logg bibliotek i projektet
 *Välj lämplig metod för ditt projekt.*
 
 #### <a name="if-youre-using-maven"></a>Om du använder Maven …
@@ -123,7 +137,7 @@ Följ rikt linjerna för att installera Application Insights Java SDK manuellt, 
 | Log4j v 1.2 |[Log4J v 1.2 tillfogar jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-Logging-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>Lägg till tillägget i loggnings ramverket
+### <a name="add-the-appender-to-your-logging-framework"></a>Lägg till tillägget i loggnings ramverket
 Du börjar hämta spår genom att slå samman det relevanta kodfragmentet till Log4J-eller logback-konfigurations filen: 
 
 *Logback*

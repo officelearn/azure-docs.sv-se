@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176926"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786953"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
 
@@ -56,7 +56,7 @@ När du skapar en Azure Cosmos-behållare konfigurerar du genomflödet i något 
 * **Delat etablerat data flödes läge**: de här behållarna delar det etablerade data flödet med andra behållare i samma databas (exklusive behållare som har kon figurer ATS med dedikerat etablerat data flöde). Med andra ord delas det etablerade data flödet på databasen över alla "delade data flöde"-behållare. Mer information finns i [så här etablerar du data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
 > [!NOTE]
-> Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. Om du vill växla från dedikerat data flödes läge till delat data flödes läge (och vice versa) När behållaren har skapats måste du skapa en ny behållare och migrera data till den nya behållaren. Du kan migrera data med hjälp av funktionen Azure Cosmos DB ändra feed.
+> Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. Om du vill byta från dedikerat dataflödesläge till delat dataflödesläge (och vice versa) efter det att containern har skapats måste du skapa en ny container och migrera data till den nya containern. Du kan migrera data med hjälp av funktionen Azure Cosmos DB ändra feed.
 
 En Azure Cosmos-behållare kan skala elastiskt, oavsett om du skapar behållare med hjälp av dedikerade eller delade allokerade data flödes lägen.
 
@@ -82,7 +82,7 @@ En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Ber
 
 | Systemdefinierad egenskap | Systemgenererad eller användare kan konfigureras | Syfte | API för SQL | API för Cassandra | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_-ID | Systemgenererad | Unikt ID för behållare | Ja | Nej | Nej | Nej | Nej |
+|\_RID | Systemgenererad | Unikt ID för behållare | Ja | Nej | Nej | Nej | Nej |
 |\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Ja | Nej | Nej | Nej | Nej |
 |\_TS | Systemgenererad | Senast uppdaterad tidsstämpel för behållaren | Ja | Nej | Nej | Nej | Nej |
 |\_själv | Systemgenererad | Adresser bara URI för behållaren | Ja | Nej | Nej | Nej | Nej |
@@ -110,7 +110,7 @@ Beroende på vilket API du använder kan ett Azure Cosmos-objekt representera an
 
 | Cosmos-entitet | API för SQL | API för Cassandra | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-objekt | Dokument | radhöjd | Dokument | Nod eller kant | Objekt |
+|Azure Cosmos-objekt | Dokument | Radhöjd | Dokument | Nod eller kant | Objekt |
 
 ### <a name="properties-of-an-item"></a>Egenskaper för ett objekt
 

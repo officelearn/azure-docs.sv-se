@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 348bc2d92f636d1f3c3b50ea31334355da59a60f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112574"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790496"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Så här konfigurerar du stegvis indexering av berikade dokument i Azure Kognitiv sökning
 
@@ -41,13 +41,32 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>Steg 2: Lägg till egenskapen cache
 
-Redigera svaret från GET-begäran för att lägga till egenskapen `cache` till indexeraren. Cacheobjektet kräver bara en enda egenskap och det är anslutnings strängen till ett Azure Storage konto.
+< < < < < < < huvud redigera svaret från GET-begäran för att lägga till `cache`-egenskapen till indexeraren. Cacheobjektet kräver bara en enda egenskap, `storageConnectionString` som är anslutnings strängen till lagrings kontot. = = = = = = = Redigera svaret från GET-begäran för att lägga till `cache`-egenskapen till indexeraren. Cacheobjektet kräver bara en enda egenskap och det är anslutnings strängen till ett Azure Storage konto.
+>>>>>>> 3519a330aa86b6827d31403690529105825b1b16
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### <a name="enable-reporocessing"></a>Aktivera reporocessing
+
+Alternativt kan du ange egenskapen `enableReprocessing` Boolean i cachen som är inställd på True. Med flaggan `enableReprocessing` kan du styra beteendet för indexeraren. I scenarier där du vill att indexeraren ska prioritera att lägga till nya dokument i indexet ställer du in flaggan på falskt. När indexeraren har skapats med de nya dokumenten, kan du vända flaggan till true så att indexeraren kan börja använda befintliga dokument för att göra konsekvens. Under den period då `enableReprocessing`-flaggan har angetts till false, skriver indexeraren endast till cacheminnet, men bearbetar inte några befintliga dokument baserat på identifierade ändringar i pipelinen för anrikning.
 
 ### <a name="step-3-reset-the-indexer"></a>Steg 3: återställa indexeraren
 

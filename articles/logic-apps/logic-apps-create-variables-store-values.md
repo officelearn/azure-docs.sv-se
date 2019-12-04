@@ -1,21 +1,17 @@
 ---
-title: Skapa och hantera variabler för att lagra värden – Azure Logic Apps
+title: Skapa och hantera variabler för att lagra värden
 description: Så här lagrar och hanterar du värden med hjälp av variabler i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180783"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793167"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Lagra och hantera värden med hjälp av variabler i Azure Logic Apps
 
@@ -33,13 +29,13 @@ Variabler finns och är globala endast i den Logic App-instans som skapar dem. D
 > [!IMPORTANT]
 > Som standard körs cykler i en "for each"-loop parallellt. När du använder variabler i loopar kan du köra loopen [sekventiellt](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) så att variabler returnerar förutsägbara resultat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Den Logic app där du vill skapa variabeln
 
-  Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
+  Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som det första steget i din Logic app
 
@@ -61,7 +57,7 @@ Du kan skapa en variabel och deklarera dess datatyp och initialt värde – alla
 
      ![Lägg till åtgärd](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus **+** tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `variables` som ditt filter. I listan åtgärder väljer du **initiera variabel**.
 
@@ -69,11 +65,11 @@ Du kan skapa en variabel och deklarera dess datatyp och initialt värde – alla
 
 1. Ange den här informationen om din variabel enligt beskrivningen nedan:
 
-   | Egenskap | Obligatorisk | Value |  Beskrivning |
+   | Egenskap | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ökas |
+   | **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska ökas |
    | **Typ** | Ja | <*variabel typ*> | Data typen för variabeln |
-   | **Värde** | Nej | <*start-value*> | Det inledande värdet för variabeln <p><p>**Tips!** Det är valfritt att ange det här värdet som bästa praxis så att du alltid vet startvärdet för din variabel. |
+   | **Värde** | Nej | <*Start värde*> | Det inledande värdet för variabeln <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet startvärdet för din variabel. |
    |||||
 
    Exempel:
@@ -101,7 +97,7 @@ Om du växlar från designern till kodvyn visas här hur åtgärden **initiera v
 ```
 
 > [!NOTE]
-> Även om åtgärden **initiera variabel** har ett `variables` avsnitt som är strukturerat som en matris, kan åtgärden bara skapa en variabel i taget. Varje ny variabel kräver en enskild **initierande variabel** åtgärd.
+> Även om åtgärden **initiera variabel** har ett `variables`-avsnitt som är strukturerat som en matris, kan åtgärden bara skapa en variabel i taget. Varje ny variabel kräver en enskild **initierande variabel** åtgärd.
 
 Här följer några exempel på några andra variabel typer:
 
@@ -183,7 +179,7 @@ Här följer några exempel på några andra variabel typer:
 
 Om du vill hämta eller referera till en variabels innehåll kan du också använda [funktionen variabler ()](../logic-apps/workflow-definition-language-functions-reference.md#variables) i Logic App Designer och kodvyn. När du refererar till en variabel använder du variabelns namn som token, inte åtgärdens namn, vilket är det vanligaste sättet att referera till en åtgärds utdata.
 
-Till exempel hämtar det här uttrycket de objekt från array-variabeln som [skapades tidigare i den här artikeln](#append-value) med hjälp `variables()` av funktionen. `string()` Funktionen returnerar variabelns innehåll i sträng format:`"1, 2, 3, red"`
+Till exempel hämtar det här uttrycket de objekt från array-variabeln som [skapades tidigare i den här artikeln](#append-value) med hjälp av funktionen `variables()`. Funktionen `string()` returnerar variabelns innehåll i sträng format: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -209,10 +205,10 @@ Om du vill öka eller *öka* en variabel med ett konstant värde lägger du till
 
 1. Ange den här informationen för att öka din variabel:
 
-   | Egenskap | Obligatorisk | Value |  Beskrivning |
+   | Egenskap | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ökas |
-   | **Värde** | Nej | <*increment-value*> | Det värde som används för att öka variabeln. Standardvärdet är ett. <p><p>**Tips!** Det är valfritt att ange det här värdet som bästa praxis så att du alltid känner till det exakta värdet för att öka variabeln. |
+   | **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska ökas |
+   | **Värde** | Nej | <*öknings värde*> | Det värde som används för att öka variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid känner till det exakta värdet för att öka variabeln. |
    ||||
 
    Exempel:
@@ -236,7 +232,7 @@ Om du växlar från designern till kodvyn visas här hur den **stegvisa variabel
 },
 ```
 
-## <a name="example-create-loop-counter"></a>Exempel: Skapa loop-räknare
+## <a name="example-create-loop-counter"></a>Exempel: skapa loop-räknare
 
 Variabler används ofta för att räkna antalet gånger som en slinga körs. Det här exemplet visar hur du skapar och använder variabler för den här aktiviteten genom att skapa en slinga som räknar de bifogade filerna i ett e-postmeddelande.
 
@@ -251,7 +247,7 @@ Variabler används ofta för att räkna antalet gånger som en slinga körs. Det
 
    ![Sök efter och inkludera bifogade filer](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. Lägg till [åtgärden **initiera variabel** ](#create-variable). Skapa en heltals variabel `Count` med namnet som har ett start värde som är noll.
+1. Lägg till [åtgärden **initiera variabel** ](#create-variable). Skapa en heltals variabel med namnet `Count` som har ett start värde som är noll.
 
    ![Lägg till åtgärd för "initiera variabel"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -259,7 +255,7 @@ Variabler används ofta för att räkna antalet gånger som en slinga körs. Det
 
    1. Under åtgärden **initiera variabel** väljer du **nytt steg**.
 
-   1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger `for each` du som Sök filter och väljer **för varje**.
+   1. Under **Välj en åtgärd**väljer du **inbyggt**. I sökrutan anger du `for each` som Sök filter och väljer **för var och en**.
 
       ![Lägg till en "för varje"-slinga](./media/logic-apps-create-variables-store-values/add-loop.png)
 
@@ -330,10 +326,10 @@ Om du vill minska eller *minska* en variabel med ett konstant värde följer du 
 
 Här följer egenskaperna för åtgärden **minska variabeln** :
 
-| Egenskap | Obligatorisk | Value |  Beskrivning |
+| Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska minskas | 
-| **Värde** | Nej | <*increment-value*> | Värdet för decrementing variabeln. Standardvärdet är ett. <p><p>**Tips!** Även om det är valfritt, ställer du in det här värdet som bästa praxis så att du alltid vet det exakta värdet för decrementing av din variabel. |
+| **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska minskas | 
+| **Värde** | Nej | <*öknings värde*> | Värdet för decrementing variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet det exakta värdet för decrementing av din variabel. |
 ||||| 
 
 Om du växlar från designern till kodvyn visas här hur åtgärden **minska variabeln** visas i din Logic app-definition, som är i JSON-format.
@@ -363,10 +359,10 @@ Om du vill tilldela ett annat värde till en befintlig variabel följer du stege
 
 Här följer egenskaperna för åtgärden **ange variabel** :
 
-| Egenskap | Obligatorisk | Value |  Beskrivning |
+| Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ändras |
-| **Värde** | Ja | <*new-value*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
+| **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska ändras |
+| **Värde** | Ja | <*nytt-värde*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
 ||||| 
 
 > [!NOTE]
@@ -378,7 +374,7 @@ Här följer egenskaperna för åtgärden **ange variabel** :
 >
 > 3. Dra skjutreglaget **för parallellitet** till **1**.
 
-Om du växlar från designern till kodvyn visas här hur åtgärden **ange variabel** visas i din Logic app-definition, som är i JSON-format. Det här exemplet ändrar `Count` variabelns aktuella värde till ett annat värde.
+Om du växlar från designern till kodvyn visas här hur åtgärden **ange variabel** visas i din Logic app-definition, som är i JSON-format. I det här exemplet ändras `Count` variabelns aktuella värde till ett annat värde.
 
 ```json
 "actions": {
@@ -421,13 +417,13 @@ För variabler som lagrar strängar eller matriser kan du infoga eller *lägga t
 
 Här följer egenskaperna för åtgärderna **APPEND to...** :
 
-| Egenskap | Obligatorisk | Value |  Beskrivning |
+| Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ändras |
+| **Namn** | Ja | <*variabel-namn*> | Namnet på variabeln som ska ändras |
 | **Värde** | Ja | <*tilläggs värde*> | Värdet som du vill lägga till, vilket kan ha vilken typ som helst |
 |||||
 
-Om du växlar från designern till kodvyn visas här hur åtgärden **Lägg till mat ris variabel** visas i din Logic app-definition, som är i JSON-format. Det här exemplet skapar en mat ris variabel och lägger till ett annat värde som det sista objektet i matrisen. Resultatet är en uppdaterad variabel som innehåller den här matrisen:`[1,2,3,"red"]`
+Om du växlar från designern till kodvyn visas här hur åtgärden **Lägg till mat ris variabel** visas i din Logic app-definition, som är i JSON-format. Det här exemplet skapar en mat ris variabel och lägger till ett annat värde som det sista objektet i matrisen. Resultatet är en uppdaterad variabel som innehåller den här matrisen: `[1,2,3,"red"]`
 
 ```json
 "actions": {

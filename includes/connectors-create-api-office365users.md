@@ -1,29 +1,30 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: ebae0fac5edc0bb79e6a19d8bdc741960f0b0e20
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: 3ca8d631110f8b175e7dc68d61cc6da4ac87d375
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187601"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789534"
 ---
-### <a name="prerequisites"></a>Nödvändiga komponenter
-* En [Office 365-användare](https://office365.com) konto  
+## <a name="prerequisites"></a>Krav
 
-Innan du kan använda ditt konto för Office 365-användare i en logikapp, måste du godkänna logikappen som ska ansluta till ditt konto i Office 365-användare. Som tur är kan göra du det enkelt från i logikappen på Azure Portal.  
+* Ett konto för [Office 365-användare](https://office365.com)  
 
-Här följer stegen för att auktorisera din logikapp för att ansluta till ditt konto i Office 365-användare:  
+Innan du kan använda ditt konto för Office 365-användare i en Logic-app måste du godkänna att Logic-appen ansluter till ditt konto för ditt Office 365-användare. Lyckligt vis kan du enkelt göra det i din Logic-app på Azure-portalen.  
 
-1. Om du vill skapa en anslutning till Office 365-användare i Logic appdesigner väljer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *Office 365-användare* i sökrutan. Välj utlösaren eller åtgärden som du kommer att tycka att använda:  
-   ![Office 365 användare anslutning skapas steg](./media/connectors-create-api-office365users/office365users-1.png)  
-2. Om du inte skapat några anslutningar till Office 365-användare innan du kan hämta uppmanas du att ange dina autentiseringsuppgifter för Office 365-användare. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och få åtkomst till ditt Office 365-användare konto data:  
-   ![Office 365 användare anslutning skapas steg](./media/connectors-create-api-office365users/office365users-2.png)  
-3. Ange ditt användarnamn i Office 365-användare och lösenord för att auktorisera din logikapp:  
-   ![Office 365 användare anslutning skapas steg](./media/connectors-create-api-office365users/office365users-3.png)  
-4. Lägg märke till anslutningen har skapats och du kan nu fortsätta med andra steg i logikappen:  
-   ![Office 365 användare anslutning skapas steg](./media/connectors-create-api-office365users/office365users-4.png)  
+Här följer stegen för att godkänna din Logic app för att ansluta till ditt Office 365-användar konto:  
+
+1. Om du vill skapa en anslutning till Office 365-användare går du till Logic App Designer och väljer **Visa Microsoft-hanterade API: er** i list rutan och anger sedan *Office 365-användare* i sökrutan. Välj den utlösare eller åtgärd som du vill använda:  
+   steg](./media/connectors-create-api-office365users/office365users-1.png) för ![Office 365-användarens skapande  
+2. Om du inte har skapat några anslutningar till Office 365-användare tidigare uppmanas du att ange dina autentiseringsuppgifter för Office 365-användare. Dessa autentiseringsuppgifter används för att auktorisera din Logi Kap par för att ansluta till och åtkomst till dina Office 365-användares data konton:  
+   ![Steg för att skapa anslutning för Office 365-användare](./media/connectors-create-api-office365users/office365users-2.png)  
+3. Ge ditt Office 365-användare användar namn och lösen ord för att auktorisera din Logic app:  
+   ![Steg för att skapa anslutning för Office 365-användare](./media/connectors-create-api-office365users/office365users-3.png)  
+4. Observera att anslutningen har skapats och att du nu är kostnads fri att fortsätta med de andra stegen i din Logic app:  
+   ![Steg för att skapa anslutning för Office 365-användare](./media/connectors-create-api-office365users/office365users-4.png)  
 

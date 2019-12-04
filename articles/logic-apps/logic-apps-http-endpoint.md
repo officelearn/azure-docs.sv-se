@@ -1,20 +1,17 @@
 ---
-title: Anropa, utlösa eller kapsla Logic Apps – Azure Logic Apps
+title: Anropa, utlösa eller kapsla logikappar
 description: Konfigurera HTTP-slutpunkter för att anropa, utlösa eller kapsla Logic app-arbetsflöden i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.workload: integration
-author: ecfan
-ms.author: klam
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833937"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792027"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTP-slutpunkter i Azure Logic Apps
 
@@ -31,7 +28,7 @@ Om du vill konfigurera en HTTP-slutpunkt kan du använda vilken typ av utlösare
 
 Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -39,7 +36,7 @@ Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/l
 
 ## <a name="create-a-callable-endpoint"></a>Skapa en slut punkt som går att anropa
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Skapa och öppna en tom Logic-app i Logic App Designer.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa och öppna en tom Logic-app i Logic App Designer.
 
    I det här exemplet används en begär ande utlösare, men du kan använda en utlösare som kan ta emot inkommande HTTP-begäranden. Alla principer gäller identiskt för dessa utlösare. Mer information om begär ande utlösare finns i [ta emot och svara på inkommande https-anrop med hjälp av Azure Logic Apps](../connectors/connectors-native-reqres.md).
 

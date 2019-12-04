@@ -1,16 +1,16 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/09/2018
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 3fa71085d649ace95aa24ac87c8714a7268f5386
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/09/2018
+ms.openlocfilehash: 89c2467843d7abc7c005804fd5263fe3beb668b6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187936"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793435"
 ---
-För att beräkna kostnaderna för exaktare förbrukning måste du överväga att möjliga antalet meddelanden eller händelser som kan tas emot på en viss dag, snarare än basera din beräkningar på endast avsökningsintervall. När en händelse eller meddelandet uppfyller villkor för utlösare, försöker många utlösare omedelbart läsa eventuella och alla andra väntande händelser eller meddelanden som uppfyller villkoren. Detta innebär att även när du väljer en längre avsökningsintervallet, utlöses baserat på antalet väntande händelser eller meddelanden som uppfyller kraven för att starta arbetsflöden. Utlösare som följer det här beteendet är Azure Service Bus och Azure Event Hub.
+Om du vill beräkna mer exakta förbruknings kostnader bör du ta hänsyn till det möjliga antalet meddelanden eller händelser som kan komma att komma till en bestämd dag, i stället för att basera dina beräkningar enbart på avsöknings intervallet. När en händelse eller ett meddelande uppfyller utlösarens villkor försöker många utlösare omedelbart läsa eventuella och alla andra väntande händelser eller meddelanden som uppfyller villkoren. Det innebär att även om du väljer ett längre avsöknings intervall utlöses utlösaren baserat på antalet väntande händelser eller meddelanden som är kvalificerade för start av arbets flöden. Utlösare som följer detta beteende är Azure Service Bus och Azure Event Hub.
 
-Därför Anta exempelvis att du ställer in utlösare som kontrollerar varje dag för en slutpunkt. När utlösaren kontrollerar slutpunkten och söker efter 15 händelser som uppfyller villkoren, utlöses utlösaren och kör motsvarande arbetsflödet 15 gånger. Logic Apps-mätare alla åtgärder som de 15 arbetsflödena utföra, inklusive utlösarbegäranden. Om du vill beräkna dina kostnader för potentiell testa den [Azures priskalkylator](https://azure.microsoft.com/pricing/calculator/).
+Anta till exempel att du konfigurerar utlösare som kontrollerar en slut punkt varje dag. När utlösaren kontrollerar slut punkten och hittar 15 händelser som uppfyller villkoren, utlöses utlösaren och kör motsvarande arbets flöde 15 gånger. Logic Apps mäta alla åtgärder som dessa 15 arbets flöden utför, inklusive utlösare begär Anden. Testa [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/)för att beräkna dina potentiella kostnader.

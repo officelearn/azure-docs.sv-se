@@ -1,19 +1,18 @@
 ---
-title: Batch bearbeta EDI-meddelanden som en grupp-Azure Logic Apps
+title: Batch bearbeta EDI-meddelanden som en grupp
 description: Skicka och ta emot EDI-meddelanden som batchar, grupper eller samlingar i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 28e51363ca99182c9b6520ab1dea5aa13b16ea12
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 1c4b32bfec667620101d588974e0411a9c7438d2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680188"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792996"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Skicka EDI-meddelanden i batchar till handels partner med Azure Logic Apps
 
@@ -72,7 +71,7 @@ För batch-mottagare anger du batch-läge, namn, versions villkor, X12-avtal och
    | **Versions villkor** | Antal meddelanden baserat, schema baserat | Endast tillgängligt med **inline** batch-läge | 
    | **Antal meddelanden** | 10 | Endast tillgängligt med villkor för **antal meddelanden som baseras** | 
    | **Intervall** | 10 | Endast tillgängligt med **schemabaserade** versions villkor | 
-   | **Frekvens** | Minut | Endast tillgängligt med **schemabaserade** versions villkor | 
+   | **Frekvens** | minut | Endast tillgängligt med **schemabaserade** versions villkor | 
    ||| 
 
    ![Ange information om batch-utlösare](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -168,9 +167,9 @@ Skapa nu en eller flera Logi Kap par som skickar meddelanden till appen för bat
 
       ![Välj Logic-appen "batch mottagare"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Välj den här åtgärden: **Batch_messages-<*ditt-batch-mottagare* >**
+   4. Välj den här åtgärden: **Batch_messages-<*din-batch-mottagare*>**
 
-      ![Välj åtgärden "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
+      ![Välj åtgärden Batch_messages](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
 4. Ange egenskaperna för batch-avsändaren.
 

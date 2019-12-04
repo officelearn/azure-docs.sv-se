@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083661"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793315"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Skapa en virtuell Linux-dator med accelererat nätverk med Azure CLI
 
@@ -35,7 +35,7 @@ Med accelererat nätverk anländer nätverks trafiken till den virtuella datorns
 
 Fördelarna med accelererade nätverk gäller endast den virtuella dator som den är aktive rad på. För bästa resultat är det idealiskt att aktivera den här funktionen på minst två virtuella datorer som är anslutna till samma virtuella Azure-nätverk (VNet). När du kommunicerar via virtuella nätverk eller ansluter lokalt har den här funktionen minimal påverkan på den totala svars tiden.
 
-## <a name="benefits"></a>Fördelar
+## <a name="benefits"></a>Erbjudande
 * **Lägre latens/högre paket per sekund (PPS):** Att ta bort den virtuella växeln från Datapath tar bort de tid paket som ägnas åt värden för princip bearbetning och ökar antalet paket som kan bearbetas inuti den virtuella datorn.
 * **Reducerade Darr:** Bearbetning av virtuella växlar beror på den mängd princip som måste tillämpas och arbets belastningen för den processor som utför bearbetningen. Genom att avlasta den tvingande principen till maskin varan tar du bort den variabiliteten genom att leverera paket direkt till den virtuella datorn, ta bort värden till kommunikation mellan virtuella datorer och alla program avbrott och kontext byten.
 * **Minskad processor användning:** Om den virtuella växeln kringgås i värden går det snabbare att bearbeta nätverks trafiken.
@@ -61,6 +61,9 @@ Accelererat nätverk stöds i de flesta generella syftes-och beräknings optimer
 På instanser som stöder hyperthreading stöds accelererat nätverk på VM-instanser med 4 eller fler virtuella processorer. Serien som stöds är: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS och MS/Mmsv2.
 
 Mer information om VM-instanser finns i [storlekar för virtuella Linux-datorer](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Anpassade avbildningar
+Om du använder en anpassad avbildning, och din avbildning har stöd för accelererat nätverk, måste du se till att de nödvändiga driv rutinerna fungerar med Mellanox ConnectX-3-och ConnectX-4 LX-nätverkskort på Azure.
 
 ### <a name="regions"></a>Regioner
 Tillgängligt i alla offentliga Azure-regioner och Azure Government moln.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure CLI-skript: Skala en Azure Database for MySQL-server'
+title: CLI-skript – skala Server-Azure Database for MySQL
 description: Det här CLI-exempelskriptet skalar Azure Database for MySQL-servern till en annan prestandanivå när du har kört frågor mot måtten.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/07/2019
-ms.openlocfilehash: f54b3f6fa8bb37f57479d6a9e7bc05340e411a48
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 12/02/2019
+ms.openlocfilehash: 54082daeeee2d5cc894aee49e2c3456e377637f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882930"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771319"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Övervaka och skala en Azure Database for MySQL-server med Azure CLI
 Det här CLI-skriptet skalar beräkning och lagring för en enskild Azure Database for MySQL server efter att ha frågat måtten. Compute kan skala upp eller ned. Lagringen kan bara skalas upp.
@@ -43,5 +43,5 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure Database for MySQL beräkning och lagring](../concepts-pricing-tiers.md)
-- Prova ytterligare skript: [Azure CLI-exempel för Azure Database for MySQL](../sample-scripts-azure-cli.md)
+- Prova fler skript: [Azure CLI-exempel för Azure Database for MySQL](../sample-scripts-azure-cli.md)
 - Läs mer om [Azure CLI](/cli/azure)

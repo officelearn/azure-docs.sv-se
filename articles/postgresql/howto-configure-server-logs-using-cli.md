@@ -1,18 +1,18 @@
 ---
-title: Konfigurera och få åtkomst till Server loggar för PostgreSQL – en server med hjälp av Azure CLI
-description: Den här artikeln beskriver hur du konfigurerar och kommer åt Server loggar i Azure Database for PostgreSQL-enskild server med hjälp av kommando raden i Azure CLI.
+title: Hantera loggar – Azure CLI – Azure Database for PostgreSQL-enskild server
+description: Den här artikeln beskriver hur du konfigurerar och kommer åt Server loggar (. log-filer) i Azure Database for PostgreSQL-enskild server med hjälp av Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bb33debaa23ad8625b6ddc1cc63738b13bcd19e1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023622"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763580"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och få åtkomst till Server loggar med hjälp av Azure CLI
 Du kan hämta fel loggarna för PostgreSQL-servern med hjälp av kommando rads gränssnittet (Azure CLI). Åtkomst till transaktions loggar stöds dock inte. 

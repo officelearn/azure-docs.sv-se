@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal från en mikrofon C# , (Unit) – tal-service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b6439c6461ca9f4fa272eb43ef16240175fdec4f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503502"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795680"
 ---
 > [!NOTE]
 > Talet SDK för Unit stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=unity) Om du redan har gjort detta är det bra. Vi fortsätter.
+> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=unity)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
+
+Om du redan har gjort detta är det bra. Vi fortsätter.
 
 ## <a name="create-a-unity-project"></a>Skapa ett Unity-projekt
 

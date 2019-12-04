@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 04c4192293cbfa96eefcc1c84083dd54042ebe8f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484089"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762725"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Användbara resurser för att arbeta med Azure Sentinel
 
@@ -36,12 +36,12 @@ Gransknings loggar för Azure Sentinel finns kvar i [Azures aktivitets loggar](.
 
 Följande åtgärder som stöds kan granskas.
 
-|Åtgärdens namn|    Resurstyp|
+|Åtgärds namn|    Resurstyp|
 |----|----|
 |Skapa eller uppdatera arbets bok  |Microsoft. Insights/arbets böcker|
 |Ta bort arbets bok    |Microsoft. Insights/arbets böcker|
-|Ange arbets flöde   |Microsoft.Logic/workflows|
-|Ta bort arbets flöde    |Microsoft.Logic/workflows|
+|Ange arbets flöde   |Microsoft. Logic/arbets flöden|
+|Ta bort arbets flöde    |Microsoft. Logic/arbets flöden|
 |Skapa Sparad sökning    |Microsoft. OperationalInsights/arbets ytor/savedSearches|
 |Ta bort Sparad sökning    |Microsoft. OperationalInsights/arbets ytor/savedSearches|
 |Ange instrument panel  |Microsoft. Portal/instrument paneler|

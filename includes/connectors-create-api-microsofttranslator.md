@@ -1,27 +1,28 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 46a6fcb57a21f3f1e30b39fc6967256550e31616
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: 94f18b20d84a1929368053c44b4f07793e385b38
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187603"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789561"
 ---
-### <a name="prerequisites"></a>Nödvändiga komponenter
-* En [MicrosoftTranslator](https://www.microsoft.com/translator) konto  
+## <a name="prerequisites"></a>Krav
 
-Innan du kan använda ditt MicrosoftTranslator-konto i en logikapp, måste du godkänna logikappen som ska ansluta till ditt konto för MicrosoftTranslator. Som tur är kan göra du det enkelt från i logikappen på Azure Portal.  
+* Ett [Microsoft Translator](https://www.microsoft.com/translator) -konto  
 
-Här följer stegen för att auktorisera din logikapp för att ansluta till ditt konto för MicrosoftTranslator:  
+Innan du kan använda ditt Microsoft Translator-konto i en Logic app måste du godkänna att Logic-appen ansluter till ditt Microsoft Translator-konto. Lyckligt vis kan du enkelt göra det i din Logic-app på Azure-portalen.  
 
-1. Om du vill skapa en anslutning till MicrosoftTranslator, i Logic appdesigner väljer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *MicrosoftTranslator* i sökrutan. Välj utlösaren eller åtgärden som du kommer att tycka att använda:  
-   ![MicrosoftTranslator steg i att skapa anslutningen](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
-2. Om du inte skapat några anslutningar till MicrosoftTranslator innan du kan hämta uppmanas du att ange dina autentiseringsuppgifter för MicrosoftTranslator. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt ditt konto MicrosoftTranslator data:  
-   ![MicrosoftTranslator steg i att skapa anslutningen](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
-3. Lägg märke till anslutningen har skapats och du kan nu fortsätta med andra steg i logikappen:  
-   ![MicrosoftTranslator steg i att skapa anslutningen](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
+Här följer stegen för att godkänna din Logic app för att ansluta till ditt Microsoft Translator-konto:  
+
+1. För att skapa en anslutning till Microsoft Translator, i Logic App Designer, väljer du **Visa Microsoft-hanterade API: er** i list rutan och anger sedan *Microsoft Translator* i sökrutan. Välj den utlösare eller åtgärd som du vill använda:  
+   steg för att skapa ![Microsoft Translator-anslutning](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
+2. Om du inte har skapat några anslutningar till Microsoft Translator tidigare uppmanas du att ange dina Microsoft Translator-autentiseringsuppgifter. Dessa autentiseringsuppgifter används för att auktorisera din Logi Kap par för att ansluta till och komma åt ditt Microsoft Translator-kontos data:  
+   ![Steg för skapande av Microsoft Translator-anslutning](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
+3. Observera att anslutningen har skapats och att du nu är kostnads fri att fortsätta med de andra stegen i din Logic app:  
+   ![Steg för skapande av Microsoft Translator-anslutning](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 

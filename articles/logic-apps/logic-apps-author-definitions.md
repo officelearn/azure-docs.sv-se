@@ -1,24 +1,21 @@
 ---
-title: Skapa, redigera eller utöka Logic app-definitioner – Azure Logic Apps
+title: Skapa, redigera eller utöka definitioner för Logic app
 description: Skriva, redigera och utöka Logic app JSON-definitioner i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 03203a5fdb6d61ed95e96581a7e4a979c911cd02
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680026"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792586"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för Logic app-definitioner i Azure Logic Apps
 
-När du skapar lösningar för företags integrering med automatiserade arbets flöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande Logic app-definitionerna enkla och deklarativ JavaScript Object Notation (JSON) tillsammans med [arbets flödets definitions språk (WDL) schema](../logic-apps/logic-apps-workflow-definition-language.md) för beskrivning och validering. De här formaten gör att Logic app-definitioner blir lättare att läsa och förstå utan att veta mer om kod. När du vill automatisera skapandet och distributionen av logi Kap par kan du inkludera Logic app-definitioner som [Azure-resurser](../azure-resource-manager/resource-group-overview.md) inuti [Azure Resource Manager mallar](../azure-resource-manager/template-deployment-overview.md). För att skapa, hantera och distribuera Logi Kap par kan du sedan använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)eller [Azure Logic Apps REST-API: er](https://docs.microsoft.com/rest/api/logic/).
+När du skapar lösningar för företags integrering med automatiserade arbets flöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande Logic app-definitionerna enkla och deklarativ JavaScript Object Notation (JSON) tillsammans med [WDL-schemat (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och verifiering. De här formaten gör att Logic app-definitioner blir lättare att läsa och förstå utan att veta mer om kod. När du vill automatisera skapandet och distributionen av logi Kap par kan du inkludera Logic app-definitioner som [Azure-resurser](../azure-resource-manager/resource-group-overview.md) inuti [Azure Resource Manager mallar](../azure-resource-manager/template-deployment-overview.md). För att skapa, hantera och distribuera Logi Kap par kan du sedan använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)eller [Azure Logic Apps REST-API: er](https://docs.microsoft.com/rest/api/logic/).
 
 Om du vill arbeta med Logic app-definitioner i JSON öppnar du kodvyn när du arbetar i Azure Portal eller i Visual Studio eller kopierar definitionen till valfritt redigerings program. Om du inte har använt Logic Apps igen kan du läsa [hur du skapar din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -61,7 +58,7 @@ I Visual Studio kan du öppna Logi Kap par som skapats och distribuerats antinge
 
 ## <a name="parameters"></a>Parametrar
 
-Distributions livs cykeln har vanligt vis olika miljöer för utveckling, testning, mellanlagring och produktion. När du har värden som du vill återanvända i din Logic app utan hårdkoda eller som varierar beroende på dina distributions behov, kan du skapa en [Azure Resource Manager mall](../azure-resource-manager/resource-group-overview.md) för arbets flödes definitionen så att du även kan automatisera Logic app spridningen. 
+Distributions livs cykeln har vanligt vis olika miljöer för utveckling, testning, mellanlagring och produktion. När du har värden som du vill återanvända i din Logic app utan hårdkoda eller som varierar beroende på dina distributions behov, kan du skapa en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md) för arbets flödes definitionen så att du även kan automatisera Logic app-distributionen. 
 
 Följ dessa allmänna steg för att *Parameterisera*, eller definiera och använda parametrar för, dessa värden i stället. Du kan sedan ange värdena i en separat parameter fil som skickar dessa värden till din mall. På så sätt kan du enkelt ändra dessa värden utan att behöva uppdatera och distribuera om din Logic app. Fullständig information finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -124,7 +121,7 @@ Dessa steg beskriver hur det här exemplet bearbetar den här strängen, som arb
 
 2. Om du vill få en kortare sträng subtraherar du `5`.
 
-3. Nu får du en [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md). Starta vid index `5` och gå till resten av strängen.
+3. Nu får du en [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md). Starta vid index `5`och gå till resten av strängen.
 
 4. Konvertera den här del strängen till en [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) sträng.
 
@@ -218,7 +215,7 @@ Om du vill hämta data från en data källa som inte har inbyggt stöd för *utl
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Extrahera `startTime` från åtgärden `order`.
+1. Extrahera `startTime`från åtgärden `order`.
 2. Hämta den aktuella tiden med `utcNow()`.
 3. Subtrahera en sekund:
 

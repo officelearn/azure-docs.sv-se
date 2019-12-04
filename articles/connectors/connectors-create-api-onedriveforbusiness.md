@@ -1,43 +1,39 @@
 ---
-title: Anslut till OneDrive för företag – Azure Logic Apps | Microsoft Docs
-description: 'Ladda upp och hantera filer med OneDrive för företag REST API: er och Azure Logic Apps'
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 08/18/2016
-ms.topic: article
-ms.service: logic-apps
+title: Anslut till OneDrive för företag
+description: 'Ladda upp och hantera filer med REST-API: er för OneDrive för företag och Azure Logic Apps'
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 08/18/2016
 tags: connectors
-ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104926"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789467"
 ---
-# <a name="get-started-with-the-onedrive-for-business-connector"></a>Kom igång med OneDrive för företag-anslutningsapp
-Anslut till OneDrive för företag för att hantera dina filer. Du kan utföra olika åtgärder som att överföra, uppdatera, hämta och ta bort filer.
+# <a name="get-started-with-the-onedrive-for-business-connector"></a>Kom igång med OneDrive för företag-anslutaren
+Anslut till OneDrive för företag för att hantera dina filer. Du kan utföra olika åtgärder, till exempel Ladda upp, uppdatera, hämta och ta bort filer.
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Skapa en anslutning till OneDrive för företag
-För att skapa logikappar med OneDrive för företag, måste du först skapa en **anslutning** anger du detaljerna för följande egenskaper:
+Om du vill skapa Logi Kap par med OneDrive för företag måste du först skapa en **anslutning** och sedan ange informationen för följande egenskaper:
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| Token |Ja |Ange OneDrive för företag-autentiseringsuppgifter |
+| Token |Ja |Ange autentiseringsuppgifter för OneDrive för företag |
 
-När du har skapat anslutningen kan använda du det och köra åtgärderna som du kan lyssna efter utlösare som beskrivs i den här artikeln.
+När du har skapat anslutningen kan du använda den för att köra åtgärderna och lyssna efter de utlösare som beskrivs i den här artikeln.
 
 > [!INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 > 
 
-## <a name="connector-specific-details"></a>Information om specifika
+## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/onedriveforbusinessconnector/).
+Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/onedriveforbusinessconnector/).
 
-## <a name="more-connectors"></a>Fler anslutningsappar
-Gå tillbaka till den [API: er lista](apis-list.md).
+## <a name="more-connectors"></a>Fler anslutningar
+Gå tillbaka till [listan med API: er](apis-list.md).

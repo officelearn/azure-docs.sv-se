@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal från en mikrofon C# , (.net)-tal-service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 88ac0f05bf937af19a0bd6bf3cf2253fd3052f4c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 106a11959bdaf34f44faa0c6a2b031ccba537835
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503488"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796070"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio
 
@@ -45,6 +46,7 @@ Innan du kan initiera ett `SpeechRecognizer`-objekt måste du skapa en konfigura
 > [!NOTE]
 > I det här exemplet används metoden `FromSubscription()` för att bygga `SpeechConfig`. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=16)]
+> Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ## <a name="initialize-a-speechrecognizer"></a>Initiera en SpeechRecognizer
 

@@ -1,20 +1,19 @@
 ---
-title: Skapa en instrument panel för kund insikter – Azure Logic Apps
+title: Skapa en instrument panel för kund insikter
 description: Hantera kundfeedback, data från sociala medier med mera genom att skapa en kund instrument panel med Azure Logic Apps och Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ebc1d449cdb8702a984304e92697d4b7c778daaa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680113"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792904"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa en strömmande kund insikts instrument panel med Azure Logic Apps och Azure Functions
 

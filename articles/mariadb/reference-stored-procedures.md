@@ -1,17 +1,17 @@
 ---
-title: Lagrade procedurer för Azure Database for MariaDB hantering
-description: Lär dig vilka lagrade procedurer i Azure Database for MySQL är användbara för att hjälpa dig att konfigurera datareplikering, ställa in timezone-och Kill-frågor.
+title: Lagrade procedurer för hantering – Azure Database for MariaDB
+description: Lär dig vilka lagrade procedurer i Azure Database for MariaDB är användbara för att hjälpa dig att konfigurera datareplikering, ställa in timezone-och Kill-frågor.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 0a33edeac735502964427ddc3b05076fb9fac969
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 9378f2cc62172043dbcaf13e88e9df4b6e61df9b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973473"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769956"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Lagrade procedurer för Azure Database for MariaDB hantering
 
@@ -25,11 +25,11 @@ Följande lagrade procedurer används för att ställa in eller ta bort Datarepl
 
 |**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
-|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Gäller inte|Överför data med SSL-läge genom att skicka certifikat utfärdarens certifikats kontext till master_ssl_ca-parametern. </br><br>Om du vill överföra data utan SSL skickar du en tom sträng till parametern master_ssl_ca.|
-|*mysql.az_replication _start*|Gäller inte|Gäller inte|Startar replikering.|
-|*mysql.az_replication _stop*|Gäller inte|Gäller inte|Stoppar replikering.|
-|*mysql.az_replication _remove_master*|Gäller inte|Gäller inte|Tar bort replikeringsrelationen mellan huvud servern och repliken.|
-|*mysql.az_replication_skip_counter*|Gäller inte|Gäller inte|Hoppar över ett replikeringsfel.|
+|*MySQL. az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Gäller inte|Överför data med SSL-läge genom att skicka certifikat utfärdarens certifikats kontext till master_ssl_ca-parametern. </br><br>Om du vill överföra data utan SSL skickar du en tom sträng till master_ssl_ca-parametern.|
+|*MySQL. az_replication _start*|Gäller inte|Gäller inte|Startar replikering.|
+|*MySQL. az_replication _stop*|Gäller inte|Gäller inte|Stoppar replikering.|
+|*MySQL. az_replication _remove_master*|Gäller inte|Gäller inte|Tar bort replikeringsrelationen mellan huvud servern och repliken.|
+|*MySQL. az_replication_skip_counter*|Gäller inte|Gäller inte|Hoppar över ett replikeringsfel.|
 
 Information om hur du konfigurerar Datareplikering mellan en huvud server och en replik i Azure Database for MariaDB finns i så här [konfigurerar du datareplikering](howto-data-in-replication.md).
 
@@ -39,9 +39,9 @@ Följande lagrade procedurer är tillgängliga i Azure Database for MariaDB att 
 
 |**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
-|*MySQL. AZ _kill*|processlist_id|Gäller inte|Motsvarar [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar anslutningen som är associerad med den angivna processlist_id när du har avslutat en instruktion som anslutningen körs.|
-|*MySQL. AZ _kill_query*|processlist_id|Gäller inte|Motsvarar [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar instruktionen som anslutningen körs för tillfället. Lämnar själva anslutningen.|
-|*MySQL. AZ _load_timezone*|Gäller inte|Gäller inte|Läser in tids zons tabeller som tillåter att parametern `time_zone` anges till namngivna värden (t. ex. "USA/Stilla havs området").|
+|*MySQL. az_kill*|processlist_id|Gäller inte|Motsvarar [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommandot. Avslutar anslutningen som är associerad med den angivna processlist_id när du har avslutat en instruktion som anslutningen körs.|
+|*MySQL. az_kill_query*|processlist_id|Gäller inte|Motsvarar [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommandot. Avslutar instruktionen som anslutningen körs för tillfället. Lämnar själva anslutningen.|
+|*MySQL. az_load_timezone*|Gäller inte|Gäller inte|Läser in tids zons tabeller så att parametern `time_zone` kan anges till namngivna värden (t. ex. "USA/Stilla havs området").|
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du konfigurerar [datareplikering](howto-data-in-replication.md)

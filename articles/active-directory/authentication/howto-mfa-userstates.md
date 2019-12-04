@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258675a343387eb6930cd3511bf885bf510050c6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404215"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785865"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
@@ -41,11 +41,14 @@ Aktive rad av Azure AD Identity Protection – med den här metoden används pri
 
 Användar konton i Azure Multi-Factor Authentication har följande tre distinkta tillstånd:
 
+> [!IMPORTANT]
+> Att aktivera Azure MFA via en princip för villkorlig åtkomst ändrar inte användarens tillstånd. Inga alarmed-användare visas inaktiverade. Villkorlig åtkomst ändrar inte tillstånd. **Organisationer bör inte aktivera eller framtvinga användare om de använder principer för villkorlig åtkomst.**
+
 | Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
-|:---:|:---:|:---:|:--:|:--:|
-| Disabled |Standard läget för en ny användare som inte har registrerats i Azure MFA. |Nej |Nej |Nej |
-| Enabled |Användaren har registrerats i Azure MFA, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. |Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure MFA-registrering.| Ja. När åtkomsttoken upphör att gälla krävs Azure MFA-registrering. |
-| Enforced |Användaren har registrerats och slutfört registrerings processen för Azure MFA. |Ja. Appar kräver applösenord. |Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
+|:---:| --- |:---:|:--:|:--:|
+| Disabled | Standard läget för en ny användare som inte har registrerats i Azure MFA. | Nej | Nej | Nej |
+| Enabled | Användaren har registrerats i Azure MFA, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure MFA-registrering.| Ja. När åtkomsttoken upphör att gälla krävs Azure MFA-registrering. |
+| Enforced | Användaren har registrerats och slutfört registrerings processen för Azure MFA. | Ja. Appar kräver applösenord. | Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
 
 En användares tillstånd visar om en administratör har registrerat dem i Azure MFA och om de har slutfört registrerings processen.
 

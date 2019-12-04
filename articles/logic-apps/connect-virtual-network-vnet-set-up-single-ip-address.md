@@ -1,20 +1,17 @@
 ---
-title: Konfigurera åtkomst för flera ISEs-Azure Logic Apps
+title: Konfigurera åtkomst för flera ISEs
 description: För flera integrerings tjänst miljöer (ISEs) kan du konfigurera en enskild offentlig utgående IP-adress för att få åtkomst till externa system från Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: f35b6836012df7ac3879070f7a85fbfb21b456c0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74549250"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792696"
 ---
 # <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Konfigurera åtkomst för flera integrerings tjänst miljöer i Azure Logic Apps
 

@@ -1,22 +1,18 @@
 ---
-title: Ansluta till Project Online från Azure Logic Apps | Microsoft Docs
+title: Ansluta till Project Online från Azure Logic Apps
 description: Automatisera arbets flöden som övervakar, skapar och hanterar projekt online-projekt,-uppgifter och-resurser med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: fe571209d28fe098ce9b507cb67b0a9a5abd25a3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050860"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789332"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Hantera Project Online-projekt,-uppgifter och-resurser med hjälp av Azure Logic Apps
 
@@ -29,7 +25,7 @@ Med Azure Logic Apps och Project Online Connector kan du skapa automatiserade up
 
 Project Online hjälper dig att planera, prioritera och hantera projekt och projekt portfölj investeringar från nästan var som helst på nästan vilken enhet som helst genom att tillhandahålla kraftfulla funktioner för projekt hantering. Du kan använda Project Online-utlösare som får svar från Project Online och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder i Logi Kap par för att utföra olika uppgifter i Project Online. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

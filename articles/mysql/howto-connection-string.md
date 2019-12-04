@@ -1,31 +1,31 @@
 ---
-title: Anslut program till Azure Database för MySQL
-description: Det här dokumentet innehåller för närvarande stöds anslutningssträngar att ansluta med Azure Database för MySQL, inklusive ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python och Ruby-program.
+title: Anslutnings strängar – Azure Database for MySQL
+description: I det här dokumentet visas de anslutnings strängar som för närvarande stöds för program att ansluta till Azure Database for MySQLC#, inklusive ADO.net (), JDBC, Node. js, ODBC, php, python och Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 503b7764ba7958a5448903b217b00e204ffcbf61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: bee98accd8ac404eb223975571b082dae754571a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459283"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770500"
 ---
-# <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Så här ansluter du program till Azure Database för MySQL
-Det här avsnittet innehåller strängen anslutningstyper som stöds av Azure Database för MySQL, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutningssträngen.
+# <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Så här ansluter du program till Azure Database for MySQL
+I det här avsnittet visas de typer av anslutnings strängar som stöds av Azure Database for MySQL, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutnings strängen.
 
-- Certifikatet finns [hur du konfigurerar SSL](./howto-configure-ssl.md).
-- {your_host} = \<servername>.mysql.database.azure.com
-- {your_user}@{servername} = användar-ID-format för autentisering på rätt sätt.  Om du bara använder användar-ID, misslyckas autentiseringen.
+- Information om hur du skaffar certifikatet finns i [så här konfigurerar du SSL](./howto-configure-ssl.md).
+- {your_host} = \<servername >. mysql. Database. Azure. com
+- {your_user} @ {servername} = userID-format för autentisering på rätt sätt.  Autentiseringen fungerar inte om du bara använder userID.
 
 ## <a name="adonet"></a>ADO.NET
 ```ado.net
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-I det här exemplet är servernamnet `mydemoserver`, databasnamnet är `wpdb`, användarnamnet är `WPAdmin`, och lösenordet är `mypassword!2`. Därför kan ska strängen som vara:
+I det här exemplet är Server namnet `mydemoserver`, databas namnet är `wpdb`, användar namnet `WPAdmin`och lösen ordet är `mypassword!2`. Därför bör anslutnings strängen vara:
 
 ```ado.net
 Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
@@ -61,10 +61,10 @@ cnx = mysql.connector.connect(user={username@servername}, password={your_passwor
 client = Mysql2::Client.new(username: {username@servername}, password: {your_password}, database: {your_database}, host: {your_host}, port: {your_port}[, sslca:{ca-cert filename}, sslverify:false, sslcipher:'AES256-SHA'])
 ```
 
-## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Hämta information om anslutningssträngen från Azure portal
-I den [Azure-portalen](https://portal.azure.com), gå till din Azure Database for MySQL-server och klicka sedan på **anslutningssträngar** att hämta stränglistan över för din instans: ![Fönstret anslutning strängar i Azure portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Hämta information om anslutnings strängen från Azure Portal
+Gå till Azure Database for MySQL-servern i [Azure Portal](https://portal.azure.com)och klicka sedan på **anslutnings strängar** för att hämta sträng listan för din instans: ![fönstret anslutnings strängar i Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-Strängen innehåller information som drivrutinen, server och andra databasen anslutningsparametrar. Ändra de här exemplen för att använda dina egna parametrar, till exempel databasens namn, lösenord och så vidare. Du kan sedan använda den här strängen för att ansluta till servern från din kod och dina program.
+Strängen innehåller information som driv rutin, server och andra databas anslutnings parametrar. Ändra de här exemplen om du vill använda egna parametrar, till exempel databas namn, lösen ord och så vidare. Du kan sedan använda den här strängen för att ansluta till servern från din kod och dina program.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om anslutningsbibliotek [begrepp - anslutningsbibliotek](./concepts-connection-libraries.md).
+- Mer information om anslutnings bibliotek finns i [begrepp – anslutnings bibliotek](./concepts-connection-libraries.md).

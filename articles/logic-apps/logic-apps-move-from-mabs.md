@@ -1,20 +1,19 @@
 ---
-title: Flytta appar från BizTalk Services till Azure Logic Apps | Microsoft Docs
+title: Flytta appar från BizTalk Services till Azure Logic Apps
 description: Migrera från Azure BizTalk Services (MABS) till Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273187"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791889"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrera från BizTalk Services till Azure Logic Apps
 
@@ -33,10 +32,10 @@ BizTalk Services består av två under tjänster:
 
 I den här tabellen mappas BizTalk Services-funktioner till Logic Apps.
 
-| BizTalk Services   | Logic Apps            | Syfte                      |
+| BizTalk Services   | Logikappar            | Syfte                      |
 | ------------------ | --------------------- | ---------------------------- |
-| Koppling          | Koppling             | Skicka och ta emot data   |
-| Bridge             | Logikapp             | Pipeline-processor           |
+| Anslutningsprogram          | Anslutningsprogram             | Skicka och ta emot data   |
+| Bridge             | Logisk app             | Pipeline-processor           |
 | Validera fas     | XML-validerings åtgärd | Verifiera ett XML-dokument mot ett schema | 
 | Utöka steg       | Datatoken           | Befordra egenskaper till meddelanden eller för routnings beslut |
 | Transformerings steg    | Transformerings åtgärd      | Konvertera XML-meddelanden från ett format till ett annat |
@@ -50,7 +49,7 @@ I den här tabellen mappas BizTalk Services-funktioner till Logic Apps.
 
 BizTalk Services har flera typer av artefakter. 
 
-## <a name="connectors"></a>Anslutningar
+## <a name="connectors"></a>Anslutningsprogram
 
 Med hjälp av BizTalk Services kopplingar kan du skicka och ta emot data, inklusive tvåvägs bryggor som möjliggör HTTP-baserade förfrågningar/svar-interaktioner. Logic Apps använder samma terminologi och innehåller hundratals kopplingar som har samma syfte genom att ansluta till en mängd olika tekniker och tjänster. Till exempel är kopplingarna tillgängliga för Cloud SaaS-och PaaS-tjänster, till exempel OneDrive, Office365, Dynamics CRM och fler, plus lokala system via den lokala datagatewayen som ersätter BizTalk Adapter service för BizTalk Services. Källor i BizTalk Services är begränsade till FTP, SFTP och Service Bus kö-eller ämnes prenumeration.
 
@@ -78,7 +77,7 @@ En enkelriktad XML-brygga lägger också till avkoda och koda steg i början och
 
 I BizTalk Services kan du ta emot olika typer av XML-meddelanden och bestämma det matchande schemat för det mottagna meddelandet. Det här arbetet utförs i stadiet *meddelande typer* i pipeline för mottagnings bearbetning. Avkodnings steget använder sedan den identifierade meddelande typen för att avkoda meddelandet med det angivna schemat. Om schemat är ett flat-filschema konverterar det här steget den inkommande flata filen till XML. 
 
-Logic Apps innehåller liknande funktioner. Du får en platt fil över olika protokoll med hjälp av de olika anslutnings utlösarna (fil system, FTP, HTTP och så vidare) och använder den [flata fil](../logic-apps/logic-apps-enterprise-integration-flatfile.md) avkodnings åtgärden för att konvertera inkommande data till XML. Du kan flytta befintliga planiska filscheman direkt till Logic Apps utan några ändringar och sedan ladda upp scheman till ditt integrations konto.
+Logic Apps innehåller liknande funktioner. Du får en platt fil över olika protokoll med hjälp av de olika anslutnings utlösarna (fil system, FTP, HTTP och så vidare) och använder den [flata fil avkodnings](../logic-apps/logic-apps-enterprise-integration-flatfile.md) åtgärden för att konvertera inkommande data till XML. Du kan flytta befintliga planiska filscheman direkt till Logic Apps utan några ändringar och sedan ladda upp scheman till ditt integrations konto.
 
 ### <a name="validation"></a>Validering
 
@@ -94,13 +93,13 @@ BizTalk Services fattar ett Dirigerings beslut där slut punkten eller anslutnin
 
 ![](media/logic-apps-move-from-mabs/route-filter.png)
 
-I BizTalk Services, om det bara finns två alternativ *, är det* bästa sättet att konvertera vägvals filter i BizTalk Services. Använd en **växel**om det finns fler än två.
+I BizTalk Services, om det *bara finns två alternativ, är det* bästa sättet att konvertera vägvals filter i BizTalk Services. Använd en **växel**om det finns fler än två.
 
 Logic Apps innehåller avancerade Logic-funktioner plus avancerat kontroll flöde och routning med [villkors uttryck](../logic-apps/logic-apps-control-flow-conditional-statement.md) och [switch-instruktioner](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
 ### <a name="enrich"></a>Utöka
 
-I BizTalk Services bearbetning lägger det utökar-steget till egenskaper till den meddelande kontext som är associerad med mottagna data. Du kan till exempel befordra en egenskap som ska användas för routning från en databas sökning eller genom att extrahera ett värde med ett XPath-uttryck. Logic Apps ger åtkomst till alla sammanhangsbaserade data utdata från föregående åtgärder, vilket gör det enkelt att replikera samma beteende. Med hjälp av `Get Row` åtgärden SQL-anslutning returnerar du till exempel data från en SQL Server databas och använder data i en besluts åtgärd för routning. På samma sätt är egenskaper för inkommande Service Bus köade meddelanden med en utlösare adresser bara, och XPath med hjälp av definitions språk uttryck för XPath-arbetsflöden.
+I BizTalk Services bearbetning lägger det utökar-steget till egenskaper till den meddelande kontext som är associerad med mottagna data. Du kan till exempel befordra en egenskap som ska användas för routning från en databas sökning eller genom att extrahera ett värde med ett XPath-uttryck. Logic Apps ger åtkomst till alla sammanhangsbaserade data utdata från föregående åtgärder, vilket gör det enkelt att replikera samma beteende. Om du till exempel använder åtgärden `Get Row` SQL-anslutning returnerar du data från en SQL Server databas och använder data i en besluts åtgärd för routning. På samma sätt är egenskaper för inkommande Service Bus köade meddelanden med en utlösare adresser bara, och XPath med hjälp av definitions språk uttryck för XPath-arbetsflöden.
 
 ### <a name="run-custom-code"></a>Kör anpassad kod
 

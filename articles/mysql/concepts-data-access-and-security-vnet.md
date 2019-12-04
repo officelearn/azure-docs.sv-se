@@ -1,18 +1,17 @@
 ---
-title: Översikt över Azure Database for MySQL server VNet Services-slutpunkt | Microsoft Docs
+title: Slut punkter för VNet-tjänst – Azure Database for MySQL
 description: Beskriver hur VNet-tjänstens slut punkter fungerar för din Azure Database for MySQL-server.
-author: bolzmj
-ms.author: mbolz
-manager: jhubbard
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/20/2018
-ms.openlocfilehash: cf8b917b72362465c3273f80db61b681ffd0c4d7
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 12/02/2019
+ms.openlocfilehash: 1ee238e833569bac73bc95932a8d9f044640a59b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610366"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770330"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använd Virtual Network tjänst slut punkter och regler för Azure Database for MySQL
 
@@ -32,7 +31,7 @@ Om du vill skapa en regel för virtuellt nätverk måste du först vara ett [vir
 
 **Virtuellt nätverk:** Du kan ha virtuella nätverk kopplade till din Azure-prenumeration.
 
-**Delnät** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
+**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
 
 **Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt][vm-virtual-network-service-endpoints-overview-649d] är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typ. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database. Den här tjänst tag gen gäller även för Azure Database for MySQL-och PostgreSQL-tjänsterna. Det är viktigt att du noterar när du använder service tag-koden för **Microsoft. SQL** på en slut punkt för VNet-tjänsten som konfigurerar tjänst slut punkts trafik för alla Azure SQL Database, Azure Database for MySQL och Azure Database for PostgreSQL servrar i under nätet. 
 
@@ -90,8 +89,8 @@ Varje virtuell nätverks regel gäller hela Azure Database for MySQL-servern, in
 
 Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverks administratör:** &nbsp;Aktivera slut punkten.
-- **Databas administratör:** &nbsp;Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for MySQL servern.
+- **Nätverks administratör:** &nbsp; aktivera slut punkten.
+- **Databas administratör:** &nbsp; uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for MySQL-servern.
 
 *RBAC-alternativ:*
 
@@ -115,11 +114,11 @@ För Azure Database for MySQL har funktionen regler för virtuellt nätverk föl
 
 - Varje Azure Database for MySQL server kan ha upp till 128 ACL-poster för ett angivet virtuellt nätverk.
 
-- Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska][arm-deployment-model-568f] nätverk för distributions modeller.
+- Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska nätverk för distributions modeller][arm-deployment-model-568f] .
 
-- Att aktivera tjänst slut punkter för virtuella nätverk för att Azure Database for MySQL med hjälp av service tag-koden för **Microsoft. SQL** aktiverar även slut punkterna för alla Azure Database-tjänster: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
+- När du aktiverar tjänst slut punkter för virtuella nätverk för att Azure Database for MySQL med hjälp av service tag gen för **Microsoft. SQL** kan du också aktivera slut punkter för alla Azure Database-tjänster: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
 
-- Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
+- Stöd för VNet-tjänstens slut punkter är bara för Generell användning och minnesoptimerade servrar.
 
 - I brand väggen gäller IP-adressintervall för följande nätverks objekt, men regler för virtuella nätverk gör inte följande:
     - [Virtuellt privat nätverk (VPN) för plats-till-plats (S2S)][vpn-gateway-indexmd-608y]
@@ -133,7 +132,7 @@ Om du vill tillåta kommunikation från din krets till Azure Database for MySQL 
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Lägga till en brand Väggs regel för VNET på servern utan att aktivera VNET-tjänstens slut punkter
 
-Att bara ange en brand Väggs regel skyddar inte servern mot VNet. Du måste också aktivera VNet-tjänstens slut **punkter för att** säkerheten ska börja gälla. När du aktiverar tjänstens slutpunkter aktive ras stillestånds tiden för VNet-undernät tills den slutför över **gången från till** **på**. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingServiceEndpoint** för att minska eller eliminera stillestånds tiden under över gången.
+Att bara ange en brand Väggs regel skyddar inte servern mot VNet. Du måste också aktivera VNet-tjänstens slut **punkter för att** säkerheten ska börja gälla. När du aktiverar tjänstens slut punkter **aktive**ras stillestånds tiden för VNet-undernät tills den slutför över **gången från till** **på**. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingServiceEndpoint** för att minska eller eliminera stillestånds tiden under över gången.
 
 Du kan ställa in flaggan **IgnoreMissingServiceEndpoint** med hjälp av Azure CLI eller portalen.
 

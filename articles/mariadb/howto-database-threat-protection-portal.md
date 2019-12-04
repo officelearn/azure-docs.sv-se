@@ -1,17 +1,17 @@
 ---
-title: Avancerat skydd – Azure Database for MariaDB | Microsoft Docs
+title: Avancerat skydd – Azure Portal-Azure Database for MariaDB
 description: Hot skyddet identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: f77d9f105d5c2ff10753f2b4b1ecc962c84eee6e
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.date: 12/02/2019
+ms.openlocfilehash: 1d6eafd38d418066ddf5933139bd4caf6e69ddea
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869656"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766981"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Avancerat skydd för Azure Database for MariaDB
 
@@ -23,7 +23,7 @@ Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som ä
 > Avancerat skydd är i offentlig för hands version. Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MariaDB distribueras för Generell användning och minnesoptimerade servrar.
 
 > [!NOTE]
-> Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US Gov, Iowa, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland, centrala, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
+> Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US gov, IOWA, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland Central, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
 
 ## <a name="set-up-threat-detection"></a>Konfigurera hot identifiering
 1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).

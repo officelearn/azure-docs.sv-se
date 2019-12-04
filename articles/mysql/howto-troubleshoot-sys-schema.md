@@ -1,39 +1,39 @@
 ---
-title: Använd sys_schema för att justera prestanda och underhålla Azure Database for MySQL
-description: Lär dig hur du använder sys_schema för att hitta prestanda problem och underhålla databaser i Azure Database for MySQL.
+title: Använd sys_schema-Azure Database for MySQL
+description: Lär dig hur du använder sys_schema för att hitta prestanda problem och underhålla databasen i Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 08/01/2018
-ms.openlocfilehash: 7dc6b4744c74c56803127f63a8a6f29ca5a15090
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972795"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775953"
 ---
-# <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Så här använder du sys_schema för prestanda justering och databas underhåll i Azure Database for MySQL
+# <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Använda sys_schema för prestanda justering och databas underhåll i Azure Database for MySQL
 
-MySQL-performance_schema, som först är tillgängligt i MySQL 5,5, innehåller instrumentering för många viktiga server resurser, till exempel minnesallokering, lagrade program, metadata lås osv. Performance_schema innehåller dock fler än 80 tabeller och den information som krävs kräver ofta koppling av tabeller i performance_schema, samt tabeller från information_schema. När du bygger på både performance_schema och INFORMATION_SCHEMA ger sys_schema en kraftfull samling [användarvänliga vyer](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) i en skrivskyddad databas och är helt aktive rad i Azure Database for MySQL version 5,7.
+MySQL-performance_schema, som först är tillgängligt i MySQL 5,5, innehåller instrumentering för många viktiga server resurser, till exempel minnesallokering, lagrade program, metadata lås osv. Performance_schema innehåller dock fler än 80 tabeller och den information som krävs kräver ofta att du kopplar tabellerna i performance_schema, samt tabeller från information_schema. När du bygger på både performance_schema och information_schema ger sys_schema en kraftfull samling [användarvänliga vyer](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) i en skrivskyddad databas och är helt aktive rad i Azure Database for MySQL version 5,7.
 
 ![vyer av sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
 Det finns 52 vyer i sys_schema och varje vy har en av följande prefix:
 
-- Host_summary eller IO: I/O-relaterad fördröjning.
-- InnoDB Status och lås för InnoDB-buffert.
-- Minne: Minnes användning av värden och användare.
-- Schema Schema relaterad information, till exempel automatisk ökning, index osv.
-- Sekretesspolicy Information om SQL-uttryck; Det kan vara en instruktion som ledde till fullständig tabell genomsökning eller lång tid för frågor.
-- Användarvänlig Resurser som förbrukas och grupperas efter användare. Exempel är fil-I/o, anslutningar och minne.
-- Vänta: Vänta händelser grupperade efter värd eller användare.
+- Host_summary eller i/o: I/O-relaterad fördröjning.
+- InnoDB: InnoDB och lås.
+- Minne: minnes användning av värden och användare.
+- Schema: schema relaterad information, till exempel automatisk ökning, index osv.
+- Statement: information om SQL-uttryck; Det kan vara en instruktion som ledde till fullständig tabell genomsökning eller lång tid för frågor.
+- Användare: resurser förbrukade och grupperade efter användare. Exempel är fil-I/o, anslutningar och minne.
+- Vänta: vänta händelser grupperade efter värd eller användare.
 
-Nu ska vi titta på några vanliga användnings mönster för sys_schema. För att börja med ska vi gruppera användnings mönstren i två kategorier: **Prestanda justering** och **databas underhåll**.
+Nu ska vi titta på några vanliga användnings mönster för sys_schema. För att börja med ska vi gruppera användnings mönstren i två kategorier: **prestanda justering** och **databas underhåll**.
 
 ## <a name="performance-tuning"></a>Prestandajustering
 
-### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
+### <a name="sysuser_summary_by_file_io"></a>*sys. user_summary_by_file_io*
 
 I/o är den dyraste åtgärden i-databasen. Vi kan ta reda på den genomsnittliga IO-svars tiden genom att fråga *sys. user_summary_by_file_io* -vyn. Med standard 125 GB allokerad lagring, är min IO-latens cirka 15 sekunder.
 
@@ -43,15 +43,15 @@ Eftersom Azure Database for MySQL skalar IO med avseende på lagring, minskar mi
 
 ![i/o-latens: 1 TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
-### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
+### <a name="sysschema_tables_with_full_table_scans"></a>*sys. schema_tables_with_full_table_scans*
 
-Trots noggrann planering kan många frågor fortfarande resultera i fullständiga tabells ökningar. Mer information om typer av index och hur du optimerar dem finns i den här artikeln: [Så här felsöker du frågans prestanda](./howto-troubleshoot-query-performance.md). Fullständiga tabells ökningar är resurs krävande och försämrar databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabells ökning är att fråga *sys. schema_tables_with_full_table_scans* -vyn.
+Trots noggrann planering kan många frågor fortfarande resultera i fullständiga tabells ökningar. Mer information om typer av index och hur du optimerar dem finns i den här artikeln: [fel sökning av frågans prestanda](./howto-troubleshoot-query-performance.md). Fullständiga tabells ökningar är resurs krävande och försämrar databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabells ökning är att fråga *sys. schema_tables_with_full_table_scans* -vyn.
 
 ![fullständiga tabells ökningar](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 
-### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
+### <a name="sysuser_summary_by_statement_type"></a>*sys. user_summary_by_statement_type*
 
-För att felsöka problem med databas prestanda kan det vara bra att identifiera de händelser som händer i databasen, och i vyn *sys. user_summary_by_statement_type* kan du bara göra det.
+För att felsöka problem med databas prestanda kan det vara bra att identifiera de händelser som händer i databasen, och med hjälp av *sys. user_summary_by_statement_type* -vyn kan det bara göra sticket.
 
 ![Sammanfattning per instruktion](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
@@ -59,7 +59,7 @@ I det här exemplet Azure Database for MySQL ägnade 53 minuter att tömma slog-
 
 ## <a name="database-maintenance"></a>Databas underhåll
 
-### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
+### <a name="sysinnodb_buffer_stats_by_table"></a>*sys. innodb_buffer_stats_by_table*
 
 InnoDB buffer finns i minnet och är den viktigaste cache-mekanismen mellan DBMS och lagring. Storleken på InnoDB-bufferten är kopplad till prestanda nivån och kan inte ändras om inte en annan produkt-SKU väljs. Precis som med minne i operativ systemet, växlas gamla sidor ut för att göra plats för mer information. Om du vill ta reda på vilka tabeller som använder merparten av InnoDB buffer buffer, kan du fråga *sys. innodb_buffer_stats_by_table* -vyn.
 
@@ -67,7 +67,7 @@ InnoDB buffer finns i minnet och är den viktigaste cache-mekanismen mellan DBMS
 
 I bilden ovan är det uppenbart att andra än system tabeller och vyer, varje tabell i mysqldatabase033-databasen, som är värd för en av mina WordPress-webbplatser, upptar 16 KB eller 1 sida av data i minnet.
 
-### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
+### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys. schema_unused_indexes* & *sys. schema_redundant_indexes*
 
 Index är fantastiska verktyg för att förbättra Läs prestanda, men de medför ytterligare kostnader för infogningar och lagring. *Sys. schema_unused_indexes* och *sys. schema_redundant_indexes* ger insikter om oanvända eller dubbla index.
 

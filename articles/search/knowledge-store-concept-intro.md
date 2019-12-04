@@ -1,19 +1,19 @@
 ---
 title: Introduktion till kunskaps lager (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program. Den här funktionen är en allmänt tillgänglig förhandsversion.
+description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program. Den här funktionen finns i offentlig för hands version.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: aa32f671756b8ba7f17c25592b6a15b66de42b2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720092"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790020"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduktion till kunskaps lager i Azure Kognitiv sökning
 
@@ -32,7 +32,7 @@ Om du vill använda kunskaps lager lägger du till ett `knowledgeStore`-element 
 
 ## <a name="benefits-of-knowledge-store"></a>Fördelar med kunskaps lager
 
-Ett kunskaps lager ger dig struktur, kontext och faktiskt innehåll – uppnår från ostrukturerade och delvis strukturerade datafiler som blobbar, bildfiler som har genomgått analyser eller till och med strukturerade data som har ändrats i nya formulär. I en [steg-för-steg-genom gång](knowledge-store-howto.md)kan du se hur ett kompakt JSON-dokument är partitionerat i under strukturer, rekonstituerat i nya strukturer och på annat sätt görs tillgängligt för efterföljande processer som Machine Learning och data science arbets belastningar.
+Ett kunskaps lager ger dig struktur, kontext och faktiskt innehåll – uppnår från ostrukturerade och delvis strukturerade datafiler som blobbar, bildfiler som har genomgått analyser eller till och med strukturerade data som har ändrats i nya formulär. I en [steg-för-steg-genom gång](knowledge-store-howto.md)kan du se hur ett kompakt JSON-dokument är partitionerat i under strukturer, rekonstituerat i nya strukturer och på annat sätt görs tillgängligt för efterföljande processer som Machine Learning och data science-arbetsbelastningar.
 
 Även om det är användbart att se vad en AI-pipeline kan skapa, är det möjligt att ändra form på data. Du kan börja med en grundläggande färdigheter och sedan iterera över den för att lägga till ökande struktur nivåer, som du sedan kan kombinera i nya strukturer, i andra appar förutom Azure Kognitiv sökning.
 
@@ -61,7 +61,9 @@ En `knowledgeStore` består av en anslutning och projektioner.
 
 + Anslutning är till ett lagrings konto i samma region som Azure Kognitiv sökning. 
 
-+ Projektioner är tabell objekts par. `Tables` definiera det fysiska uttrycket för berikade dokument i Azure Table Storage. `Objects` definiera fysiska objekt i Azure Blob Storage.
++ Projektioner kan vara tabell-, JSON-objekt eller-filer. `Tables` definiera det fysiska uttrycket för berikade dokument i Azure Table Storage. `Objects` definiera fysiska JSON-objekt i Azure Blob Storage. `Files` är binärfiler som bilder som har extraherats från dokumentet som ska sparas.
+
++ Projektioner är en samling projekt objekt, varje projektions objekt kan innehålla `tables``objects` och `files`. Fördelade projekt i en enstaka projektion är relaterade till varandra även när de projiceras mellan typer (tabeller, objekt eller filer). Projektioner i projektions objekt är inte relaterade och är oberoende av varandra. Samma form kan projiceras Aross flera projekt objekt.
 
 ```json
 {
@@ -109,7 +111,10 @@ En `knowledgeStore` består av en anslutning och projektioner.
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -121,13 +126,17 @@ En `knowledgeStore` består av en anslutning och projektioner.
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+Det här exemplet innehåller inte några bilder, ett exempel på hur du använder filprojektioner finns i [arbeta med projektioner](knowledge-store-projection-overview.md).
 ### <a name="sources-of-data-for-a-knowledge-store"></a>Data källor för ett kunskaps lager
 
 Om ett kunskaps lager ska matas ut från en AI-pipeline, vilka är indata? De ursprungliga data som du vill extrahera, utöka och slutligen spara till ett kunskaps lager kan komma från alla Azure-Data källor som stöds av Sök indexerarna: 
@@ -150,7 +159,7 @@ Endast två API: er har de tillägg som krävs för att skapa ett kunskaps lager
 |--------|----------|-------------|
 | Data Källa | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern Azure-datakälla som tillhandahåller källdata som används för att skapa dokument med omfattande data.  |
 | färdigheter | [Skapa färdigheter (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som koordinerar användningen av [inbyggda kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) som används i en anriknings pipeline vid indexering. En färdigheter har en `knowledgeStore`-definition som ett underordnat element. |
-| index | [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett sökindex. Fält i index kartan till fält i källdata eller till fält som tillverkas under anriknings fasen (till exempel ett fält för organisations namn som skapats av enhets igenkänning). |
+| Tabbindex | [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett sökindex. Fält i index kartan till fält i källdata eller till fält som tillverkas under anriknings fasen (till exempel ett fält för organisations namn som skapats av enhets igenkänning). |
 | Indexer | [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som definierar komponenter som används vid indexering: inklusive en data källa, en färdigheter, fält associationer från käll-och mellanliggande data strukturer till mål index och själva indexet. Att köra indexeraren är utlösaren för data inmatning och berikning. Utdata är ett sökindex baserat på index schemat, ifyllt med källdata, berikade med färdighetsuppsättningar.  |
 
 ### <a name="physical-composition-of-a-knowledge-store"></a>Fysisk sammansättning för ett kunskaps lager

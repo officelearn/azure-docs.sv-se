@@ -1,22 +1,22 @@
 ---
 title: Så här hanterar du hemligheter när du arbetar med ett Azure dev-utrymme
 services: azure-dev-spaces
-ms.date: 05/11/2018
+ms.date: 12/03/2019
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 49f53683b2499e790414d139dcb0bc0833005647
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b184f72dfbbfe093443ab8a9b79bafbece3a3d51
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280010"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790169"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Så här hanterar du hemligheter när du arbetar med ett Azure dev-utrymme
 
 Dina tjänster kan kräva vissa lösen ord, anslutnings strängar och andra hemligheter, t. ex. för databaser eller andra säkra Azure-tjänster. Genom att ange värden för dessa hemligheter i konfigurationsfiler kan du göra dem tillgängliga i koden som miljövariabler.  Dessa måste hanteras med försiktighet för att undvika att Hemligheternas säkerhet äventyras.
 
-Azure dev Spaces innehåller två rekommenderade, strömlinjeformade alternativ för att lagra hemligheter i Helm-diagram som genereras av Azure dev Spaces-klient verktyg: i filen Values. dev. yaml och infogas direkt i azds. yaml. Vi rekommenderar inte att du lagrar hemligheter i Values. yaml. Utanför de två metoderna för Helm-diagram som genereras av klient verktyg som definieras i den här artikeln, om du skapar ett eget Helm-diagram kan du använda Helm-diagrammet direkt för att hantera och lagra hemligheter.
+Azure dev Spaces innehåller två rekommenderade, strömlinjeformade alternativ för att lagra hemligheter i Helm-diagram som genereras av Azure dev Spaces-klient verktyg: i `values.dev.yaml`-filen och infogas direkt i `azds.yaml`. Vi rekommenderar inte att du lagrar hemligheter i `values.yaml`. Utanför de två metoderna för Helm-diagram som genereras av klient verktyg som definieras i den här artikeln, om du skapar ett eget Helm-diagram kan du använda Helm-diagrammet direkt för att hantera och lagra hemligheter.
 
 ## <a name="method-1-valuesdevyaml"></a>Metod 1: values. dev. yaml
 1. Öppna VS Code med projektet som är aktiverat för Azure dev Spaces.
@@ -62,7 +62,7 @@ Azure dev Spaces innehåller två rekommenderade, strömlinjeformade alternativ 
 7. Se till att du lägger till _Values. dev. yaml_ i _. gitignore_ -filen för att undvika att bekräfta hemligheter i käll kontrollen.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>Metod 2: Infoga direkt i azds. yaml
+## <a name="method-2-azdsyaml"></a>Metod 2: azds. yaml
 1.  I _azds. yaml_anger du hemligheter under yaml-avsnittet konfigurationer/utveckla/installera. Du kan ange hemliga värden direkt där, men det rekommenderas inte eftersom _azds. yaml_ har checkats in i käll kontrollen. Lägg i stället till plats hållare med "$PLACEHOLDER"-syntaxen.
 
     ```yaml
@@ -104,6 +104,44 @@ Azure dev Spaces innehåller två rekommenderade, strömlinjeformade alternativ 
     ```
     kubectl get secret --namespace default -o yaml
     ```
+
+## <a name="passing-secrets-as-build-arguments"></a>Skicka hemligheter som build-argument
+
+I föregående avsnitt visade vi hur du skickar hemligheter till användning vid behållarens körnings tid. Du kan också skicka en hemlighet i behållar Bygg tiden, till exempel ett lösen ord för en privat NuGet, med hjälp av `azds.yaml`.
+
+I `azds.yaml`anger du Bygg tids hemligheter i *konfigurationer. utvecklar. Build. args* med syntaxen `<variable name>: ${secret.<secret name>.<secret key>}`. Exempel:
+
+```yaml
+configurations:
+  develop:
+    build:
+      dockerfile: Dockerfile.develop
+      useGitIgnore: true
+      args:
+        BUILD_CONFIGURATION: ${BUILD_CONFIGURATION:-Debug}
+        MYTOKEN: ${secret.mynugetsecret.pattoken}
+```
+
+I exemplet ovan är *mynugetsecret* en befintlig hemlighet och *pattoken* är en befintlig nyckel.
+
+>[!NOTE]
+> Hemliga namn och nycklar kan innehålla `.`-tecknen. Använd `\` för att undanta `.` när du skickar hemligheter som build-argument. Om du till exempel vill skicka en hemlighet med namnet *foo. bar* med nyckeln *token*: `MYTOKEN: ${secret.foo\.bar.token}`. Dessutom kan hemligheter utvärderas med prefix-och postfix-text. Till exempel `MYURL: eus-${secret.foo\.bar.token}-version1`. Dessutom kan hemligheter som är tillgängliga i överordnad och föräldrars utrymmen skickas som build-argument.
+
+I din Dockerfile använder du *arg* -direktivet för att använda hemligheten och använder sedan samma variabel senare i Dockerfile. Exempel:
+
+```dockerfile
+...
+ARG MYTOKEN
+...
+ARG NUGET_EXTERNAL_FEED_ENDPOINTS="{'endpointCredentials': [{'endpoint':'PRIVATE_NUGET_ENDPOINT', 'password':'${MYTOKEN}'}]}"
+...
+```
+
+Uppdatera de tjänster som körs i klustret med dessa ändringar. Kör kommandot på kommando raden:
+
+```
+azds up
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

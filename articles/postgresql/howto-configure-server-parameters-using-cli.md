@@ -1,54 +1,54 @@
 ---
-title: Konfigurera parametrar för tjänsten i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln beskriver hur du konfigurerar parametrar för tjänsten i Azure Database för PostgreSQL – enskild Server med hjälp av Azure CLI-kommandoraden.
+title: Konfigurera parametrar – Azure Database for PostgreSQL-enskild server
+description: Den här artikeln beskriver hur du konfigurerar postgres-parametrar i Azure Database for PostgreSQL-enskild server med hjälp av Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4e029428a3709bacdbcd50a6ac3714e730377242
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274772"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763631"
 ---
-# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Anpassa konfigurationsparametrar för server för Azure Database för PostgreSQL – enskild Server med Azure CLI
-Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure PostgreSQL-server med hjälp av kommandoradsgränssnittet (Azure CLI). En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Anpassa Server konfigurations parametrar för Azure Database for PostgreSQL-enskild server med Azure CLI
+Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure PostgreSQL-server med hjälp av kommando rads gränssnittet (Azure CLI). En del av motor konfigurationerna exponeras på server nivå och kan ändras. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom den här guiden, måste du:
-- Skapa en Azure Database for PostgreSQL-server och databas genom att följa [skapa en Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md)
-- Installera [Azure CLI](/cli/azure/install-azure-cli) kommandoradsgränssnitt på din dator eller använder den [Azure Cloud Shell](../cloud-shell/overview.md) i Azure portal med din webbläsare.
+## <a name="prerequisites"></a>Krav
+För att gå igenom den här instruktions guiden behöver du:
+- Skapa en Azure Database for PostgreSQL-Server och-databas genom att följa [skapa en Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md)
+- Installera kommando rads gränssnittet för [Azure CLI](/cli/azure/install-azure-cli) på datorn eller Använd [Azure Cloud Shell](../cloud-shell/overview.md) i Azure Portal med hjälp av webbläsaren.
 
-## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Lista konfigurationsparametrar för server för Azure Database för PostgreSQL-server
-Om du vill visa alla ändringsbar parametrar i en server och deras värden, kör den [az postgres server configuration list](/cli/azure/postgres/server/configuration) kommando.
+## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Visa lista med Server konfigurations parametrar för Azure Database for PostgreSQL Server
+Om du vill visa alla ändrings bara parametrar på en server och deras värden kör du kommandot [AZ postgres Server Configuration List](/cli/azure/postgres/server/configuration) .
 
-Du kan visa konfigurationsparametrar för server för servern **mydemoserver.postgres.database.azure.com** under resursgruppen **myresourcegroup**.
+Du kan ange serverns konfigurations parametrar för servern **mydemoserver.postgres.Database.Azure.com** under resurs grupp **myresourcegroup**.
 ```azurecli-interactive
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="show-server-configuration-parameter-details"></a>Visa serverkonfiguration parameterinformation
-För att visa information om en specifik konfigurationsparameter för en server, kör den [az postgres server configuration show](/cli/azure/postgres/server/configuration) kommando.
+## <a name="show-server-configuration-parameter-details"></a>Visa information om Server konfigurations parameter
+Om du vill visa information om en viss konfigurations parameter för en server kör du kommandot [AZ postgres Server Configuration show](/cli/azure/postgres/server/configuration) .
 
-Det här exemplet visar information om den **log\_min\_meddelanden** server konfigurationsparametrar för server **mydemoserver.postgres.database.azure.com** under resursgrupp **myresourcegroup.**
+I det här exemplet visas information om **logg\_minimalt antal\_meddelanden** Server konfigurations parameter för Server **mydemoserver.postgres.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="modify-server-configuration-parameter-value"></a>Ändra parametervärdet för server-konfiguration
-Du kan också ändra värdet för en viss server konfigurationsparameter, som uppdaterar underliggande Konfigurationsvärdet för PostgreSQL-server-motorn. Uppdatera konfigurationen med den [az postgres server configuration set](/cli/azure/postgres/server/configuration) kommando. 
+## <a name="modify-server-configuration-parameter-value"></a>Ändra värdet för Server konfigurations parameter
+Du kan också ändra värdet för en viss server konfigurations parameter, som uppdaterar det underliggande konfiguration svärdet för PostgreSQL-Server motorn. Om du vill uppdatera konfigurationen använder du kommandot [AZ postgres Server Configuration set](/cli/azure/postgres/server/configuration) . 
 
-Att uppdatera den **log\_min\_meddelanden** Serverparametern configuration Server **mydemoserver.postgres.database.azure.com** under resursgruppen  **myresourcegroup.**
+För att uppdatera **logg\_** serverns konfigurations parameter för min\_- **mydemoserver.postgres.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver --value INFO
 ```
-Om du vill återställa värdet för en konfigurationsparameter du helt enkelt välja att lämna ut den valfria `--value` parametern och tjänsten används standardvärdet. I ovanstående exempel ser det ut som:
+Om du vill återställa värdet för en konfigurations parameter väljer du bara att lämna ut den valfria `--value` parametern och att tjänsten använder standardvärdet. I exemplet ovan skulle det se ut så här:
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
-Det här kommandot återställer den **log\_min\_meddelanden** konfiguration till standardvärdet **varning**. Mer information om konfiguration och tillåtna värden finns i dokumentationen för PostgreSQL på [serverkonfiguration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
+Det här kommandot återställer **logg\_minimalt\_meddelanden-meddelanden** till standardvärdes **varningen**. Mer information om Server konfiguration och tillåtna värden finns i PostgreSQL-dokumentation om [Server konfiguration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lär dig att starta om en server](howto-restart-server-cli.md)
-- Om du vill konfigurera och komma åt loggar, se [serverloggar i Azure Database för PostgreSQL](concepts-server-logs.md)
+- [Lär dig hur du startar om en server](howto-restart-server-cli.md)
+- Information om hur du konfigurerar och åtkomst till Server loggar finns [i Server loggar i Azure Database for PostgreSQL](concepts-server-logs.md)

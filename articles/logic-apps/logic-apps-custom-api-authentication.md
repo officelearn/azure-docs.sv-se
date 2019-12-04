@@ -1,20 +1,17 @@
 ---
-title: 'Lägg till autentisering till anpassade API: er – Azure Logic Apps | Microsoft Docs'
+title: 'Lägg till autentisering i anpassade API: er'
 description: 'Konfigurera autentisering för att anropa anpassade API: er från Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039133"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793155"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Säkra anrop till anpassade API: er från Azure Logic Apps
 
@@ -202,8 +199,8 @@ Det här avsnittet har redan kon figurer ATS för föregående mall, men om du r
 
 | Egenskap | Krävs | Beskrivning | 
 | -------- | -------- | ----------- | 
-| tenant | Ja | GUID för Azure AD-klienten | 
-| audience | Ja | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
+| innehav | Ja | GUID för Azure AD-klienten | 
+| filmen | Ja | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
 | clientId | Ja | GUID för klienten som begär åtkomst, vilket är klient-ID: t från program identiteten för din Logic app | 
 | hemlighet | Ja | Nyckeln eller lösen ordet från program identiteten för klienten som begär åtkomsttoken | 
 | typ | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth`. | 

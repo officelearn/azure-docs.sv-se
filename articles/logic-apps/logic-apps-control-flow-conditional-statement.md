@@ -1,91 +1,88 @@
 ---
-title: Lägga till villkorssatser i arbetsflöden – Azure Logic Apps | Microsoft Docs
-description: Skapa villkor som styr åtgärder i arbetsflöden i Azure Logic Apps
+title: Lägg till villkorliga uttryck i arbets flöden
+description: Skapa villkor som styr åtgärder i arbets flöden i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684822"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793245"
 ---
-# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorssatser som styr arbetsflödesåtgärder i Azure Logic Apps
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorliga uttryck som styr arbets flödes åtgärder i Azure Logic Apps
 
-Om du vill köra specifika åtgärder i din logikapp efter att skicka ett angivet villkor, lägger du till en *villkorlig instruktionen*. Den här kontrollen strukturen jämför data i ditt arbetsflöde mot specifika värden eller fält. Du kan ange olika åtgärder som körs baserat på huruvida data uppfyller villkoret. Du kan kapsla villkor i varandra.
+Lägg till en *villkors instruktion*för att köra specifika åtgärder i din Logic app enbart efter att ha överfört ett angivet villkor. Den här kontroll strukturen jämför data i arbets flödet med vissa värden eller fält. Du kan sedan ange olika åtgärder som körs baserat på om data uppfyller villkoret eller inte. Du kan kapsla villkor inuti varandra.
 
-Anta exempelvis att du har en logikapp som skickar för många e-postmeddelanden när nya objekt visas på en webbplats RSS-feed. Du kan lägga till en villkorlig instruktion för att skicka e-post endast när det nya objektet innehåller en specifik sträng. 
+Anta till exempel att du har en logisk app som skickar för många e-postmeddelanden när nya objekt visas på en webbplats RSS-flöde. Du kan lägga till en villkorlig instruktion för att endast skicka e-post när det nya objektet innehåller en speciell sträng. 
 
 > [!TIP]
-> För att köra olika steg baserat på olika specifika värden, använder en [ *växla instruktionen* ](../logic-apps/logic-apps-control-flow-switch-statement.md) i stället.
+> Om du vill köra olika steg baserat på olika värden använder du en [*switch-instruktion*](../logic-apps/logic-apps-control-flow-switch-statement.md) i stället.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Till exempel i den här artikeln [skapa den här exempellogikappen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com eller Office 365 Outlook-konto.
+* Om du vill följa exemplet i den här artikeln [skapar du den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-eller Office 365 Outlook-konto.
 
 ## <a name="add-condition"></a>Lägg till villkor
 
-1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, öppna logikappen i Logic App Designer.
+1. I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>öppnar du din Logic app i Logic App Designer.
 
-1. Lägg till ett villkor på den plats som du vill. 
+1. Lägg till ett villkor på den plats som du vill använda. 
 
-   För att lägga till ett villkor mellan steg flyttar du pekaren över pilen där du vill lägga till villkoret. Välj den **plustecknet** ( **+** ) som visas, välj sedan **Lägg till en åtgärd**. Exempel:
+   Om du vill lägga till ett villkor mellan stegen flyttar du pekaren över den pil där du vill lägga till villkoret. Välj **plus tecknet** ( **+** ) som visas och välj sedan **Lägg till en åtgärd**. Exempel:
 
    ![Lägg till åtgärd mellan steg](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   När du vill lägga till ett villkor i slutet av arbetsflödet, längst ned på logikappen, Välj **nytt steg** > **Lägg till en åtgärd**.
+   När du vill lägga till ett villkor i slutet av arbets flödet väljer du **nytt steg** > **Lägg till en åtgärd**längst ned i din Logic app.
 
-1. I sökrutan anger du ”villkor” som filter. Välj den här åtgärden: **Villkor - kontroll**
+1. I rutan Sök anger du "Condition" som filter. Välj den här åtgärden: **villkor-kontroll**
 
    ![Lägg till villkor](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
-1. I den **villkor** rutan, skapa dina villkor. 
+1. Bygg ditt villkor i rutan **villkor** . 
 
-   1. I den vänstra rutan, anger du de data eller fält som du vill jämföra.
+   1. I den vänstra rutan anger du de data eller fält som du vill jämföra.
 
-      När du klickar i den vänstra rutan visas den dynamiska innehållslistan så du kan välja utdata från föregående steg i din logikapp. 
-      Välj RSS-feed-sammanfattning i det här exemplet.
+      När du klickar i den vänstra rutan, visas listan över dynamiskt innehåll så att du kan välja utdata från föregående steg i din Logic app. 
+      I det här exemplet väljer du sammanfattningen RSS-feed.
 
-      ![Skapa dina villkor](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
+      ![Bygg ditt villkor](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
-   1. Välj åtgärden som ska utföras i den mellersta rutan. 
-   Det här exemplet väljer du ”**innehåller**”. 
+   1. I rutan i mitten väljer du den åtgärd som ska utföras. 
+   I det här exemplet väljer du "**innehåller**". 
 
-   1. I den högra rutan anger du ett värde eller ett fält som dina kriterier. 
+   1. Ange ett värde eller ett fält som kriterier i den högra rutan. 
    I det här exemplet anger du strängen: **Microsoft**
 
-   Här är det fullständiga villkoren:
+   Här är det kompletta villkoret:
 
    ![Slutför villkor](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   Om du vill lägga till en ny rad i villkoret, Välj **Lägg till** > **Lägg till rad**. 
-   Om du vill lägga till en grupp med subconditions, Välj **Lägg till** > **Lägg till grupp**. 
-   Om du vill gruppera befintliga rader, markerar du kryssrutorna för de raderna, väljer du ellipserna (...)-knappen för alla rader och välj sedan **Kontrollera grupp**.
+   Om du vill lägga till en rad i villkoret väljer du **Lägg till** > **Lägg till rad**. 
+   Om du vill lägga till en grupp med under villkor väljer du **Lägg till** > **Lägg till grupp**. 
+   Om du vill gruppera befintliga rader markerar du kryss rutorna för dessa rader, klickar på knappen med tre punkter (...) för alla rader och väljer sedan **Skapa grupp**.
 
-1. Under **om värdet är true** och **om falskt**, lägga till stegen för att utföra baserat på om villkoret är uppfyllt. Exempel:
+1. Under **om sant** och **falskt**, Lägg till de steg som ska utföras baserat på om villkoret är uppfyllt. Exempel:
 
-   ![Ange villkor med ”om det är SANT” och ”om det är FALSKT” sökvägar](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
+   ![Villkor med "If true" och "If false" sökvägar](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Du kan dra befintliga åtgärder i den **om värdet är true** och **om falskt** sökvägar.
+   > Du kan dra befintliga åtgärder till **IF True** och om det är **false** sökvägar.
 
 1. Spara din logikapp.
 
-Den här logikappen skickar e-post nu endast när nya objekt i RSS-flödet uppfyller villkoret.
+Den här Logic-appen skickar nu endast e-post när de nya objekten i RSS-flödet uppfyller ditt villkor.
 
 ## <a name="json-definition"></a>JSON-definition
 
-Här är den övergripande koddefinitionen bakom en villkorlig instruktion:
+Här är en kod definition på hög nivå bakom en villkors instruktion:
 
 ``` json
 "actions": {
@@ -114,11 +111,11 @@ Här är den övergripande koddefinitionen bakom en villkorlig instruktion:
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på funktioner och förslag, Besök den [webbplatsen för Azure Logic Apps-Användarfeedback](https://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på funktioner och förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kör steg baserat på olika värden (switch-satser)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Kör och upprepa steg (slingor)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Kör- eller merge-parallella åtgärder (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Kör steg baserat på grupperade Åtgärdsstatus (omfång)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Kör steg baserade på olika värden (Switch-instruktioner)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Köra och upprepa steg (slingor)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Köra eller sammanfoga parallella steg (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Kör steg baserat på grupperad åtgärds status (omfång)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

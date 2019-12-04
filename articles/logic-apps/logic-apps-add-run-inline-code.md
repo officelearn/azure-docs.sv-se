@@ -1,20 +1,17 @@
 ---
-title: Lägga till och köra kodfragment – Azure Logic Apps
+title: Lägga till och köra kodfragment
 description: Lägg till och kör kodfragment med infogad kod i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: derek1ee, LADocs
+ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390810"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792599"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Lägga till och köra kodfragment med hjälp av infogad kod i Azure Logic Apps
 
@@ -27,7 +24,7 @@ När du vill köra en kod i din Logic app kan du lägga till den inbyggda **info
 * Använder Node. js-version 8.11.1. Mer information finns i [standard inbyggda objekt](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
-  > Funktionen stöds inte av den **infogade kod** åtgärden för att köra Java Script. `require()`
+  > Funktionen `require()` stöds inte av den **infogade kod** åtgärden för att köra Java Script.
 
 Den här åtgärden kör kodfragmentet och returnerar utdata från det kodfragmentet som en token med namnet **result**, som du kan använda i efterföljande åtgärder i din Logic-app. För andra scenarier där du vill skapa en funktion för din kod kan du prova att [skapa och anropa en Azure-funktion](../logic-apps/logic-apps-azure-functions.md) i din Logic app.
 
@@ -35,13 +32,13 @@ I den här artikeln utlöses exempel Logic-appen när ett nytt e-postmeddelande 
 
 ![Exempel översikt](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Den Logic app där du vill lägga till ditt kodfragment, inklusive en utlösare. Om du inte har en logisk app, se [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
+* Den Logic app där du vill lägga till ditt kodfragment, inklusive en utlösare. Om du inte har en logisk app, se [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   Exempel Logic-appen i det här avsnittet använder den här Office 365 Outlook-utlösaren: **När ett nytt e-postmeddelande tas emot**
+   Exempel Logic-appen i det här avsnittet använder den här Office 365 Outlook-utlösaren: **när ett nytt e-postmeddelande tas emot**
 
 * Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är länkat till din Logic app
 
@@ -82,12 +79,12 @@ I den här artikeln utlöses exempel Logic-appen när ett nytt e-postmeddelande 
 
    Om du vill göra resultatet från utlösaren och föregående åtgärder lättare att referera till visas listan över dynamiskt innehåll medan markören är i rutan **kod** . I det här exemplet visar listan tillgängliga resultat från utlösaren, inklusive **Body** -token, som du nu kan välja.
 
-   När du har valt **Body** -token matchar den infogade kod åtgärden token till ett `workflowContext` objekt som `Body` refererar till e-postens egenskaps värde:
+   När du har valt **Body** -token matchar den infogade kod åtgärden token till ett `workflowContext`-objekt som refererar till e-postens värde för egenskapen `Body`:
 
    ![Välj resultat](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   I rutan **kod** kan ditt kodfragment använda det skrivskyddade `workflowContext` objektet som inmatade. Det här objektet har under egenskaper som ger koden åtkomst till resultaten från utlösare och tidigare åtgärder i arbets flödet.
-   Mer information finns i det här avsnittet senare i det här avsnittet: [Referens utlösare och åtgärd resulterar i din kod](#workflowcontext).
+   I rutan **kod** kan ditt kodfragment använda det skrivskyddade `workflowContext` objektet som inmatade objekt. Det här objektet har under egenskaper som ger koden åtkomst till resultaten från utlösare och tidigare åtgärder i arbets flödet.
+   Mer information finns i det här avsnittet längre fram i det här avsnittet: [referens utlösare och åtgärds resultat i koden](#workflowcontext).
 
    > [!NOTE]
    >
@@ -99,8 +96,8 @@ I den här artikeln utlöses exempel Logic-appen när ett nytt e-postmeddelande 
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   Den infogade kod åtgärden kräver `return` ingen instruktion, men resultatet från en `return` instruktion är tillgängligt för referens i senare åtgärder via **resultatet** token. 
-   Kodfragmentet returnerar till exempel resultatet genom att anropa `match()` funktionen, som söker efter matchningar i e-postmeddelandets brödtext mot det reguljära uttrycket. Åtgärden **Skriv** använder **resultat** -token för att referera till resultaten från den infogade kod åtgärden och skapar ett enda resultat.
+   Den infogade kod åtgärden kräver inte en `return`-instruktion, men resultatet från ett `return`-uttryck är tillgängligt för referens i senare åtgärder via **resultatet** token. 
+   Kodfragmentet returnerar till exempel resultatet genom att anropa funktionen `match()`, som söker efter matchningar i e-postmeddelandets brödtext mot det reguljära uttrycket. Åtgärden **Skriv** använder **resultat** -token för att referera till resultaten från den infogade kod åtgärden och skapar ett enda resultat.
 
    ![Färdig logikapp](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -110,7 +107,7 @@ I den här artikeln utlöses exempel Logic-appen när ett nytt e-postmeddelande 
 
 ### <a name="reference-trigger-and-action-results-in-your-code"></a>Referens utlösare och åtgärd resulterar i din kod
 
-Objektet har den här strukturen, som innehåller under `actions`egenskaperna `trigger`, och `workflow`. `workflowContext`
+`workflowContext`-objektet har den här strukturen, som innehåller `actions`, `trigger`och `workflow` under egenskaper:
 
 ```json
 {
@@ -131,14 +128,14 @@ Objektet har den här strukturen, som innehåller under `actions`egenskaperna `t
 
 Den här tabellen innehåller mer information om de här under egenskaperna:
 
-| Egenskap | Type | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 |----------|------|-------|
 | `actions` | Objekt samling | Resultat objekt från åtgärder som körs innan kodfragmentet körs. Varje-objekt har ett *nyckel/värde-* par där nyckeln är namnet på en åtgärd och värdet motsvarar att anropa [funktionen Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) med `@actions('<action-name>')`. Åtgärdens namn använder samma åtgärds namn som används i den underliggande arbets flödes definitionen, som ersätter blank steg ("") i åtgärds namnet med under streck (_). Det här objektet ger åtkomst till egenskaps värden för åtgärden från den aktuella arbets flödes instansen. |
-| `trigger` | Object | Resultat objekt från utlösaren och motsvarar anrop av [funktionen trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Det här objektet ger åtkomst till utlösarens egenskaps värden från den aktuella arbets flödes instansen. |
-| `workflow` | Object | Arbets flödes objekt som motsvarar anropet av [arbets flöde ()-funktionen](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Det här objektet ger åtkomst till egenskaps värden för arbets flödet, till exempel arbets flödets namn, körnings-ID och så vidare, från den aktuella arbets flödes instansen. |
+| `trigger` | Objekt | Resultat objekt från utlösaren och motsvarar anrop av [funktionen trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Det här objektet ger åtkomst till utlösarens egenskaps värden från den aktuella arbets flödes instansen. |
+| `workflow` | Objekt | Arbets flödes objekt som motsvarar anropet av [arbets flöde ()-funktionen](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Det här objektet ger åtkomst till egenskaps värden för arbets flödet, till exempel arbets flödets namn, körnings-ID och så vidare, från den aktuella arbets flödes instansen. |
 |||
 
-I det här avsnittets exempel `workflowContext` har objektet dessa egenskaper som din kod kan komma åt:
+I det här avsnittets exempel har `workflowContext`-objektet dessa egenskaper som din kod kan komma åt:
 
 ```json
 {
@@ -215,7 +212,7 @@ I vissa fall kanske du uttryckligen måste kräva att den **infogade kod** åtg�
 > [!TIP]
 > Om du planerar att återanvända din kod kan du lägga till referenser till egenskaper med hjälp av rutan **kod** så att koden innehåller de matchade token-referenserna, i stället för att lägga till utlösaren eller åtgärder som explicita beroenden.
 
-Anta till exempel att du har kod som hänvisar till **SelectedOption** -resultatet från **e-** poståtgärden skicka godkännande för Office 365 Outlook Connector. Under tiden analyserar Logic Apps-motorn koden för att avgöra om du har refererat till eventuella utlösare eller åtgärds resultat och inkluderar dessa resultat automatiskt. Vid körning, om du får ett fel meddelande om att den refererade utlösaren eller åtgärds resultatet inte `workflowContext` är tillgänglig i det angivna objektet kan du lägga till utlösaren eller åtgärden som ett explicit beroende. I det här exemplet lägger du till parametern **åtgärder** och anger att den **infogade kod** åtgärden uttryckligen inkluderar resultatet från e-poståtgärden **Skicka godkännande** .
+Anta till exempel att du har kod som hänvisar till **SelectedOption** -resultatet från **e-** poståtgärden skicka godkännande för Office 365 Outlook Connector. Under tiden analyserar Logic Apps-motorn koden för att avgöra om du har refererat till eventuella utlösare eller åtgärds resultat och inkluderar dessa resultat automatiskt. Vid körning, om du får ett fel meddelande om att den refererade utlösaren eller åtgärds resultatet inte är tillgänglig i det angivna `workflowContext`-objektet, kan du lägga till den utlösaren eller åtgärden som ett explicit beroende. I det här exemplet lägger du till parametern **åtgärder** och anger att den **infogade kod** åtgärden uttryckligen inkluderar resultatet från e-poståtgärden **Skicka godkännande** .
 
 Om du vill lägga till dessa parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda:
 
@@ -249,9 +246,9 @@ Om du väljer **åtgärder**uppmanas du att ange de åtgärder som du vill lägg
 
   `My.Action.Name`
 
-1. I verktygsfältet designer väljer du **kodvyn**och söker i `actions` attributet efter åtgärdens namn.
+1. I verktygsfältet designer väljer du **kodvyn**och söker i `actions`-attributet för åtgärds namnet.
 
-   Till exempel `Send_approval_email_` är JSON-namnet för e-poståtgärden **Skicka godkännande** .
+   Till exempel är `Send_approval_email_` JSON-namnet för e-poståtgärden **Skicka godkännande** .
 
    ![Hitta åtgärds namn i JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 

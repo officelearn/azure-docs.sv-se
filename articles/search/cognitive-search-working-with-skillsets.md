@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113641"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790894"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Färdigheter-koncept och-sammansättning i Azure Kognitiv sökning
 
@@ -43,9 +43,9 @@ När ett dokument har berikats pipelinen visas det som ett träd med innehåll o
 
 |Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
 |---|---|---|
-|Blob Storage|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL|/document/{column1}<br>/document/{column2}<br>…|Saknas |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|Saknas|
+|Blob-lagring|/document/content<br>/Document/normalized_images/*<br>...|/document/{key1}<br>/document/{key2}<br>...|
+|SQL|/document/{column1}<br>/document/{column2}<br>...|Gäller inte |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>...|Gäller inte|
 
  När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
 
@@ -65,7 +65,7 @@ Varje färdighet kräver en kontext. En kontext fastställer:
 
 ### <a name="sourcecontext"></a>SourceContext
 
-`sourceContext` används endast i [formaren kunskaper](cognitive-search-skill-shaper.md) och [projektioner](knowledge-store-projection-overview.md). Den används för att skapa kapslade objekt på flera nivåer. Med `sourceContext` kan du skapa ett hierarkiskt, anonymt typ objekt, vilket skulle kräva flera kunskaper om du bara använde kontexten. Om du använder `sourceContext` visas nästa avsnitt.
+`sourceContext` används endast i färdighets inmatning och [projektioner](knowledge-store-projection-overview.md). Den används för att skapa kapslade objekt på flera nivåer. Du kan behöva skapa en ny oject för att antingen skicka den som inmatad till en kunskap eller ett projekt i kunskaps lagret. Eftersom anriknings noder kanske inte är ett giltigt JSON-objekt i ett berikande träd och refrencing en nod i trädet bara returnerar det läget för noden när den skapades, med hjälp av användnings området som kunskaps inmatning eller projektioner, måste du skapa ett välformulerat JSON-objekt. Med `sourceContext` kan du skapa ett hierarkiskt, anonymt typ objekt, vilket skulle kräva flera kunskaper om du bara använde kontexten. Om du använder `sourceContext` visas nästa avsnitt. Titta på de kunskaps utdata som genererade en anrikning för att avgöra om det är ett giltigt JSON-objekt och inte en primitiv typ.
 
 ### <a name="projections"></a>Projektioner
 

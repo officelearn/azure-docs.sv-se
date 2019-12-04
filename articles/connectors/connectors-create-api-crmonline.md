@@ -1,22 +1,20 @@
 ---
-title: Ansluta till Dynamics 365 – Azure Logic Apps
+title: Ansluta till Dynamics 365
 description: 'Skapa och hantera poster med Dynamics 365-REST-API: er (online) och Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
-manager: carmonm
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051023"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789889"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Hantera Dynamics 365-poster med Azure Logic Apps
 
@@ -25,7 +23,7 @@ Med Azure Logic Apps och Dynamics 365-anslutningsprogrammet kan du skapa automat
 Den här artikeln visar hur du kan skapa en Logic app som skapar en uppgift i Dynamics 365 när en ny leadpost skapas i Dynamics 365.
 Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -43,7 +41,7 @@ Lägg först till en Dynamics 365-utlösare som utlöses när en ny lead-post vi
 
 1. Öppna din tomma Logic-app i Logic App Designer, om den inte redan är öppen, i [Azure Portal](https://portal.azure.com).
 
-1. I rutan Sök anger du "Dynamics 365" som filter. I det här exemplet går du till listan utlösare och väljer den här utlösaren: **När en post skapas**
+1. I rutan Sök anger du "Dynamics 365" som filter. I det här exemplet väljer du den här utlösaren under listan utlösare: **när en post skapas**
 
    ![Välj utlösare](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -51,7 +49,7 @@ Lägg först till en Dynamics 365-utlösare som utlöses när en ny lead-post vi
 
 1. Ange följande information om utlösaren:
 
-   | Egenskap | Obligatorisk | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Organisations namn** | Ja | Namnet på organisationens Dynamics 365-instans som ska övervakas, till exempel "contoso" |
    | **Entitetsnamn** | Ja | Namnet på entiteten som ska övervakas, till exempel "leads" | 
@@ -67,26 +65,26 @@ Lägg nu till den Dynamics 365-åtgärd som skapar en uppgifts post för den nya
 
 1. Under utlösaren väljer du **nytt steg**.
 
-1. I rutan Sök anger du "Dynamics 365" som filter. I listan åtgärder väljer du den här åtgärden: **Skapa en ny post**
+1. I rutan Sök anger du "Dynamics 365" som filter. I listan åtgärder väljer du den här åtgärden: **skapa en ny post**
 
    ![Välj åtgärd](./media/connectors-create-api-crmonline/select-action.png)
 
 1. Ange följande åtgärds information:
 
-   | Egenskap | Obligatorisk | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Organisations namn** | Ja | Den Dynamics 365-instans där du vill skapa posten, som inte behöver vara samma instans i utlösaren, men är "contoso" i det här exemplet |
    | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel "aktiviteter" |
    | | |
 
-   ![Åtgärdsinformation](./media/connectors-create-api-crmonline/action-details.png)
+   ![Åtgärds information](./media/connectors-create-api-crmonline/action-details.png)
 
 1. När rutan **ämne** visas i din åtgärd klickar du i rutan **ämne** så visas listan med dynamiskt innehåll. I den här listan väljer du de fält värden som ska ingå i uppgifts posten som är kopplad till den nya lead-posten:
 
    | Fält | Beskrivning |
    |-------|-------------|
    | **Efter namn** | Efter namnet från leadet som den primära kontakten i posten |
-   | **Avsnittet** | Beskrivande namn för leadet i posten |
+   | **Ämne** | Beskrivande namn för leadet i posten |
    | | |
 
    ![Information om uppgifts post](./media/connectors-create-api-crmonline/create-record-details.png)
@@ -95,7 +93,7 @@ Lägg nu till den Dynamics 365-åtgärd som skapar en uppgifts post för den nya
 
 1. Starta Logic-appen manuellt genom att klicka på **Kör**i verktygsfältet i designern.
 
-   ![Kör logikapp](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+   ![Kör logikappen](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 1. Skapa nu en leadpost i Dynamics 365 så att du kan utlösa din Logic app-arbetsflöde.
 
@@ -104,7 +102,7 @@ Lägg nu till den Dynamics 365-åtgärd som skapar en uppgifts post för den nya
 Om du vill ange hur data ska filtreras i en Dynamics 365-åtgärd väljer du **Visa avancerade alternativ** i den åtgärden. Du kan sedan lägga till ett filter eller en order by-fråga.
 Du kan till exempel använda en filter fråga för att bara hämta aktiva konton och sortera posterna efter konto namn. För den här uppgiften följer du de här stegen:
 
-1. Under **filter fråga**anger du den här OData-filter frågan:`statuscode eq 1`
+1. Under **filter fråga**anger du den här OData-filter frågan: `statuscode eq 1`
 
 2. Välj **konto namn**under **Sortera efter**när listan med dynamiskt innehåll visas. 
 
@@ -124,8 +122,8 @@ I den här tabellen beskrivs några av fält typerna och de data typer som kräv
 | Fälttyp | Datatyp som krävs | Beskrivning | 
 |------------|--------------------|-------------|
 | Textfält | Enskild rad med text | De här fälten kräver en enskild rad med text eller dynamiskt innehåll som har text typen. <p><p>*Exempel fält*: **Beskrivning** och **kategori** | 
-| Heltals fält | Heltal | Vissa fält kräver heltal eller dynamiskt innehåll som har heltals typ. <p><p>*Exempel fält*: **Procent klart** och **varaktighet** | 
-| Datum fält | Datum och tid | Vissa fält kräver ett datum med formatet mm/dd/åååå eller dynamiskt innehåll som har datum typen. <p><p>*Exempel fält*: **Skapad på**, **start datum**, **faktisk start**, **faktisk slut**och **förfallo datum** | 
+| Heltals fält | Heltal | Vissa fält kräver heltal eller dynamiskt innehåll som har heltals typ. <p><p>*Exempel fält*: **procent klart** och **varaktighet** | 
+| Datum fält | Datum och tid | Vissa fält kräver ett datum med formatet mm/dd/åååå eller dynamiskt innehåll som har datum typen. <p><p>*Exempel fält*: **skapade på**, **start datum**, **faktisk start**, **faktisk slut**och **förfallo datum** | 
 | Fält som kräver både ett post-ID och en uppslags typ | Primär nyckel | Vissa fält som refererar till en annan enhets post kräver både ett post-ID och en uppslags typ. | 
 ||||
 
@@ -136,9 +134,9 @@ Om du expanderar dessa fält typer är exempel fält i Dynamics 365-utlösare oc
 | **Ägare** | Måste vara antingen ett giltigt användar-ID eller en team post-ID. |
 | **Ägar typ** | Måste vara antingen `systemusers` eller `teams`. |
 | **Rör** | Måste vara ett giltigt post-ID, till exempel ett konto-ID eller ett kontakt post-ID. |
-| **Angående typ** | Måste vara en uppslags typ, `accounts` till `contacts`exempel eller. |
-| **Kunden** | Måste vara ett giltigt post-ID, till exempel ett konto-ID eller ett kontakt post-ID. |
-| **Typ av kund** | Måste vara en uppslags typ, `accounts` till `contacts`exempel eller. |
+| **Angående typ** | Måste vara en uppslags typ, till exempel `accounts` eller `contacts`. |
+| **Kund** | Måste vara ett giltigt post-ID, till exempel ett konto-ID eller ett kontakt post-ID. |
+| **Typ av kund** | Måste vara en uppslags typ, till exempel `accounts` eller `contacts`. |
 |||
 
 I det här exemplet skapar åtgärden som heter **skapa en ny post** en ny aktivitets post:
@@ -164,7 +162,7 @@ Följ dessa steg om du vill hitta ett post-ID:
    * Välj **plocka ut**. ![popout-post](./media/connectors-create-api-crmonline/popout-record.png) 
    * Välj **e-posta en länk** så att du kan kopiera den fullständiga URL: en till ditt standard-e-postprogram.
 
-   Post-ID: t visas i URL: `%7b` en `%7d` mellan kodnings tecknen och:
+   Post-ID: t visas i URL: en mellan `%7b` och `%7d` kodnings tecken:
 
    ![Sök efter post-ID](./media/connectors-create-api-crmonline/find-record-ID.png)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal från en mikrofon C# , (UWP) – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d1da9a9ef32aed1975595bb15909b9531ab2400
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 50de8fd6ba28039c5ca7660c96c6d863f53cf02a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503558"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795859"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=uwp)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 Om du redan har gjort detta är det bra. Vi fortsätter.
 

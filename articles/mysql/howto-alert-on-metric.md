@@ -1,89 +1,89 @@
 ---
-title: Konfigurera aviseringar för mått för Azure Database för MySQL i Azure portal
-description: Den här artikeln beskrivs hur du konfigurerar och åtkomst måttaviseringar för Azure Database för MySQL från Azure-portalen.
+title: Konfigurera mått varningar – Azure Portal – Azure Database for MySQL
+description: I den här artikeln beskrivs hur du konfigurerar och får åtkomst till mått varningar för Azure Database for MySQL från Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 387877efea4df30685fcf443a4d114c4feb66401
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 487ca76115b93020a762cfa2afb5fd5a3be40a66
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525660"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770670"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Använda Azure portal för att konfigurera aviseringar i mått för Azure Database för MySQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Använd Azure Portal för att konfigurera aviseringar för mått för Azure Database for MySQL 
 
-Den här artikeln visar hur du ställer in Azure Database för MySQL-aviseringar med Azure portal. Du kan få en avisering baserat på övervakning av mått för dina Azure-tjänster.
+Den här artikeln visar hur du konfigurerar Azure Database for MySQL aviseringar med hjälp av Azure Portal. Du kan få en avisering utifrån övervaknings måtten för dina Azure-tjänster.
 
-Aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar. Avisering utlösarna båda när villkoret uppfylls och sedan efteråt när villkoret som inte längre är uppfyllt. 
+Aviseringen utlöses när värdet för ett angivet mått korsar ett tröskelvärde som du tilldelar. Aviseringen utlöses både när villkoret först uppfylls och därefter när villkoret inte längre uppfylls. 
 
-Du kan konfigurera en avisering om att göra följande när den utlöses:
-* Skicka e-postmeddelanden till tjänstadministratören och medadministratörer
+Du kan konfigurera en avisering för att utföra följande åtgärder när den utlöser:
+* Skicka e-postaviseringar till tjänst administratören och medadministratörer
 * Skicka e-post till ytterligare e-postmeddelanden som du anger.
 * Anropa en webbhook
 
-Du kan konfigurera och få information om Varningsregler med:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+Du kan konfigurera och hämta information om aviserings regler med hjälp av:
+* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en aviseringsregel på ett mått från Azure portal
-1. I den [Azure-portalen](https://portal.azure.com/), väljer Azure Database for MySQL-server som du vill övervaka.
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en varnings regel för ett mått från Azure Portal
+1. I [Azure Portal](https://portal.azure.com/)väljer du den Azure Database for MySQLs server som du vill övervaka.
 
-2. Under den **övervakning** avsnittet på sidopanelen, Välj **aviseringar** enligt:
+2. Under avsnittet **övervakning** på sid panelen väljer du **aviseringar** som visas:
 
-   ![Välj Aviseringsregler](./media/howto-alert-on-metric/2-alert-rules.png)
+   ![Välj aviserings regler](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Välj **Lägg till metrisk varning** (+ ikonen).
+3. Välj **Lägg till mått avisering** (+ ikon).
 
-4. Den **skapa regeln** öppnas som på bilden nedan. Fyll i informationen som krävs:
+4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i den information som krävs:
 
-   ![Lägg till metrisk varning formulär](./media/howto-alert-on-metric/4-add-rule-form.png)
+   ![Lägg till mått aviserings formulär](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-5. I den **villkor** väljer **Lägg till villkor**.
+5. I avsnittet **villkor** väljer du **Lägg till villkor**.
 
-6. Välj ett mått från listan över signaler bli aviserad om. I det här exemplet väljer du ”Storage procent”.
+6. Välj ett mått i listan över signaler att bli aviserad om. I det här exemplet väljer du "lagrings procent".
    
    ![Välj mått](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. Konfigurera alert logic, inklusive den **villkor** (ex.) ”Större än”), **tröskelvärdet** (ex.) 85 procent), **tidsmängd**, **Period** tid måttregel måste vara uppfyllda innan aviseringen utlösare (t.ex. ”Under de senaste 30 minuterna”), och **frekvens**.
+7. Konfigurera aviserings logiken inklusive **villkoret** (t. ex. "Större än"), **tröskel** (t. ex. 85 procent), **tids agg regering** **, tids mängd som mått** regeln måste vara nöjd innan aviserings utlösare (t. ex. "Under de senaste 30 minuterna") och **frekvens**.
    
    Välj **klar** när du är klar.
 
    ![Välj mått](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-8. I den **åtgärdsgrupper** väljer **Skapa ny** att skapa en ny grupp om du vill ta emot meddelanden på aviseringen.
+8. I avsnittet **Åtgärds grupper** väljer du **Skapa nytt** för att skapa en ny grupp för att ta emot meddelanden på aviseringen.
 
-9. Fyll i formuläret ”Lägg till åtgärdsgrupp” med ett namn, kort namn, prenumeration och resursgrupp.
+9. Fyll i formuläret "Lägg till åtgärds grupp" med ett namn, ett kort namn, en prenumeration och en resurs grupp.
 
-10. Konfigurera en **e-post/SMS/Push/röst** åtgärdstyp.
+10. Konfigurera en **e-post/SMS/push/röst** -åtgärds typ.
     
-    Välj ”e-post Azure Resource Manager roll” välja Prenumerationsägare, deltagare och läsare för att ta emot meddelanden.
+    Välj "e-Azure Resource Manager roll" om du vill välja prenumerations ägare, deltagare och läsare för att ta emot meddelanden.
    
-    Du kan också ange en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
+    Du kan också ange en giltig URI i fältet **webhook** om du vill att det ska anropas när aviseringen utlöses.
 
     Välj **OK** när du är klar.
 
-    ![Åtgärdsgrupp](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Åtgärds grupp](./media/howto-alert-on-metric/10-action-group-type.png)
 
-11. Ange varningsregelns namn, beskrivning och allvarlighetsgrad.
+11. Ange ett namn, en beskrivning och en allvarlighets grad för varnings regeln.
 
-    ![Åtgärdsgrupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Åtgärds grupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
-12. Välj **skapa varningsregel** att skapa aviseringen.
+12. Välj **skapa aviserings regel** för att skapa aviseringen.
 
-    Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
+    Inom några minuter är aviseringen aktiv och utlösare enligt beskrivningen ovan.
 
 ## <a name="manage-your-alerts"></a>Hantera aviseringar
-När du har skapat en avisering kan du markera den och göra följande:
+När du har skapat en avisering kan du välja den och utföra följande åtgärder:
 
-* Visa ett diagram över tröskelvärde för mått och de faktiska värdena från föregående dag som är relevanta för den här aviseringen.
-* **Redigera** eller **ta bort** varningsregeln.
-* **Inaktivera** eller **aktivera** aviseringen om du vill att tillfälligt stoppa eller återuppta ta emot meddelanden.
+* Visa ett diagram som visar mått tröskelvärdet och de faktiska värdena från föregående dag som är relevanta för den här aviseringen.
+* **Redigera** eller **ta bort** varnings regeln.
+* **Inaktivera** eller **Aktivera** aviseringen om du tillfälligt vill stoppa eller återuppta mottagning av meddelanden.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [konfigurerar webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
-* Hämta en [översikt över mått samling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) att kontrollera att tjänsten är tillgänglig och svarar.
+* Läs mer om hur du [konfigurerar Webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
+* Få en [Översikt över mått samlingen](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för att se till att tjänsten är tillgänglig och svarar.

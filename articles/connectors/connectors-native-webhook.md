@@ -1,21 +1,18 @@
 ---
-title: Vänta och svara på händelser – Azure Logic Apps
+title: Vänta och svara på händelser
 description: Automatisera arbets flöden som utlöser, pausar och återupptar baserat på händelser på en tjänst slut punkt med hjälp av Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804256"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787054"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Skapa och kör automatiska händelsebaserade arbets flöden genom att använda HTTP-webhookar i Azure Logic Apps
 
@@ -83,7 +80,7 @@ Den här inbyggda utlösaren registrerar en callback-URL med den angivna tjänst
 
    När du sparar din Logi Kap par anropas prenumerations slut punkten och återanrops-URL: en registreras för att utlösa denna Logic app.
 
-1. När mål tjänsten däremot skickar en `HTTP POST`-begäran till återanrops-URL: en, utlöses Logic Apps och innehåller alla data som skickas via begäran.
+1. När mål tjänsten däremot skickar en `HTTP POST` begäran till återanrops-URL: en, utlöses Logic Apps och innehåller alla data som skickas via begäran.
 
 ## <a name="add-an-http-webhook-action"></a>Lägg till en HTTP webhook-åtgärd
 

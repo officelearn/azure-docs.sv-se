@@ -1,18 +1,18 @@
 ---
 title: Förskotts betalning för Azure Datautforskaren markering för att spara pengar
 description: Lär dig hur du köper Azure Datautforskaren reserverad kapacitet för att spara pengar på dina Azure Datautforskaren-kostnader.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 66c5644df7d796669105693d08788548334ae93a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681631"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769106"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Förskottsbetala för Azure Datautforskaren Markup-enheter med Azure Datautforskaren reserverad kapacitet
 
@@ -36,7 +36,7 @@ Reservationens storlek bör baseras på det totala antalet Azure Datautforskaren
 
 ## <a name="buy-azure-data-explorer-reserved-capacity"></a>Köp Azure Datautforskaren reserverad kapacitet
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **alla tjänster** > **reservationer** > **Köp nu**. Välj **Lägg till**
 1. I fönstret **Välj produkt typ** väljer du **Azure datautforskaren** för att köpa en ny reservation för Azure datautforskaren Markup-enheter. 
 1. Välj **köp**
@@ -52,7 +52,7 @@ Reservationens storlek bör baseras på det totala antalet Azure Datautforskaren
 
 Om du behöver avbryta din Azure-Datautforskaren reserverade kapacitets reservationen kan det finnas 12% tidig uppsägnings avgift. Åter betalningar baseras på det lägsta priset för inköps priset eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill begära en annullering går du till reservationen i Azure Portal och väljer **åter betalning** för att skapa en supportbegäran.
 
-Om du behöver ändra din Azure Datautforskaren reserverad kapacitet reservation till en annan period kan du utbyta den för en annan reservation som är lika med eller högre. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Villkoret 1 eller 3 år börjar från när du skapar den nya reservationen. Om du vill begära ett utbyte går du till reservationen i Azure Portal och väljer **Exchange** för att skapa en support förfrågan.
+Om du behöver ändra din Azure Datautforskaren reserverad kapacitet reservation till en annan period kan du utbyta den för en annan reservation som är lika med eller högre. Startdatumet för den nya reservationen överförs inte från den utbytta reservationen. Villkoret 1 eller 3 år börjar från när du skapar den nya reservationen. Om du vill begära ett utbyte går du till reservationen i Azure Portal och väljer **Exchange** för att skapa en support förfrågan.
 
 Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 

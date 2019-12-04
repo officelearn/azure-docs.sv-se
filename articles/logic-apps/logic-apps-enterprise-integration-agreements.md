@@ -1,20 +1,19 @@
 ---
-title: Handels partner avtal – Azure Logic Apps
+title: Handels partner avtal
 description: Skapa och hantera avtal mellan handels partner med hjälp av Azure Logic Apps och Enterprise-integrationspaket
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 35ebaab47edd110258f537dbbb044387515ed6c4
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680426"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790733"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Skapa och hantera handels partner avtal i Azure Logic Apps
 
@@ -63,9 +62,9 @@ På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "in
    | **Namn** | Ja | <*avtal – namn*> | Namnet på ditt avtal |
    | **Avtals typ** | Ja | **AS2**, **X12**eller **EDIFACT** | Protokoll typ för ditt avtal. När du skapar en avtals fil måste innehållet i den filen matcha avtals typen. | |  
    | **Värd partner** | Ja | <*Host-partner-name*> | Värd partnern representerar den organisation som specificerar avtalet |
-   | **Värd identitet** | Ja | <*host-partner-identifier*> | Värd partnerns identifierare |
+   | **Värd identitet** | Ja | <*Host-partner-id*> | Värd partnerns identifierare |
    | **Gäst partner** | Ja | <*gäst-partner-name*> | Gäst partnern representerar den organisation som gör affärer med värd partnern |
-   | **Gäst identitet** | Ja | <*guest-partner-identifier*> | Gäst partnerns identifierare |
+   | **Gäst identitet** | Ja | <*gäst-partner-id*> | Gäst partnerns identifierare |
    | **Ta emot inställningar** | Varierar | Varierar | Dessa egenskaper anger hur värd partner tar emot alla inkommande meddelanden från gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [Inställningar för AS2-meddelanden](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Inställningar för EDIFACT-meddelanden](logic-apps-enterprise-integration-edifact.md) <br>- [Inställningar för X12-meddelanden](logic-apps-enterprise-integration-x12.md) |
    | **Skicka inställningar** | Varierar | Varierar | De här egenskaperna anger hur värd partner skickar alla utgående meddelanden till gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [Inställningar för AS2-meddelanden](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Inställningar för EDIFACT-meddelanden](logic-apps-enterprise-integration-edifact.md) <br>- [Inställningar för X12-meddelanden](logic-apps-enterprise-integration-x12.md) |
    |||||

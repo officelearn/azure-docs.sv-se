@@ -1,20 +1,19 @@
 ---
-title: Övervaka B2B-meddelanden med Azure Monitor-Azure Logic Apps
+title: Övervaka B2B-meddelanden med Azure Monitor
 description: Konfigurera diagnostik-loggning för AS2-, X12-och EDIFACT-meddelanden i Azure Logic Apps med Azure Monitor
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: cd96376f764ec3075b916bf2207ec6ee3dd3fcbd
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680193"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791937"
 ---
 # <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Konfigurera diagnostikloggning för B2B-meddelanden i Azure Logic Apps med Azure Monitor
 
@@ -49,9 +48,9 @@ När du är klar väljer du **Lägg till diagnostisk inställning**.
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Den Azure-prenumeration som är associerad med ditt integrations konto | 
-   | **Resursgrupp** | <*Azure-resurs-grupp-namn* > | Azure-resurs gruppen för ditt integrations konto | 
+   | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Azure-resurs gruppen för ditt integrations konto | 
    | **Resurstyp** | **Integrationskonton** | Typen för den Azure-resurs där du vill aktivera loggning | 
-   | **Resurs** | <*integration – konto namn* > | Namnet på den Azure-resurs där du vill aktivera loggning | 
+   | **Resurs** | <*integration – konto namn*> | Namnet på den Azure-resurs där du vill aktivera loggning | 
    ||||  
 
    Exempel:
@@ -91,9 +90,9 @@ När du är klar väljer du **Lägg till diagnostisk inställning**.
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Den Azure-prenumeration som är associerad med ditt integrations konto | 
-   | **Resursgrupp** | <*Azure-resurs-grupp-namn* > | Azure-resurs gruppen för ditt integrations konto | 
+   | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Azure-resurs gruppen för ditt integrations konto | 
    | **Resurstyp** | **Integrationskonton** | Typen för den Azure-resurs där du vill aktivera loggning | 
-   | **Resurs** | <*integration – konto namn* > | Namnet på den Azure-resurs där du vill aktivera loggning | 
+   | **Resurs** | <*integration – konto namn*> | Namnet på den Azure-resurs där du vill aktivera loggning | 
    ||||  
 
    Exempel:

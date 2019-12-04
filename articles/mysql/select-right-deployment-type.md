@@ -1,17 +1,17 @@
 ---
-title: Välja rätt distributions typ för Azure Database for MySQL
+title: Välja rätt distributions typ – Azure Database for MySQL
 description: I den här artikeln beskrivs vilka faktorer du bör tänka på innan du distribuerar Azure Database for MySQL som antingen infrastruktur som en tjänst (IaaS) eller Platform as a Service (PaaS).
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/02/2019
+ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132430"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770466"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Välj rätt MySQL Server-alternativ i Azure
 
@@ -31,7 +31,7 @@ När du fattar ditt beslut bör du tänka på följande två alternativ:
 
 De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 
-|            | Azure Database for MySQL | MySQL på virtuella Azure-datorer    |
+|            | Azure-databas för MySQL | MySQL på virtuella Azure-datorer    |
 |:-------------------|:-----------------------------|:--------------------|
 | Serviceavtal (SLA)                | Erbjuder SLA med 99,99% tillgänglighet| Upp till 99,95% tillgänglighet med två eller fler instanser i samma tillgänglighets uppsättning.<br/><br/>99,9% tillgänglighet med en enskild instans av en virtuell dator med Premium Storage.<br/><br/>99,99% med Tillgänglighetszoner med flera instanser i flera tillgänglighets uppsättningar.<br/><br/>Se [Virtual Machines service avtal](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Uppdatering av operativ system        | Automatisk  | Hanteras av kunder |

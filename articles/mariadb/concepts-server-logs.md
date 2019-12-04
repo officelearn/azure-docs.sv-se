@@ -1,17 +1,17 @@
 ---
-title: Server loggar för Azure Database for MariaDB
+title: Långsamma Query-loggar – Azure Database for MariaDB
 description: Beskriver de loggar som är tillgängliga i Azure Database for MariaDB och de tillgängliga parametrarna för att aktivera olika loggnings nivåer.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 10dbd4d7fa838ee7f8a3f70b3caadb570877d685
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 12/02/2019
+ms.openlocfilehash: 8a451b06c8166b48fd892050e53204e2b65856c3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259975"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772112"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Långsamma Query-loggar i Azure Database for MariaDB
 I Azure Database for MariaDB är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
@@ -31,14 +31,14 @@ Loggar är tillgängliga i upp till sju dagar från deras skapande. Om den total
 Loggarna roteras var 24: e timme eller 7 GB, beroende på vilket som kommer först.
 
 ## <a name="configure-slow-query-logging"></a>Konfigurera loggning av långsam fråga
-Som standard är den långsamma frågans logg inaktive rad. Om du vill aktivera det ställer du in slow_query_log på på.
+Som standard är den långsamma frågans logg inaktive rad. Ange slow_query_log till på för att aktivera det.
 
 Andra parametrar som du kan justera är:
 
 - **long_query_time**: om en fråga tar längre tid än long_query_time (i sekunder) som frågan loggas. Standardvärdet är 10 sekunder.
-- **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de uttryck som skrivs till slow_query_log.
+- **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de instruktioner som skrivs till slow_query_log.
 - **log_queries_not_using_indexes**: bestämmer om frågor som inte använder index ska loggas i slow_query_log
-- **log_throttle_queries_not_using_indexes**: Den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på ON.
+- **log_throttle_queries_not_using_indexes**: den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på på.
 
 En fullständig beskrivning av logg parametrarna för långsamma frågor finns i dokumentationen om MariaDB [långsam logg dokumentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) .
 
@@ -54,18 +54,18 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 |---|---|
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
+| `TimeGenerated` [UTC] | Tidstämpel när loggen registrerades i UTC |
+| `Type` | Loggens typ. `AzureDiagnostics` alltid |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMARIADB` alltid |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Namnet på servern |
-| `start_time_t`UTC | Tiden då frågan började |
+| `start_time_t` [UTC] | Tiden då frågan började |
 | `query_time_s` | Total tid som frågan tog att köra |
 | `lock_time_s` | Total tid då frågan låstes |
 | `user_host_s` | Användarnamn |

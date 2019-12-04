@@ -1,21 +1,21 @@
 ---
-title: Åtkomst till Server loggar i Azure Database for MariaDB med hjälp av Azure CLI
-description: Den här artikeln beskriver hur du kommer åt Server loggarna i Azure Database for MariaDB med hjälp av kommando rads verktyget för Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+title: Åtkomst till långsamma Query-loggar – Azure CLI – Azure Database for MariaDB
+description: Den här artikeln beskriver hur du kommer åt långsamma loggar i Azure Database for MariaDB med hjälp av kommando rads verktyget för Azure CLI.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023611"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767389"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och få åtkomst till Server loggar med hjälp av Azure CLI
-Du kan hämta Azure Database for MariaDB Server loggar med hjälp av Azure CLI, kommando rads verktyget för Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurera och komma åt långsamma Query-loggar med hjälp av Azure CLI
+Du kan hämta Azure Database for MariaDB långsamma frågemeddelanden med hjälp av Azure CLI, kommando rads verktyget för Azure.
 
 ## <a name="prerequisites"></a>Krav
 För att gå igenom den här instruktions guiden behöver du:

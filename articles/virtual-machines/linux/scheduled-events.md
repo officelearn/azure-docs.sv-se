@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1e348adc06a970fcd7222ce612c13f0ff3e01585
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 818ebbf15cdbc985c7a1cc14597dc538e62894cf
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035089"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793388"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -48,7 +48,7 @@ Schemalagda händelser innehåller händelser i följande användnings fall:
 - [Plattform initierat underhåll](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (till exempel VM-omstart, direktmigrering eller minnes konserverings uppdateringar för värd)
 - Degraderad maskin vara
 - Underhåll av användaren (till exempel när en användare startar om eller distribuerar om en virtuell dator)
-- [Låg prioritet för VM-avlägsning](https://azure.microsoft.com/blog/low-priority-scale-sets) i skalnings uppsättningar
+- Borttagning av instans av [virtuella datorer](spot-vms.md) och [dekor skalnings uppsättningar](../../virtual-machine-scale-sets/use-spot.md) .
 
 ## <a name="the-basics"></a>Grunderna  
 
@@ -141,7 +141,7 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 |Typ  | Minsta meddelande |
 | - | - |
 | Tina| 15 minuter |
-| Starta om | 15 minuter |
+| Omstart | 15 minuter |
 | Omdistribuera | 10 minuter |
 | Utfärdas | 30 sekunder |
 

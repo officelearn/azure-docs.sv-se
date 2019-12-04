@@ -1,33 +1,33 @@
 ---
-title: Avancerat skydd – Azure Database for MySQL
+title: Avancerat skydd – Azure Portal-Azure Database for MySQL
 description: Lär dig hur du konfigurerar Avancerat skydd för att identifiera avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: fe058433cfe4c6c9f89f14d2c74e33ff1b8372ac
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 11ac05c710f7daf709ffbc29aebff706aea704d5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970490"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765054"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Avancerat skydd för Azure Database for MySQL
+# <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Advanced Threat Protection för Azure Database for MySQL
 
 Advanced Threat Protection för Azure Database for MySQL identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
 Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via [Azure Portal](https://portal.azure.com) och är för närvarande en för hands version.
 
 > [!NOTE]
-> Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US Gov, Iowa, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland, centrala, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
+> Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US gov, IOWA, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland Central, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
 >
 
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MySQL distribueras för Generell användning och minnesoptimerade servrar.
 
 ## <a name="set-up-threat-detection"></a>Konfigurera hot identifiering
-1. Starta Azure Portal vid [https://portal.azure.com](https://portal.azure.com).
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Gå till konfigurations sidan för den Azure Database for MySQL-server som du vill skydda. I säkerhets inställningarna väljer du **Avancerat skydd (för hands version)** .
 3. På konfigurations sidan för **Advanced Threat Protection (för hands version)** :
 

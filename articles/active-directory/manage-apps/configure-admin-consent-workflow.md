@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d1654556df455accb7f615442d3a97952c5e50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180425"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786443"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurera arbets flödet för administratörs medgivande (för hands version)
 
@@ -33,10 +33,10 @@ För att godkänna begär Anden måste en granskare vara global administratör, 
 
 Aktivera arbets flödet för administratörs medgivande och välj granskare:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
-2. Klicka på **alla tjänster** överst i den vänstra navigerings menyn.  **Azure Active Directory-tillägget** öppnas.
-3. I rutan filtrera sökning skriver du "**Azure Active Directory**" och väljer **Azure Active Directory** objekt.
-4. I navigerings menyn klickar du på **företags program**. 
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
+2. Klicka på **alla tjänster** överst i den vänstra navigerings menyn. **Azure Active Directory-tillägget** öppnas.
+3. Skriv "**Azure Active Directory**" i rutan Filter sökning och välj **Azure Active Directory** objektet.
+4. I navigerings menyn klickar du på **företags program**. 
 5. Under **Hantera**väljer du **användar inställningar**.
 6. Under **administrativa medgivande begär Anden (för hands version)** **kan du ställa in användare så att de kan begära administrativt medgivande till appar som de inte** kan godkänna till **Ja**.
 
@@ -74,10 +74,10 @@ När arbets flödet för administratörs godkännande har Aktiver ATS kan använ
 
 Granska de administrativa medgivande förfrågningarna och vidta åtgärder:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som en av de registrerade granskarna i arbets flödet för administratörs medgivande.
-2. Välj **alla tjänster** överst i den vänstra navigerings menyn.  **Azure Active Directory-tillägget** öppnas.
-3. I rutan filtrera sökning skriver du "**Azure Active Directory**" och väljer **Azure Active Directory** objekt.
-4. I navigerings menyn klickar du på **företags program**.
+1. Logga in på [Azure Portal](https://portal.azure.com) som en av de registrerade granskarna i arbets flödet för administratörs medgivande.
+2. Välj **alla tjänster** överst i den vänstra navigerings menyn. **Azure Active Directory-tillägget** öppnas.
+3. Skriv "**Azure Active Directory**" i rutan Filter sökning och välj **Azure Active Directory** objektet.
+4. I navigerings menyn klickar du på **företags program**.
 5. Under **aktivitet**väljer du **administrativa medgivande förfrågningar (för hands version)** .
 
    > [!NOTE]
@@ -120,14 +120,14 @@ I tabellen nedan beskrivs de scenarier och gransknings värden som är tillgäng
 
 |Scenario  |Granska tjänst  |Granskningskategori  |Gransknings aktivitet  |Granska aktör  |Begränsningar i gransknings loggen  |
 |---------|---------|---------|---------|---------|---------|
-|Administratör som aktiverar arbets flödet för medgivande förfrågan        |Åtkomstgranskningar           |UserManagement           |Skapa mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten            |
-|Administratör som inaktiverar arbets flödet för medgivande förfrågan       |Åtkomstgranskningar           |UserManagement           |Ta bort mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
-|Administratör som uppdaterar konfigurationen av medgivande arbets flöden        |Åtkomstgranskningar           |UserManagement           |Uppdatera mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
-|Slutanvändare som skapar en begäran om administrativt medgivande för en app       |Åtkomstgranskningar           |Princip         |Skapa begäran           |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
-|Granskare som godkänner en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            |För närvarande går det inte att hitta användar kontexten eller app-ID: t som har beviljats administrativt medgivande.           |
-|Granskare som nekar en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            | För närvarande går det inte att hitta användar kontexten för den aktör som nekade en administrativ begäran om godkännande          |
+|Administratör som aktiverar arbets flödet för medgivande förfrågan        |Åtkomstgranskningar           |UserManagement           |Skapa mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten            |
+|Administratör som inaktiverar arbets flödet för medgivande förfrågan       |Åtkomstgranskningar           |UserManagement           |Ta bort mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
+|Administratör som uppdaterar konfigurationen av medgivande arbets flöden        |Åtkomstgranskningar           |UserManagement           |Uppdatera mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
+|Slutanvändare som skapar en begäran om administrativt medgivande för en app       |Åtkomstgranskningar           |Princip         |Skapa begäran           |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
+|Granskare som godkänner en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            |För närvarande går det inte att hitta användar kontexten eller app-ID: t som har beviljats administrativt medgivande.           |
+|Granskare som nekar en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            | För närvarande går det inte att hitta användar kontexten för den aktör som nekade en administrativ begäran om godkännande          |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
+## <a name="faq"></a>FAQ 
 
 **Jag aktiverade det här arbets flödet, men när du testar funktionen kan du inte se meddelandet "godkännande krävs", så att jag kan begära åtkomst?**
 

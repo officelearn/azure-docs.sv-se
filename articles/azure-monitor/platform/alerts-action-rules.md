@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anantr
 ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: a858388a11cfdf36bacb1e5840f00fc6ef097867
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555697"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767695"
 ---
 # <a name="action-rules-preview"></a>Åtgärds regler (förhands granskning)
 
@@ -22,7 +22,7 @@ Med åtgärds regler kan du definiera eller ignorera åtgärder i Azure Resource
 
 ### <a name="suppression-of-alerts"></a>Under tryckning av aviseringar
 
-Det finns många scenarier där det är praktiskt att ignorera de meddelanden som genereras av aviseringar. De här scenarierna sträcker sig från under tryckning under en planerad underhålls period som ska undertryckas under kontors tid. Teamet som ansvarar för **ContosoVM** vill t. ex. Ignorera aviserings aviseringar för den kommande helgen, eftersom **ContosoVM** har planerat underhåll. 
+Det finns många scenarier där det är praktiskt att ignorera de meddelanden som genereras av aviseringar. De här scenarierna sträcker sig från under tryckning under en planerad underhålls period som ska undertryckas under icke-kontors tid. Teamet som ansvarar för **ContosoVM** vill t. ex. Ignorera aviserings aviseringar för den kommande helgen, eftersom **ContosoVM** har planerat underhåll. 
 
 Även om teamet kan inaktivera varje varnings regel som är konfigurerad på **ContosoVM** manuellt (och aktivera den igen efter underhåll), är det inte en enkel process. Med åtgärds regler kan du definiera under tryckning av aviseringar i skala med möjligheten att flexibelt konfigurera under trycknings perioden. I föregående exempel kan teamet definiera en åtgärds regel på **ContosoVM** som förhindrar alla aviserings aviseringar för helgen.
 

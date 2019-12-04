@@ -1,92 +1,90 @@
 ---
-title: Transformera XML mellan format – Azure Logic Apps | Microsoft Docs
-description: Skapa transformeringar eller som konverterar XML mellan format i Azure Logic Apps med Enterprise-Integrationspaket
+title: Transformera XML mellan format
+description: Skapa transformeringar eller Maps som konverterar XML mellan format i Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427288"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792389"
 ---
-# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Skapa kartor som omvandlar XML mellan format i Azure Logic Apps med Enterprise-Integrationspaket
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Skapa Maps som transformerar XML mellan format i Azure Logic Apps med Enterprise-integrationspaket
 
-Enterprise integration transformeringen connector konverterar data från ett format till ett annat format. Du kan till exempel ha ett inkommande meddelande som innehåller det aktuella datumet i formatet YearMonthDay. Du kan använda en transformering för att formatera om datumet som ska vara i formatet MonthDayYear.
+Transformerings kopplingen för företags integrering konverterar data från ett format till ett annat. Du kan till exempel ha ett inkommande meddelande som innehåller det aktuella datumet i YearMonthDay-formatet. Du kan använda en transformering för att formatera om datumet i MonthDayYear-format.
 
-## <a name="what-does-a-transform-do"></a>Vad är en transformering?
-En transformering som är även känd som en karta, består av en käll-XML-schema (indata) och ett mål XML-schema (utdata). Du kan använda olika inbyggda funktioner för att ändra eller kontrollera data, inklusive strängändringar, villkorlig tilldelningar, aritmetiska uttryck, datum tid formaterare och även slingor konstruktioner.
+## <a name="what-does-a-transform-do"></a>Vad gör en transformering?
+En transformering, som även kallas en karta, består av ett käll-XML-schema (indata) och ett XML-schema för målet (utdata). Du kan använda olika inbyggda funktioner för att manipulera eller kontrol lera data, inklusive sträng manipulationer, villkors tilldelningar, aritmetiska uttryck, datum tids formatering och till och med loopa konstruktioner.
 
-## <a name="how-to-create-a-transform"></a>Så här skapar du en transformering?
-Du kan skapa en transformering/karta med hjälp av Visual Studio [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). När du är klar skapar och testar transformering överföra du transformering i ditt integrationskonto. 
+## <a name="how-to-create-a-transform"></a>Hur skapar jag en transformering?
+Du kan skapa en transformering/mappning med hjälp av Visual Studio [Enterprise-integration SDK](https://aka.ms/vsmapsandschemas). När du har skapat och testat transformeringen överför du transformeringen till ditt integrations konto. 
 
-## <a name="how-to-use-a-transform"></a>Hur du använder en transformering
-När du har överfört transformering/kartan i ditt integrationskonto kan du använda det för att skapa en logikapp. Logikappen körs dina transformeringar när logikappen utlöses (och det finns indata innehåll som måste omvandlas).
+## <a name="how-to-use-a-transform"></a>Använda en transformering
+När du har överfört transformeringen/kartan till ditt integrations konto kan du använda den för att skapa en Logic app. Logic-appen kör dina omvandlingar när Logic-appen utlöses (och det finns inmatat innehåll som måste omvandlas).
 
 **Här följer stegen för att använda en transformering**:
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-* Skapar ett integrationskonto och lägger till en karta  
+* Skapa ett integrations konto och Lägg till en karta  
 
-Nu när du har åtgärdat förutsättningarna, är det dags att skapa din logikapp:  
+Nu när du har vidtagit kraven är det dags att skapa din Logic app:  
 
-1. Skapa en logikapp och [länkar den till ditt integrationskonto](../logic-apps/logic-apps-enterprise-integration-accounts.md "Lär dig hur du länkar ett integrationskonto till en logikapp") som innehåller mappningen.
-2. Lägg till en **begära** utlösare i logikappen  
+1. Skapa en Logic-app och [länka den till ditt integrations konto](../logic-apps/logic-apps-enterprise-integration-accounts.md "Lär dig att länka ett integrations konto till en Logic app") som innehåller kartan.
+2. Lägg till en **begär** ande utlösare till din Logic app  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
-3. Lägg till den **transformera XML** åtgärden genom att först välja **Lägg till en åtgärd**   
+3. Lägg till **transformerings-XML-** åtgärden genom att först välja **Lägg till en åtgärd**   
    ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
-4. Ange ordet *transformera* i sökrutan för att filtrera åtgärderna som ska det som du vill använda  
+4. Ange ordet *Transform* i sökrutan för att filtrera alla åtgärder till den som du vill använda  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
-5. Välj den **transformera XML** åtgärd   
-6. Lägga till XML-filen **innehåll** som du omvandla. Du kan använda valfri XML-data som du får i HTTP-begäran som den **innehåll**. I det här exemplet väljer du brödtexten i HTTP-begäran som utlöste logikappen.
+5. Välj åtgärden **TRANSFORMERA XML**   
+6. Lägg till det XML- **innehåll** som du transformerar. Du kan använda alla XML-data som du får i HTTP-begäran som **innehåll**. I det här exemplet väljer du innehållet i HTTP-begäran som utlöste Logic-appen.
 
    > [!NOTE]
-   > Kontrollera att innehållet för den **transformera XML** är XML. Om innehållet är inte i XML-fil eller base64-kodad, måste du ange ett uttryck som bearbetar innehållet. Du kan till exempel använda [functions](logic-apps-workflow-definition-language.md#functions), till exempel ```@base64ToBinary``` för avkodning av innehåll eller ```@xml``` för bearbetning av innehåll som XML.
+   > Se till att innehållet för XML- **transformeringen** är XML. Om innehållet inte är i XML-format eller Base64-kodat måste du ange ett uttryck som bearbetar innehållet. Du kan till exempel använda [Functions](logic-apps-workflow-definition-language.md#functions), t. ex. ```@base64ToBinary``` för avkodning av innehåll eller ```@xml``` för att bearbeta innehållet som XML.
  
 
-7. Välj namnet på den **KARTAN** att du vill använda för att utföra omvandlingen. Kartan måste redan finnas i ditt integrationskonto. I ett tidigare steg gav du redan din Logic appåtkomst till ditt konto för integrering med kartan.      
+7. Välj namnet på den **karta** som du vill använda för att utföra omvandlingen. Kartan måste redan finnas i ditt integrations konto. I ett tidigare steg gav du redan till gång till din Logic app-åtkomst till ditt integrations konto som innehåller din karta.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Spara ditt arbete  
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
-Nu är du klar med att ställa in kartan. I en verklig tillämpning kanske du vill lagra transformerade data i en LOB-program, till exempel SalesForce. Du kan enkelt som en åtgärd för att skicka utdata för transformering till Salesforce. 
+Nu är du färdig med konfigurationen av kartan. I ett verkligt världs program kanske du vill lagra transformerade data i ett LOB-program, till exempel SalesForce. Du kan enkelt som en åtgärd skicka utdata från transformeringen till Salesforce. 
 
-Nu kan du testa din transformeringen genom att göra en begäran till HTTP-slutpunkten.  
+Nu kan du testa transformeringen genom att göra en begäran till HTTP-slutpunkten.  
 
 
-## <a name="features-and-use-cases"></a>Funktioner och användningsfall
-* Transformeringen som skapats på en karta kan vara enkel, till exempel kopiera ett namn och adress från ett dokument till en annan. Du kan också skapa mer komplexa transformationer out-of the box kartan åtgärder.  
-* Många kartan åtgärder eller funktioner finns tillgängliga, inklusive strängar, datum tidsfunktioner och så vidare.  
-* Du kan göra en direkt datakopiering mellan scheman. I den mappning som ingår i SDK, är det lika enkelt som att rita en linje som sammanbinder elementen i datakällans schema med deras motsvarigheter i mål-schemat.  
-* När du skapar en karta kan visa du en grafisk representation av kartan som visar alla relationer och länkar som du skapar.
-* Använda funktionen Test kartan för att lägga till en XML-exempelmeddelande. Med ett enkelt klick kan du testa kartan du har skapat och se utdata som genereras.  
-* Ladda upp befintlig maps  
-* Har stöd för XML-format.
+## <a name="features-and-use-cases"></a>Funktioner och användnings fall
+* Omvandlingen som skapas i en karta kan vara enkel, till exempel kopiera ett namn och en adress från ett dokument till ett annat. Du kan också skapa mer komplexa omvandlingar med hjälp av de färdiga kart åtgärderna.  
+* Flera kart åtgärder eller funktioner är enkelt tillgängliga, inklusive strängar, datum-och tids funktioner.  
+* Du kan göra en direkt data kopiering mellan scheman. I Mapper som ingår i SDK är det lika enkelt som att rita en linje som ansluter elementen i käll schemat med deras motsvarigheter i mål schemat.  
+* När du skapar en karta visar du en grafisk representation av kartan som visar alla relationer och länkar som du skapar.
+* Använd test Map-funktionen för att lägga till ett exempel-XML-meddelande. Med ett enkelt klick kan du testa kartan som du skapade och se utdata som genererats.  
+* Ladda upp befintliga kartor  
+* Innehåller stöd för XML-format.
 
 ## <a name="advanced-features"></a>Avancerade funktioner
 
-### <a name="reference-assembly-or-custom-code-from-maps"></a>Referens för sammansättningen eller anpassad kod från maps 
-Åtgärden för att transformera också stöder maps eller omvandlar med hänvisning till externa sammansättningen. Den här funktionen gör det möjligt för anrop till anpassade .NET-kod direkt från XSLT-kartor. Här följer kraven för att använda sammansättningen i maps.
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Referens sammansättning eller anpassad kod från Maps 
+Transformation-åtgärden stöder också Maps eller transformationer med en referens till en extern sammansättning. Den här funktionen möjliggör anrop till anpassad .NET-kod direkt från XSLT-mappningar. Följande är förutsättningarna för att använda sammansättning i Maps.
 
-* Kartan och sammansättningen refereras från kartan måste vara [överförs till integrationskontot](./logic-apps-enterprise-integration-maps.md). 
+* Kartan och sammansättningen som refereras från kartan måste [överföras till integrations kontot](./logic-apps-enterprise-integration-maps.md). 
 
   > [!NOTE]
-  > Kartan och sammansättningen måste anges som ska laddas upp i en viss ordning. Du måste ladda upp sammansättningen innan du laddar upp kartan som refererar till sammansättningen.
+  > Karta och sammansättning måste överföras i en speciell ordning. Du måste ladda upp sammansättningen innan du laddar upp kartan som refererar till sammansättningen.
 
-* Kartan måste också ha dessa attribut och ett CDATA-avsnitt som innehåller anrop till sammansättningen koden:
+* Kartan måste också ha dessa attribut och ett CDATA-avsnitt som innehåller anropet till sammansättnings koden:
 
-    * **namn på** är den anpassa namnet.
-    * **namnområdet** är namnområdet i sammansättningen som innehåller anpassad kod.
+    * **namn** är namnet på den anpassade sammansättningen.
+    * **namespace** är namn området i din sammansättning som innehåller den anpassade koden.
 
-  Det här exemplet visar en karta som refererar till en sammansättning med namnet ”XslUtilitiesLib” och anropar den `circumreference` metoden från sammansättningen.
+  I det här exemplet visas en karta som refererar till en sammansättning med namnet "XslUtilitiesLib" och anropar `circumreference`-metoden från sammansättningen.
 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -112,8 +110,8 @@ Nu kan du testa din transformeringen genom att göra en begäran till HTTP-slutp
   ```
 
 
-### <a name="byte-order-mark"></a>Byte-ordningsmarkering
-Som standard startar svaret från omvandlingen med Byte Order Mark (BOM). Du kan komma åt den här funktionen endast när du arbetar i kodvy redigeraren. Om du vill inaktivera den här funktionen, ange `disableByteOrderMark` för den `transformOptions` egenskapen:
+### <a name="byte-order-mark"></a>Markering av byte ordning
+Som standard börjar svaret från transformationen med byte ordnings tecknet (BOM). Du kan bara komma åt den här funktionen när du arbetar i kodvyn. Om du vill inaktivera den här funktionen anger du `disableByteOrderMark` för egenskapen `transformOptions`:
 
 ```json
 "Transform_XML": {
@@ -136,6 +134,6 @@ Som standard startar svaret från omvandlingen med Byte Order Mark (BOM). Du kan
 
 
 ## <a name="learn-more"></a>Läs mer
-* [Mer information om Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")  
-* [Läs mer om maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Lär dig mer om maps för enterprise-integration")  
+* [Läs mer om Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket")  
+* [Läs mer om Maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Lär dig mer om Enterprise integration Maps")  
 

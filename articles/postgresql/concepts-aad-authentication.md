@@ -1,17 +1,17 @@
 ---
-title: Azure Active Directory autentisering med Azure Database for PostgreSQL-enskild server
+title: Active Directory autentisering – Azure Database for PostgreSQL-enskild server
 description: Lär dig mer om begreppen för Azure Active Directory för autentisering med Azure Database for PostgreSQL-enskild server
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 47637396581beeafb0748066cd6a66f011e8eaa1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518741"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769922"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Använda Azure Active Directory för autentisering med PostgreSQL
 
@@ -86,7 +86,7 @@ När du har autentiserat mot Active Directory kan du hämta en token. Denna toke
 > [!NOTE]
 > Inloggning med den borttagna Azure AD-användaren kan fortfarande göras till token upphör att gälla (upp till 60 minuter från utfärdande av token).  Om du också tar bort användaren från Azure Database for PostgreSQL kommer åtkomsten att återkallas omedelbart.
 - Om Azure AD-administratören tas bort från servern kommer servern inte längre att vara associerad med en Azure AD-klient och därför inaktive ras alla Azure AD-inloggningar för servern. Om du lägger till en ny Azure AD-administratör från samma klient aktive ras Azure AD-inloggningar igen.
-- Azure Database for PostgreSQL matchar åtkomsttoken till Azure Database for PostgreSQL-rollen med hjälp av användarens unika användar-ID i Azure AD, i stället för att använda användar namnet. Det innebär att om en Azure AD-användare tas bort i Azure AD och en ny användare som skapats med samma namn, Azure Database for PostgreSQL anses vara en annan användare. Om en användare tas bort från Azure AD och en ny användare med samma namn läggs till, kommer den nya användaren därför inte att kunna ansluta till den befintliga rollen. För att tillåta detta måste Azure Database for PostgreSQL Azure AD-administratören återkalla och sedan tilldela rollen "azure_ad_user" till användaren för att uppdatera användar-ID: t för Azure AD.
+- Azure Database for PostgreSQL matchar åtkomsttoken till Azure Database for PostgreSQL-rollen med hjälp av användarens unika användar-ID i Azure AD, i stället för att använda användar namnet. Det innebär att om en Azure AD-användare tas bort i Azure AD och en ny användare som skapats med samma namn, Azure Database for PostgreSQL anses vara en annan användare. Om en användare tas bort från Azure AD och en ny användare med samma namn läggs till, kommer den nya användaren därför inte att kunna ansluta till den befintliga rollen. För att tillåta detta måste Azure Database for PostgreSQL Azure AD-administratören återkalla och sedan ge användaren rollen "azure_ad_user" för att uppdatera användar-ID: t för Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

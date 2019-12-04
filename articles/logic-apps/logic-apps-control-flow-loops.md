@@ -1,20 +1,17 @@
 ---
-title: Lägg till slingor för att upprepa åtgärder – Azure Logic Apps
+title: Lägg till slingor för att upprepa åtgärder
 description: Skapa slingor som upprepar arbets flödes åtgärder eller process mat ris i Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680449"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791747"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa slingor som upprepar arbets flödes åtgärder eller process mat ris i Azure Logic Apps
 
@@ -235,9 +232,9 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
       | Egenskap | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
-      | **Till** | *\<email-adress \@domain >* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
+      | **Till** | *\<e-postadress\@domän >* | mottagarens e-postadress. För testning använder du din egen e-postadress. | 
       | **Ämne** | Det aktuella värdet för "Limit" är **begränsat** | Ange e-postmeddelandets ämne. I det här exemplet ska du se till att du inkluderar **Limit** -variabeln. | 
-      | **Brödtext** | <*e-post – innehålls* > | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
+      | **Brödtext** | <*e-post – innehålls*> | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
       |||| 
 
 1. Spara din logikapp. Om du vill testa din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.

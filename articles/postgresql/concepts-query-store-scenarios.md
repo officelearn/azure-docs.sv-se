@@ -1,17 +1,17 @@
 ---
-title: Frågor om användnings scenarier för frågor i Azure Database for PostgreSQL-enskild server
+title: Scenarier för Query Store – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs några scenarier för Frågearkivet i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3cdb0d4e00e667b0369cdf612662830f18dc5fb8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764281"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768358"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Användnings scenarier för Frågearkivet
 
@@ -19,7 +19,7 @@ ms.locfileid: "70764281"
 
 Du kan använda Query Store i många olika scenarier där det är viktigt att spåra och underhålla prestanda för förutsägbara arbets belastningar. Tänk på följande exempel: 
 - Identifiera och justera de dyraste frågorna 
-- A / B-testning 
+- A/B-testning 
 - Hålla prestanda stabila under uppgraderingar 
 - Identifiera och förbättra ad hoc-arbetsbelastningar 
 
@@ -38,7 +38,7 @@ När du identifierar en fråga med optimala prestanda beror åtgärden som du vi
 - Överväg att skriva om dyra frågor. Du kan till exempel dra nytta av Query parameterisering och minska användningen av dynamisk SQL. Implementera optimal logik vid läsning av data som att använda data filtrering på databas sidan, inte på program sidan. 
 
 
-## <a name="ab-testing"></a>A / B-testning 
+## <a name="ab-testing"></a>A/B-testning 
 Använd Query Store för att jämföra arbets belastnings prestanda innan och efter ett program som du planerar att införa. Exempel på scenarier för att använda Query Store för att utvärdera påverkan på miljön eller program ändringar i arbets belastnings prestanda: 
 - Distribuera en ny version av ett program. 
 - Lägger till ytterligare resurser på servern. 

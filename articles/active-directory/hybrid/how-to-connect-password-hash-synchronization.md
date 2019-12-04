@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: dfb4b7d2cb34855208eb54c6d30b29e4bbff636b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539009"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766624"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera hash-synkronisering av lösen ord med Azure AD Connect Sync
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -123,13 +123,9 @@ Det är vanligt att tvinga en användare att ändra sina lösen ord under sin f�
   
 Funktionen för temporära lösen ord hjälper till att säkerställa att överföringen av ägarskapet för autentiseringsuppgiften har slutförts vid första användningen, för att minimera tiden i vilken mer än en person har kännedom om den autentiseringsuppgiften.
 
-Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade användare kan du aktivera funktionen *ForcePasswordResetOnLogonFeature* genom att köra följande kommando på Azure AD Connect-servern och ersätta <AAD Connector Name> med anslutnings namnet som är särskilt för din miljö:
+Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade användare kan du aktivera funktionen *ForcePasswordResetOnLogonFeature* genom att köra följande kommando på Azure AD Connect-servern:
 
-`Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
-
-Du kan använda följande kommando för att fastställa anslutnings namnet:
-
-`(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
 
 Villkor: tvingar en användare att ändra sina lösen ord vid nästa inloggning kräver en lösen ords ändring samtidigt.  AD Connect hämtar inte själva flaggan för att ändra lösen ordets ändringar. den kompletteras med den identifierade lösen ords ändringen som sker under synkroniseringen av lösen ords-hash.
 

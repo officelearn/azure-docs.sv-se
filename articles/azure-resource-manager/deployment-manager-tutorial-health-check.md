@@ -1,16 +1,16 @@
 ---
-title: Använda Azure Deployment Manager med mallar
-description: Använda Resource Manager-mallar med Azure Deployment Manager för att distribuera Azure-resurser.
+title: Använd hälso kontroll för Azure Deployment Manager
+description: Använd hälso kontroll för att på ett säkert sätt Distribuera Azure-resurser med Azure Deployment Manager.
 author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 355a40db7714ddae39c4171aaa0ebe4b5e5f777e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149891"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784688"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudie: använda hälso kontroll i Azure Deployment Manager (offentlig för hands version)
 

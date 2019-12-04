@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: 49bfa4a0dbf0adc498d545a2908c20f0ffa35b4b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f04ad388922ad7f73bf4409f9a846291cbb08da3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075722"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774016"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
@@ -23,7 +23,7 @@ Tal-till-text från Azure Speech Services, även kallat tal-till-text, aktiverar
 
 Som standard använder tal-till-text-tjänsten den universella språk modellen. Den här modellen tränade med Microsoft-ägda data och distribueras i molnet. Det är optimalt för konversations-och dikterings scenarier. Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär.
 
-Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller komma åt ljudfiler från lagring med API: er för tal-SDK och REST-API: er. Speech-SDK stöder ljud med en kanal i formatet WAV/PCM 16-bitars, 16 kHz/8 kHz för taligenkänning. Ytterligare ljudformat stöds via [REST-slutpunkten för tal-till-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller [tjänsten för batchtranskription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller komma åt ljudfiler från lagring med API: er för tal-SDK och REST-API: er. Speech-SDK stöder ljud med en kanal i formatet WAV/PCM 16-bitars, 16 kHz/8 kHz för taligenkänning. Ytterligare ljud format stöds med hjälp av [slut punkten tal-till-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller [batch-avskrifts tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Kärn funktioner
 
@@ -31,18 +31,20 @@ Här är de funktioner som är tillgängliga via API: er för tal-SDK och REST:
 
 | Användningsfall | SDK | REST |
 |--------- | --- | ---- |
-| Korta yttranden (< 15 sekunder). Har endast stöd för slutlig avskrifts resultat. | Ja | Ja |
+| Korta yttranden (< 15 sekunder). Har endast stöd för ett slutligt avskrifts resultat. | Ja | Ja\* |
 | Kontinuerlig avskrift av långt yttranden och strömmande ljud (> 15 sekunder). Har stöd för mellanliggande och slutliga avskrifts resultat. | Ja | Nej |
-| Härleda avsikter från igenkännings resultat med [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Ja | Nej\* |
-| Batch-avskrift av ljudfiler asynkront. | Nej  | Ja\*\* |
-| Skapa och hantera tal modeller. | Nej | Ja\*\* |
-| Skapa och hantera anpassade modell distributioner. | Nej  | Ja\*\* |
-| Skapa precisions test för att mäta precisionen för bas linje modellen jämfört med anpassade modeller. | Nej  | Ja\*\* |
-| Hantera prenumerationer. | Nej  | Ja\*\* |
+| Härleda avsikter från igenkännings resultat med [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Ja | Inga\*\* |
+| Batch-avskrift av ljudfiler asynkront. | Nej  | Ja\*\*\* |
+| Skapa och hantera tal modeller. | Nej | Ja\*\*\* |
+| Skapa och hantera anpassade modell distributioner. | Nej  | Ja\*\*\* |
+| Skapa precisions test för att mäta precisionen för bas linje modellen jämfört med anpassade modeller. | Nej  | Ja\*\*\* |
+| Hantera prenumerationer. | Nej  | Ja\*\*\* |
 
-\*_Luis-avsikter och entiteter kan härledas med hjälp av en separat Luis-prenumeration. Med den här prenumerationen kan SDK anropa LUIS för dig och tillhandahålla entiteter och avsikts resultat. Med REST API kan du anropa LUIS själv för att härleda intentor och entiteter med din LUIS-prenumeration._
+\*_med hjälp av rest-funktionerna kan du överföra upp till 60 sekunders ljud och få ett slutligt avskrifts resultat._
 
-\*\*_tjänsterna är tillgängliga med hjälp av Cris.AI-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index)._
+\*\*_Luis-intentor och entiteter kan härledas med hjälp av en separat Luis-prenumeration. Med den här prenumerationen anropar SDK LUIS för dig och ger entiteter och avsikts resultat. Med REST API anropar du LUIS själv för att härleda intentor och entiteter med din LUIS-prenumeration._
+
+\*\*\*_tjänsterna är tillgängliga med hjälp av Cris.AI-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index)._
 
 ## <a name="get-started-with-speech-to-text"></a>Kom igång med tal till text
 

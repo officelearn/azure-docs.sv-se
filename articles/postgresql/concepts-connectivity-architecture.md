@@ -1,17 +1,17 @@
 ---
-title: Anslutnings arkitektur i Azure Database for PostgreSQL
-description: Beskriver anslutnings arkitekturen för din Azure Database for PostgreSQL-Server.
+title: Anslutnings arkitektur – Azure Database for PostgreSQL-enskild server
+description: Beskriver anslutnings arkitekturen för din Azure Database for PostgreSQL-enskild server.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 5288c3025e523e767082f4ab7cfbb08805a74eaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cbb3c3b3b91bf5111efcf6f2a53cfb40b48f3fe7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500095"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768885"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Anslutnings arkitektur i Azure Database for PostgreSQL
 Den här artikeln förklarar Azure Database for PostgreSQL anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for PostgreSQL databas instans från klienter både inom och utanför Azure.
@@ -28,40 +28,40 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 
 | **Region namn** | **Primär IP-adress** | **Sekundär IP-adress** |
 |:----------------|:-------------|:------------------------|
-| Östra Australien | 13.75.149.87 | 40.79.161.1 |
+| Australien, östra | 13.75.149.87 | 40.79.161.1 |
 | Sydöstra Australien | 191.239.192.109 | 13.73.109.251 |
-| Södra Brasilien | 104.41.11.5 | |
+| Brasilien, södra | 104.41.11.5 | |
 | Kanada, centrala | 40.85.224.249 | |
-| Östra Kanada | 40.86.226.166 | |
-| Centrala USA | 23.99.160.139 | 13.67.215.62 |
+| Kanada, östra | 40.86.226.166 | |
+| USA, centrala | 23.99.160.139 | 13.67.215.62 |
 | Kina, östra 1 | 139.219.130.35 | |
 | Kina, östra 2 | 40.73.82.1 | |
 | Kina, norra 1 | 139.219.15.17 | |
 | Kina, norra 2 | 40.73.50.0 | |
-| Östasien | 191.234.2.139 | 52.175.33.150 |
+| Asien, östra | 191.234.2.139 | 52.175.33.150 |
 | USA, östra 1 | 191.238.6.43 | 40.121.158.30 |
 | USA, östra 2 | 191.239.224.107 | 40.79.84.180 * |
 | Frankrike, centrala | 40.79.137.0 | 40.79.129.1 |
-| Centrala Tyskland | 51.4.144.100 | |
+| Tyskland, centrala | 51.4.144.100 | |
 | Centrala Indien | 104.211.96.159 | |
 | Södra Indien | 104.211.224.146 | |
 | Västra Indien | 104.211.160.80 | |
 | Japan, östra | 191.237.240.43 | 13.78.61.196 |
-| Västra Japan | 191.238.68.11 | 104.214.148.156 |
+| Japan, västra | 191.238.68.11 | 104.214.148.156 |
 | Sydkorea, centrala | 52.231.32.42 | |
 | Sydkorea, södra | 52.231.200.86 |  |
 | USA, norra centrala | 23.98.55.75 | 23.96.178.199 |
-| Norra Europa | 191.235.193.75 | 40.113.93.91 |
-| Södra centrala USA | 23.98.162.75 | 13.66.62.124 |
+| Europa, norra | 191.235.193.75 | 40.113.93.91 |
+| USA, södra centrala | 23.98.162.75 | 13.66.62.124 |
 | Sydostasien | 23.100.117.95 | 104.43.15.0 |
 | Sydafrika, norra | 102.133.152.0 | |
 | Sydafrika, västra | 102.133.24.0 | |
 | Förenade Arabemiraten, norra | 65.52.248.0 | |
 | Storbritannien, södra | 51.140.184.11 | |
 | Storbritannien, västra | 51.141.8.11| |
-| Västra Europa | 191.237.232.75 | 40.68.37.158 |
+| Europa, västra | 191.237.232.75 | 40.68.37.158 |
 | USA, västra 1 | 23.99.34.75 | 104.42.238.205 |
-| Västra USA 2 | 13.66.226.202 | |
+| USA, västra 2 | 13.66.226.202 | |
 ||||
 
 > [!NOTE]

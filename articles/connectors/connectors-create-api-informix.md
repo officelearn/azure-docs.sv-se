@@ -1,41 +1,39 @@
 ---
-title: Anslut till IBM Informix-databas – Azure Logic Apps | Microsoft Docs
+title: Ansluta till IBM Informix-databas
 description: 'Hantera resurser med IBM Informix REST API: er och Azure Logic Apps'
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+author: gplarsen
+ms.author: plarsen
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 09/26/2016
 tags: connectors
-ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6f768bc76d19c0aa21a245c008a4b05588f8f43
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60691009"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789728"
 ---
-# <a name="get-started-with-the-informix-connector"></a>Kom igång med Informix-anslutningsapp
-Microsoft-anslutaren för Informix ansluter Logic Apps till resurser som lagras i en IBM Informix-databas. Informix-kopplingen innehåller ett Microsoft-klienten att kommunicera med fjärrdatorer för Informix-server i ett TCP/IP-nätverk. Detta omfattar cloud-databaser, till exempel IBM Informix för Windows som körs i Azure virtualisering och lokala databaser med hjälp av den lokala datagatewayen. Se den [stöds lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix-plattformar och versioner (i det här avsnittet).
+# <a name="get-started-with-the-informix-connector"></a>Kom igång med Informix-anslutningen
+Microsoft Connector för Informix ansluter Logic Apps till resurser som är lagrade i en IBM Informix-databas. Informix-anslutningen innehåller en Microsoft-klient för att kommunicera med fjärranslutna Informix-serverdatorer över ett TCP/IP-nätverk. Detta inkluderar moln databaser, till exempel IBM Informix för Windows som körs i Azure Virtualization, och lokala databaser med hjälp av den lokala datagatewayen. Se [listan över stödda](connectors-create-api-informix.md#supported-informix-platforms-and-versions) av IBM Informix-plattformar och versioner (i det här avsnittet).
 
-Stöder följande databasåtgärder för anslutningen:
+Anslutningen har stöd för följande databas åtgärder:
 
-* Lista databastabeller
-* Läsa en rad med väljer
-* Läsa alla rader med väljer
-* Lägga till en rad med INSERT
+* Lista databas tabeller
+* Läs en rad med SELECT
+* Läs alla rader med SELECT
+* Lägg till en rad med hjälp av Infoga
 * Ändra en rad med hjälp av UPDATE
-* Ta bort en rad med DELETE
+* Ta bort en rad med hjälp av ta bort
 
-Det här avsnittet visar hur du använder-anslutningen i en logikapp till processen databasåtgärder.
+Det här avsnittet visar hur du använder-anslutningen i en Logic app för att bearbeta databas åtgärder.
 
-Läs mer om Logic Apps i [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Mer information om Logic Apps finns i [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Tillgängliga åtgärder
-Den här anslutningsappen stöder de följande åtgärderna för logikappar:
+Den här anslutningen har stöd för följande Logic app-åtgärder:
 
 * Getables
 * GetRow
@@ -44,234 +42,234 @@ Den här anslutningsappen stöder de följande åtgärderna för logikappar:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Lista över tabeller
-Skapa en logikapp för alla åtgärder som består av många steg som utförs via Microsoft Azure-portalen.
+## <a name="list-tables"></a>List tabeller
+Att skapa en logisk app för alla åtgärder består av många steg som utförs via Microsoft Azure-portalen.
 
-I logic app, kan du lägga till en åtgärd lista tabellerna i en Informix-databas. Den här åtgärden instruerar connector att bearbeta en Informix schema-instruktionen som `CALL SYSIBM.SQLTABLES`.
+I Logic-appen kan du lägga till en åtgärd för att lista tabeller i en Informix-databas. Den här åtgärden instruerar anslutningen att bearbeta en Informix-schema-instruktion, till exempel `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure starta tavla**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, till exempel `InformixgetTables`, **prenumeration**, **resursgrupp**, **plats**, och **App Service Planera**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+1. I **Azure start-tavlan**väljer du **+** (plus tecken), **webb och mobilt**och sedan **Logic app**.
+2. Ange **namnet**, till exempel `InformixgetTables`, **prenumeration**, **resurs grupp**, **plats**och **App Service plan**. Välj **Fäst på instrument panelen**och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **upprepning**. 
-3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**.  
-4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - Get-tabeller (förhandsversion)** .
+1. I **Logic Apps designer**väljer du **Tom LogicApp** i listan **mallar** .
+2. I listan **utlösare** väljer du **upprepning**. 
+3. I **upprepnings** utlösaren väljer du **Redigera**, Välj **frekvens** och väljer **dag**. Välj sedan **intervall** till typ **7**.  
+4. Markera rutan **+ nytt steg** och välj sedan **Lägg till en åtgärd**.
+5. I listan **åtgärder** skriver du **Informix** i redigerings rutan **Sök efter fler åtgärder** och väljer sedan **Informix-Hämta tabeller (förhands granskning)** .
    
    ![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
-6. I den **Informix - Get-tabeller** configuration väljer **kryssrutan** att aktivera **Anslut via lokal datagateway**. Observera att inställningarna ändras från molnet till lokala.
+6. I fönstret konfiguration av **Informix-Hämta tabeller** väljer du **kryss rutan** för att aktivera **Anslut via lokal datagateway**. Observera att inställningarna ändras från molnet till lokalt.
    
-   * Ange värdet för **Server**, i form av adress eller alias kolon portnummer. Exempel: `ibmserver01:9089`.
-   * Ange värdet för **databasen**. Exempel: `nwind`.
-   * Välj värde för **autentisering**. Välj exempelvis **grundläggande**.
-   * Ange värdet för **användarnamn**. Exempel: `informix`.
-   * Ange värdet för **lösenord**. Exempel: `Password1`.
-   * Välj värde för **Gateway**. Välj exempelvis **datagateway01**.
-7. Välj **skapa**, och välj sedan **spara**. 
+   * Skriv värde för **Server**, i form av ett kolon-portnummer för adress eller alias. Skriv till exempel `ibmserver01:9089`.
+   * Skriv värde för **databas**. Skriv till exempel `nwind`.
+   * Välj värde för **autentisering**. Välj till exempel **Basic**.
+   * Skriv värde för **användar namn**. Skriv till exempel `informix`.
+   * Skriv värde för **lösen ord**. Skriv till exempel `Password1`.
+   * Välj värde för **Gateway**. Välj till exempel **datagateway01**.
+7. Välj **skapa**och välj sedan **Spara**. 
    
     ![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
-8. I den **InformixgetTables** bladet, i den **alla körningar** listan **sammanfattning**, väljer du det första i listan (de senaste kör).
-9. I den **logikappskörningen** bladet väljer **körningsinformation**. I den **åtgärd** väljer **Get_tables**. Visa värdet för **Status**, vilket ska vara **lyckades**. Välj den **indatalänkar** att visa indata. Välj den **utdatalänkar**, och visa utdata, som ska innehålla en lista över tabeller.
+8. På bladet **InformixgetTables** i listan **alla körningar** under **Sammanfattning**väljer du det första-listade objektet (senaste körning).
+9. Välj **Kör information**i bladet **Logic app-körning** . I listan **åtgärd** väljer du **Get_tables**. Se värdet för **status**, som bör vara **slutfört**. Välj **länken indata** för att Visa indata. Välj **länken utdata**och visa utdata. Det bör innehålla en lista över tabeller.
    
    ![](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 
 ## <a name="create-the-connections"></a>Skapa anslutningarna
-Den här anslutningen har stöd för anslutningar till databas lokalt och i molnet med följande anslutningsegenskaper. 
+Den här anslutningen har stöd för anslutningar till databasen lokalt och i molnet med hjälp av följande anslutnings egenskaper. 
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| server |Krävs. Accepterar ett strängvärde som representerar en TCP/IP-adress eller ett alias i IPv4 eller IPv6-format, följt (kolon för avgränsade) av ett TCP/IP-portnummer. |
-| database |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). Informix godkänner en 128 byte-sträng (databas kallas en IBM Informix-databasnamnet (dbname)). |
-| autentisering |Valfri. Accepterar en lista över Objektvärde, antingen grundläggande eller Windows (kerberos). |
-| username |Krävs. Accepterar ett strängvärde. |
-| password |Krävs. Accepterar ett strängvärde. |
-| Gateway |Krävs. Accepterar en lista över objekt-värde som representerar den lokala datagatewayen definierats till Logic Apps i lagringsgruppen. |
+| server |Krävs. Accepterar ett sträng värde som representerar en TCP/IP-adress eller ett alias, i antingen IPv4-eller IPv6-format, följt av (semikolonavgränsade) med ett TCP/IP-portnummer. |
+| databas |Krävs. Accepterar ett sträng värde som representerar ett DRDA Relations databas namn (RDBNAM). Informix accepterar en 128 byte-sträng (databasen kallas ett IBM Informix-databas namn (dbname)). |
+| autentisering |Valfri. Accepterar ett List objekt värde, antingen Basic eller Windows (Kerberos). |
+| användarnamn |Krävs. Accepterar ett sträng värde. |
+| lösenord |Krävs. Accepterar ett sträng värde. |
+| Nyckeln |Krävs. Accepterar ett List objekt värde som representerar den lokala datagatewayen som definierats för Logic Apps i lagrings gruppen. |
 
-## <a name="create-the-on-premises-gateway-connection"></a>Skapa lokalt gateway-anslutning
-Den här anslutningen kan komma åt en lokal Informix-databas som använder den lokala datagatewayen. I gatewayen ämne finns mer information. 
+## <a name="create-the-on-premises-gateway-connection"></a>Skapa den lokala gateway-anslutningen
+Den här anslutningen kan komma åt en lokal Informix-databas med hjälp av den lokala datagatewayen. Mer information finns i avsnittet om gateway. 
 
-1. I den **gatewayer** configuration väljer **kryssrutan** att aktivera **Anslut via gateway**. Se inställningarna som ändrar från molnet till lokala.
-2. Ange värdet för **Server**, i form av adress eller alias kolon portnummer. Exempel: `ibmserver01:9089`.
-3. Ange värdet för **databasen**. Exempel: `nwind`.
-4. Välj värde för **autentisering**. Välj exempelvis **grundläggande**.
-5. Ange värdet för **användarnamn**. Exempel: `informix`.
-6. Ange värdet för **lösenord**. Exempel: `Password1`.
-7. Välj värde för **Gateway**. Välj exempelvis **datagateway01**.
-8. Välj **skapa** att fortsätta. 
+1. I konfigurations fönstret **gateways** väljer du **kryss rutan** för att aktivera **Anslut via gateway**. Se vilka inställningar som ändras från molnet till lokalt.
+2. Skriv värde för **Server**, i form av ett kolon-portnummer för adress eller alias. Skriv till exempel `ibmserver01:9089`.
+3. Skriv värde för **databas**. Skriv till exempel `nwind`.
+4. Välj värde för **autentisering**. Välj till exempel **Basic**.
+5. Skriv värde för **användar namn**. Skriv till exempel `informix`.
+6. Skriv värde för **lösen ord**. Skriv till exempel `Password1`.
+7. Välj värde för **Gateway**. Välj till exempel **datagateway01**.
+8. Fortsätt genom att välja **skapa** . 
    
     ![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
 
-## <a name="create-the-cloud-connection"></a>Skapa cloud-anslutning
-Den här anslutningen har åtkomst till ett moln Informix-databas. 
+## <a name="create-the-cloud-connection"></a>Skapa moln anslutningen
+Den här anslutningen har åtkomst till en molnbaserad Informix-databas. 
 
-1. I den **gatewayer** konfigurationsruta lämna den **kryssrutan** inaktiverad (oanvända) **Anslut via gateway**. 
-2. Ange värdet för **anslutningsnamn**. Exempel: `hisdemo2`.
-3. Ange värdet för **Informix servernamn**, i form av adress eller alias kolon portnummer. Exempel: `hisdemo2.cloudapp.net:9089`.
-4. Ange värdet för **Informix databasnamn**. Exempel: `nwind`.
-5. Ange värdet för **användarnamn**. Exempel: `informix`.
-6. Ange värdet för **lösenord**. Exempel: `Password1`.
-7. Välj **skapa** att fortsätta. 
+1. I konfigurations fönstret **gateways** lämnar du **kryss rutan** inaktive rad (inte klickat) **Anslut via gateway**. 
+2. Skriv värde för **anslutnings namn**. Skriv till exempel `hisdemo2`.
+3. Skriv värde för **Informix-servernamn**i formatet adress eller alias kolon port nummer. Skriv till exempel `hisdemo2.cloudapp.net:9089`.
+4. Ange värde för **Informix-databasens namn**. Skriv till exempel `nwind`.
+5. Skriv värde för **användar namn**. Skriv till exempel `informix`.
+6. Skriv värde för **lösen ord**. Skriv till exempel `Password1`.
+7. Fortsätt genom att välja **skapa** . 
    
     ![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
 
-## <a name="fetch-all-rows-using-select"></a>Hämta alla rader med väljer
-Du kan skapa en logic app-åtgärd för att hämta alla rader i tabellen Informix. Den här åtgärden instruerar connector att bearbeta ett Informix SELECT-uttryck, till exempel `SELECT * FROM AREA`.
+## <a name="fetch-all-rows-using-select"></a>Hämta alla rader med SELECT
+Du kan skapa en Logic app-åtgärd för att hämta alla rader i Informix-tabellen. Den här åtgärden instruerar anslutningen att bearbeta en Informix SELECT-instruktion, till exempel `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure starta tavla**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn** (t.ex.) ”**InformixgetRows**”), **prenumeration**, **resursgrupp**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+1. I **Azure start-tavlan**väljer du **+** (plus tecken), **webb och mobilt**och sedan **Logic app**.
+2. Ange **namnet** (t. ex. **"InformixgetRows**") **, prenumeration**, **resurs grupp**, **plats**och **App Service plan**. Välj **Fäst på instrument panelen**och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **upprepning**. 
-3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - hämta rader (förhandsversion)** .
-6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**.
-7. I den **anslutningar** configuration väljer **Skapa ny**. 
+1. I **Logic Apps designer**väljer du **Tom LogicApp** i listan **mallar** .
+2. I listan **utlösare** väljer du **upprepning**. 
+3. I **upprepnings** utlösaren väljer du **Redigera**, Välj **frekvens** och väljer **dag**. Välj sedan **intervall** till typ **7**. 
+4. Markera rutan **+ nytt steg** och välj sedan **Lägg till en åtgärd**.
+5. I listan **åtgärder** skriver du **Informix** i redigerings rutan **Sök efter fler åtgärder** och väljer sedan **Informix-hämta rader (förhands granskning)** .
+6. I åtgärden **Hämta rader (förhands granskning)** väljer du **ändra anslutning**.
+7. Välj **Skapa ny**i fönstret konfiguration av **anslutningar** . 
    
     ![](./media/connectors-create-api-informix/InformixconnectorNewConnection.png)
-8. I den **gatewayer** konfigurationsruta lämna den **kryssrutan** inaktiverad (oanvända) **Anslut via gateway**.
+8. I konfigurations fönstret **gateways** lämnar du **kryss rutan** inaktive rad (inte klickat) **Anslut via gateway**.
    
-   * Ange värdet för **anslutningsnamn**. Exempel: `HISDEMO2`.
-   * Ange värdet för **Informix servernamn**, i form av adress eller alias kolon portnummer. Exempel: `HISDEMO2.cloudapp.net:9089`.
-   * Ange värdet för **Informix databasnamn**. Exempel: `NWIND`.
-   * Ange värdet för **användarnamn**. Exempel: `informix`.
-   * Ange värdet för **lösenord**. Exempel: `Password1`.
-9. Välj **skapa** att fortsätta.
+   * Skriv värde för **anslutnings namn**. Skriv till exempel `HISDEMO2`.
+   * Skriv värde för **Informix-servernamn**i formatet adress eller alias kolon port nummer. Skriv till exempel `HISDEMO2.cloudapp.net:9089`.
+   * Ange värde för **Informix-databasens namn**. Skriv till exempel `NWIND`.
+   * Skriv värde för **användar namn**. Skriv till exempel `informix`.
+   * Skriv värde för **lösen ord**. Skriv till exempel `Password1`.
+9. Fortsätt genom att välja **skapa** .
    
     ![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
-10. I den **tabellnamn** väljer den **nedåtpilen**, och välj sedan **området**.
-11. Alternativt kan du välja **visa avancerade alternativ** ange frågealternativ.
+10. I listan **tabell namn** **väljer du nedåtpilen och väljer**sedan **Area**.
+11. Du kan också välja **Visa avancerade alternativ** för att ange frågealternativ.
 12. Välj **Spara**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsTableName.png)
-13. I den **InformixgetRows** bladet, i den **alla körningar** listan **sammanfattning**, väljer du det första i listan (de senaste kör).
-14. I den **logikappskörningen** bladet väljer **körningsinformation**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, vilket ska vara **lyckades**. Välj den **indatalänkar** att visa indata. Välj den **utdatalänkar**, och visa utdata, som ska innehålla en lista med rader.
+13. På bladet **InformixgetRows** i listan **alla körningar** under **Sammanfattning**väljer du det första-listade objektet (senaste körning).
+14. Välj **Kör information**i bladet **Logic app-körning** . I listan **åtgärd** väljer du **Get_rows**. Se värdet för **status**, som bör vara **slutfört**. Välj **länken indata** för att Visa indata. Välj **länken utdata**och visa utdata. som ska innehålla en lista med rader.
     
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
-## <a name="add-one-row-using-insert"></a>Lägga till en rad med INSERT
-Du kan skapa en logic app-åtgärd för att lägga till en rad i en Informix-tabell. Den här åtgärden instruerar connector att bearbeta en Informix INSERT-instruktion som `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+## <a name="add-one-row-using-insert"></a>Lägg till en rad med hjälp av Infoga
+Du kan skapa en Logic app-åtgärd för att lägga till en rad i en Informix-tabell. Den här åtgärden instruerar kopplingen att bearbeta en Informix INSERT-instruktion, till exempel `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure starta tavla**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, till exempel `InformixinsertRow`, **prenumeration**, **resursgrupp**, **plats**, och **App Service Planera**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+1. I **Azure start-tavlan**väljer du **+** (plus tecken), **webb och mobilt**och sedan **Logic app**.
+2. Ange **namnet**, till exempel `InformixinsertRow`, **prenumeration**, **resurs grupp**, **plats**och **App Service plan**. Välj **Fäst på instrument panelen**och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **upprepning**. 
-3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - infogningsraden (förhandsversion)** .
-6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
-7. I den **anslutningar** konfigurationsruta väljer du att välja en anslutning. Välj exempelvis **hisdemo2**.
+1. I **Logic Apps designer**väljer du **Tom LogicApp** i listan **mallar** .
+2. I listan **utlösare** väljer du **upprepning**. 
+3. I **upprepnings** utlösaren väljer du **Redigera**, Välj **frekvens** och väljer **dag**. Välj sedan **intervall** till typ **7**. 
+4. Markera rutan **+ nytt steg** och välj sedan **Lägg till en åtgärd**.
+5. I listan **åtgärder** skriver du **Informix** i redigerings rutan **Sök efter fler åtgärder** och väljer sedan **Informix-Infoga rad (för hands version)** .
+6. I åtgärden **Hämta rader (förhands granskning)** väljer du **ändra anslutning**. 
+7. Välj en anslutning i fönstret **anslutningar** konfiguration. Välj till exempel **hisdemo2**.
    
     ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **nedåtpilen**, och välj sedan **området**.
-9. Ange värden för alla nödvändiga kolumner (se röd asterisk). Skriv exempelvis `99999` för **områdes-ID**, typ `Area 99999`, och skriv `102` för **REGIONID**. 
+8. I listan **tabell namn** **väljer du nedåtpilen och väljer**sedan **Area**.
+9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**, skriv `Area 99999`och skriv `102` för **REGIONID**. 
 10. Välj **Spara**.
     
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowValues.png)
-11. I den **InformixinsertRow** bladet, i den **alla körningar** listan **sammanfattning**, väljer du det första i listan (de senaste kör).
-12. I den **logikappskörningen** bladet väljer **körningsinformation**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, vilket ska vara **lyckades**. Välj den **indatalänkar** att visa indata. Välj den **utdatalänkar**, och visa utdata, som ska innehålla den nya raden.
+11. På bladet **InformixinsertRow** i listan **alla körningar** under **Sammanfattning**väljer du det första-listade objektet (senaste körning).
+12. Välj **Kör information**i bladet **Logic app-körning** . I listan **åtgärd** väljer du **Get_rows**. Se värdet för **status**, som bör vara **slutfört**. Välj **länken indata** för att Visa indata. Välj **länken utdata**och visa utdata. den nya raden bör inkluderas.
     
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
-## <a name="fetch-one-row-using-select"></a>Hämta en rad med väljer
-Du kan skapa en logic app-åtgärd för att hämta en rad i en Informix-tabell. Den här åtgärden instruerar connector att bearbeta en Informix Välj där instruktionen, som `SELECT FROM AREA WHERE AREAID = '99999'`.
+## <a name="fetch-one-row-using-select"></a>Hämta en rad med SELECT
+Du kan skapa en Logic app-åtgärd för att hämta en rad i en Informix-tabell. Den här åtgärden instruerar anslutningen att bearbeta en Informix SELECT WHERE-instruktion, till exempel `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure starta tavla**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, till exempel `InformixgetRow`, **prenumeration**, **resursgrupp**, **plats**, och **App Service Planera**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+1. I **Azure start-tavlan**väljer du **+** (plus tecken), **webb och mobilt**och sedan **Logic app**.
+2. Ange **namnet**, till exempel `InformixgetRow`, **prenumeration**, **resurs grupp**, **plats**och **App Service plan**. Välj **Fäst på instrument panelen**och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **upprepning**. 
-3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - hämta rader (förhandsversion)** .
-6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
-7. I den **anslutningar** konfigurationer väljer att välja en befintlig anslutning. Välj exempelvis **hisdemo2**.
+1. I **Logic Apps designer**väljer du **Tom LogicApp** i listan **mallar** .
+2. I listan **utlösare** väljer du **upprepning**. 
+3. I **upprepnings** utlösaren väljer du **Redigera**, Välj **frekvens** och väljer **dag**. Välj sedan **intervall** till typ **7**. 
+4. Markera rutan **+ nytt steg** och välj sedan **Lägg till en åtgärd**.
+5. I listan **åtgärder** skriver du **Informix** i redigerings rutan **Sök efter fler åtgärder** och väljer sedan **Informix-hämta rader (förhands granskning)** .
+6. I åtgärden **Hämta rader (förhands granskning)** väljer du **ändra anslutning**. 
+7. I fönstret **anslutningar** konfigurationer väljer du att välja en befintlig anslutning. Välj till exempel **hisdemo2**.
    
     ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **nedåtpilen**, och välj sedan **området**.
-9. Ange värden för alla nödvändiga kolumner (se röd asterisk). Skriv exempelvis `99999` för **områdes-ID**. 
-10. Alternativt kan du välja **visa avancerade alternativ** ange frågealternativ.
+8. I listan **tabell namn** **väljer du nedåtpilen och väljer**sedan **Area**.
+9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**. 
+10. Du kan också välja **Visa avancerade alternativ** för att ange frågealternativ.
 11. Välj **Spara**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowValues.png)
-12. I den **InformixgetRow** bladet, i den **alla körningar** listan **sammanfattning**, väljer du det första i listan (de senaste kör).
-13. I den **logikappskörningen** bladet väljer **körningsinformation**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, vilket ska vara **lyckades**. Välj den **indatalänkar** att visa indata. Välj den **utdatalänkar**, och visa utdata, som ska innehålla raden.
+12. På bladet **InformixgetRow** i listan **alla körningar** under **Sammanfattning**väljer du det första-listade objektet (senaste körning).
+13. Välj **Kör information**i bladet **Logic app-körning** . I listan **åtgärd** väljer du **Get_rows**. Se värdet för **status**, som bör vara **slutfört**. Välj **länken indata** för att Visa indata. Välj **länken utdata**och visa utdata. den ska innehålla rad.
     
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## <a name="change-one-row-using-update"></a>Ändra en rad med hjälp av UPDATE
-Du kan skapa en logic app-åtgärd om du vill ändra en rad i en Informix-tabell. Den här åtgärden instruerar connector att bearbeta en Informix-UPDATE-instruktion som `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
+Du kan skapa en Logic app-åtgärd för att ändra en rad i en Informix-tabell. Den här åtgärden instruerar anslutningen att bearbeta en UPPDATERINGs instruktion i Informix, till exempel `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure starta tavla**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, till exempel `InformixupdateRow`, **prenumeration**, **resursgrupp**, **plats**, och **App Service Planera**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+1. I **Azure start-tavlan**väljer du **+** (plus tecken), **webb och mobilt**och sedan **Logic app**.
+2. Ange **namnet**, till exempel `InformixupdateRow`, **prenumeration**, **resurs grupp**, **plats**och **App Service plan**. Välj **Fäst på instrument panelen**och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **upprepning**. 
-3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - Uppdatera rad (förhandsversion)** .
-6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
-7. I den **anslutningar** konfigurationer väljer att välja en befintlig anslutning. Välj exempelvis **hisdemo2**.
+1. I **Logic Apps designer**väljer du **Tom LogicApp** i listan **mallar** .
+2. I listan **utlösare** väljer du **upprepning**. 
+3. I **upprepnings** utlösaren väljer du **Redigera**, Välj **frekvens** och väljer **dag**. Välj sedan **intervall** till typ **7**. 
+4. Markera rutan **+ nytt steg** och välj sedan **Lägg till en åtgärd**.
+5. I listan **åtgärder** skriver du **Informix** i redigerings rutan **Sök efter fler åtgärder** och väljer sedan **Informix-uppdaterings rad (för hands version)** .
+6. I åtgärden **Hämta rader (förhands granskning)** väljer du **ändra anslutning**. 
+7. I fönstret **anslutningar** konfigurationer väljer du att välja en befintlig anslutning. Välj till exempel **hisdemo2**.
    
     ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **nedåtpilen**, och välj sedan **området**.
-9. Ange värden för alla nödvändiga kolumner (se röd asterisk). Skriv exempelvis `99999` för **områdes-ID**, typ `Updated 99999`, och skriv `102` för **REGIONID**. 
+8. I listan **tabell namn** **väljer du nedåtpilen och väljer**sedan **Area**.
+9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**, skriv `Updated 99999`och skriv `102` för **REGIONID**. 
 10. Välj **Spara**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowValues.png)
-11. I den **InformixupdateRow** bladet, i den **alla körningar** listan **sammanfattning**, väljer du det första i listan (de senaste kör).
-12. I den **logikappskörningen** bladet väljer **körningsinformation**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, vilket ska vara **lyckades**. Välj den **indatalänkar** att visa indata. Välj den **utdatalänkar**, och visa utdata, som ska innehålla den nya raden.
+11. På bladet **InformixupdateRow** i listan **alla körningar** under **Sammanfattning**väljer du det första-listade objektet (senaste körning).
+12. Välj **Kör information**i bladet **Logic app-körning** . I listan **åtgärd** väljer du **Get_rows**. Se värdet för **status**, som bör vara **slutfört**. Välj **länken indata** för att Visa indata. Välj **länken utdata**och visa utdata. den nya raden bör inkluderas.
     
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
-## <a name="remove-one-row-using-delete"></a>Ta bort en rad med DELETE
-Du kan skapa en logic app-åtgärd för att ta bort en rad i en Informix-tabell. Den här åtgärden instruerar connector att bearbeta en Informix DELETE-instruktion som `DELETE FROM AREA WHERE AREAID = '99999'`.
+## <a name="remove-one-row-using-delete"></a>Ta bort en rad med hjälp av ta bort
+Du kan skapa en Logic app-åtgärd för att ta bort en rad i en Informix-tabell. Den här åtgärden instruerar anslutningen att bearbeta en Informix DELETE-instruktion, till exempel `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure starta tavla**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, till exempel `InformixdeleteRow`, **prenumeration**, **resursgrupp**, **plats**, och **App Service Planera**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+1. I **Azure start-tavlan**väljer du **+** (plus tecken), **webb och mobilt**och sedan **Logic app**.
+2. Ange **namnet**, till exempel `InformixdeleteRow`, **prenumeration**, **resurs grupp**, **plats**och **App Service plan**. Välj **Fäst på instrument panelen**och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **upprepning**. 
-3. I den **upprepning** utlösaren och väljer **redigera**väljer **frekvens** listrutan att välja **dag**, och välj sedan  **Intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och väljer sedan **Lägg till en åtgärd**.
-5. I den **åtgärder** anger **informix** i den **Sök efter fler åtgärder** redigeringsruta och välj sedan **Informix - ta bort rad (förhandsversion)** .
-6. I den **hämta rader (förhandsversion)** väljer **ändra anslutning**. 
-7. I den **anslutningar** konfigurationer fönstret, Välj en befintlig anslutning. Välj exempelvis **hisdemo2**.
+1. I **Logic Apps designer**väljer du **Tom LogicApp** i listan **mallar** .
+2. I listan **utlösare** väljer du **upprepning**. 
+3. I **upprepnings** utlösaren väljer du **Redigera**, Välj **frekvens** och väljer **dag**. Välj sedan **intervall** till typ **7**. 
+4. Markera rutan **+ nytt steg** och välj sedan **Lägg till en åtgärd**.
+5. I listan **åtgärder** skriver du **Informix** i redigerings rutan **Sök efter fler åtgärder** och väljer sedan **Informix-ta bort rad (för hands version)** .
+6. I åtgärden **Hämta rader (förhands granskning)** väljer du **ändra anslutning**. 
+7. I fönstret **anslutningar** konfigurationer väljer du en befintlig anslutning. Välj till exempel **hisdemo2**.
    
     ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **nedåtpilen**, och välj sedan **området**.
-9. Ange värden för alla nödvändiga kolumner (se röd asterisk). Skriv exempelvis `99999` för **områdes-ID**. 
+8. I listan **tabell namn** **väljer du nedåtpilen och väljer**sedan **Area**.
+9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**. 
 10. Välj **Spara**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowValues.png)
-11. I den **InformixdeleteRow** bladet, i den **alla körningar** listan **sammanfattning**, väljer du det första i listan (de senaste kör).
-12. I den **logikappskörningen** bladet väljer **körningsinformation**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, vilket ska vara **lyckades**. Välj den **indatalänkar** att visa indata. Välj den **utdatalänkar**, och visa utdata, som ska innehålla den borttagna raden.
+11. På bladet **InformixdeleteRow** i listan **alla körningar** under **Sammanfattning**väljer du det första-listade objektet (senaste körning).
+12. Välj **Kör information**i bladet **Logic app-körning** . I listan **åtgärd** väljer du **Get_rows**. Se värdet för **status**, som bör vara **slutfört**. Välj **länken indata** för att Visa indata. Välj **länken utdata**och visa utdata. den borttagna raden bör inkluderas.
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
-## <a name="supported-informix-platforms-and-versions"></a>Informix-plattformar och versioner som stöds
-Den här anslutningsappen stöder följande IBM Informix-versioner när konfigurerad för att stödja distribuerade Relational Database Architecture (DRDA)-klientanslutningar.
+## <a name="supported-informix-platforms-and-versions"></a>Informix-plattformar och-versioner som stöds
+Den här anslutningen har stöd för följande IBM Informix-versioner, när de konfigureras som stöd för DRDA-klient anslutningar (Distributed Relations databas arkitektur).
 
-* IBM Informix 12.1
+* IBM Informix 12,1
 * IBM Informix 11,7
 
-## <a name="connector-specific-details"></a>Information om specifika
+## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/informix/). 
+Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga anslutningsappar i Logic Apps på vår [API: er lista](apis-list.md).
+[Skapa en Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska de andra tillgängliga anslutningarna i Logic Apps i vår [API-lista](apis-list.md).
 

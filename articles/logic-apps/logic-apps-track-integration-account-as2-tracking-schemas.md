@@ -1,30 +1,28 @@
 ---
-title: AS2-spårningsscheman för B2B - meddelanden i Azure Logic Apps | Microsoft Docs
-description: Skapa AS2-spårningsscheman som övervakar B2B-meddelanden i integrationskonton för Azure Logic Apps med Enterprise-Integrationspaket
+title: AS2 spårnings scheman för B2B-meddelanden
+description: Skapa AS2 spårnings scheman som övervakar B2B-meddelanden i integrations konton för Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 515d7cfc985ee9929f70de2c862170ff79ae4d60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845791"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792804"
 ---
-# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Skapa scheman för att spåra AS2-meddelanden och mdn måste specificeras i integrationskonton för Azure Logic Apps
+# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Skapa scheman för att spåra AS2-meddelanden och MDNs i integrations konton för Azure Logic Apps
 
-För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-business (B2B) transaktioner kan du använda de här AS2-spårningsscheman i ditt integrationskonto:
+Du kan använda dessa AS2 spårnings scheman i integrations kontot för att hjälpa dig att övervaka lyckade, fel och meddelande egenskaper för transaktioner i företags-till-företag.
 
-* Meddelande för AS2-spårningsschema
-* AS2 MDN-spårningsschema
+* Schema för spårning av AS2-meddelande
+* Spårnings schema för AS2-MDN
 
-## <a name="as2-message-tracking-schema"></a>Meddelande för AS2-spårningsschema
+## <a name="as2-message-tracking-schema"></a>Schema för spårning av AS2-meddelande
 
 ```json
 {
@@ -58,28 +56,28 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 
 | Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | String | AS2 meddelandets avsändare Partnernamn. (Valfritt) |
-| receiverPartnerName | String | Mottagare AS2-meddelandet Partnernamn. (Valfritt) |
-| as2To | String | Mottagare AS2-meddelandet namnet från rubriker för AS2-meddelandet. (Obligatorisk) |
-| as2From | String | AS2 meddelandets avsändare namnet från rubriker för AS2-meddelandet. (Obligatorisk) |
-| agreementName | String | Namnet på AS2-avtal som meddelanden har åtgärdats. (Valfritt) |
-| direction | String | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| messageId | String | AS2 meddelande-ID, från rubriker för AS2-meddelande (valfritt) |
-| dispositionType |String | Meddelandet Disposition-Notification (MDN) disposition TYPVÄRDE. (Valfritt) |
-| fileName | String | Namnet på filen från rubriken för AS2-meddelandet. (Valfritt) |
-| isMessageFailed |Boolean | Om AS2-meddelandet misslyckades. (Obligatorisk) |
-| isMessageSigned | Boolean | Om AS2-meddelandet var signerad. (Obligatorisk) |
-| isMessageEncrypted | Boolean | Om AS2-meddelandet krypterades. (Obligatorisk) |
-| isMessageCompressed |Boolean | Om AS2-meddelandet har komprimerats. (Obligatorisk) |
-| correlationMessageId | String | AS2 meddelande-ID, att korrelera meddelanden med mdn måste specificeras. (Valfritt) |
-| incomingHeaders |Ordlista med JToken | AS2-huvud detaljer för inkommande meddelanden. (Valfritt) |
-| outgoingHeaders |Ordlista med JToken | Utgående AS2 information om meddelandet. (Valfritt) |
-| isNrrEnabled | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
-| isMdnExpected | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
-| mdnType | Enum | Tillåtna värden är **NotConfigured**, **Sync**, och **Async**. (Obligatorisk) |
+| senderPartnerName | Sträng | AS2 meddelande avsändarens partner namn. Valfritt |
+| receiverPartnerName | Sträng | AS2 meddelande mottagarens partner namn. Valfritt |
+| as2To | Sträng | AS2 meddelande mottagarens namn, från meddelandehuvuden för AS2-meddelandet. Erforderlig |
+| as2From | Sträng | AS2 meddelandets avsändarens namn, från meddelandehuvuden för AS2-meddelandet. Erforderlig |
+| agreementName | Sträng | Namnet på AS2-avtalet som meddelandena löses till. Valfritt |
+| riktning | Sträng | Riktningen på meddelande flödet, ta emot eller skicka. Erforderlig |
+| Meddelande | Sträng | AS2 meddelande-ID, från meddelandehuvuden för AS2-meddelandet (valfritt) |
+| dispositionType |Sträng | Dispositions meddelande för meddelande (MDN) dispositions typ värde. Valfritt |
+| fileName | Sträng | Fil namn, från rubriken för AS2-meddelandet. Valfritt |
+| isMessageFailed |Boolesk | Om AS2-meddelandet misslyckades. Erforderlig |
+| isMessageSigned | Boolesk | Om AS2-meddelandet har signerats. Erforderlig |
+| isMessageEncrypted | Boolesk | Om AS2-meddelandet har krypterats. Erforderlig |
+| isMessageCompressed |Boolesk | Anger om AS2-meddelandet har komprimerats. Erforderlig |
+| correlationMessageId | Sträng | AS2 meddelande-ID för att korrelera meddelanden med MDNs. Valfritt |
+| incomingHeaders |Ord lista för JToken | Information om inkommande AS2-meddelande huvud. Valfritt |
+| outgoingHeaders |Ord lista för JToken | Information om utgående AS2-meddelande huvud. Valfritt |
+| isNrrEnabled | Boolesk | Använd standardvärdet om värdet inte är känt. Erforderlig |
+| isMdnExpected | Boolesk | Använd standardvärdet om värdet inte är känt. Erforderlig |
+| mdnType | Enum | Tillåtna värden är **NotConfigured**, **Sync**och **async**. Erforderlig |
 ||||
 
-## <a name="as2-mdn-tracking-schema"></a>AS2 MDN-spårningsschema
+## <a name="as2-mdn-tracking-schema"></a>Spårnings schema för AS2-MDN
 
 ```json
 {
@@ -111,33 +109,33 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 
 | Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | String | AS2 meddelandets avsändare Partnernamn. (Valfritt) |
-| receiverPartnerName | String | Mottagare AS2-meddelandet Partnernamn. (Valfritt) |
-| as2To | String | Partnernamn som tar emot AS2-meddelandet. (Obligatorisk) |
-| as2From | String | Partnernamn som skickar AS2-meddelandet. (Obligatorisk) |
-| agreementName | String | Namnet på AS2-avtal som meddelanden har åtgärdats. (Valfritt) |
-| direction |String | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| messageId | String | AS2-meddelande-ID. (Valfritt) |
-| originalMessageId |String | AS2 ursprungliga meddelande-ID. (Valfritt) |
-| dispositionType | String | MDN disposition TYPVÄRDE. (Valfritt) |
-| isMessageFailed |Boolean | Om AS2-meddelandet misslyckades. (Obligatorisk) |
-| isMessageSigned |Boolean | Om AS2-meddelandet var signerad. (Obligatorisk) |
-| isNrrEnabled | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
-| statusCode | Enum | Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
-| micVerificationStatus | Enum | Tillåtna värden är **NotApplicable**, **lyckades**, och **misslyckades**. (Obligatorisk) |
-| correlationMessageId | String | Korrelations-ID. Ursprungligt postmeddelandet ID (meddelande-ID för meddelandet som MDN har konfigurerats). (Valfritt) |
-| incomingHeaders | Ordlista med JToken | Anger inkommande meddelande information om. (Valfritt) |
-| outgoingHeaders |Ordlista med JToken | Anger utgående meddelande information om. (Valfritt) |
+| senderPartnerName | Sträng | AS2 meddelande avsändarens partner namn. Valfritt |
+| receiverPartnerName | Sträng | AS2 meddelande mottagarens partner namn. Valfritt |
+| as2To | Sträng | Partner namn som tar emot AS2-meddelandet. Erforderlig |
+| as2From | Sträng | Partner namn som skickar AS2-meddelandet. Erforderlig |
+| agreementName | Sträng | Namnet på AS2-avtalet som meddelandena löses till. Valfritt |
+| riktning |Sträng | Riktningen på meddelande flödet, ta emot eller skicka. Erforderlig |
+| Meddelande | Sträng | AS2 meddelande-ID. Valfritt |
+| originalMessageId |Sträng | AS2 ursprungliga meddelande-ID. Valfritt |
+| dispositionType | Sträng | MDN dispositions typ värde. Valfritt |
+| isMessageFailed |Boolesk | Om AS2-meddelandet misslyckades. Erforderlig |
+| isMessageSigned |Boolesk | Om AS2-meddelandet har signerats. Erforderlig |
+| isNrrEnabled | Boolesk | Använd standardvärdet om värdet inte är känt. Erforderlig |
+| statusCode | Enum | Tillåtna värden **godkänns**, **avvisas**och **AcceptedWithErrors**. Erforderlig |
+| micVerificationStatus | Enum | Tillåtna värden är **NotApplicable**, **lyckades**och **misslyckades**. Erforderlig |
+| correlationMessageId | Sträng | Korrelations-ID. Det ursprungliga meddelande-ID: t (meddelande-ID: t för det meddelande som MDN har kon figurer ATS för). Valfritt |
+| incomingHeaders | Ord lista för JToken | Anger information om inkommande meddelande huvud. Valfritt |
+| outgoingHeaders |Ord lista för JToken | Anger information om utgående meddelande huvud. Valfritt |
 ||||
 
-## <a name="b2b-protocol-tracking-schemas"></a>B2B-protokollet-spårningsscheman
+## <a name="b2b-protocol-tracking-schemas"></a>Spårnings scheman för B2B-protokoll
 
-Information om B2B-protokollet spårningsscheman finns i:
+Information om B2B-protokoll spårnings scheman finns i:
 
 * [X12-spårningsscheman](logic-apps-track-integration-account-x12-tracking-schema.md)
-* [B2B anpassade spårningsscheman](logic-apps-track-integration-account-custom-tracking-schema.md)
+* [Anpassade B2B-scheman](logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [övervakning B2B-meddelanden](logic-apps-monitor-b2b-message.md)
-* Lär dig mer om [spåra B2B-meddelanden i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Lär dig mer om att [övervaka B2B-meddelanden](logic-apps-monitor-b2b-message.md)
+* Lär dig mer om att [spåra B2B-meddelanden i Azure Monitor loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

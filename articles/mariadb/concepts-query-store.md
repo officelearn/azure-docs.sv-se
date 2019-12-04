@@ -1,17 +1,17 @@
 ---
-title: Query Store i Azure Database for MariaDB
+title: Frågearkivet – Azure Database for MariaDB
 description: Lär dig mer om Query Store-funktionen i Azure Database for MariaDB som hjälper dig att spåra prestanda över tid.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: fbc814b5d263e20cea1d961891afb19894b78965
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604004"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772224"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Övervaka Azure Database for MariaDB prestanda med Query Store
 
@@ -89,7 +89,7 @@ Följande alternativ är tillgängliga för att konfigurera parametrar för Frå
 
 | **ProfileServiceApplicationProxy** | **Beskrivning** | **Standard** | **Område** |
 |---|---|---|---|
-| query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. OBS! om performance_schema är inaktive rad aktive ras performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen när du aktiverar query_store_capture_mode. | VISSA | INGEN, ALLA |
+| query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. OBS! om performance_schema är avstängd aktiverar query_store_capture_mode performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen. | VISSA | INGEN, ALLA |
 | query_store_capture_interval | Hämtnings intervallet för frågearkivet i minuter. Tillåter att du anger det intervall som används för att aggregera frågeresultaten | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Aktivera eller inaktivera för att avbilda alla verktygs frågor som körs i systemet. | NO | JA, NEJ |
 | query_store_retention_period_in_days | Tids period i dagar för att behålla data i frågearkivet. | 7 | 1 - 30 |
@@ -102,7 +102,7 @@ Följande alternativ gäller specifikt för väntande statistik.
 | query_store_wait_sampling_frequency | Ändrar frekvensen för vänta-sampling i sekunder. 5 till 300 sekunder. | 30 | 5-300 |
 
 > [!NOTE]
-> För närvarande ersätter den här konfigurationen **query_store_capture_mode** , vilket innebär att både **query_store_capture_mode** och **query_store_wait_sampling_capture_mode** måste vara aktiverade för att väntande statistik ska fungera. Om **query_store_capture_mode** är inaktive rad inaktive ras väntande statistik, eftersom väntande statistik använder performance_schema aktive rad och query_text som fångats av frågearkivet.
+> För närvarande ersätter **query_store_capture_mode** den här konfigurationen, vilket innebär att både **query_store_capture_mode** och **query_store_wait_sampling_capture_mode** måste aktive ras för att vänta på att statistik ska fungera. Om **query_store_capture_mode** är inaktive rad inaktive ras väntande statistik, eftersom väntande statistik använder performance_schema aktiverat och query_text som fångas av frågearkivet.
 
 Använd [Azure Portal](howto-server-parameters.md) för att hämta eller ange ett annat värde för en parameter.
 
@@ -120,7 +120,7 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 |---|---|---|---|
 | `schema_name`| varchar (64) | NO | Schemats namn |
 | `query_id`| bigint (20) | NO| Unikt ID som skapats för den specifika frågan, om samma fråga körs i ett annat schema, genereras ett nytt ID |
-| `timestamp_id` | tidsstämpel| NO| Tidsstämpeln som frågan körs i. Detta baseras på query_store_interval-konfigurationen|
+| `timestamp_id` | tidsstämpel| NO| Tidsstämpeln som frågan körs i. Detta baseras på query_store_interval konfigurationen|
 | `query_digest_text`| longtext| NO| Den normaliserade frågetexten efter borttagning av alla litteraler|
 | `query_sample_text` | longtext| NO| Det första utseendet på den faktiska frågan med litteraler|
 | `query_digest_truncated` | bitmask| Ja| Anger om frågetexten har trunkerats. Värdet blir Ja om frågan är längre än 1 KB|
@@ -171,10 +171,10 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Om en MariaDB-Server har parametern `default_transaction_read_only` på kan Frågearkivet inte samla in data.
-- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (\> = 6000 byte).
+- Om en MariaDB-Server har parametern `default_transaction_read_only` på, kan Query Store inte samla in data.
+- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (\>= 6000 byte).
 - Kvarhållningsperioden för väntande statistik är 24 timmar.
-- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med parametern `query_store_wait_sampling_frequency`.
+- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
 
 ## <a name="next-steps"></a>Nästa steg
 

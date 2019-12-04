@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f67c98eb8417b66c3315bccb1d56b98a68aac839
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960817"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796074"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 Om du redan har gjort detta är det bra. Vi fortsätter.
 

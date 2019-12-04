@@ -1,43 +1,40 @@
 ---
-title: Anslut till Google Drive - Azure Logic Apps | Microsoft Docs
-description: 'Skapa och hantera filer med Google Drive REST API: er och Azure Logic Apps'
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 11/07/2016
-ms.topic: article
-ms.service: logic-apps
+title: Anslut till Google Drive
+description: 'Skapa och hantera filer med Google Drive REST-API: er och Azure Logic Apps'
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 43bd5248f1bb80c71a85935c585deac6152be78b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6310c3b7e5b84915fa336708bc702e94317ad04c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105097"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789714"
 ---
-# <a name="get-started-with-the-google-drive-connector"></a>Kom igång med Google Drive-koppling
-Anslut till Google Drive för att skapa filer och hämta rader. Med Google Drive kan du: 
+# <a name="get-started-with-the-google-drive-connector"></a>Kom igång med Google Drive Connector
 
-* Skapa ditt flöde för företag som baseras på data som du får från din sökning. 
-* Använda åtgärder för att söka igenom bilder, Sök efter nyheter och mer. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. Du kan exempelvis söka efter en video och sedan använda Twitter för att publicera som video till en Twitter-flöde.
+Anslut till Google Drive för att skapa filer, hämta rader med mera. Med Google Drive kan du: 
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Skapa ditt affärs flöde baserat på de data du får från din sökning. 
+* Använd åtgärder för att söka efter bilder, Sök efter nyheter och mycket mer. De här åtgärderna får ett svar och gör sedan resultatet tillgängligt för andra åtgärder. Du kan till exempel söka efter en video och sedan använda Twitter för att publicera videon i ett Twitter-flöde.
 
-## <a name="create-the-connection-to-google-drive"></a>Skapa anslutning till Google Drive
-När du lägger till den här anslutningen i logikappar måste du auktorisera logikappar att ansluta till din Google Drive.
+Du kan komma igång genom att skapa en Logic app nu, se [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="create-the-connection-to-google-drive"></a>Skapa anslutningen till Google Drive
+
+När du lägger till den här anslutningen i dina Logi Kap par måste du tillåta att Logic Apps ansluter till din Google Drive.
 
 > [!INCLUDE [Steps to create a connection to googledrive](../../includes/connectors-create-api-googledrive.md)]
-> 
-> 
 
-När du har skapat anslutningen kan ange du Google Drive-egenskaper, precis som mappen sökvägen eller filnamnet. 
+När du har skapat anslutningen anger du Google Drive-egenskaperna, t. ex. mappsökvägen eller fil namnet. 
 
-## <a name="connector-specific-details"></a>Information om specifika
+## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/googledrive/).
+Visa eventuella utlösare och åtgärder som definierats i Swagger och se även eventuella begränsningar i [anslutnings informationen](/connectors/googledrive/).
 
-## <a name="more-connectors"></a>Fler anslutningsappar
-Gå tillbaka till den [API: er lista](apis-list.md).
+## <a name="more-connectors"></a>Fler anslutningar
+
+Gå tillbaka till [listan med API: er](apis-list.md).

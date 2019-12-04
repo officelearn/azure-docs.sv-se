@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
-ms.openlocfilehash: 4a9bfe83c9fc1ccbc496ec97822305720dc52c10
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/29/2019
+ms.openlocfilehash: e277814bda41a70f9ac8ff02b6e8018fba4b6f52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076842"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775371"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Java-exempel
 
@@ -27,11 +27,11 @@ Den här artikeln innehåller:
 * Länkar till exempel för att skapa kluster aktiviteter.
 * Länkar till referens innehåll för andra hanterings uppgifter.
 
-## <a name="prerequisites"></a>Förutsättningar
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Azure HDInsight SDK för Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
+## <a name="prerequisites"></a>Krav
+
+[Azure HDInsight SDK för Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Kluster hantering – skapa
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2f0e13b4e68ee4b94a254cb8497a44cc0b8b470f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374231"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209452"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Så här fungerar det: Azure AD B2C kör kod i kundens webbläsare och använder
 
 Skapa HTML-innehåll med produktens varumärke namn i rubriken.
 
-1. Kopiera följande HTML-kodfragment. Den är välformulerad HTML5 med ett tomt element som kallas *\<div-ID = "API" \> @ no__t-3/div @ no__t-4* som finns i *\<body @ no__t-7* -taggar. Det här elementet anger var Azure AD B2C innehåll ska infogas.
+1. Kopiera följande HTML-kodfragment. Den är välformulerad HTML5 med ett tomt element som kallas *\<div ID = "API"\>\</div\>* som finns i\<*Body\>* taggar. Det här elementet anger var Azure AD B2C innehåll ska infogas.
 
    ```html
    <!DOCTYPE html>
@@ -56,15 +56,15 @@ Skapa HTML-innehåll med produktens varumärke namn i rubriken.
 > [!NOTE]
 > HTML-formulärets element tas bort på grund av säkerhets begränsningar om du använder login.microsoftonline.com. Använd b2clogin.com om du vill använda HTML-formulär element i ditt anpassade HTML-innehåll. Se [använda b2clogin.com](b2clogin.md) för andra förmåner.
 
-## <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob Storage-konto
+## <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob storage-konto
 
 >[!NOTE]
 > I den här artikeln använder vi Azure Blob Storage för att vara värd för vårt innehåll. Du kan välja att vara värd för ditt innehåll på en webb server, men du måste [Aktivera CORS på din webb server](https://enable-cors.org/server.html).
 
 Utför följande steg för att vara värd för detta HTML-innehåll i Blob Storage:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. På menyn **hubb** väljer du **nytt** > **lagrings** > **lagrings konto**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. På menyn **hubb** väljer du **ny** > **lagring** > **lagrings konto**.
 1. Välj en **prenumeration** för ditt lagrings konto.
 1. Skapa en **resurs grupp** eller Välj en befintlig.
 1. Ange ett unikt **namn** för ditt lagrings konto.
@@ -93,14 +93,14 @@ Utför följande steg för att skapa en offentlig behållare i Blob Storage:
 1. Välj **Överför**.
 1. Välj den **Customize-UI. html-** blob som du laddade upp.
 1. Till höger om text rutan **URL** väljer du ikonen **Kopiera till Urklipp** för att kopiera webb adressen till Urklipp.
-1. I webbläsaren navigerar du till den URL som du kopierade för att verifiera att blobben du överförde är tillgänglig. Om det inte går att komma åt, till exempel om du stöter på ett `ResourceNotFound`-fel, se till att behållarens åtkomst typ är inställd på **BLOB**.
+1. I webbläsaren navigerar du till den URL som du kopierade för att verifiera att blobben du överförde är tillgänglig. Om det inte går att komma åt, till exempel om du stöter på ett `ResourceNotFound` fel, se till att behållarens åtkomst typ är inställd på **BLOB**.
 
 ## <a name="configure-cors"></a>Konfigurera CORS
 
 Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra följande steg:
 
 1. I menyn väljer du **CORS**.
-1. Ange `https://your-tenant-name.b2clogin.com` för **tillåtna ursprung**. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda små bokstäver när du anger ditt klient namn.
+1. Ange `https://your-tenant-name.b2clogin.com`för **tillåtna ursprung**. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda små bokstäver när du anger ditt klient namn.
 1. För **tillåtna metoder**väljer du både `GET` och `OPTIONS`.
 1. För **tillåtna huvuden**anger du en asterisk (*).
 1. För **exponerade rubriker**anger du en asterisk (*).
@@ -148,7 +148,7 @@ Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess 
 ## <a name="upload-your-updated-custom-policy"></a>Ladda upp en uppdaterad anpassad princip
 
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. Välj **ramverk för identitets upplevelse**.
 1. Klicka på **alla principer**.
 1. Klicka på **Ladda upp princip**.
@@ -169,7 +169,7 @@ Du hittar exempel på mallar för anpassning av användar gränssnittet här:
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Sample_templates/Wingtip-mappen innehåller följande HTML-filer:
+Mappen sample_templates/Wingtip innehåller följande HTML-filer:
 
 | HTML5-mall | Beskrivning |
 |----------------|-------------|
@@ -182,15 +182,15 @@ Sample_templates/Wingtip-mappen innehåller följande HTML-filer:
 Här följer stegen för att använda exemplet:
 
 1. Klona lagrings platsen på den lokala datorn. Välj en mall-mapp under sample_templates. Du kan använda `wingtip` eller `contoso`.
-1. Ladda upp alla filer under `css`, `fonts`-och `images`-mappar till Blob Storage enligt beskrivningen i föregående avsnitt.
-1. Öppna sedan varje @no__t -0. html-fil i roten för antingen `wingtip` eller `contoso` (det du valde i det första steget) och Ersätt alla förekomster av "http://localhost" med URL: er för CSS-, bilder-och fonts-filerna som du laddade upp i steg 2.
-1. Spara @no__t -0. html-filer och ladda upp dem till Blob Storage.
+1. Ladda upp alla filer under `css`, `fonts`och `images` mappar till Blob Storage enligt beskrivningen i föregående avsnitt.
+1. Öppna sedan varje \*. html-fil i roten för antingen `wingtip` eller `contoso` (det du valde i det första steget) och Ersätt alla förekomster av "http://localhost" med URL: erna för de CSS-, bilder-och fonts-filer som du laddade upp i steg 2.
+1. Spara \*. HTML-filerna och överför dem till Blob Storage.
 1. Ändra nu tilläggs filen som nämnts tidigare i [ändra tilläggs filen](#modify-the-extensions-file).
-1. Om du ser saknade teckensnitt, avbildningar eller CSS, kontrollerar du dina referenser i tilläggs principen och @no__t -0. html-filer.
+1. Om du ser saknade teckensnitt, bilder eller CSS, kontrollerar du referenserna i tillägg-principen och \*. html-filer.
 
 ### <a name="content-definition-ids"></a>ID för innehålls definition
 
-I avsnittet Ändra din registrerings-eller inloggnings princip konfigurerar du innehålls definitionen för `api.idpselections`. En fullständig uppsättning innehålls Definitions-ID: n som identifieras av Azure AD B2C Identity Experience Framework och deras beskrivningar finns i följande tabell:
+I avsnittet Ändra din registrering eller inloggning i anpassad princip konfigurerade du innehålls definitionen för `api.idpselections`. En fullständig uppsättning innehålls Definitions-ID: n som identifieras av Azure AD B2C Identity Experience Framework och deras beskrivningar finns i följande tabell:
 
 | ID för innehålls definition | Beskrivning |
 |-----------------------|-------------|
@@ -207,4 +207,4 @@ I avsnittet Ändra din registrerings-eller inloggnings princip konfigurerar du i
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om GRÄNSSNITTs element som kan anpassas finns i [referens guide för anpassning av gränssnitt för inbyggda principer](active-directory-b2c-reference-ui-customization.md).
+Mer information om GRÄNSSNITTs element som kan anpassas finns i [referens guide för anpassning av användar flöden för användar flöden](active-directory-b2c-reference-ui-customization.md).

@@ -1,0 +1,88 @@
+### YamlMime:Landing
+title: Dokumentation för Azure IoT-lösningsacceleratorer
+summary: Azure IoT-lösningsacceleratorer är kompletta och redo att distribuera IoT-lösningar som implementerar vanliga IoT-scenarier, t.ex. fjärrövervakning.
+metadata:
+  title: Dokumentation om Azure IoT-lösningsacceleratorer
+  description: IoT-lösningsacceleratorer är kompletta och redo att distribuera IoT-lösningar som implementerar vanliga IoT-scenarier. Scenarierna omfattar fjärrövervakning, ansluten fabrik, förebyggande underhåll och enhetssimulering. När du distribuerar en lösningsaccelerator omfattar distributionen alla molnbaserade tjänster som krävs tillsammans med programkod som krävs.
+  services: iot-accelerators
+  ms.service: iot-accelerators
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
+  manager: philmea
+  ms.date: 09/16/2019
+  ms.openlocfilehash: cdad55cb8972e54f613319e890f052c26d94f0ef
+  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74781634"
+landingContent:
+- title: Om IoT-lösningsacceleratorer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure IoT-lösningsacceleratorer?
+      url: about-iot-accelerators.md
+    - text: Webbplatsen AzureIoTSolutions.com
+      url: iot-accelerators-permissions.md
+- title: Kom igång med fjärrövervakning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över acceleratorn för fjärrövervakningslösning
+      url: iot-accelerators-remote-monitoring-sample-walkthrough.md
+  - linkListType: quickstart
+    links:
+    - text: Testa en molnbaserad fjärrövervakningslösning
+      url: quickstart-remote-monitoring-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Övervaka dina enheter
+      url: iot-accelerators-remote-monitoring-monitor.md
+    - text: Identifiera problem med enheter
+      url: iot-accelerators-remote-monitoring-automate.md
+- title: Kom igång med branschanpassat IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över branschanpassat IoT
+      url: overview-iot-industrial.md
+    - text: Översikt över OPC-tvilling
+      url: overview-opc-twin.md
+    - text: Översikt över OPC-valv
+      url: overview-opc-vault.md
+    - text: Översikt över OPC-utgivare
+      url: overview-opc-publisher.md
+    - text: Vad är branschanpassat IoT?
+      url: iot-accelerators-connected-factory-features.md
+  - linkListType: quickstart
+    links:
+    - text: Testa en molnbaserad lösning för ansluten fabrik
+      url: quickstart-connected-factory-deploy.md
+- title: Komma igång med enhetssimulering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över lösningsacceleratorn för enhetssimulering
+      url: iot-accelerators-device-simulation-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Testa en enhetssimuleringslösning
+      url: quickstart-device-simulation-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa och köra en IoT-enhetssimulering
+      url: iot-accelerators-device-simulation-create-simulation.md
+    - text: Skapa en anpassad simulerad enhet
+      url: iot-accelerators-device-simulation-create-custom-device.md
+- title: Kom igång med förebyggande underhåll
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över lösningsacceleratorn Förutsägande underhåll
+      url: iot-accelerators-predictive-walkthrough.md
+  - linkListType: quickstart
+    links:
+    - text: Testa en lösning för förutsägande underhåll
+      url: quickstart-predictive-maintenance-deploy.md

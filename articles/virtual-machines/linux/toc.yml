@@ -74,8 +74,9 @@
         - name: Nätverksprestanda
           href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: VM-typer och storlekar
-      href: sizes.md
       items:
+        - name: Storleksfamiljer
+          href: sizes.md
         - name: 'Virtuella datorer, generation 2'
           href: generation-2.md
         - name: Generellt syfte
@@ -103,6 +104,16 @@
               href: n-series-driver-setup.md
         - name: Databehandling med höga prestanda
           href: sizes-hpc.md
+        - name: Reserverade instanser
+          items:
+            - name: Förskottsbetala för virtuella datorer
+              href: prepay-reserved-vm-instances.md
+            - name: Vad är Azure-reservationer?
+              href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Flexibilitet för VM-instansstorlek
+              href: reserved-vm-instance-size-flexibility.md
+        - name: Virtuella Spot-datorer
+          href: spot-vms.md
         - name: Tidigare generationer
           href: sizes-previous-gen.md
         - name: Isolerade storlekar
@@ -186,6 +197,16 @@
               href: dedicated-hosts-cli.md
             - name: Portalen
               href: dedicated-hosts-portal.md
+        - name: Distribuera virtuella Spot-datorer
+          items:
+            - name: CLI
+              href: spot-cli.md
+            - name: Portalen
+              href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+            - name: Mall
+              href: spot-template.md
+            - name: Felkoder
+              href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
     - name: Säkra virtuella datorer
       items:
         - name: Rekommendationer

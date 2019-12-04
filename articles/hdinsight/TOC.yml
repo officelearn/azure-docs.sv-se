@@ -49,6 +49,8 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Kapacitetsplanering för kluster
           href: ./hdinsight-capacity-planning.md
+        - name: Metodtips för klusterhantering
+          href: ./cluster-management-best-practices.md
         - name: Tillgänglighet och tillförlitlighet
           href: ./hdinsight-high-availability-linux.md
         - name: Jämför lagringsalternativ

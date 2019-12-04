@@ -77,6 +77,8 @@
   items:
     - name: 'REST API:er för Service Fabric Mesh-resursprovider'
       href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Referens för Service Fabric Mesh CLI
+      href: /cli/azure/ext/mesh
     - name: 'REST API:er för Service Fabric-klientresurs'
       href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
     - name: Referens för Service Fabric Maven CLI

@@ -1,14 +1,14 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 8f0811dacfbedd59726fcdfe58d6a71cb02797da
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: MT
+ms.openlocfilehash: 798a3ad1a2e81eae8621ae43d47d41031603331f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968415"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74734468"
 groups:
 - id: programming-languages-set-one
   title: Programmeringsspråk
-  prompt: Välj ett programmeringsspråk
+  prompt: Välj ett datorspråk
   pivots:
   - id: programming-language-csharp
     title: C#
@@ -19,4 +19,84 @@ groups:
   - id: programming-language-nodejs
     title: Node.js
   - id: programming-language-go
-    title: Gå till
+    title: Go
+- id: cogsvcs-text-analytics-features
+  title: Funktioner för textanalys
+  prompt: Välj ett funktionserbjudande för Textanalys
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: Extrahering av nyckelfraser
+  - id: text-analytics-language-detection
+    title: Språkidentifiering
+  - id: text-analytics-sentiment-analysis
+    title: Attitydanalys
+- id: client-operating-system
+  title: Programmeringsspråk
+  prompt: Välj ett klientoperativsystem
+  pivots:
+  - id: client-operating-system-linux
+    title: Linux
+  - id: client-operating-system-macos
+    title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
+- id: programming-languages-set-two
+  title: Programmeringsspråk
+  prompt: Välj ett datorspråk
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: Fler språk...
+- id: programming-languages-set-three
+  title: Programmeringsspråk
+  prompt: Välj ett datorspråk
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-four
+  title: Programmeringsspråk
+  prompt: Välj ett datorspråk
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: Fler språk...
+- id: programming-languages-set-five
+  title: Programmeringsspråk
+  prompt: Välj ett datorspråk
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: URL-test-interface
+  title: Verktyg för URL-test
+  prompt: Välj något av följande
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: Postman

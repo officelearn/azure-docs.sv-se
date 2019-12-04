@@ -28,15 +28,31 @@
       href: tutorial-custom-role-cli.md
 - name: Begrepp
   items:
-    - name: Förstå rolldefinitioner
-      href: role-definitions.md
     - name: PIM för Azure-resurser
       href: pim-azure-resource.md
     - name: Villkorlig åtkomst för hantering av Azure
       href: conditional-access-azure-management.md
 - name: Instruktionsguider
   items:
-    - name: Hantera åtkomst
+    - name: Visa lista över rolldefinitioner
+      items:
+        - name: Översikt
+          href: role-definitions.md
+        - name: Visa lista över rolldefinitioner
+          href: role-definitions-list.md
+        - name: Inbyggda roller
+          href: built-in-roles.md
+    - name: Visa lista över rolltilldelningar
+      items:
+        - name: Portalen
+          href: role-assignments-list-portal.md
+        - name: PowerShell
+          href: role-assignments-list-powershell.md
+        - name: CLI
+          href: role-assignments-list-cli.md
+        - name: REST-API
+          href: role-assignments-list-rest.md
+    - name: Lägg till eller ta bort rolltilldelningar
       items:
         - name: Portalen
           href: role-assignments-portal.md
@@ -50,9 +66,9 @@
           href: role-assignments-rest.md
         - name: Mall
           href: role-assignments-template.md
-    - name: Neka åtkomst
+    - name: Visa lista över nekade tilldelningar
       items:
-        - name: Avvisa tilldelning
+        - name: Översikt
           href: deny-assignments.md
         - name: Portalen
           href: deny-assignments-portal.md
@@ -60,7 +76,7 @@
           href: deny-assignments-powershell.md
         - name: REST-API
           href: deny-assignments-rest.md
-    - name: Anpassade roller
+    - name: Skapa anpassade roller
       items:
         - name: Översikt
           href: custom-roles.md
@@ -72,7 +88,7 @@
           href: custom-roles-rest.md
     - name: Visa aktivitetsloggar
       href: change-history-report.md
-    - name: Utöka åtkomst för att hantera alla prenumerationer
+    - name: Upphöj åtkomst
       href: elevate-access-global-admin.md
     - name: Klassiska administratörer
       href: classic-administrators.md
@@ -80,8 +96,6 @@
       href: troubleshooting.md
 - name: Referens
   items:
-    - name: Inbyggda roller
-      href: built-in-roles.md
     - name: Åtgärder för resursprovider
       href: resource-provider-operations.md
     - name: RBAC-begränsningar

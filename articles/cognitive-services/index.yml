@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: 15a89528ce53eabe7ed70ca66a514b71ef5e5307
-  ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+  ms.openlocfilehash: fae1321f70d538dcacde83cadd83f5cb15155459
+  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/27/2019
-  ms.locfileid: "74554942"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74775531"
 highlightedContent:
   items:
   - title: Vad är Cognitive Services?
@@ -111,34 +111,37 @@ conceptualContent:
   - title: Search
     summary: Lägg till API:er för Bing-sökning i dina appar och utnyttja möjligheten att söka i miljontals webbsidor, bilder, videor och nyheter med ett enda API-anrop.
     links:
-    - url: ./Bing-Autosuggest/index.yml
+    - url: ./Bing-web-search/index.yml
+      itemType: overview
+      text: Hubbsida för API:er för Bing-sökning
+    - url: ./Bing-Autosuggest/get-suggested-search-terms.md
       itemType: overview
       text: Föreslå sökning automatiskt
-    - url: ./bing-custom-search/index.yml
+    - url: ./bing-custom-search/overview.md
       itemType: overview
       text: Anpassad sökning
-    - url: ./bing-entities-search/index.yml
+    - url: ./bing-entities-search/overview.md
       itemType: overview
       text: Entitetssökning
-    - url: ./bing-image-search/index.yml
+    - url: ./bing-image-search/overview.md
       itemType: overview
       text: Bildsökning
-    - url: ./bing-local-business-search/index.yml
+    - url: ./bing-local-business-search/overview.md
       itemType: overview
       text: Sökning efter lokala företag (förhandsversion)
-    - url: ./bing-news-search/index.yml
+    - url: ./bing-news-search/search-the-web.md
       itemType: overview
       text: Nyhetssökning
-    - url: ./bing-spell-check/index.yml
+    - url: ./bing-spell-check/overview.md
       itemType: overview
       text: Stavningskontroll
-    - url: ./Bing-Video-Search/index.yml
+    - url: ./Bing-Video-Search/overview.md
       itemType: overview
       text: Videosökning
-    - url: ./bing-visual-search/index.yml
+    - url: ./bing-visual-search/overview.md
       itemType: overview
       text: Visuell sökning
-    - url: ./bing-web-search/index.yml
+    - url: ./bing-web-search/overview.md
       itemType: overview
       text: Webbsökning
   - title: Containrar för Cognitive Services
@@ -159,9 +162,6 @@ conceptualContent:
     - url: ./containers/docker-compose-recipe.md
       itemType: get-started
       text: Använda Docker Compose för att distribuera flera containrar
-    - url: ./containers/container-image-tags.md
-      itemType: reference
-      text: Taggar för Cognitive Services-containeravbildningar
     - url: ./containers/container-faq.md
       itemType: reference
       text: Vanliga frågor och svar om containrar för Cognitive Services
@@ -170,12 +170,10 @@ additionalContent:
   - items:
     - title: Ytterligare resurser
       links:
-      - text: Alternativ för support och hjälp
-        url: cognitive-services-support-options.md
       - text: Azure CLI
         url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
-        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
+        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
     - title: REST API:er
       links:
       - text: Cognitive Services Management

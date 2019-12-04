@@ -127,8 +127,12 @@
           href: security-center-monitoring.md
         - name: Skydda dina datorer och appar
           href: security-center-virtual-machine-protection.md
+        - name: Referens för rekommendationer av datorer och appar
+          href: recommendations-compute-and-apps.md
         - name: Skydda nätverksresurser
           href: security-center-network-recommendations.md
+        - name: Referens för nätverksrekommendationer
+          href: recommendations-network.md
         - name: Skydda data och lagringstjänster
           href: security-center-sql-service-recommendations.md
         - name: Skydda identitet och åtkomst

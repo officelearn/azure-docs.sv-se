@@ -46,10 +46,10 @@
         - name: 2. Extrahera användardata
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+        - name: 3. Extrahera sentiment från användaryttranden
+          href: tutorial-publish-settings.md
     - name: Bygg en app
       items:
-        - name: Extrahera sentiment från användaryttranden
-          href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: Extrahera välutformade data med reguljära uttryck
           href: luis-quickstart-intents-regex-entity.md
         - name: Extrahera exakta textmatchningar med listor

@@ -1,24 +1,42 @@
 - name: Dokumentation för IoT-lösningsacceleratorer
-  href: index.md
+  href: index.yml
 - name: Översikt
-  expanded: true
   items:
     - name: Vad är Azure IoT-lösningsacceleratorer?
       href: about-iot-accelerators.md
-    - name: AzureIoTSolution.com
+    - name: AzureIoTSolutions.com
       href: iot-accelerators-permissions.md
-- name: Fjärrövervakning
-  items:
-    - name: Översikt
+    - name: Fjärrövervakning
       href: iot-accelerators-remote-monitoring-sample-walkthrough.md
+    - name: Branschanpassat IoT
+      href: overview-iot-industrial.md
       items:
-        - name: Val av arkitektur
-          href: iot-accelerators-remote-monitoring-architectural-choices.md
-    - name: Snabbstarter
-      items:
-        - name: Testa en fjärrövervakningslösning
-          href: quickstart-remote-monitoring-deploy.md
-    - name: Självstudier
+        - name: Vad är OPC-tvilling
+          href: overview-opc-twin.md
+        - name: Vad är OPC-valv
+          href: overview-opc-vault.md
+        - name: Vad är OPC Publisher?
+          href: overview-opc-publisher.md
+        - name: Vad är Ansluten fabrik
+          href: iot-accelerators-connected-factory-features.md
+    - name: Enhetssimulering
+      href: iot-accelerators-device-simulation-overview.md
+    - name: Förebyggande underhåll
+      href: iot-accelerators-predictive-walkthrough.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Testa en fjärrövervakningslösning
+      href: quickstart-remote-monitoring-deploy.md
+    - name: Testa en lösning för ansluten fabrik
+      href: quickstart-connected-factory-deploy.md
+    - name: Testa en enhetssimuleringslösning
+      href: quickstart-device-simulation-deploy.md
+    - name: Testa en lösning för förutsägande underhåll
+      href: quickstart-predictive-maintenance-deploy.md
+- name: Självstudier
+  items:
+    - name: Fjärrövervakning
       items:
         - name: Övervaka IoT-enheter
           href: iot-accelerators-remote-monitoring-monitor.md
@@ -34,7 +52,31 @@
           href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
         - name: Identifiera avvikelser vid gränsen
           href: iot-accelerators-remote-monitoring-edge.md
-    - name: Instruktionsguider
+    - name: Enhetssimulering
+      items:
+        - name: Skapa och köra en simulering
+          href: iot-accelerators-device-simulation-create-simulation.md
+        - name: Skapa en anpassad simulerad enhet
+          href: iot-accelerators-device-simulation-create-custom-device.md
+- name: Begrepp
+  items:
+    - name: Fjärrövervakning
+      items:
+        - name: Arkitektur
+          href: iot-accelerators-remote-monitoring-architectural-choices.md
+        - name: Schema för enhetsmodell
+          href: iot-accelerators-remote-monitoring-device-schema.md
+        - name: Beteende för enhetsmodell
+          href: iot-accelerators-remote-monitoring-device-behavior.md
+    - name: Branschanpassat IoT
+      items:
+        - name: Arkitektur för OPC-tvilling
+          href: overview-opc-twin-architecture.md
+        - name: Arkitektur för OPC-valv
+          href: overview-opc-vault-architecture.md
+- name: Instruktionsguider
+  items:
+    - name: Fjärrövervakning
       items:
         - name: Distribuera lösning
           items:
@@ -107,51 +149,7 @@
               href: iot-accelerators-remote-monitoring-rbac-tsi.md
         - name: Integrera SIM-data
           href: iot-accelerators-remote-monitoring-telefonica-sim.md
-    - name: Referens
-      items:
-        - name: Schema för enhetsmodell
-          href: iot-accelerators-remote-monitoring-device-schema.md
-        - name: Beteende för enhetsmodell
-          href: iot-accelerators-remote-monitoring-device-behavior.md
-    - name: Resurser
-      items:
-        - name: Referensguide för utvecklare (.NET)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
-        - name: Referensguide för utvecklare (Java)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide'
-        - name: Felsökningsguide för utvecklare
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
-        - name: GitHub-lagringsplats (.NET)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
-        - name: GitHub-lagringsplats (Java)
-          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
-        - name: Vanliga frågor och svar om fjärrövervakning
-          href: iot-accelerators-faq-rm-v2.md
-- name: Branschanpassat IoT
-  items:
-    - name: Översikt
-      items:
-        - name: Vad är branschanpassat IoT
-          href: overview-iot-industrial.md
-        - name: Vad är OPC-tvilling
-          href: overview-opc-twin.md
-        - name: Vad är OPC-valv
-          href: overview-opc-vault.md
-        - name: Vad är OPC Publisher?
-          href: overview-opc-publisher.md
-        - name: Vad är Ansluten fabrik
-          href: iot-accelerators-connected-factory-features.md
-    - name: Snabbstarter
-      items:
-        - name: Testa en lösning för ansluten fabrik
-          href: quickstart-connected-factory-deploy.md
-    - name: Begrepp
-      items:
-        - name: Arkitektur för OPC-tvilling
-          href: overview-opc-twin-architecture.md
-        - name: Arkitektur för OPC-valv
-          href: overview-opc-vault-architecture.md
-    - name: Instruktionsguider
+    - name: Branschanpassat IoT
       items:
         - name: Ansluten fabrik
           items:
@@ -185,27 +183,7 @@
               href: howto-opc-publisher-configure.md
             - name: Köra OPC Publisher
               href: howto-opc-publisher-run.md
-    - name: Resurser
-      items:
-        - name: GitHub-lagringsplats
-          href: 'https://github.com/Azure/azure-iot-connected-factory'
-        - name: Vanliga frågor och svar om ansluten fabrik
-          href: iot-accelerators-faq-cf.md
-- name: Enhetssimulering
-  items:
-    - name: Översikt
-      href: iot-accelerators-device-simulation-overview.md
-    - name: Snabbstarter
-      items:
-        - name: Testa en enhetssimuleringslösning
-          href: quickstart-device-simulation-deploy.md
-    - name: Självstudier
-      items:
-        - name: Skapa och köra en simulering
-          href: iot-accelerators-device-simulation-create-simulation.md
-        - name: Skapa en anpassad simulerad enhet
-          href: iot-accelerators-device-simulation-create-custom-device.md
-    - name: Instruktionsguider
+    - name: Enhetssimulering
       items:
         - name: Använd en befintlig IoT Hub
           href: iot-accelerators-device-simulation-choose-hub.md
@@ -217,44 +195,10 @@
           href: iot-accelerators-device-simulation-protobuf.md
         - name: Distribuera en anpassad Docker-avbildning
           href: iot-accelerators-device-simulation-deploy-image.md
-    - name: Resurser
-      items:
-        - name: Referensguide för utvecklare
-          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
-        - name: GitHub-lagringsplats
-          href: 'https://github.com/Azure/device-simulation-dotnet'
-- name: Förutsägande underhåll
-  items:
-    - name: Översikt
-      href: iot-accelerators-predictive-walkthrough.md
-    - name: Snabbstarter
-      items:
-        - name: Testa en lösning för förutsägande underhåll
-          href: quickstart-predictive-maintenance-deploy.md
-    - name: Resurser
-      items:
-        - name: GitHub-lagringsplats
-          href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
-- name: Referensarkitektur
-  items:
-    - name: Översikt
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/iot/'
-    - name: Partnerimplementeringar
-      items:
-        - name: Intel Connected Logistics Platform
-          href: 'https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform'
-        - name: Edge Dynamometer Analysis
-          href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
-        - name: Digital Signage Solution
-          href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
 - name: Relaterat
   items:
-    - name: Lösningar
-      items:
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-        - name: IoT-lösningsacceleratorer
-          href: /azure/iot-accelerators
+    - name: IoT Central
+      href: 'https://docs.microsoft.com/microsoft-iot-central/'
     - name: Plattformstjänster
       items:
         - name: IoT Hub
@@ -277,8 +221,47 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fjärrövervakning
+      items:
+        - name: Referensguide för utvecklare (.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+        - name: Referensguide för utvecklare (Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide'
+        - name: Felsökningsguide för utvecklare
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+        - name: GitHub-lagringsplats (.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
+        - name: GitHub-lagringsplats (Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
+        - name: Vanliga frågor och svar om fjärrövervakning
+          href: iot-accelerators-faq-rm-v2.md
+    - name: Branschanpassat IoT
+      items:
+        - name: GitHub-lagringsplats
+          href: 'https://github.com/Azure/azure-iot-connected-factory'
+        - name: Vanliga frågor och svar om ansluten fabrik
+          href: iot-accelerators-faq-cf.md
+    - name: Enhetssimulering
+      items:
+        - name: Referensguide för utvecklare
+          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
+        - name: GitHub-lagringsplats
+          href: 'https://github.com/Azure/device-simulation-dotnet'
+    - name: Förutsägande underhåll för GitHub-lagringsplats
+      href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
+    - name: Referensarkitektur
+      href: iot-accelerators-architecture-overview.md
+      items:
+        - name: Ladda ned
+          href: 'https://aka.ms/iotrefarchitecture'
+        - name: Partnerimplementeringar
+          items:
+            - name: Intel Connected Logistics Platform
+              href: 'https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform'
+            - name: Edge Dynamometer Analysis
+              href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
+            - name: Digital Signage Solution
+              href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: iot-accelerators-faq.md
     - name: Stack Overflow

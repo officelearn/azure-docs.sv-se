@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Aktivera integrering av virtuella nätverk och brandväggar på Event Hubs-namnområde
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data
+        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data (förhandsversion)
           href: configure-customer-managed-key.md
     - name: Felsöka
       items:

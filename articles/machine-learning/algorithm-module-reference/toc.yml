@@ -14,8 +14,14 @@
       href: add-columns.md
     - name: Lägga till rader
       href: add-rows.md
+    - name: Använda matematisk åtgärd
+      href: apply-math-operation.md
     - name: Använda SQL-transformering
       href: apply-sql-transformation.md
+    - name: Rensa data som saknas
+      href: clean-missing-data.md
+    - name: Beskärningsvärden
+      href: clip-values.md
     - name: Konvertera till CSV
       href: convert-to-csv.md
     - name: Konvertera till datamängd
@@ -28,74 +34,28 @@
       href: join-data.md
     - name: Normalisera Data
       href: normalize-data.md
+    - name: Partitionera och prova
+      href: partition-and-sample.md
     - name: Ta bort dubblettrader
       href: remove-duplicate-rows.md
+    - name: SMOTE
+      href: smote.md
     - name: Välja kolumntranformering
       href: select-columns-transform.md
     - name: Välja kolumner i datauppsättning
       href: select-columns-in-dataset.md
-- name: Samling
-  items:
-    - name: Korsvalidera modell
-      href: cross-validate-model.md
-    - name: Partitionera och prova
-      href: partition-and-sample.md
-    - name: SMOTE
-      href: smote.md
-    - name: Dela data
-      href: split-data.md
 - name: Funktionsexempel
   items:
     - name: Filterbaserat funktionsval
       href: filter-based-feature-selection.md
     - name: Permutationfunktionsprioritet
       href: permutation-feature-importance.md
-- name: Python och R
+- name: Statistiska funktioner
   items:
-    - name: Skapa Python-modell
-      href: create-python-model.md
-    - name: Köra Python-skript
-      href: execute-python-script.md
-    - name: Köra R-skript
-      href: execute-r-script.md
-- name: Textanalys
-  items:
-    - name: Extrahera N-Gram-funktioner från text
-      href: extract-n-gram-features-from-text.md
-    - name: Funktions-hash
-      href: feature-hashing.md
-    - name: Förbearbeta text
-      href: preprocess-text.md
+    - name: Sammanfatta data
+      href: summarize-data.md
 - name: Maskininlärningsalgoritmer
   items:
-    - name: Klassificering
-      items:
-        - name: Beslutsskog med två klasser
-          href: multiclass-decision-forest.md
-        - name: Förbättrat beslutsträd med flera klasser
-          href: multiclass-boosted-decision-tree.md
-        - name: Logistic Regression med flera klasser
-          href: multiclass-logistic-regression.md
-        - name: Neural Network med flera klasser
-          href: multiclass-neural-network.md
-        - name: En-mot- alla-multiklass
-          href: one-vs-all-multiclass.md
-        - name: Logistic Regression med två klasser
-          href: two-class-logistic-regression.md
-        - name: Genomsnittsperceptron med två klasser
-          href: two-class-averaged-perceptron.md
-        - name: Tvåklassigt förbättrat beslutsträd
-          href: two-class-boosted-decision-tree.md
-        - name: Beslutsskog med två klasser
-          href: two-class-decision-forest.md
-        - name: Neural Network med två klasser
-          href: two-class-neural-network.md
-        - name: Tvåklassig dator för vektorstöd
-          href: two-class-support-vector-machine.md
-    - name: Klustring
-      items:
-        - name: K-means-klustring
-          href: k-means-clustering.md
     - name: Regression
       items:
         - name: Förbättrad regression för beslutsträd
@@ -106,37 +66,79 @@
           href: linear-regression.md
         - name: Regression för Neural Network
           href: neural-network-regression.md
-    - name: Rekommenderare
+    - name: Klustring
       items:
-        - name: Träna SVD-rekommenderare
-          href: train-svd-recommender.md
-- name: Träningsmodell
+        - name: K-means-klustring
+          href: k-means-clustering.md
+    - name: Klassificering
+      items:
+        - name: Förbättrat beslutsträd med flera klasser
+          href: multiclass-boosted-decision-tree.md
+        - name: Beslutsskog med två klasser
+          href: multiclass-decision-forest.md
+        - name: Logistic Regression med flera klasser
+          href: multiclass-logistic-regression.md
+        - name: Neural Network med flera klasser
+          href: multiclass-neural-network.md
+        - name: En-mot- alla-multiklass
+          href: one-vs-all-multiclass.md
+        - name: Genomsnittsperceptron med två klasser
+          href: two-class-averaged-perceptron.md
+        - name: Tvåklassigt förbättrat beslutsträd
+          href: two-class-boosted-decision-tree.md
+        - name: Beslutsskog med två klasser
+          href: two-class-decision-forest.md
+        - name: Logistic Regression med två klasser
+          href: two-class-logistic-regression.md
+        - name: Neural Network med två klasser
+          href: two-class-neural-network.md
+        - name: Tvåklassig dator för vektorstöd
+          href: two-class-support-vector-machine.md
+- name: Modellträning
   items:
-    - name: Träningsmodell
-      href: train-model.md
     - name: Träna klustringsmodellen
       href: train-clustering-model.md
+    - name: Träningsmodell
+      href: train-model.md
     - name: Finjustera hyperparametrar för modell
       href: tune-model-hyperparameters.md
-- name: Utvärdera modell
-  items:
-    - name: Utvärdera modell
-      href: evaluate-model.md
-    - name: Utvärdera rekommenderare
-      href: evaluate-recommender.md
-- name: Poängmodell
+- name: Modellbedömning och utvärdering
   items:
     - name: Använda transformering
       href: apply-transformation.md
     - name: Tilldela data till kluster
       href: assign-data-to-clusters.md
+    - name: Korsvalidera modell
+      href: cross-validate-model.md
+    - name: Utvärdera modell
+      href: evaluate-model.md
     - name: Poängmodell
       href: score-model.md
+- name: Python-språk
+  items:
+    - name: Skapa Python-modell
+      href: create-python-model.md
+    - name: Köra Python-skript
+      href: execute-python-script.md
+- name: R-språk
+  items:
+    - name: Köra R-skript
+      href: execute-r-script.md
+- name: Textanalys
+  items:
+    - name: Extrahera N-Gram-funktioner från text
+      href: extract-n-gram-features-from-text.md
+    - name: Funktions-hash
+      href: feature-hashing.md
+    - name: Förbearbeta text
+      href: preprocess-text.md
+- name: Rekommendation
+  items:
+    - name: Utvärdera rekommenderare
+      href: evaluate-recommender.md
     - name: Poäng för SVD-rekommenderare
       href: score-svd-recommender.md
-- name: Statistiska funktioner
-  items:
-    - name: Använda matematisk åtgärd
-      href: apply-math-operation.md
-    - name: Sammanfatta data
-      href: summarize-data.md
+    - name: Träna SVD-rekommenderare
+      href: train-svd-recommender.md
+- name: Modulfel och felsökning
+  href: machine-learning-module-error-codes.md

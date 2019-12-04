@@ -1,5 +1,5 @@
 - name: Dokumentation om API för entitetsökning i Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Översikt
   items:
     - name: Vad är entitetssökning i Bing?

@@ -1,5 +1,5 @@
 ---
-title: Ansluta till Azure Database for MySQL med Ruby
+title: Anslut med ruby-Azure Database for MySQL
 description: I den här snabbstarten finns ett kodexempel i Ruby som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,18 +7,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 5dbb2226e33928d9d79358a84192b57c44841de4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525939"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770653"
 ---
-# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database for MySQL: Använda Ruby för att ansluta och skicka frågor till data
+# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Ruby för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program och en [mysql2](https://rubygems.org/gems/mysql2)-gem från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Ruby och att du saknar erfarenhet av Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -186,7 +186,7 @@ end
 
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DELETE**. 
+Använd följande kod för att ansluta och läsa data med en **DELETE**-SQL-instruktion. 
 
 Koden använder en [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) för att köra kommandot DELETE. Sedan anropas metoden [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
 

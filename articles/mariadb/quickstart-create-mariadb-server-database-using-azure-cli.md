@@ -1,19 +1,19 @@
 ---
-title: 'Snabbstart: Skapa en Azure Database for MariaDB-server – Azure CLI'
+title: 'Snabb start: skapa en server – Azure CLI – Azure Database for MariaDB'
 description: Den här snabbstarten beskriver hur du använder Azure CLI för att skapa en Azure Database for MariaDB-server i en Azure-resursgrupp.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cfdcf2664871849d4488be4320f6aa03e296ce7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171400"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770041"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
 
@@ -51,13 +51,13 @@ namn | **mydemoserver** | Ange ett unikt namn för din Azure Database for MariaD
 resource-group | **myresourcegroup** | Ange namnet på Azure-resursgruppen.
 sku-name | **GP_Gen5_2** | Namnet på SKU:n. Följer konventionen *prisnivå*\_*beräkningsgenerering*\_*virtuella kärnor* i snabbformat. Mer information om parametern **sku-name** finns i avsnittet efter den här tabellen.
 backup-retention | **7** | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervall: 7 till 35. 
-geo-redundant-backup | **Inaktiverad** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **Aktiverad**, **inaktiverad**.
+geo-redundant-backup | **Inaktiverad** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **Aktiverad**, **Inaktiverad**.
 location | **westus** | Azure-platsen för servern.
-ssl-enforcement | **Aktiverad** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **Aktiverad**, **inaktiverad**.
+ssl-enforcement | **Aktiverad** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **Aktiverad**, **Inaktiverad**.
 storage-size | **51200** | Serverns lagringskapacitet (enheten är megabyte). Giltiga lagringsstorlekar är 5 120 MB (minst) med ökningar i steg om 1 024 MB. Mer information om storleksgränser för lagring finns i [Prisnivåer](./concepts-pricing-tiers.md). 
 version | **10.2** | MariaDB-huvudmotorversionen.
 admin-user | **myadmin** | Användarnamnet för administratörsinloggningen. Parametern **admin-user** får inte bvara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-admin-password | *ditt lösenord* | Lösenordet för administratörsanvändaren. Lösenordet måste innehålla mellan 8 och 128 tecken. Det måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror och icke-alfanumeriska tecken.
+admin-password | *ditt lösenord* | Lösenordet för administratörsanvändaren. Lösenordet måste innehålla mellan 8 och 128 tecken. Det måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
 
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
 + `--sku-name B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
@@ -201,7 +201,7 @@ Så här ansluter du till servern med hjälp av mysql-kommandoradsverktyget:
    ```
 
 > [!TIP]
-> Fler kommandon finns i [referenshandboken för MySQL 5.7 – kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
+> För fler kommandon, se [Referensmanual för MySQL 5.7 - kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Ansluta till servern med MySQL Workbench
 
@@ -209,15 +209,15 @@ Så här ansluter du till servern med hjälp av mysql-kommandoradsverktyget:
 
 2. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
-   ![Konfigurera en ny anslutning](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
+   ![Skapa en ny anslutning](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
    | Inställning | Föreslaget värde | Beskrivning |
    |---|---|---|
    | Anslutningsnamn | **Demoanslutning** | Ange ett namn på den här anslutningen (anslutningsnamnet kan vara vad som helst) |
    | Anslutningsmetod | **Standard (TCP/IP)** | Använda TCP/IP-protokollet för att ansluta till Azure Database for MariaDB |
-   | Värddatornamn | **mydemoserver.mariadb.database.azure.com** | Det servernamn som du antecknade tidigare. |
+   | Värdnamn | **mydemoserver.mariadb.database.azure.com** | Det servernamn som du antecknade tidigare. |
    | Port | **3306** | Standardporten för Azure Database for MariaDB. |
-   | Användarnamn | **myadmin\@mydemoserver** | Den serveradministratörsinloggning som du antecknade tidigare. |
+   | Användarnamn | **\@mydemoserver** | Den serveradministratörsinloggning som du antecknade tidigare. |
    | Lösenord | *ditt lösenord* | Ange det lösenord som du konfigurerade tidigare. |
 
 3. För att kontrollera om alla parametrar har konfigurerats korrekt väljer du **Testa anslutning**.

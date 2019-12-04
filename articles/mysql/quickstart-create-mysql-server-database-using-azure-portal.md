@@ -1,18 +1,18 @@
 ---
-title: 'Snabbstart: Skapa en Azure Database for MySQL-server – Azure Portal'
+title: 'Snabb start: skapa en server-Azure Portal-Azure Database for MySQL'
 description: Den här artikeln beskriver hur du använder Azure Portal för att snabbt skapa ett exempel på en Azure-databas för MySQL-server på fem minuter.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/15/2019
-ms.openlocfilehash: ae19ff5adc220326e32b82bdba676a037e98fabe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 12/02/2019
+ms.openlocfilehash: 1dfe4840d49983c4ae273c16ae16f6df253d509e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195123"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770364"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 
@@ -41,15 +41,15 @@ Följ de här stegen för att skapa en Azure Database för MySQL-server:
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning** 
     ---|---|---
     servernamn | Unikt servernamn | Ange ett unikt namn som identifierar din Azure Database for MySQL-server. Till exempel mydemoserver. Domännamnet *.mysql.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
-    Subscription | Din prenumeration | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resource group | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.
+    Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
+    Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
-    Inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-    lösenordsinställning | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: Engelska versala bokstäver, engelska gemena bokstäver, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
-    Bekräfta lösenordet | *Ditt val*| Bekräfta administratörslösenordet.
+    inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
+    Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
     Plats | *Regionen som ligger närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Senaste huvudversion*| Välj den senaste huvudversionen (om du inte har särskilda behov som gör att du måste ha en annan version).
-    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 5*, *4 virtuella kärnor*, *100 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Välj sedan fliken **generell användning** . *gen 5*, *4 virtuella kärnor*, *100 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
   
    > [!NOTE]
    > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mysql/).
@@ -92,7 +92,7 @@ Gör så här för att hitta de här värdena:
 
 2. Håll markören över varje fält så att kopieringssymbolen visas till höger om texten. Välj kopieringssymbolen för att kopiera värdena.
 
-I det här exemplet är Server namnet **mydemoserver.mysql.Database.Azure.com**och inloggningen för Server administratören är **\@mydemoserver**.
+I det här exemplet är Server namnet **mydemoserver.mysql.Database.Azure.com**och inloggningen för Server administratören är **administratör\@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Ansluta till MySQL med mysql-kommandoradsverktyget
 Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL [här](https://dev.mysql.com/downloads/) och installera programmet på din dator. 
@@ -111,8 +111,8 @@ Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL 
 
     mysql-parameter |Föreslaget värde|Beskrivning
     ---|---|---
-    --host | *Servernamn* | Värdet för servernamn som användes när du tidigare skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständiga domännamnet ( **\*.mysql.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
-    --användare | *Inloggning för serveradministratör* |Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för MySQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@Server*namn.
+    --host | *Servernamn* | Värdet för servernamn som användes när du tidigare skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständigt kvalificerade domän namnet ( **\*. mysql.Database.Azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
+    --användare | *Inloggning för serveradministratör* |Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för MySQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@servername*.
     -p | *Vänta på uppmaning* |När du uppmanas att ange ett lösenord anger du samma lösenord som när du skapade servern. Observera att det angivna lösenordet inte visas i bash-kommandotolken när du skriver. Välj **Retur** när du har angett lösenordet.
 
    När du är ansluten visar mysql-verktyget en `mysql>`-kommandotolk där du kan skriva kommandon. 
@@ -137,7 +137,7 @@ Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL 
     > [!TIP]
     > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
     >
-    > FEL 2003 (28000): Klienten med IP-adress 123.456.789.0 har inte tillstånd att ansluta till servern.
+    > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server. (Klienten med IP-adress 123.456.789.0 har inte tillstånd att ansluta till servern.)
     >
     > Lös felet genom att se till att serverkonfigurationen matchar stegen i avsnittet Konfigurera en brandväggsregel på servernivå i artikeln.
 
@@ -175,18 +175,18 @@ Gör så här om du vill ansluta till servern med användargränssnittsverktyget
 
 2. Skapa en ny anslutning. Välj plus ikonen (+) bredvid rubriken **MySQL-anslutningar** .
 
-3. I dialogrutan **Konfigurera ny anslutning** anger du informationen om serveranslutningen på fliken **Parametrar**. Platshållarvärden visas som ett exempel. Ersätt Värddatornamn, Användarnamn och Lösenord med dina egna värden.
+3. I dialog rutan **Konfigurera ny anslutning** anger du din server anslutnings information på fliken **parametrar** . plats hållarnas värden visas som exempel. Ersätt Värddatornamn, Användarnamn och Lösenord med dina egna värden.
 
    ![Skapa en ny anslutning](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
     |Inställning |Föreslaget värde|Fältbeskrivning|
     |---|---|---|
-     Namn på anslutning | Demoanslutning | En etikett för anslutningen. |
+     Anslutningsnamn | Demoanslutning | En etikett för anslutningen. |
     Anslutningsmetod | Standard (TCP/IP) | Standard (TCP/IP) är tillräckligt. |
-    Värddatornamn | *Servernamn* | Det värde för servernamn som du använde tidigare när du skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständiga domännamnet ( **\*.mysql.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.|
+    Värdnamn | *Servernamn* | Det värde för servernamn som du använde tidigare när du skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständigt kvalificerade domän namnet ( **\*. mysql.Database.Azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.|
      Port | 3306 | Den port som ska användas vid anslutning till din Azure Database för MySQL-server. |
-    Användarnamn |  *Inloggning för serveradministratör* | Den inloggningsinformation för serveradministratör som du uppgav tidigare när du skapade Azure Database för MySQL-server. Vårt exempel-användar namn är **\@mydemoserver**. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@Server*namn.
-    lösenordsinställning | *Ditt lösenord* | Välj **lagra i valv** för att spara lösen ordet. |
+    Användarnamn |  *Inloggning för serveradministratör* | Den inloggningsinformation för serveradministratör som du uppgav tidigare när du skapade Azure Database för MySQL-server. Vårt exempel användar namn är **\@mydemoserver**. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@servername*.
+    Lösenord | *Ditt lösenord* | Välj **lagra i valv** för att spara lösen ordet. |
 
 4. Välj **Testanslutning** för att testa om alla parametrar är rätt konfigurerade. Välj **OK** för att spara anslutningen. 
 

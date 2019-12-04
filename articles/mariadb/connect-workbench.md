@@ -1,29 +1,29 @@
 ---
-title: Ansluta till Azure Database for MariaDB från MySQL Workbench
+title: Anslut med MySQL Workbench – Azure Database for MariaDB
 description: Den här snabbstarten förklarar hur du använder MySQL Workbench för att ansluta till och fråga efter data från Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 8f2ae27e19acb5bf324202b463d2b3027ad2ea5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2018
+ms.openlocfilehash: 85a38fe3e2d17eb53d1ed5f8f231898849bd01db
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60936250"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772069"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: Använda MySQL Workbench för att ansluta och fråga efter data
 
 Den här snabbstarten visar hur du ansluter till en Azure Database for MariaDB-instans med MySQL Workbench. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 
-- [Skapa en Azure Database for MariaDB-server med Azure-portalen](./quickstart-create-mariadb-server-database-using-azure-portal.md)
-- [Skapa en Azure Database for MariaDB-server med hjälp av Azure CLI](./quickstart-create-mariadb-server-database-using-azure-cli.md)
+- [Skapa en Azure Database for MariaDB-server med hjälp av Azure-portalen](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [Skapa en Azure Database for MariaDB-server med Azure CLI](./quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 ## <a name="install-mysql-workbench"></a>Installera MySQL Workbench
 
@@ -33,7 +33,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 
 Skaffa den information som du behöver för att ansluta till Azure Database för MariaDB-instansen. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **Alla resurser** på menyn längst till vänster i Azure-portalen. Sök sedan efter den server som du skapade (som **mydemoserver**).
 
@@ -57,7 +57,7 @@ För att ansluta till en Azure Database for MariaDB-server med MySQL Workbench g
    | Anslutningsmetod | **Standard (TCP/IP)** | Standard (TCP/IP) är tillräckligt. |
    | Värdnamn | *servernamn* | Ange det servernamnsvärde som du använde när du skapade Azure Database for MariaDB-instansen. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet (\*.mariadb.database.azure.com) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.  |
    | Port | **3306** | Använd alltid port 3306 när du ansluter till Azure Database för MariaDB. |
-   | Användarnamn |  *inloggning för serveradministratör* | Ange inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-instans. Vårt exempel användarnamnet är **myadmin\@mydemoserver**. Om du inte kommer ihåg inloggningsnamnet som serveradministratör följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformationen. Formatet är *användarnamn\@servername*.
+   | Användarnamn |  *inloggning för serveradministratör* | Ange inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-instans. Vårt exempel användar namn är min **admin\@mydemoserver**. Om du inte kommer ihåg inloggningsnamnet som serveradministratör följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformationen. Formatet är *användar namn\@servername*.
    | Lösenord | *ditt lösenord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
 
    ![Skapa en ny anslutning](./media/connect-workbench/2-setup-new-connection.png)

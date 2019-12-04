@@ -1,5 +1,5 @@
 ---
-title: Använd Java för att ansluta till Azure Database for MySQL
+title: Anslut med Java-Azure Database for MySQL
 description: Den här snabb starten innehåller ett Java-kod exempel som du kan använda för att ansluta och fråga efter data från en Azure Database for MySQL databas.
 author: ajlam
 ms.author: andrela
@@ -7,19 +7,19 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/08/2019
-ms.openlocfilehash: 9df95a754d4bd423ddd7f57c634b86bd33e906ca
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.date: 12/02/2019
+ms.openlocfilehash: 5f463434261dd782bb180f55986cc0f05c71cbe9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155520"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770755"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Snabbstart: Använd Java för att ansluta till och fråga efter data i Azure Database for MySQL
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd Java för att ansluta till och fråga efter data i Azure Database for MySQL
 
 Den här snabb starten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett Java-program och JDBC [-drivrutinen MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Den här artikeln förutsätter att du är van att utveckla i Java och att du saknar erfarenhet av Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 1. I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
    - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
    - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -40,7 +40,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
  ![Azure Database för MySQL-servernamn](./media/connect-java/azure-database-mysql-server-name.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av en funktion med en **INSERT**-SQL-instruktion. Metoden [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) används för att ansluta till MySQL. Metoderna [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) och execute() används för att släppa och skapa tabellen. Objektet prepareStatement används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden executeUpdate() infogar värdena genom att kommandot körs för varje uppsättning parametrar. 
+Använd följande kod för att ansluta och läsa in data med hjälp av en funktion med SQL-instruktionen **INFOGA**. Metoden [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) används för att ansluta till MySQL. Metoderna [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) och execute() används för att släppa och skapa tabellen. Objektet prepareStatement används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden executeUpdate() infogar värdena genom att kommandot körs för varje uppsättning parametrar. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
 

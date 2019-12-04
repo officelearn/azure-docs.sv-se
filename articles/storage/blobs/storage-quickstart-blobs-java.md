@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 27fbd0084f9f8c91ee83802efe6a96213363b78f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: b5a59e51190fc8309d35445fba7ef4a2dd22b970
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422051"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770449"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för Java
 
@@ -46,7 +46,7 @@ Det här avsnittet beskriver hur du förbereder ett projekt för att arbeta med 
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett Java Core-program med namnet *BLOB-snabb start-V12*.
+Skapa ett Java-program med namnet *BLOB-snabb start-V12*.
 
 1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du Maven för att skapa en ny konsol app med namnet *BLOB-snabb start-V12*. Skriv följande **mvn** -kommando på en enda rad för att skapa en enkel "Hello World!" Java-projekt. Kommandot visas här på flera rader för läsbarhet.
 

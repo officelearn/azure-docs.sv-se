@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använd Java för att ansluta till Azure Database for PostgreSQL-enskild server'
+title: Ansluta till Java-Azure Database for PostgreSQL-enskild server
 description: Den här snabb starten innehåller ett Java-kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
@@ -8,17 +8,17 @@ ms.custom: seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: b729881d30248bb4c3a717d70009cd68da91cf94
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 269eb1fe744a31f1f4501c5790e06c1a5e06bab6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211835"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767899"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabbstart: Använd Java för att ansluta till och fråga efter data i Azure Database for PostgreSQL-enskild server
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd Java för att ansluta till och fråga efter data i Azure Database for PostgreSQL-enskild server
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Java och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa DB – Portal](quickstart-create-server-database-portal.md)
 - [Skapa DB – Azure CLI](quickstart-create-server-database-azure-cli.md)

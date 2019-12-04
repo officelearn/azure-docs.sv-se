@@ -1,6 +1,6 @@
 ---
-title: Använd Ruby för att ansluta till Azure Database för PostgreSQL – enskild Server
-description: Den här snabbstarten finns ett Ruby kodexempel som du kan använda för att ansluta och fråga efter data från Azure Database för PostgreSQL – enskild Server.
+title: Ansluta till ruby – Azure Database for PostgreSQL-enskild server
+description: Den här snabb starten innehåller ett ruby-kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,24 +8,24 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 242f5724e81f9b8ac6177e5c9d3844b3fab9a7f2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5dd4cfe9bee0db6f14f736c79fe91770641008fb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067285"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766913"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Azure Database för PostgreSQL – enskild Server: Använda Ruby för att ansluta och fråga mot data
+# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL-enskild server: Använd ruby för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Ruby och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa DB – Portal](quickstart-create-server-database-portal.md)
 - [Skapa DB – Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 Du måste också ha installerat:
 - [Ruby](https://www.ruby-lang.org/en/downloads/)
-- Ruby pg, PostgreSQL-modulen för Ruby
+- Ruby PG, PostgreSQL-modulen för ruby
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Hämta den information som du behöver för att ansluta till Azure Database för PostgreSQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
@@ -37,7 +37,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
  ![Azure Database for PostgreSQL-servernamn](./media/connect-ruby/1-connection-string.png)
 
 > [!NOTE]
-> Den `@` symbolen i Azure Postgres användarnamnet har url-kodad som `%40` i alla anslutningssträngar. 
+> `@`s symbolen i Azure postgres-användarnamnet har varit URL-kodad som `%40` i alla anslutnings strängar. 
 
 ## <a name="connect-and-create-a-table"></a>Ansluta och skapa en tabell
 Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE**-SQL-instruktionen följt av **INSERT INTO**-SQL-instruktioner för att lägga till rader i tabellen.

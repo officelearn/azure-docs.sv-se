@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/12/2019
+ms.date: 12/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 06ebe8ed22453289fa02c238d9b2e6ef13191f2a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 912fd6bde4d00cca304a1506465a524cda947a07
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888550"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769854"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 > Registreringsprocessen kan ta lite tid att slutföra.
 >
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 För registrerings steg med portalen öppnar du en Cloud Shell-session som anges ovan och följer dessa Azure CLI-steg:
 
@@ -77,7 +77,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 1. Skriv **Azure NetApp Files** i sökrutan Azure Portal och välj sedan **Azure NetApp Files** i listan som visas.
 
@@ -90,7 +90,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 3. I fönstret nytt NetApp-konto anger du följande information: 
    1. Ange **myaccount1** som konto namn. 
    2. Välj din prenumeration.
-   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK**. 
+   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK** 
    4. Välj din konto plats.  
 
       ![Fönstret nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
@@ -161,7 +161,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 1. Från bladet Azure NetApp Files hantering väljer du ditt NetApp-konto (**myaccount1**).
 
@@ -180,7 +180,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     2. Välj **Premium** för Service nivån. 
     3. Ange **4 (TIB)** som pool-storlek. 
 
-5. Klicka på **OK**.
+5. Klicka på **OK**
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +224,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="create-nfs-volume-for-azure-netapp-files"></a>Skapa NFS-volym för Azure NetApp Files
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 1. Från bladet Azure NetApp Files hantering i ditt NetApp-konto klickar du på **volymer**.
 
@@ -257,9 +257,6 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     * Välj NFS-version (**NFSv3** eller **nfsv 4.1**) för volymen.  
       Se [överväganden](azure-netapp-files-create-volumes.md#considerations) och [bästa praxis](azure-netapp-files-create-volumes.md#best-practice) om NFS-versioner. 
       
-> [!IMPORTANT] 
-> Åtkomst till NFSv 4.1-funktionen kräver vit listning.  Skicka en begäran till <anffeedback@microsoft.com>för att begära vit listning. 
-
   ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Klicka på **Granska + skapa**.
@@ -366,7 +363,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att ta bort en resurs grupp går inte att ångra.  
 

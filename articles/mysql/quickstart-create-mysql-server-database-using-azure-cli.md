@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Azure Database for MySQL-server – Azure CLI'
+title: 'Snabb start: skapa en server – Azure CLI – Azure Database for MySQL'
 description: I den här snabbstarten beskrivs hur du använder Azure CLI till att skapa en Azure Database för MySQL-server i en Azure-resursgrupp.
 author: ajlam
 ms.author: andrela
@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160399"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773542"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Snabbstart: Skapa en Azure Database för MySQL-server med Azure CLI
+# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Snabb start: skapa en Azure Database for MySQL-server med Azure CLI
 
 > [!TIP]
-> Överväg att använda den enklare [az mysql in](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI-kommando (för närvarande i förhandsversion). Prova att använda den [snabbstarten](./quickstart-create-server-up-azure-cli.md).
+> Överväg att använda det enklare [AZ MySQL](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) med Azure CLI-kommandot (för närvarande i för hands version). Prova [snabb](./quickstart-create-server-up-azure-cli.md)starten.
 
 I den här snabbstarten beskrivs hur du använder Azure CLI till att skapa en Azure Database för MySQL-server i en Azure-resursgrupp på ungefär fem minuter. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
 
@@ -51,13 +51,13 @@ namn | mydemoserver | Välj ett unikt namn för Azure Database för MySQL-server
 resource-group | myresourcegroup | Ange namnet på Azure-resursgruppen.
 sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Se under tabellen för mer information om parametern sku-name.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35. 
-geo-redundant-backup | Har inaktiverats | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Tillåtna värden: Aktiverad, inaktiverad.
-location | usavästra | Azure-platsen för servern.
-ssl-enforcement | Enabled | Om ssl ska aktiveras eller inte för den här servern. Tillåtna värden: Aktiverad, inaktiverad.
+geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Tillåtna värden: Enabled, Disabled.
+location | westus | Azure-platsen för servern.
+ssl-enforcement | Enabled | Om ssl ska aktiveras eller inte för den här servern. Tillåtna värden: Enabled, Disabled.
 storage-size | 51200 | Serverns lagringskapacitet (enheten är megabyte). En giltig storage-size är minst 5 120 MB och ökar i steg om 1 024 MB. Se dokumentet med [prisnivåer](./concepts-pricing-tiers.md) för mer information om storleksgränser för lagring. 
 version | 5.7 | Huvudversion för MySQL.
 admin-user | myadmin | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-admin-password | *säkert lösenord* | Lösenordet för administratörsanvändaren. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror och icke-alfanumeriska tecken.
+admin-password | *säkert lösenord* | Lösenordet för administratörsanvändaren. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
 
 
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
@@ -208,7 +208,7 @@ mysql>
 |---|---|---|
 |   Anslutningsnamn | Min anslutning | Ange ett namn på anslutningen (det kan vara vad som helst) |
 | Anslutningsmetod | välj Standard (TCP/IP) | Använda TCP/IP-protokollet för att ansluta till Azure Database för MySQL > |
-| Värddatornamn | mydemoserver.mysql.database.azure.com | Servernamn som du antecknade tidigare. |
+| Värdnamn | mydemoserver.mysql.database.azure.com | Servernamn som du antecknade tidigare. |
 | Port | 3306 | Standardporten för MySQL används. |
 | Användarnamn | myadmin@mydemoserver | Inloggning för serveradministratör som du antecknade tidigare. |
 | Lösenord | **** | Ange lösenordet som du konfigurerade tidigare. |

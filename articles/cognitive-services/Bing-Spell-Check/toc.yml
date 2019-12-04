@@ -1,5 +1,5 @@
 - name: Dokumentation för API för stavningskontroll i Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Översikt
   items:
     - name: Vad är API för stavningskontroll i Bing?

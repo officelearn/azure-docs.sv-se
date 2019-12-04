@@ -1,5 +1,5 @@
 - name: Dokumentation om Bing Visual Search
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Översikt
   items:
     - name: Vad är API för Bing Visual Search?

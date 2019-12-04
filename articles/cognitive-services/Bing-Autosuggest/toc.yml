@@ -1,5 +1,5 @@
 - name: Dokumentation för Automatiska förslag i Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Översikt
   items:
     - name: Vad är Automatiska förslag i Bing?

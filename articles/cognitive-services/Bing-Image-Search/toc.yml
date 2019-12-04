@@ -1,5 +1,5 @@
 - name: Dokumentation om Bing-bildsöknings-API
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: Översikt
   expanded: true
   items:

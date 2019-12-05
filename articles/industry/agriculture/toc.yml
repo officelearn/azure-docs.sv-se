@@ -21,6 +21,8 @@
   items:
     - name: Distribuera FarmBeats
       href: prepare-for-deployment.md
+    - name: Hantera användare
+      href: manage-users.md
     - name: Hantera lantbruk
       href: manage-farms.md
     - name: Hämta sensordata

@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/14/2019
 ms.author: yulili
-ms.openlocfilehash: 36e48a5d513daa951c1e92017ba9a2322b009703
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503411"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818474"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -69,7 +69,7 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
    ![Skapa en fil](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
-1. Infoga prenumerations information för tal tjänster.
+1. Infoga prenumerationsinformationen för taltjänsten.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
    Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommando paletten (Ctrl + Shift + P) och ange **python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.
@@ -86,7 +86,7 @@ Om det finns problem med att följa dessa anvisningar finns den mer omfattande [
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

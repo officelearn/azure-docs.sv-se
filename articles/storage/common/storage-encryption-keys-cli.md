@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: df65267924cfbfdc856b81928c4b6d7029f61184
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fd3b7767bad104f4074b2460ecba3fe89d5a23e1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665975"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806634"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Konfigurera Kundhanterade nycklar för Azure Storage med hjälp av Azure CLI
 
@@ -91,7 +91,7 @@ az keyvault key create
 
 Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. Konfigurera ditt Azure Storage konto för Kundhanterade nycklar och ange nyckeln som ska associeras med lagrings kontot.
 
-Om du vill uppdatera lagrings kontots krypterings inställningar anropar du [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update). Det här exemplet frågar även efter Key Vault-URI: n och nyckel versionen, vars båda värden krävs för att associera nyckeln med lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
+Om du vill uppdatera lagrings kontots krypterings inställningar anropar du [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update). Det här exemplet frågar även efter Key Vault-URI: n och den senaste nyckel versionen, båda värdena som krävs för att associera nyckeln med lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -102,7 +102,7 @@ key_vault_uri=$(az keyvault show \
 key_version=$(az keyvault key list-versions \
     --name <key> \
     --vault-name <key-vault> \
-    --query [].kid \
+    --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 az storage account update 
     --name <storage-account> \

@@ -8,12 +8,12 @@ ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: dd2b3bd584bb39810e0a5c9acde1a961330c273d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093766"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819135"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrera Azure-Datautforskaren med Azure Data Factory
 
@@ -99,7 +99,7 @@ I följande tabell visas de behörigheter som krävs för olika steg i integrati
 |   | Importera schema | *databas visare* <br>Tjänstens huvud namn måste ha behörighet att läsa metadata för databasen. | När ADX är källan till en tabell kopia, kommer ADF att importera schemat automatiskt, även om användaren inte har importerat schemat explicit. |
 | **ADX som mottagare** | Skapa en kolumn mappning per namn | *databas övervakare* <br>Tjänstens huvud namn måste ha behörighet att köra `.show`-kommandon på databas nivå. | <ul><li>Alla obligatoriska åtgärder fungerar med *Table*-inmatnings plats.</li><li> Vissa valfria åtgärder kan inte utföras.</li></ul> |
 |   | <ul><li>Skapa en CSV-mappning i tabellen</li><li>Ta bort mappningen</li></ul>| *tabell* inmatnings-eller *databas administratör* <br>Tjänstens huvud namn måste ha behörighet att göra ändringar i en tabell. | |
-|   | Mata in data | *tabell* inmatnings-eller *databas administratör* <br>Tjänstens huvud namn måste ha behörighet att göra ändringar i en tabell. | | 
+|   | För in data | *tabell* inmatnings-eller *databas administratör* <br>Tjänstens huvud namn måste ha behörighet att göra ändringar i en tabell. | | 
 | **ADX som källa** | Kör fråga | *databas visare* <br>Tjänstens huvud namn måste ha behörighet att läsa metadata för databasen. | |
 | **Kusto-kommando** | | Enligt behörighets nivån för varje kommando. |
 
@@ -118,13 +118,90 @@ Det här avsnittet behandlar användningen av kopierings aktivitet där Azure Da
 | **Data bearbetnings komplexitet** | Svars tiden varierar beroende på käll fils format, kolumn mappning och komprimering.|
 | **Den virtuella datorn som kör integrerings körningen** | <ul><li>För Azure Copy går det inte att ändra ADF VM och Machine SKU: er.</li><li> För lokal till Azure Copy kontrollerar du att den virtuella datorn som är värd för din egen IR-överföring är tillräckligt stark.</li></ul>|
 
-## <a name="monitor-activity-progress"></a>Övervaka aktivitets förlopp
+## <a name="tips-and-common-pitfalls"></a>Tips och vanliga fall GRO par
+
+### <a name="monitor-activity-progress"></a>Övervaka aktivitets förlopp
 
 * När du övervakar aktivitets förloppet kan den *data skrivna* egenskapen vara mycket större än egenskapen *läsa data* eftersom *data som läses* beräknas enligt den binära fil storleken, medan data som *skrivs* beräknas enligt minnes storleken i minnet efter att data har deserialiserats och expanderats.
 
 * När du övervakar aktivitets förloppet kan du se att data skrivs till Azure Datautforskaren-mottagaren. När du frågar Azure Datautforskaren-tabellen ser du att data inte har anlänt. Det beror på att det finns två steg när du kopierar till Azure Datautforskaren. 
     * Första steget läser källdata, delar upp dem till 900 MB-segment och överför varje segment till en Azure-blob. Det första steget visas i vyn ADF-aktivitets förlopp. 
     * Det andra steget börjar när alla data har laddats upp till Azure-blobar. Azure Datautforskaren Engine-noderna laddar ned blobarna och matar in data i tabellen mottagare. Data visas sedan i Azure Datautforskaren-tabellen.
+
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Det gick inte att mata in CSV-filer på grund av felaktiga undantag
+
+Azure-Datautforskaren förväntar CSV-filer som överensstämmer med [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
+Den förväntar sig:
+* Fält som innehåller tecken som kräver undantag (till exempel "och nya rader) måste börja och sluta med ett **"** -tecken, utan blank steg. Alla **"** tecken *inuti* fältet är undantagna genom att använda ett dubbelt **"** tecken ( **""** ). Till exempel _"Hello," "World" "_ är en giltig CSV-fil med en enda post med en kolumn eller ett fält med innehållet _Hej," världen "_ .
+* Alla poster i filen måste ha samma antal kolumner och fält.
+
+Azure Data Factory tillåter ett omvänt snedstreck (Escape). Om du genererar en CSV-fil med ett omvänt snedstreck med hjälp av Azure Data Factory, kommer det inte att gå att mata in filen till Azure Datautforskaren.
+
+#### <a name="example"></a>Exempel
+
+Följande text värden: Hej, "världen"<br/>
+ABC-DEF<br/>
+"ABC\D" EF<br/>
+"ABC DEF<br/>
+
+Ska visas i en korrekt CSV-fil på följande sätt: "Hello," "World" "<br/>
+"ABC DEF"<br/>
+"" "ABC DEF"<br/>
+"" "ABC\D" "EF"<br/>
+
+Genom att använda standard escape-tecken (omvänt snedstreck) fungerar inte följande CSV med Azure Datautforskaren: "Hello, \"World\""<br/>
+"ABC DEF"<br/>
+"\"ABC DEF"<br/>
+"\"ABC\D\"EF"<br/>
+
+### <a name="nested-json-objects"></a>Kapslade JSON-objekt
+
+Tänk på följande när du kopierar en JSON-fil till Azure Datautforskaren:
+* Matriser stöds inte.
+* Om JSON-strukturen innehåller objekt data typer, kommer Azure Data Factory att förenkla objektets underordnade objekt och försöka mappa varje underordnat objekt till en annan kolumn i Azure Datautforskaren-tabellen. Om du vill att hela objekt objekt ska mappas till en enda kolumn i Azure Datautforskaren:
+    * Mata in hela JSON-raden i en enda dynamisk kolumn i Azure Datautforskaren.
+    * Redigera pipeline-definitionen manuellt genom att använda Azure Data Factorys JSON-redigerare. I **mappningar**
+       * Ta bort de flera mappningarna som har skapats för varje underordnat objekt och Lägg till en enda mappning som mappar din objekt typ till din tabell kolumn.
+       * Efter den avslutande hakparentesen lägger du till ett kommatecken följt av:<br/>
+       `"mapComplexValuesToString": true`.
+
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Ange AdditionalProperties när du kopierar till Azure Datautforskaren
+
+> [!NOTE]
+> Den här funktionen är för närvarande tillgänglig genom att redigera JSON-nyttolasten manuellt. 
+
+Lägg till en enskild rad under avsnittet "Sink" i kopierings aktiviteten enligt följande:
+
+```json
+"sink": {
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+},
+```
+
+Det kan vara knepigt att begränsa antalet undantag i värdet. Använd följande kodfragment som referens:
+
+```csharp
+static void Main(string[] args)
+{
+       Dictionary<string, string> additionalProperties = new Dictionary<string, string>();
+       additionalProperties.Add("ignoreFirstRecord", "false");
+       additionalProperties.Add("csvMappingReference", "Table1_mapping_1");
+       IEnumerable<string> ingestIfNotExists = new List<string> { "Part0001" };
+       additionalProperties.Add("ingestIfNotExists", JsonConvert.SerializeObject(ingestIfNotExists));
+       IEnumerable<string> tags = new List<string> { "ingest-by:Part0001", "ingest-by:IngestedByTest" };
+       additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
+       var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
+       Console.WriteLine(additionalPropertiesForPayload);
+       Console.ReadLine();
+}
+```
+
+Det utskrivna värdet:
+
+```json
+{"ignoreFirstRecord":"false","csvMappingReference":"Table1_mapping_1","ingestIfNotExists":"[\"Part0001\"]","tags":"[\"ingest-by:Part0001\",\"ingest-by:IngestedByTest\"]"}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

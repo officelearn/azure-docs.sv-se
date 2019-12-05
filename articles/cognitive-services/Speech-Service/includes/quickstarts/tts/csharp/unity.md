@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 281fbcf3f42160b18adcad3f06f6ef4a7b8de243
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f3b3d68e0154913e3eb6d101965ad33530502954
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502928"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818317"
 ---
 > [!NOTE]
 > Uniting stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -64,7 +64,7 @@ När du är klar bör användar gränssnittet se ut ungefär som den här skärm
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Leta upp och ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster.
+1. Leta upp och ersätt strängen `YourSubscriptionKey` med prenumerations nyckeln för röst tjänsten.
 
 1. Leta upp och ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Regionen är till exempel `westus` om du använder den kostnads fria utvärderings versionen.
 
@@ -98,7 +98,7 @@ Se [exempel lagrings platsen](https://aka.ms/csspeech/samples) i mappen snabb st
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 585828855cdbd3a585ced1aa6803482c3f26f0f4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 74fcce412b2673a3ec9e4809cef018f1afbc3530
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121588"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812835"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Ta bort TLS 1,0 och 1,1 från användning med Azure cache för Redis
 
@@ -33,7 +33,7 @@ De flesta program använder Redis-klient bibliotek för att hantera kommunikatio
 
 Redis .NET-klienter använder den tidigaste TLS-versionen som standard på .NET Framework 4.5.2 eller tidigare och använder den senaste TLS-versionen på .NET Framework 4,6 eller senare. Om du använder en äldre version av .NET Framework kan du Aktivera TLS 1,2 manuellt:
 
-* **Stackexchange. Redis:** Ange `ssl=true` och `sslprotocls=tls12` i anslutnings strängen.
+* **Stackexchange. Redis:** Ange `ssl=true` och `sslprotocols=tls12` i anslutnings strängen.
 * **ServiceStack. Redis:** Följ [anvisningarna för ServiceStack. Redis](https://github.com/ServiceStack/ServiceStack.Redis/pull/247).
 
 ### <a name="net-core"></a>.NET Core

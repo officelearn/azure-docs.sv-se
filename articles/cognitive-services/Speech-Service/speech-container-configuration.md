@@ -1,7 +1,7 @@
 ---
 title: Konfigurera tal behållare
 titleSuffix: Azure Cognitive Services
-description: Tal tjänster tillhandahåller varje behållare med ett gemensamt konfigurations ramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri och säkerhets inställningar för dina behållare.
+description: Tal tjänsten tillhandahåller varje behållare med ett gemensamt konfigurations ramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri och säkerhets inställningar för dina behållare.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f68bf989202c209f89ea273fee8d7610a49415ed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075744"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816569"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurera tal tjänst behållare
 
@@ -78,10 +78,10 @@ Standard tal behållarna använder inte indata eller utdata monteras för att la
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](speech-container-howto.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter.
 
-| Valfri | Namn | Datatyp | Beskrivning |
+| Valfritt | Namn | Datatyp | Beskrivning |
 | -------- | ---- | --------- | ----------- |
-| Tillåts inte | `Input` | Sträng | Standard tal behållare använder inte detta. Anpassade tal behållare använder [volym monteringar](#volume-mount-settings).                                                                                    |
-| Valfri | `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Inte tillåten | `Input` | Sträng | Standard tal behållare använder inte detta. Anpassade tal behållare använder [volym monteringar](#volume-mount-settings).                                                                                    |
+| Valfritt | `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Volym monterings inställningar
 

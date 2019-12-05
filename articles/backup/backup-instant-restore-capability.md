@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c87dc98ddd1d5799f3363d7574063ef752fd8239
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172346"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806379"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -21,7 +21,7 @@ Den nya modellen för omedelbar återställning ger följande funktions förbät
 
 * Möjlighet att använda ögonblicks bilder som tagits som en del av ett säkerhets kopierings jobb som är tillgängligt för återställning utan att vänta på att data överförs till valvet att slutföras. Det minskar vänte tiden för ögonblicks bilder som ska kopieras till valvet innan återställningen utlöses.
 * Minskar antalet säkerhets kopierings-och återställnings tider genom att behålla ögonblicks bilderna lokalt, under två dagar som standard. Standardvärdet för kvarhållning av ögonblicks bilder kan konfigureras till ett värde mellan 1 och 5 dagar.
-* Stöder disk storlekar upp till 4 TB. Att ändra storlek på diskar rekommenderas inte av Azure Backup. Om du vill registrera dig för en begränsad, allmän för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB och upp till 30 TB i storlek, se [säkerhets kopiering av virtuell dator med disk storlekar upp till 30 TB](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+* Stöder disk storlekar upp till 32 TB. Att ändra storlek på diskar rekommenderas inte av Azure Backup.
 * Stöder Standard SSD diskar tillsammans med Standard HDD diskar och Premium SSD diskar.
 * Möjlighet att använda en ohanterad virtuell dators ursprungliga lagrings konton (per disk) när du återställer. Den här funktionen finns även när den virtuella datorn har diskar som är distribuerade över lagrings konton. Den påskyndar återställnings åtgärder för en mängd olika VM-konfigurationer.
 * För säkerhets kopiering av virtuella datorer som använder Premium Storage, med omedelbar återställning, rekommenderar vi att du allokerar *50%* ledigt utrymme för det totala allokerade lagrings utrymmet, vilket **endast** krävs för den första säkerhets kopieringen. Det lediga utrymmet på 50% är inte ett krav för säkerhets kopieringar när den första säkerhets kopieringen har slutförts.
@@ -78,7 +78,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 Standard kvarhållning av ögonblicks bilder för varje princip är inställd på två dagar. Användaren kan ändra värdet till minst 1 och högst fem dagar. För vecko Visa-principer är kvarhållning av ögonblicks bilder åtgärdat till fem dagar.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Vilka är kostnads konsekvenserna för omedelbar återställning?
 

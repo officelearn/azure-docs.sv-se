@@ -1,7 +1,7 @@
 ---
 title: Stream codec Compressed Audio med talet SDK på iOS
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du direktuppspelar komprimerat ljud till Azure Speech Services med talet SDK på iOS.
+description: Lär dig hur du direktuppspelar komprimerat ljud till tal tjänsten med talet SDK på iOS.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1d78c690fd07eb974418f0ea17d71d1f394d863d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109579"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805866"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Gör så här: Använd codec-komprimerad ljud inspelning med talet SDK på iOS
 
@@ -42,7 +42,7 @@ För att bygga det här omslutnings biblioteket måste du först ladda ned och i
 
 Build-steget genererar ett dynamiskt Framework-paket med ett dynamiskt bibliotek för alla nödvändiga arkitekturer med namnet på `GStreamerWrapper.framework`.
 
-Det här ramverket måste inkluderas i alla appar som använder komprimerade ljud strömmar med Speech Services SDK.
+Det här ramverket måste inkluderas i alla appar som använder komprimerade ljud strömmar med Speech service SDK.
 
 Använd följande inställningar i ditt Xcode-projekt för att göra detta:
 
@@ -54,7 +54,7 @@ Använd följande inställningar i ditt Xcode-projekt för att göra detta:
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exempel kod med codec komprimerad ljud inspelning
 
-Skapa en `SPXPullAudioInputStream` eller `SPXPushAudioInputStream`för att strömma i ett komprimerat ljud format till tal tjänsterna.
+Om du vill strömma i ett komprimerat ljud format till tal tjänsten skapar du en `SPXPullAudioInputStream` eller `SPXPushAudioInputStream`.
 
 Följande fragment visar hur du skapar en `SPXAudioConfiguration` från en instans av en `SPXPushAudioInputStream`, genom att ange MP3 som komprimerings format för data strömmen.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Översätt tal-till-text-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: c45e75038d1731c933ccf8bf26f9de573e409292
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cd45657beacd04eb2376af3e4297eae051157778
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502788"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816931"
 ---
 I den här snabb starten ska du använda [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till text på ett annat språk. När ett fåtal krav har uppfyllts tar översättning av tal till text bara fem steg:
 > [!div class="checklist"]

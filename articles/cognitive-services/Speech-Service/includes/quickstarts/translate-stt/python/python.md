@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: Översätt tal till tal, python-tal-tjänsten'
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -9,14 +9,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 679690c495f18a489c6fab11a18182c83ca1577f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e45777e8af75d568a98dd649159379a5d9c9a6f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503089"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816843"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -89,7 +89,7 @@ Innan du börjar ska du se till att:
    python quickstart.py
    ```
 
-2. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsterna, som översätter och omvandlar till text (i det här fallet till tyska). Tal tjänsterna skickar sedan tillbaka texten till programmet för visning.
+2. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsten som översätter och omvandlar till text (i det här fallet till tyska). Tal tjänsten skickar sedan tillbaka texten till programmet för visning.
 
    ````
    Say something...

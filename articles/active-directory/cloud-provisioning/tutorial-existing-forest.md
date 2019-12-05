@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d26fa3540edc4647bb7ba8091c9f0ac22b296bbc
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bf151b98c813feba9de317879106718551b11f9d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793523"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814475"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrera en befintlig skog och en ny skog med en enda Azure AD-klient
 
@@ -53,22 +53,25 @@ I det här scenariot synkroniseras en befintlig skog med hjälp av Azure AD Conn
    - För certifikat validering, avblockera följande URL: er: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**och **www\.Microsoft.com:80**. Eftersom dessa URL: er används för certifikat validering med andra Microsoft-produkter kan dessa URL: er vara avblockerade.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agenten
-1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder [Basic AD-och Azures miljö](tutorial-basic-ad-azure.md) vägledning är det DC1.
-2. Hämta Azure AD Connect etablerings agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Kör Azure AD Connect etablerings agenten (AADConnectProvisioningAgent. Installer)
-3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
+1. Logga in på den domänanslutna servern.  Om du använder [Basic AD-och Azures miljö](tutorial-basic-ad-azure.md) vägledning är det DC1.
+2. Logga in på Azure Portal med endast molnbaserad autentiseringsuppgifter för globala administratörer.
+3. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)** .</br>
+![Azure-portalen](media/how-to-install/install6.png)</br>
+4. Klicka på "Ladda ned agent"
+5. Kör Azure AD Connect etablerings agenten
+6. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
 ![Välkomstskärmen](media/how-to-install/install1.png)</br>
 
-4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
-5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
+7. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
+8. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
 ![Välkomstskärmen](media/how-to-install/install3.png)</br>
 
-6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
+9. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
 ![Välkomstskärmen](media/how-to-install/install4.png)</br>
 
-7. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
+10. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
 ![Välkomstskärmen](media/how-to-install/install5.png)</br>
-8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
+11. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
 
 
 ## <a name="verify-agent-installation"></a>Verifiera agent installation

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3d9826e3eae2a60b217df1406d26d83c78fbdefb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a826bb01a906153b4ca2a3c854623c83b6192aec
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67673546"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829176"
 ---
 Följ stegen nedan för att skapa en VNet i Resource Manager-distributionsmodellen med hjälp av Azure Portal. Skärmbilderna anges som exempel. Glöm inte att byta ut värdena mot dina egna. Mer information om hur du arbetar med virtuella nätverk finns i [Översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,10 +22,12 @@ Följ stegen nedan för att skapa en VNet i Resource Manager-distributionsmodell
 >
 >
 
-1. Navigera till [Azure-portalen](https://portal.azure.com) från en webbläsare och logga in med ditt Azure-konto vid behov.
-2. Klicka på **+** . I fältet **Sök marknadsplats** skriver du "Virtuella nätverk". Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).  På Azure Portal-menyn eller på **Start** sidan och välj **skapa en resurs**. Sidan **Nytt** öppnas.
 
-   ![Hitta Virtual Network resurs Sidan](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "Hitta resurs sidan för virtuella nätverk")
+2. I **Sök på Marketplace**anger du *virtuellt nätverk* och väljer **Virtual Network** i resultaten.
+
+   ![Hitta Virtual Network resurs Sidan](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/search-marketplace-for-virtual-network.png "Hitta resurs sidan för virtuella nätverk")
+
 3. I listan **Välj en distributionsmodell** nästan längst ned på sidan Virtuellt nätverk väljer du **Resource Manager** och klickar sedan på **Skapa**.
 
    ![Välj Resource Manager](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/resourcemanager250.png "Välj Resource Manager")

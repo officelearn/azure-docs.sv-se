@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: ee7a03f27ab03feadedb7ac8441675a90468655c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ab8ef516e5434ac5a9cde9324798d8dd1706a04e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535813"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807416"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Hantera meddelanden om planerat underhåll
 
@@ -80,7 +80,7 @@ Det är bäst att använda självbetjänings underhåll i följande fall:
 
 **A:** Virtuella datorer som distribueras i en tillgänglighets uppsättning eller skalnings uppsättningar för virtuella datorer har begreppet uppdaterings domäner (UD). När du utför underhåll följer Azure UD-begränsningen och startar inte om virtuella datorer från olika UD (inom samma tillgänglighets uppsättning).  Azure väntar också i minst 30 minuter innan det flyttas till nästa grupp med virtuella datorer. 
 
-Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella datorer i Azure](/linux/availability.md).
+Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella datorer i Azure](./linux/availability.md).
 
 **F: Hur gör jag för att få ett meddelande om planerat underhåll?**
 
@@ -92,7 +92,7 @@ Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella 
 
 **F: är det något sätt att veta exakt när min virtuella dator påverkas?**
 
-**A:** När du anger ett schema definierar vi en tids period på flera dagar. Men den exakta ordningsföljden av servrar (och virtuella datorer) i det här fönstret är okänd. Kunder som vill veta exakt hur lång tid det tar för sina virtuella datorer att använda [schemalagda händelser](/linux/scheduled-events.md) och frågor från den virtuella datorn och få en 15 minuters avisering innan en virtuell dator startas om.
+**A:** När du anger ett schema definierar vi en tids period på flera dagar. Men den exakta ordningsföljden av servrar (och virtuella datorer) i det här fönstret är okänd. Kunder som vill veta exakt hur lång tid det tar för sina virtuella datorer att använda [schemalagda händelser](./linux/scheduled-events.md) och frågor från den virtuella datorn och få en 15 minuters avisering innan en virtuell dator startas om.
 
 **F: hur lång tid tar det att starta om min virtuella dator?**
 

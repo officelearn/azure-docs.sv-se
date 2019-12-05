@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: ba0e04d4dadd9d3a4bea41aeb0a66b37f454f030
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5d0e0a7f693df87e754383a123dc1cebfdd94c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503257"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818376"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -32,7 +32,7 @@ Innan du börjar ska du se till att:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/text-to-speech/helloworld.cpp#code)]
 
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster i den nya filen.
+1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
@@ -87,7 +87,7 @@ Innan du börjar ska du se till att:
    ./helloworld
    ```
 
-1. I konsol fönstret visas en uppslags ruta där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till tal tjänsterna och syntetiskt till tal, som spelas upp på din talare.
+1. I konsol fönstret visas en uppslags ruta där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till tal tjänsten och syntetiskt till tal, som spelas upp på din talare.
 
    ```text
    Type some text that you want to speak...
@@ -100,7 +100,7 @@ Innan du börjar ska du se till att:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

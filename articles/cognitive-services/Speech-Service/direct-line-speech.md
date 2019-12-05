@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 72029d1d56c9d561e629cc750244fd7de8ec113a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507180"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806226"
 ---
 # <a name="about-direct-line-speech"></a>Om direkt linje tal
 
@@ -50,7 +50,7 @@ Exempel kod för att skapa en röst assistent finns på GitHub. Dessa exempel av
 
 ## <a name="customization"></a>Anpassning
 
-Röst assistenter som skapats med hjälp av Azure Speech Services kan använda alla anpassnings alternativ som är tillgängliga för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](speech-devices-sdk-create-kws.md).
+Röst assistenter som skapats med hjälp av tal tjänsten kan använda det fullständiga urvalet av anpassnings alternativ för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
@@ -64,7 +64,7 @@ Direkt linje tal och dess tillhör ande funktioner för röst assistenter är et
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 * [Hämta tal-SDK](speech-sdk.md)
 * [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Hämta lösningen för virtuella assistenter och företags mallar](https://github.com/Microsoft/AI)

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: f04ad388922ad7f73bf4409f9a846291cbb08da3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 651a30bbcba7b4d4f5d00765c651be73953cd748
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774016"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815493"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
-Tal-till-text från Azure Speech Services, även kallat tal-till-text, aktiverar real tids avskrift av ljud strömmar till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder för som kommando indata. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter och fungerar sömlöst med översättning och text till tal. En fullständig lista över tillgängliga tal-till-text-språk finns i [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Tal-till-text från tal-tjänsten, som även kallas tal-till-text, aktiverar real tids avskrift av ljud strömmar till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder på som kommando indata. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter och fungerar sömlöst med översättning och text till tal. En fullständig lista över tillgängliga tal-till-text-språk finns i [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Som standard använder tal-till-text-tjänsten den universella språk modellen. Den här modellen tränade med Microsoft-ägda data och distribueras i molnet. Det är optimalt för konversations-och dikterings scenarier. Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär.
 
@@ -54,7 +54,7 @@ Om du föredrar att använda funktionen för att använda tal-till-text-REST gå
 
 ## <a name="tutorials-and-sample-code"></a>Självstudier och exempel kod
 
-När du har haft möjlighet att använda tal tjänsterna kan du prova vår självstudie som lär dig hur du kan identifiera avsikter från tal med hjälp av talet SDK och LUIS.
+När du har haft möjlighet att använda tal tjänsten kan du prova vår självstudie som lär dig hur du identifierar avsikter från tal med hjälp av talet SDK och LUIS.
 
 - [Självstudie: identifiera avsikter från tal med talet SDK och LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
 
@@ -65,7 +65,7 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 
 ## <a name="customization"></a>Anpassning
 
-Förutom standard bas linje modellen som används av tal tjänsterna kan du anpassa modeller efter dina behov med tillgängliga data, för att undvika hinder för tal igenkänning, till exempel tal format, vokabulär och bakgrunds ljud, se [Custom Speech](how-to-custom-speech.md)
+Förutom standard bas linje modellen som används av tal tjänsten kan du anpassa modeller efter dina behov med tillgängliga data, för att undvika hinder för tal igenkänning, till exempel tal format, vokabulär och bakgrunds ljud, se [Custom Speech](how-to-custom-speech.md)
 
 > [!NOTE]
 > Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
@@ -75,10 +75,10 @@ Förutom standard bas linje modellen som används av tal tjänsterna kan du anpa
 > [!WARNING]
 > Taligenkänning i Bing togs ur bruk den 15 oktober 2019.
 
-Om dina program, verktyg eller produkter använder Taligenkänning i Bing-API: er eller Custom Speech har vi skapat guider som hjälper dig att migrera till tal tjänster.
+Om dina program, verktyg eller produkter använder Taligenkänning i Bing-API: er eller Custom Speech har vi skapat guider som hjälper dig att migrera till tal tjänsten.
 
-- [Migrera från Taligenkänning i Bing till tal tjänsterna](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-- [Migrera från Custom Speech till tal tjänsterna](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+- [Migrera från Taligenkänning i Bing till tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+- [Migrera från Custom Speech till tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## <a name="reference-docs"></a>Referensdokument
 
@@ -90,5 +90,5 @@ Om dina program, verktyg eller produkter använder Taligenkänning i Bing-API: e
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+- [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 - [Hämta tal-SDK](speech-sdk.md)

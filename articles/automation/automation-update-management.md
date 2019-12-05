@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du använder Azure Uppdateringshant
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66acb1284f0814eec91715284259272a065dbae2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690898"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806549"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -40,7 +40,7 @@ Följande diagram illustrerar hur lösningen utvärderar och tillämpar säkerhe
 
 ![Uppdateringshantering process flöde](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Uppdateringshantering kan användas för att internt publicera datorer i flera prenumerationer i samma klient organisation.
+Du kan använda Uppdateringshantering till att internt registrera datorer i flera prenumerationer hos samma klientorganisation.
 
 När ett paket har frigjorts tar det 2 till 3 timmar innan korrigeringen visas för Linux-datorer för utvärdering. För Windows-datorer tar det 12 till 15 timmar innan korrigeringen visas för utvärderingen när den har släppts.
 
@@ -69,7 +69,7 @@ En dator som är registrerad för Uppdateringshantering i fler än en Log Analyt
 
 ## <a name="clients"></a>Klienter
 
-### <a name="supported-client-types"></a>Klient typer som stöds
+### <a name="supported-client-types"></a>Stöds klienttyper
 
 I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i installations guiderna för att installera en [Windows-hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) och en [Linux-hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
@@ -85,17 +85,17 @@ I följande tabell visas de operativ system som stöds för utvärdering av uppd
 > Skalnings uppsättningar för virtuella Azure-datorer kan hanteras via Uppdateringshantering. Uppdateringshantering fungerar på själva instanserna och inte på bas avbildningen. Du måste schemalägga uppdateringarna på ett stegvist sätt så att alla VM-instanser inte uppdateras samtidigt.
 > Du kan lägga till noder för skalnings uppsättningar för virtuella datorer genom att följa stegen under [publicera en icke-Azure-dator](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
-### <a name="unsupported-client-types"></a>Klient typer som inte stöds
+### <a name="unsupported-client-types"></a>Klientappar typer
 
 I följande tabell visas operativ system som inte stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.        |
+|Windows-klient     | Klientoperativsystem (till exempel Windows 7 och Windows 10) stöds inte.        |
 |Windows Server 2016 Nano Server     | Stöds ej.       |
 |Azure Kubernetes service-noder | Stöds ej. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
-### <a name="client-requirements"></a>Klient krav
+### <a name="client-requirements"></a>Klientkrav
 
 Följande information beskriver OS-särskilda klient krav. Ytterligare vägledning finns i [nätverks planering](#ports).
 
@@ -132,13 +132,13 @@ Lösningen består av följande resurser. Resurserna läggs till i ditt Automati
 
 När du har aktiverat den här lösningen konfigureras en Windows-dator som är direkt ansluten till din Log Analytics-arbetsyta automatiskt som en Hybrid Runbook Worker för att stödja Runbooks som ingår i den här lösningen.
 
-Varje Windows-dator som hanteras av lösningen visas i rutan **hybrid Worker-grupper** som en **system hybrid Worker-grupp** för Automation-kontot. Lösningarna använder namn konventionen *FQDN_GUID* Naming. Du kan inte rikta de här grupperna med Runbooks i ditt konto. Om du försöker, Miss lyckas försöket. De här grupperna är avsedda att endast stödja hanterings lösningen.
+Varje Windows-dator som hanteras av lösningen visas i rutan **hybrid Worker-grupper** som en **system hybrid Worker-grupp** för Automation-kontot. Lösningarna använder *värdnamn FQDN_GUID* namngivnings konvention. Du kan inte rikta de här grupperna med Runbooks i ditt konto. Om du försöker, Miss lyckas försöket. De här grupperna är avsedda att endast stödja hanterings lösningen.
 
 Du kan lägga till Windows-datorer i en Hybrid Runbook Worker grupp i ditt Automation-konto för att stödja Automation-runbooks om du använder samma konto för både lösningen och Hybrid Runbook Worker grupp medlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 
 ### <a name="management-packs"></a>Hanteringspaket
 
-Om din System Center Operations Manager hanterings grupp är ansluten till en Log Analytics arbets yta installeras följande hanterings paket i Operations Manager. Dessa hanterings paket installeras också på direktanslutna Windows-datorer när du har lagt till lösningen. Du behöver inte konfigurera eller hantera dessa hanterings paket.
+Om din hanteringsgrupp för System Center Operations Manager är ansluten till Log Analytics-arbetsytan installeras därefter följande hanteringspaket i Operations Manager. Dessa hanteringspaket installeras också på direktanslutna Windows-datorer när du lägger till lösningen. Du behöver inte konfigurera eller hantera dessa hanteringspaket.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -162,7 +162,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | Windows-agenter |Ja |Lösningen samlar in information om system uppdateringar från Windows-agenter och initierar sedan installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Lösningen samlar in information om system uppdateringar från Linux-agenter och initierar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
+| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
@@ -170,7 +170,7 @@ En sökning utförs två gånger per dag för varje hanterad Windows-dator. Var 
 
 En sökning utförs varje timme för varje hanterad Linux-dator.
 
-Det kan ta mellan 30 minuter och 6 timmar för instrument panelen att Visa uppdaterade data från hanterade datorer.
+Det kan ta mellan 30 minuter och 6 timmar innan instrumentpanelen visar uppdaterade data för de datorer som hanteras.
 
 Den genomsnittliga data användningen per Azure Monitor loggar för en dator som använder Uppdateringshantering är cirka 25 megabyte (MB) per månad. Det här värdet är bara en uppskattning och kan komma att ändras, beroende på din miljö. Vi rekommenderar att du övervakar din miljö för att hålla koll på din exakta användning.
 
@@ -178,12 +178,12 @@ Den genomsnittliga data användningen per Azure Monitor loggar för en dator som
 
 Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen med de här adresserna sker via port 443.
 
-|Offentlig Azure-  |Azure Government  |
+|Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*. azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update. Du hittar en uppdaterad lista med nödvändiga slut punkter i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -211,7 +211,7 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ![Uppdateringar som saknas](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Uppdaterings klassificeringar
+## <a name="update-classifications"></a>Uppdatera klassificeringar
 
 I följande tabeller visas uppdaterings klassificeringarna i Uppdateringshantering, med en definition för varje klassificering.
 

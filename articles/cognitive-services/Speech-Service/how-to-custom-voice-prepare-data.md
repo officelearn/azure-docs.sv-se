@@ -1,7 +1,7 @@
 ---
 title: Förbereda data för anpassade röst tal tjänster
 titleSuffix: Azure Cognitive Services
-description: Skapa en anpassad röst för ditt varumärke med Speech service. Du anger Studio-inspelningar och tillhör ande skript, genererar tjänsten en unik röst modell som är anpassad till den inspelade rösten. Använd den här rösten för att syntetisera tal i dina produkter, verktyg och program.
+description: Skapa en anpassad röst för ditt varumärke med röst tjänsten. Du anger Studio-inspelningar och tillhör ande skript, genererar tjänsten en unik röst modell som är anpassad till den inspelade rösten. Använd den här rösten för att syntetisera tal i dina produkter, verktyg och program.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464504"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805985"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Förbereda data för att skapa en anpassad röst
 
-När du är redo att skapa en anpassad text till tal-röst för ditt program är det första steget att samla in ljud inspelningar och tillhör ande skript för att börja träna röst modellen. Tjänsten använder dessa data för att skapa en unik röst som passar rösten i inspelningarna. När du har tränat rösten kan du börja syntetisera tal i dina program.
+När du är redo att skapa en anpassad text till tal-röst för ditt program är det första steget att samla in ljud inspelningar och tillhör ande skript för att börja träna röst modellen. Tal tjänsten använder dessa data för att skapa en unik röst som passar rösten i inspelningarna. När du har tränat rösten kan du börja syntetisera tal i dina program.
 
 Du kan börja med en liten mängd data för att skapa ett koncept bevis. Men mer data som du anger, desto mer naturlig kommer din anpassade röst att ljud. Innan du kan träna din egen text till tal-röst modell behöver du ljud inspelningar och tillhör ande text avskrifter. På den här sidan granskar vi data typer, hur de används och hur du hanterar dem.
 
@@ -31,7 +31,7 @@ I vissa fall kanske du inte har rätt data uppsättning klar och vill testa den 
 
 Den här tabellen innehåller data typer och hur de används för att skapa en anpassad röst modell för text till tal.
 
-| Datatyp | Beskrivning | När du ska använda detta | Ytterligare tjänst krävs | Kvantitet för träning av en modell | Språk (er) |
+| Datatyp | Beskrivning | Används till att | Ytterligare tjänst krävs | Kvantitet för träning av en modell | Språk (er) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
 | **Individuell yttranden + matchande avskrift** | En samling (. zip) av ljudfiler (. wav) som enskilda yttranden. Varje ljudfil bör vara högst 15 sekunder, länkad med en formaterad avskrift (. txt). | Professionella inspelningar med matchande avskrifter | Redo för utbildning. | Inget hård krav för en-US och zh-CN. Fler än 2000 + distinkta yttranden för andra språk. | [Alla anpassade röst inställningar](language-support.md#customization) |
 | **Långt ljud + avskrift (beta)** | En samling (. zip) av långa, segmenterade ljudfiler (längre än 20 sekunder), kopplad till en avskrift (. txt) som innehåller alla talade ord. | Du har ljudfiler och matchande avskrifter, men de är inte segmenterade i yttranden. | Segmentering (med batch-avskriftering).<br>Omvandling av ljud format där det behövs. | Inget hård krav  | [Alla anpassade röst inställningar](language-support.md#customization) |
@@ -60,7 +60,7 @@ Följ dessa rikt linjer när du förbereder ljud.
 | Egenskap | Värde |
 | -------- | ----- |
 | Fil format | RIFF (. wav), grupperad i en. zip-fil |
-| Samplings frekvens | Minst 16 000 Hz |
+| Samplingsfrekvens | Minst 16 000 Hz |
 | Exempel format | PCM, 16-bitars |
 | Filnamn | Numeriskt, med fil namns tillägget. wav. Inga dubbla fil namn tillåts. |
 | Ljud längd | Kortare än 15 sekunder |
@@ -123,7 +123,7 @@ Avskrifter måste förberedas enligt de specifikationer som anges i den här tab
 | Fil format | Oformaterad text (. txt), grupperad i en. zip |
 | Filnamn | Använd samma namn som den matchande ljud filen |
 | Kodnings format | UTF-8-endast struktur |
-| antal yttrande per rad | Obegränsad |
+| antal yttrande per rad | Obegränsat |
 | Maximal filstorlek | 2048 MB |
 
 Alla avskrifts filer i den här data typen ska grupperas i en zip-fil. Du har till exempel laddat upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45 sekunder och en annan med namnet "queenstory. mp3", 200 sekunder lång. Du måste ladda upp en annan zip-fil som innehåller två avskrifter, en med namnet "kingstory. txt", den andra som är queenstory. txt. I varje oformaterad textfil kommer du att ange en fullständig korrekt avskrift för det matchande ljudet.

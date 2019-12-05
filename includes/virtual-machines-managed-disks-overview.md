@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796297"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829018"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -37,7 +37,7 @@ Hanterade diskar har stöd för [Tillgänglighetszoner](../articles/availability
 
 ### <a name="azure-backup-support"></a>Azure Backup support
 
-För att skydda mot regionala haverier kan [Azure Backup](../articles/backup/backup-overview.md) användas för att skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar och säkerhets kopierings principer. På så sätt kan du utföra enkla VM-återställningar. För närvarande Azure Backup stöder disk storlekar upp till fyra tebibyte-diskar (TiB).  Azure Backup stöder säkerhets kopiering och återställning av hanterade diskar. [Läs mer](../articles/backup/backup-support-matrix-iaas.md) om stöd för säkerhets kopiering av virtuella Azure-datorer.
+För att skydda mot regionala haverier kan [Azure Backup](../articles/backup/backup-overview.md) användas för att skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar och säkerhets kopierings principer. På så sätt kan du utföra enkla VM-återställningar. Azure Backup stöder säkerhets kopiering och återställning av hanterade diskar. [Läs mer](../articles/backup/backup-support-matrix-iaas.md) om stöd för säkerhets kopiering av virtuella Azure-datorer.
 
 ### <a name="granular-access-control"></a>Detaljerad åtkomst kontroll
 
@@ -61,7 +61,7 @@ Hanterade diskar erbjuder två olika typer av kryptering. Det första är Server
 
 Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella datorer för IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 
-## <a name="disk-roles"></a>Disk roller
+## <a name="disk-roles"></a>Diskroller
 
 Det finns tre huvudsakliga disk roller i Azure: data disken, OS-disken och den temporära disken. Dessa roller mappar till diskar som är kopplade till den virtuella datorn.
 
@@ -117,9 +117,9 @@ Följande diagram illustrerar allokering av bandbredd och IOPS i real tid med hj
 
 Etablering på första nivån anger bandbredds tilldelning per disk och bandbredd.  På den andra nivån implementerar Compute Server-värden SSD-etablering, som endast använder den på data som lagras på serverns SSD, som innehåller diskar med cachelagring (ReadWrite och ReadOnly) samt lokala och temporära diskar. Slutligen sker etablering av virtuella dator nätverk på den tredje nivån för alla I/O som beräknings värden skickar till Azure Storage Server delen. Med det här schemat är prestandan för en virtuell dator beroende av en mängd olika faktorer, från hur den virtuella datorn använder den lokala SSD-enheten, till antalet diskar som är anslutna, samt typ av prestanda och cachelagring för de diskar som är anslutna.
 
-Som exempel på dessa begränsningar hindras en virtuell Standard_DS1v1-dator från att uppnå 5 000 IOPS-potentialen hos en P30-disk, oavsett om den är cachelagrad eller inte, på grund av gränser på SSD-och nätverks nivåerna:
+Som ett exempel på dessa begränsningar hindras en Standard_DS1v1 VM från att uppnå 5 000 IOPS-potentialen på en P30 disk, oavsett om den är cachelagrad eller inte, på grund av gränser på SSD-och nätverks nivåerna:
 
-![Standard_DS1v1 exempel fördelning](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+![Standard_DS1v1 exempel tilldelning](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
 
 Azure använder prioriterad nätverks kanal för disk trafik, som får företräde framför annan låg prioritet för nätverks trafik. Detta hjälper diskar att underhålla sina förväntade prestanda i händelse av nätverks innehåll. På samma sätt hanterar Azure Storage resurs innehåll och andra problem i bakgrunden med automatisk belastnings utjämning. Azure Storage allokerar nödvändiga resurser när du skapar en disk och tillämpar proaktiv och återaktiv utjämning av resurser för att hantera trafik nivån. Detta säkerställer att diskar kan hantera sina förväntade IOPS-och data flödes mål. Du kan använda mått på VM-nivå och disk nivå för att spåra prestanda-och installations aviseringar efter behov.
 

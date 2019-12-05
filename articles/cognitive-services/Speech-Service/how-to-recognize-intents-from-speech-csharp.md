@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 1c61f8c0fe1c2a04d390567cc0bc94f22bc5e897
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110156"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805900"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Identifiera avsikter från tal med hjälp av tal-SDK förC#
 
@@ -44,7 +44,7 @@ Se till att du har följande saker innan du börjar den här guiden:
 
 ## <a name="luis-and-speech"></a>LUIS och tal
 
-LUIS integreras med tal tjänsterna för att identifiera avsikter från tal. Du behöver inte en prenumerations tjänst prenumeration, bara LUIS.
+LUIS integreras med Speech-tjänsten för att identifiera avsikter från tal. Du behöver inte en Speech-tjänstprenumeration, bara LUIS.
 
 LUIS använder tre typer av nycklar:
 
@@ -56,7 +56,7 @@ LUIS använder tre typer av nycklar:
 
 Du behöver en slut punkts nyckel typ för den här guiden. Den här guiden använder LUIS-appen för hem automatisering, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
 
-När du skapar en LUIS-app genererar LUIS automatiskt en start nyckel så att du kan testa appen med hjälp av text frågor. Den här nyckeln aktiverar inte integrering av tal tjänster och fungerar inte med den här guiden. Skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnads fria prenumerations nivån för den här guiden.
+När du skapar en LUIS-app genererar LUIS automatiskt en start nyckel så att du kan testa appen med hjälp av text frågor. Den här nyckeln aktiverar inte röst tjänst integrering och fungerar inte med den här guiden. Skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnads fria prenumerations nivån för den här guiden.
 
 När du har skapat LUIS-resursen på Azure-instrumentpanelen loggar du in på [Luis-portalen](https://www.luis.ai/home), väljer ditt program på sidan **Mina appar** och växlar sedan till appens **hanterings** sida. Slutligen väljer du **nycklar och slut punkter** i sido panelen.
 
@@ -128,7 +128,7 @@ Följande avsnitt innehåller en beskrivning av koden.
 Först måste du skapa en tal konfiguration från LUIS slut punkts nyckel och region. Du kan använda tal konfigurationer för att skapa igenkänningar för de olika funktionerna i tal-SDK: n. Tal konfigurationen har flera olika sätt att ange den prenumeration som du vill använda. här använder vi `FromSubscription`, som tar prenumerations nyckeln och regionen.
 
 > [!NOTE]
-> Använd nyckel och region för din LUIS-prenumeration, inte en prenumeration på tal tjänster.
+> Använd nyckel och region för din LUIS-prenumeration, inte en röst tjänst prenumeration.
 
 Nästa steg är att skapa en avsiktsigenkännare med hjälp av `new IntentRecognizer(config)`. Eftersom konfigurationen redan vet vilken prenumeration som ska användas, behöver du inte ange prenumerations nyckeln och slut punkten igen när du skapar tolken.
 

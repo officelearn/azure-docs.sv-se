@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 47120c6b6fee945938ac5348091be55795077f6c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e38b1bdd3258675dfac9a155f7cee338a1f8f806
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503341"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818458"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -59,7 +59,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt även strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri utvärderingsversion).
+1. Ersätt även strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
@@ -81,7 +81,7 @@ Ange en text och tryck på knappen i programmet för att starta ett tal syntes a
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

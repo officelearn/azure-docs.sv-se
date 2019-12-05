@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal, avsikter och entiteter – tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: df4604560e05899461b11ec0788f72b27241f1b9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a87ed9355a5939393fd5e20f395cc96f35e7f150
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125619"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816080"
 ---
 I den här snabb starten kommer du att använda [tal-SDK: n](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt identifiera tal från ljuddata som fångats från en mikrofon. Efter att ha uppfyllt några krav, tar igenkänning av tal från en mikrofon bara fyra steg:
 > [!div class="checklist"]

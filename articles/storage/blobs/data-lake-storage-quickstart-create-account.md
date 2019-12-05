@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 57350bd00a33c36b5aef3a0ccd3034b4db3d2c55
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e8deb8ed16186862349cecf70c9d617a4ad30399
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227954"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806906"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Skapa ett Azure Data Lake Storage Gen2-lagringskonto
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 |           | Krav |
 |-----------|--------------|
-|Portal     | Ingen         |
+|Portalen     | Inget         |
 |PowerShell | Den här artikeln kräver PowerShell-modulen AZ. Storage version **0,7** eller senare. Kör kommandot `Get-Module -ListAvailable Az.Storage` för att hitta din nuvarande version. Om du har kört det här kommandot visas inga resultat eller om en version som är lägre än **0,7** visas måste du uppgradera din PowerShell-modul. Se avsnittet [Uppgradera powershell-modulen](#upgrade-your-powershell-module) i den här guiden.
 |CLI        | Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt: <ul><li>Du kan köra CLI-kommandon från Azure-portalen, i Azure Cloud Shell </li><li>Du kan installera CLI och köra CLI-kommandon lokalt</li></ul>|
 
@@ -35,7 +35,7 @@ När du arbetar på kommandoraden kan du välja om du vill köra Azure Cloud She
 
 ### <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
 
-Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure Portal. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn längst upp till höger i Azure Portal:
+Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn längst upp till höger i Azure-portalen:
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -58,13 +58,13 @@ Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Skapa ett konto med hjälp av Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. Den här artikeln visar hur du skapar en ny resurs grupp.
 
-Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure Portal:
+Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure-portalen:
 
 > [!NOTE]
 > Den hierarkiska namnrymden är för närvarande tillgänglig i alla offentliga regioner.
@@ -87,7 +87,7 @@ Nu har ditt lagringskonto skapats via Portal.
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort en resursgrupp med Azure Portal:
+Ta bort en resursgrupp med Azure-portalen:
 
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
 2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen **Mer** ( **...** ) till höger om listan.
@@ -199,7 +199,7 @@ az storage account create `
     --location westus2 `
     --sku Standard_LRS `
     --kind StorageV2 `
-    --hierarchical-namespace true
+    --enable-hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser

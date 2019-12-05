@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110702"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814853"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -65,11 +65,32 @@ Den gamla data uppsättningen och den nya data uppsättningen måste kombineras 
 
 Om du har anpassat och distribuerat en modell med baseline V 1.0, kommer distributionen att förbli oförändrad. Kunder kan inaktivera den distribuerade modellen, omanpassa med den nya versionen av bas linjen och distribuera om.
 
+**F: kan jag hämta min modell och köra den lokalt?**
+
+**A**: det går inte att ladda ned och köra modeller lokalt.
+
+**F: loggas mina förfrågningar?**
+
+**A**: du kan välja när du skapar en distribution för att stänga av spårningen. Då kommer inget ljud eller avskrifter att loggas. Annars loggas förfrågningar vanligt vis i Azure i säkert lagrings utrymme.
+
+**F: är mina förfrågningar begränsade?**
+
+S **: REST API**begränsar begär anden till 25 per 5 sekunder. Information finns på våra sidor för [tal till text](speech-to-text.md).
+
+**F: hur jag debiteras för ljud med dubbla kanaler?**
+
+**A**: om du skickar varje kanal separat (varje kanal i en egen fil) debiteras du per fil varaktighet. Om du skickar en enskild fil med varje kanal som är multiplexad tillsammans debiteras du för den enskilda filens varaktighet.
+
+> [!IMPORTANT]
+> Om du har ytterligare sekretess problem som hindrar dig från att använda tjänsten för anpassad röst kontaktar du en av support kanalerna.
+
+## <a name="increasing-concurrency"></a>Ökande samtidighet
+
 **F: Vad händer om jag behöver högre samtidighet för min distribuerade modell än vad som erbjuds i portalen?**
 
 **A**: du kan skala upp din modell i steg om 20 samtidiga begär Anden.
 
-Kontakta [tal support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) om du behöver en högre skala.
+Med den information som krävs skapar du en support förfrågan på [Azure-support portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Publicera inte informationen på någon av de offentliga kanalerna (GitHub, StackOverflow,...) som nämns på [support Sidan](support.md).
 
 För att öka samtidigheten för en ***anpassad modell***behöver vi följande information:
 
@@ -97,25 +118,6 @@ eller
   - från de visade tjänsterna väljer du den tal tjänst som du vill att samtidigheten ska höjas för.
   - Visa `Properties` för den här tjänsten,
   - Kopiera hela `Resource ID`.
-
-**F: kan jag hämta min modell och köra den lokalt?**
-
-**A**: det går inte att ladda ned och köra modeller lokalt.
-
-**F: loggas mina förfrågningar?**
-
-**A**: du kan välja när du skapar en distribution för att stänga av spårningen. Då kommer inget ljud eller avskrifter att loggas. Annars loggas förfrågningar vanligt vis i Azure i säkert lagrings utrymme.
-
-**F: är mina förfrågningar begränsade?**
-
-S **: REST API**begränsar begär anden till 25 per 5 sekunder. Information finns på våra sidor för [tal till text](speech-to-text.md).
-
-**F: hur jag debiteras för ljud med dubbla kanaler?**
-
-**A**: om du skickar varje kanal separat (varje kanal i en egen fil) debiteras du per fil varaktighet. Om du skickar en enskild fil med varje kanal som är multiplexad tillsammans debiteras du för den enskilda filens varaktighet.
-
-> [!IMPORTANT]
-> Om du har ytterligare sekretess problem som hindrar dig från att använda tjänsten för anpassad röst kontaktar du en av support kanalerna.
 
 ## <a name="importing-data"></a>Importera data
 
@@ -189,7 +191,7 @@ S **: samla**in data som är så nära program scenariot och användnings fallet
 
 **F: vilka tal upplevelser förbättras av klient organisations modellen?**
 
-**A:** När klient organisations modellen är aktive rad, skapas och publiceras, används den för att förbättra igenkänningen för alla företags program som skapats med Speech service. Det kan också skicka en användare AAD-token som anger medlemskap i företaget.
+**A:** När klient organisations modellen är aktive rad, skapas och publiceras, används den för att förbättra igenkänningen för alla företags program som skapats med tal tjänsten. Det kan också skicka en användare AAD-token som anger medlemskap i företaget.
 
 De tal upplevelser som är inbyggda i Office 365, t. ex. Diktering och PowerPoint-textning, ändras inte när du skapar en klient modell för dina tal tjänst program.
 

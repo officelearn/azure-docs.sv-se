@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891466"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806617"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
 
@@ -42,7 +42,7 @@ Kör företags program i Azure på Oracle-operativsystem som stöds. Följande a
 
 * 12.1.2 för Oracle WebLogic-Server
 
-* Oracle Linux (UEK) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 och 7,6
+* Oracle Linux med den hårda företags kärnan (UEK) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 och 7,6 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Alternativ för hög tillgänglighet och haveri beredskap
 
@@ -70,7 +70,7 @@ Köra Oracle-program i Azure-infrastrukturen, anslutna till backend-databaser i 
 Använd terraform-mallar för att ställa in Azure-infrastrukturen och installera Oracle-program som verifierats och stöds för att köras i konfigurationen mellan molnet:
 
 * E-Business Suite
-* JD Edwards-EnterpriseOne
+* JD Edwards EnterpriseOne
 * PeopleSoft
 * Oracle återförsäljarversion-program
 * Ekonomisk hantering för Oracle Hyperion
@@ -91,3 +91,5 @@ Distribution av Oracle-program i Azure baseras på en "ta med din egen licens"-m
 * Lär dig mer om att distribuera [VM-avbildningar](oracle-vm-solutions.md) i Azure-infrastrukturen.
 
 * Lär dig mer om att ansluta [Azure med OCI](oracle-oci-overview.md).
+
+* Kolla in [Oracle i Azure Overview-sessionen](https://myignite.techcommunity.microsoft.com/sessions/82915) från antändning 2019. 

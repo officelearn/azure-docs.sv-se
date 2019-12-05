@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: f38e23f0648d802ba7b09391d6f6bbd0c093d989
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 74b34a1d65f6beb097a649658c508da6ff48f1ac
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888179"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816598"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -30,13 +30,13 @@ ms.locfileid: "73888179"
 - Stöd för KeywordRecognizer i Windows (UWP), Android och iOS via NuGet och Unity-paket
 - Java API för fjärrkonversation har lagts till för att göra konversations avskrifter i asynkrona batchar.
 
-**Bryta ändringar**
+**Större ändringar**
 
 - Konversations-och inskrifts funktioner flyttas under namn området Microsoft. CognitiveServices. tal. avskrift.
 - En del av metoderna för konversations beskrivare flyttas till en ny konversations klass.
 - Släppt stöd för 32-bitars (ARMv7 och x86) iOS
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Korrigering för krasch om lokal KeywordRecognizer används utan en giltig prenumerations nyckel för röst tjänst
 
@@ -59,7 +59,7 @@ ms.locfileid: "73888179"
 - TTS-stöd för uppspelning av OS för macOS, iOS och Android.
 - Information om Word-gränser för TTS har lagts till.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Fast IL2CPP build-problem på Unity 2019 för Android
 - Ett åtgärds fel med felaktigt utformade huvuden i WAV-filen har bearbetats felaktigt
@@ -99,7 +99,7 @@ ms.locfileid: "73888179"
   - Förbättrad fel rapportering: metoder som kan resultera i ett fel finns nu i två versioner: en som visar ett `NSError`-objekt för fel hantering och ett som aktiverar ett undantag. Den tidigare visas för Swift. Den här ändringen kräver anpassningar av befintlig SWIFT-kod.
   - Förbättrad händelse hantering
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Korrigering för TTS: där SpeakTextAsync framtida returneras utan att vänta tills ljudet har Render ATS
 - Korrigering för konvertering av strängar i C# för att aktivera stöd för fullständigt språk
@@ -114,7 +114,7 @@ ms.locfileid: "73888179"
 
 Detta är en fel korrigerings version och påverkar endast det inbyggda/hanterade SDK: n. Den påverkar inte JavaScript-versionen av SDK: n.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Åtgärda FromSubscription när den används med konversations avskriftering.
 - Åtgärda felet i Keyword upptäcka för röst assistenter.
@@ -139,7 +139,7 @@ Detta är en fel korrigerings version och påverkar endast det inbyggda/hanterad
 - Mål-C: `OutputFormat`-egenskapen har lagts till i SPXSpeechConfiguration.
 - SDK stöder nu Debian 9 som en Linux-distribution.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Ett problem har åtgärd ATS där högtalar resursen var destructed för tidigt i text-till-tal.
 
@@ -147,7 +147,7 @@ Detta är en fel korrigerings version och påverkar endast det inbyggda/hanterad
 
 Detta är en fel korrigerings version och påverkar endast det inbyggda/hanterade SDK: n. Den påverkar inte JavaScript-versionen av SDK: n.
 
-## <a name="speech-sdk-141"></a>Tal-SDK 1.4.1
+## <a name="speech-sdk-141"></a>Speech SDK 1.4.1
 
 Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följande korrigeringar har gjorts:
 
@@ -175,7 +175,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 - Om du vill ha ytterligare stöd för utveckling och fel sökning kan du omdirigera information om SDK-loggning och-diagnostik i en loggfil (mer information [här](how-to-use-logging.md)).
 - Java Script: förbättra prestanda för ljud bearbetning.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Mac/iOS: ett fel som ledde till en lång väntan på att det inte gick att upprätta en anslutning till röst tjänsten har åtgärd ATS.
 - Python: förbättra fel hanteringen för argument i python-motanrop.
@@ -193,7 +193,7 @@ Detta är en fel korrigerings version och påverkar endast det inbyggda/hanterad
 
 **Nya funktioner**
 
-- Tal-SDK: n stöder val av mikrofon för ingångs ljud via klassen AudioConfig. På så sätt kan du strömma ljud data till tal tjänsterna från en mikrofon som inte är standard. Mer information finns i dokumentationen som beskriver valet av [enhet för ljud inspelning](how-to-select-audio-input-devices.md). Den här funktionen är inte tillgänglig ännu från Java Script.
+- Tal-SDK: n stöder val av mikrofon för ingångs ljud via klassen AudioConfig. På så sätt kan du strömma ljud data till tal tjänsten från en mikrofon som inte är standard. Mer information finns i dokumentationen som beskriver valet av [enhet för ljud inspelning](how-to-select-audio-input-devices.md). Den här funktionen är inte tillgänglig ännu från Java Script.
 - Talet SDK stöder nu Unity i en beta version. Ge feedback via avsnittet ärende i GitHub- [exempel lagrings plats](https://aka.ms/csspeech/samples). Den här versionen stöder Unity på Windows x86 och x64 (Skriv bords-eller Universell Windows-plattform program) och Android (ARM32/64, x86). Mer information finns i vår [snabb start](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
 - Filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (levererades i tidigare versioner) behövs inte längre. Funktionerna är nu integrerade i kärn-SDK: n.
 
@@ -226,12 +226,12 @@ Följande nya innehåll är tillgängligt i vår [exempel lagrings plats](https:
 - Windows-DLL-filer innehåller nu en versions resurs.
 - Om du skapar en igenkännings `FromEndpoint` kan du lägga till parametrar direkt i slut punkts-URL: en. Med `FromEndpoint` kan du inte konfigurera tolken via standard konfigurations egenskaperna.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Tomt användar namn för proxy och proxy-lösenord hanterades inte korrekt. Om du ställer in proxy-användarnamn och proxy-lösenord till en tom sträng i den här versionen skickas de inte vid anslutning till proxyservern.
 - SessionId som skapats av SDK var inte alltid helt slumpmässigt för vissa språk&nbsp;/miljöer. Har lagt till en slumpmässig Generator initiering för att åtgärda problemet.
 - Förbättra hanteringen av autentiseringstoken. Om du vill använda en autentiseringstoken anger du i SpeechConfig och lämnar prenumerations nyckeln tom. Skapa sedan tolken som vanligt.
-- I vissa fall släpptes inte anslutningsobjektet korrekt. Det här problemet har åtgärd ATS.
+- I vissa fall släpptes inte anslutningsobjektet korrekt. Det här problemet har åtgärdats.
 - JavaScript-exemplet har åtgärd ATS för att stödja ljud utdata för översättnings syntes också i Safari.
 
 ## <a name="speech-sdk-121"></a>Tal-SDK 1.2.1
@@ -242,7 +242,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 - Åtgärda fel i ljud pumpen som inte schemalades nästa sändning om den aktuella sändningen misslyckades.
 - Åtgärda kontinuerlig igenkänning med auth-token.
 - Fel korrigering för olika tolkningar/slut punkter.
-- Förbättringar av dokumentation.
+- Dokumentation om förbättringar.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>1\.2.0 för tal-SDK: 2018 – december version
 
@@ -261,13 +261,13 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 - Android
   - Stöd för aktive rad proguard vid APK-generering.
 
-**Bättre**
+**Förbättringar**
 
 - Förbättringar i den interna tråd användningen, vilket minskar antalet trådar, lås, mutexer.
 - Förbättrad fel rapportering/information. I flera fall har fel meddelanden inte spridits ut hela vägen.
 - Uppdaterade utvecklings beroenden i Java Script för att använda aktuella moduler.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
 - Fasta minnes läckor på grund av typ matchnings fel i RecognizeAsync.
 - I vissa fall läcker undantag.
@@ -290,157 +290,157 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 **Nya funktioner**
 
 - Stöd för Android x86/x64.
-- Stöd för proxy: i SpeechConfig-objektet kan du nu anropa en funktion för att ange proxyinformation (värdnamn, port, användar namn och lösen ord). Den här funktionen är inte tillgänglig ännu på iOS.
-- Förbättrad felkod och meddelanden. Om ett igenkännings fel returnerade ett fel angav detta redan `Reason` (i avbruten händelse) eller `CancellationDetails` (i resultat igenkänning) för att `Error`. Den avbrutna händelsen innehåller nu två ytterligare medlemmar, `ErrorCode` och `ErrorDetails`. Om servern returnerade ytterligare fel information med det rapporterade felet är den nu tillgänglig i de nya medlemmarna.
+- Stöd för proxy: i SpeechConfig-objektet kan du nu anropa en funktion för att ange proxyinformation (värdnamn, port, användar namn och lösen ord). Den här funktionen är ännu inte tillgänglig på iOS.
+- Förbättrad felkod och meddelanden. Om ett erkännande returneras ett fel detta redan inställt `Reason` (i avbrutna händelse) eller `CancellationDetails` (i igenkänningsresultatet) till `Error`. Avbrutna händelsen innehåller nu två ytterligare medlemmar `ErrorCode` och `ErrorDetails`. Om servern returnerade ytterligare felinformation med rapporterade fel, nu blir tillgängliga i de nya medlemmarna.
 
-**Bättre**
+**Förbättringar**
 
-- Ytterligare kontroll har lagts till i igenkännings konfigurationen och ytterligare fel meddelande har lagts till.
-- Förbättrad hantering av lång tids tystnad i mitten av en ljudfil.
-- NuGet-paket: för .NET Framework-projekt förhindrar det att du skapar med AnyCPU-konfiguration.
+- Lägga till ytterligare verifiering i Igenkännande konfigurationen och har lagts till ytterligare ett felmeddelande.
+- Förbättrad hantering av sedan länge tystnad i mitten av en ljudfil.
+- NuGet-paketet: för .NET Framework-projekt, förhindras att bygga med Platform konfiguration.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
-- Det finns flera undantag i identifierarna. Dessutom fångas och konverteras undantag till avbrutna händelser.
-- Åtgärda en minnes läcka i egenskaps hantering.
-- Åtgärdat fel där en ljudfil i indatafilen skulle krascha tolken.
-- Ett fel har åtgärd ATS där händelser kan tas emot efter en händelse för att stoppa sessionen.
-- Vissa tävlings förhållanden har åtgärd ATS i trådar.
-- Åtgärdat kompatibilitetsproblem med iOS som kan resultera i en krasch.
-- Stabilitets förbättringar för stöd för Android-mikrofon.
-- Ett fel har åtgärd ATS där en tolk i Java Script skulle ignorera tolknings språket.
-- Åtgärdade ett fel som förhindrar inställning av EndpointId (i vissa fall) i Java Script.
-- Den ändrade parameter ordningen i AddIntent i Java Script och lagt till AddIntent JavaScript-signatur som saknas.
+- Fasta flera undantag finns i identifierare. Dessutom fångas och konverteras undantag till avbrutna händelser.
+- Åtgärda en minnesläcka i egenskapen management.
+- En bugg har åtgärdats där en inkommande ljudfil kan krascha identifieraren.
+- Ett fel har åtgärdats där händelser gick att ta emot när en session stop-händelse.
+- Fasta vissa konkurrenstillstånd i threading.
+- Fast en iOS kompatibilitetsproblem som kan resultera i en krasch.
+- Stabilitetsförbättringar för Android mikrofon support.
+- Ett fel har åtgärdats där en identifierare i JavaScript kan ignorera språket.
+- Åtgärdat en bugg som förhindrar att EndpointId (i vissa fall) i JavaScript.
+- Ändrade Parametrarnas ordning i AddIntent i JavaScript och har lagts till saknas AddIntent JavaScript-signaturen.
 
 **Exempel**
 
-- Lade C++ till C# och samplar för pull-och push-dataström-användning i [exempel lagrings platsen](https://aka.ms/csspeech/samples).
+- Lagt till C++ och C# samplea för pull och push stream-användning i den [exempellagringsplatsen](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-101"></a>1\.0.1 för tal-SDK
 
-Förbättringar av tillförlitlighet och fel korrigeringar:
+Förbättrad tillförlitlighet och felkorrigeringar:
 
-- Det gick inte att åtgärda allvarligt fel på grund av ett tävlings tillstånd i att identifiera igenkänning
-- Åtgärdat potentiellt allvarligt fel i händelse av unset egenskaper.
-- Ytterligare fel och parameter kontroll har lagts till.
-- Mål-C: åtgärdat allvarligt fel som orsakats av att namnet åsidosätts i NSString.
-- Mål-C: anpassad synlighet för API
-- Java Script: åtgärdat avseende händelser och deras nytto laster.
-- Förbättringar av dokumentation.
+- Fast potentiella allvarligt fel på grund av konkurrenstillstånd i tar bort Igenkännande
+- Fast potentiella allvarligt fel vid Odefinierad egenskaper.
+- Har lagts till ytterligare fel och kontroll av parametern.
+- Mål-C: fast möjliga allvarligt fel på grund av att namnet åsidosätta i NSString.
+- Mål-C: justeras synligheten för API: et
+- JavaScript: Fasta om händelser och sina nyttolaster.
+- Dokumentation om förbättringar.
 
-I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel för Java Script till.
+I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stickprov för JavaScript har lagts till.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0:2018 – september version
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services tal SDK 1.0.0: September 2018 versionen
 
 **Nya funktioner**
 
-- Stöd för mål-C på iOS. Kolla vår [mål-C-snabb start för iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
-- Stöd för Java Script i webbläsare. Kolla i vår [snabb start för Java Script](quickstart-js-browser.md).
+- Stöd för Objective-C på iOS. Kolla in våra [Objective-C-Snabbstart för iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
+- Stöd för JavaScript i webbläsaren. Kolla in våra [JavaScript Snabbstart](quickstart-js-browser.md).
 
-**Bryta ändringar**
+**Större ändringar**
 
 - I den här versionen introduceras ett antal avbrytande ändringar.
   Mer information finns på [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0:2018 – augusti utgåva
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services tal SDK 0.6.0: augusti 2018 versionen
 
 **Nya funktioner**
 
-- UWP-appar som skapats med Speech SDK kan nu skicka Windows app Certificate Kit (WACK).
-  Ta en titt på snabb starten för [UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp).
-- Stöd för .NET standard 2,0 på Linux (Ubuntu 16,04 x64).
-- Experimentell: stöder Java 8 på Windows (64-bitars) och Linux (Ubuntu 16,04 x64).
-  Kolla in [Java Runtime Environment snabb start](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre).
+- UWP-appar som skapats med SDK: N för tal nu kan skicka Windows App Certification Kit (WACK).
+  Kolla in den [UWP snabbstarten](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp).
+- Stöd för .NET Standard 2.0 på Linux (Ubuntu 16.04 x 64).
+- Experimentella: Stöd för Java 8 i Windows (64-bitars) och Linux (Ubuntu 16.04 x 64).
+  Kolla in den [Java Runtime Environment Snabbstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre).
 
-**Funktionell ändring**
+**Funktionella ändring**
 
-- Visa ytterligare information om fel information om anslutnings fel.
+- Exponera ytterligare detaljerad information om hur anslutningsfel.
 
-**Bryta ändringar**
+**Större ändringar**
 
-- I Java (Android) kräver funktionen `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` inte längre en Sök vägs parameter. Nu identifieras sökvägen automatiskt på alla plattformar som stöds.
-- Get-accessorn för egenskapen `EndpointUrl` i Java och C# har tagits bort.
+- Java (Android), den `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` funktionen kräver inte längre en sökvägsparameter. Sökvägen identifieras nu automatiskt på alla plattformar som stöds.
+- Läsaccessor för egenskapen `EndpointUrl` i Java och C# har tagits bort.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
-- I Java implementeras ljud sammanfattnings resultatet i översättnings tolken nu.
-- Ett fel som kan orsaka inaktiva trådar och ett ökat antal öppna och oanvända Sockets har åtgärd ATS.
-- Ett problem har åtgärd ATS, där en tids krävande igenkänning kan avslutas mitt i överföringen.
-- Ett konkurrens villkor har åtgärd ATS i avstängningen av tolken.
+- I Java implementeras ljud syntes resultatet på translation Igenkännande nu.
+- Ett fel som kan orsaka inaktiva trådar och ett ökat antal öppna och oanvända sockets har åtgärdats.
+- Åtgärdat problem, där en tidskrävande Taligenkänning kunde avsluta mitt överföringen.
+- Fast ett konkurrenstillstånd i Igenkännande avstängning.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0:2018 – juli utgåva
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services tal SDK 0.5.0: 2018-juliversionen
 
 **Nya funktioner**
 
-- Stöd för Android-plattform (API 23: Android 6,0 Marshmallow eller högre). Kolla in [Android-snabb](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android)starten.
-- Stöd för .NET standard 2,0 i Windows. Kolla in [.net Core-snabb](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)starten.
-- Experimentell: stöd för UWP i Windows (version 1709 eller senare).
-  - Ta en titt på snabb starten för [UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).
-  - Obs! UWP-appar som skapats med tal-SDK: n har inte överfört Windows app Certificate Kit (WACK).
-- Stöd för tids krävande igenkänning med automatisk åter anslutning.
+- Stöd för Android-plattformen (API-23: Android 6.0 Marshmallow eller senare). Kolla in den [Android Snabbstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android).
+- Stöd för .NET Standard 2.0 på Windows. Kolla in den [Snabbstart för .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+- Experimentella: Stöd för UWP på Windows (version 1709 eller senare).
+  - Kolla in den [UWP snabbstarten](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).
+  - Obs: UWP-appar som skapats med SDK: N för tal inte ännu skickar Windows App Certification Kit (WACK).
+- Stöd för tidskrävande erkännande med automatisk återanslutning.
 
 **Funktionella ändringar**
 
-- `StartContinuousRecognitionAsync()` stöder tids krävande igenkännings igenkänning.
-- Igenkännings resultatet innehåller fler fält. De är förskjutna från början och varaktigheten för ljudet (både i Ticket) för den tolkade texten och ytterligare värden som representerar igenkännings status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout`.
-- Stöd för AuthorizationToken för att skapa fabriks instanser.
+- `StartContinuousRecognitionAsync()` stöd för tidskrävande identifiering.
+- Att igenkänningsresultatet innehåller fler fält. De är förskjutning från ljud början och varaktigheten (både i ticken) för den tolkade texten och ytterligare värden som representerar igenkänning av status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout`.
+- Stöd AuthorizationToken för att skapa factory-instanser.
 
-**Bryta ändringar**
+**Större ändringar**
 
-- Igenkännings händelser: nomatch-händelse typen slogs samman till fel händelsen.
-- SpeechOutputFormat i C# har bytt namn till OutputFormat för att vara justerad mot C++.
-- Retur typen för vissa metoder i `AudioInputStream`-gränssnittet ändrades något.
-  - I Java returnerar metoden `read` nu `long` i stället för `int`.
-  - I C#returnerar metoden `Read` nu `uint` i stället för `int`.
-  - I C++returnerar `Read` och `GetFormat` metoder `size_t` i stället för `int`.
-- C++: Instanser av ljud inspelnings strömmar kan nu bara skickas som en `shared_ptr`.
+- Igenkänning av händelser: NoMatch händelsetyp skulle samman i felhändelsen.
+- SpeechOutputFormat i C# har bytt namn till OutputFormat vara justerade med C++.
+- Returtypen för vissa metoder för den `AudioInputStream` gränssnittet ändrats något:
+  - I Java, den `read` metoden nu returnerar `long` i stället för `int`.
+  - I C#, den `Read` metoden nu returnerar `uint` i stället för `int`.
+  - I C++ kan den `Read` och `GetFormat` metoder returnerar nu `size_t` i stället för `int`.
+- C++: Instanser av inkommande ljudströmmar nu kan skickas endast som en `shared_ptr`.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
-- Korrigerade Felaktiga retur värden i resultatet när `RecognizeAsync()` timeout.
-- Beroendet på Media Foundation-bibliotek i Windows har tagits bort. SDK använder nu centrala ljud-API: er.
-- Dokumentations korrigering: en [region](regions.md) sida har lagts till för att beskriva de regioner som stöds.
+- Fast felaktig returvärden i resultatet när `RecognizeAsync()` når sin tidsgräns.
+- Media foundation-bibliotek på Windows-beroendet har tagits bort. SDK: N använder nu Core ljud API: er.
+- Dokumentationskorrigering: lagt till en [regioner](regions.md) sidan att beskriva regionerna som stöds.
 
-**Känt problem**
+**Kända problem**
 
-- Tal-SDK för Android rapporterar inte tal syntes resultat för översättning. Det här problemet kommer att åtgärdas i nästa version.
+- Tal-SDK för Android rapportera inte tal syntes resultat för översättning. Det här problemet korrigeras i nästa version.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0:2018 – juni utgåva
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services tal SDK 0.4.0: 2018-juniversionen för
 
 **Funktionella ändringar**
 
 - AudioInputStream
 
-  En tolk kan nu använda en ström som ljud källa. Mer information finns i den närliggande [instruktions guiden](how-to-use-audio-input-streams.md).
+  En identifierare kan nu använda en dataström som ljudkälla. Mer information finns i de relaterade [instruktionsguide](how-to-use-audio-input-streams.md).
 
-- Detaljerat utdataformat
+- Detaljerad utdataformat
 
-  När du skapar en `SpeechRecognizer`kan du begära `Detailed` eller `Simple` utdataformat. `DetailedSpeechRecognitionResult` innehåller en förtroende poäng, en tolkad text, en rå lexikal form, normaliserad form och normaliserad form med maskerade svordomar.
+  När du skapar en `SpeechRecognizer`, kan du begära `Detailed` eller `Simple` utdataformat. Den `DetailedSpeechRecognitionResult` innehåller en förtroendepoäng, tolkade texten, råa lexikal format, normaliserade form och normaliserade formuläret med maskerade svordomar.
 
-**Bryta ändring**
+**Icke-bakåtkompatibel ändring**
 
-- Ändrades till `SpeechRecognitionResult.Text` från `SpeechRecognitionResult.RecognizedText` C#i.
+- Ändras till `SpeechRecognitionResult.Text` från `SpeechRecognitionResult.RecognizedText` i C#.
 
-**Fel korrigeringar**
+**Felkorrigeringar**
 
-- Ett möjligt problem med återanrop har åtgärd ATS i USP-skiktet under avstängning.
+- Ett möjligt återanrop ett problem har åtgärdats i lagret USP under avstängning.
 
-- Om en tolk förbrukar en ljud indatafil, behålls den på fil hanteringen längre än nödvändigt.
+- Om en identifierare används en inkommande ljudfil, den håller att filreferens som är längre än nödvändigt.
 
-- Flera död lägen mellan meddelande pumpen och tolken har tagits bort.
+- Ta bort flera låsningar mellan meddelande pump och identifieraren.
 
-- Utlös ett `NoMatch` resultat när svar från tjänsten har nått sin tids gräns.
+- Startar en `NoMatch` uppnås när tidsgränsen har nåtts för svaret från tjänsten.
 
-- Media Foundation-biblioteken i Windows är fördröjda. Det här biblioteket krävs endast för mikrofon ineffekter.
+- Media foundation-bibliotek på Windows är fördröjning som lästs in. Det här biblioteket krävs för mikrofon endast indata.
 
-- Uppladdnings hastigheten för ljuddata är begränsad till cirka två gånger den ursprungliga ljud hastigheten.
+- Ladda upp hastigheten för ljuddata är begränsad till om två gånger den ursprungliga ljud hastigheten.
 
-- I Windows är C# .net-sammansättningar nu starkt namngivna.
+- På Windows, C# .NET-sammansättningar nu är starkt krypterat namn.
 
-- Dokumentations korrigering: `Region` nödvändig information för att skapa en tolk.
+- Dokumentationskorrigering: `Region` är nödvändig information för att skapa en identifierare.
 
-Fler exempel har lagts till och uppdateras ständigt. Den senaste uppsättningen exempel finns i [GitHub-lagringsplatsen Speech SDK samples](https://aka.ms/csspeech/samples).
+Fler exempel har lagts till och uppdateras kontinuerligt. Den senaste uppsättningen exempel, finns det [tal SDK GitHub-lagringsplats med exempel](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733:2018 – maj release
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services tal SDK 0.2.12733: maj 2018 versionen
 
-Den här versionen är den första offentliga för hands versionen av Cognitive Services Speech SDK.
+Den här versionen är den första offentliga förhandsversionen av Cognitive Services tal SDK.

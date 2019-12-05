@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal från en ljud fil C# ,-tal-tjänst'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 8ca69871e082c3de114a3ad08e9e17c57f304f7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 139c490c354b92fd76ca578ef70e9a4c11774031
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504167"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819418"
 ---
 > [!div class="nextstepaction"]
 > [Utforska C#-exempel på GitHub](https://aka.ms/speech/github-csharp)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: acd601512f2240802de47483a015f03a226da115
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795993"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829009"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Vad är skillnaden mellan en virtuell Azure-nätverksgateway (VPN Gateway) och en virtuell WAN-gateway i Azure?
 
@@ -113,7 +113,9 @@ Du kan ansluta ett VNet i en annan region än ditt virtuella WAN-nätverk.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Kan ekernätverk som är anslutna till en virtuell hubb kommunicera med varandra?
 
-Ja. Ekernätverk kan kommunicera direkt via peering för virtuellt nätverk. Mer information finns i [Virtual Network-peering](../articles/virtual-network/virtual-network-peering-overview.md). Vi stöder också virtuella nätverk som kommunicerar transitivt via hubben.
+Ja. Standard Virtual WAN stöder VNet till transitivt VNET-anslutning via det virtuella WAN-hubb som virtuella nätverk är anslutet till. I den virtuella WAN-terminologin hänvisar vi till dessa sökvägar som "lokal virtuell WAN VNet-överföring" för virtuella nätverk som är ansluten till en virtuell WAN-hubb inom en region och "global virtuell WAN-överföring av virtuella WAN-nätverk" för virtuella nätverk som är ansluten via flera virtuella WAN-hubbar över två eller flera områdena. VNet-transitering har stöd för upp till 3 Gbit/s av data flödet under offentlig för hands version Data flödet kommer att expanderas när global överföring går GA.   
+
+I vissa fall kan eker-virtuella nätverk också vara direkt peer-kopplad till varandra med hjälp av [Virtual Network-peering](../articles/virtual-network/virtual-network-peering-overview.md) förutom lokal eller global virtuell WAN-överföring. I detta fall prioriteras VNet-peering över den transitiva anslutningen via den virtuella WAN-hubben. 
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Vad är en förgrenings anslutning till Azure Virtual WAN?
 

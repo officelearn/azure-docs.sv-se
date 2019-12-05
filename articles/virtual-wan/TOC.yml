@@ -40,6 +40,10 @@
       href: virtual-wan-custom-ipsec-portal.md
     - name: Konfigurera certifikat för användar-VPN (punkt-till-plats)
       href: certificates-point-to-site.md
+    - name: Konfigurera Azure AD-klientorganisation för användar-VPN
+      href: openvpn-azure-ad-tenant.md
+    - name: Aktivera Multi-Factor Authentication (MFA) för användar-VPN
+      href: openvpn-azure-ad-mfa.md
     - name: Konfigurera Azure AD-autentisering för användar-VPN (Förhandsversion)
       href: virtual-wan-point-to-site-azure-ad.md
     - name: Konfigurera automation (Virtual WAN-partner)

@@ -68,6 +68,8 @@
           href: devtest-lab-configure-cost-management.md
         - name: Skicka meddelanden om automatisk avstängning
           href: devtest-lab-auto-shutdown.md
+        - name: Ställa in automatisk start för virtuella labbdatorer
+          href: devtest-lab-auto-startup-vm.md
         - name: Skala ditt labb
           href: devtest-lab-scale-lab.md
         - name: Hantera virtuella datorbaser
@@ -193,6 +195,8 @@
           href: add-artifact-repository.md
         - name: Ange obligatoriska artefakter
           href: devtest-lab-mandatory-artifacts.md
+        - name: Felsöka problem med att använda artefakter
+          href: devtest-lab-troubleshoot-apply-artifacts.md
     - name: Integrera med CI/CD
       items:
         - name: Integrera labb i CI/CD-pipelinen i Azure Pipelines

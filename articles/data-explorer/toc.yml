@@ -102,8 +102,12 @@
           href: data-lake-query-data.md
         - name: Fråga efter data i Azure Monitor
           href: query-monitor-data.md
-        - name: Python
-          href: python-query-data.md
+        - name: Felsöka KQL inline Python
+          href: debug-inline-python.md
+        - name: 'använda SDK:er'
+          items:
+            - name: Python
+              href: python-query-data.md
         - name: Time Series-analys och Machine Learning
           items:
             - name: Time Series-analys

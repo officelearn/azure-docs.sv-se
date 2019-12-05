@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226374"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665618"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Skapa ytterligare en Azure-prenumeration
 
@@ -36,7 +36,7 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 |---------|---------|
 |Enterprise-avtal (EA) |  Rollen som kontoägare för Enterprise-avtalsregistreringen. Mer information finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](billing-understand-ea-roles.md).    |
 |Microsoft-kundavtal (MCA) |  Rollen som ägare eller deltagare för fakturaavsnittet, faktureringsprofilen eller faktureringskontot. Eller rollen som Azure-prenumerationsförfattare för fakturaavsnittet.  Mer information finns i [Roller och uppgifter för prenumerationsfakturering](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Microsoft-partneravtal (MPA) |   Rollen som global administratör eller administratörsrepresentant för partnerorganisationen. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview)  |
+|Microsoft-partneravtal (MPA) |   Rollen som global administratör eller administratörsrepresentant för CSP-partnerorganisationen. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview).  Användaren måste logga in på partnerklientorganisationen för att skapa Azure-prenumerationer.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Skapa en prenumeration i Azure-portalen
 

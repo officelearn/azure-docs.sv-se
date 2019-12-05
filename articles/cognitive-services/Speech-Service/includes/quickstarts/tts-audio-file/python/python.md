@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: syntetisera tal i ljud filen, python-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6f6519ea5df630a914243046e74c315b4bd7db9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503362"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817881"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumerations nyckel för tal tjänsterna. [Skaffa en kostnadsfritt](~/articles/cognitive-services/Speech-Service/get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en utan kostnad](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 eller senare](https://www.python.org/downloads/).
 * Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
     * Windows: x64 och x86.
@@ -127,7 +127,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Skapa en fil](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
-1. Infoga prenumerations information för tal tjänster.
+1. Infoga prenumerationsinformationen för taltjänsten.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
    Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommando paletten (Ctrl + Shift + P) och ange **python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.
@@ -146,7 +146,7 @@ Om det finns problem med att följa dessa anvisningar finns den mer omfattande [
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

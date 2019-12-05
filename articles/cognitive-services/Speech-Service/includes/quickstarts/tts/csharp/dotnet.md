@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/27/2019
 ms.author: yinhew
-ms.openlocfilehash: af101862e824d6527c08c232812913565536bb4a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38dac73d253245fce86ac419c7a4eb3a106df3f0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503152"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818169"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -32,7 +32,7 @@ Innan du börjar ska du se till att:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/text-to-speech/helloworld/Program.cs#code)]
 
-1. Leta upp strängen `YourSubscriptionKey`och ersätt den med din prenumerations nyckel för tal tjänster.
+1. Leta upp strängen `YourSubscriptionKey`och ersätt den med din prenumerations nyckel för röst tjänst.
 
 1. Hitta sträng `YourServiceRegion`och ersätt den med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Om du till exempel använder den kostnads fria utvärderings prenumerationen är regionen `westus`.
 
@@ -44,7 +44,7 @@ Innan du börjar ska du se till att:
 
 1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller Välj **F5**).
 
-1. Ange en engelska fras eller en mening. Programmet skickar texten till tal tjänsterna, som skickar syntetiskt tal till programmet som spelas upp på din högtalare.
+1. Ange en engelska fras eller en mening. Programmet skickar texten till tal tjänsten som skickar syntetiskt tal till programmet som spelas upp på din talare.
 
    ![Användar gränssnitt för tal syntes](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 
@@ -52,7 +52,7 @@ Innan du börjar ska du se till att:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26299ca12071b521fc825a0b1ab1425f24af67e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150890"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803605"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Villkorlig åtkomst: blockera åtkomst efter plats
 
@@ -25,7 +25,7 @@ Med plats villkoret i villkorlig åtkomst kan du styra åtkomsten till dina moln
 ## <a name="define-locations"></a>Definiera platser
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj **ny plats**.
 1. Namnge din plats.
 1. Välj **IP-intervall** om du känner till de enskilda externa IPv4-adressintervall som utgör den platsen eller **länder/regioner**.
@@ -38,7 +38,7 @@ Mer information om plats villkoret i villkorlig åtkomst finns i artikeln, [Vad 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
@@ -50,7 +50,7 @@ Mer information om plats villkoret i villkorlig åtkomst finns i artikeln, [Vad 
    1. **Inkludera** utvalda **valda platser**
    1. Välj den blockerade plats som du har skapat för din organisation.
    1. Klicka på **välj** > **gjorda** > har **slutförts**.
-1. Under **åtkomst kontroller** > -**block**och välj **Välj**.
+1. Under **åtkomst kontroller** > **block**och välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 

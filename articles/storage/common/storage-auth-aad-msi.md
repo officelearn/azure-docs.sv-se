@@ -9,12 +9,12 @@ ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3e24cb2d4b5b82f6878647cdd631bd8ebca16199
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666177"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806599"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
 
@@ -36,13 +36,13 @@ Mer information om hanterade identiteter finns i [hanterade identiteter för Azu
 
 ## <a name="authenticate-with-the-azure-identity-library"></a>Autentisera med Azure Identity Library
 
-En fördel med klient biblioteket för Azure Identity är att du kan använda samma kod för att autentisera om ditt program körs i utvecklings miljön eller i Azure. I kod som körs i Azure-miljön autentiserar klient biblioteket en hanterad identitet för Azure-resurser. I utvecklings miljön finns inte den hanterade identiteten, så klient biblioteket autentiserar antingen användaren eller tjänstens huvud namn i test syfte.
+Klient biblioteket för Azure Identity ger Azure Azure AD token Authentication-stöd för [Azure SDK](https://github.com/Azure/azure-sdk). De senaste versionerna av Azure Storage klient bibliotek för .NET, Java, python och Java Script integreras med Azure Identity Library för att tillhandahålla ett enkelt och säkert sätt att skaffa en OAuth 2,0-token för auktorisering av Azure Storage begär Anden.
 
-Klient biblioteket för Azure Identity för .NET autentiserar ett säkerhets objekt. När din kod körs i Azure är säkerhets objekt en hanterad identitet för Azure-resurser.
+En fördel med klient biblioteket för Azure Identity är att du kan använda samma kod för att autentisera om ditt program körs i utvecklings miljön eller i Azure. Klient biblioteket för Azure Identity för .NET autentiserar ett säkerhets objekt. När din kod körs i Azure är säkerhets objekt en hanterad identitet för Azure-resurser. I utvecklings miljön finns inte den hanterade identiteten, så klient biblioteket autentiserar antingen användaren eller tjänstens huvud namn i test syfte.
 
 Efter autentiseringen får klient biblioteket för Azure Identity ett token-autentiseringsuppgifter. Den här token-autentiseringsuppgiften kapslas sedan i det tjänst klient objekt som du skapar för att utföra åtgärder mot Azure Storage. Biblioteket hanterar detta för dig sömlöst genom att hämta rätt token-autentiseringsuppgifter.
 
-Mer information om klient biblioteket för Azure Identity finns i [klient biblioteket för Azure Identity för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+Mer information om klient biblioteket för Azure Identity för .NET finns i [klient biblioteket för Azure Identity för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Referens dokumentation för klient biblioteket för Azure Identity finns i [namn området för Azure. Identity](/dotnet/api/azure.identity).
 
 ### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Tilldela rollen rollbaserad åtkomst kontroll (RBAC) roller för åtkomst till data
 
@@ -50,7 +50,7 @@ När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, m
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autentisera användaren i utvecklings miljön
 
-När din kod körs i utvecklings miljön kan autentiseringen hanteras automatiskt, eller så kan det krävas en webb läsar inloggning, beroende på vilka verktyg du använder. Microsoft Visual Studio stöder enkel inloggning (SSO), så att det aktiva Azure AD-användarkontot används automatiskt för autentisering. Mer information om SSO finns i [enkel inloggning till program](../../active-directory/manage-apps/what-is-single-sign-on.md).
+När din kod körs i utvecklings miljön kan autentiseringen hanteras automatiskt, eller så kan det krävas en webb läsar inloggning, beroende på vilka verktyg du använder. Microsoft Visual Studio stöder till exempel enkel inloggning (SSO), så att det aktiva Azure AD-användarkontot används automatiskt för autentisering. Mer information om SSO finns i [enkel inloggning till program](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
 Andra utvecklingsverktyg kan bli ombedd att logga in via en webbläsare.
 
@@ -105,7 +105,7 @@ Mer information finns i [skapa identitet för Azure-appen i portalen](../../acti
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-## <a name="net-code-example-create-a-block-blob"></a>.NET-kod exempel: skapa en Block-Blob
+## <a name="net-code-example-create-a-block-blob"></a>Kodexempel för .NET: skapa en blockblob
 
 Lägg till följande `using`-direktiv i koden för att använda klient biblioteken för Azure-identitet och Azure Storage.
 
@@ -161,6 +161,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om RBAC-roller för Azure Storage finns i [Hantera åtkomst behörigheter till lagrings data med RBAC](storage-auth-aad-rbac.md).
-- Information om hur du auktoriserar åtkomst till behållare och köer i dina lagrings program finns i [använda Azure AD med lagrings program](storage-auth-aad-app.md).
-- Information om hur du kör Azure CLI-och PowerShell-kommandon med Azure AD-autentiseringsuppgifter finns i [köra Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](storage-auth-aad-script.md).
+- [Hantera åtkomst behörigheter till lagrings data med RBAC](storage-auth-aad-rbac.md).
+- [Använd Azure AD med lagrings program](storage-auth-aad-app.md).
+- [Kör Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](storage-auth-aad-script.md).

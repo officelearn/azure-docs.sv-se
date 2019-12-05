@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b5cf375b1e5e4c09617dc6ae74513d303a9a6a4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559188"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816673"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -191,7 +191,7 @@ Registrera en bra fem sekunder tystnad innan den första inspelningen för att s
 Lyssna noggrant, använda hörlurar voice-personal-prestanda. Du letar efter bra men naturlig diction och uttalas brist på oönskade ljud. Tveka inte att ställa din personal nytt spela in ett uttryck som inte uppfyller dessa standarder.
 
 > [!TIP]
-> Om du använder ett stort antal yttranden, kanske ett enda uttryck inte har en märkbar effekt på den resulterande anpassade rösten. Det kan vara mer lämpligt att helt enkelt tänka yttranden med problem, exkluderar dem från din datauppsättning och se hur din anpassade röst har visat sig. Du kan alltid gå tillbaka till studio och registrera missade exemplen senare.
+> Om du använder ett stort antal yttranden, kanske ett enda uttryck inte har en märkbar effekt på den resulterande anpassade rösten. Det kan vara mer tillrådligt att bara anteckna eventuella yttranden med problem, undanta dem från din data uppsättning och se hur din anpassade röst blir slut. Du kan alltid gå tillbaka till Studio och registrera de missade exemplen senare.
 
 Observera take-nummer eller tid-kod på ditt skript för varje uttryck. Be tekniker för att markera varje uttryck i den inspelningen metadata eller låt dig ledas-blad.
 

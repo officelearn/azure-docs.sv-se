@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: tal C++ SDK (Linux) plattforms konfiguration – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform C++ för Linux med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform C++ för Linux med Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 96e4c12d7b0aaceea3d652a81f2df8721c43954c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 03aafb133f1d4a18ffe2b46ae5ec36225865a239
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502620"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819057"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Linux
 
@@ -25,7 +25,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 
 Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten behöver du:
 

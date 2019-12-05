@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: juliako
-ms.openlocfilehash: a1fd37b65c3449e7000db6189c8c71def1f96b0a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790054"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815399"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -88,9 +88,9 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 Använd den här parametern om RAW-inspelningar eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
 
 - `AudioOnly` – Indexera och extrahera insikter med hjälp av endast ljud (video ignoreras)
+- `VideoOnly`-index och extrahera insikter med endast video (ignorerar ljud)
 - `Default` – Indexera och extrahera insikter med hjälp av både ljud och video
 - `DefaultWithNoiseReduction` – Indexera och extrahera insikter från både ljud och video, samtidigt som algoritmer för brusreducering tillämpas på ljudströmmen
-- `VideoOnly`-index och extrahera insikter med endast video 
 
 Priset beror på det valda indexeringsalternativet.  
 

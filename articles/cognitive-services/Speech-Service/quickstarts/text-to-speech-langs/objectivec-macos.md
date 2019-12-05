@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 27e471bb1b155ab245e68712031eef4efb4d5b34
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5758361e1c4de6e824f0df33eacd940cad8eca70
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503460"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817763"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Snabb start: syntetisera tal i mål-C på macOS med hjälp av talet SDK
 
 I den här artikeln får du lära dig hur du skapar en macOS-app i mål-C med hjälp av Cognitive Services tal-SDK för att syntetisera tal från text och spela upp det med standard ljud utmatningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
-* En [prenumerationsnyckel](~/articles/cognitive-services/Speech-Service/get-started.md) för Speech Service
+* En [prenumerations nyckel](~/articles/cognitive-services/Speech-Service/get-started.md) för tal tjänsten
 * En macOS-dator med [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) eller senare och MacOS 10,13 eller senare
 
 ## <a name="get-the-speech-sdk-for-macos"></a>Hämta tal-SDK för macOS

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 75ecbe8351e68b77a59b40709a2beb15d09b16df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504090"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816223"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Snabb start: skapa en röst assistent med talet SDK, UWP
 
@@ -26,12 +26,12 @@ I den här artikeln ska du utveckla ett C# universell Windows-plattform-program 
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
 * En tidigare skapad robot som kon figurer ATS med den [direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
@@ -108,7 +108,7 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
 Sedan lägger du till källa för bakomliggande kod så att programmet fungerar som förväntat. Källan för bakomliggande kod innehåller:
 
-- `using`-instruktioner för `Speech`-och `Speech.Dialog`-namnrymder
+- `using`-instruktioner för `Speech` och `Speech.Dialog` namn områden
 - En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
 - Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
 - En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare
@@ -292,7 +292,7 @@ Följ dessa steg om du vill lägga till koden bakom källan:
 1. Lägg till följande kodfragment i metod texten för `InitializeDialogServiceConnector`. Den här koden skapar `DialogServiceConnector` med din prenumerations information.
 
     ```csharp
-    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // Create a BotFrameworkConfig by providing a Speech service subscription key
     // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
@@ -310,7 +310,7 @@ Följ dessa steg om du vill lägga till koden bakom källan:
 
 1. Ersätt strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey`och `YourServiceRegion` med dina egna värden för din robot, tal prenumeration och [region](regions.md).
 
-1. Lägg till följande kodfragment i slutet av metod texten för `InitializeDialogServiceConnector`. Den här koden konfigurerar hanterare för händelser som förlitar sig på `DialogServiceConnector` för att kommunicera sina robot aktiviteter, tal igenkännings resultat och annan information.
+1. Lägg till följande kodfragment i slutet av metod texten för `InitializeDialogServiceConnector`. Den här koden konfigurerar hanterare för händelser som förlitar sig på att `DialogServiceConnector` kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -365,7 +365,7 @@ Följ dessa steg om du vill lägga till koden bakom källan:
     };
     ```
 
-1. Lägg till följande kodfragment i bröd texten i metoden `ListenButton_ButtonClicked` i klassen `MainPage`. Den här koden konfigurerar `DialogServiceConnector` att lyssna på, eftersom du redan har upprättat konfigurationen och registrerat händelse hanterare.
+1. Lägg till följande kodfragment i bröd texten i `ListenButton_ButtonClicked`-metoden i `MainPage`-klassen. Den här koden konfigurerar `DialogServiceConnector` att lyssna, eftersom du redan har upprättat konfigurationen och registrerat händelse hanterare.
 
     ```csharp
     if (connector == null)
@@ -419,10 +419,10 @@ Nu är du redo att bygga och testa ditt program.
 > [!div class="nextstepaction"]
 > [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Om röst assistenter](voice-assistants.md)
-- [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+- [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 - [Anpassade nyckelord](speech-devices-sdk-create-kws.md)
 - [Anslut direkt linje tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)

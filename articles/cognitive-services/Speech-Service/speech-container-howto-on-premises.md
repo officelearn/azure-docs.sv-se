@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383656"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816510"
 ---
-# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Använda tal tjänst behållare med Kubernetes och Helm
+# <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Använda tal tjänst behållare med Kubernetes och Helm
 
 Ett alternativ för att hantera dina tal behållare lokalt är att använda Kubernetes och Helm. Genom att använda Kubernetes och Helm för att definiera behållar avbildningarna tal-till-text och text till tal skapar vi ett Kubernetes-paket. Det här paketet kommer att distribueras till ett Kubernetes-kluster lokalt. Slutligen ska vi utforska hur du testar de distribuerade tjänsterna och olika konfigurations alternativ. Mer information om att köra Docker-behållare utan Kubernetes-dirigering finns i [Installera och köra tal tjänst behållare](speech-container-howto.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav gäller innan du använder tal behållare lokalt:
 
@@ -37,7 +37,7 @@ Följande krav gäller innan du använder tal behållare lokalt:
 
 Se information om [värddatorn för tal tjänst behållare][speech-container-host-computer] som en referens. Det här *Helm-diagrammet* BERÄKNAR automatiskt processor-och minnes krav baserat på hur många avkodningar (samtidiga begär Anden) som användaren anger. Dessutom justeras det baserat på om optimeringar för ljud-och text indata konfigureras som `enabled`. Helm-diagrammet använder som standard två samtidiga begär Anden och inaktiverar optimering.
 
-| Tjänsten | PROCESSOR/container | Minne/container |
+| Tjänst | PROCESSOR/container | Minne/container |
 |--|--|--|
 | **Tal till text** | en avkodare kräver minst 1 150 millicores. Om `optimizedForAudioFile` är aktive rad krävs 1 950 millicores. (standard: två avkodare) | Krävs: 2 GB<br>Begränsad: 4 GB |
 | **Text till tal** | en samtidig begäran kräver minst 500 millicores. Om `optimizeForTurboMode` är aktive rad krävs 1 000 millicores. (standard: två samtidiga begär Anden) | Krävs: 1 GB<br> Begränsad: 2 GB |

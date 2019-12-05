@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9781d9c277d19257d9b00bea3106adb3b04ffd6
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672526"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806889"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Använda privata slut punkter för Azure Storage (för hands version)
 
@@ -32,7 +32,7 @@ En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-tjän
 
 Program i det virtuella nätverket kan ansluta till lagrings tjänsten via den privata slut punkten sömlöst **med samma anslutnings strängar och auktoriseringsbeslut som de skulle använda i övrigt**. Privata slut punkter kan användas med alla protokoll som stöds av lagrings kontot, inklusive REST och SMB.
 
-Privata slut punkter kan skapas i undernät som använder [tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview.md). Klienter i ett undernät kan därmed ansluta till ett lagrings konto med hjälp av privat slut punkt, samtidigt som tjänstens slut punkter används för att komma åt andra.
+Privata slut punkter kan skapas i undernät som använder [tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md). Klienter i ett undernät kan därmed ansluta till ett lagrings konto med hjälp av privat slut punkt, samtidigt som tjänstens slut punkter används för att komma åt andra.
 
 När du skapar en privat slutpunkt för en lagringstjänst i ditt VNet skickas en begäran om godkännande till lagringskontots ägare. Om användaren som begär att den privata slut punkten ska skapas även är ägare till lagrings kontot, godkänns den här medgivande förfrågningen automatiskt.
 
@@ -106,17 +106,17 @@ De rekommenderade DNS-zonnamn för privata slut punkter för lagrings tjänster 
 | :--------------------- | :----------------------------------- |
 | Blob Service           | `privatelink.blob.core.windows.net`  |
 | Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| Fil tjänst           | `privatelink.file.core.windows.net`  |
+| Filtjänst           | `privatelink.file.core.windows.net`  |
 | Kötjänst          | `privatelink.queue.core.windows.net` |
-| Table service          | `privatelink.table.core.windows.net` |
+| Tabelltjänst          | `privatelink.table.core.windows.net` |
 | Statiska webbplatser        | `privatelink.web.core.windows.net`   |
 
 #### <a name="resources"></a>Resurser
 
 Mer information om hur du konfigurerar en egen DNS-server för att stödja privata slut punkter finns i följande artiklar:
 
-- [Namnmatchning för resurser i virtuella nätverk i Azure](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS-konfiguration för privata slut punkter](/private-link/private-endpoint-overview#dns-configuration)
+- [Namnmatchning för resurser i virtuella nätverk i Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS-konfiguration för privata slut punkter](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>Prissättning
 

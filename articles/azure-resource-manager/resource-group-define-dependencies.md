@@ -2,25 +2,23 @@
 title: Ange distributions ordning för resurser
 description: Beskriver hur du anger en resurs som beroende av en annan resurs under distributionen för att säkerställa att resurser distribueras i rätt ordning.
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: 6b608111f2fe24a0b426e5697ceb07349f2d4693
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/03/2019
+ms.openlocfilehash: f5990f099e8b91a4a075d2950f88aa83d34eef4a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149728"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806464"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager mallar
 
-För en specifik resurs kan det finnas andra resurser som måste finnas innan resursen distribueras. Till exempel måste det finnas en SQL-Server innan du försöker distribuera en SQL-databas. Du definierar den här relationen genom att markera en resurs som beroende av den andra resursen. Du definierar ett beroende med **dependsOn** -elementet eller med hjälp av **referens** funktionen. 
+När du distribuerar en resurs kan du behöva kontrol lera att det finns andra resurser innan den distribueras. Du behöver till exempel en SQL-Server innan du distribuerar en SQL-databas. Du definierar den här relationen genom att markera en resurs som beroende av den andra resursen. Du definierar ett beroende med **dependsOn** -elementet eller med hjälp av **referens** funktionen.
 
-Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Du behöver bara definiera beroenden för resurser som har distribuerats i samma mall. 
-
-En själv studie kurs finns i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Du behöver bara definiera beroenden för resurser som har distribuerats i samma mall.
 
 ## <a name="dependson"></a>dependsOn
 
-I din mall kan du med dependsOn-elementet definiera en resurs som beroende av en eller flera resurser. Värdet kan vara en kommaavgränsad lista över resurs namn. 
+I din mall kan du med dependsOn-elementet definiera en resurs som beroende av en eller flera resurser. Värdet är en kommaavgränsad lista över resurs namn. Listan kan innehålla resurser som är [villkorligt distribuerade](conditional-resource-deployment.md). När en villkorlig resurs inte distribueras tar Azure Resource Manager automatiskt bort den från de nödvändiga beroendena.
 
 I följande exempel visas en skalnings uppsättning för virtuella datorer som är beroende av en belastningsutjämnare, ett virtuellt nätverk och en slinga som skapar flera lagrings konton. De här andra resurserna visas inte i följande exempel, men de måste finnas någon annan stans i mallen.
 
@@ -51,12 +49,13 @@ När du definierar beroenden kan du inkludera resurs leverantörens namn område
   "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
   "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
 ]
-``` 
+```
 
-Även om du kan luta dig att använda dependsOn för att mappa relationer mellan dina resurser är det viktigt att du förstår varför du gör det. Om du till exempel vill dokumentera hur resurser är anslutna till varandra är dependsOn inte rätt metod. Du kan inte fråga vilka resurser som definierats i dependsOn-elementet efter distributionen. Genom att använda dependsOn kan du påverka distributions tiden eftersom Resource Manager inte distribuerar parallellt två resurser som har ett beroende. 
+Även om du kan luta dig att använda dependsOn för att mappa relationer mellan dina resurser är det viktigt att du förstår varför du gör det. Om du till exempel vill dokumentera hur resurser är anslutna till varandra är dependsOn inte rätt metod. Du kan inte fråga vilka resurser som definierats i dependsOn-elementet efter distributionen. Genom att använda dependsOn kan du påverka distributions tiden eftersom Resource Manager inte distribuerar parallellt två resurser som har ett beroende.
 
 ## <a name="child-resources"></a>Underordnade resurser
-Med egenskapen resurser kan du ange underordnade resurser som är relaterade till den resurs som definieras. Underordnade resurser kan bara definieras fem nivåer djup. Det är viktigt att Observera att ett implicit distributions beroende inte skapas mellan en underordnad resurs och den överordnade resursen. Om du vill att den underordnade resursen ska distribueras efter den överordnade resursen måste du uttryckligen ange det beroende med egenskapen dependsOn. 
+
+Med egenskapen resurser kan du ange underordnade resurser som är relaterade till den resurs som definieras. Underordnade resurser kan bara definieras fem nivåer djup. Det är viktigt att Observera att ett implicit distributions beroende inte skapas mellan en underordnad resurs och den överordnade resursen. Om du vill att den underordnade resursen ska distribueras efter den överordnade resursen måste du uttryckligen ange det beroende med egenskapen dependsOn.
 
 Varje överordnad resurs accepterar bara vissa resurs typer som underordnade resurser. Godkända resurs typer anges i det [mall schema](https://github.com/Azure/azure-resource-manager-schemas) som tillhör den överordnade resursen. Namnet på den underordnade resurs typen innehåller namnet på den överordnade resurs typen, t. ex. **Microsoft. Web/Sites/config** och **Microsoft. Web/Sites/Extensions** är både underordnade resurser för **Microsoft. Web/Sites**.
 
@@ -101,6 +100,7 @@ I följande exempel visas en SQL-Server och SQL-databas. Observera att ett expli
 ```
 
 ## <a name="reference-and-list-functions"></a>referens-och list funktioner
+
 [Funktionen Reference](resource-group-template-functions-resource.md#reference) gör det möjligt för ett uttryck att härleda sitt värde från andra JSON-namn och värdepar eller körnings resurser. [List * Functions](resource-group-template-functions-resource.md#list) returnerar värden för en resurs från en List åtgärd.  Referens-och list uttryck deklarerar implicit att en resurs är beroende av en annan, när den refererade resursen distribueras i samma mall och kallas för dess namn (inte resurs-ID). Om du skickar resurs-ID: t till referens-eller List funktionerna skapas inte en implicit referens.
 
 Det allmänna formatet för referens funktionen är:

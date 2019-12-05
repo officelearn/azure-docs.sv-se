@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668575"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812723"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuera Azure Datautforskaren till din Virtual Network (förhands granskning)
 
@@ -52,7 +52,7 @@ Totalt antal IP-adresser:
 | --- | --- |
 | Motor tjänst | 1 per instans |
 | Data hanterings tjänst | 2 |
-| Interna belastningsutjämnare | 2 |
+| Interna lastbalanserare | 2 |
 | Reserverade Azure-adresser | 5 |
 | **Totalt** | **#engine_instances + 9** |
 
@@ -75,7 +75,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 
 #### <a name="inbound-nsg-configuration"></a>Inkommande NSG-konfiguration
 
-| **Använd**   | **Som**   | **Till**   | **Protokoll**   |
+| **Använd**   | **From**   | **Till**   | **Protokoll**   |
 | --- | --- | --- | --- |
 | Förvaltning  |[ADX-hantering adresser](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | ADX-undernät: 443  | TCP  |
 | Hälsoövervakning  | [ADX för hälso övervakning](#health-monitoring-addresses)  | ADX-undernät: 443  | TCP  |
@@ -84,7 +84,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 
 #### <a name="outbound-nsg-configuration"></a>Utgående NSG-konfiguration
 
-| **Använd**   | **Som**   | **Till**   | **Protokoll**   |
+| **Använd**   | **From**   | **Till**   | **Protokoll**   |
 | --- | --- | --- | --- |
 | Beroende av Azure Storage  | ADX-undernät  | Lagring: 443  | TCP  |
 | Beroende av Azure Data Lake  | ADX-undernät  | AzureDataLake: 443  | TCP  |
@@ -92,7 +92,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Publicera mått  | ADX-undernät  | AzureMonitor: 443 | TCP  |
 | Hämtning av Azure Monitor konfiguration  | ADX-undernät  | [Azure Monitor slut punkts adresser för konfiguration](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (om tillämpligt) | ADX-undernät | AzureActiveDirectory: 443 | TCP |
-| Certifikat utfärdare | ADX-undernät | Internet: 80 | TCP |
+| Certifikatutfärdare | ADX-undernät | Internet: 80 | TCP |
 | Intern kommunikation  | ADX-undernät  | ADX-undernät: alla portar  | Alla  |
 | Portar som används för `sql\_request`-och `http\_request`-plugin-program  | ADX-undernät  | Internet: anpassad  | TCP  |
 
@@ -236,7 +236,6 @@ azureprofilerfrontdoor.cloudapp.net:443
 *.core.windows.net:443
 *.servicebus.windows.net:443
 shoebox2.metrics.nsatc.net:443
-production.diagnostics.monitoring.core.windows.net:443
 prod-dsts.dsts.core.windows.net:443
 ocsp.msocsp.com:80
 *.windowsupdate.com:80

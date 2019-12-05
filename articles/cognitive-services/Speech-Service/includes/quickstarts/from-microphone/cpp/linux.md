@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: eda87a8146c936287ce82966602d162f047de7c8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 42f4b093ddec763bddb651e2ff24d51b613d5009
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795569"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818674"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -33,7 +33,7 @@ Innan du börjar:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
 
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster i den nya filen.
+1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
@@ -91,7 +91,7 @@ Innan du börjar:
    ./helloworld
    ```
 
-1. I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till tal tjänsterna och skrivs till text som visas i samma fönster.
+1. I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i samma fönster.
 
    ```text
    Say something...

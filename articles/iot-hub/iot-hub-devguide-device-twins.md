@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: a800336fb6fda8a0ed0af71f243936d29e8079e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4b80004a3d818e66cc2fb61f3d611bbe3e3ded92
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706833"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807042"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och Använd enheten dubbla i IoT Hub
 
@@ -21,7 +21,7 @@ ms.locfileid: "74706833"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-I den här artikeln beskrivs:
+Den här artikeln beskrivs:
 
 * Enhetens struktur:: *taggar*, *önskade* och *rapporterade egenskaper*.
 * De åtgärder som enhets appar och Server delar kan utföra på enheten är dubbla.
@@ -186,12 +186,12 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
-    $iothub-meddelande källa | twinChangeEvents |
-    $content kodning | UTF-8 |
+    $iothub-message-source | twinChangeEvents |
+    $content kodning | utf-8 |
     deviceId | ID för enheten |
     hubName | Namn på IoT Hub |
     operationTimestamp | [Iso8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpel för åtgärd |
-    iothub – meddelande schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" eller "updateTwin" |
 
     Meddelande system egenskaper föregås av `$` symbolen.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558899"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815574"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Felsöka Speech Devices SDK
 
@@ -23,9 +23,9 @@ Den här artikeln innehåller information som hjälper dig att lösa problem som
 
 ## <a name="certificate-failures"></a>Certifikat-fel
 
-Om du får certifikat fel när du använder tal tjänsterna kontrollerar du att enheten har rätt datum och tid:
+Om du får certifikat fel när du använder tal tjänsten kontrollerar du att enheten har rätt datum och tid:
 
-1. Gå till **inställningar**. Under **System**väljer **datum och tid**.
+1. Gå till **Inställningar**. Under **System**väljer **datum och tid**.
 
     ![Under inställningar, väljer du datum och tid](media/speech-devices-sdk/qsg-12.png)
 

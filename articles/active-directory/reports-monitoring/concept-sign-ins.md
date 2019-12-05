@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/03/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e7b0c379783af2f9131d487f45c0f4e2009e258
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232135"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805264"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -47,7 +47,7 @@ Den här artikeln ger en översikt över inloggnings rapporten.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
 
-* Din klient organisation måste ha en Azure AD Premium licens kopplad till sig för att kunna se rapporten all inloggnings aktivitet. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Det tar några dagar för data att visas i rapporterna efter att du har uppgraderat till en Premium-licens utan data aktiviteter före uppgraderingen.
+* Din klient måste ha en associerad Azure AD Premium-licens för att se hela inloggningsrapporten. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Det tar några dagar för data att visas i rapporterna efter att du har uppgraderat till en Premium-licens utan data aktiviteter före uppgraderingen.
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar
 
@@ -81,7 +81,7 @@ Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
 Visar ytterligare fält eller tar bort fält som redan visas.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/02.png "Inloggningsaktivitet")
+![Inloggnings aktivitet](./media/concept-sign-ins/columns.png "Inloggningsaktivitet")
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
@@ -138,13 +138,13 @@ Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till
 - **Mobile Apps-och skriv bords klienter** Filtret visar alla inloggnings försök som inte använder webb läsar flöden. Till exempel mobila appar från vilken plattform som helst med protokoll eller från Skriv bords klient program som Office på Windows eller MacOS.
   
 - **Andra klienter**
-    - **SKRIVNING**  
+    - **IMAP**  
         En äldre e-postklient som använder IMAP för att hämta e-post.
     - **MAPI**  
         Office 2013, där ADAL är aktiverat och använder MAPI.
     - **Gamla Office-klienter**  
         Office 2013 i standard konfigurationen där ADAL inte är aktiverat och använder MAPI, eller Office 2016 där ADAL har inaktiverats.
-    - **POPUP**  
+    - **POP**  
         En äldre e-postklient som använder POP3 för att hämta e-post.
     - **SMTP**  
         En äldre e-postklient som använder SMTP för att skicka e-post.
@@ -193,7 +193,7 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Client
 - Plats
 - IP-adress
-- Date
+- Datum
 - MFA krävs
 - Inloggningsstatus
 

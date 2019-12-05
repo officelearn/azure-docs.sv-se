@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f617bed0d2d93d8c8586d5708e0e356934817f4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091214"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816632"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
-Som ett alternativ till [tal-SDK](speech-sdk.md)gör det möjligt för tal tjänster att konvertera tal till text med hjälp av en REST API. Varje tillgänglig slutpunkt är associerad med en region. Ditt program kräver en prenumerationsnyckel för den slutpunkt som du tänker använda.
+Som ett alternativ till [tal-SDK](speech-sdk.md)gör röst tjänsten det möjligt för dig att konvertera tal till text med hjälp av en REST API. Varje tillgänglig slutpunkt är associerad med en region. Ditt program kräver en prenumerationsnyckel för den slutpunkt som du tänker använda.
 
 Innan du använder tal-till-text-REST API förstå:
 
@@ -52,12 +52,12 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för tal till t
 
 |Huvud| Beskrivning | Obligatoriskt / valfritt |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för tal tjänster. | Antingen den här rubriken eller `Authorization` krävs. |
+| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
 | `Content-type` | Beskriver format och codec-enheten för den angivna ljuddata. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus`. | Krävs |
 | `Transfer-Encoding` | Anger att segmenterat ljuddata skickas, i stället för en enskild fil. Använd bara den här rubriken om storlekar ljuddata. | Valfritt |
-| `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Tal tjänsterna bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
-| `Accept` | Om det måste vara `application/json`. Tal tjänsterna tillhandahåller resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept`. | Valfritt men rekommenderas. |
+| `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
+| `Accept` | Om det måste vara `application/json`. Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept`. | Valfritt men rekommenderas. |
 
 ## <a name="audio-formats"></a>Ljudformat
 
@@ -69,7 +69,7 @@ Ljud skickas i brödtexten i HTTP `POST` begäran. Det måste vara i något av f
 | OGG | OPUS | 16-bitars | 16 kHz, mono |
 
 >[!NOTE]
->Ovanstående format stöds via REST API och WebSocket i tal tjänsterna. Den [tal SDK](speech-sdk.md) för närvarande endast stöd för WAV formatera med PCM-codec.
+>Ovanstående format stöds via REST API och WebSocket i tal-tjänsten. Den [tal SDK](speech-sdk.md) för närvarande endast stöd för WAV formatera med PCM-codec.
 
 ## <a name="sample-request"></a>Exempelbegäran
 
@@ -99,7 +99,7 @@ HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
 
 ## <a name="chunked-transfer"></a>Segmentvis överföring
 
-Segment överföring (`Transfer-Encoding: chunked`) hjälper till att minska svars tiden för igenkänning. Det gör att tal tjänsterna kan börja bearbeta ljud filen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat.
+Segment överföring (`Transfer-Encoding: chunked`) hjälper till att minska svars tiden för igenkänning. Det gör att röst tjänsten kan börja bearbeta ljud filen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat.
 
 Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
 

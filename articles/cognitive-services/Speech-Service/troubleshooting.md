@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558889"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815407"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Felsöka Speech SDK
 
@@ -27,7 +27,7 @@ Du kanske fel slutpunkten för din region eller tjänst. Kontrollera URI för at
 
 Dessutom det kan finnas ett problem med din prenumerationsnyckel eller auktorisering token. Mer information finns i nästa avsnitt.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 förbud eller HTTP 401 obehörig
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 Åtkomst förbjuden eller HTTP 401 Ej behörig
 
 Det här felet orsakas ofta av problem med autentisering. Anslutningsförfrågningar utan ett giltigt `Ocp-Apim-Subscription-Key` eller `Authorization` rubrik avvisas med status 403 eller 401.
 
@@ -107,11 +107,11 @@ Om du har angett en giltig autentiseringstoken returnerar kommandot avskriften f
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Fel: HTTP 400 Felaktig begäran
+## <a name="error-http-400-bad-request"></a>Fel: HTTP 400 (felaktig förfrågan)
 
 Det här felet uppstår vanligen när begärandetexten innehåller ogiltigt ljuddata. Endast WAV formatet stöds. Kontrollera också begärandehuvuden för att se till att du kan ange lämpliga värden för `Content-Type` och `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Fel: Timeout för HTTP 408-begäran
+## <a name="error-http-408-request-timeout"></a>Fel: HTTP 408 Timeout för begäran
 
 Felet sannolikt beror på att inga ljuddata som skickas till tjänsten. Det här felet kan också orsakas av nätverksproblem.
 

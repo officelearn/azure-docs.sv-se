@@ -4,17 +4,16 @@ description: Key Vault-begränsning begränsar antalet samtidiga anrop för att 
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
-tags: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f10f40551701cafd94692afc0916972b1fd73aff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 28e79dffb206e8a62410bf3b4e0e239879b51224
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883044"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806685"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Vägledning för Azure Key Vault-begränsning
 
@@ -24,10 +23,34 @@ Begränsningar gränser varierar beroende på vilket scenario. Om du utför ett 
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Hur hanterar dess gränser i Key Vault?
 
-Tjänstbegränsningar i Key Vault finns det att förhindra missbruk av resurser och se till att Tjänstkvalitet för alla klienter för Key Vault. När ett tröskelvärde för tjänsten överskrids begränsar Key Vault eventuella ytterligare begäranden från klienten för en viss tidsperiod. När det händer gör Key Vault returnerar HTTP-statuskod 429 (för många begäranden), och förfrågningarna som misslyckas. Dessutom misslyckade begäranden som returnerar 429 mot de spårade av Key Vault-begränsningar. 
+Tjänst begränsningar i Key Vault förhindra missbruk av resurser och garantera tjänst kvalitet för alla Key Vault klienter. När ett tröskelvärde för tjänsten överskrids, Key Vault begränsar alla ytterligare begär Anden från klienten under en viss tids period, returnerar HTTP-statuskod 429 (för många begär Anden) och begäran Miss lyckas. Misslyckade förfrågningar som returnerar ett 429-antal mot de begränsnings gränser som spåras av Key Vault. 
+
+Key Vault har ursprungligen utformats för att användas för att lagra och hämta dina hemligheter vid distributions tillfället.  Världen har utvecklats och Key Vault används vid körning för att lagra och hämta hemligheter och ofta appar och tjänster vill använda Key Vault som en databas.  Aktuella gränser stöder inte höga data flödes hastigheter.
+
+Key Vault skapades ursprungligen med de gränser som angavs i [Azure Key Vault tjänst gränser](key-vault-service-limits.md).  Här är några rekommenderade rikt linjer/bästa metoder för att Key Vault maximera ditt data flöde:
+1. Se till att du har en begränsning på plats.  Klienten måste följa exponent back-off-principer för 429 och se till att du gör nya försök enligt anvisningarna nedan.
+1. Dela upp Key Vault trafik mellan flera valv och olika regioner.   Använd ett separat valv för varje säkerhets-/tillgänglighets domän.   Om du har fem appar, var och en i två regioner, rekommenderar vi 10 valv som innehåller hemligheterna som är unika för appen och regionen.  En prenumerations gräns för alla transaktions typer är fem gånger den enskilda nyckel valvs gränsen. Till exempel är HSM-andra transaktioner per prenumeration begränsad till 5 000 transaktioner på 10 sekunder per prenumeration. Överväg att cachelagra hemligheten i din tjänst eller app för att också minska RPS direkt till nyckel valv och/eller hantera burst-baserad trafik.  Du kan också dela upp trafiken mellan olika regioner för att minimera svars tiden och använda en annan prenumeration/valv.  Skicka inte fler än prenumerations gränsen till Key Vault tjänsten i en enda Azure-region.
+1. Cachelagra de hemligheter som du hämtar från Azure Key Vault i minnet och återanvänd från minnet när det är möjligt.  Läs bara från Azure Key Vault när den cachelagrade kopian slutar fungera (t. ex. på grund av att den har roterats vid källan). 
+1. Key Vault har utformats för dina egna tjänste hemligheter.   Om du lagrar dina kunders hemligheter (särskilt för nyckel lagrings scenarier med höga data flöden) bör du överväga att placera nycklarna i en databas eller ett lagrings konto med kryptering och enbart lagra huvud nyckeln i Azure Key Vault.
+1. Åtgärder för att kryptera, figursätta och kontrol lera offentliga nycklar kan utföras utan åtkomst till Key Vault, vilket inte bara minskar risken för begränsning, utan även ökar tillförlitligheten (så länge du cachelagrar det offentliga nyckel materialet).
+1. Om du använder Key Vault för att lagra autentiseringsuppgifter för en tjänst kontrollerar du om tjänsten stöder AAD-autentisering för att autentisera direkt. Detta minskar belastningen på Key Vault, förbättrar tillförlitligheten och fören klar koden eftersom Key Vault nu kan använda AAD-token.  Många tjänster har flyttats till med AAD-autentisering.  Se den aktuella listan med [tjänster som har stöd för hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
+1. Överväg att sprida belastningen/distributionen över en längre tids period för att ligga under de nuvarande RPS-gränserna.
+1. Om din app innehåller flera noder som behöver läsa samma hemligheter, kan du överväga att använda ett mönster för utskrivning, där en entitet läser hemligheten från Key Vault och fläktar ut till alla noder.   Cachelagra bara hämtade hemligheter i minnet.
+Om du upptäcker att ovanstående fortfarande inte uppfyller dina behov kan du fylla i tabellen nedan och kontakta oss för att ta reda på vilken ytterligare kapacitet som kan läggas till (exempel som bara beskrivs i exempel).
+
+| Valv namn | Valv region | Objekt typ (hemligt, nyckel eller certifikat) | Åtgärd (er) * | Nyckel typ | Nyckel längd eller kurva | HSM-nyckel?| RPS för stabilt tillstånd krävs | Topp-RPS krävs |
+|--|--|--|--|--|--|--|--|--|
+| https://mykeyvault.vault.azure.net/ | | Nyckel | Signera | EC | P-256 | Nej | 200 | 1 000 |
+
+\* en fullständig lista över möjliga värden finns i [Azure Key Vault åtgärder](/rest/api/keyvault/key-operations).
+
+Om ytterligare kapacitet godkänns bör du tänka på följande när kapaciteten ökar:
+1. Modell ändringar för data konsekvens. När ett valv har tillåtts med ytterligare data flödes kapacitet ändras den Key Vault tjänstens data konsekvens ändringar (krävs för att uppfylla högre volym-RPS eftersom den underliggande Azure Storage-tjänsten inte kan fortsätta).  I en kortfattat så Jenkins:
+  1. **Utan att tillåta registrering**: Key Vault tjänsten visar resultatet av en Skriv åtgärd (t. ex. SecretSet, CreateKey) omedelbart i efterföljande anrop (t. ex. SecretGet, inloggning).
+  1. **Med Tillåt-lista**: Key Vault tjänsten visar resultatet av en Skriv åtgärd (t. ex. SecretSet, CreateKey) inom 60 sekunder i efterföljande anrop (t. ex. SecretGet, inloggning).
+1. Klient koden måste uppfylla en princip för säkerhets kopiering för 429-försök. Klient koden som anropar tjänsten Key Vault får inte omedelbart försöka igen Key Vault begär anden när en 429-svarskod tas emot.  Vägledningen för Azure Key Vault begränsning som publiceras här rekommenderar att du använder exponentiell backoff när du tar emot en 429 HTTP-svarskod.
 
 Om du har en giltig affärsfall för högre begränsningar kan du kontakta oss.
-
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hur du ska begränsa din app som svar på tjänstbegränsningar
 
@@ -41,97 +64,24 @@ När du implementerar felhantering för din app kan du använda HTTP-felkod 429 
 
 Kod som implementerar en exponentiell backoff visas nedan. 
 ```
-    public sealed class RetryWithExponentialBackoff
+SecretClientOptions options = new SecretClientOptions()
     {
-        private readonly int maxRetries, delayMilliseconds, maxDelayMilliseconds;
-
-        public RetryWithExponentialBackoff(int maxRetries = 50,
-            int delayMilliseconds = 200,
-            int maxDelayMilliseconds = 2000)
+        Retry =
         {
-            this.maxRetries = maxRetries;
-            this.delayMilliseconds = delayMilliseconds;
-            this.maxDelayMilliseconds = maxDelayMilliseconds;
-        }
-
-        public async Task RunAsync(Func<Task> func)
-        {
-            ExponentialBackoff backoff = new ExponentialBackoff(this.maxRetries,
-                this.delayMilliseconds,
-                this.maxDelayMilliseconds);
-            retry:
-            try
-            {
-                await func();
-            }
-            catch (Exception ex) when (ex is TimeoutException ||
-                ex is System.Net.Http.HttpRequestException)
-            {
-                Debug.WriteLine("Exception raised is: " +
-                    ex.GetType().ToString() +
-                    " –Message: " + ex.Message +
-                    " -- Inner Message: " +
-                    ex.InnerException.Message);
-                await backoff.Delay();
-                goto retry;
-            }
-        }
-    }
-
-    public struct ExponentialBackoff
-    {
-        private readonly int m_maxRetries, m_delayMilliseconds, m_maxDelayMilliseconds;
-        private int m_retries, m_pow;
-
-        public ExponentialBackoff(int maxRetries, int delayMilliseconds,
-            int maxDelayMilliseconds)
-        {
-            m_maxRetries = maxRetries;
-            m_delayMilliseconds = delayMilliseconds;
-            m_maxDelayMilliseconds = maxDelayMilliseconds;
-            m_retries = 0;
-            m_pow = 1;
-        }
-
-        public Task Delay()
-        {
-            if (m_retries == m_maxRetries)
-            {
-                throw new TimeoutException("Max retry attempts exceeded.");
-            }
-            ++m_retries;
-            if (m_retries < 31)
-            {
-                m_pow = m_pow << 1; // m_pow = Pow(2, m_retries - 1)
-            }
-            int delay = Math.Min(m_delayMilliseconds * (m_pow - 1) / 2,
-                m_maxDelayMilliseconds);
-            return Task.Delay(delay);
-        }
-    }
+            Delay= TimeSpan.FromSeconds(2),
+            MaxDelay = TimeSpan.FromSeconds(16),
+            MaxRetries = 5,
+            Mode = RetryMode.Exponential
+         }
+    };
+    var client = new SecretClient(new Uri(https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
+                                 
+    //Retrieve Secret
+    secret = client.GetSecret(secretName);
 ```
 
 
-Det är enkelt att använda den här\# koden i ett klient C-program. I följande exempel visas hur du använder klassen HttpClient.
-
-```csharp
-public async Task<Cart> GetCartItems(int page)
-{
-    _apiClient = new HttpClient();
-    //
-    // Using HttpClient with Retry and Exponential Backoff
-    //
-    var retry = new RetryWithExponentialBackoff();
-    await retry.RunAsync(async () =>
-    {
-        // work with HttpClient call
-        dataString = await _apiClient.GetStringAsync(catalogUrl);
-    });
-    return JsonConvert.DeserializeObject<Cart>(dataString);
-}
-```
-
-Kom ihåg att den här koden är lämplig för koncept bevis. 
+Det är enkelt att använda den C# här koden i ett klient program. 
 
 ### <a name="recommended-client-side-throttling-method"></a>Rekommenderade metoden för begränsning av klientsidan
 

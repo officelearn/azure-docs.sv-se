@@ -1,7 +1,7 @@
 ---
 title: Om tal enheter SDK-Speech service
 titleSuffix: Azure Cognitive Services
-description: 'Kom igång med SDK: N för tal-enheter. Speech-tjänsten fungerar med en mängd olika enheter och ljud datakällor. Tal Devices SDK är ett redan utformad bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.'
+description: 'Kom igång med SDK: N för tal-enheter. Tal tjänsten fungerar med en mängd olika enheter och ljud källor. Tal Devices SDK är ett redan utformad bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.'
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 31d1a60cc6c1316dcfccb4f9ba2571708fddd991
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7f6793cab3d2d7cc54252bae3a7393f836256bdd
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072382"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815526"
 ---
-# <a name="about-the-speech-devices-sdk"></a>Om tal enheter SDK
+# <a name="about-the-speech-devices-sdk"></a>Om Speech Devices SDK
 
-[Tal tjänsterna](overview.md) fungerar med en mängd olika enheter och ljud källor. Nu kan dra du ditt talprogram till nästa nivå med matchande maskinvara och programvara. Tal Devices SDK är ett pretuned bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.
+[Tal tjänsten](overview.md) fungerar med en mängd olika enheter och ljud källor. Nu kan dra du ditt talprogram till nästa nivå med matchande maskinvara och programvara. Tal Devices SDK är ett pretuned bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.
 
 Med hjälp av tal Devices SDK kan du:
 
 - Snabbt testa nya voice-scenarier.
-- Integrera enkelt de molnbaserade tal tjänsterna i din enhet.
+- Integrera enkelt molnbaserad tal-tjänst i din enhet.
 - Skapa en enastående användarupplevelse för kunderna.
 
-SDK: N för tal enheter förbrukar den [tal SDK](speech-sdk.md). Det använder tal-SDK för att skicka ljudet som bearbetas av vår algoritm för avancerad ljud bearbetning från enhetens mikrofon till tal-och [röst tjänsterna](overview.md). Den använder flera ljud för att ge mer exakta långt fält [taligenkänning](speech-to-text.md) via bruset Undertryckning, eko, beamforming och dereverberation.
+SDK: N för tal enheter förbrukar den [tal SDK](speech-sdk.md). Den använder tal SDK för att skicka ljud som bearbetas av våra avancerade ljud bearbetning-algoritmen från enhetens mikrofon-matris på den [taltjänst](overview.md). Den använder flera ljud för att ge mer exakta långt fält [taligenkänning](speech-to-text.md) via bruset Undertryckning, eko, beamforming och dereverberation.
 
 Du kan också använda tal enheter SDK för att bygga omgivande enheter som har ditt eget [anpassade nyckelord](speech-devices-sdk-create-kws.md) så att stacken som initierar en användar interaktion är unik för ditt varumärke.
 

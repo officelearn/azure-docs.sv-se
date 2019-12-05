@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: tal SDK C# för (Xamarin) plattforms konfiguration – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform C# för Xamarin med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform C# för Xamarin med Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 3a86e1ffa581e1a8677e0a5d6db4b47b206e5490
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 498aaa03544acc5a7c8399f1928129b70a7114e9
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502452"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816540"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), en plattform med öppen källkod för att bygga moderna och presterande program för iOS, Android och Windows med .net. 
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 

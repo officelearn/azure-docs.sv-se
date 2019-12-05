@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058133"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819097"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka aktiverings problem med Azure Windows Virtual Machine
 
@@ -26,18 +26,18 @@ Om du har problem med att aktivera den virtuella Azure Windows-datorn (VM) som s
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Förstå Azure KMS-slutpunkter för Windows produkt aktivering av Azure Virtual Machines
 
-Azure använder olika slut punkter för KMS-aktivering beroende på den moln region där den virtuella datorn finns. När du använder den här fel söknings guiden använder du lämplig KMS-slutpunkt som gäller din region.
+Azure använder olika slut punkter för KMS-aktivering (Key Management Services) beroende på den moln region där den virtuella datorn finns. När du använder den här fel söknings guiden använder du lämplig KMS-slutpunkt som gäller din region.
 
 * Azures offentliga moln regioner: kms.core.windows.net:1688
 * Azure Kina 21Vianet National Cloud regionerna: kms.core.chinacloudapi.cn:1688
 * Azure Tyskland Nationals moln regioner: kms.core.cloudapi.de:1688
 * Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 När du försöker aktivera en virtuell Azure Windows-dator får du ett fel meddelande som liknar följande exempel:
 
-**Fel: 0xC004F074 program varan LicensingService rapporterade att datorn inte kunde aktive ras. Det gick inte att kontakta någon Key ManagementService (KMS). Mer information finns i program händelse loggen.**
+**Fel: 0xC004F074 program varans LicensingService rapporterade att datorn inte kunde aktive ras. Det gick inte att kontakta någon Key ManagementService (KMS). Mer information finns i program händelse loggen.**
 
 ## <a name="cause"></a>Orsak
 
@@ -54,7 +54,7 @@ I allmänhet uppstår problem med Azure VM-aktivering om den virtuella Windows-d
 
 För den virtuella datorn som skapas från en anpassad avbildning måste du konfigurera rätt KMS-klients installations nyckel för den virtuella datorn.
 
-1. Kör **slmgr. vbs/dlv** i en upphöjd kommando tolk. Kontrol lera värdet för beskrivningen i utdata och ta reda på om det skapades från återförsäljar-eller volym mediet (ÅTERFÖRSÄLJARVERSION) eller volym (VOLUME_KMSCLIENT):
+1. Kör **slmgr. vbs/dlv** i en upphöjd kommando tolk. Kontrol lera Beskrivning svärdet i utdata och ta reda på om det skapades från återförsäljar-eller volym (VOLUME_KMSCLIENT) licens medium:
   
 
     ```
@@ -87,14 +87,14 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
 
-    Kommandot bör returnera: Nyckel hanterings tjänstens dator namn har angetts till kms.core.windows.net:1688.
+    Kommandot ska returnera: nyckel hanterings tjänstens dator namn har angetts till kms.core.windows.net:1688.
 
 4. Verifiera genom att använda Psping som du har anslutning till KMS-servern. Växla till den mapp där du extraherade Pstools.zip-nedladdningen och kör sedan följande:
   
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-   Kontrollera att du ser följande i den andra och sista raden i dina utdata: Skickat = 4, mottaget = 4, borttappad = 0 (0% förlust).
+   Se till att du ser på den andra raden av utdata: skickat = 4, mottaget = 4, förlorat = 0 (0% förlust).
 
    Om det förlorade värdet är större än 0 (noll) har den virtuella datorn inte någon anslutning till KMS-servern. I den här situationen, om den virtuella datorn finns i ett virtuellt nätverk och har en anpassad DNS-server angiven, måste du kontrol lera att DNS-servern kan matcha kms.core.windows.net. Eller ändra DNS-servern till en som löser kms.core.windows.net.
 
@@ -112,7 +112,7 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
     
     **Aktivera Windows (R), Server Data Center Edition (12345678-1234-1234-1234-12345678)...  Produkten har Aktiver ATS.**
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
+## <a name="faq"></a>FAQ 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Jag skapade Windows Server 2016 från Azure Marketplace. Måste jag konfigurera KMS-nyckeln för att aktivera Windows Server 2016? 
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 85022d52c9513e53da31cc3c962f3a54dd538371
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075715"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815481"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
-Text till tal från Azure Speech Services är en tjänst som gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturligt mänskligt syntetiskt tal. Välj mellan standard-och neurala röster eller skapa en egen anpassad röst som är unik för din produkt eller ditt varumärke. 75 + standard röster är tillgängliga på över 45 språk och nationella inställningar och 5 neurala-röster är tillgängliga på 4 språk och nationella inställningar. En fullständig lista finns i [språk som stöds](language-support.md#text-to-speech).
+Text till tal från tal-tjänsten gör det möjligt för program, verktyg eller enheter att konvertera text till naturligt mänskligt syntetiskt tal. Välj mellan standard-och neurala röster eller skapa en egen anpassad röst som är unik för din produkt eller ditt varumärke. 75 + standard röster är tillgängliga på över 45 språk och nationella inställningar och 5 neurala-röster är tillgängliga på 4 språk och nationella inställningar. En fullständig lista finns i [språk som stöds](language-support.md#text-to-speech).
 
 Med text till tal-teknik kan skapare av innehåll interagera med sina användare på olika sätt. Text till tal kan förbättra tillgängligheten genom att ge användarna ett alternativ för att interagera med innehållet audibly. Om användaren har nedsatt syn, ett inlärnings funktions sätt eller kräver navigerings information under körningen, kan text till tal förbättra en befintlig upplevelse. Text till tal är också ett värdefullt tillägg för röst robotar och röst assistenter.
 
@@ -31,7 +31,7 @@ Standard röster skapas med statistisk parameter syntes och/eller kombinations s
 
 ### <a name="neural-voices"></a>Neurala-röster
 
-Neurala-röster använder djup neurala-nätverk för att undvika de traditionella text till tal-systemen som matchar mönstren för stress och intonation i talade språk och för att syntetisera tal i en dator röst. Standard text till tal avbryter prosody i separata språk analys och akustiska förutsägelse steg som styrs av oberoende modeller, vilket kan leda till muffled röst syntes. Vår neurala-funktion gör prosody förutsägelse och röst syntes samtidigt, vilket resulterar i en mer flytande och naturlig röst.
+Neurala-röster använder djup neurala-nätverk för att undvika de traditionella text till tal-systemen som matchar mönstren för stress och intonation i talade språk och för att syntetisera tal i en dator röst. Standard text till tal avbryter prosody i separata språk analys och akustiska förutsägelse steg som styrs av oberoende modeller, vilket kan leda till muffled röst syntes. Vår neurala funktion skapar prosodiförutsägelsen och röstsyntesen samtidigt, vilket resulterar i en mer flytande och naturlig röst.
 
 Neurala röster kan användas för att göra interaktioner med chattrobotar och röst assistenter mer naturligt och engagerande, konvertera digitala texter som e-böcker till Audiobooks och förbättra navigerings systemen i bilen. Med den humana naturliga prosody och tydligare utsättande av ord, minskar neurala-röster avsevärt lyssnings utmattning när du interagerar med AI-system.
 
@@ -125,5 +125,5 @@ Exempel kod för text till tal finns på GitHub. De här exemplen tar upp text t
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skaffa en prenumeration på kostnads fria tal tjänster](get-started.md)
+- [Skaffa en prenumeration på kostnads fri röst tjänst](get-started.md)
 - [Skapa anpassade rösttyper](how-to-customize-voice-font.md)

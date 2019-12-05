@@ -1,7 +1,7 @@
 ---
 title: Stream codec Compressed Audio med talet SDK på Android
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du direktuppspelar komprimerat ljud till Azure Speech Services med talet SDK på Android.
+description: Lär dig hur du direktuppspelar komprimerat ljud till tal tjänsten med talet SDK på Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109897"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805849"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Gör så här: Använd codec-komprimerad ljud inspelning med talet SDK på Android
 
@@ -37,7 +37,7 @@ För WAV/PCM ser du Mainline tal-dokumentationen. Utanför WAV/PCM stöds följa
 
 Codec-komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). Av licens skäl kompileras inte gstreamer-binärfiler med SDK. Du måste använda färdiga binärfiler för Android. Information om hur du hämtar färdiga bibliotek finns i [Installera för Android-utveckling](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` krävs. Kontrol lera att dina GStreamer-plugin-program är länkade i `libgstreamer_android.so`.
+`libgstreamer_android.so` måste anges. Kontrol lera att dina GStreamer-plugin-program är länkade i `libgstreamer_android.so`.
 
 ```make
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
@@ -133,7 +133,7 @@ När det delade objektet (libgstreamer_android. so) är skapat måste programutv
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exempel kod med codec komprimerad ljud inspelning
 
-Skapa `PullAudioInputStream` eller `PushAudioInputStream`för att strömma i ett komprimerat ljud format till tal tjänsterna. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
+Skapa `PullAudioInputStream` eller `PushAudioInputStream`för att strömma i ett komprimerat ljud format till tal tjänsten. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
 
 Vi antar att du har en data Ströms klass som heter `myPullStream` och använder OPUS/OGG. Din kod kan se ut så här:
 

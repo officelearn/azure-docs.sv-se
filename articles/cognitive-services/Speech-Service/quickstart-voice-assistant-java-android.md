@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 077f34e94423918d324eb41b56ab84c64a0db719
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111789"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816195"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Snabb start: skapa en röst assistent i Java på Android med hjälp av talet SDK
 
@@ -30,7 +30,7 @@ Det här programmet har skapats med tal SDK maven-paketet och Android Studio 3,3
 
 ## <a name="prerequisites"></a>Krav
 
-- En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
+- En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
 - En tidigare skapad robot som kon figurer ATS med den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Android Studio](https://developer.android.com/studio/) v 3.3 eller senare
 
@@ -260,7 +260,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
     * Ersätt `YourSpeechSubscriptionKey` med din prenumerationsnyckel.
 
-    * Ersätt `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration endast en delmängd av tal Services-regioner stöds för närvarande med direkt linje tal. Mer information finns i [regioner](regions.md#voice-assistants).
+    * Ersätt `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration endast en delmängd av tal service regionerna stöds för närvarande med direkt linje tal. Mer information finns i [regioner](regions.md#voice-assistants).
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
@@ -283,9 +283,9 @@ När programmet och dess aktivitet har startats klickar du på knappen för att 
 > [!div class="nextstepaction"]
 > [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 - [Om röst assistenter](voice-assistants.md)
-- [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+- [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 - [Anpassade nyckelord](speech-devices-sdk-create-kws.md)
 - [Anslut direkt linje tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)

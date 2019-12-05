@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 0d353b115acbf48bfffa6c2033b507721de501c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 652754c31711df7b14c055b31d6d96a6b0217d29
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503621"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815602"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Snabb start: identifiera tal i mål-C på iOS med hjälp av tal-SDK
 
@@ -23,7 +23,7 @@ Snabb Starter är också tillgängliga för [tal syntes](~/articles/cognitive-se
 
 I den här artikeln får du lära dig hur du skapar en iOS-app i mål-C genom att använda Azure Cognitive Services Speech SDK för att skriva tal till text från en mikrofon eller från en fil med inspelat ljud.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha:
 
@@ -51,7 +51,7 @@ Gör följande val i dialog rutorna som följer.
     1. Kontrol lera att **mål-C** har valts som språk för projektet.
     1. Avmarkera alla kryss rutor för test-och kärn data.
 
-    ![Projekt inställningar](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-project-settings.png)
+    ![Projektinställningar](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-project-settings.png)
 
 1. Välj en projekt katalog:
    1. Välj arbetskatalogen och spara projektet där. Det här steget skapar en HelloWorld-katalog i din arbets katalog som innehåller alla filer för Xcode-projektet.

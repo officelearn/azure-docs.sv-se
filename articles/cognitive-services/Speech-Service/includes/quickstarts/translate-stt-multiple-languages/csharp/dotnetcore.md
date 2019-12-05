@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Översätt tal till flera språk C# , (.net Core Windows) – tal service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 947c0dd8a15efa8ac296aa598d883951816e759d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ea3c0bd1ab12004b51c3c9b56eb8a8370da6f36
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502802"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817331"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -117,7 +117,7 @@ Innan du börjar ska du se till att:
 
 1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
 
-1. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsterna, som översätter och omvandlar till text (i det här fallet till franska och tyska). Tal tjänsterna skickar sedan tillbaka texten till programmet för visning.
+1. Säg en engelsk fras eller en mening. Programmet skickar din röst till tal tjänsten som översätter och omvandlar till text (i det här fallet till franska och tyska). Tal tjänsten skickar sedan tillbaka texten till programmet för visning.
 
 ````
 Say something...

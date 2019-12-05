@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9a68e9d71324ba05e24ba98802863211a569689
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839924"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815811"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabb start: skapa och skicka frågor till en Azure SQL Data Warehouse i Azure Portal
 
@@ -33,7 +33,7 @@ Ladda ned och installera den senaste versionen av [SQL Server Management Studio]
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
@@ -51,16 +51,14 @@ Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel 
 
     | Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
-    | **Databasnamn** | mySampleDataWarehouse | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). Observera att ett informationslager är en typ av databas.|
     | **Prenumeration** | Din prenumeration | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
     | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-    | **Välj källa** | Exempel | Anger att exempeldatabas ska läsas in. Observera att ett informationslager är en typ av databas. |
-    | **Välj exempel** | AdventureWorksDW | Anger att exempeldatabasen AdventureWorksDW ska läsas in. |
+    | **Data lager namn** | mySampleDataWarehouse | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). Observera att ett informationslager är en typ av databas.|
     ||||
 
     ![skapa ett informationslager](media/create-data-warehouse-portal/select-sample.png)
 
-4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information: 
+4. Välj en befintlig **Server** eller klicka på **Skapa ny** för att skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information: 
 
     | Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
@@ -82,7 +80,7 @@ Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel 
 
 8. Klicka på **Verkställ**.
 
-9. Nu när du har fyllt i SQL Data Warehouse formuläret klickar du på **skapa** för att etablera databasen. Etableringen tar några minuter.
+9. Nu när du har slutfört fliken grundläggande i SQL Data Warehouse formuläret klickar du på **Granska + skapa** för att etablera databasen. Etableringen tar några minuter.
 
     ![klicka på skapa](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -113,7 +111,7 @@ Tjänsten SQL Data Warehouse skapar en brand vägg på server nivå. Den här br
 
 1. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-1. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+1. Klicka på **Save** (Spara). En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
 1. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
@@ -126,7 +124,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL Data Warehouses** på menyn till vänster och klicka på informations lagret på sidan **SQL Data Warehouse** .
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver-20180430.database.windows.net.
 
@@ -145,7 +143,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
    | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.Database.Windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-   | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
+   | Logga in | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
    | Lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
    ||||
 

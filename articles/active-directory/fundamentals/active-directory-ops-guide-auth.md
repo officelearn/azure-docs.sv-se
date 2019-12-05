@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 6b9d5eb3adb8cad963ec513d327d237e73f94878
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535592"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803741"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -141,7 +141,7 @@ Om du hanterar enheter med MDM eller Microsoft Intune, men inte använder enhets
 #### <a name="device-trust-access-policies-recommended-reading"></a>Åtkomst principer för enhets förtroende rekommenderas läsning
 
 - [Gör så här: planera din hybrid Azure Active Directory delta-implementering](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-- [Konfigurationer för identitets-och enhets åtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Konfigurationer för identitets- och Enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello för företag
 
@@ -192,7 +192,7 @@ Om du däremot hittar program som har tilldelning till enskilda användare ska d
 - [Delegera registrerings behörigheter för app i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-delegate-app-roles)
 - [Regler för dynamiskt medlemskap för grupper i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)
 
-## <a name="access-policies"></a>Åtkomst principer
+## <a name="access-policies"></a>Åtkomstprinciper
 
 ### <a name="named-locations"></a>Namngivna platser
 
@@ -205,7 +205,7 @@ Med [namngivna platser](https://docs.microsoft.com/azure/active-directory/report
 
 Baserat på prioritet använder du tabellen nedan för att hitta den rekommenderade lösning som bäst uppfyller organisationens behov:
 
-| **Prioritet** | **Scenario** | **Rekommenderade** |
+| **Prioritet** | **Scenario** | **Rekommendationen** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | Om du använder PHS eller PTA och namngivna platser inte har definierats | Definiera namngivna platser för att förbättra identifieringen av risk händelser |
 | 2 | Om du är federerad och inte använder "insideCorporateNetwork"-anspråk och namngivna platser inte har definierats | Definiera namngivna platser för att förbättra identifieringen av risk händelser |
@@ -256,7 +256,7 @@ Villkorlig åtkomst är ett viktigt verktyg för att förbättra din organisatio
 #### <a name="conditional-access-recommended-reading"></a>Rekommenderad läsning för villkorlig åtkomst
 
 - [Metod tips för villkorlig åtkomst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Konfigurationer för identitets-och enhets åtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Konfigurationer för identitets- och Enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referens för Azure Active Directory villkorlig åtkomst inställningar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Vanliga principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
@@ -319,7 +319,7 @@ För att undvika det här scenariot bör du läsa om att [identifiera och åtgä
 
 Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte finns något behov av affärs behov:
 
-#### <a name="user-settings"></a>Användar inställningar
+#### <a name="user-settings"></a>Användarinställningar
 
 - **Externa användare** – externt samarbete kan ske ekologiskt i företaget med tjänster som team, Power BI, SharePoint Online och Azure information Protection. Om du har uttryckliga begränsningar för att styra det externa samarbetet som initieras av användaren, rekommenderar vi att du aktiverar externa användare med hjälp av [hantering av Azure AD-rättighet](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) eller en kontrollerad åtgärd, till exempel genom supportavdelningen. Om du inte vill tillåta ekologiskt externt samarbete för tjänster kan du [blockera medlemmar från att bjuda in externa användare fullständigt](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Du kan också [tillåta eller blockera vissa domäner](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) i externa användar inbjudningar.
 - **App-registreringar** – när Appregistreringar är aktiverade kan slutanvändare själva publicera program och ge åtkomst till sina data. Ett typiskt exempel på registrering av appar är användare som aktiverar Outlook-plugin-program eller röst assistenter som Alexa och Siri för att läsa e-post och kalender eller skicka e-post åt dig. Om kunden bestämmer sig för att inaktivera registrering av appar, måste informations-och IAM-teamen ingå i hanteringen av undantag (app-registreringar som behövs utifrån affärs kraven), eftersom de skulle behöva registrera programmen med ett administratörs konto. Vi behöver förmodligen utforma en process för att operationalisera processen.
@@ -330,7 +330,7 @@ Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte
 > [!NOTE]
 > Icke-administratörer kan fortfarande komma åt Azure AD-hanterings gränssnitt via kommando rads program och andra programmerings gränssnitt.
 
-#### <a name="group-settings"></a>Grupp inställningar
+#### <a name="group-settings"></a>Gruppinställningar
 
 **Grupp hantering via självbetjäning/användare kan skapa säkerhets grupper/O365-grupper.** Om det inte finns något aktuellt självbetjänings initiativ för grupper i molnet kan kunderna välja att inaktivera det tills de är redo att använda den här funktionen.
 
@@ -363,7 +363,7 @@ För att få till gång till inloggnings aktivitet är granskningar och risk hä
 - [Hämta data med hjälp av Azure AD repor ting API med certifikat](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph för Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [API-referens för Office 365 Management Activity](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [Använda Azure Active Directory Power BI innehålls paketet](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [Använda Azure Active Directory Power BI innehålls paketet](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>Sammanfattning
 

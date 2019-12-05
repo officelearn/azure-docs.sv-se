@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-ms.openlocfilehash: 8e522b49c53dd40a4438755520481383984c1e01
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 45dba8de8ef735bdb9df102ac367e6a1653bf481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535891"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807093"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Underhåll för virtuella datorer i Azure
 
@@ -29,7 +29,7 @@ Uppdateringar påverkar sällan de värdar som är värdar för virtuella datore
 
 Den här sidan beskriver hur Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i [Hantera tillgängligheten för virtuella datorer för Windows](./windows/manage-availability.md) eller motsvarande artikel för [Linux](./linux/manage-availability.md).
 
-I en virtuell dator kan du få aviseringar om kommande underhåll genom [att använda schemalagda händelser för Windows](/windows/scheduled-events.md) eller [Linux](/linux/scheduled-events.md).
+I en virtuell dator kan du få aviseringar om kommande underhåll genom [att använda schemalagda händelser för Windows](./windows/scheduled-events.md) eller [Linux](./linux/scheduled-events.md).
 
 
 
@@ -43,7 +43,7 @@ Underhåll av minnes underhåll fungerar i mer än 90 procent av virtuella Azure
 
 De underhålls åtgärder som inte kräver en omstart tillämpas en fel domän i taget. De stoppas om de får varnings hälso signaler. 
 
-De här typerna av uppdateringar kan påverka vissa program. När den virtuella datorn är Live-migrerad till en annan värd kan vissa känsliga arbets belastningar Visa en försämrad prestanda försämring under några minuter, vilket leder till att den virtuella datorn pausas. Om du vill förbereda för underhåll av virtuella datorer och minska påverkan under Azure-underhållet kan du försöka [använda schemalagda händelser för Windows](/windows/scheduled-events.md) eller [Linux](/linux/scheduled-events.md) för sådana program. 
+De här typerna av uppdateringar kan påverka vissa program. När den virtuella datorn är Live-migrerad till en annan värd kan vissa känsliga arbets belastningar Visa en försämrad prestanda försämring under några minuter, vilket leder till att den virtuella datorn pausas. Om du vill förbereda för underhåll av virtuella datorer och minska påverkan under Azure-underhållet kan du försöka [använda schemalagda händelser för Windows](./windows/scheduled-events.md) eller [Linux](./linux/scheduled-events.md) för sådana program. 
 
 Det finns också en funktion, underhålls kontroll, i offentlig för hands version som kan hjälpa till att hantera underhåll som inte kräver en omstart. Du måste använda antingen [Azure-dedikerade värdar](./linux/dedicated-hosts.md) eller en [isolerad virtuell dator](../security/fundamentals/isolation-choices.md). Med underhålls kontrollen får du möjlighet att hoppa över plattforms uppdateringar och tillämpa uppdateringarna när som helst i en rullande 35-dagars period. Mer information finns i [styra uppdateringar med underhålls kontroll och Azure CLI](maintenance-control-cli.md).
 

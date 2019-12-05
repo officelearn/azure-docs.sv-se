@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 14cb4f02bc18bda24f022f1ccf41a06776a5136b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 4e6b648ed70f6ff57a2d11cde43b8168b800fcb3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241481"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806923"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Kör Azure Machine Learning arbets belastningar med automatiserad maskin inlärning på Apache Spark i HDInsight
 
@@ -71,7 +71,7 @@ Du kan också registrera data lagret med arbets ytan med en engångs registrerin
 
 ## <a name="experiment-submission"></a>Experiment överföring
 
-I den [automatiserade konfigurationen av Machine Learning](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)bör egenskapen `spark_context` anges för det paket som ska köras i distribuerat läge. Egenskaps `concurrent_iterations`, som är det högsta antalet iterationer som körs parallellt, ska anges till ett tal som är mindre än utförar-kärnan för Spark-appen.
+I den [automatiserade konfigurationen av Machine Learning](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)bör egenskapen `spark_context` anges för det paket som ska köras i distribuerat läge. Egenskaps `concurrent_iterations`, som är det högsta antalet iterationer som körs parallellt, ska anges till ett tal som är mindre än utförar-kärnan för Spark-appen.
 
 ## <a name="next-steps"></a>Nästa steg
 

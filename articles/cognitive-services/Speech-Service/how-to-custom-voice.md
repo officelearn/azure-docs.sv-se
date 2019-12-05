@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e40ca55a9cd198e1b086362a2559ab2fc0ba95e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464532"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805968"
 ---
 # <a name="get-started-with-custom-voice"></a>Komma igång med Custom Voice
 
@@ -23,13 +23,13 @@ ms.locfileid: "73464532"
 
 ## <a name="whats-in-custom-voice"></a>Vad är en anpassad röst?
 
-Innan du börjar med anpassad röst behöver du ett Azure-konto och en prenumeration på tal tjänster. När du har skapat ett konto kan du förbereda dina data, träna och testa dina modeller, utvärdera röst kvalitet och slutligen distribuera din anpassade röst modell.
+Innan du börjar med anpassad röst behöver du ett Azure-konto och en röst tjänst prenumeration. När du har skapat ett konto kan du förbereda dina data, träna och testa dina modeller, utvärdera röst kvalitet och slutligen distribuera din anpassade röst modell.
 
 Diagrammet nedan visar stegen för att skapa en anpassad röst modell med hjälp av den [anpassade röst portalen](https://aka.ms/customvoice). Använd länkarna för att lära dig mer.
 
 ![Diagram över anpassad röst arkitektur](media/custom-voice/custom-voice-diagram.png)
 
-1.  [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och skapa en prenumeration på tal tjänster. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och den anpassade röst portalen. Sedan använder du din röst tjänst prenumeration och skapar ditt första anpassade röst projekt.
+1.  [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och skapa en prenumeration på tal tjänsten. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och den anpassade röst portalen. Sedan kan du skapa ditt första anpassade röst projekt med hjälp av din röst tjänst prenumeration.
 
 2.  [Ladda upp data](how-to-custom-voice-create-voice.md#upload-your-datasets) överförings data (ljud och text) med hjälp av den anpassade röst portalen eller det anpassade röst-API: et. Från portalen kan du undersöka och utvärdera uttal-resultat och signal-till-brus-förhållande. Mer information finns i [så här förbereder du data för anpassad röst](how-to-custom-voice-prepare-data.md).
 
@@ -46,11 +46,11 @@ Neurala röst anpassnings funktion finns för närvarande i offentlig för hands
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
-En prenumeration på tal tjänster krävs innan du kan använda Custom Speech Portal för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en prenumeration på tal tjänster i Azure. Om du inte har ett Azure-konto kan du registrera dig för ett nytt.  
+En röst tjänst prenumeration krävs innan du kan använda Custom Speech Portal för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en prenumeration på en röst tjänst i Azure. Om du inte har ett Azure-konto kan du registrera dig för ett nytt.  
 
-När du har skapat ett Azure-konto och en prenumeration på tal tjänster måste du logga in på den anpassade röst portalen och ansluta din prenumeration.
+När du har skapat ett Azure-konto och en prenumeration på en röst tjänst måste du logga in på den anpassade röst portalen och ansluta din prenumeration.
 
-1. Hämta din prenumerations nyckel för tal tjänster från Azure Portal.
+1. Hämta din prenumerations nyckel för röst tjänsten från Azure Portal.
 2. Logga in på den [anpassade röst portalen](https://aka.ms/custom-voice).
 3. Välj din prenumeration och skapa ett tal projekt.
 4. Om du vill växla till en annan tal prenumeration använder du kugg hjuls-ikonen som finns i det övre navigerings fönstret.

@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: edee0e2efadd8e92ebf3533f0716c82029a0c680
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791698"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806991"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett allmänt-syfte v2-lagrings konto
 
-Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage funktionerna och inkluderar alla funktioner i generella v1-och Blob Storage-konton. Allmänna-Purpose v2-konton rekommenderas för de flesta lagrings scenarier. Allmänna-Purpose v2-konton ger de lägsta priserna per Gigabyte för Azure Storage, samt priser för priser som är konkurrerande för branschen. General-testning v2-konton har stöd för standard konto åtkomst nivåer för frekvent eller låg frekvent lagrings nivå och blobnivå mellan frekvent, låg frekvent eller Arkiv lag ring.
+Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage funktionerna och inkluderar alla funktioner i generella v1-och Blob Storage-konton. Allmänna-Purpose v2-konton rekommenderas för de flesta lagrings scenarier. Allmänna-Purpose v2-konton ger de lägsta priserna per Gigabyte för Azure Storage, samt priser för priser som är konkurrerande för branschen. Allmänna-Purpose v2-konton har stöd för standard konto åtkomst nivåer för frekvent eller låg frekvent lagrings nivå och blobnivå mellan frekvent, låg frekvent eller Arkiv lag ring.
 
 Det är enkelt att uppgradera till ett allmänt lagrings konto från generella v1-eller Blob Storage-konton. Du kan uppgradera med hjälp av Azure Portal, PowerShell eller Azure CLI.
 
@@ -40,7 +40,7 @@ Det är enkelt att uppgradera till ett allmänt lagrings konto från generella v
 
 Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av PowerShell, måste du först uppdatera PowerShell för att använda den senaste versionen av modulen **AZ. Storage** . Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-Anropa sedan följande kommando för att uppgradera kontot, och ersätta resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
+Sedan anropar du följande kommando för att uppgradera kontot, vilket ersätter resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
@@ -49,7 +49,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av Azure CLI installerar du först den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Anropa sedan följande kommando för att uppgradera kontot, och ersätta resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
+Sedan anropar du följande kommando för att uppgradera kontot, vilket ersätter resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
@@ -59,11 +59,11 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Ange en åtkomst nivå för BLOB-data
 
-Allmänna-Purpose v2-konton har stöd för alla Azure Storage-tjänster och data objekt, men åtkomst nivåer är bara tillgängliga för block-blobar i Blob Storage. När du uppgraderar till ett allmänt-syfte v2-lagrings konto kan du ange en åtkomst nivå för dina BLOB-data.
+Allmänna-Purpose v2-konton har stöd för alla Azure Storage-tjänster och data objekt, men åtkomst nivåer är bara tillgängliga för block-blobar i Blob Storage. När du uppgraderar till ett allmänt-syfte v2-lagrings konto kan du ange en standard åtkomst nivå för kontot med frekvent eller låg frekvent, vilket anger standard nivån som dina BLOB-data laddas upp som om parametern för den enskilda BLOB-åtkomsten inte har angetts.
 
-Med åtkomst nivåer kan du välja den mest kostnads effektiva lagringen utifrån dina förväntade användnings mönster. Block-blobbar kan lagras på en frekvent, låg frekvent eller Arkiv lag rings nivå. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent, låg frekvent och Arkiv lag](../blobs/storage-blob-storage-tiers.md)rings nivåer.
+Med BLOB Access-nivåer kan du välja den mest kostnads effektiva lagringen utifrån dina förväntade användnings mönster. Block-blobbar kan lagras på frekventa, låg frekventa eller Arkiv lag rings nivåer. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent, låg frekvent och Arkiv lag](../blobs/storage-blob-storage-tiers.md)rings nivåer.
 
-Som standard skapas ett nytt lagrings konto i nivån frekvent åtkomst och ett allmänt v1-lagrings konto uppgraderas till frekvent åtkomst nivå. Om du undersöker vilken åtkomst nivå som ska användas för din data efter uppgradering bör du tänka på ditt scenario. Det finns två vanliga användar scenarier för att migrera till ett allmänt-syfte v2-konto:
+Som standard skapas ett nytt lagrings konto i nivån frekvent åtkomst och ett allmänt v1-lagrings konto kan uppgraderas till antingen frekvent eller låg frekvent konto nivå. Om ingen åtkomst nivå för kontot har angetts vid uppgraderingen, uppgraderas den till aktiv som standard. Om du undersöker vilken åtkomst nivå som ska användas för din uppgradering bör du tänka på ditt nuvarande data användnings scenario. Det finns två vanliga användar scenarier för att migrera till ett allmänt-syfte v2-konto:
 
 * Du har ett befintligt allmänt v1-lagrings konto och vill utvärdera en uppgradering till ett allmänt-syfte v2-lagrings konto med rätt lagrings åtkomst nivå för BLOB-data.
 * Du har valt att använda ett allmänt lagrings konto eller har redan ett och vill utvärdera om du ska använda frekvent eller låg frekvent åtkomst nivå för BLOB-data.

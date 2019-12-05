@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5864424f003ce9254a6452d8374d78c54516f2bc
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08c1db1a8e377edd1bf9b8f1b942e65b970edf56
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322741"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803690"
 ---
 # <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Villkorlig åtkomst: Kräv betrodd plats för MFA-registrering
 
@@ -26,7 +26,7 @@ Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authe
 
 Följande princip gäller för alla valda användare, som försöker registrera sig med den kombinerade registrerings upplevelsen och blockerar åtkomsten om de inte ansluter från en plats som har marker ATS som ett betrott nätverk.
 
-1. I **Azure Portal**bläddrar du till **Azure Active Directory** > **villkorlig åtkomst**.
+1. I **Azure Portal**bläddrar du till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. I namn anger du ett namn för den här principen. Till exempel **kombinerad säkerhets informations registrering på betrodda nätverk**.
 1. Under **tilldelningar**klickar du på **användare och grupper**och väljer de användare och grupper som du vill att den här principen ska tillämpas på.
@@ -44,7 +44,7 @@ Följande princip gäller för alla valda användare, som försöker registrera 
 1. Under **åtkomst kontroller** > **bevilja**.
    1. Klicka på **blockera åtkomst**.
    1. Klicka sedan på **Välj**.
-1. Ange **Aktivera princip** till **på**.
+1. Ange **Aktivera princip** till **På**.
 1. Klicka sedan på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50978b51fd1451cf65e33b38ca0699694cb115b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dd3de14d8c82a3e51d38a1e32241cb106e0f95b3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151191"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74804626"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Villkorlig åtkomst: Kräv MFA för administratörer
 
@@ -30,7 +30,7 @@ Microsoft rekommenderar att du behöver MFA på följande roller minst:
 * Administratör för villkorlig åtkomst
 * Säkerhetsadministratör
 * Administratör för supportavdelningen (lösen ord)
-* Lösen ords administratör
+* Lösenordsadministratör
 * Faktureringsadministratör
 * Användar administratör
 
@@ -50,7 +50,7 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kräver att de tilldelade administrativa rollerna utför Multi-Factor Authentication.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
@@ -61,13 +61,13 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
       * Administratör för villkorlig åtkomst
       * Säkerhetsadministratör
       * Support administratör
-      * Lösen ords administratör
+      * Lösenordsadministratör
       * Faktureringsadministratör
       * Användar administratör
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
    1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **alla molnappar**och väljer sedan **Slutför**.
-1. Under **åtkomst kontroller** > -**beviljande**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och välj **Välj**.
+1. Under **åtkomst kontroller** > **bevilja**, väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860242"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806732"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scener, klipp och nyckelbilder
 
@@ -30,7 +30,7 @@ Video Indexer anger när en scen ändras i video baserat på visuella tips. En s
 > [!NOTE]
 > Gäller för videor som innehåller minst tre scener.
 
-## <a name="shot-detection"></a>Bildidentifiering
+## <a name="shot-detection"></a>Bild identifiering
 
 Video Indexer bestämmer när en bild ändras i videon baserat på visuella tips, genom att spåra både plötsligt och gradvisa över gångar i färgschemat för intilliggande bild rutor. Bildens metadata innehåller en start-och slut tid, samt listan över nyckel rutor som ingår i bilden. Bilderna är i flera bild rutor tagna från samma kamera på samma tid.
 
@@ -38,9 +38,71 @@ Video Indexer bestämmer när en bild ändras i videon baserat på visuella tips
 
 Markerar de ramar som bäst representerar bilden. Nyckel rutor är de representativa bild rutor som valts från hela videon baserat på de egenskaper som är markerade (till exempel kontrast och stabilhet). Video Indexer hämtar en lista över nyckel Rute-ID: n som en del av bildens metadata, baserat på vilka kunder som kan extrahera nyckel Rute miniatyren. 
 
-Nyckel rutor är associerade med bilder i JSON-utdata. 
+### <a name="extracting-keyframes"></a>Extraherar nyckel rutor
+
+Om du vill extrahera nyckel bild rutor med hög upplösning för videon måste du först ladda upp och indexera videon.
+
+![Nyckel rutor](./media/scenes-shots-keyframes/extracting-keyframes.png)
+
+#### <a name="with-the-video-indexer-website"></a>Med Video Indexer webbplats
+
+Om du vill extrahera nyckel rutor med Video Indexer webbplats laddar du upp och indexerar videon. När indexerings jobbet är klart klickar du på **nedladdnings** knappen och väljer **artefakter (zip)** . Då hämtas mappen artefakter till datorn. 
+
+![Nyckel rutor](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+ 
+Zippa upp och öppna mappen. I mappen *_KeyframeThumbnail* och du hittar alla nyckel rutor som har extraherats från videon. 
+
+#### <a name="with-the-video-indexer-api"></a>Med Video Indexer API
+
+Om du vill hämta nyckel rutor med Video Indexer-API: t laddar du upp och indexera videon med [uppladdnings video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) samtalet. När indexerings jobbet är klart anropar du [Hämta video index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Detta ger dig alla insikter som Video Indexer extraheras från ditt innehåll i en JSON-fil.  
+
+Du får en lista över nyckel Rute-ID: n som en del av varje bilds metadata. 
+
+```json
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
+      ],
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+
+]
+```
+
+Du kommer nu att behöva köra var och en av dessa ID: n för nyckel rutorna i [Get thumbnails](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) -anropet. Detta laddar ned var och en av nyckel Rute bilderna till datorn. 
 
 ## <a name="editorial-shot-type-detection"></a>Identifiering av redaktionella typer av tagning
+
+Nyckel rutor är associerade med bilder i JSON-utdata. 
 
 Den bildtyp som är associerad med en enskild bild i insikts-JSON representerar en redaktionell typ. Du kanske tycker att de här typerna av bildtyp är användbara när du redigerar videor i klipp, släp vagnar eller när du söker efter en speciell typ av nyckel bild ruta för konstnärliga bruk. De olika typerna bestäms baserat på analys av den första nyckel rutan för varje bild. Bilderna identifieras av skala, storlek och plats för de ytor som visas i den första nyckel rutan. 
 
@@ -63,6 +125,7 @@ Ytterligare egenskaper:
 
 * Två bilder: visar två personers ansikten av medel storlek.
 * Flera ansikten: fler än två personer.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

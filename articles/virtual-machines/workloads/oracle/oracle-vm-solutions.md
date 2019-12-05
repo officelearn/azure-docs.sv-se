@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 3abc09f8c82442e3b24a9edf6ef4fb42f19dfde8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891443"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806957"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -59,7 +59,7 @@ De här avbildningarna betraktas som "ta med din egen licens" och så att du bar
 Individer kan också välja att basera sina lösningar på en anpassad avbildning som de skapar från grunden i Azure eller ladda upp en anpassad avbildning från sin lokala miljö.
 
 ## <a name="oracle-database-vm-images"></a>VM-avbildningar för Oracle-databasen
-Oracle stöder körning av Oracle DB 12,1 och högre standard-och Enterprise-versioner i Azure på avbildningar av virtuella datorer baserat på Oracle Linux.  För att få bästa möjliga prestanda för produktions arbets belastningar för Oracle DB på Azure, måste du se till att du har rätt storlek på den virtuella dator avbildningen och använder Premium SSD eller Ultra SSD Managed Disks. För instruktioner om hur du snabbt får en Oracle DB igång i Azure med hjälp av den virtuella Oracle-avbildningen, [provar du genom gången Oracle DB Snabb start](oracle-database-quick-create.md).
+Oracle stöder körning av Oracle Database 12,1 och högre standard-och Enterprise-versioner i Azure på avbildningar av virtuella datorer baserat på Oracle Linux.  För att få bästa möjliga prestanda för produktions arbets belastningar för Oracle Database på Azure, måste du se till att du har rätt storlek på den virtuella dator avbildningen och använder Premium SSD eller Ultra SSD Managed Disks. För instruktioner om hur du snabbt får en Oracle Database igång i Azure med hjälp av den virtuella Oracle-avbildningen, [provar du genom gången Oracle Database snabb start](oracle-database-quick-create.md).
 
 ### <a name="attached-disk-configuration-options"></a>Konfigurations alternativ för anslutna diskar
 
@@ -79,13 +79,13 @@ Dessa funktioner är möjliga eftersom Azure NetApp Files baseras på NetApp® O
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licensierings Oracle Database & program vara på Azure
 Microsoft Azure är en godkänd moln miljö för att köra Oracle Database. Tabellen för Oracle Core Factor kan inte användas när du licensierar Oracle-databaser i molnet. När du använder virtuella datorer med Hyper-Threading-teknik som är aktive rad för Enterprise Edition-databaser, kan du i stället räkna två virtuella processorer som likvärdiga med en Oracle processor licens om hyperthreading är aktiverat (enligt vad som anges i princip dokumentet). Du hittar information om principen [här](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) för Oracle DB arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
+Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) för Oracle Database arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
 
 När du migrerar Oracle-programvara och arbets belastningar från en lokal plats till Microsoft Azure tillhandahåller Oracle License Mobility såsom anges i [vanliga frågor och svar om Oracle på Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Verkligt Oracle-programkluster (Oracle RAC)
-Oracle RAC är utformat för att minimera fel i en enskild nod i en lokal kluster konfiguration med flera noder. Den förlitar sig på två lokala tekniker som inte är inbyggda för storskaliga offentliga moln miljöer: nätverks-multicast och delad disk. Om din databas lösning kräver Oracle RAC i Azure, behöver du en tredje = parts program vara för att aktivera dessa tekniker. Mer information om Oracle RAC finns på [sidan FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle Real Application Cluster (Oracle RAC) är utformat för att minimera fel i en enskild nod i en lokal kluster konfiguration med flera noder. Den förlitar sig på två lokala tekniker som inte är inbyggda för storskaliga offentliga moln miljöer: nätverks-multicast och delad disk. Om din databas lösning kräver Oracle RAC i Azure, behöver du en tredje = parts program vara för att aktivera dessa tekniker. Mer information om Oracle RAC finns på [sidan FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Överväganden för hög tillgänglighet och haveri beredskap
 När du använder Oracle-databaser i Azure ansvarar du för att implementera en lösning för hög tillgänglighet och haveri beredskap för att undvika avbrott. 
@@ -107,20 +107,20 @@ Enligt Oracle support NOTE [dokument-ID 2178595,1](https://support.oracle.com/ep
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Avbildningar av virtuella datorer i Oracle WebLogic-Server
 
-* **Klustring stöds endast på Enterprise Edition.** Du är licensierad att endast använda WebLogic-kluster när du använder Enterprise-versionen av WebLogic-servern. Använd inte kluster med WebLogic Server Standard Edition.
-* **UDP-multicast stöds inte.** Azure har stöd för UDP-unicast, men inte multicasting eller Broadcasting. WebLogic-servern kan förlita sig på funktioner i Azure UDP unicast. För bästa resultat som förlitar sig på UDP unicast, rekommenderar vi att kluster storleken för WebLogic hålls statisk eller hålls kvar utan fler än 10 hanterade servrar.
-* **WebLogic-servern förväntar sig att offentliga och privata portar är samma för T3-åtkomst (till exempel när du använder företags-JavaBeans).** Överväg ett scenario med flera nivåer där ett Service Layer (EJB)-program körs på ett WebLogic Server kluster som består av två eller flera virtuella datorer i ett virtuellt nätverk med namnet *SLWLS*. Klient nivån finns i ett annat undernät i samma virtuella nätverk, med ett enkelt Java-program som försöker anropa EJB i tjänst skiktet. Eftersom det är nödvändigt att belastningsutjämna tjänst lagret måste en offentlig belastningsutjämnad slut punkt skapas för de virtuella datorerna i WebLogic-serverkluster. Om den privata port som du anger skiljer sig från den offentliga porten (till exempel 7006:7008) uppstår ett fel som följande inträffar:
+* **Klustring stöds endast på Enterprise Edition.** Du är licensierad att endast använda WebLogic-kluster när du använder Enterprise-versionen av Oracle WebLogic Server. Använd inte kluster med Oracle WebLogic Server Standard Edition.
+* **UDP-multicast stöds inte.** Azure har stöd för UDP-unicast, men inte multicasting eller Broadcasting. Oracle WebLogic Server kan förlita sig på funktioner i Azure UDP unicast. För bästa resultat som förlitar sig på UDP unicast, rekommenderar vi att kluster storleken för WebLogic hålls statisk eller hålls kvar utan fler än 10 hanterade servrar.
+* **Oracle WebLogic-servern förväntar sig att offentliga och privata portar är samma för T3-åtkomst (till exempel när du använder företags-JavaBeans).** Överväg ett scenario med flera nivåer där ett Service Layer (EJB)-program körs på ett Oracle WebLogic Server-kluster som består av två eller flera virtuella datorer i ett virtuellt nätverk med namnet *SLWLS*. Klient nivån finns i ett annat undernät i samma virtuella nätverk, med ett enkelt Java-program som försöker anropa EJB i tjänst skiktet. Eftersom det är nödvändigt att belastningsutjämna tjänst lagret måste en offentlig belastningsutjämnad slut punkt skapas för de virtuella datorerna i Oracle WebLogic-serverkluster. Om den privata port som du anger skiljer sig från den offentliga porten (till exempel 7006:7008) uppstår ett fel som följande inträffar:
 
        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   Detta beror på att WebLogic-servern förväntar sig att belastnings Utjämnings porten och den WebLogic-hanterade Server porten ska vara densamma för en fjärr-T3-åtkomst. I föregående fall ansluter klienten till port 7006 (belastnings Utjämnings porten) och den hanterade servern lyssnar på 7008 (den privata porten). Den här begränsningen gäller endast för T3-åtkomst, inte HTTP.
+   Detta beror på att för en fjärr-T3-åtkomst förväntar sig Oracle WebLogic-servern att belastningsutjämnarens port och den WebLogic-hanterade Server porten är densamma. I föregående fall ansluter klienten till port 7006 (belastnings Utjämnings porten) och den hanterade servern lyssnar på 7008 (den privata porten). Den här begränsningen gäller endast för T3-åtkomst, inte HTTP.
 
    Undvik det här problemet genom att använda någon av följande lösningar:
 
   * Använd samma privata och offentliga port nummer för belastningsutjämnade slut punkter som är dedikerade till T3-åtkomst.
-  * Ta med följande JVM-parameter när du startar WebLogic-servern:
+  * Ta med följande JVM-parameter när du startar Oracle WebLogic-servern:
 
     ```
     -Dweblogic.rjvm.enableprotocolswitch=true
@@ -128,10 +128,10 @@ Enligt Oracle support NOTE [dokument-ID 2178595,1](https://support.oracle.com/ep
 
 Relaterad information finns i KB-artikel **860340,1** på <https://support.oracle.com>.
 
-* **Begränsningar för dynamisk kluster-och belastnings utjämning.** Anta att du vill använda ett dynamiskt kluster i WebLogic-servern och exponera det genom en enda, offentlig belastningsutjämnad slut punkt i Azure. Detta kan göras så länge du använder ett fast port nummer för var och en av de hanterade servrarna (inte dynamiskt tilldelade från ett intervall) och inte startar fler hanterade servrar än det finns datorer som administratören spårar. Det finns inte fler än en hanterad server per virtuell dator. Om konfigurationen leder till att fler WebLogic servrar startas än om det finns virtuella datorer (det vill säga om flera WebLogic-instanser delar samma virtuella dator), är det inte möjligt för mer än en av dessa instanser av WebLogic-servrar för att binda till ett angivet port nummer. De andra på den virtuella datorn fungerar inte.
+* **Begränsningar för dynamisk kluster-och belastnings utjämning.** Anta att du vill använda ett dynamiskt kluster i Oracle WebLogic-servern och exponera det genom en enda offentlig belastningsutjämnad slut punkt i Azure. Detta kan göras så länge du använder ett fast port nummer för var och en av de hanterade servrarna (inte dynamiskt tilldelade från ett intervall) och inte startar fler hanterade servrar än det finns datorer som administratören spårar. Det finns inte fler än en hanterad server per virtuell dator. Om konfigurationen leder till att fler Oracle WebLogic-servrar startas än det finns virtuella datorer (det vill säga där flera Oracle WebLogic-instanser delar samma virtuella dator), är det inte möjligt för mer än en av dessa instanser av Oracle WebLogic-servrar som ska bindas till ett angivet port nummer. De andra på den virtuella datorn fungerar inte.
 
    Om du konfigurerar administrations servern så att den automatiskt tilldelar unika port nummer till dess hanterade servrar är det inte möjligt att använda belastnings utjämning eftersom Azure inte stöder mappning från en enda offentlig port till flera privata portar, som skulle krävas för detta inställningarna.
-* **Flera instanser av WebLogic-servern på en virtuell dator.** Beroende på din distributions krav kan du överväga att köra flera instanser av WebLogic Server på samma virtuella dator, om den virtuella datorn är tillräckligt stor. Till exempel på en virtuell dator med medelhög storlek, som innehåller två kärnor, kan du välja att köra två instanser av WebLogic-servern. Vi rekommenderar dock fortfarande att du undviker att införa enskilda felpunkter i din arkitektur, vilket är fallet om du bara använde en virtuell dator som kör flera instanser av WebLogic-servern. Att använda minst två virtuella datorer kan vara en bättre metod och varje virtuell dator kan sedan köra flera instanser av WebLogic-servern. Varje instans av WebLogic-servern kan fortfarande vara en del av samma kluster. Men det är för närvarande inte möjligt att använda Azure för att belastningsutjämna slut punkter som exponeras av sådana WebLogic Server-distributioner inom samma virtuella dator, eftersom Azure Load Balancer kräver att de belastningsutjämnade servrarna distribueras mellan unika virtuella datorer.
+* **Flera instanser av Oracle WebLogic-Server på en virtuell dator.** Beroende på din distributions krav kan du överväga att köra flera instanser av Oracle WebLogic Server på samma virtuella dator, om den virtuella datorn är tillräckligt stor. Till exempel på en virtuell dator med medelhög storlek, som innehåller två kärnor, kan du välja att köra två instanser av Oracle WebLogic Server. Vi rekommenderar dock fortfarande att du undviker att införa enskilda felpunkter i din arkitektur, vilket är fallet om du bara använde en virtuell dator som kör flera instanser av Oracle WebLogic Server. Att använda minst två virtuella datorer kan vara en bättre metod och varje virtuell dator kan sedan köra flera instanser av Oracle WebLogic Server. Varje instans av Oracle WebLogic-servern kan fortfarande vara en del av samma kluster. Men det är för närvarande inte möjligt att använda Azure för att belastningsutjämna slut punkter som exponeras av sådana Oracle WebLogic Server-distributioner inom samma virtuella dator, eftersom Azure Load Balancer kräver att de belastningsutjämnade servrarna distribueras mellan unika virtuella datorer.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Avbildningar av virtuella Oracle JDK-datorer
 * **JDK 6 och 7 de senaste uppdateringarna.** Även om vi rekommenderar att du använder den senaste offentliga, stödda versionen av Java (för närvarande Java 8), gör Azure också att JDK 6-och 7-avbildningar är tillgängliga. Detta är avsett för äldre program som ännu inte är klara att uppgraderas till JDK 8. Även om uppdateringar av tidigare JDK-avbildningar kanske inte längre är tillgängliga för allmänheten, med tanke på Microsoft partner med Oracle, är de JDK 6-och 7-avbildningar som tillhandahålls av Azure avsedda att innehålla en nyare icke-offentlig uppdatering som normalt erbjuds av Oracle till endast en Välj grupp av Oracle-kunder som stöds. Nya versioner av JDK-avbildningarna blir tillgängliga med tiden med uppdaterade versioner av JDK 6 och 7.

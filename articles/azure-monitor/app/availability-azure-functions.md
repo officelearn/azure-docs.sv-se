@@ -6,33 +6,35 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: morgangrobin
 ms.author: mogrobin
-ms.date: 10/11/2019
-ms.openlocfilehash: 900228e1f9bdf9d367fa37b9ec90a6148faec656
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.date: 11/22/2019
+ms.openlocfilehash: c7a8ffb9873fd70353f38bb2b2bbfdb584992377
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880259"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815740"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
 
-Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailability () som ska köras regelbundet enligt konfigurationen i funktionen TimerTrigger. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. På så sätt kan du skapa anpassade tester som liknar vad du kan göra via [tillgänglighets övervakning](../../azure-monitor/app/monitor-web-app-availability.md) i portalen. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test även om den här funktionen inte är tillgänglig i din region.
+Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailability () som kommer att köras regelbundet enligt konfigurationen i TimerTrigger-funktionen med din egen affärs logik. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. På så sätt kan du skapa anpassade tester som liknar vad du kan göra via [tillgänglighets övervakning](../../azure-monitor/app/monitor-web-app-availability.md) i portalen. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test även om den här funktionen inte är tillgänglig i din region.
 
+> [!NOTE]
+> Det här exemplet är utformat enbart för att Visa Mechanics för hur API-anropet TrackAvailability () fungerar i en Azure-funktion. Det går inte att skriva den underliggande koden/affärs logiken för HTTP-test som krävs för att göra detta till ett fullständigt funktionellt tillgänglighets test. Som standard om du går igenom det här exemplet kommer du att skapa ett tillgänglighets test som alltid ska generera ett haveri.
 
 ## <a name="create-timer-triggered-function"></a>Skapa timer-utlöst funktion
 
 - Om du har en Application Insights-resurs:
     - Som standard skapar Azure Functions en Application Insights resurs, men om du vill använda en av dina redan skapade resurser måste du ange att du under genereringen.
     - Följ anvisningarna för hur du [skapar en funktion som utlöses av en Azure Functions resurs och timer](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa före rensning) med följande val.
-        -  Klicka på avsnittet Application Insights innan du väljer **skapa**.
+        -  Välj fliken **övervakning** längst upp.
 
             ![ Skapa en Azure Functions-app med din egen App Insights-resurs](media/availability-azure-functions/create-function-app.png)
 
-        - Klicka på **Välj befintlig resurs** och skriv namnet på din resurs. Välj **Använd**
+        - Markera List rutan Application Insights och skriv eller välj namnet på din resurs.
 
             ![Välja befintlig Application Insights resurs](media/availability-azure-functions/app-insights-resource.png)
 
-        - Välj **Skapa**
+        - Välj **Granska + skapa**
 - Om du inte har en Application Insights-resurs som har skapats ännu för din timer-utlöst funktion:
     - Som standard när du skapar ditt Azure Functions program skapas en Application Insights resurs åt dig.
     - Följ anvisningarna för hur du [skapar en Azure Functions resurs och timer-utlöst funktion](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa före rensning).
@@ -41,143 +43,90 @@ Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailabilit
 
 Kopiera koden nedan till filen Run. CSX (det ersätter den befintliga koden). Det gör du genom att gå till Azure Functions programmet och välja funktionen timer-utlösare till vänster.
 
-![Azure Functions Run. CSX i Azure Portal](media/availability-azure-functions/runcsx.png)
+>[!div class="mx-imgBorder"]
+>![Azure Functions Run. CSX i Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
 > För den slut punkts adress som du skulle använda: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Om inte din resurs finns i en region som Azure Government eller Azure Kina, i vilket fall läser du den här artikeln om hur [du åsidosätter standard slut punkterna](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) och väljer lämplig telemetri-kanal slut punkt för din region.
 
 ```C#
+#load "runAvailabilityTest.csx"
+ 
 using System;
 using System.Diagnostics;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-
-// [CONFIGURATION_REQUIRED] configure test timeout accordingly for which your request should run
-private static readonly HttpClient HttpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
-
+ 
 // The Application Insights Instrumentation Key can be changed by going to the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting.
-//DO NOT replace the code below with your instrumentation key, the key's value is pulled from the environment variable/application setting key/value pair.
-private static readonly string InstrumentationKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
-
-// [CONFIGURATION_REQUIRED] Configure EndpointAddress
-private static readonly TelemetryConfiguration TelemetryConfiguration = new TelemetryConfiguration(InstrumentationKey, new ServerTelemetryChannel() { EndpointAddress = "<EndpointAddress>" });
-private static readonly TelemetryClient TelemetryClient = new TelemetryClient(TelemetryConfiguration);
-
-[FunctionName("Function")]
-public static async void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
+// DO NOT replace the code below with your instrumentation key, the key's value is pulled from the environment variable/application setting key/value pair.
+private static readonly string instrumentationKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
+ 
+//[CONFIGURATION_REQUIRED]
+// If your resource is in a region like Azure Government or Azure China, change the endpoint address accordingly.
+// Visit https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification for more details.
+private const string EndpointAddress = "https://dc.services.visualstudio.com/v2/track";
+ 
+private static readonly TelemetryConfiguration telemetryConfiguration = new TelemetryConfiguration(instrumentationKey, new InMemoryChannel { EndpointAddress = EndpointAddress });
+private static readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
+ 
+public async static Task Run(TimerInfo myTimer, ILogger log)
 {
     log.LogInformation($"Entering Run at: {DateTime.Now}");
-
+ 
     if (myTimer.IsPastDue)
     {
         log.LogWarning($"[Warning]: Timer is running late! Last ran at: {myTimer.ScheduleStatus.Last}");
     }
-
+ 
     // [CONFIGURATION_REQUIRED] provide {testName} accordingly for your test function
     string testName = "AvailabilityTestFunction";
-
+ 
     // REGION_NAME is a default environment variable that comes with App Service
     string location = Environment.GetEnvironmentVariable("REGION_NAME");
-
-    // [CONFIGURATION_REQUIRED] configure {uri} and {contentMatch} accordingly for your web app. {uri} is the website that you are testing the availability of, make sure to include http:// ot https:// in your url. If {contentMatch} is present on the page, the test will succeed, otherwise it will fail.  
-    await AvailabilityTestRun(
-        name: testName,
-        location: location,
-        uri: "<http://example.com>",
-        contentMatch: "<Enter a short string of text that is present  in the body of the page your are testing>",
-        log: log
-    );
-}
-
-private static async Task AvailabilityTestRun(string name, string location, string uri, string contentMatch, ILogger log)
-{
-    log.LogInformation($"Executing availability test run for {name} at: {DateTime.Now}");
-
+ 
+    log.LogInformation($"Executing availability test run for {testName} at: {DateTime.Now}");
     string operationId = Guid.NewGuid().ToString("N");
-
+ 
     var availability = new AvailabilityTelemetry
     {
         Id = operationId,
-        Name = name,
+        Name = testName,
         RunLocation = location,
         Success = false
     };
-
+ 
     var stopwatch = new Stopwatch();
     stopwatch.Start();
-    bool isMonitoringFailure = false;
-
+ 
     try
     {
-        using (var httpResponse = await HttpClient.GetAsync(uri))
-        {
-            // add test results to availability telemetry property
-            availability.Properties.Add("HttpResponseStatusCode", Convert.ToInt32(httpResponse.StatusCode).ToString());
-
-            // check if response content contains specific text
-            string content = httpResponse.Content != null ? await httpResponse.Content.ReadAsStringAsync() : "";
-            if (httpResponse.IsSuccessStatusCode && content.Contains(contentMatch))
-            {
-                availability.Success = true;
-                availability.Message = $"Test succeeded with response: {httpResponse.StatusCode}";
-                log.LogTrace($"[Verbose]: {availability.Message}");
-            }
-            else if (!httpResponse.IsSuccessStatusCode)
-            {
-                availability.Message = $"Test failed with response: {httpResponse.StatusCode}";
-                log.LogWarning($"[Warning]: {availability.Message}");
-            }
-            else
-            {
-                availability.Message = $"Test content does not contain: {contentMatch}";
-                log.LogWarning($"[Warning]: {availability.Message}");
-            }
-        }
-    }
-    catch (TaskCanceledException e)
-    {
-        availability.Message = $"Test timed out: {e.Message}";
-        log.LogWarning($"[Warning]: {availability.Message}");
+        await RunAvailbiltyTestAsync(log);
+        availability.Success = true;
     }
     catch (Exception ex)
     {
-        // track exception when unable to determine the state of web app
-        isMonitoringFailure = true;
+        availability.Message = ex.Message;
+ 
         var exceptionTelemetry = new ExceptionTelemetry(ex);
         exceptionTelemetry.Context.Operation.Id = operationId;
-        exceptionTelemetry.Properties.Add("TestName", name);
+        exceptionTelemetry.Properties.Add("TestName", testName);
         exceptionTelemetry.Properties.Add("TestLocation", location);
-        exceptionTelemetry.Properties.Add("TestUri", uri);
-        TelemetryClient.TrackException(exceptionTelemetry);
-        log.LogError($"[Error]: {ex.Message}");
-
-        // optional - throw to fail the function
-        //throw;
+        telemetryClient.TrackException(exceptionTelemetry);
     }
     finally
     {
         stopwatch.Stop();
         availability.Duration = stopwatch.Elapsed;
         availability.Timestamp = DateTimeOffset.UtcNow;
-
-        // do not make an assumption as to the state of the web app when monitoring failures occur
-        if (!isMonitoringFailure)
-        {
-            TelemetryClient.TrackAvailability(availability);
-            log.LogInformation($"Availability telemetry for {name} is sent.");
-        }
-
-        // call flush to ensure telemetries are sent
-        TelemetryClient.Flush();
+ 
+        telemetryClient.TrackAvailability(availability);
+        // call flush to ensure telemetry is sent
+        telemetryClient.Flush();
     }
 }
+
 ```
 
 Till höger under Visa filer väljer du **Lägg till**. Anropa den nya fil **funktionen. proj** med följande konfiguration.
@@ -188,35 +137,57 @@ Till höger under Visa filer väljer du **Lägg till**. Anropa den nya fil **fun
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" /> <!-- Ensure you’re using the latest version -->
     </ItemGroup>
 </Project>
 
 ```
 
-![Till höger väljer du Lägg till. Namnge fil funktionen. proj](media/availability-azure-functions/addfile.png)
+>[!div class="mx-imgBorder"]
+>![till höger väljer du Lägg till. Namnge filen function. proj](media/availability-azure-functions/addfile.png)
+
+Till höger under Visa filer väljer du **Lägg till**. Anropa den nya filen **runAvailabilityTest. CSX** med följande konfiguration.
+
+```C#
+public async static Task RunAvailbiltyTestAsync(ILogger log)
+{
+    // Add your business logic here.
+    throw new NotImplementedException();
+}
+
+```
 
 ## <a name="check-availability"></a>Kontrol lera tillgänglighet
 
 För att se till att allt fungerar kan du titta på diagrammet på fliken tillgänglighet i din Application Insights-resurs.
 
-![Fliken tillgänglighet med lyckade resultat](media/availability-azure-functions/availtab.png)
+> [!NOTE]
+> Om du har implementerat din egen affärs logik i runAvailabilityTest. CSX visas lyckade resultat som i skärm bilderna nedan, om du inte gjorde det visas misslyckade resultat.
+
+>[!div class="mx-imgBorder"]
+>fliken ![tillgänglighet med lyckade resultat](media/availability-azure-functions/availtab.png)
 
 När du ställer in testet med Azure Functions kan du se att namnet på testet inte visas och att du inte kan interagera med det om du vill använda **Lägg till test** på fliken tillgänglighet. Resultaten visualiseras men du får en sammanfattningsvy i stället för samma detaljerade vy som du får när du skapar ett tillgänglighets test via portalen.
 
 Om du vill se en transaktions information från slut punkt till slut punkt väljer du **lyckades** eller **misslyckades** under detalj granskning till och väljer sedan ett exempel. Du kan också komma till transaktions informationen från slut punkt till slut punkt genom att välja en data punkt i diagrammet.
 
-![Välj ett exempel på tillgänglighets test](media/availability-azure-functions/sample.png)
+>[!div class="mx-imgBorder"]
+>![Välj ett exempel på tillgänglighets test](media/availability-azure-functions/sample.png)
 
-![Transaktions information från slut punkt till slut punkt](media/availability-azure-functions/end-to-end.png)
+>[!div class="mx-imgBorder"]
+>![slut punkt till slut punkt – transaktions information](media/availability-azure-functions/end-to-end.png)
+
+Om du körde allting som det är (utan att lägga till affärs logik) ser du att testet misslyckades.
 
 ## <a name="query-in-logs-analytics"></a>Fråga i loggar (analys)
 
 Du kan använda loggar (analys) om du vill visa tillgänglighets resultat, beroenden och mer. Mer information om loggar finns i [Översikt över logg frågor](../../azure-monitor/log-query/log-query-overview.md).
 
-![Tillgänglighets resultat](media/availability-azure-functions/availabilityresults.png)
+>[!div class="mx-imgBorder"]
+>![tillgänglighets resultat](media/availability-azure-functions/availabilityresults.png)
 
-![Beroenden](media/availability-azure-functions/dependencies.png)
+>[!div class="mx-imgBorder"]
+>![Beroenden](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

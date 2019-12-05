@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 08bac7cd833f52d2dfec4561c2f87330a4119748
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9add5b063b67ddcc4cd5bf93e7f5b570b004e5ca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552875"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815588"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>Enhet: Roobo Smart Audio dev-paket
+# <a name="device-roobo-smart-audio-dev-kit"></a>Enhet: Roobo Smart Audio dev kit
 
 Den här artikeln innehåller enhets information för Roobo Smart Audio dev kit.
 
@@ -54,12 +54,12 @@ Den här artikeln innehåller enhets information för Roobo Smart Audio dev kit.
     > [!NOTE]
     > De här kommandona använder Android Debug-bryggan, `adb.exe`, vilket är en del av Android Studio-installationen. Det här verktyget finns i C:\Users\[användarnamn] \AppData\Local\Android\Sdk\platform-verktyg. Du kan lägga till den här katalogen till sökvägen att göra det mer praktiskt att anropa `adb`. Annars måste du ange den fullständiga sökvägen för din installation av adb.exe i alla kommandon som anropar `adb`.
     >
-    > Om du ser ett fel `no devices/emulators found` kan du kontrol lera att USB-kabeln är ansluten och är en högkvalitativ kabel. Du kan använda `adb devices` för att kontrol lera att datorn kan kommunicera med utvecklings paketet eftersom den kommer att returnera en lista över enheter.
+    > Om du ser ett fel `no devices/emulators found` kontrollerar du att USB-kabeln är ansluten och är en hög kvalitets kabel. Du kan använda `adb devices` för att kontrol lera att datorn kan kommunicera med utvecklings paketet eftersom den kommer att returnera en lista över enheter.
     >
     > [!TIP]
     > Stäng av datorns mikrofon och högtalare för att säkerställa att du arbetar med i development kit mikrofoner. På så sätt kan du inte av misstag utlösa enheten med ljud från datorn.
 
-1. Om du vill koppla en talare till dev-paket kan ansluta du den till ljud rad ut. Du bör välja en bra kvalitets högtalare med en analog kontakt med 3,5 mm.
+1. Om du vill koppla en talare till dev-paketet kan du ansluta den till ljud linjen. Du bör välja en bra kvalitets högtalare med en analog kontakt med 3,5 mm.
 
     ![Vysor ljud](media/speech-devices-sdk/qsg-14.png)
 

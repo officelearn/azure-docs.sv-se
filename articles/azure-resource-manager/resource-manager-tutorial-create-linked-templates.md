@@ -2,15 +2,15 @@
 title: Skapa länkade mallar
 description: Lär dig att skapa länkade Azure Resource Manager-mallar för att skapa virtuella datorer
 author: mumian
-ms.date: 10/04/2019
+ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9764edb986b2ee847e3fcecda228f53551b462c3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e8964335d8c436cc590c36c3ea01fac02ed2280a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325431"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815266"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 
@@ -45,6 +45,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
@@ -55,42 +56,46 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 * **Den länkade mallen**: Skapa lagringskontot.
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
-2. I **Filnamn** klistrar du in följande URL:
+1. I **Filnamn** klistrar du in följande URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. Välj **Öppna** för att öppna filen.
-4. Det finns fem resurser som definieras av mallen:
+
+1. Välj **Öppna** för att öppna filen.
+1. Det finns sex resurser som definieras av mallen:
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
    * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/networkSecurityGroups`](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
    * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      Det är praktiskt att du får grundläggande förståelse för mallens schema innan du anpassar mallen.
-5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
-6. Välj **Fil**>**Spara som** för att skapa en annan kopia av filen med namnet **linkedTemplate.json**.
+1. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
+1. Välj **Fil**>**Spara som** för att skapa en annan kopia av filen med namnet **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Skapa den länkade mallen
 
 Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas som en fristående mall för att skapa ett lagrings konto. I den här självstudien tar den länkade mallen två parametrar och skickar tillbaka ett värde till huvud mal len. Värdet "Return" är definierat i `outputs`-elementet.
 
 1. Öppna **linkedTemplate. JSON** i Visual Studio Code om filen inte är öppen.
-2. Gör följande ändringar:
+1. Gör följande ändringar:
 
     * Ta bort alla parametrar förutom **platsen**.
     * Lägg till en parameter med namnet **storageAccountName**.
-        ```json
-        "storageAccountName":{
-          "type": "string",
-          "metadata": {
-              "description": "Azure Storage account name."
-          }
-        },
-        ```
-        Lagrings kontots namn och plats skickas från huvud mal len till den länkade mallen som parametrar.
+
+      ```json
+      "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+      },
+      ```
+
+      Lagrings kontots namn och plats skickas från huvud mal len till den länkade mallen som parametrar.
 
     * Ta bort elementet **variabler** och alla definitioner för variabeln.
     * Ta bort alla andra resurser än lagrings kontot. Du tar bort totalt fyra resurser.
@@ -110,6 +115,7 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas 
             }
         }
         ```
+
        **storageUri** krävs av VM-resursdefinitionen i huvudmallen.  Du skickar tillbaka värdet till huvudmallen som ett utdatavärde.
 
         När du är klar ska mallen se ut så här:
@@ -138,7 +144,7 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas 
               "type": "Microsoft.Storage/storageAccounts",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-07-01",
+              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },
@@ -154,7 +160,8 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas 
           }
         }
         ```
-3. Spara ändringarna.
+
+1. Spara ändringarna.
 
 ## <a name="upload-the-linked-template"></a>Ladda upp den länkade mallen
 
@@ -208,9 +215,10 @@ $templateURI = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(8.0) `
     -FullUri
 
-echo "You need the following values later in the tutorial:"
-echo "Resource Group Name: $resourceGroupName"
-echo "Linked template URI with SAS token: $templateURI"
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 1. Välj den gröna knappen **Try it** (Prova) för att öppna fönstret Azure Cloud Shell.
@@ -226,22 +234,7 @@ I praktiken genererar du en SAS-token när du distribuerar huvudmallen och ger f
 Huvudmallen heter azuredeploy.json.
 
 1. Öppna **azuredeploy. JSON** i Visual Studio Code om den inte är öppen.
-2. Ta bort lagringskontots resursdefinition från mallen:
-
-    ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    ```
-3. Lägg till följande json-kodfragment till den plats där du har lagringskontodefinitionen:
+1. Ersätt lagrings kontots resurs definition med följande JSON-kodfragment:
 
     ```json
     {
@@ -251,7 +244,7 @@ Huvudmallen heter azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
+              "uri":""
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -268,8 +261,8 @@ Huvudmallen heter azuredeploy.json.
     * Du kan bara använda läget för [stegvis](./deployment-modes.md) distribution när du anropar länkade mallar.
     * `templateLink/uri` innehåller den länkade mallens URI. Uppdatera värdet till den URI som du får när du laddar upp den länkade mallen (knappen med en SAS-token).
     * Använd `parameters` för att skicka värden från huvudmallen till den länkade mallen.
-4. Kontrollera att du har uppdaterat värdet för elementet `uri` till värdet du fick när du laddade upp den länkade mallen (knappen med en SAS-token). I praktiken vill du ange URI:n med en parameter.
-5. Spara den redigerade mallen
+1. Kontrollera att du har uppdaterat värdet för elementet `uri` till värdet du fick när du laddade upp den länkade mallen (knappen med en SAS-token). I praktiken vill du ange URI:n med en parameter.
+1. Spara den redigerade mallen
 
 ## <a name="configure-dependency"></a>Konfigurera beroende
 
@@ -290,6 +283,7 @@ Eftersom lagringskontot är definierat i den länkade mallen nu, måste du uppda
             }
     }
     ```
+
     Det här värdet krävs av huvudmallen.
 
 1. Öppna azuredeploy.json i Visual Studio Code om den inte är öppen.

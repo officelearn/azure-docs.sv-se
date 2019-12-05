@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: tal-SDK för Java (Windows, Linux, macOS) plattforms konfiguration – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform för att använda Java (Windows, Linux, macOS) med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform för att använda Java (Windows, Linux, macOS) med Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 2814327bdc434dbdae5644bd40b09d0506b21df9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 195d43739ff27a493b2f2923eac43df03313963b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502438"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816282"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för 64-bitars Java 8-JRE.
 
@@ -31,7 +31,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
   - Mac: macOS X version 10,13 eller senare
   - Linux: 64-endast bit på Ubuntu 16,04, Ubuntu 18,04 eller Debian 9
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

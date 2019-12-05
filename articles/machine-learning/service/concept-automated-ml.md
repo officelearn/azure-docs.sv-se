@@ -10,14 +10,14 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 4ed27009a3549757881c84d92b3b29b60ecbfbc1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d8628bd62df650d76b0666b650af88038dbbda1f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790562"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807127"
 ---
-# <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskin inlärning?
+# <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
 Automatisk maskin inlärning, som även kallas automatiserad ML, är en process för att automatisera tids krävande, repetitiva uppgifter om utveckling av Machine Learning-modeller. Det gör det möjligt för data experter, analytiker och utvecklare att bygga ML-modeller med hög skalbarhet, effektivitet och produktivitet samtidigt som modell kvaliteten försämras. Automatisk ML baseras på en Ban brytande från vår [Microsoft Research-avdelning](https://arxiv.org/abs/1705.05355).
 
@@ -98,7 +98,7 @@ Ytterligare avancerade för bearbetnings-och funktionalisering är också tillg�
 
 + Azure Machine Learning Studio: Välj **inställningarna för Visa funktionalisering** i avsnittet **konfigurations körning** [med de här stegen](how-to-create-portal-experiments.md).
 
-+ Python SDK: Ange `"feauturization": auto' / 'off' / FeaturizationConfig` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).
++ Python SDK: Ange `"feauturization": auto' / 'off' / FeaturizationConfig` för [`AutoMLConfig`-klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 ## <a name="prevent-over-fitting"></a>Förhindra överanpassning
 
@@ -142,7 +142,7 @@ Tänk på följande utbildade modeller och deras motsvarande tåg-och test noggr
 |-------|----------------|---------------|
 | A | 99,9 % | 95% |
 | B | 87% | 87% |
-| C | 99,9 % | 45% |
+| C | 99,9 % | 45 % |
 
 Med tanke på modell **A**, finns det en vanlig felbegrepp att om test precisionen för osett-data är lägre än den korrekta inlärningen är modellen överdrivet. Test precisionen bör dock alltid vara mindre än inlärnings precisionen och skillnaden för överanpassning jämfört med lämplig anpassning visas till *hur mycket* mindre exakt. 
 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 87b065d2ecf9d80c072918c14e7861f72b8d7aba
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304905"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815376"
 ---
-# <a name="language-and-region-support-for-the-speech-services"></a>Språk-och region stöd för tal tjänsterna
+# <a name="language-and-region-support-for-the-speech-service"></a>Språk-och region stöd för tal tjänsten
 
 Språk stöd varierar beroende på funktioner i tal tjänster. Följande tabeller sammanfattar språk stöd för [tal-till-text](#speech-to-text)-, [text-till-tal](#text-to-speech)-och [röst översättnings](#speech-translation) tjänst erbjudanden.
 
@@ -26,7 +26,7 @@ Språk stöd varierar beroende på funktioner i tal tjänster. Följande tabelle
 
 Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av ljud + mänskligt avskrifter eller relaterad text: meningar.  Uttal-anpassning är för närvarande bara tillgänglig för `en-US` och `de-DE`. Läs mer om anpassning [här](how-to-custom-speech.md).
 
- Nationell inställning | Språk | Stöds | Anpassningsbar
+ Nationella inställningar | Språk | Stöds | Anpassningsbar
 ------|------------|-----------|-------------
 `ar-EG` | Arabiska (Egypten), moderna standard | Ja | Ja
 `ar-SA` | Arabiska (Saudiarabien) | Ja | Ja
@@ -83,7 +83,7 @@ Neurala röster kan användas för att göra interaktioner med chattrobotar och 
 
 En fullständig lista över neurala-röster och regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
+Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
 --------|----------|--------|---------|------------
 `de-DE` | Tyska (Tyskland) | Kvinna | "Microsoft Server Speech Text till tal Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 `en-US` | English (US) | Man | "Microsoft Server Speech Text till tal Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
@@ -98,7 +98,7 @@ Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | K
 
 Det finns fler än 75 standard röster i över 45 språk och nationella inställningar, vilket gör att du kan konvertera text till syntetiskt tal. Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | Kort namn
+Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning | Kort namn
 -------|----------|---------|----------|----------
 <sup>&dagger;</sup>`ar-EG` | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
 `ar-SA` | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)” | "ar-SA-Naayf"
@@ -182,7 +182,7 @@ Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | K
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-TW, HanHanRUS)” | "zh-TW-HanHanRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (zh-TW, Zhiwei, Apollo)” | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-tex stöder modern standard arabiska (MSA).*
+&dagger; *ar T.ex stöder moderna Standard arabiska (MSA).*
 
 > [!NOTE]
 > Du kan antingen använda den fullständiga tjänst namns mappningen eller det korta röst namnet i ditt tal syntes begär Anden.
@@ -196,7 +196,7 @@ Röst anpassning är tillgänglig för `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-M
 
 ## <a name="speech-translation"></a>Talöversättning
 
-API: et för **tal översättning** stöder olika språk för översättning av tal till tal och tal till text. Käll språket måste alltid vara från språk tabellen för tal till text. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal till fler än [60 språk](https://www.microsoft.com/translator/business/languages/). Det finns en delmängd av språk som är tillgängliga för [tal syntes](language-support.md#text-languages).
+Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Käll språket måste alltid vara från språk tabellen för tal till text. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). Det finns en delmängd av språk som är tillgängliga för [tal syntes](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Språken för mobilapptext
 
@@ -269,5 +269,5 @@ API: et för **tal översättning** stöder olika språk för översättning av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en kostnadsfri utvärderingsprenumeration på Speech Services](https://azure.microsoft.com/try/cognitive-services/)
-* [Se identifiera tal iC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Hämta utvärderings prenumerationen för din röst tjänst](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

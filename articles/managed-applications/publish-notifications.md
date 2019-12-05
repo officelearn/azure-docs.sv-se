@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: a00e5be4493b8c8116e2925e88a3ce4bf8cfb722
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8cf9fc0b3d9c13ebc5309be6d27c7be0f2e60878
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085322"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805696"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Azure Managed Applications med meddelanden
 
@@ -31,7 +31,7 @@ Här är de rekommenderade stegen för att komma igång snabbt:
 6. Följ dokumentationen för **meddelande schema** nedan för att analysera meddelande förfrågningar och implementera affärs logik baserat på meddelandet.
 
 ## <a name="adding-service-catalog-application-definition-notifications"></a>Lägga till program definitions meddelanden för tjänst katalog
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 Kom igång [genom att läsa publicera ett tjänst katalog program via Azure Portal](./publish-portal.md) .
 
 ![Program definitions meddelanden för tjänst katalog på portalen](./media/publish-notifications/service-catalog-notifications.png)
@@ -71,12 +71,12 @@ I följande tabell beskrivs alla möjliga kombinationer av EventType + Provision
 
 Typ | ProvisioningState | Utlösare för avisering
 ---|---|---
-PLACERA | Accept | Den hanterade resurs gruppen har skapats och projicerats efter att program har lagts till. (Innan distributionen i den hanterade RG startas.)
+PLACERA | Godkänd | Den hanterade resurs gruppen har skapats och projicerats efter att program har lagts till. (Innan distributionen i den hanterade RG startas.)
 PLACERA | Lyckades | Fullständig etablering av det hanterade programmet lyckades efter en placering.
 PLACERA | Misslyckad | Det gick inte att ställa in program instansens etablerings plats.
-9\.0a | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
+PATCH | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
 DELETE | Tas bort | Så snart användaren initierar en borttagning av en hanterad App-instans.
-DELETE | Borttagen | Efter en fullständig och lyckad borttagning av det hanterade programmet.
+DELETE | Borttaget | Efter en fullständig och lyckad borttagning av det hanterade programmet.
 DELETE | Misslyckad | Efter ett fel under avetablerings processen som blockerar borttagningen.
 ## <a name="notification-schema"></a>Meddelande schema
 När du skapar en webhook-slutpunkt för att hantera meddelanden måste du parsa nytto lasten för att få viktiga egenskaper för att sedan agera på aviseringen. Både tjänst katalogen och Marketplace-hanterade program meddelanden innehåller många av samma egenskaper med den små skillnaden som beskrivs nedan.
@@ -132,6 +132,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Succeeded",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -152,6 +155,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -178,9 +184,10 @@ eventType | Typ av händelse som utlöste meddelandet. (t. ex. "placering", "kor
 applicationId | Det fullständigt kvalificerade resurs-ID: t för det hanterade program som meddelandet utlöstes för. 
 eventTime | Tidsstämpeln för händelsen som utlöste meddelandet. (Datum och tid i formatet UTC-ISO 8601.)
 ProvisioningState | Etablerings statusen för den hanterade program instansen. (t. ex. "lyckad", "Misslyckad", "borttagning", "borttagen")
-error | *Endast anges när ProvisioningState misslyckades*. Innehåller felkod, meddelande och information om problemet som orsakade felet.
+billingDetails | Fakturerings information för den hanterade program instansen. Innehåller den resourceUsageId som kan användas för att ställa frågor till Marketplace om användnings information.
+fel | *Endast anges när ProvisioningState misslyckades*. Innehåller felkod, meddelande och information om problemet som orsakade felet.
 applicationDefinitionId | *Endast angivet för hanterade program i tjänst katalogen*. Representerar det fullständigt kvalificerade resurs-ID: t för den program definition som den hanterade program instansen etablerades för.
-projektplan | *Endast angivet för Marketplace-hanterade program*. Representerar utgivare, erbjudande, SKU och version för den hanterade program instansen.
+planera | *Endast angivet för Marketplace-hanterade program*. Representerar utgivare, erbjudande, SKU och version för den hanterade program instansen.
 
 ## <a name="endpoint-authentication"></a>Endpoint Authentication
 För att skydda webhook-slutpunkten och se till att aviseringen är äkta:

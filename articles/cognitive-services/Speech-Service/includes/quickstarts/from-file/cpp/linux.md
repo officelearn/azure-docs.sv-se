@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 5b3bbbe635d2165044dc827a0cc9abcfc09a8cd1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 2372e04ed7e20757cc0a3cbb9aae5e7597f17c3f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795620"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819396"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -76,7 +76,7 @@ Innan du börjar ska du se till att:
 
    ````
 
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster i den nya filen.
+1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
@@ -136,7 +136,7 @@ Innan du börjar ska du se till att:
    ./helloworld
    ```
 
-1. Ljud filen överförs till tal tjänsterna och den första uttryck i filen skrivs till text, som visas i samma fönster.
+1. Ljud filen skickas till tal tjänsten och den första uttryck i filen skrivs till text, som visas i samma fönster.
 
    ```text
    Recognizing first result...

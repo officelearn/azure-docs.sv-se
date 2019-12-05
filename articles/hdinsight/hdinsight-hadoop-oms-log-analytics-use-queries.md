@@ -5,27 +5,26 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 51344ff7381b6392870b1fd0e331eed38a33915d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/02/2019
+ms.openlocfilehash: 65e85548420116bdfcab87fe9f81a20e66226beb
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103507"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803845"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Fråga Azure Monitor loggar för att övervaka HDInsight-kluster
 
 Lär dig några grundläggande scenarier för hur du använder Azure Monitor loggar för att övervaka Azure HDInsight-kluster:
 
 * [Analysera HDInsight-kluster mått](#analyze-hdinsight-cluster-metrics)
-* [Sök efter vissa logg meddelanden](#search-for-specific-log-messages)
 * [Skapa händelse aviseringar](#create-alerts-for-tracking-events)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure Monitor loggar och lagt till de HDInsight-företagsspecifika Azure Monitor loggar övervaknings lösningar på arbets ytan. Instruktioner finns i [använda Azure Monitor loggar med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -34,90 +33,95 @@ Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure Monitor 
 Lär dig hur du söker efter vissa mått för ditt HDInsight-kluster.
 
 1. Öppna arbets ytan Log Analytics som är kopplad till ditt HDInsight-kluster från Azure Portal.
-1. Välj panelen **loggs ökning** .
-1. Skriv följande fråga i sökrutan om du vill söka efter alla mått för alla tillgängliga mått för alla HDInsight-kluster som kon figurer ATS att använda Azure Monitor loggar och välj sedan **Kör**.
+1. Under **Allmänt**väljer du **loggar**.
+1. Skriv följande fråga i sökrutan om du vill söka efter alla mått för alla tillgängliga mått för alla HDInsight-kluster som kon figurer ATS att använda Azure Monitor loggar och välj sedan **Kör**. Granska resultaten.
 
-        search *
+    ```kusto
+    search *
+    ```
 
     ![Apache Ambari Analytics Sök i alla mått](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Sök alla mått")
 
-    Utdata ska se ut så här:
+1. På den vänstra menyn väljer du fliken **filter** .
 
-    ![Log Analytics Sök i alla mått](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Sök i alla mått resultat")
-
-1. I den vänstra rutan under **typ**väljer du ett mått som du vill göra djupgåendet i djupet och väljer sedan **Använd**. Följande skärm bild visar `metrics_resourcemanager_queue_root_default_CL` typen är markerad.
-
-    > [!NOTE]  
-    > Du kan behöva välja knappen **[+] mer** för att hitta det mått du söker. Knappen **tillämpa** är också längst ned i listan, så du måste rulla nedåt för att se den.
-
-    Observera att frågan i text rutan ändras till en som visas i den markerade rutan på följande skärm bild:
+1. Under **typ**väljer du **pulsslag**. Välj **använd & kör**.
 
     ![Sök efter vissa mått i Log Analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Sök efter vissa mått")
 
-1. Att gå djupare i det här måttet. Du kan till exempel förfina den befintliga utdatan baserat på genomsnitt av resurser som används under ett 10-minuters intervall, kategoriserade efter kluster namn med hjälp av följande fråga:
+1. Observera att frågan i text rutan ändras till:
 
-        search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
+    ```kusto
+    search *
+    | where Type == "Heartbeat"
+    ```
 
-1. I stället för att förfina baserat på genomsnittet av de resurser som används kan du använda följande fråga för att förfina resultaten baserat på när de maximala resurserna användes (samt nittionde och 95 percentil) i ett 10-minuters fönster:
+1. Du kan gå djupare genom att använda alternativen som finns i den vänstra menyn. Exempel:
 
-        search in (metrics_resourcemanager_queue_root_default_CL) * | summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
+    - Så här visar du loggar från en speciell nod:
 
-## <a name="search-for-specific-log-messages"></a>Sök efter vissa logg meddelanden
+        ![Sök efter vissa fel output1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Sök efter vissa fel output1")
 
-Lär dig hur du söker efter fel meddelanden under en bestämd tids period. Stegen här är bara ett exempel på hur du kan komma till det fel meddelande som du är intresse rad av. Du kan använda vilken egenskap som helst som är tillgänglig för att söka efter de fel som du försöker hitta.
+    - Så här visar du loggar vid vissa tidpunkter:
 
-1. Öppna arbets ytan Log Analytics som är kopplad till ditt HDInsight-kluster från Azure Portal.
-2. Välj panelen **loggs ökning** .
-3. Skriv följande fråga för att söka efter alla fel meddelanden för alla HDInsight-kluster som kon figurer ATS att använda Azure Monitor loggar och välj sedan **Kör**.
+        ![Sök efter vissa fel output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Sök efter vissa fel output2")
 
-         search "Error"
+1. Välj **tillämpa & kör** och granska resultaten. Observera också att frågan har uppdaterats till:
 
-    Du får se utdata som följande utdata:
+    ```kusto
+    search *
+    | where Type == "Heartbeat"
+    | where (Computer == "zk2-myhado") and (TimeGenerated == "2019-12-02T23:15:02.69Z" or TimeGenerated == "2019-12-02T23:15:08.07Z" or TimeGenerated == "2019-12-02T21:09:34.787Z")
+    ```
 
-    ![Azure Portal loggs öknings fel](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Sök alla fel i utdata")
+### <a name="additional-sample-queries"></a>Ytterligare exempel frågor
 
-4. I den vänstra rutan under **typ** kategori väljer du den typ av fel som du vill ha i djupet och väljer sedan **Använd**.  Observera att resultaten är förfinade för att bara Visa felet av den typ som du har valt.
+En exempel fråga baserat på genomsnitt av resurser som används i 10-minuters intervall, kategoriserade efter kluster namn:
 
-5. Du kan gå djupare i den här fel listan genom att använda alternativen som finns i den vänstra rutan. Exempel:
+```kusto
+search in (metrics_resourcemanager_queue_root_default_CL) * 
+| summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
+```
 
-    - Så här visar du fel meddelanden från en speciell arbetsnod:
+I stället för att förfina baserat på genomsnittet av de resurser som används kan du använda följande fråga för att förfina resultaten baserat på när de maximala resurserna användes (samt nittionde och 95 percentil) i ett 10-minuters fönster:
 
-        ![Sök efter vissa fel output1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Sök efter vissa fel output1")
-
-    - För att se ett fel inträffade vid en viss tidpunkt:
-
-        ![Sök efter vissa fel output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Sök efter vissa fel output2")
-
-6. För att se det aktuella felet. Du kan välja **[+] Visa mer** för att titta på det faktiska fel meddelandet.
-
-    ![Sök efter vissa fel output3](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Sök efter vissa fel output3")
+```kusto
+search in (metrics_resourcemanager_queue_root_default_CL) * 
+| summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
+```
 
 ## <a name="create-alerts-for-tracking-events"></a>Skapa aviseringar för spårning av händelser
 
 Det första steget för att skapa en avisering är att komma till en fråga baserat på vilken aviseringen utlöses. Du kan använda alla frågor som du vill skapa en avisering för.
 
 1. Öppna arbets ytan Log Analytics som är kopplad till ditt HDInsight-kluster från Azure Portal.
-2. Välj panelen **loggs ökning** .
-3. Kör följande fråga som du vill skapa en avisering på och välj sedan **Kör**.
+1. Under **Allmänt**väljer du **loggar**.
+1. Kör följande fråga som du vill skapa en avisering på och välj sedan **Kör**.
 
-        metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+    ```kusto
+    metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+    ```
 
     Frågan innehåller en lista över misslyckade program som körs på HDInsight-kluster.
 
-4. Välj **ny varnings regel** överst på sidan.
+1. Välj **ny varnings regel** överst på sidan.
 
     ![Ange fråga för att skapa en alert1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Ange fråga för att skapa en alert1")
 
-5. I fönstret **Skapa regel** anger du frågan och annan information för att skapa en avisering och väljer sedan **skapa aviserings regel**.
+1. I fönstret **Skapa regel** anger du frågan och annan information för att skapa en avisering och väljer sedan **skapa aviserings regel**.
 
     ![Ange fråga för att skapa en alert2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Ange fråga för att skapa en alert2")
 
-Redigera eller ta bort en befintlig avisering:
+### <a name="edit-or-delete-an-existing-alert"></a>Redigera eller ta bort en befintlig avisering
 
 1. Öppna arbets ytan Log Analytics från Azure Portal.
-2. Välj **avisering**på menyn till vänster.
-3. Välj den avisering som du vill redigera eller ta bort.
-4. Du har följande alternativ: **Spara**, **ta**bort, **inaktivera**och **ta bort**.
+
+1. I den vänstra menyn, under **övervakning**, väljer du **aviseringar**.
+
+1. I överkant väljer du **Hantera aviserings regler**.
+
+1. Välj den avisering som du vill redigera eller ta bort.
+
+1. Du har följande alternativ: **Spara**, **ta**bort, **inaktivera**och **ta bort**.
 
     ![HDInsight Azure Monitor loggar varning ta bort redigera](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
@@ -125,5 +129,5 @@ Mer information finns i [skapa, Visa och hantera mått aviseringar med hjälp av
 
 ## <a name="see-also"></a>Se också
 
+* [Kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Skapa anpassade vyer med hjälp av View Designer i Azure Monitor](../azure-monitor/platform/view-designer.md)
-* [Skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../azure-monitor/platform/alerts-metric.md)

@@ -11,12 +11,12 @@ ms.date: 12/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a130eb5e1777259a0c74285ead526b3b995466
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 163d1f7f457dcbca7fbb9e331ec889bcc0894dfc
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793621"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814459"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilot moln etablering för en befintlig synkroniserad AD-skog 
 
@@ -72,7 +72,7 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
 
     |Regel|Attribut|Operator|Värde|
     |-----|----|----|-----|
-    |Scope OU|NAMNET|ENDSWITH|Unikt namn på ORGANISATIONSENHETen.|
+    |Scope OU|UNIKT NAMN|ENDSWITH|Unikt namn på ORGANISATIONSENHETen.|
     |Omfångs grupp||ISMEMBEROF|Unikt namn på säkerhets gruppen.|
 
     ![Anpassad regel](media/how-to-cloud-custom-user-rule/user3.png)</br>
@@ -132,37 +132,25 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
 3.  Kör `Start-ADSyncSyncCycle`.  Tryck på RETUR.  
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agenten
-1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder [Basic AD-och Azure-miljön](tutorial-basic-ad-azure.md) blir det CP1.
-2. Hämta Azure AD Connect Cloud Provisioning-agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
-3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
+1. Logga in på den domänanslutna servern.  Om du använder [Basic AD-och Azures miljö](tutorial-basic-ad-azure.md) vägledning är det DC1.
+2. Logga in på Azure Portal med endast molnbaserad autentiseringsuppgifter för globala administratörer.
+3. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)** .</br>
+![Azure-portalen](media/how-to-install/install6.png)</br>
+4. Klicka på "Ladda ned agent"
+5. Kör Azure AD Connect etablerings agenten
+6. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
 ![Välkomstskärmen](media/how-to-install/install1.png)</br>
 
-4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
-5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
+7. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
+8. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
 ![Välkomstskärmen](media/how-to-install/install3.png)</br>
 
-6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
+9. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
 ![Välkomstskärmen](media/how-to-install/install4.png)</br>
 
-7. När den här åtgärden har slutförts bör du se ett meddelande om **att det har verifierats.**  Du kan klicka på **Avsluta**.</br>
+10. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
 ![Välkomstskärmen](media/how-to-install/install5.png)</br>
-8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**. 1. Logga in på den server som du vill använda med företags administratörs behörighet.
-2. Hämta Azure AD Connect Cloud Provisioning-agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
-3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
-![Välkomstskärmen](media/how-to-install/install1.png)</br>
-
-4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
-5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
-![Välkomstskärmen](media/how-to-install/install3.png)</br>
-
-6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
-![Välkomstskärmen](media/how-to-install/install4.png)</br>
-
-7. När den här åtgärden har slutförts bör du se ett meddelande om **att det har verifierats.**  Du kan klicka på **Avsluta**.</br>
-![Välkomstskärmen](media/how-to-install/install5.png)</br>
-8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
+11. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
 
 ## <a name="verify-agent-installation"></a>Verifiera agent installation
 Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten.

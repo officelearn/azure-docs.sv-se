@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 1dc119f0f5949b37603bbc1100a4d89d4f420fd6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd5f9fc787a6299e8d7c14f4b99f6f4d59cf78af
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033443"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819077"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med Azure Site Recovery
 
@@ -79,7 +79,7 @@ Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mell
 1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Välj **skapa en resurs** > **hanterings** > **backup och Site Recovery (OMS)** . Alternativt kan du välja **bläddra** > **Recovery Services valv** > **Lägg till**.
    >[!NOTE]
-   >Säkerhets kopiering och Site Recovery var tidigare en del av ![OMS Suite-](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+   >Säkerhets kopiering och Site Recovery var tidigare en del av [OMS-sviten](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
 1. Ange en region som de virtuella datorerna ska replikeras till. För migrering i samma region väljer du den region där dina virtuella käll datorer och käll lagrings konton är. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Steg 2: Välj skydds mål 
@@ -205,7 +205,7 @@ Site Recovery skapar en VM-instans vars typ är samma som eller liknar en Premiu
 
 3. **Rengör Azure Site Recovery-infrastrukturen**. Om Site Recovery inte längre behövs kan du rensa dess infrastruktur. Ta bort replikerade objekt, konfigurations servern och återställnings principen och ta sedan bort Azure Site Recovery-valvet.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 * [Övervaka och Felsök skydd för virtuella datorer och fysiska servrar](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Microsoft Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)

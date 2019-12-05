@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d8e473afa2c8e7c0abf58e2dbc9caea030f2f5f
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: c8c849cb83ecb1db5e972c660d94c795092c458e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554971"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806019"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -23,13 +23,13 @@ ms.locfileid: "74554971"
 
 ## <a name="whats-in-custom-speech"></a>Vad är i Custom Speech?
 
-Innan du kan göra något med Custom Speech behöver du ett Azure-konto och en prenumeration på tal tjänster. När du har ett konto kan du Förbered dina data, träna och testa dina modeller, granska igenkännings kvalitet, utvärdera precision och slutligen distribuera och använda den anpassade tal-till-text-modellen.
+Innan du kan göra något med Custom Speech behöver du ett Azure-konto och en röst tjänst prenumeration. När du har ett konto kan du Förbered dina data, träna och testa dina modeller, granska igenkännings kvalitet, utvärdera precision och slutligen distribuera och använda den anpassade tal-till-text-modellen.
 
 Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https://aka.ms/customspeech). Använd länkarna nedan för att lära dig mer om varje steg.
 
 ![Markerar de olika komponenterna som utgör Custom Speechs portalen.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och prenumerera på tal tjänsterna. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och [Custom Speech-portalen](https://speech.microsoft.com/customspeech). Sedan kan du skapa ditt första Custom Speech-projekt med hjälp av din röst tjänst prenumeration.
+1. [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och prenumerera på tal tjänsten. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och [Custom Speech-portalen](https://speech.microsoft.com/customspeech). Sedan använder du din röst tjänst prenumeration och skapar ditt första Custom Speech-projekt.
 
 2. [Ladda upp test data](how-to-custom-speech-test-data.md) – Ladda upp test data (ljudfiler) för att utvärdera Microsofts tal-till-text-erbjudande för dina program, verktyg och produkter.
 
@@ -43,14 +43,14 @@ Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
-En prenumeration på tal tjänster krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard-prenumeration för tal tjänster: [skapa en tal prenumeration](get-started.md#try-the-speech-service-using-a-new-azure-account).
+En röst tjänst prenumeration krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard prenumeration för tal tjänster: [skapa en tal prenumeration](get-started.md#try-the-speech-service-using-a-new-azure-account).
 
 > [!NOTE]
 > Se till att skapa standard prenumerationer (S0), prenumerationer för kostnads fria utvärderings versioner (F0) stöds inte.
 
-När du har skapat ett Azure-konto och en prenumeration på tal tjänster måste du logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech) och ansluta din prenumeration.
+När du har skapat ett Azure-konto och en röst tjänst prenumeration måste du logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech) och ansluta din prenumeration.
 
-1. Hämta din prenumerations nyckel för tal tjänster från Azure Portal.
+1. Hämta din prenumerations nyckel för röst tjänsten från Azure Portal.
 2. Logga in på [Custom Speech portalen](https://aka.ms/custom-speech).
 3. Välj den prenumeration du behöver för att arbeta med och skapa ett tal projekt.
 4. Om du vill ändra din prenumeration använder du **kugg hjuls** -ikonen som finns i det övre navigerings fönstret.

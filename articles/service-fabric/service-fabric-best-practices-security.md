@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fec81e843753656d651c6d5d0b73077a964be9d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828516"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807450"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
 
@@ -79,7 +79,7 @@ Använd följande egenskaper för Resource Manager-mall för att tillämpa en AC
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Skydda ett Service Fabric kluster certifikat per eget namn
 
-Om du vill skydda ditt Service Fabric-kluster med certifikat `Common Name` använder du Resource Manager- [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)på följande sätt:
+Om du vill skydda ditt Service Fabric kluster efter certifikat `Common Name`använder du Resource Manager-mallens [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)enligt följande:
 
 ```json
 "certificateCommonNames": {
@@ -96,7 +96,7 @@ Om du vill skydda ditt Service Fabric-kluster med certifikat `Common Name` anvä
 > [!NOTE]
 > Service Fabric kluster kommer att använda det första giltiga certifikatet som hittas i värdens certifikat arkiv. I Windows kommer det här certifikatet att vara det senaste förfallo datumet som matchar ditt eget namn och utfärdare tumavtryck.
 
-Azure-domäner som * \<YOUR SUBDOMAIN\>.cloudapp.azure.com eller \<YOUR SUBDOMAIN\>.trafficmanager.net ägs av Microsoft. Certifikat utfärdare kommer inte att utfärda certifikat för domäner till obehöriga användare. De flesta användare behöver köpa en domän från en registrator eller vara behörig domän administratör för en certifikat utfärdare för att utfärda ett certifikat med samma namn.
+Azure-domäner, till exempel *\<under domänen\>. cloudapp.azure.com eller \<din under domän\>. trafficmanager.net ägs av Microsoft. Certifikat utfärdare kommer inte att utfärda certifikat för domäner till obehöriga användare. De flesta användare behöver köpa en domän från en registrator eller vara behörig domän administratör för en certifikat utfärdare för att utfärda ett certifikat med samma namn.
 
 Mer information om hur du konfigurerar DNS-tjänsten för att matcha din domän med en Microsoft-IP-adress finns i så här konfigurerar du [Azure DNS som värd för din domän](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
@@ -105,7 +105,7 @@ Mer information om hur du konfigurerar DNS-tjänsten för att matcha din domän 
 > - En "A"-post för domän APEX som inte är en `Alias record set` till alla IP-adresser som din anpassade domän kommer att lösa.
 > - En C-post för Microsoft-underordnade domäner som du har angett som inte är en `Alias record set`. Du kan till exempel använda din Traffic Manager eller Load Balancer DNS-namn.
 
-Uppdatera portalen om du vill visa ett anpassat DNS-namn för Service Fabric klustret `"managementEndpoint"` genom att uppdatera mallens egenskaper för Service Fabric Cluster Resource Manager:
+Uppdatera portalen för att visa ett anpassat DNS-namn för Service Fabric klustret `"managementEndpoint"`genom att uppdatera följande mall egenskaper för Service Fabric Cluster Resource Manager:
 
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
@@ -166,7 +166,7 @@ För att ge programmet åtkomst till hemligheter, inkludera certifikatet genom a
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autentisera Service Fabric-program till Azure-resurser med hjälp av Hanterad tjänstidentitet (MSI)
 
-Information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
+Information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
 Azure Service Fabric-kluster finns på Virtual Machine Scale Sets, som har stöd för [hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 Om du vill hämta en lista över tjänster som MSI kan användas för att autentisera till, se [Azure-tjänster som stöder Azure Active Directory autentisering](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
@@ -217,7 +217,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Vi rekommenderar att du implementerar en bransch standard konfiguration som är allmänt känd och väl testad, till exempel Microsofts säkerhets bas linjer, i stället för att skapa en bas linje själv](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). ett alternativ för att konfigurera dessa på din Virtual Machine Scale Sets är att använda Azures tilläggs hanterare för önskad tillstånds konfiguration (DSC) för att konfigurera de virtuella datorerna när de är online, så att de kör produktions program varan.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure-brandväggen är en hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt tillstånds känslig brand vägg som en tjänst med inbyggd hög tillgänglighet och obegränsad moln skalbarhet. ](https://docs.microsoft.com/azure/firewall/overview); Detta gör det möjligt att begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domän namn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Vi rekommenderar att du använder [Azure FIREWALL FQDN-Taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktiverar nätverks trafik till Microsoft Windows Update-slutpunkter kan flöda genom brand väggen. [Genom att distribuera Azure-brandväggen med en mall](https://docs.microsoft.com/azure/firewall/deploy-template) får du ett exempel på definitionen av resurs mal len för Microsoft. Network/azureFirewalls. Brand Väggs regler som är vanliga för att Service Fabric program är att tillåta följande för klustrets virtuella nätverk:
+[Azure-brandväggen är en hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt tillstånds känslig brand vägg som en tjänst med inbyggd hög tillgänglighet och obegränsad moln skalbarhet.](https://docs.microsoft.com/azure/firewall/overview) Detta gör det möjligt att begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domän namn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Vi rekommenderar att du använder [Azure FIREWALL FQDN-Taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktiverar nätverks trafik till Microsoft Windows Update-slutpunkter kan flöda genom brand väggen. [Genom att distribuera Azure-brandväggen med en mall](https://docs.microsoft.com/azure/firewall/deploy-template) får du ett exempel på definitionen av resurs mal len för Microsoft. Network/azureFirewalls. Brand Väggs regler som är vanliga för att Service Fabric program är att tillåta följande för klustrets virtuella nätverk:
 
 - \* download.microsoft.com
 - *servicefabric.azure.com
@@ -263,7 +263,7 @@ Som standard installeras Windows Defender Antivirus på Windows Server 2016. Mer
 > Se dokumentationen för program mot skadlig kod för konfigurations regler om du inte använder Windows Defender. Windows Defender stöds inte i Linux.
 
 ## <a name="platform-isolation"></a>Plattforms isolering
-Som standard beviljas Service Fabric program åtkomst till själva Service Fabric körnings miljön, som i sin tur är i olika former: [miljövariabler](service-fabric-environment-variables-reference.md) som pekar på fil Sök vägar på värden som motsvarar program-och Fabric-filer, en kommunikation mellan processer som tar emot programspecifika begär Anden och klient certifikatet som infrastrukturen förväntar sig att programmet ska använda för att autentisera sig. I den här tjänsten är det lämpligt att inaktivera den här åtkomsten till SF-körningen, om det inte uttryckligen krävs. Åtkomst till körnings miljön tas bort med hjälp av följande deklaration i avsnittet principer i applikations manifestet: 
+Som standard beviljas Service Fabric-program åtkomst till själva Service Fabric körnings miljön, som i sin tur är i olika former: [miljövariabler](service-fabric-environment-variables-reference.md) som pekar på fil Sök vägar på värden som motsvarar program-och Fabric-filer, en kommunikation mellan processens slut punkt som godkänner programspecifika begär Anden och klient certifikatet som infrastruktur resursen förväntar sig att programmet ska använda för att autentisera sig. I den här tjänsten är det lämpligt att inaktivera den här åtkomsten till SF-körningen, om det inte uttryckligen krävs. Åtkomst till körnings miljön tas bort med hjälp av följande deklaration i avsnittet principer i applikations manifestet: 
 
 ```xml
 <ServiceManifestImport>
@@ -277,7 +277,7 @@ Som standard beviljas Service Fabric program åtkomst till själva Service Fabri
 ## <a name="next-steps"></a>Nästa steg
 
 * Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md).
+* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md).
 * Läs mer om [Service Fabric support alternativ](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

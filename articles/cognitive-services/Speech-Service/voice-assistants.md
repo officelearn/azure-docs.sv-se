@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195943"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812919"
 ---
 # <a name="about-voice-assistants"></a>Om röst assistenter
 
-Röst assistenter som använder Azure Speech Services ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser.
+Röst assistenter som använder tal tjänsten gör det möjligt för utvecklare att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser.
 
 Röst assistents tjänsten ger snabb, tillförlitlig interaktion mellan en enhet och en assistent implementering som använder antingen (1) bot-ramverkets direkta rad tal kanal eller (2) den integrerade anpassade kommando tjänsten (för hands version) för att slutföra uppgiften.
 
@@ -29,7 +29,7 @@ Program ansluter till röst assistents tjänsten med Speech Software Development
 
 ## <a name="choosing-an-assistant-solution"></a>Välja en assistent lösning
 
-Det första steget för att skapa en röst assistent är att bestämma vad det ska göra. Azure Speech Services innehåller flera, kompletterande lösningar för att utforma dina assistenters interaktioner. Oavsett om du vill ha flexibilitet och mångsidighet att den [direkta linjens tal](direct-line-speech.md) kanal i bot ramverket ger eller enklast [anpassade kommandon (för hands version)](custom-commands.md) för enkla scenarier kan du komma igång genom att välja rätt verktyg.
+Det första steget för att skapa en röst assistent är att bestämma vad det ska göra. Tal tjänsten innehåller flera, kompletterande lösningar för att utforma dina assistenters interaktioner. Oavsett om du vill ha flexibilitet och mångsidighet att den [direkta linjens tal](direct-line-speech.md) kanal i bot ramverket ger eller enklast [anpassade kommandon (för hands version)](custom-commands.md) för enkla scenarier kan du komma igång genom att välja rätt verktyg.
 
 | Om du vill... | Överväg sedan... | Till exempel... |
 |-------------------|------------------|----------------|
@@ -49,8 +49,8 @@ Oavsett om du väljer [direkt linje tal](direct-line-speech.md) eller [anpassade
 | Kategori | Funktioner |
 |----------|----------|
 |[Anpassat nyckelord](speech-devices-sdk-create-kws.md) | Användare kan starta konversationer med assistenter med ett anpassat nyckelord som "Hej contoso". En app gör detta med en anpassad nyckelords motor i tal-SDK: n, som kan konfigureras med ett anpassat nyckelord [som du kan generera här](speech-devices-sdk-create-kws.md). Röst assistenter kan använda kontroll av nyckelord på tjänst sidan för att förbättra noggrannheten för nyckelords aktiveringen (oberoende av enheten).
-|[Tal till text](speech-to-text.md) | Röst assistenter konverterar ljud i real tid till tolkad text med [tal-till-text](speech-to-text.md) från Azure Speech Services. Den här texten är tillgänglig, eftersom den har tilldelats till både din assistent implementering och ditt klient program.
-|[Text till tal](text-to-speech.md) | Text svar från din assistent är syntetiskt med [text-till-tal](text-to-speech.md) från Azure Speech Services. Denna syntes görs sedan tillgänglig för ditt klient program som en ljud ström. Microsoft erbjuder möjlighet att bygga din egen anpassade, högkvalitativa neurala TTS-röst som ger en röst till ditt varumärke. [Kontakta oss](mailto:mstts@microsoft.com)om du vill veta mer.
+|[Tal till text](speech-to-text.md) | Röst assistenter konverterar ljud i real tid till identifierad text med [tal-till-text](speech-to-text.md) från tal tjänsten. Den här texten är tillgänglig, eftersom den har tilldelats till både din assistent implementering och ditt klient program.
+|[Text till tal](text-to-speech.md) | Text svar från din assistent är syntetiskt med [text-till-tal](text-to-speech.md) från tal-tjänsten. Denna syntes görs sedan tillgänglig för ditt klient program som en ljud ström. Microsoft erbjuder möjlighet att bygga din egen anpassade, högkvalitativa neurala TTS-röst som ger en röst till ditt varumärke. [Kontakta oss](mailto:mstts@microsoft.com)om du vill veta mer.
 
 ## <a name="getting-started-with-voice-assistants"></a>Komma igång med röst assistenter
 
@@ -75,7 +75,7 @@ En själv studie kurs om hur du [aktiverar röst samtal till din assistent med h
 
 ## <a name="customization"></a>Anpassning
 
-Röst assistenter som skapats med hjälp av Azure Speech Services kan använda alla anpassnings alternativ som är tillgängliga för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](speech-devices-sdk-create-kws.md).
+Röst assistenter som skapats med röst tjänsten kan använda alla anpassnings alternativ som är tillgängliga för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
@@ -87,7 +87,7 @@ Röst assistenter som skapats med hjälp av Azure Speech Services kan använda a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 * [Hämta tal-SDK](speech-sdk.md)
 * [Läs mer om anpassade kommandon (förhands granskning)](custom-commands.md)
 * [Läs mer om direkt linje tal](direct-line-speech.md)

@@ -1,5 +1,5 @@
 ---
-title: Vad är en konversations avskrift (för hands version) – tal service
+title: Vad är en konversations avskrift (för hands version)? -Speech service
 titleSuffix: Azure Cognitive Services
 description: Konversations avskrift är en tal-till-text-lösning som kombinerar tal igenkänning, högtalar identifiering och menings tilldelningar till varje talare (kallas även diarization) för att tillhandahålla real tids och/eller asynkron avskrift av alla samtalet.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075854"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806294"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>Vad är en konversations avskrift (för hands version)?
 
-Konversations avskrift är en [tal-till-text-](speech-to-text.md) lösning som kombinerar tal igenkänning, högtalar identifiering och menings tilldelningar till varje talare (kallas även _diarization_) för att tillhandahålla real tids och/eller asynkron avskrift av alla konversationer. Konversations avskrift skiljer sig från högtalare i en konversation för att fastställa vem som sade vad och när och gör det enkelt för utvecklare att lägga till tal till text till sina program som utför multi-talare-diarization.
+Konversations avskrift är en [tal-till-text-](speech-to-text.md) lösning som kombinerar tal igenkänning, högtalar identifiering och menings tilldelningar till varje talare (även kallat _diarization_) för att tillhandahålla real tids och/eller asynkron avskrift av alla konversationer. Konversations avskrift skiljer sig från högtalare i en konversation för att fastställa vem som sade vad och när och gör det enkelt för utvecklare att lägga till tal till text till sina program som utför multi-talare-diarization.
 
 ## <a name="key-features"></a>Huvudfunktioner
 
@@ -44,7 +44,7 @@ För att göra möten för alla, till exempel deltagare som är döva och hörse
 
 Mötes deltagare kan fokusera på mötet och lämna kommentarer till konversations avskrift. Deltagare kan aktivt delta i mötet och snabbt följa upp nästa steg, med hjälp av avskriften i stället för att anteckna och potentiellt sakna något under mötet.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Det här är en översikt på hög nivå över hur konversations avskrift fungerar.
 
@@ -71,7 +71,7 @@ Ljuddata är en batch som bearbetas för att returnera högtalar identifierare o
 
 Ljuddata bearbetas Live för att returnera högtalar-ID + avskrift, och dessutom skapas en begäran om att också få en hög noggrannhets avskrift genom asynkron bearbetning. Välj det här läget om ditt program har behov av avskrifter i real tid men kräver en högre noggrannhets avskrift för användning när konversationen eller mötet har inträffat.
 
-## <a name="language-support"></a>Stöd för språk
+## <a name="language-support"></a>Språkstöd
 
 För närvarande stöder konversations avskriften "en-US" och "zh-CN" i följande regioner: *Central* -och *asienöstra*. Om du behöver ytterligare stöd för nationella inställningar kontaktar du [konversationens Avskrifts funktion](mailto:CTSFeatureCrew@microsoft.com).
 

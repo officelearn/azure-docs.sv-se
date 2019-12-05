@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075819"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806070"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Så här skapar du medmärkade avskrifter
 
@@ -57,7 +57,7 @@ Här följer några exempel på normalisering som du bör utföra på avskriften
 | Min blod typ är O +         | Min blod typ är O-positiv           |
 | Vattnet är H20                | Vatten är H 2 O                        |
 | Spela OU812 av Van Halen     | Spela upp O U 8 1 2 av Van Halen           |
-| UTF-8 med struktur              | U T F 8 med struktur                      |
+| UTF-8 med BOM              | U T F 8 med struktur                      |
 
 Följande normaliserings regler tillämpas automatiskt på avskrifter:
 

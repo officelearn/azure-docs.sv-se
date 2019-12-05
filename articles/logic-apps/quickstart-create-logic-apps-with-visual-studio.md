@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: 49269cf2171269063de4a3cf5de1f22ebc545005
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790819"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819161"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio
 
@@ -111,7 +111,7 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
 
    | Inställning | Exempelvärde | Beskrivning |
    | ------- | ------------- | ----------- |
-   | Användar konto | Produkter <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
+   | Användar konto | Fabrikam <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
    | **Prenumeration** | Användningsbaserad betalning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
    | **Resursgrupp** | MyLogicApp-RG <br> (Västra USA) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
    | **Plats** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen**. <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
@@ -179,7 +179,7 @@ När du har ett befintligt Azure Resource Group-projekt kan du lägga till en ny
 
 1. Om du vill lägga till en resurs i mallfilen väljer du **Lägg till resurs** längst upp i fönstret JSON-disposition. Eller i fönstret JSON-disposition öppnar du snabb menyn **resurser** och väljer **Lägg till ny resurs**.
 
-   ![Fönstret JSON-disposition](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
+   ![JSON-disposition](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
 1. I dialog rutan **Lägg till resurs** i sökrutan söker du `logic app`och väljer **Logic app**. Namnge din Logic app och välj **Lägg till**.
 
@@ -191,11 +191,11 @@ När du är klar med din Logic-app tar du bort resurs gruppen som innehåller di
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med samma konto som användes för att skapa din logikapp.
 
-1. På Azure-huvudmenyn väljer du **Resursgrupper**. Välj din Logic Apps resurs grupp och välj **Översikt**.
+1. På Azure Portal-menyn väljer du **resurs grupper**eller söker efter och väljer **resurs grupper** från vilken sida som helst. Välj din Logic Apps resurs grupp.
 
 1. På sidan **Översikt** väljer du **ta bort resurs grupp**. Ange resurs gruppens namn som bekräftelse och välj **ta bort**.
 
-   ![”Resursgrupper” > ”Översikt” > ”Ta bort resursgrupp”](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   ![”Resursgrupper” > ”Översikt” > ”Ta bort resursgrupp”](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
 1. Ta bort Visual Studio-lösningen från den lokala datorn.
 

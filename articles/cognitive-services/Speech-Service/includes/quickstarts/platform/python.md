@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Speech SDK för python Platform setup – tal service'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform för att använda python med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform för att använda python med Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: d4a81c6dd2b44efd432345627e78bb69fff1688d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 095c591f63cb228b48681ffc67499820631bbaf5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502431"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816463"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för python.
 
@@ -28,7 +28,7 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
   - Mac: macOS X version 10,12 eller senare
   - Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9 på x64
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Linux-plattformar som stöds kräver vissa bibliotek installerade (`libssl` för Secure Sockets Layer-support och `libasound2` för ljud support). Se distributionen nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
 
@@ -78,7 +78,7 @@ Om du använder macOS kan du behöva köra följande kommando för att få `pip`
 python3 -m pip install --upgrade pip
 ```
 
-När du har använt `pip` för att installera `azure-cognitiveservices-speech`kan du använda tal-SDK: n genom att importera namn området till dina python-projekt. Till exempel:
+När du har använt `pip` för att installera `azure-cognitiveservices-speech`kan du använda tal-SDK: n genom att importera namn området till dina python-projekt. Exempel:
 
 ```py
 import azure.cognitiveservices.speech as speechsdk

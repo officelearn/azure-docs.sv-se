@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Omvandla text till tal-, Node. js-tal-tjänst'
+title: 'Snabb start: konvertera text till tal, Node. js – tal service'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten får du lära dig hur du konverterar text till tal med Node. js och text till tal-REST API. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
 services: cognitive-services
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 72be99ec666bb9e04ffca6e14ab4fcafa889ae68
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bfd9f53c54ac8ed374f11da188f2fade715cdfa
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553937"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812821"
 ---
-# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Snabbstart: Konvertera text till tal med Node. js
+# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Snabb start: konvertera text till tal med Node. js
 
 I den här snabb starten får du lära dig hur du konverterar text till tal med Node. js och text till tal-REST API. Det begärda innehållet i den här guiden är strukturerad som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md), vilket gör att du kan välja rösten och språket i svaret.
 
-Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
+Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech service-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 
 * [Nod 8.12.x eller senare](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
-* En Azure-prenumerations nyckel för tal tjänsterna. [Hämta en kostnads fri!](get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta en kostnads fri!](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Skapa ett projekt och Kräv beroenden
 
@@ -52,7 +52,7 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Den här funktionen utbyter din prenumerations nyckel för tal tjänster för en `issueToken` åtkomsttoken med hjälp av slut punkten.
+Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Den här funktionen utbyter din röst tjänst prenumerations nyckel för en åtkomsttoken med hjälp av `issueToken` slut punkten.
 
 Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `uri`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
@@ -79,7 +79,7 @@ I nästa avsnitt skapar vi funktionen för att anropa text till tal-API: et och 
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här skapar du begäran till text till tal-API: et och sparar tal svaret. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `uri`. Mer information finns i avsnittet om [tal Services-regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här skapar du begäran till text till tal-API: et och sparar tal svaret. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `uri`. Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Du måste sedan lägga till nödvändiga sidhuvuden för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure portal) och Ställ in `X-Microsoft-OutputFormat` till din önskade ljud. En fullständig lista över utdataformat finns i [ljud matar ut](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -89,7 +89,7 @@ Skapa sedan begärandetexten med tal syntes Markup Language (SSML). Det här exe
 > Det här exemplet används den `JessaRUS` rösttyp. En fullständig lista över Microsoft tillhandahålls röster/språk, finns i [språkstöd](language-support.md).
 > Om du är intresserad av att skapa en unik, identifierbara ton för ditt varumärke, se [skapar anpassade rösttyper](how-to-customize-voice-font.md).
 
-Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras skrivs tal svaret som `TTSOutput.wav`.
+Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs tal svaret som `TTSOutput.wav`.
 
 ```javascript
 // Make sure to update User-Agent with the name of your resource.
@@ -137,7 +137,7 @@ function textToSpeech(accessToken, text) {
 
 Nästan klart. Det sista steget är att skapa en asynkron funktion. Den här funktionen kommer att läsa din prenumerations nyckel från en miljö variabel, fråga efter text, hämta en token, vänta tills begäran har slutförts och sedan konvertera text till tal och spara ljudet som. wav.
 
-Om du inte känner till miljövariabler eller vill testa med prenumerations nyckeln hårdkodad som en sträng ersätter `process.env.SPEECH_SERVICE_KEY` du med prenumerations nyckeln som en sträng.
+Om du inte är bekant med miljövariabler eller vill testa med prenumerations nyckeln hårdkodad som en sträng ersätter du `process.env.SPEECH_SERVICE_KEY` med din prenumerations nyckel som en sträng.
 
 ```javascript
 // Use async and await to get the token before attempting

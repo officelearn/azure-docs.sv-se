@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701800"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807433"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och Använd modul dubbla i IoT Hub
 
@@ -24,7 +24,7 @@ På enhets sidan kan du med IoT Hub enhets-SDK: er skapa moduler där var och en
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-I den här artikeln beskrivs:
+Den här artikeln beskrivs:
 
 * Strukturen för modulerna "dubbla: *taggar*, *önskade* och *rapporterade egenskaper*.
 * Åtgärderna som moduler och Server delar kan utföra i modulen är dubbla.
@@ -33,7 +33,7 @@ Information om hur du använder rapporterade egenskaper, meddelanden från enhet
 
 Information om hur du använder önskade egenskaper, direkta metoder eller meddelanden från moln till enhet finns i [rikt linjer för kommunikation från moln till enhet](iot-hub-devguide-c2d-guidance.md) .
 
-## <a name="module-twins"></a>Modul, dubbla
+## <a name="module-twins"></a>Modultvillingar
 
 Modul sammanflätar information om Store-modul:
 
@@ -180,13 +180,13 @@ Lösningens Server del fungerar i modulen dubbla med hjälp av följande atomisk
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
-    $iothub-meddelande källa | twinChangeEvents |
-    $content kodning | UTF-8 |
+    $iothub-message-source | twinChangeEvents |
+    $content kodning | utf-8 |
     deviceId | ID för enheten |
     moduleId | ID för modulen |
     hubName | Namn på IoT Hub |
     operationTimestamp | [Iso8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpel för åtgärd |
-    iothub – meddelande schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" eller "updateTwin" |
 
     Meddelande system egenskaper föregås av `$` symbolen.

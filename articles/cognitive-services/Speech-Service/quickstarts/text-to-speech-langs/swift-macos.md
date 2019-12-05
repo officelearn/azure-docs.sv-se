@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 727929efb499f32dcd42a964b6b6c8e762803590
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 616d212c9968fe740811805eb6ecdc200c749ed7
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503467"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817726"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Snabb start: syntetisera tal i SWIFT på macOS med hjälp av tal-SDK
 
 I den här artikeln får du lära dig hur du skapar en macOS-app i Swift med hjälp av Cognitive Services Speech SDK för att syntetisera tal från text och spela upp det med standard ljud uppspelning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 

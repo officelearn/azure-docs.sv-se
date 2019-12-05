@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal som lagras i BLOB C# Storage,-tal service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 40b226796b4dfb9aced3c6b00eba1a12bad66894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504027"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828928"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -36,7 +36,7 @@ Följ de här stegen för installationen:
 
 1. Gå till https://editor.swagger.io.
 1. Klicka på **Arkiv**och sedan på **Importera URL**.
-1. Ange Swagger-URL inklusive regionen för din prenumeration på tal tjänster: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Ange Swagger-URL: en, inklusive regionen för din röst tjänst prenumeration: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Klicka på **generera klient** och välj **python**.
 1. Spara klient biblioteket.
 1. Extrahera de hämtade python-client-Generated. zip-filerna någonstans i fil systemet.

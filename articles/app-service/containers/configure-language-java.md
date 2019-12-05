@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Linux Java-appar
 description: Lär dig hur du konfigurerar en fördefinierad Java-behållare för din app. Den här artikeln visar de vanligaste konfigurations åtgärderna.
-keywords: Azure App Service, Web App, Linux, oss, Java, Java EE, JEE, Java
+keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
 author: bmitchell287
 manager: barbkess
 ms.devlang: java
@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: edb8f25ff1e4fa01e905c3ae5c7d0ec7ab58f8bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705940"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805747"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -54,7 +54,7 @@ Aktivera [program loggning](../troubleshoot-diagnostic-logs.md?toc=/azure/app-se
 
 Om ditt program använder [logback](https://logback.qos.ch/) eller [log4j](https://logging.apache.org/log4j) för spårning kan du vidarebefordra spårningarna för granskning till Azure Application insikter med hjälp av konfigurations anvisningar för loggnings ramverk i [utforska Java trace-loggar i Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
-### <a name="troubleshooting-tools"></a>Fel söknings verktyg
+### <a name="troubleshooting-tools"></a>Verktyg för felsökning
 
 De inbyggda Java-avbildningarna baseras på operativ systemet [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) . Använd `apk` Package Manager för att installera eventuella fel söknings verktyg eller kommandon.
 
@@ -247,6 +247,9 @@ Ytterligare konfiguration kan vara nödvändig för att kryptera JDBC-anslutning
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
+- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
+
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>Initiera och Läs in nyckel lagret manuellt
 
@@ -616,7 +619,7 @@ I följande steg förklaras kraven för att ansluta befintliga App Service och d
 
 6. Använd Azure CLI för att lägga till inställningar till App Service som innehåller information om databas anslutningen. Ersätt `<resource group>` och `<webapp name>` med de värden som din App Service använder. Ersätt `<database server name>`, `<database name>`, `<admin name>`och `<admin password>` med information om databas anslutningen. Du kan hämta App Service-och databas information från Azure Portal.
 
-    **PostgreSQL**
+    **PostgreSQL:**
 
     ```bash
     az webapp config appsettings set \
@@ -628,7 +631,7 @@ I följande steg förklaras kraven för att ansluta befintliga App Service och d
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL**
+    **MySQL:**
 
     ```bash
     az webapp config appsettings set \

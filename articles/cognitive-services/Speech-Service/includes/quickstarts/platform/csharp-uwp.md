@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Speech SDK C# för universell Windows-plattform (UWP) plattforms konfiguration – tal service'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform C# för under universell Windows-plattform (UWP) med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform C# för universell Windows-plattform (UWP) med Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b318af37f30179a7026df135cf864727976762
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea6218066ce381bbfa7ae8c6a02991b351163084
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502536"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815042"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för C# universell Windows-plattform (UWP).
 
@@ -24,7 +24,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 

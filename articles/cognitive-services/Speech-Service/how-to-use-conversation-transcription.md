@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 4ee597f96d28b43b9c69d1515634aadde2f0ab7c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608056"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805815"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Konversations avskrift i real tid (för hands version)
 
-Talet SDK: s **ConversationTranscriber** -API gör att du kan skriva över möten och andra konversationer med möjlighet att lägga till, ta bort och identifiera flera deltagare genom att strömma ljud till tal tjänster med hjälp av `PullStream` eller `PushStream`. I det här avsnittet måste du veta hur du använder tal-till-text med talet SDK (version 1.8.0 eller senare). Mer information finns i [Vad är tal tjänster](overview.md).
+Talet SDK: s **ConversationTranscriber** -API gör att du kan skriva över möten och andra konversationer med möjlighet att lägga till, ta bort och identifiera flera deltagare genom att strömma ljud till tal tjänsten med hjälp av `PullStream` eller `PushStream`. I det här avsnittet måste du veta hur du använder tal-till-text med talet SDK (version 1.8.0 eller senare). Mer information finns i [Vad är tal tjänster](overview.md).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -35,9 +35,9 @@ Tal enhets-SDK: n innehåller exempel kod i Java för ljud fångst i real tid me
 - [Exempel kod för ROOBO-enhet](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
 - [Exempel kod för Azure Kinect dev kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-En prenumeration på tal tjänster. Du kan [få en utvärderings prenumeration för tal](https://azure.microsoft.com/try/cognitive-services/) om du inte har någon.
+En röst tjänst prenumeration. Du kan [få en utvärderings prenumeration för tal](https://azure.microsoft.com/try/cognitive-services/) om du inte har någon.
 
 ## <a name="create-voice-signatures"></a>Skapa röst under skrifter
 

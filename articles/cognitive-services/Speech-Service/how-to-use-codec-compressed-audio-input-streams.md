@@ -1,7 +1,7 @@
 ---
 title: Stream codec Compressed Audio med tal SDK-tal-tjänsten
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du direktuppspelar komprimerat ljud till Azure Speech Services med talet SDK. Tillgängligt för C++, C#, och Java för Linux, java i Android och mål-C i iOS.
+description: Lär dig hur du direktuppspelar komprimerat ljud till tal tjänsten med talet SDK. Tillgängligt för C++, C#, och Java för Linux, java i Android och mål-C i iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 668964c597b8d748220cbeec68e0ba68300cb406
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 36e4506ea290d6109e1d1ae874b7e0f7c11bf50d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464360"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805832"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Använda codec-komprimerad ljud inspelning med talet SDK
 
@@ -27,13 +27,13 @@ Talet SDK: s **komprimerade ljud inspelnings** -API ger ett sätt att strömma k
 
 För WAV/PCM ser du Mainline tal-dokumentationen.  Utanför WAV/PCM stöds följande codec-komprimerade indataformat:
 
-- MP3
+- MP3-FILEN
 - OPUS/OGG
 - FLAC
 - ALAW i WAV-behållare
 - MULAW i WAV-behållare
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Hantering av komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). För gstreamer-binärfiler som inte kompileras och länkas till tal-SDK. Därför måste programutvecklaren installera följande på 18,04, 16,04 och Debian 9 för att använda komprimerat indata-ljud.
 
@@ -43,7 +43,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exempel kod med codec komprimerad ljud inspelning
 
-Skapa `PullAudioInputStream` eller `PushAudioInputStream`för att strömma i ett komprimerat ljud format till tal tjänsterna. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
+Skapa `PullAudioInputStream` eller `PushAudioInputStream`för att strömma i ett komprimerat ljud format till tal tjänsten. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
 
 Vi antar att du har en data Ströms klass som heter `myPushStream` och använder OPUS/OGG. Din kod kan se ut så här:
 

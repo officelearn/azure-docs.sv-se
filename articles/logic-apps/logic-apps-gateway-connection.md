@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 5adb342b733563fd0b062dd263a4fdd83259d166
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792044"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815169"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala data källor från Azure Logic Apps
 
@@ -70,7 +70,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
 1. I sökrutan Azure Portal anger du "lokal datagateway" och väljer **lokala Datagatewayer**.
 
-   ![Hitta en lokal datagateway](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![Hitta en lokal datagateway](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
 1. Under **lokala Datagatewayer**väljer du **Lägg till**.
 
@@ -89,7 +89,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
    Här är ett exempel som visar en gateway-installation som är i samma region som din gateway-resurs och som är länkad till samma Azure-konto:
 
-   ![Ange information för att skapa en data gateway-resurs](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
+   ![Ange information för att skapa en data gateway-resurs](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -128,7 +128,7 @@ Om du vill uppdatera inställningarna för en gateway-anslutning kan du redigera
 
 1. Om du vill hitta alla API-anslutningar för just din Logic app går du till din Logic Apps-meny, under **utvecklingsverktyg**, och väljer **API-anslutningar**.
 
-   ![På din Logic app-meny väljer du "API-anslutningar"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![På din Logic app-meny väljer du "API-anslutningar"](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
 1. Välj den gateway-anslutning som du vill använda och välj sedan **Redigera API-anslutning**.
 
@@ -137,8 +137,8 @@ Om du vill uppdatera inställningarna för en gateway-anslutning kan du redigera
 
 Så här hittar du alla API-anslutningar som är associerade med din Azure-prenumeration:
 
-* Från huvud menyn i Azure går du till **alla tjänster** > **Web** > **API-anslutningar**.
-* Du kan också gå till **alla resurser**från huvud menyn i Azure. Ange **typ** filter till **API-anslutning**.
+* Från menyn Azure Portal väljer du **alla tjänster** > **Web** > API- **anslutningar**.
+* Eller Välj **alla resurser**från Azure Portal-menyn. Ange **typ** filter till **API-anslutning**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -146,13 +146,13 @@ Så här hittar du alla API-anslutningar som är associerade med din Azure-prenu
 
 Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till en annan gateway-resurs eller tar bort Gateway-resursen, kan du ta bort Gateway-resursen utan att det påverkar Gateway-installationen.
 
-1. Välj **alla resurser**från huvud menyn i Azure. Hitta och välj din gateway-resurs.
+1. Från Azure Portal-menyn väljer du **alla resurser**eller söker efter och väljer **alla resurser** från vilken sida som helst. Hitta och välj din gateway-resurs.
 
 1. Om du inte redan har valt väljer du **lokal datagateway**på menyn gateway-resurs. I verktygsfältet gateway-resurs väljer du **ta bort**.
 
    Exempel:
 
-   ![Ta bort gateway-resurs i Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
+   ![Ta bort gateway-resurs i Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 

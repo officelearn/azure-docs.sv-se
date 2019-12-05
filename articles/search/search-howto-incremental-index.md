@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 348bc2d92f636d1f3c3b50ea31334355da59a60f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 92da697c95f2b9ea544bb1f9bfa689c13bd0d2ae
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790496"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806770"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Så här konfigurerar du stegvis indexering av berikade dokument i Azure Kognitiv sökning
 
@@ -41,8 +41,7 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>Steg 2: Lägg till egenskapen cache
 
-< < < < < < < huvud redigera svaret från GET-begäran för att lägga till `cache`-egenskapen till indexeraren. Cacheobjektet kräver bara en enda egenskap, `storageConnectionString` som är anslutnings strängen till lagrings kontot. = = = = = = = Redigera svaret från GET-begäran för att lägga till `cache`-egenskapen till indexeraren. Cacheobjektet kräver bara en enda egenskap och det är anslutnings strängen till ett Azure Storage konto.
->>>>>>> 3519a330aa86b6827d31403690529105825b1b16
+Redigera svaret från GET-begäran för att lägga till egenskapen `cache` till indexeraren. Cacheobjektet kräver bara en enda egenskap, `storageConnectionString` som är anslutnings strängen till lagrings kontot. 
 
 ```json
 {

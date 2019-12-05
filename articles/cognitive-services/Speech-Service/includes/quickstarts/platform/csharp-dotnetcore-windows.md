@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Speech SDK C# för .net Core Platform setup – tal service'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform C# för .net Core på Windows eller MacOS med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform C# för .net Core på Windows eller MacOS med tjänsten Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ff18fb372d5feb96369d5d51d386520665302c78
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6bcbf56fd3248098e012d0c56700432ab7594440
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502501"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816357"
 ---
 Den här guiden visar hur du installerar [tal](~/articles/cognitive-services/speech-service/speech-sdk.md) -SDK C# för .net Core.
 
@@ -24,7 +24,7 @@ Den här guiden visar hur du installerar [tal](~/articles/cognitive-services/spe
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 

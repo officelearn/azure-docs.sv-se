@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b992973beb7cb132075e47e104733d812dc06ca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a5b4627080879c9e7d2635b950bb7f31b7d23581
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151081"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803639"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
 
@@ -27,17 +27,14 @@ På grund av den ökade risken som är associerad med äldre autentiseringsproto
 Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för att blockera äldre autentiseringsbegäranden.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer alla konton som måste upprätthålla möjligheten att använda äldre autentisering. 
    1. Välj **Done** (Klar).
-1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **alla molnappar**.
-   1. Om du måste utesluta vissa program från principen kan du välja dem från fliken **exkludera** under **Välj exkluderade molnappar** och välj **Välj**.
-   1. Välj **Done** (Klar).
-1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**.
+1. Under **villkor** > - **klient program (för hands version)** anger du **Konfigurera** till **Ja**.
    1. Kontrol lera bara rutorna **mobilappar och skriv bords klienter** > **andra klienter**.
    2. Välj **Done** (Klar).
 1. Under **åtkomst kontroller** > **bevilja**väljer du **blockera åtkomst**.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 54a5be769ace97ffa9a4f5f38a9227d9565abfd1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111705"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815850"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Snabb start: skapa en röst assistent med talet SDK, Java (för hands version)
 
@@ -30,7 +30,7 @@ För den här snabbstarten krävs:
 - Operativ system: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bit) eller macOS 10,13 eller senare.
 - [Sol förmörkelse Java IDE](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det i [Azure Portal](https://portal.azure.com).
+- En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta ett kostnads fritt](get-started.md) eller skapa det i [Azure Portal](https://portal.azure.com).
 - En förkonfigurerad robot som skapats med hjälp av bot Framework version 4,2 eller senare. Roboten måste prenumerera på den nya direkt linjens tal kanal för att ta emot röst inmatningar.
 
   > [!NOTE]
@@ -469,15 +469,15 @@ I det här skedet pratar vi om en engelsk fras eller mening som din robot kan f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel, till exempel att läsa tal från en ljudfil, finns på GitHub.
+Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
 > [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Om röst assistenter](voice-assistants.md)
-- [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+- [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 - [Anpassade nyckelord](speech-devices-sdk-create-kws.md)
 - [Anslut direkt linje tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)

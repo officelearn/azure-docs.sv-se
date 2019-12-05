@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: tal-SDK för .NET Framework (Windows) plattforms konfiguration – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform C# för under .NET Framework för Windows med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform C# för under .NET Framework för Windows med Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 2caa5124144146e2286b102bf6ded9c5d120f904
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a858a078f8e22a7176fc0eeb09ae0133e2ea11a4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502515"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818553"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för .NET Framework (Windows).
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 
@@ -55,7 +55,7 @@ Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)
 
 1. I Solution Explorer högerklickar du på projektet **HelloWorld** och väljer sedan **Hantera NuGet-paket** för att Visa NuGet Package Manager.
 
-   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![NuGet-pakethanteraren](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. Leta upp List rutan **paket källa** i det övre högra hörnet och kontrol lera att **`nuget.org`** är markerat.
 

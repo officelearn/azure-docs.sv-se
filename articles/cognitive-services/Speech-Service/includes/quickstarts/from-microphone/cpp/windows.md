@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: dd31ae7b0fbbd9c411cf1bb511551bfba57a1838
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 74bc77fbb9436983c26c572b521d96795f14cfcd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795744"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818915"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -50,7 +50,7 @@ Innan du börjar:
 
 1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
 
-1. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsterna, som överförs till text och skickas tillbaka till programmet för visning.
+1. Säg en engelsk fras eller en mening. Programmet skickar din röst till tal tjänsten, som översätter till text och skickar tillbaka den till programmet för visning.
 
    ![Konsol utdata efter lyckad igenkänning](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
 

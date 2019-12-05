@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801539"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806104"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Utvärdera Custom Speech precision
 
@@ -29,9 +29,9 @@ Bransch standarden för att mäta modell precisionen är en *ord Fels frekvens* 
 
 Felaktigt identifierade ord hamnar i tre kategorier:
 
-* Infogning (I): Ord som har lagts till felaktigt i hypotes avskrift
-* Borttagning (D): Ord som inte kan identifieras i hypotes avskrift
-* Ersättning (er): Ord som ersatts mellan referens och hypotes
+* Infogning (I): ord som har lagts till felaktigt i hypotes avskrift
+* Borttagning (D): ord som inte kan identifieras i hypotes avskriften
+* Ersättning (er): ord som ersatts mellan referens och hypotes
 
 Här är ett exempel:
 

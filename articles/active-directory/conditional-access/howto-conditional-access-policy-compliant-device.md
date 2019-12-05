@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37db9b9679e904aed33de404e91c9f461d3388d7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 83a4323c2679bdf55709aeaed82134b7b4457fee
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150861"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803707"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Villkorlig åtkomst: Kräv kompatibla enheter
 
@@ -34,7 +34,7 @@ Den här policyn för efterlevnad vidarebefordras till Azure AD där villkorlig 
 Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för att kräva att enheter som har åtkomst till resurser markeras som kompatibla med organisationens efterlevnadsprinciper för Intune.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
@@ -44,7 +44,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
 1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **alla molnappar**.
    1. Om du måste utesluta vissa program från principen kan du välja dem från fliken **exkludera** under **Välj exkluderade molnappar** och välj **Välj**.
    1. Välj **Done** (Klar).
-1. Under **åtkomst kontroller** > -**tilldelning**väljer **du Kräv att enheten ska markeras som kompatibel**.
+1. Under **åtkomst kontroller** > **bevilja**väljer **du Kräv att enheten ska markeras som kompatibel**.
    1. Välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.

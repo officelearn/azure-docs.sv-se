@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: f67c98eb8417b66c3315bccb1d56b98a68aac839
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796074"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818671"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -136,7 +136,7 @@ Nu ska du C# lägga till den kod som definierar UWP-specifik del av programmet.
 
    ![Åtkomst behörighets förfrågan för mikrofon](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Välj **Starta tal igenkänning**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till tal tjänster och skrivs till text, som visas i fönstret.
+1. Välj **Starta tal igenkänning**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i fönstret.
 
    ![Användar gränssnitt för tal igenkänning](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *

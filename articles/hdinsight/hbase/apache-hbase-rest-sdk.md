@@ -2,22 +2,22 @@
 title: Använda HBase .NET SDK – Azure HDInsight
 description: Använd HBase .NET SDK för att skapa och ta bort tabeller och för att läsa och skriva data.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
-ms.openlocfilehash: d998ff44804a2dcd2b3282679a9cb53f893991e3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/02/2019
+ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077172"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806668"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Använd .NET SDK för Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) erbjuder två primära alternativ för att arbeta med dina data: [Apache Hive frågor och anropar RESTful-API: et för HBase](apache-hbase-tutorial-get-started-linux.md). Du kan arbeta direkt med REST API med hjälp `curl` av kommandot eller ett liknande verktyg.
+[Apache HBase](apache-hbase-overview.md) tillhandahåller två primära alternativ för att arbeta med dina data: [Apache Hive frågor och anrop till HBASE RESTful-API](apache-hbase-tutorial-get-started-linux.md). Du kan arbeta direkt med REST API med hjälp av kommandot `curl` eller ett liknande verktyg.
 
 För C# -och .NET-program tillhandahåller [Microsoft HBase rest-klient biblioteket för .net](https://www.nuget.org/packages/Microsoft.HBase.Client/) ett klient bibliotek ovanpå HBase-REST API.
 
@@ -29,7 +29,7 @@ HBase .NET SDK tillhandahålls som ett NuGet-paket, som kan installeras från Vi
 
 ## <a name="instantiate-a-new-hbaseclient-object"></a>Instansiera ett nytt HBaseClient-objekt
 
-Om du vill använda SDK instansierar du `HBaseClient` ett nytt objekt, `ClusterCredentials` skickar i består `Uri` av till klustret och Hadoop-användarnamnet och lösen ordet.
+Om du vill använda SDK instansierar du ett nytt `HBaseClient`-objekt, skickar `ClusterCredentials` som består av `Uri` till klustret och Hadoop-användarnamnet och-lösen ordet.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
@@ -44,7 +44,7 @@ HBase lagrar data i tabeller. En tabell består av en *Rowkey*, den primära nyc
 
 Data lagras fysiskt i *HFiles*. En enda HFile innehåller data för en tabell, en region och en kolumn serie. Rader i HFile lagras sorterade på Rowkey. Varje HFile har ett *B + träd* -index för att hämta rader snabbare.
 
-Om du vill skapa en ny tabell anger `TableSchema` du en kolumn och. Följande kod kontrollerar om tabellen "RestSDKTable" redan finns, om inte tabellen skapas.
+Om du vill skapa en ny tabell anger du en `TableSchema` och kolumner. Följande kod kontrollerar om tabellen "RestSDKTable" redan finns, om inte tabellen skapas.
 
 ```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Den här nya tabellen har två kolumn familjer, T1 och T2. Eftersom kolumn familjer lagras separat i olika HFiles, är det klokt att ha en separat kolumn serie för data som används ofta. I följande exempel på [infoga data](#insert-data) läggs kolumner till i T1 Column-serien.
+Den här nya tabellen innehåller serier med två kolumner, T1 och T2. Eftersom kolumn familjer lagras separat i olika HFiles, är det klokt att ha en separat kolumn serie för data som används ofta. I följande exempel på [infoga data](#insert-data) läggs kolumner till i T1 Column-serien.
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
 
@@ -70,7 +70,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 ## <a name="insert-data"></a>Infoga data
 
-Om du vill infoga data anger du en unik rad nyckel som rad-ID. Alla data lagras i en `byte[]` matris. I följande kod definieras och läggs `title`kolumnerna, `director`, `release_date` och till i T1 Column-serien, eftersom de här kolumnerna används ofta. Kolumnerna `tagline` och läggs till i kolumn familjen T2. `description` Du kan partitionera dina data i kolumn familjer efter behov.
+Om du vill infoga data anger du en unik rad nyckel som rad-ID. Alla data lagras i en `byte[]` matris. Följande kod definierar och lägger till `title`, `director`och `release_date` kolumner i T1 Column-serien, eftersom de här kolumnerna ofta används. Kolumnerna `description` och `tagline` läggs till i kolumn familjen T2. Du kan partitionera dina data i kolumn familjer efter behov.
 
 ```csharp
 var key = "fifth_element";
@@ -112,13 +112,13 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implementerar [Cloud BigTable](https://cloud.google.com/bigtable/), så data formatet ser ut så här:
+HBase implementerar [Cloud BigTable](https://cloud.google.com/bigtable/), så data formatet ser ut som följande bild:
 
 ![Apache HBase-exempel data utdata](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>Välj data
 
-Om du vill läsa data från en HBase-tabell skickar du tabell namnet och rad nyckeln `GetCellsAsync` till-metoden för `CellSet`att returnera.
+Om du vill läsa data från en HBase-tabell skickar du tabell namnet och rad nyckeln till `GetCellsAsync`-metoden för att returnera `CellSet`.
 
 ```csharp
 var key = "fifth_element";
@@ -132,7 +132,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 // With the previous insert, it should yield: "The Fifth Element"
 ```
 
-I det här fallet returnerar koden bara den första matchande raden, eftersom det bara ska finnas en rad för en unik nyckel. Det returnerade värdet ändras till `string` format `byte[]` från matrisen. Du kan också konvertera värdet till andra typer, till exempel ett heltal för filmens utgivnings datum:
+I det här fallet returnerar koden bara den första matchande raden, eftersom det bara ska finnas en rad för en unik nyckel. Det returnerade värdet ändras till `string` format från `byte[]` matrisen. Du kan också konvertera värdet till andra typer, till exempel ett heltal för filmens utgivnings datum:
 
 ```csharp
 var releaseDateField = cells.rows[0].values

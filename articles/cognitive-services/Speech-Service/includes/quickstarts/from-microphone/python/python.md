@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 956dfc2765635091d105291015ba59b3bfa87162
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a417c2a269ce66c291eda3c4c76f8d48f0ebad95
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795824"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818969"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -72,7 +72,7 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
    ![Skapa en fil](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
-1. Infoga prenumerations information för tal tjänster.
+1. Infoga prenumerationsinformationen för taltjänsten.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
    Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommando paletten (Ctrl + Shift + P) och ange **python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.

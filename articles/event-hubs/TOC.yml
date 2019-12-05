@@ -168,7 +168,7 @@
           href: configure-customer-managed-key.md
     - name: Felsöka
       items:
-        - name: Undantag
+        - name: Felsökningsguide
           href: event-hubs-messaging-exceptions.md
 - name: Referens
   items:

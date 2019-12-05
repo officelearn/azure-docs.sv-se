@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Speech C++ SDK (MacOS) plattforms konfiguration – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform C++ för MacOS med Speech Services SDK.
+description: Använd den här guiden för att konfigurera din plattform C++ för MacOS med Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: eb4cce5f469ca493c5183b4ca0830941ea92ac9f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80f72a4d9aa9a3eef0b0cbab9f2d6017b3c366de
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502557"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818537"
 ---
 # <a name="quickstart-speech-sdk-c-macos-platform-setup"></a>Snabb start: plattforms konfiguration för tal-SDK C++ (MacOS)
 

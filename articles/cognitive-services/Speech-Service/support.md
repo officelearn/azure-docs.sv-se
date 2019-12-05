@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422621"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815453"
 ---
 # <a name="support-and-help-options"></a>Support-och hjälp alternativ
 
-Börjar du bara utforska funktionerna i tal tjänsterna? Implementerar du en ny funktion för ditt program? Här är några förslag på var du kan få hjälp som utvecklare.
+Börjar du bara utforska funktionerna i tal tjänsten? Implementerar du en ny funktion för ditt program? Här är några förslag på var du kan få hjälp som utvecklare.
 
 > [!div class="checklist"]
-> * Håll dig informerad om ny utveckling i *Azure Cognitive Services*eller Sök efter de senaste nyheterna som är relaterade till *tal tjänsten*.
+> * Håll dig informerad om ny utveckling i *Azure Cognitive Services*eller hitta de senaste nyheterna som är relaterade till *tal tjänsten*.
 > * Versions information innehåller information för alla versioner.
 > * Sök för att se om problemet har diskuterats av communityn eller om befintlig dokumentation för den funktion som du vill implementera redan finns.
 > * Om du inte kan hitta ett tillfredsställande svar ställer du en fråga på *Stack Overflow*.
@@ -31,13 +31,13 @@ Börjar du bara utforska funktionerna i tal tjänsterna? Implementerar du en ny 
 
 ## <a name="stay-informed"></a>Håll dig informerad
 
-Nyheter om Cognitive Services samlas in i [Cognitive Services blogg](https://azure.microsoft.com/blog/topics/cognitive-services/). Om du vill ha den senaste informationen om tal tjänster spårar du [röst tjänst bloggen](https://azure.microsoft.com/blog/tag/speech-service/).
+Nyheter om Cognitive Services samlas in i [Cognitive Services blogg](https://azure.microsoft.com/blog/topics/cognitive-services/). Om du vill ha den senaste informationen om röst tjänsten spårar du [röst tjänst bloggen](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Viktig information
 
 [Viktig information](https://aka.ms/csspeech/whatsnew) uppdateras så snart en ny version är tillgänglig. Anteckningarna innehåller information om nya funktioner, förbättringar och fel korrigeringar.
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 Du kan hitta det svar du behöver i dokumentationen, exemplen eller svaren på [Stack Overflow](https://www.stackoverflow.com) frågor eller i exemplen.
 
@@ -55,7 +55,7 @@ Där *{dina Sök villkor}* är dina Sök nyckelord.
 
 Azure-kunder kan skapa och hantera support förfrågningar i Azure Portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal för USA myndigheter](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Skicka en fråga till Stack Overflow

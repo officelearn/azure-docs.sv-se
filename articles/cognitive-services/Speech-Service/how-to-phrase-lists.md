@@ -1,7 +1,7 @@
 ---
 title: Fras listor – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Lär dig att tillhandahålla tal tjänsterna med en fras lista med hjälp av `PhraseListGrammar`-objektet för att förbättra tal-till-text-igenkännings resultatet.
+description: Lär dig att tillhandahålla tjänsten Speech med en fras lista med hjälp av `PhraseListGrammar`-objektet för att förbättra tal-till-text-igenkännings resultatet.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 61d3e4d2de6b8707ee7433815f8002e5d5e3e3d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 052e02ef562da0637b6b5b9683120f0c397dbfd5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464541"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805883"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Fras listor för tal till text
 
-Genom att tillhandahålla tal tjänster med en lista över fraser kan du förbättra tal igenkänningens precision. Fras listor används för att identifiera kända fraser i ljuddata, t. ex. en persons namn eller en viss plats.
+Genom att tillhandahålla röst tjänsten med en lista över fraser kan du förbättra tal igenkänningens precision. Fras listor används för att identifiera kända fraser i ljuddata, t. ex. en persons namn eller en viss plats.
 
 Om du till exempel har ett kommando "flytta till" och ett möjligt mål för "inåt" som kan bli talade kan du lägga till en post för "flytta till inåt". Om du lägger till en fras ökar sannolikheten att när ljudet identifieras som "flytta till inåt" identifieras i stället för "flytta till".
 
@@ -93,7 +93,7 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Ändringar av ett `PhraseListGrammar`-objekt börjar gälla nästa igenkänning eller följer en åter anslutning till tal tjänsterna.
+> Ändringar av ett `PhraseListGrammar`-objekt börjar gälla nästa igenkänning eller följer en åter anslutning till tal-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

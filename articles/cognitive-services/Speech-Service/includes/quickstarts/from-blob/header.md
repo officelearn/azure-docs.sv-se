@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal som lagras i Blob Storage-tal service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: Inte klart
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 195c4c94f7ab00a8740c9dd14aad0d0fd0daa9b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ef61139056ad194d89e2a67cb4ac1b1414a3380b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503978"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828925"
 ---
 I den här snabb starten ska du använda [batch-Avskriften REST API](../../../batch-transcription.md) för att identifiera tal som lagras i en [SAS-BLOB](https://aka.ms/ignite2019/speech/placeholder). Efter att ha uppfyllt några nödvändiga förutsättningar, tar det bara några steg att känna igen tal med en REST API:
 > [!div class="checklist"]

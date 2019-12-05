@@ -11,12 +11,12 @@ ms.date: 12/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a0cbdc02f7adacf2e3ffa8ca21491f44fe4b7f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 33b7db8d08c285056e637eb962b28eef0e74fc94
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793852"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814111"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Självstudie: integrera en enda skog med en enda Azure AD-klient
 
@@ -51,23 +51,30 @@ Du kan använda den miljö som du skapar i den här självstudien för att testa
    - För certifikat validering, avblockera följande URL: er: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**och **www\.Microsoft.com:80**. Eftersom dessa URL: er används för certifikat validering med andra Microsoft-produkter kan dessa URL: er vara avblockerade.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agenten
-1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder [Basic AD-och Azures miljö](tutorial-basic-ad-azure.md) vägledning är det DC1.
-2. Hämta Azure AD Connect etablerings agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Kör Azure AD Connect etablerings agenten (AADConnectProvisionin
-4. gAgent. Installer)
-3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
-![Välkomstskärmen](media/how-to-install/install1.png)</br>
+1. Logga in på den domänanslutna servern.  Om du använder [Basic AD-och Azures miljö](tutorial-basic-ad-azure.md) vägledning är det DC1.
+2. Logga in på Azure Portal med endast molnbaserad autentiseringsuppgifter för globala administratörer.
+3. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect**och i mitten väljer du **Hantera etablering (för hands version)** .
 
-4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
-5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
-![Välkomstskärmen](media/how-to-install/install3.png)</br>
+   ![Azure portal](media/how-to-install/install6.png)
 
-6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
-![Välkomstskärmen](media/how-to-install/install4.png)</br>
+4. Klicka på **Hämta agent**.
+5. Kör Azure AD Connect etablerings agenten.
+6. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.
 
-7. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
+   ![Välkomst skärmen](media/how-to-install/install1.png)
+
+7. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
+8. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.
+
+   ![Välkomst skärmen](media/how-to-install/install3.png)
+
+9. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.
+
+   ![Välkomst skärmen](media/how-to-install/install4.png)
+
+10. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
 ![Välkomstskärmen](media/how-to-install/install5.png)</br>
-8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
+11. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
 
 
 ## <a name="verify-agent-installation"></a>Verifiera agent installation

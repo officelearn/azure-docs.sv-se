@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8bae2db08a5279225eba7492c63706dc9fc3df02
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815917"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819511"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurera Time to Live i Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Du kan välja att konfigurera Time to Live (TTL) på containernivån i Azure Cos
 
 Använd följande steg för att aktivera TTL för en container utan upphörande. Aktivera det här alternativet om du vill tillåta att TTL åsidosätts på objektnivå. Du kan också ange TTL genom att ange ett annat värde än noll för sekunder.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Skapa ett nytt Azure Cosmos DB-konto eller välj ett befintligt konto.
 
@@ -86,7 +86,7 @@ Om du vill ställa in Time to Live för en container måste du ange ett positivt
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
-collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
@@ -133,7 +133,7 @@ Förutom att ställa in ett standard-TTL-värde i en container kan du ange du en
 
 Använd följande steg för att aktivera Time to Live på ett objekt:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Skapa ett nytt Azure Cosmos DB-konto eller välj ett befintligt konto.
 
@@ -146,7 +146,7 @@ Använd följande steg för att aktivera Time to Live på ett objekt:
    * Välj **på (inget standardvärde)** eller Välj **på** och ange ett TTL-värde. 
    * Klicka på **Spara** för att spara ändringarna.
 
-5. Gå sedan till det objekt som du vill ange TTL för, Lägg till `ttl` egenskapen och välj **Uppdatera**. 
+5. Gå sedan till det objekt som du vill ange TTL för, Lägg till egenskapen `ttl` och välj **Uppdatera**. 
 
    ```json
    {

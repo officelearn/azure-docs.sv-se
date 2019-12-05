@@ -4,19 +4,19 @@ description: Den här artikeln beskriver den nya server lös beräknings nivån 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: test
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d1f3bf6cb1467d0bb4906ff2409e72828b22cd20
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775591"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807025"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database Serverless
 
@@ -66,9 +66,9 @@ I följande tabell sammanfattas skillnader mellan server lös beräknings nivå 
 | | **Data behandling utan Server** | **Allokerad beräkning** |
 |:---|:---|:---|
 |**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. |  Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
-| **Prestanda hanterings ansträngning** |Sämre|Högre|
+| **Prestanda hanterings ansträngning** |Lägre|Högre|
 |**Beräknings skalning**|Automatisk|Manuellt|
-|**Beräknings svars tid**|Lägre efter inaktiva perioder|Direkt|
+|**Beräknings svars tid**|Lägre efter inaktiva perioder|Omgående|
 |**Fakturerings precision**|Per sekund|Per timme|
 
 ## <a name="purchasing-model-and-service-tier"></a>Inköps modell och tjänst nivå
@@ -172,7 +172,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
    |Parameter|Värde alternativ|Standardvärde|
    |---|---|---|---|
    |Minsta virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 virtuella kärnor|
-   |Pausa fördröjning|Minst: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
+   |Pausa fördröjning|Minst: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas i Server lös beräknings nivå 

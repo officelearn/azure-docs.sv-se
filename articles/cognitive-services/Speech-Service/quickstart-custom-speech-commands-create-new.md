@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111363"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815829"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Snabb start: skapa ett anpassat kommando (förhands granskning)
 
@@ -105,10 +105,10 @@ Lägg nu till en regel för slut för ande för att svara på användaren som an
 | Inställning    | Föreslaget värde                        | Beskrivning                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Regelnamn  | "ConfirmationResponse"                 | Ett namn som beskriver syftet med regeln          |
-| Villkor | Ingen                                   | Villkor som avgör när regeln kan köras    |
+| Villkor | Inget                                   | Villkor som avgör när regeln kan köras    |
 | Åtgärder    | SpeechResponse "OK, aktivera TV" | Den åtgärd som ska vidtas när regel villkoret är sant |
 
-## <a name="try-it-out"></a>Prova det
+## <a name="try-it-out"></a>Prova
 
 Testa beteendet med hjälp av panelen test chatt.
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bfa65117bf31ad9cb9917fd8a643a0358e02be0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384212"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851714"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Självstudie: synkronisera data från SQL Database Edge till Azure Blob Storage med hjälp av Azure Data Factory
 
@@ -177,7 +177,7 @@ Skapa en data fabrik genom att följa anvisningarna i [den här självstudien](.
 
 27. Gå till fliken **anslutning** i SinkDataset och utför följande steg:
 
-    1. Under **fil Sök väg**anger du *asdedatasync/incrementalcopy*, där *adftutorial* är BLOB-containerns namn och *incrementalcopy* är mappnamnet. Skapa behållaren om den inte finns eller Använd namnet på en befintlig. Azure Data Factory skapar automatiskt mappen utdata *incrementalcopy* om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
+    1. Under **fil Sök väg**anger du *asdedatasync/incrementalcopy*, där *asdedatasync* är BLOB-containerns namn och *incrementalcopy* är mappnamnet. Skapa behållaren om den inte finns eller Använd namnet på en befintlig. Azure Data Factory skapar automatiskt mappen utdata *incrementalcopy* om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
 
     2. För **fil** delen av **fil Sök vägen**väljer du **Lägg till dynamiskt innehåll [ALT + P]** och anger **@CONCAT("stegvis", pipeline (). RunId, '. txt ')** i fönstret som öppnas. Välj **Slutför**. Fil namnet genereras dynamiskt av uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet.
 
@@ -195,7 +195,7 @@ Skapa en data fabrik genom att följa anvisningarna i [den här självstudien](.
 
     2. Om du vill ange värden för parametrarna för den lagrade proceduren väljer du **Importera parameter** och anger följande värden för parametrarna:
 
-    |Name|Typ|Value|
+    |Namn|Typ|Värde|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@ {Activity (' NewWaterMark '). output. firstRow. NewWatermarkvalue}|
     |TableName|Sträng|@ {Activity (' OldWaterMark '). output. firstRow. TableName}|
@@ -216,7 +216,7 @@ Skapa en data fabrik genom att följa anvisningarna i [den här självstudien](.
 
 5. Välj **utlösare nu**.
 
-6. Växla till fliken **Övervaka** till vänster. Du kan se status för den pipelinekörning som utlöstes av den manuella utlösaren. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
+6. Växla till fliken **Övervaka** till vänster. Du kan se status för den pipelinekörning som utlöstes av den manuella utlösaren. Om du vill uppdatera listan väljer du **Uppdatera**.
 
 ## <a name="next-steps"></a>Nästa steg
 

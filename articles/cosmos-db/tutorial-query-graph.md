@@ -1,30 +1,30 @@
 ---
 title: Hur frågar man efter diagramdata SQL i Azure Cosmos DB?
-description: Lär dig att fråga efter diagramdata SQL i Azure Cosmos DB
+description: Lär dig att fråga diagram data från Azure Cosmos DB med Gremlin-frågor
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 12/03/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 2bc79801864481562967702a7c52a7670950199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1dde7bfc74c6a7b0c03d8f192f4e6eaf72e2de6b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293120"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870181"
 ---
-# <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Självstudier: Köra frågor mot Azure Cosmos DB Gremlin API med hjälp av Gremlin
+# <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Självstudie: Fråga Azure Cosmos DB Gremlin-API med hjälp av Gremlin
 
 Azure Cosmos DB [Gremlin-API](graph-introduction.md) stöder [Gremlin](https://github.com/tinkerpop/gremlin/wiki)-frågor. Den här artikeln innehåller exempeldokument och frågor för att komma igång. En detaljerad Gremlin-referens finns i artikeln [Gremlin-support](gremlin-support.md).
 
-Den här artikeln beskriver följande uppgifter: 
+I den här artikeln beskrivs följande uppgifter: 
 
 > [!div class="checklist"]
 > * Fråga efter data med Gremlin
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha diagramdata i containern. Har du detta? Slutför [snabbstarten på 5 minuter](create-graph-dotnet.md) eller [självstudien för utvecklare](tutorial-query-graph.md) om du behöver skapa ett konto och fylla i databasen. Du kan köra följande frågor från [Gremlin-konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) eller din favoritdrivrutin för Gremlin.
 
@@ -70,7 +70,7 @@ Du kan skapa mer komplexa frågor och implementera kraftfull bläddringslogik i 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du gjort följande:
+I den här självstudiekursen har du gjort följande:
 
 > [!div class="checklist"]
 > * Lärt dig hur man frågar med Graph 

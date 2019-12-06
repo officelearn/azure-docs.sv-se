@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: så här frågar du med SQL i Azure Cosmos DB?'
-description: 'Självstudie: Lär dig att fråga med SQL i Azure Cosmos DB'
+description: 'Självstudie: Lär dig hur du frågar med SQL-frågor i Azure Cosmos DB att använda THW Query Playground'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,18 +8,18 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 295b4168d858238a94e737b1abc3a38e2419370f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720734"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870079"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av SQL API
 
 Azure Cosmos DB [SQL API](documentdb-introduction.md) stöder frågedokument med hjälp av SQL. Den här artikeln innehåller ett dokumentexempel och två exempel på SQL-frågor och resultat.
 
-Den här artikeln beskriver följande uppgifter: 
+I den här artikeln beskrivs följande uppgifter: 
 
 > [!div class="checklist"]
 > * Fråga efter data med SQL
@@ -63,7 +63,7 @@ Du kan köra frågor med Datautforskaren i Azure-portalen via [REST-API och SDK]
 Mer information om SQL-frågor finns i:
 * [SQL-fråga och SQL-syntax](sql-query-getting-started.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien förutsätter att du har ett konto för Azure Cosmos DB och en samling. Har du detta? Slutför [Snabbstart på 5 minuter](create-cosmosdb-resources-portal.md).
 
@@ -126,7 +126,7 @@ Nästa fråga returnerar alla angivna namn på barnen i familjen vars ID matchar
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du gjort följande:
+I den här självstudiekursen har du gjort följande:
 
 > [!div class="checklist"]
 > * Lärt dig hur man frågar med SQL  

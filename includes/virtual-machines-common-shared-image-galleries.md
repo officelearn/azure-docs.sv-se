@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085280"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875492"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -31,7 +31,7 @@ Om du har ett stort antal hanterade avbildningar som du behöver underhålla och
 
 Funktionen för delad bild galleri har flera resurs typer:
 
-| Resource | Beskrivning|
+| Resurs | Beskrivning|
 |----------|------------|
 | **Hanterad avbildning** | En grundläggande bild som kan användas separat eller som används för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från [generaliserade](#generalized-and-specialized-images) virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
 | **Ögonblicks bild** | En kopia av en virtuell hård disk som kan användas för att skapa en **avbildnings version**. Ögonblicks bilder kan hämtas från en [specialiserad](#generalized-and-specialized-images) virtuell dator (en som inte har generaliserats), sedan används separat eller med ögonblicks bilder av data diskar för att skapa en specialiserad avbildnings version.
@@ -51,9 +51,9 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 
 |Bilddefinition|Utgivare|Erbjudande|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Ekonomi|Backend|
-|myImage2|Contoso|Ekonomi|Delen|
-|myImage3|Testning|Ekonomi|Delen|
+|myImage1|Contoso|Ekonomi|Serverdel|
+|myImage2|Contoso|Ekonomi|Klientdel|
+|myImage3|Testning|Ekonomi|Klientdel|
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
@@ -94,16 +94,16 @@ Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål 
 | Käll regioner        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Australien, centrala     | Kina, östra        | Indien, södra        | Europa, västra        |
-| Australien, centrala 2   | Kina, östra 2      | Sydostasien     | Storbritannien, södra           |
+| Australien, centrala 2   | Kina, östra 2      | Asien, sydöstra     | Storbritannien, södra           |
 | Australien, östra        | Kina, norra       | Japan, östra         | Storbritannien, västra            |
-| Australien, sydöstra   | Kina, norra 2     | Västra Japan         | US DoD, centrala     |
-| Södra Brasilien          | Asien, östra         | Sydkorea, centrala      | US DoD, östra        |
-| Centrala Kanada        | USA, östra           | Sydkorea, södra        | Arizona (USA-förvaltad region)     |
+| Australien, sydöstra   | Kina, norra 2     | Japan, västra         | US DoD, centrala     |
+| Brasilien, södra          | Asien, östra         | Sydkorea, centrala      | USA DoD, östra        |
+| Kanada, centrala        | USA, östra           | Sydkorea, södra        | Arizona (USA-förvaltad region)     |
 | Kanada, östra           | USA, östra 2         | USA, norra centrala   | Texas (USA-förvaltad region)       |
-| Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | Virginia (USA-förvaltad region)    |
-| Centrala USA            | Frankrike, centrala    | USA, södra centrala   | Indien, västra         |
-| Centrala USA-EUAP       | Frankrike, södra      | Västra centrala USA    | USA, västra            |
-|                       |                   |                    | Västra USA 2          |
+| Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | USA Gov Virginia    |
+| USA, centrala            | Frankrike, centrala    | USA, södra centrala   | Indien, västra         |
+| Centrala USA-EUAP       | Frankrike, södra      | USA, västra centrala    | USA, västra            |
+|                       |                   |                    | USA, västra 2          |
 
 
 
@@ -113,6 +113,7 @@ Det finns gränser per prenumeration för att distribuera resurser med hjälp av
 - 100 delade avbildnings gallerier, per prenumeration, per region
 - 1 000 avbildnings definitioner, per prenumeration, per region
 - 10 000 avbildnings versioner, per prenumeration, per region
+- Alla diskar som är anslutna till avbildningen måste vara mindre än eller lika med 1 TB i storlek
 
 Mer information finns i [kontrol lera resursanvändningen mot begränsningar](https://docs.microsoft.com/azure/networking/check-usage-against-limits) för att se hur du använder den aktuella användningen.
  
@@ -143,13 +144,13 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Åtkomst
+## <a name="access"></a>Access
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
-| Delat med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
+| Delat med användare     | Delat avbildningsgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
-| Delat bildgalleri | Ja                  | Ja          | Ja                  |
+| Delat avbildningsgalleri | Ja                  | Ja          | Ja                  |
 | Bilddefinition     | Nej                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -180,7 +181,7 @@ Avbildnings version:
 - Exkludera från senaste
 - Datum för slut på livs längd
 
-## <a name="sdk-support"></a>SDK-stöd
+## <a name="sdk-support"></a>SDK-support
 
 Följande SDK: er har stöd för att skapa delade avbildnings gallerier:
 
@@ -199,7 +200,7 @@ Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det
 - [Skapa en avbildnings version i ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Skapa en virtuell dator från avbildnings version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
+## <a name="frequently-asked-questions"></a>Vanliga frågor 
 
 * [Hur gör jag för att visa en lista över alla delade avbildnings Galleri resurser i prenumerationer?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [Kan jag flytta min befintliga avbildning till galleriet för delad avbildning?](#can-i-move-my-existing-image-to-the-shared-image-gallery)

@@ -4,23 +4,26 @@ description: I självstudien får du lära dig att konfigurera en Azure Containe
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454754"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840790"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: automatisera behållar avbildningar skapas i molnet när du allokerar käll koden
 
-Förutom en [snabb uppgift](container-registry-tutorial-quick-task.md)har ACR-aktiviteter stöd för automatiserade Docker-behållar avbildningar som bygger i molnet när du allokerar käll koden till en git-lagringsplats.
+Förutom en [snabb uppgift](container-registry-tutorial-quick-task.md)har ACR-aktiviteter stöd för automatiserade Docker-behållar avbildningar som bygger i molnet när du allokerar käll koden till en git-lagringsplats. Git-kontexter som stöds för ACR-uppgifter inkluderar offentlig eller privat GitHub eller Azure databaser.
+
+> [!NOTE]
+> För närvarande stöder ACR-aktiviteter inte utlösare för commit eller pull-begäranden i GitHub Enterprise databaser.
 
 I den här självstudien skapar din ACR-uppgift och push-överför en enda behållar avbildning som anges i en Dockerfile när du allokerar käll koden till en git-lagrings platsen. Om du vill skapa en [multi-Step-aktivitet](container-registry-tasks-multi-step.md) som använder en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare på kod commit, se [Självstudier: köra ett arbets flöde för flera steg i molnet när du ska genomföra käll koden](container-registry-tutorial-multistep-task.md). En översikt över ACR-aktiviteter finns i [Automatisera OS-och Framework-korrigering med ACR-uppgifter](container-registry-tasks-overview.md)
 
-I den här självstudien:
+I de här självstudierna har du
 
 > [!div class="checklist"]
-> * Skapa en aktivitet
+> * Skapa en uppgift
 > * Testa uppgiften
 > * Visa status för aktivitet
 > * Utlösa uppgiften med en kodincheckning

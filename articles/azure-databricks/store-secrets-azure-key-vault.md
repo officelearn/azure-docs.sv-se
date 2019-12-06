@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706144"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849283"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
 
@@ -93,7 +93,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
    |Egenskap|Värde|
    |--------|-----------|
-   |Överförings alternativ|Manuellt|
+   |Uppladdningsalternativ|Manuellt|
    |Namn|Eget namn för din lagrings konto nyckel.|
    |Värde|KEY1 från ditt lagrings konto.|
 
@@ -113,7 +113,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
    |Egenskap  |Beskrivning  |
    |---------|---------|
-   |Namn på arbets yta     | Ange ett namn för Databricks-arbetsytan        |
+   |Namn på arbetsyta     | Ange ett namn för Databricks-arbetsytan        |
    |Prenumeration     | I listrutan väljer du din Azure-prenumeration.        |
    |Resursgrupp     | Välj samma resurs grupp som innehåller nyckel valvet. |
    |Plats     | Välj samma plats som Azure Key Vault. För alla tillgängliga regioner, se [Azure-tjänster tillgängliga per region](https://azure.microsoft.com/regions/services/).        |
@@ -129,7 +129,8 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 4. När din Azure Databricks arbets yta är öppen i ett separat fönster lägger du till **#secrets/createscope** i URL: en. URL: en ska ha följande format: 
 
-   **https://< \location >. azuredatabricks. net/#secrets/createscope**.
+   **https://< \location >. azuredatabricks. net/? o = < \orgID > #secrets/createscope**.
+   
 
 5. Ange ett namn på omfånget och ange Azure Key Vault DNS-namn och resurs-ID som du sparade tidigare. Spara omfångs namnet i en text redigerare för senare användning i den här självstudien. Välj sedan **Create** (Skapa).
 

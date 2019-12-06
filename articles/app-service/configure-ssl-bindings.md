@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b967e4cfad2444e39c7df8cfddcc2154bd48367d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670683"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849759"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service
 
@@ -107,6 +107,8 @@ Din apps **Anpassad domän**-sida uppdateras med den nya dedikerade IP-adressen.
 I olika webbläsare bläddrar du till `https://<your.custom.domain>` för att kontrol lera att appen fungerar.
 
 ![Portalnavigering till Azure-app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+
+Din program kod kan inspektera protokollet via huvudet "x-AppService-proto". Rubriken har värdet `http` eller `https`. 
 
 > [!NOTE]
 > Om din app visar fel i certifikatverifieringen så använder du förmodligen ett självsignerat certifikat.

@@ -6,19 +6,19 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 685c928a20e9bfb47365b5ffa769f1a223d2c563
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: ecdde4ef12c6991fad53f2286ee462fec31606ae
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561513"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846291"
 ---
-# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Självstudier: Utföra en pilotlansering av självbetjäning av lösenordsåterställning för Azure AD
+# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Självstudie: Utföra en pilotlansering av självåterställning av lösenord med Azure AD
 
 I den här självstudien aktiverar du en pilotlansering av självåterställning av lösenord (SSPR) med Azure AD i din organisation och testar med ett icke-administratörskonto.
 
@@ -28,7 +28,7 @@ Det är viktigt att alla tester av lösen ords återställning via självbetjän
 > * Aktivera lösenordsåterställning via självbetjäning
 > * Testa SSPR som användare
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett konto som global administratör
 
@@ -71,7 +71,7 @@ Testa självåterställning av lösenord med hjälp av en testanvändare som int
 
 Om du inte längre vill använda funktioner som du har konfigurerat i den här självstudien kan du göra följande ändring.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Bläddra till **Azure Active Directory** och välj **Lösenordsåterställning**.
 1. På sidan **Egenskaper** går du till alternativet **Self Service Password Reset Enabled** (Självåterställning av lösenord aktiverat) och väljer **Inget**.
 1. Klicka på **Spara**

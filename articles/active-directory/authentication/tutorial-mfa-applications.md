@@ -6,31 +6,31 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bc721f4521c9ac9b8ed8fed2d6b41f6a1b8bd72
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113245"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846410"
 ---
-# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Självstudier: Utföra en pilotlansering av Azure Multi-Factor Authentication
+# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Självstudie: Utföra en pilotlansering av Azure Multi-Factor Authentication
 
-I de här självstudierna hur du du konfigurerar en princip för villkorlig åtkomst som att aktivera Azure Multi-Factor Authentication (MFA Azure) när du loggar in på Azure Portal. Principen distribueras till och testats på en specifik grupp med pilotanvändare. Distribution av Azure MFA med villkorlig åtkomst ger stor flexibilitet för organisationer och administratörer jämfört med traditionella tvingande metoden.
+I den här självstudien får du stegvisa anvisningar om hur du konfigurerar en princip för villkorlig åtkomst som aktiverar Azure Multi-Factor Authentication (Azure MFA) när du loggar in på Azure Portal. Principen distribueras till och testats på en specifik grupp med pilotanvändare. Distribution av Azure MFA med villkorlig åtkomst ger stor flexibilitet för organisationer och administratörer jämfört med den traditionella tvingande metoden.
 
 > [!div class="checklist"]
 > * Aktivera Azure Multi-Factor Authentication
 > * Testa Azure Multi-Factor Authentication
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens.
 * Ett konto med behörigheter som global administratör.
-* En testanvändare som inte är administratör med ett lösenord som du känner till för testning. Om du behöver skapa en användare finns information i artikeln [Snabbstart: Lägga till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
+* En testanvändare som inte är administratör med ett lösenord som du känner till i testningssyfte. Om du behöver skapa en användare finns information i artikeln [Snabbstart: Lägga till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
 * En pilotgrupp att testa med som icke-administratörsanvändaren är medlem i. Om du behöver skapa en grupp finns information i artikeln [Skapa en grupp och lägga till medlemmar i Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Aktivera Azure Multi-Factor Authentication
@@ -56,7 +56,7 @@ I de här självstudierna hur du du konfigurerar en princip för villkorlig åtk
 
 ## <a name="test-azure-multi-factor-authentication"></a>Testa Azure Multi-Factor Authentication
 
-Du testar logga in på en resurs som inte får kräva MFA för att bevisa att din princip för villkorlig åtkomst fungerar, och sedan till Azure-portalen som kräver MFA.
+För att bevisa att den villkorliga åtkomst principen fungerar testar du att logga in på en resurs som inte kräver MFA och sedan till den Azure Portal som kräver MFA.
 
 1. Öppna ett nytt webbläsarfönster i InPrivate- eller <inkognitoläge och gå till [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Logga in med den testanvändare som skapades i avsnittet om förutsättningar i den här artikeln. Observera att den inte ska uppmana dig att slutföra MFA.
@@ -69,9 +69,9 @@ Du testar logga in på en resurs som inte får kräva MFA för att bevisa att di
 
 Om du inte längre vill använda funktioner som du har konfigurerat i den här självstudien kan du göra följande ändring.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Bläddra till **Azure Active Directory**, **villkorlig åtkomst**.
-1. Välj den princip för villkorlig åtkomst som du skapade.
+1. Välj den villkorliga åtkomst princip som du har skapat.
 1. Klicka på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg

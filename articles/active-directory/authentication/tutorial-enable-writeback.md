@@ -6,19 +6,19 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: e1ec439696c1ebd9d5929a4c8b2d9925fc1a71cc
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853028"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846479"
 ---
-# <a name="tutorial-enabling-password-writeback"></a>Självstudier: Aktivera tillbakaskrivning av lösenord
+# <a name="tutorial-enabling-password-writeback"></a>Självstudie: Aktivera tillbakaskrivning av lösenord
 
 I den här självstudien aktiverar du tillbakaskrivning av lösenord för din hybridmiljö. Tillbakaskrivning av lösenord används för att synkronisera lösenordsändringar i Azure Active Directory (Azure AD) tillbaka till din lokala Active Directory Domain Services-miljö (AD DS). Tillbakaskrivning av lösenord är aktiverat som en del av Azure AD Connect för att tillhandahålla en säker metod för att skicka lösenordsändringar tillbaka till en befintlig lokal katalog från Azure AD. Du hittar mer information om mekanismerna bakom tillbakaskrivning av lösenord i artikeln [Vad är Tillbakaskrivning av lösenord?](concept-sspr-writeback.md).
 
@@ -26,7 +26,7 @@ I den här självstudien aktiverar du tillbakaskrivning av lösenord för din hy
 > * Aktivera alternativet för tillbakaskrivning av lösenord i Azure AD Connect
 > * Aktivera alternativet för tillbakaskrivning av lösenord i självåterställning av lösenord (SSPR)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Åtkomst till en aktiv Azure AD-klientorganisation med minst en utvärderingslicens som tilldelats.
 * Ett konto med behörigheter som global administratör i Azure AD-klientorganisationen.

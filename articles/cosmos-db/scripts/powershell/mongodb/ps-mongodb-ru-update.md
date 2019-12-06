@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell skript-Azure Cosmos DB uppdatera RU/s för MongoDB-API
-description: Azure PowerShell skript-Azure Cosmos DB uppdatera RU/s för MongoDB-API
+description: Lär dig hur du använder ett PowerShell-skript för att uppdatera data flödet för en databas eller en behållare i Azure Cosmos DBs API för MongoDB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: d2dd99d5a5f1d0f03c5fe4980fde376ffdd55bca
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 626904c4e281c7ce3ce632412daa24ecdb56938e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178810"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871915"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Uppdatera RU/s för en databas eller samling för Azure Cosmos DB-MongoDB-API
 
@@ -26,7 +26,7 @@ ms.locfileid: "71178810"
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+När skriptexemplet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

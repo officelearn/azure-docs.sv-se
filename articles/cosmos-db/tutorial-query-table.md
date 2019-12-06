@@ -1,6 +1,6 @@
 ---
 title: Hur frågar man efter tabelldata SQL i Azure Cosmos DB?
-description: Lär dig att fråga efter tabelldata SQL i Azure Cosmos DB
+description: Lär dig hur du frågar data som lagras i Azure Cosmos DB Tabell-API-kontot med hjälp av OData-filter och LINQ-frågor
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 161b424c5c89d34eaa55181c0d6ca0515b376168
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 7dc2c00f273f327755dab52a4bda02840d911f96
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978773"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869926"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudier: Fråga Azure Cosmos DB med hjälp av tabell-API:et
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av tabell-API
 
 Azure Cosmos DB [Table-API](table-introduction.md) stöder OData- och [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)-frågor mot nyckel-/värdedata (tabell).  
 
-Den här artikeln beskriver följande uppgifter: 
+I den här artikeln beskrivs följande uppgifter: 
 
 > [!div class="checklist"]
 > * Fråga data med tabell-API
@@ -36,7 +36,7 @@ I [Fråga tabeller och entiteter](https://docs.microsoft.com/rest/api/storageser
 
 Mer information om de förstklassiga funktioner som Azure Cosmos DB erbjuder finns i [Azure Cosmos DB Table API](table-introduction.md) och [Utveckla med tabell-API:t i .NET](tutorial-develop-table-dotnet.md). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha entitetsdata i containern. Har du detta? Slutför [snabbstarten på fem minuter](create-table-dotnet.md) eller [självstudien för utvecklare](tutorial-develop-table-dotnet.md) om du behöver skapa ett konto och fylla i databasen.
 
@@ -100,7 +100,7 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du gjort följande:
+I den här självstudiekursen har du gjort följande:
 
 > [!div class="checklist"]
 > * Lär dig att fråga med tabell-API

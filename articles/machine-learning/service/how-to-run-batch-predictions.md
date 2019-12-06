@@ -11,21 +11,21 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 207e8def168227cb419d25c8e98aa15c09c72b2c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671567"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851612"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här instruktionen får du lära dig hur du får inferences på stora mängder data asynkront och parallellt med hjälp av Azure Machine Learning. Den funktion för batch-härledning som beskrivs här finns i offentlig för hands version. Det är ett högpresterande och högt genomflöde sätt att generera inferences och bearbeta data. Den ger asynkrona funktioner från lådan.
+Lär dig hur du får inferences på stora mängder data asynkront och parallellt med hjälp av Azure Machine Learning. Den funktion för batch-härledning som beskrivs här finns i offentlig för hands version. Det är ett högpresterande och högt genomflöde sätt att generera inferences och bearbeta data. Den ger asynkrona funktioner från lådan.
 
 Med batch-härledning är det enkelt att skala offline-inferences till stora kluster datorer i terabyte av produktions data, vilket resulterar i förbättrad produktivitet och optimerad kostnad.
 
-I den här instruktionen får du lära dig följande uppgifter:
+I den här artikeln får du lära dig följande uppgifter:
 
 > * Skapa en fjärran sluten beräknings resurs.
 > * Skriv ett anpassat härlednings skript.
@@ -40,7 +40,7 @@ I den här instruktionen får du lära dig följande uppgifter:
 
 * Information om hur du hanterar din egen miljö och beroenden finns i [instruktionen så här](how-to-configure-environment.md) konfigurerar du din egen miljö. Kör `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` i din miljö för att ladda ned nödvändiga beroenden.
 
-## <a name="set-up-machine-learning-resources"></a>Konfigurera Machine Learning-resurser
+## <a name="set-up-machine-learning-resources"></a>Konfigurera machine learning-resurser
 
 Följande åtgärder konfigurerar de resurser som du behöver för att köra en pipeline för batch-härledning:
 
@@ -189,7 +189,7 @@ model = Model.register(model_path="models/",
 Skriptet *måste innehålla* två funktioner:
 - `init()`: Använd den här funktionen för eventuell kostsam eller vanlig förberedelse för senare härledning. Använd till exempel den för att läsa in modellen i ett globalt objekt.
 -  `run(mini_batch)`: funktionen kommer att köras för varje `mini_batch`-instans.
-    -  `mini_batch`: batch-härledning kommer att anropa körnings metoden och skicka antingen en lista eller Pandas DataFrame som ett argument till metoden. Varje post i min_batch blir en fil Sök väg om inmatningen är en FileDataset, en Pandas-DataFrame om inmatningen är en TabularDataset.
+    -  `mini_batch`: batch-härledning kommer att anropa körnings metoden och skicka antingen en lista eller Pandas DataFrame som ett argument till metoden. Varje post i min_batch blir en fil Sök väg om indata är en FileDataset, en Pandas DataFrame om indata är en TabularDataset.
     -  `response`: Run ()-metoden ska returnera en Pandas-DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad härledning av indata-element i mini-batch för indata. Användaren bör se till att tillräckligt med data ingår i utgångs resultatet för att mappa indata till härledning. Utmatnings utmatningen skrivs i utdatafilen och är inte garanterat i ordning. användaren bör använda viss nyckel i utdata för att mappa den till indata.
 
 ```python
@@ -237,11 +237,20 @@ def run(mini_batch):
     return resultList
 ```
 
+### <a name="how-to-access-other-files-in-init-or-run-functions"></a>Få åtkomst till andra filer i `init()`-eller `run()`-funktioner
+
+Om du har en annan fil eller mapp i samma katalog som ditt härlednings skript kan du referera till den genom att söka efter den aktuella arbets katalogen.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
 ## <a name="build-and-run-the-batch-inference-pipeline"></a>Skapa och kör pipeline för batch-härledning
 
 Nu har du allt du behöver för att bygga pipelinen.
 
-### <a name="prepare-the-run-environment"></a>Förbereda körnings miljön
+### <a name="prepare-the-run-environment"></a>Förbereda körningsmiljön
 
 Börja med att ange beroenden för skriptet. Du använder det här objektet senare när du skapar pipeline-steget.
 
@@ -261,11 +270,11 @@ batch_env.spark.precache_packages = False
 
 ### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Ange parametrar för pipeline-steget för batch-härledning
 
-`ParallelRunConfig` är den viktigaste konfigurationen för den nyligen introducerade batch-härledningen `ParallelRunStep` instansen i Azure Machine Learning pipelinen. Du använder den för att omsluta ditt skript och konfigurera nödvändiga parametrar, inklusive alla följande:
+`ParallelRunConfig` är den viktigaste konfigurationen för den nyligen introducerade batch-härledningen `ParallelRunStep` instansen i Azure Machine Learning pipelinen. Du använder den för att omsluta ditt skript och konfigurera nödvändiga parametrar, inklusive alla följande parametrar:
 - `entry_script`: ett användar skript som en lokal fil Sök väg som ska köras parallellt på flera noder. Om `source_directly` finns använder du en relativ sökväg. Annars använder du valfri sökväg som är tillgänglig på datorn.
 - `mini_batch_size`: storleken på den mini-batch som skickades till ett enda `run()`-anrop. (Valfritt; standardvärdet är `1`.)
     - För `FileDataset`är det antalet filer med ett minsta värde för `1`. Du kan kombinera flera filer i en mini-batch.
-    - För `TabularDataset`är det data storleken. Exempel värden är `1024`, `1024KB`, `10MB`och `1GB`. Det rekommenderade värdet är `1MB`. Observera att mini-batch från `TabularDataset` aldrig kommer att överskrida fil gränser. Om du till exempel har CSV-filer med olika storlekar är den minsta filen 100 KB och störst är 10 MB. Om du anger `mini_batch_size = 1MB`kommer filer med en storlek som är mindre än 1 MB att behandlas som en mini-batch. Filer med en storlek som är större än 1 MB delas upp i flera mini-batchar.
+    - För `TabularDataset`är det data storleken. Exempel värden är `1024`, `1024KB`, `10MB`och `1GB`. Det rekommenderade värdet är `1MB`. Mini-batch från `TabularDataset` kommer aldrig att överskrida fil gränser. Om du till exempel har CSV-filer med olika storlekar är den minsta filen 100 KB och störst är 10 MB. Om du anger `mini_batch_size = 1MB`kommer filer med en storlek som är mindre än 1 MB att behandlas som en mini-batch. Filer med en storlek som är större än 1 MB delas upp i flera mini-batchar.
 - `error_threshold`: antalet felaktiga poster för `TabularDataset` och fil haverier för `FileDataset` som ska ignoreras under bearbetningen. Om antalet fel för hela inflödet hamnar ovanför det här värdet kommer jobbet att stoppas. Fel tröskeln är för alla indatatyper och inte för enskilda mini-batchar som skickas till `run()`-metoden. Intervallet är `[-1, int.max]`. `-1` delen indikerar att ignorera alla avbrott under bearbetningen.
 - `output_action`: något av följande värden anger hur utdata ska organiseras:
     - `summary_only`: användar skriptet kommer att lagra utdata. `ParallelRunStep` kommer bara att använda utdata för fel tröskel beräkningen.
@@ -292,7 +301,7 @@ parallel_run_config = ParallelRunConfig(
     node_count=4)
 ```
 
-### <a name="create-the-pipeline-step"></a>Skapa pipeline-steget
+### <a name="create-the-pipeline-step"></a>Skapa pipeline-steg
 
 Skapa pipeline-steget med hjälp av skriptet, miljö konfigurationen och parametrarna. Ange det beräknings mål som du redan har kopplat till din arbets yta som mål för körning av skriptet. Använd `ParallelRunStep` för att skapa pipeline-steget för batch-härledning, som tar alla följande parametrar:
 - `name`: namnet på steget med följande namngivnings begränsningar: unika, 3-32 tecken och regex ^\[a-z\]([-a-Z0-9] * [a-Z0-9])? $.
@@ -348,6 +357,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill se den här processens arbets slut till slut punkt, kan du testa den [bärbara datorn](https://aka.ms/batch-inference-notebooks). 
+
+För fel sökning och fel söknings vägledning för ParallelRunStep, se [instruktionen instruktion](how-to-debug-batch-predictions.md).
 
 För fel sökning och fel söknings vägledning för pipelines, se [instruktionen instruktion](how-to-debug-pipelines.md).
 

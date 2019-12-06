@@ -7,18 +7,18 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: fad850da6a7fccb6b97b86532a8d246049942a8b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014664"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872571"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
-Den här självstudien vägleder dig genom processen att skapa en Azure Time Series Insights-miljö som är ifylld med data från simulerade enheter. I den här självstudiekursen får du lära du dig att:
+Den här självstudien vägleder dig genom processen att skapa en Azure Time Series Insights-miljö som är ifylld med data från simulerade enheter. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Time Series Insights-miljö.
@@ -55,11 +55,11 @@ Den här självstudien använder också en [IoT Solution Accelerator](https://ww
 
 Först skapar du lösningen för enhets simulering, som genererar test data för att fylla i din Time Series Insightss miljö.
 
-1. I ett separat fönster eller flik går du till [azureiotsolutions.com](https://www.azureiotsolutions.com). Logga in med samma Azure-prenumerations konto och välj **enhets simulerings** Accelerator. Välj **Testa nu**.
+1. I ett separat fönster eller flik går du till [azureiotsolutions.com](https://www.azureiotsolutions.com). Logga in med samma Azure-prenumerations konto och välj **enhets simulerings** Accelerator.
 
-   [![köra acceleratorn för enhets simulering](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
+   [![köra acceleratorn för enhets simulering](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png#lightbox)
 
-1. Ange de parametrar som krävs på sidan **skapa lösning för enhets simulering** .
+1.  Välj **Testa nu**. Ange sedan de nödvändiga parametrarna på sidan **skapa lösning för enhets simulering** .
 
    Parameter|Beskrivning
    ---|---
@@ -70,18 +70,18 @@ Först skapar du lösningen för enhets simulering, som genererar test data för
 
    När du är klar väljer du **skapa** för att etablera lösningens Azure-resurser. Det kan ta upp till 20 minuter att slutföra den här processen.
 
-   [![etablera lösningen för enhets simulering](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
+   [![etablera lösningen för enhets simulering](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. När etableringen har slutförts ändras texten ovanför din nya lösning från **etablering** till **klar**.
+1. När etableringen har slutförts visas två uppdateringar som visar att distributions statusen har flyttats från **etablering** till **klar**. 
 
    >[!IMPORTANT]
-   > Välj inte **Starta** ännu! Behåll den här webb sidan öppen eftersom du kommer tillbaka till den senare.
+   > Ange inte Solution Accelerator ännu! Behåll den här webb sidan öppen eftersom du kommer tillbaka till den senare.
 
-   [lösnings etableringen för ![enhets simulering slutförd](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
+   [lösnings etableringen för ![enhets simulering slutförd](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
 1. Granska nu de nyligen skapade resurserna i Azure Portal. På sidan **resurs grupper** ser du att en ny resurs grupp har skapats med hjälp av **lösnings namnet** som angavs i det sista steget. Anteckna de resurser som har skapats för enhets simuleringen.
 
-   [resurser för ![enhets simulering](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
+   [resurser för ![enhets simulering](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
 ## <a name="create-an-environment"></a>Skapa en miljö
 
@@ -91,7 +91,7 @@ Skapa sedan en Time Series Insights-miljö i din Azure-prenumeration.
 1. Välj **+ skapa en resurs** i det övre vänstra hörnet. 
 1. Välj kategorin **Sakernas Internet** och välj sedan **Time Series Insights**. 
 
-   [![Välj Time Series Insights-miljöresursen](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi.png#lightbox)
+   [![Välj Time Series Insights-miljöresursen](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
 1. Fyll i de obligatoriska parametrarna på sidan **Time Series Insights miljö** .
 
@@ -106,17 +106,17 @@ Skapa sedan en Time Series Insights-miljö i din Azure-prenumeration.
 
    När du är färdig väljer du **Nästa: händelse källa** för att gå vidare till nästa steg.
 
-   [![skapa en Time Series Insights miljö resurs](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
+   [![skapa en Time Series Insights miljö resurs](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
 
 1. Nu ansluter du Time Series Insightss miljön till IoT Hub som skapats av Solution Accelerator. Ange **Välj en hubb** att `Select existing`. Välj sedan den IoT-hubb som skapats av Solution Accelerator när du anger **IoT Hub namn**.
 
-   [![ansluta Time Series Insightss miljön till den skapade IoT-hubben](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
+   [![ansluta Time Series Insightss miljön till den skapade IoT-hubben](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png#lightbox)
 
    Slutligen väljer du **Granska + skapa**.
 
 1. Gå till panelen **meddelanden** för att övervaka slut för ande av distribution. 
 
-   [distribution av ![Time Series Insights miljön lyckades](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
+   [distribution av ![Time Series Insights miljön lyckades](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png#lightbox)
 
 ## <a name="run-device-simulation"></a>Kör enhets simulering
 
@@ -126,19 +126,19 @@ Tillsammans med IoT Hub genererades ett Azure App Service-webbprogram för att s
 
 1. Gå tillbaka till din [Instrumentpanel för lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators#dashboard). Logga in igen, om det behövs, med samma Azure-konto som du har använt i den här självstudien. Välj din "enhets lösning" och **gå sedan till Solution Accelerator** för att starta din distribuerade lösning.
 
-     [instrument panel för ![Solution Accelerators](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
+   [instrument panel för ![Solution Accelerators](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. Webb programmet för enhets simulering börjar genom att du tillfrågas om du vill ge webb programmet behörigheten "logga in och läsa din profil". Med den här behörigheten kan programmet hämta den användar profil information som krävs för att stödja programmets funktion.
+1. Webb programmet för enhets simulering börjar genom att du tillfrågas om du vill ge webb programmet det **loggade du in och läsa din profil** behörighet. Med den här behörigheten kan programmet hämta den användar profil information som krävs för att stödja programmets funktion.
 
-     [tillstånd för ![enhets simulerings webb program](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
+   [tillstånd för ![enhets simulerings webb program](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
-1. Ange de parametrar som krävs efter att installations sidan för **simulering** har lästs in.
+1. Välj **+ ny simulering**. Ange de parametrar som krävs efter att installations sidan för **simulering** har lästs in.
 
    Parameter|Beskrivning
    ---|---
    **Mål-IoT Hub** | Välj **Använd företablerade IoT Hub**.
    **Enhetsmodell** | Välj **Kylaggregat**.
-   **Antal enheter**  | Ange `1000` under **belopp**.
+   **Antal enheter**  | Ange `10` under **belopp**.
    **Telemetrifrekvens** | Ange `10` sekunder.
    **Simuleringens varaktighet** | Välj **sluta i:** och ange `5` minuter.
 

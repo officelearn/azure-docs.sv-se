@@ -64,8 +64,6 @@
           href: howto-conditional-access-policy-compliant-device.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
-    - name: Villkorlig åtkomst för MFA-registrering
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Kräva godkända klientappar
       href: app-based-conditional-access.md
     - name: Kräva appskyddsprincip

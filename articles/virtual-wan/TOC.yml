@@ -24,8 +24,6 @@
           href: migrate-from-hub-spoke-topology.md
         - name: Global Transit Network-arkitektur
           href: virtual-wan-global-transit-network-architecture.md
-        - name: Office 365-kontrollplanet i virtuellt WAN-nätverk
-          href: virtual-wan-office365-overview.md
 - name: Instruktionsguider
   items:
     - name: Anslut virtuell nätverksgateway till Virtual WAN

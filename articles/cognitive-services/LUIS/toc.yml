@@ -60,9 +60,6 @@
         - name: Gruppera och extrahera relaterade data med sammansatta entiteter
           href: luis-tutorial-composite-entity.md
           displayName: roles
-        - name: Extrahera namn med enkla entiteter
-          href: luis-quickstart-primary-and-secondary-data.md
-          displayName: roles
     - name: Förbättra appen
       items:
         - name: Åtgärda osäkra förutsägelser

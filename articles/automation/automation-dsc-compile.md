@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du kompilerar Desired State Configu
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d3cca9d8954d9ac158d88b393c46672da3faa19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231719"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850915"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration
 
@@ -33,7 +33,7 @@ Du kan kompilera DSC-konfigurationer (Desired State Configuration) på två sät
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Kompilera en DSC-konfiguration i Azure State Configuration
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
 
 1. Från ditt Automation-konto klickar du på **tillstånds konfiguration (DSC)** .
 1. Klicka på fliken **konfigurationer** och klicka sedan på konfigurations namnet som ska kompileras.
@@ -101,7 +101,7 @@ Configuration ParametersExample
 
 Du kan kompilera DSC-konfigurationer som använder grundläggande parametrar i konfigurations portalen för Azure Automation tillstånd eller med Azure PowerShell:
 
-#### <a name="portal"></a>Portal
+#### <a name="portal"></a>Portalen
 
 I portalen kan du ange parameter värden efter att du klickat på **kompilera**.
 
@@ -277,7 +277,7 @@ MOF-filen eller filerna som skapas genom kompilering av konfigurationen kan seda
    ![Bläddra efter lokal fil](./media/automation-dsc-compile/import-browse.png)
 
 1. Ange ett namn i text rutan **konfigurations namn** . Det här namnet måste matcha namnet på den konfiguration från vilken nodkonfigurationer kompilerades.
-1. Klicka på **OK**.
+1. Klicka på **OK**
 
 ### <a name="importing-a-node-configuration-with-azure-powershell"></a>Importera en nods konfiguration med Azure PowerShell
 

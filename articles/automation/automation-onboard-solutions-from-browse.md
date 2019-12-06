@@ -3,18 +3,18 @@ title: Lär dig att integrera Uppdateringshantering-, Ändringsspårning-och inv
 description: Lär dig att publicera en virtuell Azure-dator med Uppdateringshantering, Ändringsspårning och inventerings lösningar som ingår i Azure Automation
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc6e3f3aaa77d7691e0443ee74405058bde2dfa0
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372792"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850813"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar på flera virtuella datorer
 
@@ -109,7 +109,7 @@ Om du använde Starta/stoppa virtuella datorer när de inte används-lösningen 
 
 Alternativt kan du också ta bort länken till arbets ytan från ditt Automation-konto från din Log Analytics-arbetsyta. På arbets ytan väljer du **Automation-konto** under **relaterade resurser**. På sidan Automation-konto väljer du **ta bort länk till konto**.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 När flera datorer onboardas kan det finnas datorer som visas som **inte kan aktivera**. Det finns olika orsaker till att vissa datorer kanske inte är aktiverade. I följande avsnitt visas möjliga orsaker till **att det inte går att aktivera** tillstånd på en virtuell dator vid försök att publicera.
 

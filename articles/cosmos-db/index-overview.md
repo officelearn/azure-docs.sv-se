@@ -1,17 +1,17 @@
 ---
 title: Indexering i Azure Cosmos DB
-description: Förstå hur indexering fungerar i Azure Cosmos DB.
+description: Förstå hur indexering fungerar i Azure Cosmos DB, olika typer av index, till exempel intervall, spatialdata, sammansatta index som stöds.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299784"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873632"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – översikt
 
@@ -120,7 +120,7 @@ Intervall index kan användas för skalära värden (sträng eller tal).
 
 ### <a name="spatial-index"></a>Rums index
 
-Med **rums** index kan du skapa effektiva frågor om geospatiala objekt som-punkter, linjer, polygoner och multipolygoner. Dessa frågor använder ST_DISTANCE-, ST_WITHIN-, ST_INTERSECTS-nyckelord. Följande är några exempel som använder spatial index typ:
+Med **rums** index kan du skapa effektiva frågor om geospatiala objekt som-punkter, linjer, polygoner och multipolygoner. Dessa frågor använder ST_DISTANCE ST_WITHIN ST_INTERSECTS nyckelord. Följande är några exempel som använder spatial index typ:
 
 - Geospatiala avstånds frågor:
 
@@ -152,7 +152,7 @@ Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.m
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Frågor med ett filter och `ORDER BY`. Dessa frågor kan använda ett sammansatt index om filter egenskapen har lagts till i `ORDER BY`-satsen.
+- Frågor med ett filter och `ORDER BY`. Dessa frågor kan använda ett sammansatt index om filter egenskapen läggs till i `ORDER BY`-satsen.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -180,7 +180,7 @@ De sökvägar som extraherades vid indexering av data gör det enkelt att söka 
 ![Matcha en angiven sökväg inom ett träd](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> En `ORDER BY`-sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss lägea om sökvägen den refererar till inte har en. På samma sätt behöver en `ORDER BY`-fråga som order av flera egenskaper *alltid* ett sammansatt index.
+> En `ORDER BY`-sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt behöver en `ORDER BY`-fråga som order by flera egenskaper *alltid* ett sammansatt index.
 
 ## <a name="next-steps"></a>Nästa steg
 

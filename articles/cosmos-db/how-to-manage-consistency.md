@@ -1,17 +1,17 @@
 ---
 title: Lär dig hur du hanterar konsekvens i Azure Cosmos DB
-description: Lär dig hur du hanterar konsekvens i Azure Cosmos DB
+description: 'Lär dig hur du konfigurerar och hanterar konsekvens nivåer i Azure Cosmos DB att använda Azure Portal, .NET SDK, Java SDK och diverse andra SDK: er'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: bc5554e2d56987e969894ba57052d548e1499938
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 46c4c4afe737fd11c2e711a23a3355f48dbd6231
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093304"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872085"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB
 
@@ -59,7 +59,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna fönstret **standard konsekvens** . Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure Portal innehåller också en visualisering av olika konsekvens nivåer med noter. 
 
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Övervaka PBS-mått (probabilistiskt begränsad föråldring)
 
-Hur eventuell konsekvens fungerar? I genomsnitts fallet kan vi erbjuda inaktuella gränser med avseende på versions historik och-tid. Probabilistically-måttet för föråldrad [ **(PBS)** ](https://pbs.cs.berkeley.edu/) försöker kvantifiera sannolikheten för inaktuellhet och visar det som ett mått. Om du vill visa PBS-måttet går du till ditt Azure Cosmos-konto i Azure Portal. Öppna fönsterrutan **Mått** och välj fliken **Konsekvens**. Titta på grafen med namnet **Probability of strongly consistent reads based on your workload (see PBS)** (Sannolikheten för starkt konsekventa läsningar baserat på din arbetsbelastning (se PBS)).
+Hur eventuell konsekvens fungerar? I genomsnitts fallet kan vi erbjuda inaktuella gränser med avseende på versions historik och-tid. Probabilistically-måttet för [**föråldrad (PBS)** ](https://pbs.cs.berkeley.edu/) försöker kvantifiera sannolikheten för inaktuellhet och visar det som ett mått. Om du vill visa PBS-måttet går du till ditt Azure Cosmos-konto i Azure Portal. Öppna fönstret **mått** och välj fliken **konsekvens** . titta på diagrammet med namnet **sannolikhet för starkt konsekventa läsningar baserat på din arbets belastning (se PBS)** .
 
 ![PBS-graf i Azure-portalen](./media/how-to-manage-consistency/pbs-metric.png)
 

@@ -3,18 +3,18 @@ title: Lär dig hur du integrerar Uppdateringshantering-, Ändringsspårning-och
 description: Lär dig att publicera en virtuell Azure-dator med Uppdateringshantering, Ändringsspårning och inventerings lösningar som ingår i Azure Automation
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e117c6f8aa8526392678f37a05ec61b55983a1c7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ab934db026b598e80541f98d74df70c893692120
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374425"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849708"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera Uppdateringshantering, Ändringsspårning och inventerings lösningar
 
@@ -53,9 +53,9 @@ Varje lösning använder en omfattnings konfiguration i arbets ytan för att rik
 
 Om den valda arbets ytan inte har Uppdateringshantering-eller Ändringsspårnings lösningar, skapas följande omfattningar:
 
-* **MicrosoftDefaultScopeConfig – ChangeTracking**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig – uppdateringar**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Om den valda arbets ytan redan har lösningen omdistribueras inte lösningen och omfattnings konfigurationen läggs inte till i den.
 
@@ -139,7 +139,7 @@ Om du använde Uppdateringshantering-lösningen kanske du vill ta bort följande
 
 * Uppdaterings scheman-varje kommer att ha namn som matchar de uppdaterings distributioner som du har skapat)
 
-* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Om du använde lösningen starta och stoppa virtuella datorer vid låg belastnings tider kanske du vill ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
 
@@ -153,7 +153,7 @@ Alternativt kan du också ta bort länken till arbets ytan från ditt Automation
 
 Så här tar du bort en virtuell dator från Uppdateringshantering:
 
-* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen för omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
 * Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg

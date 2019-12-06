@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033669"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842066"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
-En hanterad avbildnings resurs kan skapas från en generaliserad virtuell dator (VM) som lagras antingen som en hanterad disk eller en ohanterad disk i ett lagrings konto. Avbildningen kan sedan användas för att skapa flera virtuella datorer. Information om hur hanterade avbildningar faktureras finns i [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks/). 
+Du kan skapa en hanterad avbildningsresurs från en generaliserad virtuell dator (VM) som lagras antingen som en hanterad disk eller en ohanterad disk i ett lagringskonto. Avbildningen kan sedan användas till att skapa flera virtuella datorer. Information om hur hanterade avbildningar faktureras finns i [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
  
 
@@ -70,9 +70,9 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Skapa en hanterad avbildning i portalen 
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure Portal](https://portal.azure.com) för att hantera avbildningen av den virtuella datorn. Sök efter och välj **virtuella datorer**.
 
-2. I menyn till vänster väljer du **virtuella datorer** och väljer sedan den virtuella datorn i listan.
+2. Välj den virtuella datorn i listan.
 
 3. På sidan **virtuell dator** för den virtuella datorn väljer du **avbilda**på den övre menyn.
 
@@ -80,7 +80,7 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 4. För **namn**, Godkänn antingen det ifyllda namnet eller ange ett namn som du vill använda för avbildningen.
 
-5. För **resurs grupp**, Välj **Skapa ny** och ange ett namn, eller Välj **Använd befintlig** och välj en resurs grupp som ska användas i list rutan.
+5. För **resurs grupp**väljer du **Skapa ny** och anger ett namn eller väljer en resurs grupp som du vill använda i list rutan.
 
 6. Om du vill ta bort den virtuella käll datorn när avbildningen har skapats väljer du **ta bort den här virtuella datorn automatiskt när du har skapat avbildningen**.
 
@@ -88,7 +88,7 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 8. Välj **skapa** för att skapa avbildningen.
 
-9. När avbildningen har skapats kan du hitta den som en **avbildnings** resurs i listan över resurser i resurs gruppen.
+När avbildningen har skapats kan du hitta den som en **avbildnings** resurs i listan över resurser i resurs gruppen.
 
 
 
@@ -218,7 +218,7 @@ Du kan skapa en hanterad avbildning från en ögonblicks bild av en generalisera
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Skapa en avbildning från en virtuell dator som använder ett lagrings konto
 
-Om du vill skapa en hanterad avbildning från en virtuell dator som inte använder hanterade diskar behöver du URI för OS-VHD: n i lagrings kontot i följande format: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. VHD* . I det här exemplet är den virtuella hård disken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*och VHD-filnamnet är *vhdfilename. VHD*.
+Om du vill skapa en hanterad avbildning från en virtuell dator som inte använder hanterade diskar behöver du URI för OS-VHD: n i lagrings kontot i följande format: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. VHD*. I det här exemplet är den virtuella hård disken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*och VHD-filnamnet är *vhdfilename. VHD*.
 
 
 1.  Skapa vissa variabler.

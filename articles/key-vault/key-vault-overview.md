@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6b59995dc09c0ecf1e5700d8337bd30074083f76
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cd6cbf21a392f68db707b9c0184320316d45ffe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483908"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851034"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -24,7 +24,7 @@ Azure Key Vault kan hjälpa dig att lösa följande problem:
 - **Hantering av hemligheter** – Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
 - **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
 - **Hantering av certifikat** – Azure Key Vault är också en tjänst där du enkelt kan etablera, hantera och distribuera offentliga och privata SSL/TLS-certifikat (Secure Sockets Layer/Transport Layer Security) för användning med Azure och dina interna anslutna resurser. 
-- **Lagra hemligheter som backas upp av Hardware Security-moduler** – Hemligheterna och nycklarna kan skyddas av programvara eller FIPS 140-2 nivå 2-validerade HS-moduler
+- **Lagra hemligheter som backas upp av säkerhetsmoduler för maskin vara** – hemligheterna och nycklarna kan skyddas av program vara eller FIPS 140-2 nivå 2, verifierade HSM: er
 
 ## <a name="why-use-azure-key-vault"></a>Därför ska du använda Azure Key Vault
 
@@ -58,9 +58,9 @@ Du har kontroll över dina loggar, du kan skydda dem genom att begränsa åtkoms
 
 ### <a name="simplified-administration-of-application-secrets"></a>Enklare administration av programhemligheter
 
-Det ingår ett flertal steg när du lagrar värdefulla data. Säkerhetsinformationen måste skyddas, den måste följa en livscykel och ha hög tillgänglighet. Azure Key Vault gör det enklare att uppfylla dessa krav genom att:
+Det ingår ett flertal steg när du lagrar värdefulla data. Säkerhets information måste skyddas, den måste följa en livs cykel och måste ha hög tillgänglighet. Azure Key Vault gör det enklare att uppfylla dessa krav genom att:
 
-- Eliminera behovet av intern expertis inom maskinvarusäkerhetsmoduler
+- Ta bort behovet av interna kunskaper om säkerhetsmoduler för maskin vara.
 - Du kan skala upp med kort varsel vid tillfälliga toppar i organisationens användning.
 - Innehållet i dina nyckelvarv kan replikeras inom en region och till en sekundär region. Datareplikering säkerställer tillgängligheten och gör att administratören inte behöver utlösa redundansväxlingen manuellt.
 - Du har tillgång till vanliga administrationsalternativ för Azure via portalen, Azure CLI:t och PowerShell.

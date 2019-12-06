@@ -2,33 +2,29 @@
 title: Förnyelse av signerings nyckel i Azure AD
 description: Den här artikeln beskriver metod tips för förnyelse av signerings nyckel för Azure Active Directory
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20a10f7c6f98b352e8a2d794fabc3b6b3b57319
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f3c696b3fed36ca8ee7faf6ec78f833191cedf9d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835308"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844659"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Förnyelse av signerings nyckel i Azure Active Directory
 Den här artikeln beskriver vad du behöver veta om de offentliga nycklar som används i Azure Active Directory (Azure AD) för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar är i regelbunden följd och att de i nödfall kan överföras direkt. Alla program som använder Azure AD bör kunna hantera nyckel förnyelse processen program mässigt eller upprätta en periodisk manuell förnyelse process. Fortsätt att läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar programmet eller upprättar en periodisk manuell förnyelse process för att hantera nyckel förnyelse vid behov.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Översikt över signerings nycklar i Azure AD
-Azure AD använder kryptering med offentliga nycklar som bygger på bransch standarder för att upprätta förtroende mellan sig och de program som använder den. I praktiska termer fungerar detta på följande sätt: Azure AD använder en signerings nyckel som består av ett offentligt och privat nyckel par. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar Azure AD en säkerhetstoken som innehåller information om användaren. Den här token signeras av Azure AD med hjälp av den privata nyckeln innan den skickas tillbaka till programmet. För att verifiera att token är giltig och kommer från Azure AD måste programmet verifiera token signatur med den offentliga nyckel som exponeras av Azure AD och som finns i klientens [OpenID Connect Discovery-dokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-utfodras [Federation dokument för metadata](azure-ad-federation-metadata.md).
+Azure AD använder kryptering med offentliga nycklar som bygger på bransch standarder för att upprätta förtroende mellan sig och de program som använder den. I praktiska termer fungerar detta på följande sätt: Azure AD använder en signerings nyckel som består av ett offentligt och privat nyckel par. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar Azure AD en säkerhetstoken som innehåller information om användaren. Den här token signeras av Azure AD med hjälp av den privata nyckeln innan den skickas tillbaka till programmet. För att verifiera att token är giltig och kommer från Azure AD, måste programmet verifiera tokens signatur med den offentliga nyckel som exponeras av Azure AD och som finns i klient organisationens [OpenID Connect Discovery-dokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-utfodras [federationsmetadata](azure-ad-federation-metadata.md).
 
 Av säkerhets synpunkt kan Azure ADs signerings nyckel sammanfattas regelbundet och, i händelse av en nöd situation, kunna överföras omedelbart. Alla program som integreras med Azure AD bör förberedas för att hantera en nyckel förnyelse händelse oavsett hur ofta den kan inträffa. Om det inte är det och ditt program försöker använda en nyckel som har gått ut för att verifiera signaturen på en token, kommer inloggnings förfrågan att Miss lyckas.
 
@@ -136,7 +132,7 @@ Om du har lagt till autentisering till din lösning manuellt kanske programmet s
 ### <a name="vs2013"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2013
 Om ditt program har skapats med hjälp av en mall för webb program i Visual Studio 2013 och du har valt **organisations konton** från menyn **ändra autentisering** , har det redan den logik som krävs för att hantera förnyelse av nycklar automatiskt. Den här logiken lagrar organisationens unika identifierare och information om signerings nyckeln i två databas tabeller som är kopplade till projektet. Du kan hitta anslutnings strängen för databasen i projektets Web. config-fil.
 
-Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du behöver skriva den själv eller följer du stegen i [webbprogram / API: er med hjälp av andra bibliotek eller manuellt använda några av protokoll som stöds.](#other).
+Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du behöver skriva den själv eller följer du stegen i [webbprogram / API er med hjälp av andra bibliotek eller manuellt använda några av protokoll som stöds.](#other).
 
 Med följande steg kan du kontrol lera att logiken fungerar korrekt i ditt program.
 
@@ -278,7 +274,7 @@ När du har följt de här stegen kommer ditt programs Web. config att uppdatera
 
 Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fungerar.
 
-1. När du har kontrollerat att programmet använder koden ovan öppnar du filen **Web. config** och navigerar till  **\<issuerNameRegistry->** blocket och letar efter följande rader:
+1. När du har kontrollerat att programmet använder koden ovan öppnar du filen **Web. config** och navigerar till **\<issuerNameRegistry >** -blocket och letar efter följande rader:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,8 +282,8 @@ Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fung
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. I inställningen Lägg till **tumavtryck = "", > ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. \<** Spara filen **Web. config** .
-3. Skapa programmet och kör det. Om du kan slutföra inloggnings processen uppdaterar programmet nyckeln genom att ladda ned den information som krävs från katalogens dokument för federationsmetadata. Om du har problem med att logga in bör du kontrol lera att ändringarna i programmet är korrekta genom att läsa den [lägga till inloggning i ditt webb program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikeln eller hämta och inspektera följande kod exempel: [Moln program med flera innehavare för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+2. I **\<Lägg till tumavtryck = "" >** inställningen ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. Spara filen **Web.config**.
+3. Skapa programmet och kör det. Om du kan slutföra inloggnings processen uppdaterar programmet nyckeln genom att ladda ned den information som krävs från katalogens dokument för federationsmetadata. Om du har problem med att logga in bör du kontrol lera att ändringarna i programmet är korrekta genom att läsa den [lägga till inloggning i ditt webb program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikeln eller genom att hämta och inspektera följande kod exempel: [flera innehavares moln program för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Webb program skyddar resurser och har skapats med Visual Studio 2008 eller 2010 och Windows Identity Foundation (WIF) v 1.0 för .NET 3,5
 Om du har byggt ett program på WIF v 1.0 finns det ingen funktion för att automatiskt uppdatera programmets konfiguration för att använda en ny nyckel.
@@ -306,11 +302,11 @@ Instruktioner för att använda FedUtil för att uppdatera konfigurationen:
 ### <a name="other"></a>Webb program/API: er som skyddar resurser med andra bibliotek eller manuellt implementerar något av de protokoll som stöds
 Om du använder ett annat bibliotek eller manuellt implementerat något av de protokoll som stöds måste du granska biblioteket eller implementeringen för att säkerställa att nyckeln hämtas från antingen OpenID Connect Discovery-dokumentet eller federationsmetadata handling. Ett sätt att söka efter detta är att göra en sökning i din kod eller bibliotekets kod för anrop till antingen OpenID identifierings dokument eller federationsmetadata.
 
-Om nyckeln lagras någonstans eller hårdkodad i ditt program kan du hämta nyckeln manuellt och uppdatera den genom att utföra en manuell förnyelse enligt anvisningarna i slutet av det här väglednings dokumentet. **Vi rekommenderar starkt att du förbättrar ditt program så att det stöder automatisk överrullning** med någon av de metoder som beskrivs i den här artikeln för att undvika framtida avbrott och omkostnader om Azure AD ökar sin rollover-takt eller har en nöd situation out-of-band-förnyelse.
+Om nyckeln lagras någonstans eller hårdkodad i ditt program kan du hämta nyckeln manuellt och uppdatera den genom att utföra en manuell förnyelse enligt anvisningarna i slutet av det här väglednings dokumentet. **Vi rekommenderar starkt att du förbättrar ditt program så att det stöder automatisk överrullning** med någon av de metoder som beskrivs i den här artikeln för att undvika framtida avbrott och omkostnader om Azure AD ökar sin rollover-takt eller har en nöd utöknings enhet.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Så här testar du programmet för att avgöra om det kommer att påverkas
 Du kan kontrol lera om ditt program stöder automatisk nyckel förnyelse genom att ladda ned skripten och följa instruktionerna i [den här GitHub-lagringsplatsen.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Utföra en manuell förnyelse om programmet inte stöder automatisk förnyelse
-Om programmet **inte** stöder automatisk förnyelse måste du upprätta en process som regelbundet övervakar Azure Ads signerings nycklar och utför en manuell förnyelse. [Den här GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) -lagringsplatsen innehåller skript och instruktioner för hur du gör detta.
+Om programmet **inte** stöder automatisk förnyelse måste du upprätta en process som regelbundet övervakar Azure Ads signerings nycklar och utför en manuell förnyelse. [Den här GitHub-lagringsplatsen](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) innehåller skript och instruktioner för hur du gör detta.
 

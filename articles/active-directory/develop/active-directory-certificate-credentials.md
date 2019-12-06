@@ -3,28 +3,24 @@ title: Autentiseringsuppgifter för certifikat i Azure AD
 titleSuffix: Microsoft identity platform
 description: I den här artikeln beskrivs registreringen och användningen av autentiseringsuppgifter för programautentisering
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4b0dd42aeaa8a7a5d9f1cc28b409a8d8dbf92304
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473959"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845373"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för program-autentisering
 
@@ -52,9 +48,9 @@ Om du vill beräkna försäkran kan du använda ett av de många [JSON Web token
 | `iss` | Utfärdare: ska vara client_id (program-ID för klient tjänsten) |
 | `jti` | GUID: JWT-ID: t |
 | `nbf` | Inte före: det datum som token inte kan användas. Tiden visas som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tidpunkt då token utfärdades. |
-| `sub` | Ämne: som `iss`ska vara client_id (program-ID för klient tjänsten) |
+| `sub` | Ämne: som för `iss`bör vara client_id (program-ID för klient tjänsten) |
 
-### <a name="signature"></a>signatur
+### <a name="signature"></a>Signatur
 
 Signaturen beräknas med hjälp av certifikatet enligt beskrivningen i [JSON Web token RFC7519-specifikationen](https://tools.ietf.org/html/rfc7519)
 

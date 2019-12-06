@@ -9,19 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53ef51d52e699612508a446acbc075f766565d63
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 12726a1ad9b04bdfe2cd279d36a696bb011e4122
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803512"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845356"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -62,9 +60,9 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | access_token |
 | account_type |
 | acr |
-| Aktörs |
+| actor |
 | actortoken |
-| AIO |
+| aio |
 | altsecid |
 | AMR |
 | app_chain |
@@ -74,9 +72,9 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | appctxsender |
 | undanta |
 | appidacr |
-| Assertion |
+| assertion |
 | at_hash |
-| AUD |
+| aud |
 | auth_data |
 | auth_time |
 | authorization_code |
@@ -84,16 +82,16 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | azpacr |
 | c_hash |
 | ca_enf |
-| CC |
+| cc |
 | cert_token_use |
 | client_id |
 | cloud_graph_host_name |
 | cloud_instance_name |
 | CNF |
-| Rikt |
+| code |
 | kontroller |
 | credential_keys |
-| representanter |
+| csr |
 | csr_type |
 | DeviceID |
 | dns_names |
@@ -103,10 +101,10 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | e-post |
 | slutpunkt |
 | enfpolids |
-| EXP |
+| exp |
 | expires_on |
 | grant_type |
-| Rita |
+| graph |
 | group_sids |
 | grupper |
 | hasgroups |
@@ -119,15 +117,15 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
-| IAT |
+| iat |
 | identityprovider |
-| IDP |
+| idp |
 | in_corp |
-| session |
+| instance |
 | ipaddr |
 | isbrowserhostedapp |
 | ISS |
-| JwK |
+| jwk |
 | key_id |
 | key_type |
 | mam_compliance_url |
@@ -137,7 +135,7 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | mdm_enrollment_url |
 | mdm_terms_of_use_url |
 | NameID |
-| NBF |
+| nbf |
 | netbios_name |
 | Nnär |
 | OID |
@@ -152,20 +150,20 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | preferred_username |
 | previous_refresh_token |
 | primary_sid |
-| PUID |
+| puid |
 | pwd_exp |
 | pwd_url |
 | redirect_uri |
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| Klusterresursen |
+| resource |
 | roll |
 | roles |
 | omfång |
 | punkten |
 | sid |
-| signatur |
+| signature |
 | signin_state |
 | src1 |
 | src2 |
@@ -178,7 +176,7 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | tokenAutologonEnabled |
 | trustedfordelegation |
 | unique_name |
-| UPN |
+| upn |
 | user_setting_sync_url |
 | användarnamn |
 | uti: er |
@@ -289,7 +287,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 | Källa | ID | Beskrivning |
 |-----|-----|-----|
-| Användare | surname | Familje namn |
+| Användare | surname | Familjenamn |
 | Användare | givenname | Förnamn |
 | Användare | displayname (visningsnamn) | Visningsnamn |
 | Användare | objectID | ObjectID |
@@ -302,7 +300,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | onpremisesecurityidentifier | Lokal säkerhets identifierare |
 | Användare | CompanyName| Organisationens namn |
 | Användare | streetaddress | Gatuadress |
-| Användare | post nummer | Post nummer |
+| Användare | post nummer | Postnummer |
 | Användare | preferredlanguange | Önskat språk |
 | Användare | onpremisesuserprincipalname | Lokalt UPN |
 | Användare | MailNickName | E-postsmek namn |
@@ -321,12 +319,12 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | extensionattribute13 | Attribut för tillägg 13 |
 | Användare | extensionattribute14 | Attribut för tillägg 14 |
 | Användare | extensionattribute15 | Attribut för tillägg 15 |
-| Användare | Othermail | Annan e-post |
-| Användare | Ursprungslandet | Land |
+| Användare | othermail | Annan e-post |
+| Användare | land | Land |
 | Användare | city | Ort |
 | Användare | state | Status |
 | Användare | befattning | Befattning |
-| Användare | employeeid | Medarbetar-ID |
+| Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
 | program, resurs, mål grupp | displayname (visningsnamn) | Visningsnamn |
 | program, resurs, mål grupp | inobjekt | ObjectID |
@@ -392,7 +390,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|User Principal Name|
 | Användare | egna namnet onpremisessamaccountname|Namn på lokal SAM-konto|
-| Användare | employeeid|Medarbetar-ID|
+| Användare | employeeid|Anställnings-ID|
 | Användare | extensionattribute1 | Attribut 1 för tillägg |
 | Användare | extensionattribute2 | Attribut för tillägg 2 |
 | Användare | extensionattribute3 | Attribut för tillägg 3 |

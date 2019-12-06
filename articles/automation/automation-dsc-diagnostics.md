@@ -4,17 +4,17 @@ description: Den här artikeln visar hur du skickar rapporterings data från Azu
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5905afdb9832f32e837dc4496e4a951fca41b8b0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243555"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850354"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar
 
@@ -130,13 +130,13 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | --- | --- |
 | TimeGenerated |Datum och tid då kompatibilitetskontroll kördes. |
 | OperationName |DscNodeStatusData |
-| resultType |Om noden är kompatibel. |
+| ResultType |Om noden är kompatibel. |
 | NodeName_s |Namnet på den hanterade noden. |
 | NodeComplianceStatus_s |Om noden är kompatibel. |
 | DscReportStatus |Om kompatibilitetskontrollen har körts. |
 | ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden är __"ApplyOnly"__ , __"ApplyandMonitior"__ och __"ApplyandAutoCorrect"__ . <ul><li>__ApplyOnly__: DSC tillämpar konfigurationen och gör ingenting ytterligare om inte en ny konfiguration skickas till målnoden eller när en ny konfiguration hämtas från en server. Efter första tillämpning av en ny konfiguration söker DSC inte efter avvikelse från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills den har slutförts innan __ApplyOnly__ börjar gälla. </li><li> __ApplyAndMonitor__: Detta är standardvärdet. LCM använder alla nya konfigurationer. Efter den första körningen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna. DSC försöker tillämpa konfigurationen tills den har slutförts innan __ApplyAndMonitor__ börjar gälla.</li><li>__ApplyAndAutoCorrect__: DSC använder alla nya konfigurationer. Efter den första applikationen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna och tillämpar sedan den aktuella konfigurationen igen.</li></ul> |
 | HostName_s | Namnet på den hanterade noden. |
-| Adresser | Den hanterade nodens IPv4-adress. |
+| IPAdress | Den hanterade nodens IPv4-adress. |
 | Kategori | DscNodeStatus |
 | Resurs | Namnet på Azure Automation kontot. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |
@@ -148,7 +148,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | NumberOfResources_d |Antalet DSC-resurser som anropades i konfigurationen som tillämpas på noden. |
 | SourceSystem | Hur Azure Monitor loggar in data. Always *Azure* för Azure Diagnostics. |
 | ResourceId |Anger Azure Automation kontot. |
-| resultDescription | Beskrivningen för den här åtgärden. |
+| ResultDescription | Beskrivningen för den här åtgärden. |
 | SubscriptionId | ID för Azure-prenumerationen (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resurs gruppen för Automation-kontot. |
 | ResourceProvider | Utforskaren. AUTOMATISKA |
@@ -161,7 +161,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | --- | --- |
 | TimeGenerated |Datum och tid då kompatibilitetskontroll kördes. |
 | OperationName |DscResourceStatusData|
-| resultType |Om resursen är kompatibel. |
+| ResultType |Om resursen är kompatibel. |
 | NodeName_s |Namnet på den hanterade noden. |
 | Kategori | DscNodeStatus |
 | Resurs | Namnet på Azure Automation kontot. |
@@ -179,7 +179,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | DscResourceDuration_d |Tiden, i sekunder, som DSC-resursen kördes. |
 | SourceSystem | Hur Azure Monitor loggar in data. Always *Azure* för Azure Diagnostics. |
 | ResourceId |Anger Azure Automation kontot. |
-| resultDescription | Beskrivningen för den här åtgärden. |
+| ResultDescription | Beskrivningen för den här åtgärden. |
 | SubscriptionId | ID för Azure-prenumerationen (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resurs gruppen för Automation-kontot. |
 | ResourceProvider | Utforskaren. AUTOMATISKA |

@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du konfigurerar och hanterar för-s
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 860eaf5d37b3d3064e3b10bd1dab02c04b95ab5b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a5d68b64fc24577621c82be62f833c356e8fb9c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755511"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850252"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Hantera för-och efter-skript
 
@@ -36,7 +36,7 @@ Upprepa processen för **UpdateManagement-TurnOffVms-** skriptet. Men när du v�
 
 Avsnittet **valda objekt** visar nu båda skripten som valts. En är ett för skript och det andra är ett efter skript:
 
-![Valda objekt](./media/pre-post-scripts/selected-items.png)
+![Markerade objekt](./media/pre-post-scripts/selected-items.png)
 
 Slutför konfigurationen av uppdaterings distributionen.
 
@@ -70,19 +70,19 @@ Den här parametern är en JSON-sträng och om du definierar parametern i ditt f
 
 I följande tabell visas de egenskaper som anges i variabeln.
 
-### <a name="softwareupdateconfigurationruncontext-properties"></a>Egenskaper för SoftwareUpdateConfigurationRunContext
+### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | Namnet på program uppdaterings konfigurationen.        |
 |SoftwareUpdateConfigurationRunId     | Unikt ID för körningen.        |
 |SoftwareUpdateConfigurationSettings     | En samling egenskaper relaterade till program uppdaterings konfigurationen.         |
-|SoftwareUpdateConfigurationSettings. Opera ting system     | De operativ system som är avsedda för uppdaterings distributionen.         |
-|SoftwareUpdateConfigurationSettings. duration     | Maximal varaktighet för uppdaterings distributionen som körs som `PT[n]H[n]M[n]S` per ISO8601; kallas även *underhålls period*.          |
-|SoftwareUpdateConfigurationSettings. Windows     | En samling egenskaper som är relaterade till Windows-datorer.         |
-|SoftwareUpdateConfigurationSettings. Windows. excludedKbNumbers     | En lista över KB som är undantagna från uppdaterings distributionen.        |
-|SoftwareUpdateConfigurationSettings. Windows. includedUpdateClassifications     | Uppdaterings klassificeringar som valts för uppdaterings distributionen.        |
-|SoftwareUpdateConfigurationSettings. Windows. rebootSetting     | Starta om inställningarna för uppdaterings distributionen.        |
+|SoftwareUpdateConfigurationSettings.operatingSystem     | De operativ system som är avsedda för uppdaterings distributionen.         |
+|SoftwareUpdateConfigurationSettings.duration     | Maximal varaktighet för uppdaterings distributionen som körs som `PT[n]H[n]M[n]S` per ISO8601; kallas även *underhålls period*.          |
+|SoftwareUpdateConfigurationSettings.Windows     | En samling egenskaper som är relaterade till Windows-datorer.         |
+|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | En lista över KB som är undantagna från uppdaterings distributionen.        |
+|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Uppdaterings klassificeringar som valts för uppdaterings distributionen.        |
+|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Starta om inställningarna för uppdaterings distributionen.        |
 |azureVirtualMachines     | En lista över resourceIds för virtuella Azure-datorer i uppdaterings distributionen.        |
 |nonAzureComputerNames|En lista över FQDN för icke-Azure-datorer i uppdaterings distributionen.|
 
@@ -119,7 +119,7 @@ Följande exempel är en JSON-sträng som skickas till parametern **SoftwareUpda
 Du hittar ett fullständigt exempel med alla egenskaper på: [Hämta program uppdaterings konfiguration efter namn](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
-> Objektet `SoftwareUpdateConfigurationRunContext` kan innehålla dubbla poster för datorer. Detta kan orsaka att för-och efter-skript körs flera gånger på samma dator. Undvik det här problemet genom att använda `Sort-Object -Unique` för att välja enbart unika VM-namn i skriptet.
+> `SoftwareUpdateConfigurationRunContext`-objektet kan innehålla dubbla poster för datorer. Detta kan orsaka att för-och efter-skript körs flera gånger på samma dator. Undvik det här problemet genom att använda `Sort-Object -Unique` för att välja enbart unika VM-namn i skriptet.
 
 
 ## <a name="stopping-a-deployment"></a>Stoppa en distribution

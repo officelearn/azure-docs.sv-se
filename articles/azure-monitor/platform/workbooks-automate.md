@@ -1,5 +1,5 @@
 ---
-title: Program mässigt Hantera Azure Monitor arbets böcker med Azure Resource Manager mallar | Microsoft-dokument
+title: Azure Monitor arbets böcker och Azure Resource Manager mallar
 description: Förenkla komplex rapportering med färdiga och anpassade parameterstyrda Azure Monitor arbets böcker som distribueras via Azure Resource Manager mallar
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d5e22093fa796a9fbd60dc2bc242f37a6cac7cf0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166114"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872918"
 ---
 # <a name="programmatically-manage-workbooks"></a>Hantera arbets böcker program mässigt
 

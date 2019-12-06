@@ -3,12 +3,12 @@ title: Översikt över ACR-uppgifter
 description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som tillhandahåller säker, automatiserad version av behållar avbildning, hantering och korrigeringar i molnet.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: b4710591dfd78f0633d5071c78d80e300349f498
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456151"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840773"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -52,16 +52,19 @@ Lär dig hur du använder snabb uppgifter i den första självstudien för ACR-a
 
 ## <a name="trigger-task-on-source-code-update"></a>Utlös aktivitet för uppdatering av käll kod
 
-Utlös en behållar avbildnings version eller flera stegs aktivitet när koden är genomförd eller en pull-begäran görs eller uppdateras till en git-lagringsplats i GitHub eller Azure DevOps. Du kan till exempel konfigurera en build-aktivitet med Azure CLI-kommandot [AZ ACR Task Create][az-acr-task-create] genom att ange en git-lagringsplats och eventuellt en gren och Dockerfile. När ditt team uppdaterar kod i databasen, utlöser en ACR webhook en version av behållar avbildningen som definieras i lagrings platsen. 
+Utlös en behållar avbildnings version eller flera stegs aktivitet när koden har genomförts eller en pull-begäran görs eller uppdateras till en offentlig eller privat git-lagringsplats i GitHub eller Azure DevOps. Du kan till exempel konfigurera en build-aktivitet med Azure CLI-kommandot [AZ ACR Task Create][az-acr-task-create] genom att ange en git-lagringsplats och eventuellt en gren och Dockerfile. När ditt team uppdaterar kod i databasen, utlöser en ACR webhook en version av behållar avbildningen som definieras i lagrings platsen. 
 
 ACR-aktiviteter stöder följande utlösare när du anger en git-lagrings platsen som aktivitetens kontext:
 
-| Utlösare | Aktive rad som standard |
+| Utlösare | Aktiverat som standard |
 | ------- | ------------------ |
 | Checka in | Ja |
 | Pull-begäran | Nej |
 
-Om du vill konfigurera utlösaren anger du uppgiften en personlig åtkomsttoken (PAT) för att ange webhooken i GitHub-eller Azure DevOps-lagrings platsen.
+Om du vill konfigurera en uppdaterings utlösare för käll koden måste du ange uppgiften en personlig åtkomsttoken (PAT) för att ställa in webhooken i den offentliga eller privata GitHub eller Azure DevOps lagrings platsen.
+
+> [!NOTE]
+> För närvarande stöder ACR-aktiviteter inte utlösare för commit eller pull-begäranden i GitHub Enterprise databaser.
 
 Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien för andra ACR uppgifter, [automatiserar behållar avbildnings avbildningar med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md).
 
@@ -116,19 +119,22 @@ I följande tabell visas några exempel på kontext platser som stöds för ACR-
 | Kontext plats | Beskrivning | Exempel |
 | ---------------- | ----------- | ------- |
 | Lokalt fil system | Filer i en katalog i det lokala fil systemet. | `/home/user/projects/myapp` |
-| GitHub huvud gren | Filer inom den överordnade (eller andra standard) grenen av en GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
-| GitHub-gren | En speciell gren av en GitHub-lagrings platsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub-undermapp | Filer i en undermapp i en GitHub-lagrings platsen. Exempel på en kombination av en gren och undermappar specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Azure dataDevOpss-undermapp | Filer i en undermapp i en Azure-lagrings platsen. Exempel på en kombination av förgrening och undermappar specifikation. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| GitHub huvud gren | Filer i huvud gruppen (eller andra standard) i en offentlig eller privat GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub-gren | En speciell gren av en offentlig eller privat GitHub-lagrings platsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub-undermapp | Filer i en undermapp i en offentlig eller privat GitHub-lagrings platsen. Exempel på en kombination av en gren och undermappar specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Azure dataDevOpss-undermapp | Filer i en undermapp i en offentlig eller privat Azure-lagrings platsen. Exempel på en kombination av förgrening och undermappar specifikation. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Fjärran tarball | Filer i ett komprimerat Arkiv på en fjärran sluten Server. | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> När du använder en privat git-lagrings platsen som en kontext för en aktivitet måste du ange en personlig åtkomsttoken (PAT).
 
 ## <a name="image-platforms"></a>Avbildnings plattformar
 
 Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange `--platform`-taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till exempel `--platform Linux/arm64/v8`):
 
-| Operativsystem | Arkitektur|
+| OS | Arkitektur|
 | --- | ------- | 
-| Linux | amd64<br/>koppling<br/>arm64<br/>386 |
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |
 
 ## <a name="view-task-logs"></a>Visa aktivitets loggar

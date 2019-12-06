@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du flyttar ditt Automation-konto ti
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8187e4c6f2c7dc721c178bad50b6c3ada2a65367
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717227"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849589"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Flytta ditt Azure Automation-konto till en annan prenumeration
 
@@ -55,7 +55,7 @@ Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' 
 
 För lösningen **Starta/stoppa virtuella datorer** måste du också ta bort de aviserings regler som skapats av lösningen.
 
-I Azure Portal går du till din resurs grupp och väljer **övervaknings** > **aviseringar** > **Hantera aviserings regler**.
+I Azure Portal går du till din resurs grupp och väljer **övervaka** > **aviseringar** > **Hantera aviserings regler**.
 
 ![Sidan aviseringar med val av hantera aviserings regler](../media/move-account/alert-rules.png)
 
@@ -70,7 +70,7 @@ Välj dessa tre varnings regler och välj sedan **ta bort**. Den här åtgärden
 ![Sidan regler begär bekräftelse av borttagning för markerade regler](../media/move-account/delete-rules.png)
 
 > [!NOTE]
-> Om du inte ser några varnings regler på sidan **regler** ändrar du **statusen** för att visa inaktiverade aviseringar, eftersom du kan ha inaktiverat dem.
+> Om du inte ser några varnings regler på sidan **regler** ändrar du **statusen** för att visa **inaktiverade** aviseringar, eftersom du kan ha inaktiverat dem.
 
 När aviserings reglerna tas bort tar du bort den åtgärds grupp som skapades för meddelanden **om att starta/stoppa VM-** lösningar.
 
@@ -94,7 +94,7 @@ I Azure Portal väljer du **Automation-konto** > **relaterade resurser** > **lä
 
 ## <a name="move-your-automation-account"></a>Flytta ditt Automation-konto
 
-När du har tagit bort föregående objekt kan du fortsätta att ta bort ditt Automation-konto och dess Runbooks. I Azure Portal bläddrar du till resurs gruppen för ditt Automation-konto. Välj **Flytta** > **Flytta till en annan prenumeration**.
+När du har tagit bort föregående objekt kan du fortsätta att ta bort ditt Automation-konto och dess Runbooks. I Azure Portal bläddrar du till resurs gruppen för ditt Automation-konto. Välj **flytta** > **Flytta till en annan prenumeration**.
 
 ![Sidan resurs grupp flyttar du till en annan prenumeration](../media/move-account/move-resources.png)
 
@@ -113,7 +113,7 @@ Gå till ditt Automation-konto i den nya prenumerationen och välj **Kör som-ko
 Välj varje kör som-konto. På sidan **Egenskaper** väljer du **ta bort** för att ta bort kör som-kontot.
 
 > [!NOTE]
-> Om du inte har behörighet att skapa eller Visa kör som-konton visas följande meddelande: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.`Information om vilka behörigheter som krävs för att konfigurera ett Kör som-konto finns i [behörigheter som krävs för att konfigurera kör som-konton](../manage-runas-account.md#permissions).
+> Om du inte har behörighet att skapa eller Visa kör som-konton visas följande meddelande: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` om du vill veta mer om de behörigheter som krävs för att konfigurera ett Kör som-konto, se [behörigheter som krävs för att konfigurera kör som-konton](../manage-runas-account.md#permissions).
 
 När kör som-kontona har tagits bort väljer du **skapa** under **Kör som-konto i Azure**. På sidan **Lägg till Azure kör som-konto** väljer du **skapa** för att skapa kör som-kontot och tjänstens huvud namn. Upprepa föregående steg med det **klassiska kör som-kontot i Azure**.
 
@@ -125,22 +125,22 @@ När du har återskapat kör som-kontona återaktiverar du de lösningar som du 
 
 Datorer som är inbyggda med dina lösningar visas när du har anslutit till den befintliga Log Analytics-arbetsytan.
 
-Om du vill aktivera lösningen för att **Starta/stoppa virtuella datorer** vid låg belastnings tider måste du distribuera om lösningen. Under **relaterade resurser**väljer du **Starta/stoppa virtuella datorer** > **Läs mer om och aktiverar lösningen** > **skapa** för att starta distributionen.
+Om du vill aktivera lösningen för att **Starta/stoppa virtuella datorer** vid låg belastnings tider måste du distribuera om lösningen. Under **relaterade resurser**väljer du **Starta/stoppa virtuella datorer** > **Lär dig mer om och aktiverar lösningen** > **skapa** för att starta distributionen.
 
 På sidan **Lägg till lösning** väljer du Log Analytics arbets yta och Automation-konto.
 
 ![Menyn Lägg till lösning](../media/move-account/add-solution-vm.png)
 
-Detaljerade anvisningar om hur du konfigurerar lösningen finns i [Starta/stoppa virtuella datorer vid låg belastnings lösning i Azure Automation](../automation-solution-vm-management.md).
+Detaljerade anvisningar om hur du konfigurerar lösningen finns [i starta/stoppa virtuella datorer när de inte används lösning i Azure Automation](../automation-solution-vm-management.md).
 
 ## <a name="post-move-verification"></a>Verifiering efter flytt
 
 När flyttningen är klar kontrollerar du följande lista över aktiviteter som ska verifieras:
 
-|Funktion|Tester|Fel söknings länk|
+|Kapacitet|Tester|Fel söknings länk|
 |---|---|---|
 |Runbooks|En Runbook kan köra och ansluta till Azure-resurser.|[Felsöka runbook-flöden](../troubleshoot/runbooks.md)
-|Käll kontroll|Du kan köra en manuell synkronisering på din lagrings platsen för käll kontroll.|[Källkontrollsintegrering](../source-control-integration.md)|
+|Källkontroll|Du kan köra en manuell synkronisering på din lagrings platsen för käll kontroll.|[Källkontrollsintegrering](../source-control-integration.md)|
 |Ändrings spårning och inventering|Kontrol lera att du ser aktuella inventerings data från datorerna.|[Felsöka ändrings spårning](../troubleshoot/change-tracking.md)|
 |Hantering av uppdateringar|Kontrol lera att du ser dina datorer och att de är felfria.</br>Kör en test program uppdaterings distribution.|[Felsöka uppdaterings hantering](../troubleshoot/update-management.md)|
 |Delade resurser|Kontrol lera att du ser alla dina delade resurser, till exempel [autentiseringsuppgifter](../shared-resources/credentials.md), [variabler](../shared-resources/variables.md)osv.|

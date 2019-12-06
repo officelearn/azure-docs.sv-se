@@ -1,5 +1,5 @@
 ---
-title: Skapa interaktiva rapporter med Azure Monitor arbets böcker | Microsoft-dokument
+title: Översikt över Azure Monitor arbets böcker
 description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cbc128e59472e36e2b5685efdf4cd02144edf15
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165932"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872867"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor arbets böcker
 
@@ -30,7 +30,7 @@ Arbets böcker är för närvarande kompatibla med följande data Källor:
 
 * [Loggar](workbooks-data-sources.md#logs)
 * [Mått](workbooks-data-sources.md#metrics)
-* [Azure-resurs diagram](workbooks-data-sources.md#azure-resource-graph)
+* [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Aviseringar (för hands version)](workbooks-data-sources.md#alerts-preview)
 * [Arbets belastnings hälsa (för hands version)](workbooks-data-sources.md#workload-health-preview)
 * [Azure Resource Health (för hands version)](workbooks-data-sources.md#azure-resource-health)
@@ -41,7 +41,7 @@ Arbets böcker är för närvarande kompatibla med följande data Källor:
 Arbets böcker ger en omfattande uppsättning funktioner för visualisering av dina data. Detaljerade exempel på varje visualiserings typ kan du se exempel länkarna nedan:
 
 * [Text](workbooks-visualizations.md#text)
-* [Hierarkidiagram](workbooks-visualizations.md#charts)
+* [Diagram](workbooks-visualizations.md#charts)
 * [Rutnät](workbooks-visualizations.md#grids)
 * [Ordnar](workbooks-visualizations.md#tiles)
 * [Träd](workbooks-visualizations.md#trees)

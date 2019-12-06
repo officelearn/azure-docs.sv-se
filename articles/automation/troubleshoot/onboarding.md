@@ -2,18 +2,18 @@
 title: Felsöka fel vid registrering Uppdateringshantering, Ändringsspårning och inventering
 description: Lär dig hur du felsöker onboarding-fel med Uppdateringshantering, Ändringsspårning och inventerings lösningar
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516405"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849317"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Felsök fel vid integrering av lösningar
 
@@ -21,7 +21,7 @@ Du kan stöta på fel när du registrerar lösningar som Uppdateringshantering e
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="node-rename"></a>Situationen Att byta namn på en registrerad nod kräver avregistrering/registrering igen
+### <a name="node-rename"></a>Scenario: om du byter namn på en registrerad nod måste du avregistrera/registrera igen
 
 #### <a name="issue"></a>Problem
 
@@ -31,12 +31,12 @@ En nod är registrerad på Azure Automation och sedan ändras operativ systemets
 
 Att byta namn på registrerade noder uppdaterar inte nodnamnet i Azure Automation.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Avregistrera noden från Azure Automation tillstånds konfiguration och registrera den sedan igen.  Rapporter som publicerats till tjänsten innan den tiden kommer inte längre att vara tillgängliga.
 
 
-### <a name="resigning-cert"></a>Situationen Det finns inte stöd för att signera om certifikat via https-proxy
+### <a name="resigning-cert"></a>Scenario: det finns inte stöd för att signera om certifikat via https-proxy
 
 #### <a name="issue"></a>Problem
 
@@ -46,13 +46,13 @@ Kunder har rapporterat att vid anslutning via en proxyserver som avslutar HTTPS-
 
 Azure Automation stöder inte omsignering av certifikat som används för att kryptera trafik.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Det finns ingen lösning för det här problemet.
 
 ## <a name="general-errors"></a>Allmänna fel
 
-### <a name="missing-write-permissions"></a>Situationen Onboarding Miss lyckas med meddelandet-lösningen kan inte aktive ras
+### <a name="missing-write-permissions"></a>Scenario: onboarding Miss lyckas med meddelandet-lösningen kan inte aktive ras
 
 #### <a name="issue"></a>Problem
 
@@ -70,11 +70,11 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 Felet beror på felaktig eller saknas behörighet på den virtuella datorn, arbets ytan eller för användaren.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
-Se till att du har rätt behörigheter för att publicera den virtuella datorn. Granska de [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding) och försök att publicera lösningen igen. Om du får felet `The solution cannot be enabled on this VM because the permission to read the workspace is missing`kontrollerar du att du `Microsoft.OperationalInsights/workspaces/read` har behörighet att kunna hitta om den virtuella datorn har publicerats i en arbets yta.
+Se till att du har rätt behörigheter för att publicera den virtuella datorn. Granska de [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding) och försök att publicera lösningen igen. Om du får fel `The solution cannot be enabled on this VM because the permission to read the workspace is missing`måste du kontrol lera att du har `Microsoft.OperationalInsights/workspaces/read` behörighet att kunna ta reda på om den virtuella datorn har publicerats i en arbets yta.
 
-### <a name="diagnostic-logging"></a>Situationen Onboarding Miss lyckas med meddelandet – Det gick inte att konfigurera Automation-konto för diagnostisk loggning
+### <a name="diagnostic-logging"></a>Scenario: onboarding Miss lyckas med meddelandet – Det gick inte att konfigurera Automation-konto för diagnostisk loggning
 
 #### <a name="issue"></a>Problem
 
@@ -88,11 +88,11 @@ Failed to configure automation account for diagnostic logging
 
 Felet kan bero på att pris nivån inte matchar prenumerationens fakturerings modell. Mer information finns i [övervaka användning och uppskattade kostnader i Azure Monitor](https://aka.ms/PricingTierWarning).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Skapa din Log Analytics arbets yta manuellt och upprepa onboarding-processen för att välja den arbets yta som skapats.
 
-### <a name="computer-group-query-format-error"></a>Situationen ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problem
 
@@ -102,11 +102,11 @@ Den här felkoden innebär att frågan för den sparade Sök dator gruppen som a
 
 Du kan ha ändrat frågan, eller så kan den ha ändrats av systemet.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Du kan ta bort frågan för den här lösningen och återskapa lösningen som återskapar frågan. Du hittar frågan i din arbets yta under **sparade sökningar**. Namnet på frågan är **MicrosoftDefaultComputerGroup**och frågans kategori är namnet på lösningen som är associerad med den här frågan. Om flera lösningar är aktiverade visas **MicrosoftDefaultComputerGroup** flera gånger under **sparade sökningar**.
 
-### <a name="policy-violation"></a>Situationen PolicyViolation
+### <a name="policy-violation"></a>Scenario: PolicyViolation
 
 #### <a name="issue"></a>Problem
 
@@ -116,7 +116,7 @@ Den här felkoden innebär att distributionen misslyckades på grund av övertr�
 
 En princip är på plats som hindrar åtgärden från att slutföras.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 För att kunna distribuera lösningen måste du överväga att ändra den angivna principen. Eftersom det finns många olika typer av principer som kan definieras beror de aktuella ändringarna på den princip som överträds. Om en princip exempelvis har definierats i en resurs grupp som nekade behörighet att ändra innehållet i vissa typer av resurser inom den resurs gruppen, kan du till exempel göra något av följande:
 
@@ -126,9 +126,9 @@ För att kunna distribuera lösningen måste du överväga att ändra den angivn
   * Ommålerar principen till en speciell resurs (till exempel ett speciellt Automation-konto).
   * Ändrar den uppsättning av resurser som principen har kon figurer ATS för att neka.
 
-Kontrol lera meddelandena i det övre högra hörnet av Azure Portal eller navigera till den resurs grupp som innehåller ditt Automation-konto och välj **distributioner** under **Inställningar** för att visa den misslyckade distributionen. Läs mer om Azure Policy på: [Översikt över Azure policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Kontrol lera meddelandena i det övre högra hörnet av Azure Portal eller navigera till den resurs grupp som innehåller ditt Automation-konto och välj **distributioner** under **Inställningar** för att visa den misslyckade distributionen. Läs mer om hur du Azure Policy på: [Översikt över Azure policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="unlink"></a>Situationen Fel vid försök att ta bort länk till en arbets yta
+### <a name="unlink"></a>Scenario: fel vid försök att ta bort länken till en arbets yta
 
 #### <a name="issue"></a>Problem
 
@@ -142,21 +142,21 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 Felet uppstår när du fortfarande har lösningar aktiva på din Log Analytics arbets yta som är beroende av ditt Automation-konto och logg analys-arbetsytan som länkas.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 För att lösa detta måste du ta bort följande lösningar från arbets ytan om du använder dem:
 
-* Uppdateringshantering
+* Hantering av uppdateringar
 * Spårning av ändringar
 * Starta/stoppa virtuella datorer utanför arbetstid
 
 När du har tagit bort lösningarna kan du ta bort länken till arbets ytan. Det är viktigt att du rensar alla befintliga artefakter från dessa lösningar från arbets ytan och automation-kontot också.  
 
-* Uppdateringshantering
+* Hantering av uppdateringar
   * Ta bort uppdaterings distributioner (scheman) från ditt Automation-konto
 * Starta/stoppa virtuella datorer utanför arbetstid
-  * Ta bort eventuella lås på lösnings komponenter i Automation-kontot under **Inställningar** > **Lås**.
-  * Mer information om hur du tar bort lösningen för att starta/stoppa virtuella datorer vid låg belastnings tider finns i [ta bort den virtuella datorn för att starta/stoppa en virtuell dator vid låg belastning](../automation-solution-vm-management.md##remove-the-solution).
+  * Ta bort eventuella lås på lösnings komponenter i Automation-kontot under **inställningar** > **Lås**.
+  * Ytterligare steg för att ta bort Starta/stoppa virtuella datorer när de inte används-lösningen finns i [ta bort start/stoppa virtuell dator vid ledighet av lösningen](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>MMA-tilläggsbegäranden
 
@@ -168,7 +168,7 @@ Installation av MMA-eller Log Analytics-agenten för Linux kan Miss lyckas av ol
 
 I följande avsnitt beskrivs olika problem som du kan stöta på när du registrerar dig som orsakar ett fel i distributionen av MMA-tillägget.
 
-### <a name="webclient-exception"></a>Situationen Ett undantag uppstod under en WebClient-begäran
+### <a name="webclient-exception"></a>Scenario: ett undantag inträffade under en WebClient-begäran
 
 MMA-tillägget på den virtuella datorn kan inte kommunicera med externa resurser och distributionen Miss lyckas.
 
@@ -192,11 +192,11 @@ Några möjliga orsaker till det här felet är:
 
 * En brand Väggs inställning har blockerat åtkomst till de portar och adresser som krävs.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Kontrol lera att du har rätt portar och adresser öppna för kommunikation. En lista över portar och adresser finns i [Planera nätverket](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Situationen Installationen misslyckades på grund av ett tillfälligt miljö problem
+### <a name="transient-environment-issue"></a>Scenario: installationen misslyckades på grund av ett tillfälligt miljö problem
 
 Installationen av Microsoft Monitoring Agent-tillägget misslyckades under distributionen på grund av en annan installation eller åtgärd som blockerar installationen
 
@@ -223,11 +223,11 @@ Några möjliga orsaker till det här felet är:
 * En annan installation pågår
 * Systemet utlöses för omstart vid mall-distributionen
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Det här felet är ett tillfälligt fel. Gör om distributionen för att installera tillägget.
 
-### <a name="installation-timeout"></a>Situationen Tids gräns för installation
+### <a name="installation-timeout"></a>Scenario: tids gräns för installation
 
 Installationen av MMA-tillägget slutfördes inte på grund av en tids gräns.
 
@@ -243,7 +243,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 Felet beror på att den virtuella datorn är under en kraftig belastning under installationen.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Försök att installera MMA-tillägget när den virtuella datorn har en lägre belastning.
 

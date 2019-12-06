@@ -1,22 +1,22 @@
 ---
 title: Använd unika nycklar i Azure Cosmos DB
-description: Lär dig hur du använder unika nycklar i din Azure Cosmos-databas
+description: Lär dig hur du definierar och använder unika nycklar för en Azure Cosmos-databas. Den här artikeln beskriver också hur unika nycklar lägger till ett lager med data integritet.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4a929566d464f8548c4bffeb9f89099e77722e67
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756776"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869841"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Unika nyckel begränsningar i Azure Cosmos DB
 
-Unika nycklar Lägg till ett lager med data integritet i en Azure Cosmos-behållare. Du skapar en unik nyckel princip när du skapar en Azure Cosmos-behållare. Med unika nycklar ser du till att ett eller flera värden i en logisk partition är unika. Du kan också garantera unika nycklar per [partitionsnyckel](partition-data.md). 
+Unika nycklar Lägg till ett lager med data integritet i en Azure Cosmos-behållare. Du skapar en unik nyckel princip när du skapar en Azure Cosmos-behållare. Med unika nycklar ser du till att ett eller flera värden i en logisk partition är unika. Du kan också garantera unika nycklar per [partitionsnyckel](partition-data.md).
 
 När du har skapat en behållare med en unik nyckel princip förhindras skapandet av en ny eller en uppdatering av ett befintligt objekt som resulterar i en dubblett i en logisk partition, enligt vad som anges i den unika nyckel begränsningen. Partitionsnyckel i kombination med den unika nyckeln garanterar att ett objekt är unikt inom omfånget för behållaren.
 
@@ -30,8 +30,8 @@ Behållaren kan till exempel innehålla objekt med följande värden, där varje
 |---|---|---|---|
 |Contoso|Gaby|Duperre|gaby@contoso.com |
 |Contoso|Gaby|Duperre|gaby@fabrikam.com|
-|Produkter|Gaby|Duperre|gaby@fabrikam.com|
-|Produkter|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
 |Fabrkam|   |Duperre|gaby@fabraikam.com|
 |Fabrkam|   |   |gaby@fabraikam.com|
 
@@ -45,7 +45,7 @@ Du kan bara definiera unika nycklar när du skapar en Azure Cosmos-behållare. E
 
 * Om du vill ange en unik nyckel för en befintlig behållare skapar du en ny behållare med den unika nyckel begränsningen. Använd lämpligt verktyg för datamigrering för att flytta data från den befintliga behållaren till den nya behållaren. För SQL-behållare använder du [verktyget datamigrering](import-data.md) för att flytta data. För MongoDB-behållare använder du [mongoimport. exe eller mongorestore. exe](mongodb-migrate.md) för att flytta data.
 
-* En unik nyckel princip kan innehålla högst 16 Sök vägs värden. Värdena kan till exempel vara `/firstName`, `/lastName` och `/address/zipCode`. Varje unik nyckel princip kan innehålla högst 10 unika nyckel begränsningar eller kombinationer. De kombinerade Sök vägarna för varje Unique index-begränsning får inte överstiga 60 byte. I det tidigare exemplet är förnamn, efter namn och e-postadress tillsammans en begränsning. Den här begränsningen använder 3 av de 16 möjliga Sök vägarna.
+* En unik nyckel princip kan innehålla högst 16 Sök vägs värden. Värdena kan till exempel vara `/firstName`, `/lastName`och `/address/zipCode`. Varje unik nyckel princip kan innehålla högst 10 unika nyckel begränsningar eller kombinationer. De kombinerade Sök vägarna för varje Unique index-begränsning får inte överstiga 60 byte. I det tidigare exemplet är förnamn, efter namn och e-postadress tillsammans en begränsning. Den här begränsningen använder 3 av de 16 möjliga Sök vägarna.
 
 * När en behållare har en unik nyckel princip, [begär enhet (ru)](request-units.md) avgifter för att skapa, uppdatera och ta bort ett objekt är något högre.
 

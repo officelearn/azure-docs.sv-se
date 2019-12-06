@@ -3,17 +3,17 @@ title: Ansluta en DevKit-enhet till ditt Azure IoT Central-program | Microsoft D
 description: Som enhets utvecklare lär du dig att ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program med IoT Plug and Play.
 author: liydu
 ms.author: liydu
-ms.date: 08/17/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 32dd3fa1fc137d786174e47d842f762c2a479d64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930137"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849000"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -34,9 +34,21 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 ## <a name="get-device-connection-details"></a>Hämta information om enhets anslutning
 
-I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan **enhets anslutning**. Anteckna **omfattnings-ID** och **primär nyckel** (i länken **Visa nycklar** ). Och kontrol lera att **automatiskt godkännande** har Aktiver ATS.
+1. I ditt Azure IoT Central-program väljer du fliken **enhetsspecifika mallar** och väljer **ny**. I avsnittet **använda en förkonfigurerad enhets mall**väljer du **MXChip IoT DevKit** i listan. Och välj **Nästa: anpassa** och **skapa**.
 
-![Anslutnings information för enhets grupp](media/howto-connect-devkit/device-group-connection-details.png)
+    ![Enhets mal len för MXChip IoT DevKit](media/howto-connect-devkit/device-template.png)
+
+1. Fliken Välj **enheter** , i listan enheter väljer du **MXChip IoT DevKit** och väljer **nytt** för att skapa en ny enhet från enhets mal len.
+
+    ![Ny enhet](media/howto-connect-devkit/new-device.png)
+
+1. I popup-fönstret anger du **enhets-ID: t** som `SampleDevKit` och **enhets namnet** som `MXChip IoT DevKit - Sample`. Se till att **simulerat** alternativ är inaktiverat. Välj sedan **Skapa**.
+
+    ![Enhets-ID och namn](media/howto-connect-devkit/device-id-name.png)
+
+1. Klicka på enheten som du nyss skapade och välj **Anslut**. Anteckna **ID-omfånget**, **enhets-ID: t** och **primär nyckeln**.
+
+    ![Information om enhets anslutning](media/howto-connect-devkit/device-connection-info.png)
 
 ## <a name="prepare-the-device"></a>Förbered enheten
 
@@ -61,7 +73,7 @@ I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan 
 
     - Namnet på ditt WiFi-nätverk (SSID).
     - Ditt WiFi-nätverks lösen ord.
-    - Anslutnings information: det **enhets-ID** som du kan välja själv och det **omfångs-ID** och den **primära SAS-nyckeln för gruppen** som du antecknade tidigare.
+    - Anslutnings information: ange **enhets-ID**, **ID-omfång** och **primär SAS-nyckel** som du antecknade tidigare.
 
     > [!NOTE]
     > IoT-DevKit kan för närvarande bara ansluta till 2,4 GHz Wi-Fi, 5 GHz stöds inte på grund av maskin varu begränsningar.
@@ -86,7 +98,7 @@ Välj fliken **enheter** i ditt IoT Central program och välj den enhet som du h
 
 ## <a name="review-the-code"></a>Granska koden
 
-Om du vill granska koden eller ändra och kompilera den går du till [MXChip IoT DevKit exempel Code GitHub-lagringsplatsen](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+Om du vill granska koden eller ändra och kompilera den går du till [kod exemplen](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,27 +2,23 @@
 title: Program typer i v 1.0 | Azure
 description: Beskriver de typer av appar och scenarier som stöds av Azure Active Directory v 2.0-slutpunkten.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72fab8a51f1ea1b9c7bda14d825dad538f96cde6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7e4228febb5b49ad14a89ceec5482c277fca5fae
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374051"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844217"
 ---
 # <a name="application-types-in-v10"></a>Program typer i v 1.0
 

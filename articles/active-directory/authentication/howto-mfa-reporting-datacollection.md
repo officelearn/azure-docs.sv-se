@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09aa95e55b3d253ef41724298247694b9883e31f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381769"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848297"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Data insamling för Azure Multi-Factor Authentication-användare
 
@@ -35,7 +35,7 @@ Autentiseringsförsök (används för rapportering och fel sökning):
 - Förnamn
 - Efternamn
 - E-postadress
-- Användar grupp
+- Användargrupp
 - Autentiseringsmetod (telefonsamtal, textmeddelande, mobilapp, OATH-token)
 - Telefonsamtals läge (standard, PIN-kod)
 - Text meddelande riktning (envägs, tvåvägs)
@@ -62,7 +62,7 @@ Autentiseringsförsök (används för rapportering och fel sökning):
 - Initierar IP-adress
 - Enheter
 - Enhets-token
-- Enhets typ
+- Enhetstyp
 - Mobil program version
 - OS-version
 - Resultat
@@ -77,8 +77,8 @@ Aktiveringar (försöker aktivera ett konto i Microsoft Authenticator mobilappen
 - Aktivera fel
 - Aktiverings status resultat
 - Enhets namn
-- Enhets typ
-- App-version
+- Enhetstyp
+- Appversion
 - OATH-token har Aktiver ATS
 
 Block (används för att fastställa blockerat tillstånd och för rapportering):
@@ -89,27 +89,27 @@ Block (används för att fastställa blockerat tillstånd och för rapportering)
 - Landskod
 - Telefonnummer
 - Telefonnummer formaterat
-- Anknytning
+- Tillägg
 - Rensa tillägg
-- Blockeras
-- Orsak till blockering
+- Blockerad
+- Skäl till blockering
 - Tidsstämpel för slutförande
 - Orsak till slut för ande
 - Kontoutelåsning
-- Bedrägeri avisering
+- Bedrägerivarning
 - Bedrägeri varning blockeras inte
 - Språk
 
 Kringgås (används för rapportering):
 
 - Kringgå tidsstämpel
-- Kringgå sekunder
+- Antal sekunder
 - Kringgå användar namn
 - Användarnamn
 - Landskod
 - Telefonnummer
 - Telefonnummer formaterat
-- Anknytning
+- Tillägg
 - Rensa tillägg
 - Kringgå orsak
 - Tidsstämpel för slutförande
@@ -126,8 +126,8 @@ Kringgås (används för rapportering):
 - Ny kod för säkerhets kopierings land
 - Nytt reserv telefonnummer
 - Nytt säkerhets kopierings tillägg
-- Ny PIN-kod
-- PIN-koden måste ändras
+- Ny pinkod
+- Krav på pinkodsbyte
 - Gammal enhets-token
 - Ny enhets-token
 

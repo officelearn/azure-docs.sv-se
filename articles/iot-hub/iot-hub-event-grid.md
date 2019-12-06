@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151306"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851708"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
@@ -184,13 +184,11 @@ Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enhet ansluten och avkopplade enhets händelser
 
-Om du vill ta emot enhet anslutna och frånkopplade händelser måste du öppna D2C-länken eller C2D-länken för enheten. Om enheten använder MQTT-protokoll kommer IoT Hub att låta C2D-länken vara öppen. För AMQP kan du öppna länken C2D genom att anropa det [asynkrona API: et för mottagning](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
+För att ta emot händelser för enhets anslutnings tillstånd måste en enhet göra antingen en "2C"-skicka telemetri "eller" C2D Receive Message "-åtgärd med IoT Hub. Observera dock att om en enhet använder AMQP-protokollet för att ansluta till IoT Hub, rekommenderar vi att de gör en "C2D Receive Message"-åtgärd i övrigt deras anslutnings tillstånds meddelanden kan fördröjas med några minuter. Om enheten använder MQTT-protokoll kommer IoT Hub att låta C2D-länken vara öppen. För AMQP kan du öppna länken C2D genom att anropa den [asynkrona API: et](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)för mottagning C# , för IoT Hub SDK eller [enhets klienten för AMQP](iot-hub-amqp-support.md#device-client).
 
 D2C-länken är öppen om du skickar telemetri. 
 
-Om enhets anslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, kommer vi inte att skicka varje enskilt anslutnings tillstånd, men kommer att publicera det *senaste* anslutnings läget, vilket är konsekvent. Om enheten till exempel har varit i anslutet tillstånd inlednings vis, kan du ansluta snärtningar för några sekunder och sedan tillbaka i anslutet tillstånd. Inga nya status händelser för enhets anslutning kommer att publiceras sedan det första anslutnings läget. 
-
-Om ett IoT Hubt avbrott kommer vi att publicera enhetens anslutnings tillstånd så snart som avbrottet är över. Om enheten kopplas från under det här avbrottet publiceras enheten frånkopplad av enheten inom 10 minuter.
+Om enhets anslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, kommer vi inte att skicka varje enskilt anslutnings tillstånd, men kommer att publicera det aktuella anslutnings läget på en periodisk ögonblicks bild, tills flimmen fortsätter. Om du tar emot antingen samma anslutnings tillstånds händelse med olika sekvensnummer eller olika anslutnings tillstånds händelser innebär det att du har ändrat enhetens anslutnings tillstånd.
 
 ## <a name="tips-for-consuming-events"></a>Tips för att konsumera händelser
 

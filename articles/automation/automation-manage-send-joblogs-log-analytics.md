@@ -4,17 +4,17 @@ description: Den här artikeln visar hur du skickar jobb status och jobb strömm
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff455ed355d4412bcf042208d2fd1e7a2a11b965
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186778"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849742"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Vidarebefordra jobb status och jobb strömmar från Automation till Azure Monitor loggar
 
@@ -52,7 +52,7 @@ Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 Om du har fler än ett Automation-konto, eller arbets ytor, i utdata från föregående kommandon, hittar du det *namn* du behöver för att konfigurera och kopiera värdet för *ResourceID*.
 
-Om du behöver hitta *namnet* på ditt Automation-konto går du till Azure Portal väljer ditt Automation-konto på bladet **Automation-konto** och väljer **alla inställningar**. Från bladet **Alla inställningar** väljer du **Egenskaper** under **Kontoinställningar**.  Notera dessa värden i bladet **Egenskaper**.<br> ![Egenskaper](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)för Automation-konto.
+Om du behöver hitta *namnet* på ditt Automation-konto går du till Azure Portal väljer ditt Automation-konto på bladet **Automation-konto** och väljer **alla inställningar**. Från bladet **Alla inställningar** väljer du **Egenskaper** under **Kontoinställningar**.  Notera dessa värden i bladet **Egenskaper**.<br> ![egenskaper för Automation-konto](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Konfigurera integration med Azure Monitor loggar
 
@@ -68,7 +68,7 @@ Om du behöver hitta *namnet* på ditt Automation-konto går du till Azure Porta
 
 När skriptet har körts kan det ta en timme innan du börjar se poster i Azure Monitor loggar för nya JobLogs eller JobStreams som skrivs.
 
-Om du vill se loggarna kör du följande fråga i Log Analytics-loggs ökning:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Om du vill se loggarna kör du följande fråga i Log Analytics-loggs ökning: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verifiera konfigurationen
 
@@ -96,18 +96,18 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | Caller_s |Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |
 | JobId_g |GUID som är Id för runbook-jobbet. |
-| ResultType |Status för runbookjobbet. Möjliga värden är:<br>– Ny<br>– Skapad<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>-Slutförd |
-| Category | Klassificering av typ av data. För Automation är värdet JobLogs. |
+| ResultType |Status för runbookjobbet. Möjliga värden:<br>– Ny<br>– Skapad<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>-Slutförd |
+| Kategori | Klassificering av typ av data. För Automation är värdet JobLogs. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet jobb. |
-| Resource | Namnet på Automation-kontot |
+| Resurs | Namnet på Automation-kontot |
 | SourceSystem | Hur Azure Monitor loggar in data. Always *Azure* för Azure Diagnostics. |
-| ResultDescription |Beskriver jobbstatusen för runbook. Möjliga värden är:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes |
+| ResultDescription |Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
 | ResourceId |Anger resurs-ID för Azure Automation-kontot för runbooken. |
 | SubscriptionId | ID för Azure-prenumerationen (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resurs gruppen för Automation-kontot. |
-| ResourceProvider | UTFORSKAREN. AUTOMATISKA |
-| Resurstyp | AUTOMATIONACCOUNTS |
+| ResourceProvider | Utforskaren. AUTOMATISKA |
+| ResourceType | AUTOMATIONACCOUNTS |
 
 
 ### <a name="job-streams"></a>Jobb strömmar
@@ -116,27 +116,27 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
 | Caller_s |Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb. |
-| StreamType_s |Typ av jobbström. Möjliga värden är:<br>\- Status<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose |
+| StreamType_s |Typ av jobbström. Möjliga värden:<br>\- Status<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose |
 | Tenant_g | GUID som identifierar klienten för anroparen. |
 | JobId_g |GUID som är Id för runbook-jobbet. |
-| ResultType |Status för runbookjobbet. Möjliga värden är:<br>Pågår |
-| Category | Klassificering av typ av data. För Automation är värdet JobStreams. |
+| ResultType |Status för runbookjobbet. Möjliga värden:<br>Pågår |
+| Kategori | Klassificering av typ av data. För Automation är värdet JobStreams. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet jobb. |
-| Resource | Namnet på Automation-kontot |
+| Resurs | Namnet på Automation-kontot |
 | SourceSystem | Hur Azure Monitor loggar in data. Always *Azure* för Azure Diagnostics. |
 | ResultDescription |Innehåller utdataströmmen från runbook. |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
 | ResourceId |Anger resurs-ID för Azure Automation-kontot för runbooken. |
 | SubscriptionId | ID för Azure-prenumerationen (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resurs gruppen för Automation-kontot. |
-| ResourceProvider | UTFORSKAREN. AUTOMATISKA |
-| Resurstyp | AUTOMATIONACCOUNTS |
+| ResourceProvider | Utforskaren. AUTOMATISKA |
+| ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-azure-monitor-logs"></a>Visa Automation-loggar i Azure Monitor loggar
 
 Nu när du har börjat skicka loggen med automatiserings jobb till Azure Monitor loggar ska vi se vad du kan göra med dessa loggar i Azure Monitor loggar.
 
-Kör följande fråga för att se loggarna:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Kör följande fråga för att se loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Skicka ett e-postmeddelande när ett Runbook-jobb Miss lyckas eller pausas
 En av de främsta kunderna ber om möjlighet att skicka ett e-postmeddelande eller en text när något går fel med ett Runbook-jobb.
@@ -144,7 +144,7 @@ En av de främsta kunderna ber om möjlighet att skicka ett e-postmeddelande ell
 Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning för de Runbook-resursposter som ska anropa aviseringen. Klicka på knappen **avisering** om du vill skapa och konfigurera varnings regeln.
 
 1. Klicka på **Visa loggar**på översikts sidan för Log Analytics-arbetsyta.
-2. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`Du kan också gruppera efter RunbookName genom att använda:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` du kan också gruppera efter RunbookName genom att använda: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Om du ställer in loggar från fler än ett Automation-konto eller en prenumeration på din arbets yta, kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Namnet på Automation-kontot finns i resurs fältet i sökningen efter JobLogs.
 3. Öppna skärmen **Skapa regel** genom att klicka på **+ ny varnings regel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns i [logg aviseringar i Azure](../azure-monitor/platform/alerts-unified-log.md).
@@ -153,7 +153,7 @@ Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning fö
 Förutom aviseringar vid fel kan du hitta när ett Runbook-jobb har ett icke-avslutande fel. I dessa fall genererar PowerShell en fel ström, men de icke-avslutande felen orsakar inte att jobbet pausas eller kraschar.
 
 1. Klicka på **loggar**i arbets ytan Log Analytics.
-2. Skriv `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` i fältet fråga och klicka sedan på **Sök** knappen.
+2. I fältet fråga skriver du `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` och klickar sedan på **Sök** knappen.
 
 ### <a name="view-job-streams-for-a-job"></a>Visa jobb strömmar för ett jobb
 När du felsöker ett jobb kanske du också vill titta på jobb strömmarna. Följande fråga visar alla data strömmar för ett enda jobb med GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
@@ -164,7 +164,7 @@ När du felsöker ett jobb kanske du också vill titta på jobb strömmarna. Fö
 Slutligen kanske du vill visualisera jobb historiken över tid. Du kan använda den här frågan för att söka efter status för dina jobb över tid.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
-<br> ![Log Analytics historik jobb status diagram](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Log Analytics tidigare jobb status diagram](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="remove-diagnostic-settings"></a>Ta bort diagnostikinställningar
 

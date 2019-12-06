@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: helohr
-ms.openlocfilehash: 6b4e1a5024fec07ca73c79d2742933b7b115e6c2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384304"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851187"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -28,16 +28,6 @@ Citrix utökar värdet för virtuella Windows-datorer med robusta Enterprise-ver
 
 - [Gå till partner webbplatsen](https://more.citrix.com/wvd).
 
-## <a name="cloudhouse"></a>Cloudhouse
-
-![CloudHouse-logotyp](./media/partners/cloudhouse.png)
-
-CloudHouse är en Windows-Provider för mervärdes tjänster för virtuella datorer som erbjuder kunder en nyckel färdig tjänst för programmigrering som kan flytta alla program, inklusive de som inte är kompatibla med moderna Windows-operativsystem, till Windows Virtual Desktop-miljö, så att kunderna kan utnyttja multi-session Windows 10. 
-
-Genom att använda beprövad CloudHouse skapa behållare-teknik tar CloudHouse-tjänsten alla program, inklusive de som är utformade för Windows XP, Windows 7 eller Windows 8 och distribuerar dem till ett modernt virtuellt Windows-skrivbord utan att behöva ändra kod eller påverka användar upplevelsen. CloudHouse lägger ytterligare till värdet för virtuella Windows-datorer genom att isolera program från det underliggande operativ systemet, vilket gör att Windows Servicing-uppdateringar kan distribueras utan att programmet påverkas. 
-
-- [Gå till partner webbplatsen](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
-
 ## <a name="vmware"></a>VMware
 
 ![VMware-logotyp](./media/partners/vmware.png)
@@ -48,6 +38,17 @@ Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utö
 
 - [Registrera dig för den tekniska för hands versionen av Horisont moln på Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Gå till partner webbplatsen](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+
+## <a name="cloudhouse"></a>Cloudhouse
+
+![CloudHouse-logotyp](./media/partners/cloudhouse.png)
+
+CloudHouse är en Windows-Provider för mervärdes tjänster för virtuella datorer som erbjuder kunder en nyckel färdig tjänst för programmigrering som kan flytta alla program, inklusive de som inte är kompatibla med moderna Windows-operativsystem, till Windows Virtual Desktop-miljö, så att kunderna kan utnyttja multi-session Windows 10. 
+
+Genom att använda beprövad CloudHouse skapa behållare-teknik tar CloudHouse-tjänsten alla program, inklusive de som är utformade för Windows XP, Windows 7 eller Windows 8 och distribuerar dem till ett modernt virtuellt Windows-skrivbord utan att behöva ändra kod eller påverka användar upplevelsen. CloudHouse lägger ytterligare till värdet för virtuella Windows-datorer genom att isolera program från det underliggande operativ systemet, vilket gör att Windows Servicing-uppdateringar kan distribueras utan att programmet påverkas. 
+
+- [Gå till partner webbplatsen](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
 ## <a name="cloudjumper"></a>CloudJumper
 

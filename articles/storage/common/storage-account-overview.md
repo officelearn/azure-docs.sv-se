@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 11/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f1b2bdcecac0aade21c6c770b2495a1e15ba9bc5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174003"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851645"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure Storage-kontot
 
@@ -53,17 +53,17 @@ Generella v1-lagrings konton ger till gång till alla Azure Storage-tjänster, m
 - Köer
 - Tabeller
 
-Även om allmänna-Purpose v2-konton rekommenderas i de flesta fall är allmänna v1-konton bäst lämpade för följande scenarier:
+Du bör använda General-Purpose v2-konton i de flesta fall. Du kan använda generella v1-konton i följande scenarier:
 
 * Dina program kräver den klassiska Azure-distributions modellen. Allmänna-Purpose v2-konton och Blob Storage-konton stöder bara Azure Resource Manager distributions modellen.
 
 * Dina program är transaktions intensiva eller använder avsevärd bandbredd för geo-replikering, men kräver inte stor kapacitet. I det här fallet kan generell användning v1 vara det mest ekonomiska valet.
 
-* Du använder en version av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) som är äldre än 2014-02-14 eller ett klientbiblioteket med en tidigare version än 4.x och det inte går att uppgradera ditt program.
+* Du använder en version av [lagrings tjänster REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) som är tidigare än 2014-02-14 eller ett klient bibliotek med en version som är lägre än 4. x. Du kan inte uppgradera ditt program.
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage-konton
 
-Ett BlockBlobStorage-konto är ett specialiserat lagrings konto som används för att lagra ostrukturerade objekt data som block-blobar och skapa Premium block-blobar. Den här typen av lagrings konto stöder block-blobbar och tillägg av blobbar, men inte sid-blobar, tabeller eller köer.
+Ett BlockBlobStorage-konto är ett specialiserat lagrings konto som du använder för att lagra ostrukturerade objekt data som block blobbar. Du kan också använda ett BlockBlobStorage-konto för att skapa Premium block-blobar. Den här typen av lagrings konto stöder block-blobbar och tillägg av blobbar, men inte sid-blobar, tabeller eller köer.
 
 Jämfört med General-Purpose v2-och BlobStorage-konton ger BlockBlobStorage-konton låga och konsekventa svars tider och högre transaktions kostnader.
 
@@ -99,9 +99,9 @@ Azure Storage tillhandahåller olika alternativ för åtkomst till block BLOB-da
 
 Tillgängliga åtkomst nivåer är:
 
-* Frekvent **åtkomst nivå** , som är optimerad för frekvent åtkomst av objekt i lagrings kontot. Att komma åt data på frekvent nivå är mest kostnads effektivt, medan lagrings kostnaderna är högre. Nya lagrings konton skapas som standard på frekvent nivå.
-* Den **låg** frekventa åtkomst nivån, som är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Att lagra data i den låg frekventa nivån är mer kostnads effektivt, men att komma åt dessa data kan vara dyrare än att komma åt data på frekvent nivå.
-* **Arkiv** nivån, som endast är tillgänglig för enskilda block blobbar. Arkiv nivån är optimerad för data som kan tolerera flera timmars svars tid för hämtning och kommer att finnas kvar på Arkiv nivån i minst 180 dagar. Arkiv lag rings nivån är det mest kostnads effektiva alternativet för att lagra data, men att komma åt dessa data är dyrare än att komma åt data på frekventa eller låg frekventa nivåer.
+* Frekvent **åtkomst nivå** . Den här nivån är optimerad för frekvent åtkomst av objekt i lagrings kontot. Att komma åt data på frekvent nivå är mest kostnads effektivt, medan lagrings kostnaderna är högre. Nya lagrings konton skapas som standard på frekvent nivå.
+* Låg **frekvent åtkomst nivå** . Den här nivån är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Att lagra data i den låg frekventa nivån är mer kostnads effektivt, men att komma åt dessa data kan vara dyrare än att komma åt data på frekvent nivå.
+* **Arkiv** nivån. Den här nivån är endast tillgänglig för enskilda block blobbar. Arkiv nivån är optimerad för data som kan tolerera flera timmars svars tid för hämtning och som kommer att finnas kvar på Arkiv nivån i minst 180 dagar. Arkiv lag rings nivån är det mest kostnads effektiva alternativet för att lagra data. Att komma åt dessa data är dock dyrare än att komma åt data på frekventa eller låg frekventa nivåer.
 
 Om det finns en ändring i användnings mönstret för dina data kan du när som helst växla mellan dessa åtkomst nivåer. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md)lag rings nivåer.
 
@@ -132,7 +132,7 @@ Om ditt allmänna lagrings konto till exempel heter *mystorageaccount*, är stan
 > [!NOTE]
 > Block-Blob-och Blob Storage-konton exponerar endast BLOB service-slutpunkten.
 
-URL: en för att komma åt ett objekt i ett lagrings konto skapas genom att objektets plats i lagrings kontot läggs till i slut punkten. En blobbadress kan till exempel ha följande format: http://*mittlagringskonto*.blob.core.windows.net/*minbehållare*/*minblobb*.
+Skapa URL: en för att komma åt ett objekt i ett lagrings konto genom att lägga till objektets plats i lagrings kontot till slut punkten. En blobbadress kan till exempel ha följande format: http://*mittlagringskonto*.blob.core.windows.net/*mincontainer*/*minblobb*.
 
 Du kan också konfigurera ditt lagrings konto så att det använder en anpassad domän för blobbar. Mer information finns i [Konfigurera ett anpassat domän namn för ditt Azure Storage-konto](../blobs/storage-custom-domain-name.md).  
 
@@ -140,7 +140,7 @@ Du kan också konfigurera ditt lagrings konto så att det använder en anpassad 
 
 Som standard är data i ditt konto endast tillgängliga för dig, kontoägaren. Du har kontroll över vem som kan komma åt dina data och vilka behörigheter de har.
 
-Varje begäran som görs mot ditt lagrings konto måste vara auktoriserad. På nivån för tjänsten måste begäran innehålla ett giltigt *Authorization* -huvud, som innehåller all information som behövs för tjänsten för att verifiera begäran innan den körs.
+Varje begäran som görs mot ditt lagrings konto måste vara auktoriserad. På tjänst nivån måste begäran innehålla ett giltigt *Authorization* -huvud. Mer specifikt innehåller rubriken all information som behövs för att tjänsten ska verifiera begäran innan den körs.
 
 Du kan bevilja åtkomst till data i ditt lagrings konto med någon av följande metoder:
 
@@ -157,7 +157,7 @@ Du kan bevilja åtkomst till data i ditt lagrings konto med någon av följande 
 
 Microsoft tillhandahåller verktyg och bibliotek för att importera data från lokala lagrings enheter eller moln lagrings leverantörer från tredje part. Vilken lösning du använder beror på mängden data som du överför. 
 
-När du uppgraderar till ett allmänt-syfte v2-konto från ett allmänt v1-eller Blob Storage-konto migreras dina data automatiskt. Microsoft rekommenderar den här väg för att uppgradera ditt konto. Men om du bestämmer dig för att flytta data från ett allmänt v1-konto till ett Blob Storage-konto måste du migrera dina data manuellt med hjälp av de verktyg och bibliotek som beskrivs nedan. 
+När du uppgraderar till ett allmänt-syfte v2-konto från ett allmänt v1-eller Blob Storage-konto migreras dina data automatiskt. Microsoft rekommenderar den här väg för att uppgradera ditt konto. Men om du bestämmer dig för att flytta data från ett allmänt v1-konto till ett Blob Storage-konto migrerar du dina data manuellt med hjälp av de verktyg och bibliotek som beskrivs nedan. 
 
 ### <a name="azcopy"></a>AzCopy
 
@@ -165,22 +165,16 @@ AzCopy är ett Windows-kommandoradsverktyg för högpresterande kopiering av dat
 
 ### <a name="data-movement-library"></a>Bibliotek för flytt av data
 
-Azure Storage-biblioteket för flytt av data för .NET är baserat på det ramverk för flytt av data som används för AzCopy. Biblioteket är utformat för högpresterande, tillförlitliga och enkla åtgärder för dataöverföring och liknar de som används i AzCopy. Du kan använda det för att utnyttja fördelarna med funktionerna som tillhandahålls av AzCopy direkt i din app utan att du behöver köra och övervaka externa instanser av AzCopy. Mer information finns i [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+Azure Storage-biblioteket för flytt av data för .NET är baserat på det ramverk för flytt av data som används för AzCopy. Biblioteket är utformat för högpresterande, tillförlitliga och enkla åtgärder för dataöverföring och liknar de som används i AzCopy. Du kan använda biblioteket för data förflyttning för att dra nytta av AzCopy-funktioner internt. Mer information finns i [Azure Storage data flyttnings bibliotek för .net](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### <a name="rest-api-or-client-library"></a>REST-API eller klientbibliotek
 
-Du kan skapa en anpassad app för att migrera dina data till ett Blob Storage-konto med Azures klientbibliotek eller REST-API:t för Azure Storage-tjänster. Azure Storage innehåller omfattande klientbibliotek för flera språk och plattformar som .NET, Java, C++, Node.JS, PHP, Ruby och Python. Klientbiblioteken har avancerade funktioner, t.ex. logik för omprövning, loggning och parallell överföring. Du kan också utveckla direkt mot REST-API:t, som kan anropas med valfritt språk som kan skicka HTTP/HTTPS-begäranden.
+Du kan skapa ett anpassat program för att migrera dina data från ett allmänt v1-lagrings konto till ett Blob Storage-konto. Använd ett av Azures klient bibliotek eller Azure Storage-tjänster REST API. Azure Storage innehåller omfattande klientbibliotek för flera språk och plattformar som .NET, Java, C++, Node.JS, PHP, Ruby och Python. Klientbiblioteken har avancerade funktioner, t.ex. logik för omprövning, loggning och parallell överföring. Du kan också utveckla direkt mot REST-API:t, som kan anropas med valfritt språk som kan skicka HTTP/HTTPS-begäranden.
 
 Mer information om Azure Storage REST API finns i [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/). 
 
 > [!IMPORTANT]
 > Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Om du kopierar en blob som är krypterad med kryptering på klientsidan bör du se till att kopieringen bevarar blobmetadata och framför allt krypteringsrelaterade metadata. Om du kopierar en blob utan krypteringsmetadata kan blobinnehållet inte hämtas igen. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-### <a name="azure-importexport-service"></a>Azure import/export-tjänsten
-
-Om du har en stor mängd data som ska importeras till ditt lagrings konto bör du ta hänsyn till Azure import/export-tjänsten. Import/export-tjänsten används för att på ett säkert sätt importera stora mängder data till Azure Blob Storage och Azure Files genom att leverera disk enheter till ett Azure-datacenter. 
-
-Import/export-tjänsten kan också användas för att överföra data från Azure Blob Storage till disk enheter och leverera till dina lokala platser. Data från en eller flera disk enheter kan importeras antingen till Azure Blob Storage eller Azure Files. Mer information finns i [Vad är Azure import/export-tjänsten?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="storage-account-billing"></a>Fakturering för lagringskonto
 
@@ -188,6 +182,6 @@ Import/export-tjänsten kan också användas för att överföra data från Azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du skapar ett allmänt Azure Storage-konto finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
-* Information om hur du skapar ett BlockBlobStorage-konto finns i [skapa ett Block Blob Storage-konto](../blobs/storage-blob-create-account-block-blob.md).
-* Information om hur du hanterar eller tar bort ett befintligt lagrings konto finns i [Hantera Azure Storage-konton](storage-account-manage.md).
+* [Skapa ett lagringskonto](storage-quickstart-create-account.md)
+* [Skapa ett lagringskonto för en blockblob](../blobs/storage-blob-create-account-block-blob.md)
+* [Hantera Azure Storage-konton](storage-account-manage.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b91e235824085977f1570e664b43d028a905407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819089"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869807"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Åtkomst Azure Cosmos DB från virtuella nätverk (VNet)
 
@@ -20,7 +20,7 @@ Du kan konfigurera Azure Cosmos-kontot så att det bara tillåter åtkomst från
 
 Som standard är ett Azure Cosmos-konto tillgängligt från alla källor om begäran åtföljs av en giltig autentiseringstoken. När du lägger till ett eller flera undernät inom virtuella nätverk får endast begär Anden som kommer från dessa undernät ett giltigt svar. Begär Anden som kommer från en annan källa får ett 403-svar (ej tillåtet). 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 Här följer några vanliga frågor om hur du konfigurerar åtkomst från virtuella nätverk:
 
@@ -39,6 +39,12 @@ När IP-brandvägg eller åtkomst regler för virtuella nätverk läggs till få
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mina förfrågningar började bli blockerade när jag aktiverade tjänst slut punkten till Azure Cosmos DB på under nätet. Vad hände?
 
 När tjänstens slut punkt för Azure Cosmos DB har Aktiver ATS på ett undernät når trafiken till konto växlarna från offentlig IP-adress till virtuellt nätverk och undernät. Om ditt Azure Cosmos-konto har en IP-baserad brand vägg, skulle trafik från tjänstens aktiverade undernät inte längre matcha IP-brandväggens regler och därför avvisas. Gå igenom stegen för att sömlöst migrera från IP-baserad brand vägg till virtuell nätverks baserad åtkomst kontroll.
+
+### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Krävs ytterligare RBAC-behörigheter för Azure Cosmos-konton med VNET-tjänstens slut punkter?
+
+När du har lagt till tjänst slut punkterna för VNET i ett Azure Cosmos-konto måste du ha åtkomst till `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` åtgärden för alla virtuella nätverk som kon figurer ATS på ditt Azure Cosmos-konto för att göra ändringar i konto inställningarna. Den här åtgärden krävs eftersom verifierings processen validerar för åtgärder som motsvarar databasen och virtuella nätverks resurser innan du utvärderar några egenskaper.
+ 
+Auktoriseringen verifierar för åtgärder även om användaren inte anger VNET-ACL: er med Azure CLI. För närvarande har Azure Cosmos-kontots kontroll plan stöd för att ange det fullständiga läget för Azure Cosmos-kontot. En av parametrarna för kontroll planets anrop är `virtualNetworkRules`. Om den här parametern inte anges gör Azure CLI ett Hämta databas anrop för att hämta `virtualNetworkRules` och använder det här värdet i uppdaterings anropet.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>Har de peer-virtuella nätverken också åtkomst till Azure Cosmos-kontot? 
 Endast virtuella nätverk och deras undernät som har lagts till i Azure Cosmos-kontot har åtkomst. Deras peer-virtuella nätverk kan inte komma åt kontot förrän under näten i peer-kopplat virtuella nätverk har lagts till i kontot.

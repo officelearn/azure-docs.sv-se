@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f87f1b2561b65590dfe29d7d2c8d1318e3d35e1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381843"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848450"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera lösen ords skydd med lösen ords skydd (för hands version)
 
@@ -31,7 +31,7 @@ Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen 
 
 ## <a name="requirements"></a>Krav
 
-- [Azure-Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
 - Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 - Webauthn kräver Windows 10 version 1809 eller högre * *
@@ -68,7 +68,7 @@ Registrerings funktioner för metoder för lösen ords kryptering förlitar sig 
 1. Välj **USB-enhet** eller **NFC-enhet**.
 1. Låt nyckeln vara klar och välj **Nästa**.
 1. En ruta visas och ber användaren att skapa/ange en PIN-kod för din säkerhets nyckel och sedan utföra den begärda gesten för nyckeln, antingen bio metrisk eller touch.
-1. Användaren kommer att returneras till den kombinerade registrerings upplevelsen och uppmanas att ange ett beskrivande namn för nyckeln så att användaren kan identifiera vilken av dem som har flera. Klicka på **Nästa**.
+1. Användaren kommer att returneras till den kombinerade registrerings upplevelsen och uppmanas att ange ett beskrivande namn för nyckeln så att användaren kan identifiera vilken av dem som har flera. Klicka på **Next**.
 1. Slutför processen genom att klicka på **klar** .
 
 ## <a name="sign-in-with-passwordless-credential"></a>Logga in med autentiseringsuppgifter för lösen ord

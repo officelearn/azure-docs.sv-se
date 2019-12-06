@@ -4,17 +4,17 @@ description: I den här artikeln beskrivs hur du frågar efter Uppdateringshante
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d53e41fc902241d796cf8b10ae35c50c090a803a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 4797e3a348b057fa21677649e4cb7de78de0d8b9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377543"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850626"
 ---
 # <a name="query-update-records-for-update-management-in-log-analytics"></a>Fråga efter uppdaterings poster för Uppdateringshantering i Log Analytics
 
@@ -22,7 +22,7 @@ Utöver den information som finns i Azure Portal kan du söka efter loggarna. P�
 
 Du kan också lära dig hur du anpassar frågorna eller använder dem från olika klienter och mer genom att besöka: [Log Analytics Search API-dokumentation](https://dev.loganalytics.io/).
 
-## <a name="sample-queries"></a>Exempel frågor
+## <a name="sample-queries"></a>Exempelfrågor
 
 I följande avsnitt finns exempel på logg frågor för uppdaterings poster som samlas in för Uppdateringshantering.
 
@@ -47,7 +47,7 @@ Heartbeat
 På en Windows-dator kan du granska följande information för att verifiera agent anslutningen med Azure Monitor loggar:
 
 1. Öppna **Microsoft Monitoring Agent**i kontroll panelen. På fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Log Analytics**.
-2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfiguration.
+2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats på Log Analytics-arbetsytan och tar emot konfigurationen.
 
 Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 

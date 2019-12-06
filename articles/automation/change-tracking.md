@@ -4,18 +4,18 @@ description: Ändringsspårning-lösningen hjälper dig att identifiera ändring
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886811"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850558"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med Ändringsspårning-lösningen
 
@@ -185,11 +185,11 @@ I följande tabell visas data insamlings frekvensen för olika typer av ändring
 | **Ändra typ** | **Frekvens** |
 | --- | --- |
 | Windows-register | 50 minuter |
-| Windows-fil | 30 minuter |
+| Windows-fil | 30 minuter |
 | Linux-fil | 15 minuter |
 | Windows-tjänster | 10 sekunder till 30 minuter</br> Standard: 30 minuter |
 | Linux-daemon | 5 minuter |
-| Windows-programvara | 30 minuter |
+| Windows-programvara | 30 minuter |
 | Linux-programvara | 5 minuter |
 
 I följande tabell visas gränserna för spårade objekt per dator för Ändringsspårning.
@@ -200,8 +200,8 @@ I följande tabell visas gränserna för spårade objekt per dator för Ändring
 |Register|250||
 |Windows-programvara|250|Innehåller inga snabb korrigeringar för program vara|
 |Linux-paket|1250||
-|Tjänster|250||
-|program|250||
+|Services|250||
+|Program|250||
 
 Genomsnittlig Log Analytics data användning för en dator som använder Ändringsspårning och inventering är cirka 40MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se den exakta användningen som du har.
 
@@ -245,11 +245,11 @@ Syftet med att övervaka ändringar i register nycklar är att hitta utöknings 
 
 Följande adresser krävs specifikt för Ändringsspårning. Kommunikationen med de här adresserna görs via port 443.
 
-|Offentlig Azure-  |Azure Government  |
+|Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Använd Ändringsspårning
@@ -268,13 +268,13 @@ Om du klickar på en ändring eller händelse får du detaljerad information om 
 
 Förutom den information som finns i portalen kan du göra sökningar mot loggarna. När sidan **ändringsspårning** är öppen klickar du på **Log Analytics**. Då öppnas sidan **loggar** .
 
-### <a name="sample-queries"></a>Exempel frågor
+### <a name="sample-queries"></a>Exempelfrågor
 
 Följande tabell innehåller exempel på loggs ökningar för ändrings poster som samlas in av den här lösningen:
 
-|Fråga  |Beskrivning  |
+|Söka i data  |Beskrivning  |
 |---------|---------|
-|ConfigurationData<br>&#124;där ConfigDataType = = "WindowsServices" och SvcStartupType = = "Auto"<br>&#124;där SvcState = = "stoppad"<br>&#124;sammanfatta arg_max (TimeGenerated, *) av SoftwareName, dator         | Visar de senaste inventerings posterna för Windows-tjänster som har ställts in på auto men som har rapporter ATS som stoppade<br>Resultaten är begränsade till den senaste posten för den SoftwareName och datorn      |
+|ConfigurationData<br>&#124;där ConfigDataType = = "WindowsServices" och SvcStartupType = = "Auto"<br>&#124;där SvcState = = "stoppad"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar de senaste inventerings posterna för Windows-tjänster som har ställts in på auto men som har rapporter ATS som stoppade<br>Resultaten är begränsade till den senaste posten för den SoftwareName och datorn      |
 |ConfigurationChange<br>&#124;där ConfigChangeType = = "Software" och ChangeCategory = = "borttaget"<br>&#124;Sortera efter TimeGenerated DESC|Visar ändrings poster för borttagen program vara|
 
 ## <a name="alert-on-changes"></a>Varning vid ändringar
@@ -301,7 +301,7 @@ När du har angett alla parametrar och logik kan vi tillämpa aviseringen på mi
 
 Aviseringar om ändringar i värd filen är en lämplig tillämpning av aviseringar för Ändringsspårning eller inventerings data, det finns många fler scenarier för aviseringar, inklusive de fall som definierats tillsammans med deras exempel frågor i avsnittet nedan.
 
-|Fråga  |Beskrivning  |
+|Söka i data  |Beskrivning  |
 |---------|---------|
 |ConfigurationChange <br>&#124;där ConfigChangeType = = "Files" och FileSystemPath innehåller "c:\\Windows\\system32\\driv rutiner\\"|Användbart för att spåra ändringar i system kritiska filer|
 |ConfigurationChange <br>&#124;där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c:\\Windows\\system32\\driv rutiner\\o.s.v.\\-värdar"|Användbart för att spåra ändringar i konfigurationsfiler för nycklar|

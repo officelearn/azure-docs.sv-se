@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 6c2d7dc64bca00ce664dc470e7c4405d69b49779
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531523"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850014"
 ---
 # <a name="standard-quota-regional-vcpu-limit-increase"></a>Standard kvot: storleks ökning för regionala vCPU 
 
-Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer. Använd standard kvot **för virtuella datorer som du betalar per** användning och **reserverade VM-instanser** . **Virtuella datorer med låg prioritet** använder låg prioritets kvot. 
+Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer. Använd standard kvot **för virtuella datorer som du betalar per** användning och **reserverade VM-instanser** . **Virtuella datorer** som använder punkt kvoter. 
 
 Standard vCPU-kvot för betala per användning och reserverade VM-instanser tillämpas på två nivåer för varje prenumeration i varje region.
  
@@ -26,7 +26,7 @@ När en ny prenumeration skapas får den totala regionala virtuella processorer 
 
 Läs mer om standard kvoter för vCPU på [sidan för virtuella datorer vCPU kvoter](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och sidan för [Azure-prenumeration och tjänst begränsningar](https://aka.ms/quotalimits) .
 
-Lär dig mer om att **öka gränsen för VM-vCPU med låg prioritet** [här](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Lär dig mer om att **öka gränserna för VM-vCPU** [här](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 Du kan begära en ökning av **den totala regionala vCPU-gränsen för virtuella datorer** via **Hjälp + Support** -bladet eller **användnings** -och kvot bladet i portalen.
 
@@ -36,7 +36,7 @@ Följ instruktionerna nedan för att skapa en support förfrågan via Azures hj�
 
 1. Välj **Hjälp + Support**från https://portal.azure.com.
 
-![Hjälp + support](./media/resource-manager-core-quotas-request/helpsupport.png)
+![Hjälp + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Välj **Ny supportbegäran**. 
 

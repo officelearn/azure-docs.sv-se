@@ -6,19 +6,19 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af0c2ecde539c9737249e4251f7eab276affb9c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381925"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848552"
 ---
-# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösen ords principer och begränsningar i Azure Active Directory
+# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
 Den här artikeln beskriver lösen ords principer och komplexitets krav som är kopplade till användar konton i din Azure Active Directory (Azure AD)-klient.
 
@@ -32,24 +32,24 @@ Principen för två-grind kräver två delar av autentiseringsdata, till exempel
 
 * Alla följande roller för Azure-administratörer påverkas:
   * Support administratör
-  * Tjänst support administratör
+  * Tjänstsupportadministratör
   * Faktureringsadministratör
   * Partnersupport, nivå 1
   * Partnersupport, nivå 2
   * Exchange-administratör
-  * Skype för företag-administratör
+  * Skype for Business-administratör
   * Användar administratör
   * Katalog skrivare
   * Global administratör eller företags administratör
   * SharePoint-administratör
   * Administratör för efterlevnad
-  * Program administratör
+  * Programadministratör
   * Säkerhetsadministratör
   * Privilegie rad roll administratör
   * Intune-administratör
   * Administratör för tjänsten Application Proxy
   * Dynamics 365-administratör
-  * Power BI-tjänst administratör
+  * Power BI-tjänstadministratör
   * Administratör för autentisering
   * Administratör för privilegie rad autentisering
 
@@ -71,7 +71,7 @@ Varje användar konto som behöver logga in på Azure AD måste ha ett unikt vä
 
 | Egenskap | UserPrincipalName-krav |
 | --- | --- |
-| Tillåtna tecken |<ul> <li>A – Ö</li> <li>a-ö</li><li>0 – 9</li> <li> ' \. - \_! \# ^ \~</li></ul> |
+| Tillåtna tecken |<ul> <li>A – Ö</li> <li>a-ö</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Tecken tillåts inte |<ul> <li>Valfritt "\@\"-tecknen som inte avgränsar användar namnet från domänen.</li> <li>Får inte innehålla ett punkt tecken "." omedelbart före "\@\"-symbolen</li></ul> |
 | Längd begränsningar |<ul> <li>Den totala längden får inte överskrida 113 tecken</li><li>Det kan finnas upp till 64 tecken innan symbolen för\@\"</li><li>Det kan innehålla upp till 48 tecken efter symbolen "\@\"</li></ul> |
 
@@ -89,7 +89,7 @@ I följande tabell beskrivs de princip inställningar för lösen ord som tillä
 | Lösen ordets giltighets tid (lösen ord upphör aldrig att gälla) |<ul><li>Standardvärde: **falskt** dagar (indikerar att förfallo datum för lösen ord är aktiverat).</li><li>Värdet kan konfigureras för enskilda användar konton med hjälp av `Set-MsolUser`-cmdleten.</li></ul> |
 | Ändrings historik för lösen ord | Det sista lösen ordet *kan inte* användas igen när användaren ändrar ett lösen ord. |
 | Historik för lösen ords återställning | Det senaste lösen ordet *kan* användas igen när användaren återställer ett bortglömt lösen ord. |
-| Konto utelåsning | Efter 10 misslyckade inloggnings försök med fel lösen ord är användaren utelåst i en minut. Ytterligare felaktiga inloggnings försök låser användaren för att öka tiden. [Smart utelåsning](howto-password-smart-lockout.md) spårar de tre senaste Felaktiga hasharna för lösen ord för att undvika ökning av utelåsnings räknaren för samma lösen ord. Om någon anger samma Felaktiga lösen ord flera gånger, kommer det här beteendet inte att orsaka att kontot kan låsas. |
+| Kontoutelåsning | Efter 10 misslyckade inloggnings försök med fel lösen ord är användaren utelåst i en minut. Ytterligare felaktiga inloggnings försök låser användaren för att öka tiden. [Smart utelåsning](howto-password-smart-lockout.md) spårar de tre senaste Felaktiga hasharna för lösen ord för att undvika ökning av utelåsnings räknaren för samma lösen ord. Om någon anger samma Felaktiga lösen ord flera gånger, kommer det här beteendet inte att orsaka att kontot kan låsas. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Ange principer för förfallo datum för lösen ord i Azure AD
 

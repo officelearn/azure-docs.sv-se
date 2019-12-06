@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120547"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849181"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 
@@ -129,6 +129,7 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 * **SalesforceDuplicateUserName:** Det går inte att tillhandahålla användaren eftersom den har ett Salesforce.com-användarnamn som är duplicerat i en annan Salesforce.com-klient.  I Salesforce.com måste värdena för attributet username vara unika för alla Salesforce.com-klienter.  Som standard blir användarens userPrincipalName i Azure Active Directory sitt "username" i Salesforce.com.   Du har två alternativ.  Ett alternativ är att söka efter och byta namn på användaren med dubbletten UserName i den andra Salesforce.com-klienten, om du administrerar den andra klienten också.  Det andra alternativet är att ta bort åtkomst från Azure Active Directory användare till den Salesforce.com-klient som katalogen är integrerad med. Vi kommer att försöka utföra åtgärden på nytt vid nästa synkroniseringsförsök. 
 * **SalesforceRequiredFieldMissing:** Salesforce kräver att vissa attribut finns på användaren för att det ska gå att skapa eller uppdatera användaren. Användaren saknar ett av de attribut som krävs. Se till att attributen, till exempel e-post och alias, är ifyllda för alla användare som du vill ska vara etablerade i Salesforce. Du kan begränsa användare som inte har dessa attribut genom att använda [attributbaserade definitions filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * Mappningen av standardattributet för etablering till Salesforce innehåller SingleAppRoleAssignments-uttrycket för att mappa appRoleAssignments i Azure AD till PROFILENAME i Salesforce. Se till att användarna inte har flera roll tilldelningar i Azure AD eftersom attributet mappning bara stöder etablering av en roll. 
+* Salesforce kräver att e-postuppdateringar godkänns manuellt innan de ändras. Därför kan du se flera poster i etablerings loggarna för att uppdatera användarens e-post (tills e-poständringen har godkänts).
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

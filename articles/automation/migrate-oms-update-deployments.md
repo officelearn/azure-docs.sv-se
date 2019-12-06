@@ -1,79 +1,79 @@
 ---
-title: Migrera dina distributioner av OMS till Azure
-description: Den här artikeln beskriver hur du migrerar din befintliga OMS distributioner till Azure
+title: Migrera dina OMS-uppdaterings distributioner till Azure
+description: Den här artikeln beskriver hur du migrerar befintliga OMS-uppdaterings distributioner till Azure
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2cc05dc0970211b066d9e431cc7aba06cbd126eb
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478305"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849504"
 ---
-# <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina distributioner av OMS till Azure
+# <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina OMS-uppdaterings distributioner till Azure
 
-Operations Management Suite (OMS)-portalen som [inaktuell](../azure-monitor/platform/oms-portal-transition.md). Alla funktioner som fanns i OMS-portalen för hantering av uppdateringar är tillgängliga i Azure-portalen. Den här artikeln innehåller information som du behöver för att migrera till Azure-portalen.
+Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../azure-monitor/platform/oms-portal-transition.md). Alla funktioner som var tillgängliga i OMS-portalen för Uppdateringshantering finns i Azure Portal. Den här artikeln innehåller den information som du behöver för att kunna migrera till Azure Portal.
 
-## <a name="key-information"></a>Viktig information
+## <a name="key-information"></a>Nyckelinformation
 
-* Befintliga distributioner fortsätter att fungera. När du har återskapat distribution i Azure, kan du ta bort gamla distributionen från OMS.
-* Alla befintliga funktioner i OMS finns tillgängliga i Azure, mer information om uppdateringshantering finns [översikt över uppdateringshantering](automation-update-management.md).
+* Befintliga distributioner fortsätter att fungera. När du har återskapat distributionen i Azure kan du ta bort din gamla distribution från OMS.
+* Alla befintliga funktioner i OMS är tillgängliga i Azure, mer information om Uppdateringshantering finns i [uppdateringshantering översikt](automation-update-management.md).
 
-## <a name="access-the-azure-portal"></a>Tillgång till Azure portal
+## <a name="access-the-azure-portal"></a>Åtkomst till Azure Portal
 
-OMS-arbetsytan klickar du på **öppna i Azure**. Navigerar till Log Analytics-arbetsytan som används av OMS.
+Från OMS-arbetsytan klickar du på **Öppna i Azure**. Detta navigerar till den Log Analytics arbets yta som OMS använde.
 
-![Öppna i Azure – OMS-portalen](media/migrate-oms-update-deployments/link-to-azure-portal.png)
+![Öppna i Azure-OMS-portalen](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
-I Azure-portalen klickar du på **Automation-konto**
+I Azure Portal klickar du på **Automation-konto**
 
 ![Azure Monitor-loggar](media/migrate-oms-update-deployments/log-analytics.png)
 
-I ditt Automation-konto klickar du på **uppdateringshantering** så att du öppnar uppdateringshantering.
+I ditt Automation-konto klickar du på **uppdateringshantering** för att öppna uppdateringshantering.
 
-![Uppdateringshantering](media/migrate-oms-update-deployments/azure-automation.png)
+![Hantering av uppdateringar](media/migrate-oms-update-deployments/azure-automation.png)
 
-I framtiden går du direkt till Azure-portalen under **alla tjänster**väljer **Automationskonton** under **hanteringsverktyg**, Välj lämplig Automation Kontot och klicka på **uppdateringshantering**.
+I framtiden kan du gå direkt till Azure Portal. under **alla tjänster**väljer du Automation- **konton** under **hanterings verktyg**, väljer lämpligt Automation-konto och klickar på **uppdateringshantering**.
 
 ## <a name="recreate-existing-deployments"></a>Återskapa befintliga distributioner
 
-Alla distributioner av uppdateringar som skapats i OMS-portalen har en [sparad sökning](../azure-monitor/platform/computer-groups.md) även känd som en datorgrupp med samma namn som uppdateringsdistributionen som finns. Den sparade sökningen innehåller listan över datorer som har schemalagts i uppdateringsdistributionen.
+Alla uppdaterings distributioner som skapas i OMS-portalen har en [Sparad sökning](../azure-monitor/platform/computer-groups.md) som också kallas en dator grupp, med samma namn som den uppdaterings distribution som finns. Den sparade sökningen innehåller en lista över datorer som har schemalagts i uppdaterings distributionen.
 
-![Uppdateringshantering](media/migrate-oms-update-deployments/oms-deployment.png)
+![Hantering av uppdateringar](media/migrate-oms-update-deployments/oms-deployment.png)
 
-Följ dessa steg om du vill använda den här befintliga sparad sökning:
+Följ dessa steg om du vill använda den befintliga sparade sökningen:
 
-Du vill skapa en ny uppdatering distribution, gå till Azure-portalen väljer Automation-kontot som används och klickar på **uppdateringshantering**. Klicka på **distribution av schemauppdatering**.
+Om du vill skapa en ny uppdaterings distribution går du till Azure Portal, väljer det Automation-konto som används och klickar på **uppdateringshantering**. Klicka på **Schemalägg uppdaterings distribution**.
 
-![Distribution av schemauppdatering](media/migrate-oms-update-deployments/schedule-update-deployment.png)
+![Schemalägg uppdateringsdistributioner](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Den **ny Uppdateringsdistribution** öppnas fönstret. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
+Fönstret **ny uppdaterings distribution** öppnas. Ange värden för egenskaperna som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-För datorer som ska uppdateras, väljer du den sparade sökningen som används av den befintliga OMS-distributionen.
+För datorer som ska uppdateras väljer du den sparade sökning som används av den befintliga OMS-distributionen.
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
 |Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Välj **Linux** eller **Windows**.|
 |Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
-|Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver. CentOS stöder inte det direkt.|
-|Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. För Windows, ange KB-artikel utan den **KB** prefix. Ange paketnamnet för Linux, eller Använd ett jokertecken.  |
-|Schemainställningar|Välj tid att starta och välj sedan antingen **när** eller **återkommande** för upprepningen. | 
-| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter eller mer än 6 timmar. |
-| Starta om kontroll| Anger hur omstarter ska hanteras.</br>De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
+|Uppdatera klassificeringar|Välj alla uppdaterings klassificeringar som du behöver. CentOS stöder inte detta.|
+|Uppdateringar som ska undantas|Ange de uppdateringar som ska undantas. För Windows anger du KB-artikeln utan **KB** -prefixet. För Linux anger du paket namnet eller använder ett jokertecken.  |
+|Schemainställningar|Välj tid för start och välj sedan **en gång** eller **återkommande** för upprepningen. | 
+| Underhålls period |Antal minuter som har angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter eller mer än 6 timmar. |
+| Starta om kontroll| Fastställer hur omstarter ska hanteras.</br>De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
-Klicka på **schemalagda uppdateringsdistributioner** att visa status för den nyligen skapade uppdateringsdistributionen.
+Klicka på **schemalagda uppdaterings distributioner** om du vill visa statusen för den nyligen skapade uppdaterings distributionen.
 
-![ny uppdateringsdistribution](media/migrate-oms-update-deployments/new-update-deployment.png)
+![ny uppdaterings distribution](media/migrate-oms-update-deployments/new-update-deployment.png)
 
-Som tidigare nämnts, när din nya distributioner konfigureras via Azure-portalen kan befintliga distributioner tas bort från OMS-portalen.
+Som tidigare nämnts kan de befintliga distributionerna tas bort från OMS-portalen när dina nya distributioner har kon figurer ATS via Azure Portal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om uppdateringshantering i Azure finns [uppdateringshantering](automation-update-management.md)
+Mer information om Uppdateringshantering i Azure finns i [uppdateringshantering](automation-update-management.md)

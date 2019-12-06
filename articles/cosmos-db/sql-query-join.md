@@ -1,37 +1,37 @@
 ---
 title: SQL JOIN-frågor för Azure Cosmos DB
-description: Lär dig mer om att ansluta SQL-syntaxen för Azure Cosmos DB.
+description: Lär dig hur du kopplar ihop flera tabeller i Azure Cosmos DB för att fråga data
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494409"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871150"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Kopplingar i Azure Cosmos DB
 
 I en Relations databas är sammanfogningar över tabeller den logiska överrullningen för att utforma normaliserade scheman. SQL-API: t använder däremot den avnormaliserade data modellen för schema fria objekt, vilket är den logiska motsvarigheten till en *själv koppling*.
 
-Inre kopplingar resulterar i en fullständig kors produkt av uppsättningarna som ingår i kopplingen. Resultatet av en N-Way-koppling är en uppsättning av N-element-tupler, där varje värde i tuppeln är associerat med den aliasad uppsättning som ingår i kopplingen och kan nås genom att referera till aliaset i andra satser.
+Inre kopplingar resultera i en fullständig kryssprodukten av de mängder som deltar i kopplingen. Resultatet av en N-vägs-koppling är en uppsättning element N tupplar, där varje värde i tuppeln är associerad med alias som deltar i kopplingen och kan nås genom att referera till som alias i andra-satser.
 
 ## <a name="syntax"></a>Syntax
 
 Språket stöder syntaxen `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Den här frågan returnerar en uppsättning tupler med `N` värden. Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. 
 
-Nu ska vi titta på följande FROM-sats: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Låt varje källa definiera `input_alias1, input_alias2, …, input_aliasN`. Denna FROM-sats returnerar en uppsättning av N-tupler (tupel med N värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar.  
+ Låt varje källa som definierar `input_alias1, input_alias2, …, input_aliasN`. Den här FROM-satsen returnerar en mängd av N-tupplar (tuppel med N värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar.  
   
-**Exempel 1** – 2 Källor  
+**Exempel 1** -2 källor  
   
-- Låt `<from_source1>` vara container-omfattning och representerar set {A, B, C}.  
+- Låt `<from_source1>` container-begränsas och som representerar uppsättningen {A, B, C}.  
   
-- Låt `<from_source2>` vara dokumenterade referenser till input_alias1 och representera uppsättningar:  
+- Låt `<from_source2>` vara dokument-omfattande refererar till input_alias1 och representerar uppsättningar:  
   
     {1, 2} för `input_alias1 = A,`  
   
@@ -39,17 +39,17 @@ Nu ska vi titta på följande FROM-sats: `<from_source1> JOIN <from_source2> JOI
   
     {4, 5} för `input_alias1 = C,`  
   
-- FROM-satsen `<from_source1> JOIN <from_source2>` kommer att resultera i följande tupler:  
+- FROM-satsen `<from_source1> JOIN <from_source2>` resulterar i följande tupplar:  
   
     (`input_alias1, input_alias2`):  
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-**Exempel 2** – 3 Källor  
+**Exempel 2** -3 källor  
   
-- Låt `<from_source1>` vara container-omfattning och representerar set {A, B, C}.  
+- Låt `<from_source1>` container-begränsas och som representerar uppsättningen {A, B, C}.  
   
-- Låt `<from_source2>` vara dokumenterade referens `input_alias1` och representera uppsättningar:  
+- Låt `<from_source2>` vara begränsade av dokumentet refererar till `input_alias1` och representerar uppsättningar:  
   
     {1, 2} för `input_alias1 = A,`  
   
@@ -57,28 +57,28 @@ Nu ska vi titta på följande FROM-sats: `<from_source1> JOIN <from_source2> JOI
   
     {4, 5} för `input_alias1 = C,`  
   
-- Låt `<from_source3>` vara dokumenterade referens `input_alias2` och representera uppsättningar:  
+- Låt `<from_source3>` vara begränsade av dokumentet refererar till `input_alias2` och representerar uppsättningar:  
   
     {100, 200} för `input_alias2 = 1,`  
   
     {300} för `input_alias2 = 3,`  
   
-- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` kommer att resultera i följande tupler:  
+- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` resulterar i följande tupplar:  
   
     (input_alias1, input_alias2, input_alias3):  
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
   > [!NOTE]
-  > Avsaknad av tupler för andra värden för `input_alias1``input_alias2`, för vilka `<from_source3>` inte returnerade några värden.  
+  > Brist på tupplar för andra värden på `input_alias1`, `input_alias2`, som den `<from_source3>` returnerade inte några värden.  
   
-**Exempel 3** – 3 Källor  
+**Exempel 3** -3 källor  
   
-- Låt < from_source1 > vara container-omfattning och representera set {A, B, C}.  
+- Låt < from_source1 > vara container-omfattande och som representerar uppsättningen {A, B, C}.  
   
-- Låt `<from_source1>` vara container-omfattning och representerar set {A, B, C}.  
+- Låt `<from_source1>` container-begränsas och som representerar uppsättningen {A, B, C}.  
   
-- Låt < from_source2 > vara dokumenterade referenser till input_alias1 och representera uppsättningar:  
+- Låt < from_source2 > vara dokument-omfattande refererande input_alias1 och representerar uppsättningar:  
   
     {1, 2} för `input_alias1 = A,`  
   
@@ -86,20 +86,20 @@ Nu ska vi titta på följande FROM-sats: `<from_source1> JOIN <from_source2> JOI
   
     {4, 5} för `input_alias1 = C,`  
   
-- Låt `<from_source3>` begränsas till `input_alias1` och representera uppsättningar:  
+- Låt `<from_source3>` begränsas till `input_alias1` och representerar uppsättningar:  
   
     {100, 200} för `input_alias2 = A,`  
   
     {300} för `input_alias2 = C,`  
   
-- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` kommer att resultera i följande tupler:  
+- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` resulterar i följande tupplar:  
   
     (`input_alias1, input_alias2, input_alias3`):  
   
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
+    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), C, 4, 300, (C, 5, 300)  
   
   > [!NOTE]
-  > Detta resulterade i mellanprodukter mellan `<from_source2>` och `<from_source3>` eftersom båda är begränsade till samma `<from_source1>`.  Detta resulterade i 4 (2x2) tupler med värdet A, 0 tupler med värde B (1x0) och 2 (2x1) tupler med värdet C.  
+  > Detta resulterade i kryssprodukten mellan `<from_source2>` och `<from_source3>` eftersom båda är begränsade till samma `<from_source1>`.  Detta resulterade i 4 (2 × 2) tupplar som har värdet A, 0 tupplar som har värdet B (1 x 0) och 2 (2 x 1) tupplar som har värdet C.  
   
 ## <a name="examples"></a>Exempel
 
@@ -126,7 +126,7 @@ I följande exempel är kopplingen en mellan produkt mellan två JSON-objekt, ob
     JOIN f.children
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -147,7 +147,7 @@ I följande exempel visas en mer konventionell koppling:
     JOIN c IN f.children
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -184,7 +184,7 @@ Det verkliga verktyget i JOIN-satsen är att forma tupler från kors produkten i
     JOIN p IN c.pets
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -240,7 +240,7 @@ I nästa exempel finns ett ytterligare filter på `pet`, vilket utesluter alla t
     WHERE p.givenName = "Shadow"
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [

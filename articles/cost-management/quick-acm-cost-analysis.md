@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 858672a7fcfcfd5f50c91eb769fdd0d42578195f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 36b8a3bba82a338f3aab526d505c4d1e96061ddf
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229999"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849130"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabb start: utforska och analysera kostnader med kostnads analys
 
@@ -32,7 +32,7 @@ I den här snabbstarten lär du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Kostnads analys stöder olika typer av typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
+Kostnads analys stöder olika typer av typer av Azure-konton. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
 
 Information om hur du tilldelar åtkomst till Azure Cost Management data finns i [tilldela åtkomst till data](assign-access-acm-data.md).
 
@@ -101,7 +101,9 @@ I allmänhet kan du vänta på att se data eller meddelanden för förbrukade re
 
 **Gruppera efter** gemensamma egenskaper för att dela upp kostnader och identifiera de flesta bidrags givare. Om du till exempel vill gruppera efter resurs Taggar väljer du den etikett nyckel som du vill gruppera efter. Kostnaderna uppdelas efter varje tagg värde, med ett extra segment för resurser som inte har taggen tillämpad.
 
-De flesta [Azure-resurser har stöd för taggning](../azure-resource-manager/tag-support.md). Vissa taggar är dock inte tillgängliga i Cost Management och fakturering. Dessutom stöds inte resursgrupptaggar. Cost Management stöder endast resurstaggar från det datum då taggarna tillämpas direkt på resursen. Se [hur du kan läsa tag-principer med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video för att lära dig mer om att använda Azure tag-principer för att förbättra kostnads data synlighet.
+De flesta [Azure-resurser har stöd för taggning](../azure-resource-manager/tag-support.md). Vissa taggar är dock inte tillgängliga i Cost Management och fakturering. Dessutom stöds inte resursgrupptaggar. Stöd för Taggar gäller användning som rapporteras *efter* att taggen tillämpats på resursen. Taggar tillämpas inte retroaktivt för insamlade kostnader.
+
+Se [hur du kan läsa tag-principer med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video för att lära dig mer om att använda Azure tag-principer för att förbättra kostnads data synlighet.
 
 Här är en vy över Azure service-kostnader för den aktuella månaden.
 
@@ -136,7 +138,7 @@ Du kan Visa fullständig data uppsättning för alla vyer. De val eller filter s
 
 I följande tabell visas några av de vanligaste grupperings-och filtrerings alternativen och när du ska använda dem.
 
-| Egenskap | När du ska använda detta |
+| Egenskap | Används till att |
 | --- | --- |
 | **Fakturerings period** | Dela upp kostnader per faktura månad. Det här alternativet är viktigt för att betala per användning och utveckling/test-prenumerationer som inte är kopplade till kalender månader. EA/MCA-konton kan använda Kalender månader i datum väljaren eller månads kornig het för att utföra samma mål. |
 | **Avgifts typ** | Bryt ned användningen, Köp, åter betalning och outnyttjade reservations kostnader. Köp och åter betalningar av reservationer är bara tillgängliga när du använder åtgärds kostnader och inte när du använder periodiserade kostnader. Oanvända reservations kostnader är bara tillgängliga när du tittar på periodiserade kostnader. |

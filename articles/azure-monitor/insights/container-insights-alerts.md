@@ -1,20 +1,21 @@
 ---
-title: Skapa prestanda aviseringar med hjälp av Azure Monitor för behållare | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Monitor för behållare för att skapa anpassade aviseringar baserat på logg frågor för minnes-och processor användning.
+title: Skapa prestanda varningar för Azure Monitor för behållare | Microsoft Docs
+description: Den här artikeln beskriver hur du skapar anpassade aviseringar baserat på logg frågor för minnes-och processor användning från Azure Monitor för behållare.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195026"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841633"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Så här konfigurerar du aviseringar för prestanda problem i Azure Monitor för behållare
+
 Azure Monitor för behållare övervakar prestanda för behållar arbets belastningar som distribueras till Azure Container Instances eller till hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS).
 
 I den här artikeln beskrivs hur du aktiverar aviseringar i följande situationer:
@@ -30,6 +31,7 @@ Om du vill varna för hög processor-eller minnes användning eller ont om ledig
 Om du inte är bekant med Azure Monitor aviseringar, se [Översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md) innan du börjar. Om du vill veta mer om aviseringar som använder logg frågor, se [logg aviseringar i Azure Monitor](../platform/alerts-unified-log.md). Mer information om mått aviseringar finns [i mått varningar i Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Sök frågor för resurs användnings logg
+
 Frågorna i det här avsnittet stöder varje aviserings scenario. De används i steg 7 i avsnittet [skapa avisering](#create-an-alert-rule) i den här artikeln.
 
 Följande fråga beräknar genomsnittlig processor användning som medelvärde för medlems nodernas CPU-användning varje minut.  
@@ -278,13 +280,14 @@ InsightsMetrics
 ```
 
 ## <a name="create-an-alert-rule"></a>Skapa en varningsregel
-Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att använda en av logg Sök reglerna som angavs tidigare.  
+
+Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att använda en av logg Sök reglerna som angavs tidigare. Information om hur du skapar med en ARM-mall finns i [exempel på att skapa en övning med Azure-resurs mal len](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
 
 >[!NOTE]
 >Följande procedur för att skapa en aviserings regel för användning av container resurser kräver att du växlar till en ny logg aviserings-API enligt beskrivningen i [switch API-inställningar för logg aviseringar](../platform/alerts-log-api-switch.md).
 >
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **övervaka** i rutan till vänster. Under **insikter**väljer du **behållare**.
 3. På fliken **övervakade kluster** väljer du ett kluster i listan.
 4. I rutan till vänster under **övervakning**väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azure Log Analytics-frågor.

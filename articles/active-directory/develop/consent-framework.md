@@ -3,33 +3,29 @@ title: Ramverk för Azure Active Directory medgivande
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om medgivande ramverket i Azure Active Directory och hur det gör det enkelt att utveckla webb-och interna klient program med flera innehavare.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5b60901e57392aaea504f96572801a878d707c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e850b58274a98fd18b84114552bbf7835a27417c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803859"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843384"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverk för Azure Active Directory medgivande
 
 Den Azure Active Directory (Azure AD) medgivande ramverket gör det enkelt att utveckla webb-och interna klient program med flera innehavare. Dessa program tillåter inloggning av användar konton från en Azure AD-klient som skiljer sig från den plats där programmet har registrerats. De kan också behöva åtkomst till webb-API: er som Microsoft Graph-API (för att få åtkomst till Azure AD, Intune och tjänster i Office 365) och andra API: er för Microsoft-tjänster, förutom dina egna webb-API: er.
 
-Ramverket är baserat på en användare eller en administratör som ger tillåtelse till ett program som ber att registreras i deras katalog, vilket kan innebära åtkomst till katalog data. Om ett webb klient program till exempel behöver läsa kalender information om användaren från Office 365, måste användaren först godkänna klient programmet. Efter medgivande kan klient programmet anropa Microsoft Graph-API: et för användarens räkning och använda Kalender informationen efter behov. [Microsoft Graph API](https://developer.microsoft.com/graph) ger åtkomst till data i Office 365 (t. ex. kalendrar och meddelanden från Exchange, webbplatser och listor från SharePoint, dokument från OneDrive, antecknings böcker från OneNote, uppgifter från Planner och arbets böcker från Excel) samt användare och grupper från Azure AD och andra data objekt från flera moln tjänster från Microsoft.
+Ramverket är baserat på en användare eller en administratör som ger tillåtelse till ett program som ber att registreras i deras katalog, vilket kan innebära åtkomst till katalog data. Om ett webb klient program till exempel behöver läsa kalender information om användaren från Office 365, måste användaren först godkänna klient programmet. Efter medgivande kan klient programmet anropa Microsoft Graph-API: et för användarens räkning och använda Kalender informationen efter behov. [Microsoft Graph API](https://developer.microsoft.com/graph) ger åtkomst till data i Office 365 (t. ex. kalendrar och meddelanden från Exchange, webbplatser och listor från SharePoint, dokument från OneDrive, antecknings böcker från OneNote, uppgifter från Planner och arbets böcker från Excel) samt användare och grupper från Azure AD och andra data objekt från fler Microsoft-molntjänster.
 
 Godkännande ramverket bygger på OAuth 2,0 och de olika flödena, till exempel auktoriseringskod och beviljande av klientautentiseringsuppgifter, med hjälp av offentliga eller konfidentiella klienter. Med hjälp av OAuth 2,0 gör Azure AD det möjligt att bygga många olika typer av klient program, till exempel på en telefon, surfplatta, server eller ett webb program, och få till gång till de resurser som krävs.
 

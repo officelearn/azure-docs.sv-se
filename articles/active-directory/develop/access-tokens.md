@@ -2,26 +2,23 @@
 title: Referens för Microsoft Identity Platform-åtkomsttoken | Azure
 description: Läs om åtkomsttoken som har spridits av Azure AD v 1.0 och Microsoft Identity Platform (v 2.0) slut punkter.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34548b623317eff17bcbf5a7749cd411a44bd722
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 61bcdac38b9b8765c7c3d575bb632c9291e46b90
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73935861"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845866"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -256,12 +253,12 @@ Uppdaterings-token kan inaktive ras eller återkallas av olika skäl. De delas i
 |   | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-lösenordsbaserad cookie | Icke-lösenordsbaserad token | Konfidentiell klient-token |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Lösen ordet upphör att gälla | Förblir Alive | Förblir Alive | Förblir Alive | Förblir Alive | Förblir Alive |
-| Lösen ordet har ändrats av användaren | Återkallats | Återkallats | Förblir Alive | Förblir Alive | Förblir Alive |
-| Användaren SSPR | Återkallats | Återkallats | Förblir Alive | Förblir Alive | Förblir Alive |
-| Administratör återställer lösen ordet | Återkallats | Återkallats | Förblir Alive | Förblir Alive | Förblir Alive |
-| Användaren återkallar sina Refresh-token [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Återkallats | Återkallats | Återkallats | Återkallats | Återkallats |
-| Administratören återkallar alla uppdateringstoken för klienten [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Återkallats | Återkallats |Återkallats | Återkallats | Återkallats |
-| [Enkel utloggning](v1-protocols-openid-connect-code.md#single-sign-out) på webben | Återkallats | Förblir Alive | Återkallats | Förblir Alive | Förblir Alive |
+| Lösen ordet har ändrats av användaren | Revoked | Revoked | Förblir Alive | Förblir Alive | Förblir Alive |
+| Användaren SSPR | Revoked | Revoked | Förblir Alive | Förblir Alive | Förblir Alive |
+| Administratör återställer lösen ordet | Revoked | Revoked | Förblir Alive | Förblir Alive | Förblir Alive |
+| Användaren återkallar sina Refresh-token [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
+| Administratören återkallar alla uppdateringstoken för klienten [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
+| [Enkel utloggning](v1-protocols-openid-connect-code.md#single-sign-out) på webben | Revoked | Förblir Alive | Revoked | Förblir Alive | Förblir Alive |
 
 > [!NOTE]
 > En "icke-lösenords-baserad" inloggning är en där användaren inte skrev något lösen ord för att hämta det. Du kan till exempel använda din ansikte med Windows Hello, en FIDO2-nyckel eller en PIN-kod.

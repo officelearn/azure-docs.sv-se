@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d5b0ebc2d1b64dd4be677c38de30af7f7a954637
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9c3fac7aecaf37b5822ad6e8c655867f6f2c683c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075092"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872714"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Snabb start: direkt webb trafik med Azure Application Gateway med Azure PowerShell
 
@@ -71,63 +71,7 @@ New-AzPublicIpAddress `
   -AllocationMethod Static `
   -Sku Standard
 ```
-### <a name="backend-servers"></a>Backend-servrar
-
-Server delen kan bestå av nätverkskort, skalnings uppsättningar för virtuella datorer, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade domän namn (FQDN) och backend-ändar för flera klienter som Azure App Service. I det här exemplet skapar du två virtuella datorer för Azure som ska användas som serverdelsservrar för programgatewayen. Du installerar även IIS på de virtuella datorerna för att verifiera att Azure har skapat programgatewayen.
-
-#### <a name="create-two-virtual-machines"></a>Skapa två virtuella datorer
-
-1. Skapa ett nätverks gränssnitt med [New-AzNetworkInterface](/powershell/module/Az.network/new-Aznetworkinterface). 
-2. Skapa en virtuell dator konfiguration med [New-AzVMConfig](/powershell/module/Az.compute/new-Azvmconfig).
-3. Skapa den virtuella datorn med [New-AzVM](/powershell/module/Az.compute/new-Azvm).
-
-När du kör följande kodexempel för att skapa virtuella datorer uppmanas du av Azure att ange autentiseringsuppgifter. Ange *azureuser* som användarnamn och *Azure123456!* som lösenord:
-    
-```azurepowershell-interactive
-$vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
-$cred = Get-Credential
-for ($i=1; $i -le 2; $i++)
-{
-  $nic = New-AzNetworkInterface `
-    -Name myNic$i `
-    -ResourceGroupName myResourceGroupAG `
-    -Location EastUS `
-    -SubnetId $subnet.Id
-  $vm = New-AzVMConfig `
-    -VMName myVM$i `
-    -VMSize Standard_DS2_v2
-  Set-AzVMOperatingSystem `
-    -VM $vm `
-    -Windows `
-    -ComputerName myVM$i `
-    -Credential $cred
-  Set-AzVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-  Add-AzVMNetworkInterface `
-    -VM $vm `
-    -Id $nic.Id
-  Set-AzVMBootDiagnostic `
-    -VM $vm `
-    -Disable
-  New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
-  Set-AzVMExtension `
-    -ResourceGroupName myResourceGroupAG `
-    -ExtensionName IIS `
-    -VMName myVM$i `
-    -Publisher Microsoft.Compute `
-    -ExtensionType CustomScriptExtension `
-    -TypeHandlerVersion 1.4 `
-    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location EastUS
-}
-```
-
-## <a name="create-an-application-gateway"></a>Skapa en programgateway
+## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
@@ -152,21 +96,20 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Skapa serverdelspoolen
 
-1. Använd [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) för att skapa backend-poolen för Application Gateway. 
+1. Använd [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) för att skapa backend-poolen för Application Gateway. Backend-poolen är tom för tillfället och medan du skapar backend-serverns nätverkskort i nästa avsnitt lägger du till dem i backend-poolen.
 2. Konfigurera inställningarna för backend-poolen med [New-AzApplicationGatewayBackendHttpSetting](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
 $address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
-  -Name myAGBackendPool `
-  -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
+  -Name myAGBackendPool
 $poolSettings = New-AzApplicationGatewayBackendHttpSetting `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
   -CookieBasedAffinity Enabled `
-  -RequestTimeout 120
+  -RequestTimeout 30
 ```
 
 ### <a name="create-the-listener-and-add-a-rule"></a>Skapa lyssnaren och lägga till en regel
@@ -216,6 +159,66 @@ New-AzApplicationGateway `
   -Sku $sku
 ```
 
+### <a name="backend-servers"></a>Serverdelsservrar
+
+Nu när du har skapat Application Gateway skapar du de virtuella server dels datorer som ska vara värdar för webbplatserna. Server delen kan bestå av nätverkskort, skalnings uppsättningar för virtuella datorer, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade domän namn (FQDN) och backend-ändar för flera klienter som Azure App Service. I det här exemplet skapar du två virtuella datorer för Azure som ska användas som serverdelsservrar för programgatewayen. Du installerar även IIS på de virtuella datorerna för att verifiera att Azure har skapat programgatewayen.
+
+#### <a name="create-two-virtual-machines"></a>Skapa två virtuella datorer
+
+1. Hämta den nyligen skapade Application Gateway konfiguration av backend-poolen med [Get-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/get-Azapplicationgatewaybackendaddresspool)
+2. Skapa ett nätverks gränssnitt med [New-AzNetworkInterface](/powershell/module/Az.network/new-Aznetworkinterface). 
+3. Skapa en virtuell dator konfiguration med [New-AzVMConfig](/powershell/module/Az.compute/new-Azvmconfig).
+4. Skapa den virtuella datorn med [New-AzVM](/powershell/module/Az.compute/new-Azvm).
+
+När du kör följande kodexempel för att skapa virtuella datorer uppmanas du av Azure att ange autentiseringsuppgifter. Ange *azureuser* som användarnamn och *Azure123456!* som lösenord:
+    
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
+$backendPool = Get-AzApplicationGatewayBackendAddressPool -Name myAGBackendPool -ApplicationGateway $appgw
+$vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
+$cred = Get-Credential
+for ($i=1; $i -le 2; $i++)
+{
+  $nic = New-AzNetworkInterface `
+    -Name myNic$i `
+    -ResourceGroupName myResourceGroupAG `
+    -Location EastUS `
+    -Subnet $subnet `
+    -ApplicationGatewayBackendAddressPool $backendpool
+  $vm = New-AzVMConfig `
+    -VMName myVM$i `
+    -VMSize Standard_DS2_v2
+  Set-AzVMOperatingSystem `
+    -VM $vm `
+    -Windows `
+    -ComputerName myVM$i `
+    -Credential $cred
+  Set-AzVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
+  Add-AzVMNetworkInterface `
+    -VM $vm `
+    -Id $nic.Id
+  Set-AzVMBootDiagnostic `
+    -VM $vm `
+    -Disable
+  New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
+  Set-AzVMExtension `
+    -ResourceGroupName myResourceGroupAG `
+    -ExtensionName IIS `
+    -VMName myVM$i `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.4 `
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+    -Location EastUS
+}
+```
+
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
 IIS krävs inte för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd IIS för att testa programgatewayen:
@@ -227,7 +230,7 @@ IIS krävs inte för skapande av programgatewayen, men du installerade det i den
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Testa programgatewayen](./media/quick-create-powershell/application-gateway-iistest.png)
+![Testa programgateway](./media/quick-create-powershell/application-gateway-iistest.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

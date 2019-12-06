@@ -12,14 +12,14 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828236"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851527"
 ---
-# <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+# <a name="frequently-asked-questions"></a>Vanliga frågor
 Har du frågor? Läs följande vanliga frågor och svar om du vill ha mer information.
 
 ## <a name="general-faq"></a>Vanliga frågor och svar
@@ -76,7 +76,7 @@ Ja. Alla aktiviteter och verktyg i tillägget kan köras på en värdbaserad bui
 
 ### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>Kan jag köra dessa build-uppgifter som en del av en versions pipeline i stället för en build-pipeline?
 
-I de flesta fall är ja.
+Ja, i de flesta fall.
 
 Azure DevOps stöder dock inte körning av aktiviteter i versions pipeliner när aktiviteterna publicerar artefakter. Denna bristande support förhindrar att aktiviteten publicera säkerhets analys loggar kan köras i en versions pipeline. Aktiviteten kan i stället Miss lyckas med ett beskrivande fel meddelande.
 
@@ -222,9 +222,6 @@ Roslyn analys verktyg behöver fråga Azure DevOps efter MSBuild-loggen från MS
 
 Om du behöver ytterligare hjälp är Microsoft Security code Analysis-supporten tillgänglig måndag till fredag från 9:00 till 5:00 PM Pacific, normal tid.
 
-  - Onboarding: kontakta dina tekniska konto hanterare för att komma igång.
+- Onboarding: Läs vår [onboarding-dokumentation](security-code-analysis-onboard.md)
   
-  - Support: e-posta vårt team på [Microsoft Security code Analysis support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >Du kanske inte har någon avgiftsbelagd support-relation med Microsoft. Eller så kanske du har ett support erbjudande som hindrar dig från att köpa tjänster från Phoenix-katalogen. Om något av dessa villkor är uppfyllt går du till [Start sidan för Support tjänster](https://www.microsoft.com/enterprise/services/support) för mer information.
+- Support: skicka e-post till vårt team på [Microsoft Security code Analysis support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

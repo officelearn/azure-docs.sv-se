@@ -3,16 +3,16 @@ title: Förstå hur mått varningar fungerar i Azure Monitor.
 description: Få en översikt över vad du kan göra med mått aviseringar och hur de fungerar i Azure Monitor.
 author: rboucher
 ms.author: robb
-ms.date: 11/18/2019
+ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: aa54b9ce23ffab266ed6403e3525ae1290d99cec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775729"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850065"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur mått varningar fungerar i Azure Monitor
 
@@ -125,7 +125,7 @@ Om du ökar antalet återställnings perioder och antalet överträdelser kan du
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i skala med hjälp av mått varningar i Azure Monitor
 
-Hittills har du sett hur du kan använda en enda mått avisering för att övervaka en eller flera metriska tids serier som är relaterade till en enda Azure-resurs. Många gånger kanske du vill att samma varnings regel ska tillämpas på många resurser. Azure Monitor också stöd för övervakning av flera resurser med en mått varnings regel. Den här funktionen stöds för närvarande bara på virtuella datorer. Dessutom kan en enda mått avisering övervaka resurser i en Azure-region.
+Hittills har du sett hur du kan använda en enda mått avisering för att övervaka en eller flera metriska tids serier som är relaterade till en enda Azure-resurs. Många gånger kanske du vill att samma varnings regel ska tillämpas på många resurser. Azure Monitor också stöd för övervakning av flera resurser med en mått varnings regel. Den här funktionen stöds för närvarande endast på virtuella datorer, SQL Server-databaser, elastiska SQL Server-pooler och data Box Edge-enheter. Dessutom kan en enda mått avisering övervaka resurser i en Azure-region.
 
 Du kan ange omfattningen för övervakning av en enda mått avisering på något av tre sätt:
 

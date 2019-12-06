@@ -1,26 +1,26 @@
 ---
 title: Arbeta med datum i Azure Cosmos DB
-description: Läs mer om hur du arbetar med datum i Azure Cosmos DB.
+description: Lär dig att lagra, indexera och fråga datum/tid-objekt i Azure Cosmos DB
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: 9676642e96d437965fef041930b8223241cadeaa
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 162b1a4ad089e75f4ad953a339b9b4c15e245a70
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349021"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869689"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
-Azure Cosmos DB ger schemaflexibilitet och omfattande indexering via ett ursprungligt [JSON](https://www.json.org) datamodellen. Alla Azure Cosmos DB-resurser, inklusive databaser, behållare, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för portabelt stöder JSON (och Azure Cosmos DB) bara en liten uppsättning grundläggande typer: Sträng, tal, boolesk, matris, objekt och null. JSON är flexibel och tillåta utvecklare och ramverk för att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser. 
+Azure Cosmos DB ger schemaflexibilitet och omfattande indexering via ett ursprungligt [JSON](https://www.json.org) datamodellen. Alla Azure Cosmos DB-resurser, inklusive databaser, behållare, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för att bärbara JSON (och Azure Cosmos DB) stöder bara en liten uppsättning grundläggande typer: sträng, nummer, booleskt värde, matris, objekt och Null. JSON är flexibel och tillåta utvecklare och ramverk för att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser. 
 
 Förutom de grundläggande typerna behöver många program DateTime-typen för att representera datum och tidsstämpel. Den här artikeln beskriver hur utvecklare kan lagra, hämta och fråga efter datum i Azure Cosmos DB med .NET SDK.
 
 ## <a name="storing-datetimes"></a>Lagra datum och tid
 
-Azure Cosmos DB stöder JSON-typer som-String, Number, Boolean, null, matris, Object. Det stöder inte direkt en DateTime-typ. För närvarande stöder Azure Cosmos DB inte lokalisering av datum. Så du måste lagra datum och tid som strängar. Det rekommenderade formatet för datetime-strängar i Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.sssZ` är som följer ISO 8601 UTC-standarden. Vi rekommenderar att du lagrar alla datum i Azure Cosmos DB som UTC. Om du konverterar datum strängarna till det här formatet kan sorterings datumen lexicographically. Om icke-UTC-datum lagras måste logiken hanteras på klient sidan. Om du vill konvertera en lokal datum-DateTime till UTC måste förskjutningen vara känd/lagrad som en egenskap i JSON och klienten kan använda offset för att beräkna UTC-slutdatum svärdet.
+Azure Cosmos DB stöder JSON-typer som-String, Number, Boolean, null, matris, Object. Det stöder inte direkt en DateTime-typ. För närvarande stöder Azure Cosmos DB inte lokalisering av datum. Så du måste lagra datum och tid som strängar. Det rekommenderade formatet för DateTime-strängar i Azure Cosmos DB är `YYYY-MM-DDThh:mm:ss.sssZ` som följer ISO 8601 UTC-standarden. Vi rekommenderar att du lagrar alla datum i Azure Cosmos DB som UTC. Om du konverterar datum strängarna till det här formatet kan sorterings datumen lexicographically. Om icke-UTC-datum lagras måste logiken hanteras på klient sidan. Om du vill konvertera en lokal datum-DateTime till UTC måste förskjutningen vara känd/lagrad som en egenskap i JSON och klienten kan använda offset för att beräkna UTC-slutdatum svärdet.
 
 De flesta program kan använda standard-strängrepresentation för DateTime av följande skäl:
 

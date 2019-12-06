@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f9f6fd2a01cdb325d543bc624d0c13bce1d84a02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74785865"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848246"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
@@ -59,7 +59,7 @@ Alla användare börjar vara *inaktiverade*. När du registrerar användare i Az
 Använd följande steg för att komma åt sidan där du kan visa och hantera användar tillstånd:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Sök efter och välj *Azure Active Directory*. Välj **användare** > **alla användare**.
+2. Sök efter och välj *Azure Active Directory*. Välj **Användare** > **Alla användare**.
 3. Välj **Multi-Factor Authentication**.
    ![Välj Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. En ny sida som visar användar tillstånden öppnas.

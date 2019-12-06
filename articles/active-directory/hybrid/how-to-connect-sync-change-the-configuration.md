@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5844d440da768ae2647ea7f15c4c913f83078ce1
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e7600bffd8d00caa6e9b5fdda03aefe429d4788b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672957"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842585"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
 Syftet med den här artikeln är att hjälpa dig att göra ändringar i standard konfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med den här kunskapen bör du kunna göra enkla ändringar i din egen konfiguration utifrån dina egna affärs regler.
@@ -204,7 +204,7 @@ Som standard är attributet UserType inte aktiverat för synkronisering eftersom
 
 - Azure AD accepterar bara två värden för attributet UserType: **medlem** och **gäst**.
 - Om attributet UserType inte är aktiverat för synkronisering i Azure AD Connect skulle Azure AD-användare som har skapats via Directory-synkronisering ha attributet UserType inställt på **medlem**.
-- Azure AD tillåter inte att attributet UserType på befintliga Azure AD-användare ändras av Azure AD Connect. Den kan bara anges när Azure AD-användare skapas.
+- Azure AD tillåter inte att attributet UserType på befintliga Azure AD-användare ändras av Azure AD Connect. Den kan bara anges när Azure AD-användare skapas och [ändras via PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Innan du aktiverar synkronisering av UserType-attributet måste du först bestämma hur attributet härleds från lokala Active Directory. Följande är de vanligaste metoderna:
 
@@ -271,7 +271,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
     | Namn | *Ange ett namn* | Till exempel *i från AD – User UserType* |
     | Beskrivning | *Ange en beskrivning* |  |
     | Anslutet system | *Välj lokal AD-anslutning* |  |
-    | Ansluten system objekt typ | **Användarvänlig** |  |
+    | Ansluten system objekt typ | **Användare** |  |
     | Metaversum objekt typ | **Sända** |  |
     | Länktyp | **Anslut dig** |  |
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
@@ -288,13 +288,13 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 
     | Flödes typ | Target-attribut | Källa | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    | Direct | userType | extensionAttribute1 | avmarkerat | Uppdatering |
+    | Direct | UserType | extensionAttribute1 | Avmarkerat | Uppdatera |
 
     I ett annat exempel vill du härleda värdet för attributet UserType från andra egenskaper. Till exempel vill du synkronisera alla användare som gäst om deras lokala AD userPrincipalName-attribut slutar med domän delen <em>@partners.fabrikam123.org</em>. Du kan implementera ett uttryck som detta:
 
     | Flödes typ | Target-attribut | Källa | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    | Uttryck | userType | IIF (IsPresent ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), "@partners.fabrikam123.org") = 0), "medlem", "gäst"), fel ("UserPrincipalName finns inte för att fastställa UserType")) | avmarkerat | Uppdatering |
+    | Uttryck | UserType | IIF (IsPresent ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), "@partners.fabrikam123.org") = 0), "medlem", "gäst"), fel ("UserPrincipalName finns inte för att fastställa UserType")) | Avmarkerat | Uppdatera |
 
 7. Klicka på **Lägg till** för att skapa regeln för inkommande trafik.
 
@@ -313,7 +313,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Namn | *Ange ett namn* | Till exempel *till AAD – User UserType* |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj AAD-koppling* ||
-    | Ansluten system objekt typ | **Användarvänlig** ||
+    | Ansluten system objekt typ | **Användare** ||
     | Metaversum objekt typ | **Sända** ||
     | Länktyp | **Anslut dig** ||
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
@@ -323,7 +323,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | SKEPPNINGSKVANTITETEN | Användare |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Sant |
 
     Omfångs filtret fastställer till vilka Azure AD-objekt denna utgående Synkroniseringsregel ska tillämpas. I det här exemplet använder vi samma omfångs filter från regeln *ut till AD – användarens identitet* utanför box. Det förhindrar att synkroniseringsregeln tillämpas på användar objekt som inte är synkroniserade från lokala Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 
@@ -331,7 +331,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
     | Flödes typ | Target-attribut | Källa | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
-    | Direct | userType | userType | avmarkerat | Uppdatering |
+    | Direct | UserType | UserType | Avmarkerat | Uppdatera |
 
 7. Klicka på **Lägg till** för att skapa regeln för utgående trafik.
 

@@ -6,21 +6,21 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: d25b9b3bb155dced973d415b396ebfaa4403b011
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/04/2019
+ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514620"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841582"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare
 
 Azure Monitor for containers innehåller omfattande övervaknings upplevelse för Azure Kubernetes service-och AKS-motorns kluster som finns i Azure. I den här artikeln beskrivs hur du aktiverar övervakning av Kubernetes-kluster som finns utanför Azure och uppnår en liknande övervaknings upplevelse.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Kontrol lera att du har följande innan du börjar:
+Innan du börjar bör du kontrollera att du har följande:
 
 * En Log Analytics-arbetsyta.
 
@@ -72,20 +72,20 @@ Att aktivera Azure Monitor för behållare för Hybrid Kubernetes-klustret best�
 
 Du kan distribuera lösningen med den tillhandahållna Azure Resource Manager-mallen med hjälp av Azure PowerShell-cmdlet `New-AzResourceGroupDeployment` eller med Azure CLI.
 
-Om du inte känner till konceptet att distribuera resurser med hjälp av en mall, se:
+Om du inte är bekant med begreppet att distribuera resurser med hjälp av en mall, se:
 
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-Den här metoden inkluderar två JSON-mallar. En mall anger konfigurationen för att aktivera övervakning och den andra innehåller parameter värden som du konfigurerar för att ange följande:
+Den här metoden innehåller två JSON-mallar. En mall anger konfigurationen för att aktivera övervakning och den andra innehåller parametervärden som du konfigurerar för att ange följande:
 
 - **workspaceResourceId** – det fullständiga resurs-ID: t för din Log Analytics-arbetsyta.
 - **workspaceRegion** – den region som arbets ytan skapas i, vilket även kallas **plats** i egenskaperna för arbets ytan vid visning från Azure Portal.
 
-För att först identifiera det fullständiga resurs-ID: t för din Log Analytics arbets yta som krävs för värdet `workspaceResourceId` parameter i filen **containerSolutionParams. JSON** , utför följande steg och kör sedan PowerShell-cmdleten eller Azure CLI-kommandot för att lägga till lösa.
+För att först identifiera det fullständiga resurs-ID: t för din Log Analytics-arbetsyta som krävs för värdet `workspaceResourceId` parameter i filen **containerSolutionParams. JSON** , utför följande steg och kör sedan PowerShell-cmdleten eller Azure CLI-kommandot för att lägga till lösningen.
 
 1. Lista alla prenumerationer som du har åtkomst till med hjälp av följande kommando:
 
@@ -93,7 +93,7 @@ För att först identifiera det fullständiga resurs-ID: t för din Log Analytic
     az account list --all -o table
     ```
 
-    Utdata ser ut ungefär så här:
+    Utdata ska likna följande:
 
     ```azurecli
     Name                                  CloudName    SubscriptionId                        State    IsDefault
@@ -218,7 +218,7 @@ För att först identifiera det fullständiga resurs-ID: t för din Log Analytic
        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <resource group of log analytics workspace> -TemplateFile .\containerSolution.json -TemplateParameterFile .\containerSolutionParams.json
        ```
        
-       Konfigurations ändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
+       Konfigurationsändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
        ```powershell
        provisioningState       : Succeeded
@@ -235,13 +235,13 @@ För att först identifiera det fullständiga resurs-ID: t för din Log Analytic
        az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
-       Konfigurations ändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
+       Konfigurationsändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
        ```azurecli
        provisioningState       : Succeeded
        ```
      
-       När du har aktiverat övervakning kan det ta ungefär 15 minuter innan du kan visa hälso mått för klustret. 
+       När du har aktiverat övervakning, kan det ta ungefär 15 minuter innan du kan visa hälsomått för klustret. 
 
 ## <a name="install-the-chart"></a>Installera diagrammet
 
@@ -282,6 +282,25 @@ När du har distribuerat diagrammet kan du granska data för ditt hybrid Kuberne
 
 >[!NOTE]
 >Inmatnings fördröjningen är cirka fem till tio minuter från agenten som ska genomföras i Azure Log Analytics-arbetsytan. Status för klustret visar värdet **inga data** eller **okända** förrän alla nödvändiga övervaknings data är tillgängliga i Azure Monitor. 
+
+## <a name="troubleshooting"></a>Felsöka
+
+Om det uppstår ett fel vid försök att aktivera övervakning för ditt hybrid Kubernetes-kluster, kopierar du PowerShell-skriptet [TroubleshootError_nonAzureK8s. ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) och sparar det i en mapp på datorn. Det här skriptet används för att identifiera och åtgärda de problem som uppstått. Problemen som är utformade för att identifiera och försöka korrigera är följande:
+
+* Den angivna Log Analyticss arbets ytan är giltig 
+* Log Analytics arbets ytan konfigureras med Azure Monitor för container lösning. Annars konfigurerar du arbets ytan.
+* OmsAgent REPLICASET-Pod körs
+* OmsAgent daemonset-Pod körs
+* OmsAgent-tjänsten för hälso tillstånd körs 
+* Log Analytics arbetsyte-ID och nyckel som kon figurer ATS på behållarens agent matchar i arbets ytan som insikten är konfigurerad med.
+* Verifiera att alla Linux Worker-noder har `kubernetes.io/role=agent` etikett för att schemalägga RS-pod. Lägg till den om den inte finns.
+* Verifiera `cAdvisor port: 10255` har öppnats på alla noder i klustret.
+
+Om du vill köra med Azure PowerShell använder du följande kommandon i mappen som innehåller skriptet:
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

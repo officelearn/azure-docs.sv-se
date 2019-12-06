@@ -1,32 +1,27 @@
 ---
-title: Utjämnad autentisering i Android | Azure
+title: Brokered Authentication i Android | Azure
+titlesuffix: Microsoft identity platform
 description: En översikt över Brokered Authentication & auktorisering för Android i Microsoft Identity Platform
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5204ad71efa2587341600d2c5c1e5195d15445e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175650"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843724"
 ---
-# <a name="brokered-auth-in-android"></a>Utjämnad autentisering i Android
-
-## <a name="introduction"></a>Introduktion
+# <a name="brokered-authentication-in-android"></a>Brokered Authentication i Android
 
 Du måste använda någon av Microsofts autentiserings mäklare för att delta i enkel inloggning (SSO) för hela enheten och för att uppfylla organisationens principer för villkorlig åtkomst. Att integrera med en Service Broker ger följande fördelar:
 
@@ -52,9 +47,9 @@ Följande diagram illustrerar förhållandet mellan appen, Microsoft Authenticat
 
 Broker-värdbaserade appar kan installeras av enhetens ägare från App Store (vanligt vis Google Play Butik). Vissa API: er (resurser) skyddas dock av principer för villkorlig åtkomst som kräver att enheter:
 
-- registrerad (arbets plats ansluten) och/eller
-- registrerad i enhets hantering eller
-- registrerad i Intune-appskydd
+- Registrerad (arbets plats ansluten) och/eller
+- Registrerad i enhets hantering eller
+- Registrerad i Intune-appskydd
 
 Om en enhet inte redan har en Service Broker-app installerad instruerar MSAL användaren att installera en så fort appen försöker hämta en token interaktivt. Appen måste sedan leda användaren genom stegen för att göra enheten kompatibel med den princip som krävs.
 

@@ -1,18 +1,18 @@
 ---
 title: Diagram data modellering för Azure Cosmos DB Gremlin-API
-description: Lär dig att modellera en diagram databas med Cosmos DB Gremlin API.
+description: Lär dig att modellera en graf-databas med hjälp av Azure Cosmos DB Gremlin API. I den här artikeln beskrivs när du ska använda en graf-databas och metod tips för att modellera entiteter och relationer.
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/24/2019
+ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 2bd8c07b384872f3107b5938380cea4c8eb0abae
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559118"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873734"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
 
@@ -47,10 +47,10 @@ Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
 | Objekt | Egenskap | Typ | Anteckningar |
 | --- | --- | --- |  --- |
-| Punkten | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
-| Punkten | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
-| Punkten | properties | Sträng, boolesk, numerisk | En lista med separata egenskaper som lagras som nyckel/värde-par i varje hörn. |
-| Punkten | partitionsnyckel | Sträng, boolesk, numerisk | Den här egenskapen definierar var form hörnet och dess utgående kanter ska lagras. Läs mer om [diagram partitionering](graph-partitioning.md). |
+| Vertex | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
+| Vertex | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
+| Vertex | properties | Sträng, boolesk, numerisk | En lista med separata egenskaper som lagras som nyckel/värde-par i varje hörn. |
+| Vertex | partitionsnyckel | Sträng, boolesk, numerisk | Den här egenskapen definierar var form hörnet och dess utgående kanter ska lagras. Läs mer om [diagram partitionering](graph-partitioning.md). |
 | Edge | ID | Sträng | Används unikt per partition. Automatiskt genererad som standard. Kanterna har vanligt vis inte behov av att hämtas unikt av ett ID. |
 | Edge | etikett | Sträng | Den här egenskapen används för att definiera typen av relation som två hörn har. |
 | Edge | properties | Sträng, boolesk, numerisk | En lista med separata egenskaper som lagras som nyckel/värde-par i varje gräns. |

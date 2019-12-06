@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 12/06/2019
 ms.author: victorh
-ms.openlocfilehash: 897819928ab0bcf48b58428014c03aea6b2145fd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267957"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869569"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Vad är för hands version av Azure Firewall Manager?
 
@@ -53,13 +53,13 @@ Mer information om betrodda säkerhetsproviders finns i [Vad är betrodda säker
 
 Dirigera snabbt trafik till din säkra hubb för filtrering och loggning utan att behöva konfigurera användardefinierade vägar manuellt (UDR) i ekrar virtuella nätverk. Du kan använda tredjepartsleverantörer för B2I-trafik (Branch to Internet), sida vid sida med Azure-brandväggen för gren till VNet (B2V), VNet till VNet (V2V) och VNet till Internet (V2I). Du kan också använda tredjepartsleverantörer för V2I-trafik filtrering så länge det inte krävs någon Azure-brandvägg för B2V eller V2V. 
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 
 Följande regioner stöds för den offentliga för hands versionen:
 
 - Västeuropa, Nord Europa, Frankrike, centrala, Frankrike, södra, Storbritannien, södra, Storbritannien, västra
 - Östra Australien, Australien, centrala Australien 2, Australien, sydöstra
-- Centrala Kanada
+- Kanada, centrala
 - Östra USA, västra USA, östra USA 2, södra centrala USA, västra USA 2, centrala USA, norra centrala USA, västra centrala USA
 
 Det går bara att skapa Azure Firewall-principer i dessa regioner, men de kan användas i olika regioner. Du kan till exempel skapa en princip i USA, västra och använda den i USA, östra. 
@@ -70,12 +70,13 @@ För hands versionen av Azure Firewall Manager har följande kända problem:
 
 |Problem  |Beskrivning  |Åtgärd  |
 |---------|---------|---------|
-|Manuellt skapade centrala virtuella nätverk stöds inte|Azure Firewall Manager stöder för närvarande nätverk som skapats med virtuella nav. Det finns ännu inte stöd för att använda egna manuellt skapade hubb-VNet.|Nu ska du använda Azure Firewall Manager med nav-och eker-nätverk som skapats med virtuella hubbar.<br>Undersöker för närvarande.
+|Manuellt skapade centrala virtuella nätverk stöds inte|Azure Firewall Manager stöder för närvarande nätverk som skapats med virtuella nav. Det finns ännu inte stöd för att använda egna manuellt skapade hubb-VNet.|Nu ska du använda Azure Firewall Manager med nav-och eker-nätverk som skapats med virtuella hubbar.<br>Korrigering pågår.
 |Begränsningar för filtrering av tredje part|V2I trafik filtrering med tredjeparts leverantörer stöds inte med Azure Firewall B2V och V2V.|Undersöker för närvarande.|
 |Delning av trafik stöds inte för närvarande|Det finns för närvarande inte stöd för att dela upp Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker för närvarande trafik delning på hubben.
 |En hubb per region|Du kan inte ha mer än en hubb per region|Skapa flera virtuella WAN-näti en region.|
 |Bas principerna måste finnas i samma region som den lokala principen|Skapa alla lokala principer i samma region som bas principen. Du kan fortfarande använda en princip som har skapats i en region på ett skyddat nav från en annan region.|Undersöker för närvarande.|
 |Kommunikation mellan olika hubbar fungerar inte med skyddad virtuell hubb|Skyddad virtuell hubb till skyddad virtuell nav-kommunikation stöds inte ännu.|Undersöker för närvarande.|
+|Alla skyddade virtuella hubbar som delar samma virtuella WAN-nätverk måste finnas i samma resurs grupp.|Det här beteendet är justerat med virtuella WAN-hubbar idag.|Skapa flera virtuella WAN-administratörer för att kunna skapa säkra virtuella hubbar i olika resurs grupper.|
 
 ## <a name="next-steps"></a>Nästa steg
 

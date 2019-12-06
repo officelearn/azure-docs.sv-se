@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011992"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849776"
 ---
-# <a name="list-entity"></a>Lista entitet 
+# <a name="list-entity"></a>Lista entitet
 
-Lista entiteter representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listan över entiteter. Använd den **rekommenderar** funktionen för att se förslag för nya ord baserat på den aktuella listan. Om det finns mer än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt. 
+Lista entiteter representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listan över entiteter. Använd den **rekommenderar** funktionen för att se förslag för nya ord baserat på den aktuella listan. Om det finns mer än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt.
 
-En lista entitet har inte registrerats på datorn. Det är en exakt denna matchning. LUIS markerar alla motsvarar ett objekt i en lista som en entitet i svaret. 
+En lista entitet har inte registrerats på datorn. Det är en exakt denna matchning. LUIS markerar alla motsvarar ett objekt i en lista som en entitet i svaret.
 
 **Entiteten passar bra när text data:**
 
 * Är en känd uppsättning.
-* Ändras inte ofta. Om du behöver ändra listan ofta eller vill att listan ska expanderas själv, är en enkel entitet som ökar med en fras lista ett bättre alternativ. 
+* Ändras inte ofta. Om du behöver ändra listan ofta eller vill att listan ska expanderas själv, är en enkel entitet som ökar med en fras lista ett bättre alternativ.
 * Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
 * Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. LUIS använder inte listan för något mer än exakta textmatchningar. Fuzzy Matching, SKIFT läges okänslighet, igenkänning, plural och andra variationer löses inte med en List-entitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
 
@@ -54,7 +54,7 @@ En lista entitet har inte registrerats på datorn. Det är en exakt denna matchn
               "avacado"
           ]
       }
-  ]  
+  ]
   ```
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
@@ -130,7 +130,7 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 }
 ```
 
-* * * 
+* * *
 
 |Dataobjekt|Entitetsnamn|Värde|
 |--|--|--|
@@ -139,4 +139,4 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](luis-quickstart-intent-and-list-entity.md)får du lära dig hur du använder en **list-entitet** för att extrahera exakta matchningar av text från en lista över kända objekt. 
+I den här [självstudien](tutorial-list-entity.md)får du lära dig hur du använder en **list-entitet** för att extrahera exakta matchningar av text från en lista över kända objekt.

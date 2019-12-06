@@ -2,19 +2,19 @@
 title: Publicera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar från en virtuell Azure-dator
 description: Lär dig att publicera en virtuell Azure-dator med Uppdateringshantering, Ändringsspårning och inventerings lösningar som ingår i Azure Automation.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0069d2e8ccd3b4f65ced8b6e18ce568689f81e14
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 8dd69b1cf4ac8874175cff84d3c2b9fc5e323922
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374413"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849691"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar från en virtuell Azure-dator
 
@@ -26,7 +26,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Aktivera lösningarna
 
-Gå till en befintlig virtuell dator. Under **åtgärder**väljer du **uppdaterings hantering**, **inventering**eller **ändrings spårning**. Den virtuella datorn kan finnas i vilken region som helst, oavsett platsen för ditt Automation-konto. När du registrerar en lösning från en virtuell dator måste du ha behörigheten `Microsoft.OperationalInsights/workspaces/read` för att avgöra om den virtuella datorn har publicerats till en arbets yta. Om du vill veta mer om ytterligare behörigheter som krävs i allmänhet, se [behörigheter som behövs för att publicera datorer](automation-role-based-access-control.md#onboarding).
+Gå till en befintlig virtuell dator. Under **åtgärder**väljer du **uppdaterings hantering**, **inventering**eller **ändrings spårning**. Den virtuella datorn kan finnas i vilken region som helst, oavsett platsen för ditt Automation-konto. När du registrerar en lösning från en virtuell dator måste du ha `Microsoft.OperationalInsights/workspaces/read` behörighet för att avgöra om den virtuella datorn har publicerats i en arbets yta. Om du vill veta mer om ytterligare behörigheter som krävs i allmänhet, se [behörigheter som behövs för att publicera datorer](automation-role-based-access-control.md#onboarding).
 
 Om du bara vill aktivera lösningen för den virtuella datorn kontrollerar du att **Aktivera för den här virtuella datorn** är markerat. Om du vill publicera flera datorer i lösningen väljer du **Aktivera för virtuella datorer i den här prenumerationen**. Välj sedan **Klicka för att välja datorer som ska aktive ras**. Information om hur du kan publicera flera datorer samtidigt finns i [uppdateringshantering, ändringsspårning och inventerings lösningar](automation-onboard-solutions-from-automation-account.md).
 
@@ -45,9 +45,9 @@ Varje lösning använder en omfattnings konfiguration på arbets ytan för att r
 
 Om den valda arbets ytan inte redan har Uppdateringshantering-eller Ändringsspårning-lösningar skapas följande omfattningar:
 
-* **MicrosoftDefaultScopeConfig – ChangeTracking**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig – uppdateringar**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Om den valda arbets ytan redan har lösningen omdistribueras inte lösningen och omfattnings konfigurationen läggs inte till.
 
@@ -97,7 +97,7 @@ Om du använde Uppdateringshantering-lösningen kanske du vill ta bort följande
 
 * Uppdaterings scheman-varje kommer att ha namn som matchar de uppdaterings distributioner som du har skapat)
 
-* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Om du använde Starta/stoppa virtuella datorer när de inte används-lösningen kanske du vill ta bort följande objekt som inte längre behövs efter att du har tagit bort lösningen.
 
@@ -111,7 +111,7 @@ Alternativt kan du också ta bort länken till arbets ytan från ditt Automation
 
 Så här tar du bort en virtuell dator från Uppdateringshantering:
 
-* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen för omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
 * Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg

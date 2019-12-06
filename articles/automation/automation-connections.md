@@ -4,17 +4,17 @@ description: Anslutnings till gångar i Azure Automation innehåller den informa
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90b2234607ad120c43e241fe4ae5222fe285803e
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001660"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850439"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutnings till gångar i Azure Automation
 
@@ -39,7 +39,7 @@ I de flesta fall behöver du inte skapa en anslutnings resurs eftersom den skapa
 
 Cmdletarna i följande tabell används för att skapa och hantera Automation-anslutningar med Windows PowerShell. De levereras som en del av [Azure PowerShell-modulen](/powershell/azure/overview) som är tillgänglig för användning i Automation-RUNBOOKS och DSC-konfigurationer.
 
-|Cmdlet:|Beskrivning|
+|Cmdlet|Beskrivning|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Hämtar en anslutning. Innehåller en hash-tabell med värdena för anslutningens fält.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Skapar en ny anslutning.|
@@ -82,7 +82,7 @@ Funktionen i följande tabell används för att få åtkomst till anslutningar i
 
 Skapa en ny anslutning med Windows PowerShell med cmdleten [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) . Denna cmdlet har en parameter med namnet **ConnectionFieldValues** som förväntar sig en [hash-tabell](https://technet.microsoft.com/library/hh847780.aspx) som definierar värden för var och en av de egenskaper som definieras av anslutnings typen.
 
-Om du är bekant med automations [Kör som-konto](automation-sec-configure-azure-runas-account.md) för att autentisera Runbooks med hjälp av tjänstens huvud namn, skapar PowerShell-skriptet, som ett alternativ till att skapa kör som-kontot från portalen, en ny anslutnings till gång med hjälp av följande exempel kommandon.
+Om du är bekant med Automation- [Kör som-kontot](automation-sec-configure-azure-runas-account.md) för att autentisera Runbooks med hjälp av tjänstens huvud namn, skapar PowerShell-skriptet, som ett alternativ till att skapa kör som-kontot från portalen, en ny anslutnings till gång med hjälp av följande exempel kommandon.
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
@@ -90,7 +90,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Du kan använda skriptet för att skapa anslutnings till gången eftersom när du skapar ett Automation-konto innehåller det automatiskt flera globala moduler som standard tillsammans med anslutnings typen **AzureServicePrincipal** för att skapa  **AzureRunAsConnection** anslutning till gång.  Detta är viktigt att tänka på, eftersom om du försöker skapa en ny anslutning till gång för att ansluta till en tjänst eller ett program med en annan autentiseringsmetod, Miss lyckas det eftersom anslutnings typen inte redan har definierats i ditt Automation-konto.  Mer information om hur du skapar en egen Anslutnings typ för din anpassade eller modul från [PowerShell-galleriet](https://www.powershellgallery.com)finns i [integrerings moduler](automation-integration-modules.md)
+Du kan använda skriptet för att skapa anslutnings till gången eftersom när du skapar ett Automation-konto innehåller det automatiskt flera globala moduler som standard tillsammans med anslutnings typen **AzureServicePrincipal** för att skapa **AzureRunAsConnection** -anslutnings till gången.  Detta är viktigt att tänka på, eftersom om du försöker skapa en ny anslutning till gång för att ansluta till en tjänst eller ett program med en annan autentiseringsmetod, Miss lyckas det eftersom anslutnings typen inte redan har definierats i ditt Automation-konto.  Mer information om hur du skapar en egen Anslutnings typ för din anpassade eller modul från [PowerShell-galleriet](https://www.powershellgallery.com)finns i [integrerings moduler](automation-integration-modules.md)
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Använda en anslutning i en Runbook-eller DSC-konfiguration
 

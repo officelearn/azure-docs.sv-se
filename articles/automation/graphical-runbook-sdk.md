@@ -1,32 +1,32 @@
 ---
-title: Översikt över Azure Automation Grpahical runbook SDK
-description: Den här artikeln beskriver hur du använder Azure Automation grafiska Runbook-SDK
+title: Översikt över Azure Automation Grpahical Runbook SDK
+description: Den här artikeln beskriver hur du använder Azure Automation grafiska Runbook SDK
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4229079a1fa50295eef85b42f91bbc1b4a21fc3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a06c190931fdd0f49132f815b153c08ece68c9f3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478594"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849555"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Använd Azure Automation grafiska runbook SDK
+# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Använd Azure Automation grafisk Runbook SDK
 
-[Grafiska runbooks](automation-graphical-authoring-intro.md) är runbookflöden som hjälper dig att hantera komplexitet i den underliggande koden för Windows PowerShell eller PowerShell-arbetsflöde. Microsoft Azure Automation grafiska redigering SDK kan utvecklare skapa och redigera grafiska Runbooks för användning med Azure Automation-tjänsten. I följande kodavsnitt visar det grundläggande flödet för att skapa en grafisk runbook från din kod.
+[Grafiska runbooks](automation-graphical-authoring-intro.md) är Runbooks som hjälper till att hantera de underliggande Windows PowerShell-eller PowerShell-arbetsflödes kodernas komplexitet. Microsoft Azure Automation Graphicing Graphicing SDK gör det möjligt för utvecklare att skapa och redigera grafiska runbooks för användning med tjänsten Azure Automation. Följande kodfragment visar det grundläggande flödet för att skapa en grafisk Runbook från din kod.
 
 ## <a name="pre-requisites"></a>Förutsättningar
 
-Börja genom att importera den `Microsoft.Azure.Automation.GraphicalRunbook.Model` paketet i projektet.
+Börja genom att importera `Microsoft.Azure.Automation.GraphicalRunbook.Model`-paketet till projektet.
 
-## <a name="create-a-runbook-object-instance"></a>Skapa en instans för runbook-objekt
+## <a name="create-a-runbook-object-instance"></a>Skapa en instans av en Runbook-objekt
 
-Referens för den `Orchestrator.GraphRunbook.Model` sammansättning och skapa en instans av den `Orchestrator.GraphRunbook.Model.GraphRunbook` klass:
+Referera till `Orchestrator.GraphRunbook.Model` sammansättning och skapa en instans av klassen `Orchestrator.GraphRunbook.Model.GraphRunbook`:
 
 ```csharp
 using Orchestrator.GraphRunbook.Model;
@@ -35,9 +35,9 @@ using Orchestrator.GraphRunbook.Model.ExecutableView;
 var runbook = new GraphRunbook();
 ```
 
-## <a name="add-runbook-parameters"></a>Lägg till runbook-parametrar
+## <a name="add-runbook-parameters"></a>Lägg till Runbook-parametrar
 
-Skapa en instans av `Orchestrator.GraphRunbook.Model.Parameter` objekt och lägga till dem i runbooken:
+Instansiera `Orchestrator.GraphRunbook.Model.Parameter` objekt och Lägg till dem i runbooken:
 
 ```csharp
 runbook.AddParameter(
@@ -53,9 +53,9 @@ runbook.AddParameter(
  });
 ```
 
-## <a name="add-activities-and-links"></a>Lägga till aktiviteter och länkar
+## <a name="add-activities-and-links"></a>Lägg till aktiviteter och länkar
 
-Skapa en instans av aktiviteter för lämpliga typer och lägga till dem i runbooken:
+Instansiera aktiviteter av lämpliga typer och Lägg till dem i runbooken:
 
 ```csharp
 var writeOutputActivityType = new CommandActivityType {
@@ -93,35 +93,35 @@ var initializeRunbookVariable = runbook.AddActivity(
  });
 ```
 
-Aktiviteter har implementerats av följande klasser i den `Orchestrator.GraphRunbook.Model` namnområde:
+Aktiviteter implementeras av följande klasser i `Orchestrator.GraphRunbook.Model` namnrymd:
 
 |Klass  |Aktivitet  |
 |---------|---------|
-|CommandActivity     | Anropar ett PowerShell-kommando (cmdlet, funktionen osv.).        |
-|InvokeRunbookActivity     | Anropar infogad för en annan runbook.        |
+|CommandActivity     | Anropar ett PowerShell-kommando (cmdlet, Function osv.).        |
+|InvokeRunbookActivity     | Anropar en annan Runbook infogad.        |
 |JunctionActivity     | Väntar på att alla inkommande grenar ska slutföras.        |
-|WorkflowScriptActivity     | Kör ett kodblock PowerShell eller PowerShell-arbetsflöde (beroende på typ av runbook) i samband med runbook. Detta är ett kraftfullt verktyg, men inte många: Användargränssnittet visas den här skriptblock som text. motorn för körning behandlar det angivna blocket som en svart ruta och gör inga försök att analysera innehållet, förutom en grundläggande syntax-kontroll. Om du behöver bara anropa ett enda PowerShell-kommando, föredra CommandActivity.        |
+|WorkflowScriptActivity     | Kör ett block med PowerShell-eller PowerShell-arbetsflöde (beroende på typ av Runbook) i kontexten för runbooken. Detta är ett kraftfullt verktyg, men du kan inte överanvända det: gränssnittet visar det här skript blocket som text. körnings motorn hanterar det angivna blocket som en svart ruta och gör inga försök att analysera innehållet, förutom en grundläggande syntaxkontroll. Om du bara behöver anropa ett enda PowerShell-kommando föredrar du CommandActivity.        |
 
 > [!NOTE]
-> Härled inte egna aktiviteter från de angivna klasserna: Azure Automation kommer inte att kunna använda runbooks med anpassade aktivitetstyper.
+> Härled inte dina egna aktiviteter från de angivna klasserna: Azure Automation kommer inte att kunna använda Runbooks med anpassade aktivitets typer.
 
-CommandActivity och InvokeRunbookActivity parametrar måste anges som värde beskrivningar, inte direkt värden. Värdet beskrivningar ange hur du ska produceras faktiska parametrarnas värden. Följande värde beskrivningar tillhandahålls för närvarande:
+Parametrarna CommandActivity och InvokeRunbookActivity måste anges som värde beskrivningar, inte direkta värden. Värde beskrivningar anger hur faktiska parameter värden ska skapas. Följande värde beskrivningar finns för närvarande:
 
 
-|Säkerhetsbeskrivning  |Definition  |
+|Script  |Definition  |
 |---------|---------|
 |ConstantValueDescriptor     | Refererar till ett hårdkodat konstant värde.        |
-|RunbookParameterValueDescriptor     | Refererar till en runbook-parameter med namnet.        |
-|ActivityOutputValueDescriptor     | Refererar till en överordnad aktivitet utdata, vilket gör att en aktivitet prenumererar du ”” på data som produceras av en annan aktivitet.        |
-|AutomationVariableValueDescriptor     | Refererar till ett Automation-variabeltillgång efter namn.         |
-|AutomationCredentialValueDescriptor     | Refererar till ett Automation-certifikattillgång med namnet.        |
-|AutomationConnectionValueDescriptor     | Refererar till ett Automation-anslutningstillgång med namnet.        |
-|PowerShellExpressionValueDescriptor     | Anger en egen PowerShell-uttryck som utvärderas innan du anropar aktiviteten.  <br/>Detta är ett kraftfullt verktyg, men inte många: Gränssnittet för att visa det här uttrycket som text. motorn för körning behandlar det angivna blocket som en svart ruta och gör inga försök att analysera innehållet, förutom en grundläggande syntax-kontroll. När det är möjligt, föredrar du mer specifika beskrivningar av värdet.      |
+|RunbookParameterValueDescriptor     | Refererar till en Runbook-parameter efter namn.        |
+|ActivityOutputValueDescriptor     | Refererar till en överordnad aktivitets utmatning, så att en aktivitet kan "Prenumerera" på data som skapats av en annan aktivitet.        |
+|AutomationVariableValueDescriptor     | Refererar till en Automation-variabel till gång efter namn.         |
+|AutomationCredentialValueDescriptor     | Refererar till till gång till ett Automation-certifikat efter namn.        |
+|AutomationConnectionValueDescriptor     | Refererar till en Automation-anslutningssträng efter namn.        |
+|PowerShellExpressionValueDescriptor     | Anger ett PowerShell-uttryck (fritt format) som ska utvärderas precis innan aktiviteten anropas.  <br/>Detta är ett kraftfullt verktyg, men du kan inte överanvända det: det här uttrycket visas som text i användar gränssnittet. körnings motorn hanterar det angivna blocket som en svart ruta och gör inga försök att analysera innehållet, förutom en grundläggande syntaxkontroll. Om möjligt bör du föredra mer exakta värde beskrivningar.      |
 
 > [!NOTE]
-> Härled inte ditt eget värde beskrivningar av de angivna klasserna: Azure Automation kommer inte att kunna använda runbooks med anpassade descriptor värdetyper.
+> Härled inte dina egna värde beskrivningar från de angivna klasserna: Azure Automation kommer inte att kunna använda Runbooks med anpassade värde beskrivnings typer.
 
-Skapa en instans av länkar som ansluter aktiviteter och lägga till dem i runbooken:
+Instansiera länkar som ansluter aktiviteter och Lägg till dem i runbooken:
 
 ```csharp
 runbook.AddLink(new Link(activityA, activityB, LinkType.Sequence));
@@ -134,16 +134,16 @@ runbook.AddLink(
 
 ## <a name="save-the-runbook-to-a-file"></a>Spara runbooken till en fil
 
-Använd `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` att serialisera en runbook till en sträng:
+Använd `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` för att serialisera en Runbook till en sträng:
 
 ```csharp
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
-Den här strängen kan sparas till en fil med det **.graphrunbook** tillägget och den här filen kan importeras till Azure Automation.
-Det serialiserade formatet kan ändras i framtida versioner av `Orchestrator.GraphRunbook.Model.dll`. Vi lovar att bakåtkompatibilitet: alla runbook serialiseras med en äldre version av `Orchestrator.GraphRunbook.Model.dll` kan deserialiseras av en nyare version. Framåtkompatibilitet är inte säkert: en runbook som serialiseras med en nyare version är kanske inte deserialiseras av äldre klientversioner.
+Den här strängen kan sparas i en fil med fil namns tillägget **. graphrunbook** och filen kan importeras till Azure Automation.
+Det serialiserade formatet kan ändras i framtida versioner av `Orchestrator.GraphRunbook.Model.dll`. Vi lovar bakåtkompatibilitet: alla Runbook-versioner som serialiseras med en äldre version av `Orchestrator.GraphRunbook.Model.dll` kan avserialiseras med en senare version. Forward-kompatibilitet är inte garanterad: en Runbook som serialiseras med en nyare version kan inte deserialiseras av äldre versioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om grafiska Runbooks i Azure Automation i [grafisk redigering introduktion](automation-graphical-authoring-intro.md)
+Mer information om grafiska runbooks i Azure Automation finns i [Introduktion till grafisk redigering](automation-graphical-authoring-intro.md)
 

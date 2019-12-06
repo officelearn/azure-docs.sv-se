@@ -2,18 +2,18 @@
 title: Felsöka fel med Azure Automation delade resurser
 description: Lär dig hur du felsöker problem med Azure Automation delade resurser
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9313b042433489307a2bd2822a96d1e0e127362b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231536"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849300"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
 
@@ -31,7 +31,7 @@ En modul fastnar i **import** tillstånd när du importerar eller uppdaterar din
 
 Importera PowerShell-moduler är en komplex process med flera steg. Den här processen beskriver möjligheten för en modul som inte importeras korrekt. Om det här problemet uppstår kan modulen som du importerar fastna i ett tillfälligt tillstånd. Mer information om den här processen finns i [Importera en PowerShell-modul](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 För att lösa det här problemet måste du ta bort modulen som fastnar i **import** tillstånd med hjälp av cmdleten [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule) . Sedan kan du försöka importera modulen igen.
 
@@ -53,7 +53,7 @@ Azure modules are being updated
 
 Det finns ett känt problem med att uppdatera AzureRM-modulerna i ett Automation-konto som finns i en resurs grupp med ett numeriskt namn som börjar med 0.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Om du vill uppdatera dina Azure-moduler i ditt Automation-konto måste det finnas i en resurs grupp som har ett alfanumeriskt namn. Resurs grupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler för tillfället.
 
@@ -72,7 +72,7 @@ Några vanliga orsaker till att en modul inte kan importeras till Azure Automati
 * Dess beroenden saknas i mappen.
 * `New-AzureRmAutomationModule` cmdlet används för att ladda upp modulen och du har inte gett den fullständiga lagrings Sök vägen eller inte har läst in modulen genom att använda en offentligt tillgänglig URL.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Någon av följande lösningar löser problemet:
 
@@ -90,7 +90,7 @@ När du använder [Update-AzureModule. ps1](https://github.com/azureautomation/r
 
 Standardinställningen för att avgöra hur många moduler som uppdateras samtidigt är 10 när du använder `Update-AzureModule.ps1`-skriptet. Uppdaterings processen är känslig för fel när för många moduler uppdateras samtidigt.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Det är inte vanligt att alla AzureRM-moduler krävs i samma Automation-konto. Vi rekommenderar att du bara importerar de AzureRM-moduler som du behöver.
 
@@ -132,7 +132,7 @@ You do not have permissions to create…
 
 Du har inte de behörigheter som du behöver för att skapa eller uppdatera kör som-kontot eller så är resursen låst på en resurs grupps nivå.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Om du vill skapa eller uppdatera ett Kör som-konto måste du ha nödvändig behörighet för de olika resurser som används av kör som-kontot. Mer information om de behörigheter som krävs för att skapa eller uppdatera ett Kör som-konto finns i [behörigheter för kör som-konto](../manage-runas-account.md#permissions).
 
@@ -152,7 +152,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 Det här felet beror sannolikt på ett felaktigt konfigurerat [Kör som-konto](../manage-runas-account.md).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Kontrol lera att [Kör som-kontot](../manage-runas-account.md) har kon figurer ATS korrekt. När den har kon figurer ATS korrekt ser du till att du har rätt kod i din Runbook för att autentisera med Azure. I följande exempel visas ett kod avsnitt för att autentisera till Azure i en Runbook med hjälp av ett Kör som-konto.
 

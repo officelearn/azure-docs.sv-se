@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du hanterar Kör som-konton med Pow
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690882"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849538"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -50,7 +50,7 @@ Om du vill skapa eller uppdatera ett Kör som-konto måste du ha vissa behörigh
 |Skapa Azure AD-program|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Programutvecklare, roll<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory registrering av >-appar |
 |Lägg till en autentiseringsuppgift i programmet.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Program administratör eller GLOBAL administratör<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory registrering av >-appar|
 |Skapa och hämta en Azure AD-tjänstens huvud namn|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Program administratör eller GLOBAL administratör<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory registrering av >-appar|
-|Tilldela eller hämta RBAC-rollen för det angivna huvudobjektet|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Du måste ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Eller var:</br></br>Administratör för användar åtkomst eller ägare        | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \<subscription namn \>-Access Control (IAM)|
+|Tilldela eller hämta RBAC-rollen för det angivna huvudobjektet|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Du måste ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Eller var:</br></br>Administratör för användar åtkomst eller ägare        | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \<prenumerations namn\>-Access Control (IAM)|
 |Skapa eller ta bort ett Automation-certifikat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Deltagare i resurs gruppen         |Resurs grupp för Automation-konto|
 |Skapa eller ta bort en Automation-anslutning|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Deltagare i resurs gruppen |Resurs grupp för Automation-konto|
 
@@ -372,7 +372,7 @@ Du förnyar certifikatet genom att göra följande:
 
 Om du vill förnya certifikat automatiskt kan du använda en Automation-Runbook. Följande skript på [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) aktiverar den här funktionen i ditt Automation-konto.
 
-- @No__t_0 skriptet skapar ett vecko schema för att förnya kör som-konto certifikat.
+- `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` skriptet skapar ett vecko schema för att förnya kör som-konto certifikat.
 - Skriptet lägger till en **Update-AutomationRunAsCredential** Runbook till ditt Automation-konto.
   - Du kan också Visa Runbook-koden på GitHub i skriptet: [Update-AutomationRunAsCredential. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
   - Du kan också använda PowerShell-koden i filen om du vill förnya certifikat manuellt vid behov.
@@ -422,7 +422,7 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-För att avgöra om tjänstens huvud namn som används av ditt kör som-konto finns i **deltagaren** eller en anpassad roll definition går du till ditt Automation-konto och under **konto inställningar**väljer du **Kör som-konton**  >  kör**som-konto i Azure**. Under **roll** hittar du den roll definition som används.
+För att avgöra om tjänstens huvud namn som används av ditt kör som-konto finns i **deltagaren** eller en anpassad roll definition går du till ditt Automation-konto och under **konto inställningar**väljer du **Kör som-konton** > kör **som-konto i Azure**. Under **roll** hittar du den roll definition som används.
 
 [![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
@@ -435,7 +435,7 @@ Om du vill tillåta Azure Automation hantera Key Vault och ditt kör som-konto-t
 * Bevilja behörighet till Key Vault
 * Ange åtkomst principen
 
-Du kan använda skriptet [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault. ps1](https://aka.ms/AA5hugb) i PowerShell-galleriet för att ge ditt kör som-konto behörigheter till nyckel valv, eller så kan du gå till [bevilja program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md) för mer information om inställningar behörigheter för nyckel valv.
+Du kan använda skriptet [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault. ps1](https://aka.ms/AA5hugb) i PowerShell-galleriet för att ge ditt kör som-konto behörigheter till nyckel valv, eller så kan du gå till [ge program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md) för mer information om inställningar för inställningar i nyckel valv.
 
 ## <a name="misconfiguration"></a>Felaktig konfiguration
 

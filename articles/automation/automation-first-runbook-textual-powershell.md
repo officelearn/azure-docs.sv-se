@@ -5,17 +5,17 @@ keywords: azure powershell, självstudier i powershell-skript, powershell-automa
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae9daaf797d3d82200ee094b63bad1f5c1ff68cc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743825"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850881"
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 
@@ -27,13 +27,13 @@ ms.locfileid: "70743825"
 
 Den här självstudien beskriver steg för steg hur du skapar en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) i Azure Automation. Du börjar med en enkel Runbook som du testar och publicerar medan du lär dig hur du spårar statusen för Runbook-jobbet. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Slutligen gör du runbooken mer robust genom att lägga till Runbook-parametrar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto för Azure](automation-quickstart-create-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
-* En virtuell dator i Azure. Du stoppar och startar datorn så att den inte ska vara en virtuell produktions dator.
+* En virtuell dator i Azure. du stoppar och startar datorn så att den inte ska vara en virtuell produktions dator.
 * Du kan behöva [Uppdatera dina Azure-moduler](automation-update-azure-modules.md) baserat på de cmdlets du använder.
 
 ## <a name="create-new-runbook"></a>Skapa ny Runbook
@@ -134,7 +134,7 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
    ```
 
 1. Öppna text redigeraren genom att klicka på **redigera** på MyFirstRunbook-PowerShell-sidan.
-1. Du behöver inte längre **Skriv resultatet** , så gå vidare och ta bort den.
+1. du behöver inte längre **Skriv resultatet** , så gå vidare och ta bort den.
 1. Skriv eller kopiera och klistra in följande kod som hanterar autentiseringen med ditt ”Kör som”-konto för Automation:
 
    ```powershell
@@ -167,7 +167,7 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
 
 ## <a name="add-code-to-start-a-virtual-machine"></a>Lägg till kod för att starta en virtuell dator
 
-Nu när din Runbook autentiseras till din Azure-prenumeration kan du hantera resurser. Du lägger till ett kommando för att starta en virtuell dator. Du kan välja vilken virtuell dator som helst i din Azure-prenumeration och nu hårdkoda du det namnet i runbooken.
+Nu när din Runbook autentiseras till din Azure-prenumeration kan du hantera resurser. du lägger till ett kommando för att starta en virtuell dator. Du kan välja vilken virtuell dator som helst i din Azure-prenumeration och nu hårdkoda du det namnet i runbooken.
 
 1. Efter *Connect-AzureRmAccount*skriver du *Start-AzureRmVM-Name "VMName"-ResourceGroupName "NameofResourceGroup"* och anger namn och resurs grupp namn för den virtuella datorn som ska startas.
 

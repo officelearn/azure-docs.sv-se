@@ -2,13 +2,13 @@
 title: Uppdatera en befintlig tilldelning från portalen
 description: Lär dig mer om mekanismen för att uppdatera en befintlig skiss tilldelning från portalen i Azure-ritningar.
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406380"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873173"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skiss tilldelning
 

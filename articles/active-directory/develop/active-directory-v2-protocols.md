@@ -2,28 +2,24 @@
 title: Läs mer om de Authorization-protokoll som stöds av Microsoft Identity Platform | Azure
 description: En guide till OAuth 2,0-och OpenID Connect-protokoll som stöds av Microsoft Identity Platform-slutpunkten.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 50f2b4d5da2cdda35de0adc5dc646065f2b64a41
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835287"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844710"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protokoll för Microsoft Identity Platform
 
@@ -43,12 +39,12 @@ I nästan alla OAuth 2,0-och OpenID Connect-flöden finns det fyra parter som in
 * **OAuth-klienten** är din app som identifieras av dess program-ID. OAuth-klienten är vanligt vis den part som slutanvändaren interagerar med och den begär token från auktoriseringsservern. Klienten måste beviljas behörighet att få åtkomst till resursen av resurs ägaren.
 * **Resurs servern** är den plats där resursen eller data finns. Den litar på Auktoriseringsservern för att på ett säkert sätt autentisera och auktorisera OAuth-klienten, och använder sig av Bearer-åtkomsttoken för att säkerställa att åtkomst till en resurs kan beviljas.
 
-## <a name="app-registration"></a>Registrera appar
+## <a name="app-registration"></a>Appregistrering
 
 Varje app som vill acceptera både personliga konton och arbets-eller skol konton måste registreras via **Appregistreringar** -upplevelsen i [Azure Portal](https://aka.ms/appregistrations) innan de kan signera dessa användare i med hjälp av OAuth 2,0 eller OpenID Connect. Registrerings processen för appen samlar in och tilldelar några värden till appen:
 
 * Ett **program-ID** som unikt identifierar din app
-* En omdirigerings- **URI** (valfritt) som kan användas för att dirigera svar tillbaka till din app
+* En **omdirigerings-URI** (valfritt) som kan användas för att dirigera svar tillbaka till din app
 * Några andra scenario-/regionsspecifika värden.
 
 Om du vill ha mer information lär du dig hur du [registrerar en app](quickstart-register-app.md).
@@ -62,7 +58,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-`{tenant}` Där kan ett av fyra olika värden göras:
+Där `{tenant}` kan ha ett av fyra olika värden:
 
 | Värde | Beskrivning |
 | --- | --- |
@@ -80,7 +76,7 @@ Om du vill lära dig hur du interagerar med dessa slut punkter väljer du en vis
 
 Microsoft Identity Platform-implementeringen av OAuth 2,0 och OpenID Connect gör en omfattande användning av Bearer-token, inklusive Bearer-token som representeras som JWTs. En Bearer-token är en förenklad säkerhetstoken som ger "Bearer"-åtkomst till en skyddad resurs. I detta mening är "innehavare" en part som kan presentera token. Även om en part först måste autentisera med Microsoft Identity Platform för att ta emot Bearer-token, om de nödvändiga stegen inte vidtas för att skydda token i överföring och lagring, kan den fångas upp och användas av en ej avsedd part. Även om vissa säkerhetstoken har en inbyggd mekanism för att förhindra att obehöriga parter använder dem, har inte Bearer-token denna mekanism och måste transporteras i en säker kanal, till exempel Transport Layer Security (HTTPS). Om en Bearer-token överförs i klartext kan en angripare använda en person-i-ett-mellan-angrepp för att hämta token och använda den för obehörig åtkomst till en skyddad resurs. Samma säkerhets principer gäller när du lagrar eller cachelagrar Bearer-token för senare användning. Se alltid till att appen skickar och lagrar Bearer-token på ett säkert sätt. Mer information om säkerhets aspekter på Bearer-token finns i [RFC 6750 avsnitt 5](https://tools.ietf.org/html/rfc6750).
 
-Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns i [referens för Microsoft Identity Platform](v2-id-and-access-tokens.md)-slutpunktens token.
+Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns i [referens för Microsoft Identity Platform-slutpunktens token](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protokoll
 

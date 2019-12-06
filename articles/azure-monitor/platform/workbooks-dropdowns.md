@@ -1,5 +1,5 @@
 ---
-title: Läs mer om List Rute parametrar för Azure Monitor boken | Microsoft-dokument
+title: Parametrar för List rutan Azure Monitor arbets bok
 description: Förenkla komplex rapportering med färdiga och anpassade parameterstyrda arbets böcker som innehåller List parametrar
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 20a1c5f4b4ef12f81e801769a2ee1b5f08860e38
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: df30b71e6ec9e982988ed75b187db08255e24b61
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165217"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872884"
 ---
 # <a name="workbook-drop-down-parameters"></a>List Rute parametrar för arbets bok
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077122"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851782"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -34,7 +34,7 @@ Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna 
 
 Policyn för livs cykel hantering är tillgänglig med Generell användning v2-konton (GPv2), Blob Storage-konton och Premium Block Blob Storage-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).  
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Funktionen för livs cykel hantering är kostnads fri. Kunderna debiteras den vanliga drift kostnaden för [list-blobar](https://docs.microsoft.com/rest/api/storageservices/list-blobs) och [ställer in](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anrop på BLOB-nivå. Borttagnings åtgärden är kostnads fri. Mer information om priser finns i [Block-Blob-prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -46,15 +46,17 @@ Funktionen för livs cykel hantering är tillgänglig i alla Azure-regioner.
 
 Du kan lägga till, redigera eller ta bort en princip med någon av följande metoder:
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure-portalen](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST API:er](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.  
+En princip kan läsas eller skrivas fullständigt. Del uppdateringar stöds inte. 
 
 > [!NOTE]
 > Om du aktiverar brand Väggs regler för ditt lagrings konto kan begäran om livs cykel hantering blockeras. Du kan avblockera dessa förfrågningar genom att tillhandahålla undantag för betrodda Microsoft-tjänster. Mer information finns i avsnittet undantag i [Konfigurera brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.  
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
@@ -232,10 +234,10 @@ Varje regel i principen har flera parametrar:
 
 | Parameternamn | Parameter typ | Anteckningar | Krävs |
 |----------------|----------------|-------|----------|
-| `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | True |
-| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | False | 
-| `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle`. | True |
-| `definition`   | Ett objekt som definierar livs cykel regeln | Varje definition består av en filter uppsättning och en åtgärds uppsättning. | True |
+| `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
+| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
+| `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle`. | Sant |
+| `definition`   | Ett objekt som definierar livs cykel regeln | Varje definition består av en filter uppsättning och en åtgärds uppsättning. | Sant |
 
 ## <a name="rules"></a>Regler
 
@@ -282,9 +284,9 @@ Följande exempel regel filtrerar kontot för att köra åtgärder på objekt so
 
 Filtrerar begränsnings regel åtgärder till en delmängd av blobbar i lagrings kontot. Om fler än ett filter definieras körs ett logiskt `AND` på alla filter.
 
-Filtren inkluderar:
+Filtren är:
 
-| Filter namn | Filter typ | Anteckningar | Krävs |
+| Filternamn | Filtertyp | Anteckningar | Krävs |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
 | prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo`. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Nej |
@@ -427,7 +429,7 @@ För data som ändras och används regelbundet under hela livs längden används
 }
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 **Jag skapade en ny princip, varför körs inte åtgärderna direkt?**  
 Plattformen kör livs cykel principen en gång om dagen. När du har konfigurerat en princip kan det ta upp till 24 timmar innan vissa åtgärder körs för första gången.  

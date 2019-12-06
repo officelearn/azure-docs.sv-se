@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1588a27453dbc223e6aa1dd993905d274e5e1242
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480339"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851340"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -74,7 +74,7 @@ Mer information finns i [Azure-prenumerationer](https://docs.microsoft.com/azure
 Välj den region eller det [geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill skapa ett Azure IoT Central-program. Normalt bör du välja den region som är närmast fysiskt till dina enheter för att få optimala prestanda.
 
 > [!NOTE]
-> För hands versions programmen är för närvarande endast tillgängliga på platserna **Europa** och **USA** .
+> För hands versions programmen är för närvarande endast tillgängliga i **Europa** och **USA** platser.
 
 Mer information finns i [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/) och [Azure-geografiska](https://azure.microsoft.com/global-infrastructure/geographies/)områden.
 

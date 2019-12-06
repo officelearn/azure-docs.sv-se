@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167858"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842789"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användar etablering
 
@@ -164,7 +164,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-8. Klicka på **Spara**.
+8. Klicka på **Save** (Spara).
 
 9. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till G Suite**.
 
@@ -178,7 +178,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![G grupp mappningar för Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Granska gruppattributen som synkroniseras från Azure AD till G Suite i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i G Suite för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+12. Granska gruppattributen som synkroniseras från Azure AD till G Suite i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i G Suite för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna. Användar gränssnittet visar standard uppsättningen mappningar mellan Azure AD och G Suite. Du kan välja att lägga till ytterligare attribut som org Unit genom att klicka på Lägg till ny mappning. 
 
     ![Attribut för G Suite-grupp](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -204,6 +204,9 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 * [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+
+## <a name="common-issues"></a>Vanliga problem
+* Auktoriseringsfel kan uppstå när kontot som används för att upprätta en anslutning inte är för en administratör i GSuite. Kontrol lera att det konto som används för att auktorisera åtkomst har administratörs behörighet för **alla domäner** som användare måste tillhandahålla. 
 
 ## <a name="next-steps"></a>Nästa steg
 

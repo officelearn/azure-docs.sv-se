@@ -2,29 +2,25 @@
 title: Tränings guide för över gång från Appregistreringar (äldre) till den nya Appregistreringar upplevelsen i Azure Portal
 description: En introduktion till den nya appens registrerings upplevelse i Azure Portal
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01d543262a9eb358643c0860b24ac4306d2c5edf
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927098"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844268"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Över gång från Appregistreringar (äldre) till den nya Appregistreringar upplevelsen i Azure Portal
+# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Övergå från Appregistreringar (föråldrad) till den nya Appregistreringar-miljön i Azure Portal
 
 Du kan hitta många förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelsen i Azure Portal. Om du är bekant med Appregistreringar (äldre) i Azure Portal använder du den här utbildnings guiden för att komma igång med den nya upplevelsen.
 
@@ -47,7 +43,7 @@ I listan med nya appar visas program som har registrerats via den äldre appens 
 
 Den nya applistan har ingen **program typ** kolumn eftersom det kan finnas flera typer av registreringar för en enda app. Listan har två ytterligare kolumner: **skapad på** och **certifikat & hemligheter**. **Certifikat & hemligheter** visar status för de autentiseringsuppgifter som har registrerats i appen. Status är **aktuell**, **förfaller snart**och **har upphört att gälla**.
 
-## <a name="new-app-registration"></a>Ny app-registrering
+## <a name="new-app-registration"></a>Ny appregistrering
 
 I den tidigare versionen av kan du registrera en app som du krävde för att tillhandahålla: **namn**, **program typ**och **inloggnings-URL/omdirigerings-URI**. Appar som har skapats var endast Azure AD-program med en klient. De har endast stöd för organisations konton från katalogen som appen registrerades i.
 
@@ -67,7 +63,7 @@ Den tidigare versionen hade en **egenskaps** sida. **Egenskaperna** innehåller 
 - **URL för start sidan**
 - **Utloggnings-URL**
 - **URL för tjänst villkor**
-- **URL för sekretess policy**
+- **URL för sekretesspolicy**
 - **Programtyp**
 - **Flera innehavare**
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420757"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848756"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -146,7 +146,7 @@ Om du aktiverar användningen av både meddelanden via mobilappen och verifierin
 
 ### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
 
-Microsoft Authenticator app eller andra appar från tredje part kan användas som en programvarubaserad token för att generera en OATH-verifierings kod. När du har angett ditt användar namn och lösen ord anger du koden från appen till inloggnings skärmen. Verifierings koden innehåller en andra form av autentisering.
+Microsoft Authenticator app eller andra appar från tredje part kan användas som en programvarubaserad token för att generera en OATH-verifierings kod. När du har angett ditt användar namn och lösen ord anger du koden från appen till inloggnings skärmen. Verifieringskoden utgör en andra form av autentisering.
 
 > [!WARNING]
 > För lösen ords återställning via självbetjäning när endast en metod krävs för att återställa verifierings koden är det enda alternativet som användarna kan använda för att **säkerställa den högsta säkerhets nivån**.
@@ -208,7 +208,7 @@ Ett automatiskt röst samtal görs till det telefonnummer som du anger. Besvara 
 > [!IMPORTANT]
 > Från och med mars 2019 kommer Telefonsamtals alternativen inte att vara tillgängliga för MFA-och SSPR-användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtalet fortsätter att vara tillgängligt för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnads fria/utvärderings versioner av Azure AD.
 
-### <a name="office-phone"></a>Arbets telefon
+### <a name="office-phone"></a>Arbetstelefon
 
 Ett automatiskt röst samtal görs till det telefonnummer som du anger. Besvara anropet och tryck på # i telefon tangent bordet för att autentisera.
 

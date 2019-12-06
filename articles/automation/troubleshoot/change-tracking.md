@@ -4,23 +4,23 @@ description: Den här artikeln innehåller information om hur du felsöker Ändr
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564853"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849402"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Felsöka ändringsspårning och inventering
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Situationen Ändringsspårning poster visas inte för Windows-datorer
+### <a name="records-not-showing-windows"></a>Scenario: Ändringsspårning poster visas inte för Windows-datorer
 
 #### <a name="issue"></a>Problem
 
@@ -35,7 +35,7 @@ Det här felet kan orsakas av följande orsaker:
 3. Hanterings paketen för Ändringsspårning laddas inte ned.
 4. Den virtuella dator som har publicerats kan ha kommit från en klonad dator som inte var Sysprep med Microsoft Monitoring Agent installerad.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 1. Kontrol lera att **Microsoft Monitoring Agent** (HealthService. exe) körs på datorn.
 1. Kontrol lera **Loggboken** på datorn och leta efter händelser som har ordet `changetracking` i dem.
@@ -48,7 +48,7 @@ Det här felet kan orsakas av följande orsaker:
 
 Om dessa lösningar inte löser problemet och du kontaktar supporten kan du köra följande kommandon för att samla in diagnostiken på agenten
 
-På agent datorn navigerar du till `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` och kör följande kommandon:
+Gå till `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` på agent datorn och kör följande kommandon:
 
 ```cmd
 net stop healthservice
@@ -58,7 +58,7 @@ net start healthservice
 ```
 
 > [!NOTE]
-> Som standard är fel spårning aktive rad, om du vill aktivera utförliga fel meddelanden som i föregående exempel använder `VER` du parameter. För informations spår använder `INF` du när du anropar. `StartTracing.cmd`
+> Som standard är fel spårning aktive rad. om du vill aktivera utförliga fel meddelanden som i föregående exempel använder du `VER` parameter. Använd `INF` när du anropar `StartTracing.cmd`för informations spår.
 
 ## <a name="next-steps"></a>Nästa steg
 

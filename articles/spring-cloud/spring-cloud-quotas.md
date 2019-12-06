@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 41a2b1a7d9aa5089ba2ee73cd3c5c5c5e31f5225
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0518b13ea228b4834a095a9bf126b131e70a5f45
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607673"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851561"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Kvoter och service planer för Azure våren Cloud
 
@@ -23,13 +23,12 @@ Den här artikeln beskriver de tjänst kvoter som erbjuds under den aktuella fö
 
 Under för hands versions perioden erbjuder Azure våren Cloud bara en tjänst nivå.
 
-Resurs | Belopp
+Resurs | Mängd
 ------- | -------
-Virtuell processor | 4
-Minne | 8 GBytes
-Azure våren Cloud-prenumeration | 1
-Azure våren Cloud Service-instanser per region per prenumeration | 2
-Totalt antal App-instanser per Azure våren Cloud Service-instans | 50
+vCPU | 4 per tjänst instans
+Minne | 8 GBytes per tjänst instans
+Azure våren Cloud Service-instanser per region per prenumeration | 10
+Totalt antal App-instanser per Azure våren Cloud Service-instans | 500
 Totalt antal App-instanser per våren-program | 20
 Beständiga volymer | 10 x 50 GBytes
 

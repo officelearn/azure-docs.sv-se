@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786714"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847226"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapporterings alternativ för lösen ords hantering i Azure AD
 
@@ -81,7 +81,7 @@ Följande aktivitets typer visas i händelse kategorin granskning av **lösen or
 * [Återställ lösen ord (av administratör)](#activity-type-reset-password-by-admin): anger att en administratör utförde ett lösen ords återställning för en användares räkning från Azure Portal.
 * [Återställ lösen ord (självbetjäning)](#activity-type-reset-password-self-service): anger att en användare har återställt sitt lösen ord från [Azure AD-portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com).
 * [Förlopp för återställning av lösen ord för självbetjäning](#activity-type-self-serve-password-reset-flow-activity-progress): anger varje enskilt steg som en användare går igenom, till exempel att skicka en speciell port för autentisering av lösen ords återställning, som en del av processen för lösen ords återställning.
-* [Lås upp användar konto (självbetjäning)](#activity-type-unlock-a-user-account-self-service)): visar att en användare har låst upp Active Directory-kontot utan att återställa sitt lösen ord från [Azure AD-portalen för återställning av lösen](https://passwordreset.microsoftonline.com) ord med hjälp av funktionen Active Directory för upplåsning av konto utan återställning.
+* [Lås upp användar konto (självbetjäning)](#activity-type-unlock-a-user-account-self-service)): visar att en användare har låst upp Active Directory-kontot utan att återställa sitt lösen ord från [Azure AD-portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com) med hjälp av funktionen Active Directory för att låsa upp kontot utan att återställa.
 * [Användare som registrerats för självbetjäning för återställning av lösen ord](#activity-type-user-registered-for-self-service-password-reset): visar att en användare har registrerat all nödvändig information för att kunna återställa sina lösen ord i enlighet med den aktuella angivna principen för lösen ords återställning för innehavare.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Aktivitets typ: blockerad från lösen ords återställning via självbetjäning

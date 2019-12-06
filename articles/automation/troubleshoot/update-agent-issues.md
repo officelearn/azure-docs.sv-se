@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763665"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850133"
 ---
 # <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Förstå Windows Hybrid Runbook Worker-hälso tillståndet i Uppdateringshantering
 
@@ -29,7 +29,7 @@ Följande lista är de tre beredskaps tillstånd som en dator kan vara i:
 > [!NOTE]
 > Det kan uppstå en liten fördröjning mellan det Azure Portal visar och datorns aktuella tillstånd.
 
-## <a name="start-the-troubleshooter"></a>Starta fel sökaren
+## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
 För Azure-datorer öppnar du sidan Felsök **uppdaterings agent** genom att klicka på länken **Felsök** i kolumnen **Uppdatera agent beredskap** i portalen. För datorer som inte är Azure-datorer går länken till den här artikeln. Se [offline-instruktionerna](#troubleshoot-offline) för att felsöka en dator som inte är en Azure-dator.
 
@@ -46,7 +46,7 @@ Resultaten visas på sidan när de är klara. I avsnittet kontroller visas vad s
 
 ![Felsök uppdateringar av agent kontroller](../media/update-agent-issues/update-agent-checks.png)
 
-## <a name="prerequisite-checks"></a>Krav kontroller
+## <a name="prerequisite-checks"></a>Nödvändiga kontroller
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -61,27 +61,27 @@ Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av f�
 
 .NET Framework kontrollen verifierar att systemet har minst [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) installerat.
 
-### <a name="wmf-51"></a>WMF 5,1
+### <a name="wmf-51"></a>WMF 5.1
 
 WMF-kontrollen verifierar att systemet har den version av Windows Management Framework (WMF) som krävs – [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
-### <a name="tls-12"></a>TLS 1,2
+### <a name="tls-12"></a>TLS 1.2
 
 Den här kontrollen avgör om du använder TLS 1,2 för att kryptera din kommunikation. TLS 1,0 stöds inte längre av plattformen. Vi rekommenderar att klienter använder TLS 1,2 för att kommunicera med Uppdateringshantering.
 
-## <a name="connectivity-checks"></a>Anslutnings kontroller
+## <a name="connectivity-checks"></a>Anslutningskontroller
 
-### <a name="registration-endpoint"></a>Registrerings slut punkt
+### <a name="registration-endpoint"></a>Registreringsslutpunkt
 
 Den här kontrollen avgör om agenten kan kommunicera korrekt med Agent tjänsten.
 
-Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med registrerings slut punkten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med slutpunkten för registrering. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="operations-endpoint"></a>Åtgärds slut punkt
+### <a name="operations-endpoint"></a>Operations-slutpunkt
 
 Den här kontrollen avgör om agenten kan kommunicera korrekt med jobbets körnings data tjänst.
 
-Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med jobb körnings data tjänsten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med tjänsten jobbet Runtime Data. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Hälso kontroller för VM-tjänst
 

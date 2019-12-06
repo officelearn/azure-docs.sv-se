@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 33ee7351e547ee5ef57ef07f67ba6f5f4410b57f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 152b9f3974f24644e55bed68f5ed65faa90d7fe7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384148"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851663"
 ---
 # <a name="virtual-network-service-tags"></a>Tjänst taggar för virtuellt nätverk 
 <a name="network-service-tags"></a>
@@ -51,6 +51,7 @@ Som standard återspeglar service märken intervallen för hela molnet.  Vissa s
 | **AzureContainerRegistry** | Azure Container Registry tjänst. | Utgående | Ja | Ja |
 | **AzureCosmosDB** | Azure Cosmos Database-tjänst. | Utgående | Ja | Ja |
 | **AzureDataLake** | Azure Data Lake tjänst. | Utgående | Nej | Ja |
+| **AzureHDInsight** | Tjänsten Azure HDInsight. | Inkommande | Ja | Nej |
 | **AzureIoTHub** | Azure IoT Hub-tjänsten. | Utgående | Nej | Nej |
 | **AzureKeyVault** | Azure-tjänsten för nyckel valv.<br/><br/>*Obs:* Den här taggen har ett beroende av **AzureActiveDirectory** -taggen. | Utgående | Ja | Ja |
 | **AzureLoadBalancer** | Azures belastnings utjämning för infrastruktur. Taggen översätts till [värdens virtuella IP-adress](security-overview.md#azure-platform-considerations) (168.63.129.16) som Azures hälsoavsökningar kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare. | Båda | Nej | Nej |
@@ -67,12 +68,12 @@ Som standard återspeglar service märken intervallen för hela molnet.  Vissa s
 | **GatewayManager** | Hanterings trafik för VPN/app Gateway-dedikerade distributioner. | Inkommande | Nej | Nej |
 | **E** | IP-adressutrymmet som ligger utanför det virtuella nätverket och som kan användas av det offentliga Internet.<br/><br/>Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Båda | Nej | Nej |
 | **MicrosoftContainerRegistry** | Microsoft Container Registry-tjänsten. | Utgående | Ja | Ja |
-| **Service Bus** | Azure Service Bus tjänsten med Premium-tjänstens nivå. | Utgående | Ja | Ja |
+| **ServiceBus** | Azure Service Bus tjänsten med Premium-tjänstens nivå. | Utgående | Ja | Ja |
 | **ServiceFabric** | Service Fabric tjänst. | Utgående | Nej | Nej |
 | **SQL** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL och Azure SQL Data Warehouse-tjänster.<br/><br/>*Obs:* Den här taggen representerar tjänsten, men inte vissa instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. | Utgående | Ja | Ja |
 | **SqlManagement** | Hanterings trafik för dedikerade SQL-distributioner. | Båda | Nej | Ja |
 | **Storage** | Azure Storage tjänst. <br/><br/>*Obs:* Taggen representerar tjänsten, men inte vissa instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. | Utgående | Ja | Ja |
-| **VirtualNetwork** | Det virtuella nätverkets adress utrymme (alla IP-adressintervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk eller virtuella nätverk som är anslutna till en [virtuell](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)nätverksgateway, den [virtuella IP-adressen adressen till värd](security-overview.md#azure-platform-considerations) -och adressprefix som används på [användardefinierade vägar](virtual-networks-udr-overview.md). Tänk på att den här taggen även kan innehålla standard vägar. | Båda | Nej | Nej |
+| **VirtualNetwork** | Det virtuella nätverkets adress utrymme (alla IP-adressintervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk eller virtuella nätverk som är anslutna till en [virtuell](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)NÄTVERKSGATEWAY, den [virtuella IP-adressen för den värd och de](security-overview.md#azure-platform-considerations) adressprefix som används för [användardefinierade vägar](virtual-networks-udr-overview.md). Tänk på att den här taggen även kan innehålla standard vägar. | Båda | Nej | Nej |
 
 >[!NOTE]
 >När du arbetar i den *klassiska* (före Azure Resource Manager) miljön stöds en SELECT-uppsättning av ovanstående taggar.  Dessa använder en alternativ stavning:

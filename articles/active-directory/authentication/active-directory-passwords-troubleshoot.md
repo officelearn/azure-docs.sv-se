@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b72f0675569ea6f683e8e1f8d2e4bc468f82c71f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a22c0cc922e021edc37dfbb2d89fdd20c77b2c87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382037"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848773"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösen ords återställning via självbetjäning
 
@@ -25,7 +25,7 @@ Har du problem med Azure Active Directory (Azure AD) självbetjäning för åter
 
 ## <a name="troubleshoot-self-service-password-reset-errors-that-a-user-might-see"></a>Felsöka fel vid återställning av lösen ord för självbetjäning som en användare kan se
 
-| Fel | Detaljer | Teknisk information |
+| Fel | Information | Teknisk information |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Du kan tyvärr inte återställa ditt lösen ord just nu eftersom din administratör har inaktiverat lösen ords återställning för din organisation. Det finns ingen ytterligare åtgärd som du kan vidta för att lösa den här situationen. Kontakta administratören och be dem att aktivera den här funktionen. Mer information finns i [hjälp, jag har glömt mitt Azure AD-lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: vi har upptäckt att lösen ords återställning inte har Aktiver ATS av administratören. Kontakta din administratör och be dem att aktivera återställning av lösen ord för din organisation. |
 | WritebackNotEnabled = 10 |Du kan tyvärr inte återställa ditt lösen ord just nu eftersom administratören inte har aktiverat en nödvändig tjänst för din organisation. Det finns ingen ytterligare åtgärd som du kan vidta för att lösa den här situationen. Kontakta din administratör och be dem att kontrol lera din organisations konfiguration. Mer information om den här nödvändiga tjänsten finns i [Konfigurera tillbakaskrivning av lösen ord](howto-sspr-writeback.md). | SSPR_0010: vi har upptäckt att tillbakaskrivning av lösen ord inte har Aktiver ATS. Kontakta din administratör och be dem att aktivera tillbakaskrivning av lösen ord. |
@@ -97,7 +97,7 @@ Ett bra tips när du felsöker problem med tillbakaskrivning av lösen ord är a
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Om händelsens källa är ADSync
 
-| Kod | Namn eller meddelande | Beskrivning |
+| Programmera | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 6329 | BAIL: MMS (4924) 0x80230619: "en begränsning förhindrar att lösen ordet ändras till den aktuella som anges." | Den här händelsen inträffar när tjänsten för tillbakaskrivning av lösen ord försöker att ange ett lösen ord för din lokala katalog som inte uppfyller lösen ordets ålder, historik, komplexitet eller filtrerings krav för domänen. <br> <br> Om du har en lägsta ålder för lösen ord och nyligen har ändrat lösen ordet inom tids perioden kan du inte ändra lösen ordet igen förrän det når den angivna åldern i din domän. För test ändamål ska den lägsta åldern anges till 0. <br> <br> Om du har krav på lösen ords historik aktive rad måste du välja ett lösen ord som inte har använts under de senaste *N* tiderna, där *n* är inställningen för lösen ords historik. Om du väljer ett lösen ord som har använts under de senaste *N* tiderna visas ett problem i det här fallet. I test syfte ska lösen ords historiken anges till 0. <br> <br> Om du har krav på lösen ords komplexitet tillämpas alla dem när användaren försöker ändra eller återställa ett lösen ord. <br> <br> Om du har aktiverat lösen ords filter och en användare väljer ett lösen ord som inte uppfyller filtrerings villkoren, Miss lyckas återställnings-eller ändrings åtgärden. |
 | 6329 | MMS (3040): admaexport. cpp (2837): servern innehåller inte princip kontrollen för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontroll (1.2.840.113556.1.4.2066) inte är aktive rad i domänkontrollanten. Om du vill använda funktionen för tillbakaskrivning av lösen ord måste du aktivera kontrollen. För att göra det måste DCs vara på Windows Server 2008R2 eller senare. |
@@ -105,7 +105,7 @@ Ett bra tips när du felsöker problem med tillbakaskrivning av lösen ord är a
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Om händelsens källa är PasswordResetService
 
-| Kod | Namn eller meddelande | Beskrivning |
+| Programmera | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Den här händelsen indikerar att den lokala tjänsten har identifierat en begäran om lösen ords återställning för en federerad, direktautentisering eller en lösenordsskyddad användare som kommer från molnet. Den här händelsen är den första händelsen vid varje tillbakaskrivning av lösen ords återställning. |
 | 31002 | PasswordResetSuccess | Den här händelsen anger att en användare har valt ett nytt lösen ord under en åtgärd för lösen ords återställning. Vi har fastställt att det här lösen ordet uppfyller företagets lösen ords krav. Lösen ordet har skrivits tillbaka till den lokala Active Directorys miljön. |
@@ -127,7 +127,7 @@ Ett bra tips när du felsöker problem med tillbakaskrivning av lösen ord är a
 | 31018| KeyPairCreationSuccess| Den här händelsen indikerar att vi har skapat lösen ords krypterings nyckeln. Den här nyckeln används för att kryptera lösen ord från molnet som ska skickas till din lokala miljö.|
 | 32000| UnknownError| Den här händelsen anger att ett okänt fel inträffade under en lösen ords hanterings åtgärd. Titta på undantags texten i händelsen om du vill ha mer information. Om du har problem kan du prova med att inaktivera och sedan återaktivera tillbakaskrivning av lösen ord. Om detta inte hjälper inkluderar du en kopia av din händelse logg tillsammans med det spårnings-ID som har angetts Insider till support teknikern.|
 | 32001| ServiceError| Den här händelsen indikerar ett fel vid anslutning till tjänsten för lösen ords återställning för moln. Det här felet uppstår vanligt vis när den lokala tjänsten inte kunde ansluta till webb tjänsten för lösen ords återställning.|
-| 32002| ServiceBusError| Den här händelsen indikerar att ett fel uppstod vid anslutning till klientens Service Bus instans. Detta kan inträffa om du blockerar utgående anslutningar i din lokala miljö. Kontrol lera brand väggen för att se till att du tillåter anslutningar över TCP 443 och https://ssprdedicatedsbprodncu.servicebus.windows.netoch försök sedan igen. Om du fortfarande har problem kan du prova med att inaktivera och sedan återaktivera tillbakaskrivning av lösen ord.|
+| 32002| ServiceBusError| Den här händelsen indikerar att ett fel uppstod vid anslutning till klientens Service Bus instans. Detta kan inträffa om du blockerar utgående anslutningar i din lokala miljö. Kontrol lera brand väggen för att se till att du tillåter anslutningar över TCP 443 och https://ssprdedicatedsbprodncu.servicebus.windows.net och försök sedan igen. Om du fortfarande har problem kan du prova med att inaktivera och sedan återaktivera tillbakaskrivning av lösen ord.|
 | 32003| InPutValidationError| Den här händelsen anger att inloggen som skickades till API: et för webb tjänsten var ogiltig. Försök utföra åtgärden igen.|
 | 32004| DecryptionError| Den här händelsen indikerar att det uppstod ett fel vid dekryptering av lösen ordet som kom från molnet. Detta kan bero på ett matchnings fel mellan moln tjänsten och den lokala miljön. Lös problemet genom att inaktivera och sedan återaktivera tillbakaskrivning av lösen ord i din lokala miljö.|
 | 32005| ConfigurationError| Under onboarding sparar vi klient information i en konfigurations fil i din lokala miljö. Den här händelsen indikerar att det uppstod ett fel när filen skulle sparas eller att när tjänsten startades, uppstod ett fel vid läsning av filen. Åtgärda problemet genom att inaktivera och sedan återaktivera tillbakaskrivning av lösen ord för att framtvinga en omskrivning av konfigurations filen.|
@@ -136,7 +136,7 @@ Ett bra tips när du felsöker problem med tillbakaskrivning av lösen ord är a
 | 32009| AuthTokenError| Den här händelsen indikerar att det inte gick att hämta en autentiseringstoken för det globala administratörs kontot som angavs under installationen av Azure AD Connect. Felet kan bero på ett felaktigt användar namn eller lösen ord som angetts för det globala administratörs kontot. Det här felet kan också inträffa om det globala administratörs kontot som angetts är federerad. Åtgärda problemet genom att köra konfigurationen igen med rätt användar namn och lösen ord och se till att administratören är ett hanterat (enbart molnbaserad eller lösen ords synkroniserat) konto.|
 | 32010| CryptoError| Den här händelsen indikerar att det uppstod ett fel när lösen ords krypterings nyckeln skulle genereras eller dekryptering av ett lösen ord som kommer från moln tjänsten. Det här felet tyder troligt vis på ett problem med din miljö. Titta närmare på informationen om händelse loggen om du vill veta mer om hur du löser det här problemet. Du kan också prova att inaktivera och sedan återaktivera tjänsten för tillbakaskrivning av lösen ord.|
 | 32011| OnBoardingServiceError| Den här händelsen indikerar att den lokala tjänsten inte kunde kommunicera med webb tjänsten för lösen ords återställning för att initiera onboarding-processen. Detta kan inträffa till följd av en brand Väggs regel eller om det är problem med att hämta en autentiseringstoken för din klient. Du kan åtgärda det här problemet genom att se till att du inte blockerar utgående anslutningar via TCP 443 och TCP 9350-9354 eller att https://ssprdedicatedsbprodncu.servicebus.windows.net. Se också till att det Azure AD-administratörskonto som du använder för att publicera inte är federerad.|
-| 32013| OffBoardingError| Den här händelsen indikerar att den lokala tjänsten inte kunde kommunicera med webb tjänsten för lösen ords återställning för att initiera offboarding-processen. Detta kan inträffa till följd av en brand Väggs regel eller om det är problem med att hämta en autentiseringstoken för din klient. Du kan åtgärda det här problemet genom att se till att du inte blockerar utgående anslutningar över 443 eller till https://ssprdedicatedsbprodncu.servicebus.windows.netoch att det Azure Active Directory administratörs konto som du använder till avpublicera inte är federerad.|
+| 32013| OffBoardingError| Den här händelsen indikerar att den lokala tjänsten inte kunde kommunicera med webb tjänsten för lösen ords återställning för att initiera offboarding-processen. Detta kan inträffa till följd av en brand Väggs regel eller om det är problem med att hämta en autentiseringstoken för din klient. Du kan åtgärda det här problemet genom att se till att du inte blockerar utgående anslutningar över 443 eller till https://ssprdedicatedsbprodncu.servicebus.windows.net och att det Azure Active Directory administratörs konto som du använder till avpublicera inte är federerad.|
 | 32014| ServiceBusWarning| Den här händelsen indikerar att vi måste försöka ansluta till klient organisationens Service Bus instans igen. Under normala förhållanden bör detta inte vara ett problem, men om du ser den här händelsen flera gånger bör du överväga att kontrol lera nätverks anslutningen till Service Bus, särskilt om det är en anslutning med hög latens eller låg bandbredd.|
 | 32015| ReportServiceHealthError| För att övervaka hälso tillståndet för tillbakaskrivning av lösen ord skickar vi heartbeat-data till vår webb tjänst för lösen ords återställning var femte minut. Den här händelsen indikerar att det uppstod ett fel när den här hälso informationen skickades tillbaka till moln webb tjänsten. Den här hälso informationen omfattar inte en objekt identifierbar information (OII) eller personligt identifierbar information (PII) och är enbart en pulsslags-och grundläggande tjänst statistik så att vi kan tillhandahålla tjänst status information i molnet.|
 | 33001| ADUnKnownError| Den här händelsen indikerar att ett okänt fel returnerades av Active Directory. Mer information finns i händelse loggen för Azure AD Connect Server för händelser från ADSync-källan.|
@@ -167,7 +167,7 @@ Den vanligaste fel punkten är att brand Väggs-och eller proxy-portar och tids 
 
 För Azure AD Connect version 1.1.443.0 och senare, behöver du utgående HTTPS-åtkomst till följande:
 
-* \*. passwordreset.microsoftonline.com
+* \*.passwordreset.microsoftonline.com
 * \*.servicebus.windows.net
 
 Mer detaljerad information finns i den uppdaterade listan med [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) uppdateras varje onsdag och börjar gälla nästa måndag.

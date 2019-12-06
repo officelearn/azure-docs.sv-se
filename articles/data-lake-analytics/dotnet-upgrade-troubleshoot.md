@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 851a405e5143ea5bb3a26de76f713914aa4bb569
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648524"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873241"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics uppgraderar till .NET Framework v-4.7.2
 
@@ -39,7 +39,7 @@ Sök efter potentiella problem med bakåtkompatibilitet genom att köra .NET-kom
 1. Kör bakåtkompatibla kompatibilitetskontroll på dina .NET-DLL-filer antingen av
    1. Använda Visual Studio-tillägget i [.net-ports Analyzer Visual Studio-tillägget](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
    1. Hämta och använda det fristående verktyget från [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instruktioner för att köra ett fristående verktyg finns på [GitHub dotnetapiport-bryta ändringar](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
-   1. För 4.7.2. isRetargeting för kompatibiliteten = = True är de hårda ändringarna.
+   1. För 4.7.2. kompatibilitet, `read isRetargeting == True` identifierar möjliga problem.
 2. Om-verktyget anger om din kod kan påverkas av eventuella bakåtkompatibla inkompatibiliteter (några vanliga exempel på inkompatibiliteter), kan du ytterligare kontrol lera efter
    1. Analysera koden och identifiera om din kod skickar värden till de påverkade API: erna
    1. Utför en körnings kontroll. Körnings distributionen utfördes inte sida vid sida i ADLA. Du kan utföra en körnings kontroll före uppgraderingen genom att använda VisualStudio lokala kör med en lokal .NET Framework-4.7.2 mot en representativ data uppsättning.
@@ -65,7 +65,7 @@ De vanligaste baklänges-inkompatibiliteterna som granskaren är troligt vis att
   - Föreslagen åtgärd: kontrol lera att TaskFactory. FromAsync returnerar korrekt värde
 
 - DataObject. GetData hämtar nu data som UTF-8
-  - För appar som är riktade till .NET Framework 4 eller som körs i .NET Framework 4.5.1 eller tidigare versioner hämtar DataObject. GetData HTML-formaterad data som en ASCII-sträng. Det innebär att icke-ASCII-tecken (tecken vars ASCII-koder är större än 0x7F) representeras av två slumpmässiga tecken. #N # #N # för appar som är riktade till .NET Framework 4,5 eller senare och som körs på .NET Framework 4.5.2, `DataObject.GetData` hämtar HTML-formaterade data som UTF-8, som representerar tecken som är större än 0x7F.
+  - För appar som är riktade till .NET Framework 4 eller som körs i .NET Framework 4.5.1 eller tidigare versioner hämtar DataObject. GetData HTML-formaterad data som en ASCII-sträng. Det innebär att icke-ASCII-tecken (tecken vars ASCII-koder är större än 0x7F) representeras av två slumpmässiga tecken. #N # #N # för appar som är riktade till .NET Framework 4,5 eller senare och som körs på .NET Framework 4.5.2, `DataObject.GetData` hämtar HTML-formaterade data som UTF-8, vilket motsvarar tecken som är större än 0x7F.
   - Påverkade bibliotek: Glo
   - Föreslagen åtgärd: se till att data hämtas är det format som du vill använda
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 584e1c7da70dd7b22969d8d19967fbbe2c52075f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c50f2ad0a15e9793fd5a799d44bf34fc2b48e14b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502123"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851272"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrera till Azure Virtual WAN
 Med Azure Virtual WAN kan företag förenkla sin globala anslutning och dra nytta av Microsofts globala nätverks skala. Den här white paper ger teknisk information för företag som vill migrera från en befintlig kundhanterad hubb-och-eker-topologi till en design som använder Microsoft-hanterade virtuella WAN-hubbar.
@@ -28,7 +28,7 @@ I den här artikeln beskrivs hur du migrerar en befintlig hybrid miljö till ett
 
 ## <a name="scenario"></a>Scenario
 
-Contoso är en global finansiell organisation med kontor i både Europa och Asien. De planerar att flytta sina befintliga program från sin lokala domänkontrollant i till Azure och har skapat en grund design baserat på VDC-arkitekturen, inklusive regionala virtuella nätverk med regionala Kundhanterade nav för Hybrid anslutning. Som en del av flytten till molnbaserade tekniker har nätverks teamet varit inloggade med att säkerställa att deras anslutning är optimerad för att verksamheten ska gå framåt.
+Contoso är en global finansiell organisation med kontor i både Europa och Asien. De planerar att flytta sina befintliga program från ett lokalt Data Center i till Azure och har skapat en grund design baserat på VDC-arkitekturen, inklusive regionala virtuella nätverk med regionala Kundhanterade nav för Hybrid anslutning. Som en del av förflyttningen till molnbaserade tekniker har nätverks teamet varit inloggade med att säkerställa att deras anslutning är optimerad för att företaget ska kunna flytta framåt.
 
 Bild 2 visar en övergripande vy över det befintliga globala nätverket, inklusive anslutning till flera Azure-regioner.
 
@@ -37,13 +37,13 @@ Bild 2 visar en övergripande vy över det befintliga globala nätverket, inklus
 
 Följande punkter kan förstås från den befintliga nätverk sto pol Ogin:
  
-- NAV-och-eker-modell som används i flera regioner. Använder ExpressRoute Premium-kretsar för anslutning tillbaka till ett gemensamt privat WAN.
+- En nav-och-eker-topologi används i flera regioner, inklusive ExpressRoute Premium-kretsar för anslutning tillbaka till ett gemensamt privat WAN.
 - Vissa av dessa platser har också VPN-tunnlar direkt i Azure för att uppnå program som finns i Microsoft-molnet.
 
 ## <a name="requirements"></a>Krav
 Nätverks teamet har fått en uppgift om att leverera en global nätverks modell som har stöd för Contoso-migrering till molnet och måste optimera i områdena kostnad, skala och prestanda. I sammanfattning måste följande krav uppfyllas:
 - Ange både Head-fjärdedel (HQ) och avdelnings kontor med optimerade vägar till program som körs i molnet. 
-- Ta bort beroendet av befintliga lokala domänkontrollanter (DC) för VPN-avslutning samtidigt som du behåller följande anslutnings vägar:
+- Ta bort beroendet av befintliga lokala data Center (DC) för VPN-avslutning samtidigt som du behåller följande anslutnings vägar:
     - **Branch-till-VNet**: VPN-anslutna kontor måste kunna komma åt program som migrerats till molnet i den lokala Azure-regionen.
     - **Gren-till-hubb**-till-VNet: VPN-anslutna kontor måste kunna komma åt program som migrerats till molnet i den fjärranslutna Azure-regionen. 
     - **Gren-till-gren**: regionala VPN-anslutna kontor måste kunna kommunicera med varandra och EXPRESSROUTE anslutna HQ/DC-platser. 
@@ -60,12 +60,12 @@ Bild 3 visar en övergripande vy av den uppdaterade måldomänkontrollanten med 
 ![Contosos virtuella WAN-arkitektur](./media/migrate-from-hub-spoke-topology/figure3.png)
 **bild 3: Azure Virtual WAN-arkitektur**
 
-Sammanfattningsvis: 
+Sammanfattning: 
 - HQ i Europa förblir ExpressRoute ansluten, den lokala Europa-DOMÄNKONTROLLANTen migreras fullständigt till Azure och tas nu ur bruk.
 - Asien och HQ förblir anslutna till privat WAN. Azure Virtual WAN används nu för att utöka det lokala operatörs nätverket och tillhandahålla global anslutning 
 - Azure virtuella WAN-hubbar som distribueras i både Västeuropa och Asien, sydöstra Azure-regioner för att tillhandahålla anslutnings nav för ExpressRoute-och VPN-anslutna enheter. 
-- Hubbar ger också VPN-pekare för centrala användare över flera klient typer som använder OpenVPN-anslutning till det globala nät nätverket, vilket ger åtkomst till inte bara program som migrerats till Azure, utan även eventuella resurser som återstår lokalt. 
-- Internet anslutning för resurser i ett virtuellt nätverk som tillhandahålls av Azure Virtual WAN. Internet anslutning för fjärranslutna webbplatser från Azure Virtual WAN. Lokala Internet-grupp stöds via partner integration för optimerad åtkomst till SaaS-tjänster som Office 365.
+- Hubbar ger också VPN-avslutning för centrala användare över flera klient typer som använder OpenVPN-anslutning till det globala nät nätverket, vilket ger åtkomst till inte bara program som migrerats till Azure, utan även eventuella resurser som återstår lokalt. 
+- Internet anslutning för resurser i ett virtuellt nätverk som tillhandahålls av Azure Virtual WAN. Internet anslutning för fjärranslutna platser tillhandahålls även av Azure Virtual WAN. Lokala Internet-grupp stöds via partner integration för optimerad åtkomst till SaaS-tjänster som Office 365.
 
 ## <a name="migrate-to-azure-virtual-wan"></a>Migrera till Azure Virtual WAN
 
@@ -80,14 +80,14 @@ Följande bild visar en topologi för en enda region för Contoso innan du infö
  **Bild 4: VDC Hub-och-eker-enkel region – steg 1**
 
 I linje med VDC-metoden (Virtual Data Center) innehåller det virtuella kund hanterade Hubbs nätverket flera funktions block:
-- Delade tjänster (alla vanliga funktioner som krävs av flera ekrar) ett exempel på vilka Contoso använder är IaaS Windows Server-domänkontrollanter på virtuella datorer i infrastruktur som en tjänst (IaaS).
+- Delade tjänster (alla vanliga funktioner som krävs av flera ekrar) ett exempel på vilka Contoso använder är Windows Server-domänkontrollanter på virtuella IaaS-datorer (Infrastructure-as-a-Service).
 - IP/routing Firewall-tjänster tillhandahålls av en virtuell nätverks installation från tredje part, vilket aktiverar eker-till-ekrar Layer-3 IP-routning. 
 - Ingångs-och utgångs tjänster för Internet, inklusive Azure Application Gateway för inkommande HTTPS-begäranden och tredjeparts Proxy-tjänster som körs på virtuella datorer för filtrerad utgående åtkomst till Internet resurser.
 - ExpressRoute och VPN Virtual Network Gateway för anslutning till lokala nätverk.
 
 ### <a name="deploy-virtual-wan-hubs"></a>Distribuera virtuella WAN-hubbar
 
-Det första steget innebär att distribuera en virtuell WAN-hubb i varje region. Distribuera den virtuella WAN-hubben med VPN Gateway and Express Route Gateway enligt beskrivningen i följande artiklar: 
+Det första steget för att distribuera en virtuell WAN-hubb i varje region. Konfigurera den virtuella WAN-hubben med VPN Gateway and Express Route Gateway enligt beskrivningen i följande artiklar:  
 - [Självstudie: skapa en plats-till-plats-anslutning med Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
 - [Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN](virtual-wan-expressroute-portal.md) 
 
@@ -100,7 +100,7 @@ Det första steget innebär att distribuera en virtuell WAN-hubb i varje region.
 
 ### <a name="connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>Ansluta fjärranslutna platser (ExpressRoute och VPN) till virtuellt WAN
 
-Nu ansluter vi den virtuella WAN-hubben till företagets ExpressRoute-kretsar och konfigurerar VPN för plats-till-plats via Internet till alla fjärranslutna grenar.
+Nu ansluter vi den virtuella WAN-hubben till de befintliga ExpressRoute-kretsarna och konfigurerar VPN för plats-till-plats via Internet till alla fjärranslutna grenar.
 
 > [!NOTE]
 > ExpressRoute-kretsar måste uppgraderas till Premium SKU-typ för att kunna ansluta till den virtuella WAN-hubben.
@@ -130,7 +130,7 @@ Innan du använder den hanterade virtuella WAN-hubben för produktions anslutnin
 
 **c**. Ta bort alla användardefinierade vägar (UDR) som tidigare använts i ekrar för virtuella nätverk för eker-till-ekrar-kommunikation. Den här sökvägen är nu aktive rad genom dynamisk routning tillgänglig i den virtuella WAN-hubben.
 
-**d**. Befintliga ExpressRoute-och VPN-gatewayer i VDC-hubben har nu inaktiverats för att tillåta steg 5.
+**d**. Befintliga ExpressRoute-och VPN-gatewayer i VDC-hubben har nu inaktiverats för att tillåta nästa steg (e).
 
 **e**. Anslut den gamla VDC-hubben (hubb virtuellt nätverk) till den virtuella WAN-hubben via en ny VNet-anslutning.
 
@@ -150,7 +150,10 @@ I det här skedet har contoso främst slutfört sina migreringar av affärs prog
 ![optimera lokal anslutning för att utnyttja virtuella WAN-](./media/migrate-from-hub-spoke-topology/figure10.png)
 **Bild 10: VDC Hub-och-eker till virtuell WAN-migrering – steg 7**
 
- För att kunna utnyttja alla funktioner i Azure Virtual WAN, bestämmer contoso att inaktive ras för att inaktivera sin äldre VPN-anslutning. Alla grenar som fortsätter att komma åt HQ eller DC-nätverk kan överföra Microsofts globala nätverk med hjälp av den inbyggda överförings dirigeringen för Azure Virtual WAN. ExpressRoute Global Reach är ett alternativt alternativ för kunder som vill utnyttja Microsofts stamnät för att komplettera sina befintliga privata WAN-enheter.
+ För att kunna utnyttja alla funktioner i Azure Virtual WAN väljer contoso att inaktivera sina äldre lokala VPN-anslutningar. Alla grenar som fortsätter att komma åt HQ eller DC-nätverk kan överföra Microsofts globala nätverk med hjälp av den inbyggda överförings dirigeringen för Azure Virtual WAN. 
+
+> [!NOTE]
+> ExpressRoute Global Reach är ett alternativt alternativ för kunder som vill utnyttja Microsofts stamnät för att komplettera sina befintliga privata WAN-enheter.
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>Slut tillstånds arkitektur och trafik Sök vägar
 
@@ -162,7 +165,7 @@ Det här avsnittet innehåller en översikt över hur den här topologin uppfyll
 
 ### <a name="path-1"></a>Sökväg 1
 
-Sökväg 1 beskriver trafik flödet från S2S VPN-grenen i Asien till Azure VNet i Asien, sydöstra region.
+Sökväg 1 beskriver trafikflöde från en S2S VPN-ansluten gren i Asien till ett Azure VNet i den Asien, sydöstra regionen.
 
 Trafiken dirigeras enligt följande:
 - Asiens gren är ansluten via elastiska S2S BGP-aktiverade tunnlar till Asien, sydöstra virtuell WAN-hubb.
@@ -171,27 +174,27 @@ Trafiken dirigeras enligt följande:
 ![Flöde 1](./media/migrate-from-hub-spoke-topology/flow1.png)
 
 ### <a name="path-2"></a>Sökväg 2
-Sökväg 2 beskriver trafikflöde från ExpressRoute anslutna europeiska HQ till Azure VNet i Asien, sydöstra region.
+Sökväg 2 beskriver trafikflöde från ExpressRoute anslutna europeiska HQ till ett Azure VNet i Asien, sydöstra regionen.
 
 Trafiken dirigeras enligt följande:
-- Europa HQ är anslutet via standard-ExpressRoute-kretsen i den virtuella WAN-hubben i västra Europa.
-- Global WAN Hub-till-hubb global anslutning möjliggör sömlös trafik överföring till VNet som är anslutet i fjärrregionen.
+- Europa HQ är ansluten via Premium ExpressRoute-kretsar till den virtuella WAN-hubben i västra Europa.
+- Global WAN Hub-till-hubb global anslutning möjliggör trafik överföring till VNet som är anslutet i fjärrregionen.
 
 ![Flöde 2](./media/migrate-from-hub-spoke-topology/flow2.png)
 
 ### <a name="path-3"></a>Sökväg 3
-Path 3 beskriver trafikflödet från Asien lokal DOMÄNKONTROLLANT som är ansluten till privat WAN till den europeiska S2S-anslutna grenen.
+Path 3 beskriver trafikflödet från den lokala Asien som är ansluten till privat WAN till en europeisk S2S-ansluten gren.
 
 Trafiken dirigeras enligt följande:
 - Asien DC är anslutet till lokalt privat WAN-bärvåg.
-- ExpressRoute-kretsen slutar lokalt i privata WAN-anslutningar till Asien, sydöstra virtuell WAN-hubb.
-- Global WAN Hub-till-hubb global anslutning möjliggör sömlös överföring av trafik grenen ansluten till fjärrhubben i Europa.
+- ExpressRoute-kretsen slutar lokalt i privata WAN-anslutningar till den Asien, sydöstra virtuella WAN-hubben.
+- Virtuell WAN Hub-till-hubb global anslutning möjliggör trafik överföring.
 
 ![Flöde 3](./media/migrate-from-hub-spoke-topology/flow3.png)
 
 
 ### <a name="path-4"></a>Sökväg 4
-Path 4 beskriver trafikflöde från Azure VNet i Asien, sydöstra region till Azure VNet i regionen Europa, västra.
+Path 4 beskriver trafikflöde från ett Azure VNet i Asien, sydöstra region till ett Azure VNet i regionen Europa, västra.
 
 Trafiken dirigeras enligt följande:
 - Global WAN Hub-till-hubb global anslutning möjliggör inbyggd transitering av alla anslutna Azure-virtuella nätverk utan ytterligare användar konfiguration.
@@ -199,17 +202,17 @@ Trafiken dirigeras enligt följande:
 ![Flöde 4](./media/migrate-from-hub-spoke-topology/flow4.png)
 
 ### <a name="path-5"></a>Sökväg 5
-Sökväg 5 beskriver trafikflöde från P2S-användare (roaming VPN) till Azure VNet i regionen Europa, västra.
+Path 5 beskriver trafikflöde från centrala VPN-användare (P2S) till ett Azure VNet i regionen Europa, västra.
 
 Trafiken dirigeras enligt följande:
-- Bärbara datorer och telefon användare använder OpenVPN-klienten för transparent anslutning i till P2S VPN-gateway i Västeuropa.
+- Bärbara datorer och mobila enheter använder OpenVPN-klienten för transparent anslutning i P2S VPN-gatewayen i Västeuropa.
 - Den virtuella WAN-hubben i Västeuropa dirigerar trafik lokalt till anslutna VNet.
 
 ![Flöde 5](./media/migrate-from-hub-spoke-topology/flow5.png)
 
 ## <a name="security-and-policy-control-via-azure-firewall"></a>Säkerhet och princip kontroll via Azure-brandväggen
 
-Contoso har nu verifierat anslutningen mellan alla grenar och virtuella nätverk i enlighet med kraven som beskrivs tidigare i det här dokumentet. För att uppfylla kraven för säkerhets kontroll och nätverks isolering måste de fortsätta att separera och logga trafik via hubb nätverket, tidigare funktionen utfördes av en NVA. Contoso vill också inaktivera sina befintliga proxy Services och använda interna Azure-tjänster för utgående Internet filtrering. 
+Contoso har nu verifierat anslutningen mellan alla grenar och virtuella nätverk i enlighet med kraven som beskrivs tidigare i det här dokumentet. För att uppfylla kraven för säkerhets kontroll och nätverks isolering måste de fortsätta att separera och logga trafik via hubb nätverket, tidigare funktionen utfördes av en virtuell nätverks installation (NVA). Contoso vill också inaktivera sina befintliga proxy Services och använda interna Azure-tjänster för utgående Internet filtrering. 
 
 ![säkerhets-och princip kontroll via Azure Firewall](./media/migrate-from-hub-spoke-topology/figure12.png)
 **figur 12: Azure-brandvägg i virtuellt WAN-nätverk (säker virtuell hubb)**
@@ -217,7 +220,7 @@ Contoso har nu verifierat anslutningen mellan alla grenar och virtuella nätverk
 Följande avancerade steg krävs för att presentera Azure-brandväggen i de virtuella WAN-hubbarna för att aktivera en enhetlig punkt för princip kontroll. Den här processen och begreppet säkra virtuella hubbar beskrivs utförligt [här](https://go.microsoft.com/fwlink/?linkid=2107683).
 - Skapa Azure Firewall-princip.
 - Länka brand Väggs princip till Azure Virtual WAN Hub.
-Steget ovan tillåter att den befintliga virtuella WAN-hubben fungerar som en säker virtuell hubb och distribuerar de nödvändiga Azure Firewall-resurserna.
+- Steget ovan tillåter att den befintliga virtuella WAN-hubben fungerar som en säker virtuell hubb och distribuerar de nödvändiga Azure Firewall-resurserna.
 
 > [!NOTE]
 > Om Azure-brandväggen distribueras i en standard virtuell WAN-hubb (SKU: standard): V2V, B2V, V2I och B2Is VB-principer tillämpas endast på trafiken från virtuella nätverk och grenarna som är anslutna till det angivna hubben där Azure-VB har distribuerats (säker hubb). Trafik från fjärr-virtuella nätverk och förgreningar som är kopplade till andra virtuella WAN-hubbar i samma virtuella WAN-nätverk är inte "brand Väggs", även om dessa fjärranslutna grenar och VNET är sammankopplade via virtuell WAN-hubb till nav länkar. Stöd för brand Väggs stöd för interhubb finns i Översikt över Azure Virtual WAN och Firewall Manager.
@@ -225,7 +228,7 @@ Steget ovan tillåter att den befintliga virtuella WAN-hubben fungerar som en s�
 Följande sökvägar beskriver de anslutnings Sök vägar som Aktiver ATS genom att använda Azures säkra virtuella hubbar.
 
 ### <a name="path-6"></a>Sökväg 6
-Path 6 beskriver trafikflöde från VNet-till-VNet säker överföring inom samma region.
+Path 6 beskriver säkert trafikflöde mellan virtuella nätverk inom samma region.
 
 Trafiken dirigeras enligt följande:
 - Virtuella nätverk som är anslutna till samma säkra virtuella hubb dirigerar nu trafik till via Azure-brandväggen.
@@ -234,7 +237,7 @@ Trafiken dirigeras enligt följande:
 ![Flöde 6](./media/migrate-from-hub-spoke-topology/flow6.png)
 
 ### <a name="path-7"></a>Sökväg 7
-Path 7 beskriver trafikflöde från VNet-till-Internet eller från en säkerhets tjänst från tredje part.
+Path 7 beskriver trafikflöde från ett Azure VNet till Internet eller från en säkerhets tjänst från tredje part.
 
 Trafiken dirigeras enligt följande:
 - Virtuella nätverk som är anslutna till den säkra virtuella hubben kan skicka trafik till offentliga, destinationer på Internet, med hjälp av säker hubb som en central punkt för Internet åtkomst.

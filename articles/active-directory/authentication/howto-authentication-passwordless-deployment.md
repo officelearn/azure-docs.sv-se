@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603461"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848501"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Slutför en distribution av lösenordsskyddad autentisering
 
@@ -61,13 +61,13 @@ Microsofts autentiseringsmetoder för lösen ords kryptering möjliggör olika s
 
 ### <a name="technical-considerations-for-the-microsoft-authenticator-app"></a>Tekniska överväganden för Microsoft Authenticator-appen
 
-**AD FS-integration** – när en användare aktiverar Microsoft Authenticator lösen ords lös autentiseringsuppgifter, kommer autentiseringen för den användaren att skicka ett meddelande för godkännande. Användare i en hybrid klient hindras från att dirigeras till ADFS för inloggning, om de inte väljer Använd lösen ordet i stället. Den här processen kringgår också alla lokala principer för villkorlig åtkomst och genom strömnings flöden. Men om en login_hint anges vidarebefordras användaren till ADFS och alternativet att använda lösen ords lös autentiseringsuppgifter kringgås.
+**AD FS-integration** – när en användare aktiverar Microsoft Authenticator lösen ords lös autentiseringsuppgifter, kommer autentiseringen för den användaren att skicka ett meddelande för godkännande. Användare i en hybrid klient hindras från att dirigeras till ADFS för inloggning, om de inte väljer Använd lösen ordet i stället. Den här processen kringgår också alla lokala principer för villkorlig åtkomst och genom strömnings flöden. Men om en login_hint anges vidarebefordras användaren till ADFS och det går inte att använda lösen ords lös autentiseringsuppgifter.
 
 **Azure MFA Server** – slutanvändare som har Aktiver ATS för MFA via en organisations lokala Azure MFA-Server kan fortfarande skapa och använda ett enda lösen ord för lösen ords lös inloggning. Om användaren försöker uppgradera flera installationer (5 +) av Microsoft Authenticator med autentiseringsuppgifterna kan denna ändring resultera i ett fel.
 
 **Enhets registrering** – om du vill använda Authenticator-appen för lösen ords lös autentisering måste enheten vara registrerad i Azure AD-klienten och kan inte vara en delad enhet. En enhet kan bara registreras i en enda klient. Den här gränsen innebär att endast ett arbets-eller skol konto stöds för telefon inloggning med hjälp av Authenticator-appen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Organisationer måste uppfylla följande krav innan en lösenordsskyddad distribution påbörjas.
 
@@ -133,7 +133,7 @@ I följande tabell beskrivs de användnings fall som implementeras under det hä
 | --- | --- |
 | **Åtkomst** | Lösen ords återställnings inloggning är tillgängligt från en företags enhet eller en personlig enhet inom eller utanför företags nätverket. |
 | **Granskning** | Användnings data är tillgängliga för administratörer att granska i nära real tid. <br> Användnings data hämtas till företags system minst var 29: e dag, eller så används SIEM-verktyget. |
-| **Ledning** | Livs cykeln för användar tilldelningar till lämplig autentiseringsmetod och associerade grupper definieras och övervakas. |
+| **Styrning** | Livs cykeln för användar tilldelningar till lämplig autentiseringsmetod och associerade grupper definieras och övervakas. |
 | **Säkerhet** | Åtkomst till rätt autentiseringsmetod styrs via användar-och grupp tilldelningar. <br> Endast behöriga användare kan använda lösen ords skydd. |
 | **Prestanda** | Tids linjer för distribution av åtkomst tilldelningar dokumenteras och övervakas. <br> Inloggnings tider mäts för enkel användning. |
 | **Användar upplevelse** | Användare är medvetna om mobil kompatibilitet. <br> Användare kan konfigurera autentiseraren för autentiserade appar i lösen ord. |

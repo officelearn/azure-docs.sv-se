@@ -2,28 +2,24 @@
 title: Lista ditt program i Azure Active Directory program galleriet | Microsoft Docs
 description: Lär dig att lista ett program som stöder enkel inloggning i Azure Active Directory app-galleriet
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: ryanwi
-ms.reviewer: elisol, bryanla
+ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374077"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842786"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -114,7 +110,7 @@ Om du vill uppdatera eller ta bort ett befintligt program i Azure AD App-galleri
 
 ## <a name="list-requests-by-customers"></a>Lista begär Anden från kunder
 
-Kunder kan skicka en begäran om att lista ett program genom att välja **app-begäranden från kunder** > **Skicka ny begäran**.
+Kunder kan skicka en begäran om att lista ett program genom att välja **app-begäranden från kunder** > **skicka in ny begäran**.
 
 ![Visar panelen kund begärda appar](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -122,7 +118,7 @@ Här är ett flöde av kund begärda program.
 
 ![Visar flödet kundens begärda appar](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Tids linjer
+## <a name="timelines"></a>Tidslinjer
 
 Tids linjen för processen med att lista ett SAML 2,0-eller WS-utfodras program i galleriet är 7 till 10 arbets dagar.
 
@@ -134,4 +130,4 @@ Tids linjen för processen med att ange ett OpenID Connect-program i galleriet �
 
 ## <a name="escalations"></a>Förfrågningar
 
-Skicka e-post till [Azure AD SSO integration-teamet](mailto:SaaSApplicationIntegrations@service.microsoft.com) på SaaSApplicationIntegrations@service.microsoft.com och vi svarar så snart som möjligt för alla eskaleringar.
+För alla eskaleringar skickar du e-post till [Azure AD SSO integration-teamet](mailto:SaaSApplicationIntegrations@service.microsoft.com) på SaaSApplicationIntegrations@service.microsoft.comoch vi svarar så snart som möjligt.

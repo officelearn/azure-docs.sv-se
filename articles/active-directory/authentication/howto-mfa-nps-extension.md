@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8388d5b22cddcf148c68f35758ccdf797abbcd9e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 283bd56b9d9cbe412e9c28127dd9dab7decc2d7c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420635"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848314"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -68,7 +68,7 @@ Microsoft Azure Active Directory-modul för Windows PowerShell installeras, om d
 
 Alla som använder NPS-tillägget måste synkroniseras till Azure Active Directory att använda Azure AD Connect och måste vara registrerade för MFA.
 
-När du installerar tillägget behöver du katalog-ID och admin-autentiseringsuppgifter för din Azure AD-klient. Du kan hitta ditt katalog-ID i [Azure Portal](https://portal.azure.com). Logga in som administratör. Sök efter och välj **Azure Active Directory**och välj sedan **Egenskaper**. Kopiera GUID i rutan **katalog-ID** och spara den. Du använder det här GUID som klient-ID när du installerar NPS-tillägget.
+När du installerar tillägget behöver du katalog-ID och admin-autentiseringsuppgifter för din Azure AD-klient. Du kan hitta din katalog-ID i den [Azure-portalen](https://portal.azure.com). Logga in som administratör. Sök efter och välj **Azure Active Directory**och välj sedan **Egenskaper**. Kopiera GUID i rutan **katalog-ID** och spara den. Du använder det här GUID som klient-ID när du installerar NPS-tillägget.
 
 ![Hitta ditt katalog-ID under Azure Active Directory egenskaper](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
@@ -229,13 +229,13 @@ Syftet med den här inställningen är att fastställa vad som ska göras när e
 
 Du kan välja att skapa den här nyckeln och ange den som falsk när dina användare registrerar sig, och de kanske inte alltid registreras för Azure MFA ännu. Men eftersom om du anger nyckeln tillåter användare som inte har registrerats för MFA för att logga in, bör du ta bort den här nyckeln innan du kommer till produktionen.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="nps-extension-health-check-script"></a>Skript för hälso kontroll av NPS-tillägg
 
 Följande skript är tillgängligt i TechNet-galleriet för att utföra grundläggande hälso kontrolls steg när du felsöker NPS-tillägget.
 
-[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 

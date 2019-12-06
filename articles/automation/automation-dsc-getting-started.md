@@ -4,17 +4,17 @@ description: Förklaring och exempel på de vanligaste uppgifterna i Azure Autom
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243611"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850966"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Komma igång med konfiguration av Azure Automation tillstånd
 
@@ -71,7 +71,7 @@ Därefter importerar du konfigurationen till Automation-kontot.
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På sidan **Automation-konto** väljer du **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** och sedan på **+ Lägg till**.
-1. På sidan **Importera konfiguration** bläddrar du till filen `TestConfig.ps1` på datorn.
+1. På sidan **Importera konfiguration** bläddrar du till `TestConfig.ps1`-filen på din dator.
 
    ![Skärm bild av bladet * * import Configuration * *](./media/automation-dsc-getting-started/AddConfig.png)
 

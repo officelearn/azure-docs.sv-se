@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a187ea9d22efa40c482ea8930be0271d84a899a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8ba3cc27777d13448b0e1114413128b550b0b2f5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273993"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842296"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Konfigurera hur slutanvändare godkänner ett program i Azure Active Directory
 Lär dig hur du konfigurerar hur användare godkänner program behörigheter. Du kan förenkla användar upplevelsen genom att bevilja administratörs tillåtelse. Den här artikeln innehåller olika metoder som du kan använda för att konfigurera användar medgivande. Metoderna gäller för alla slutanvändare i din Azure Active Directory (Azure AD)-klient. 
@@ -27,6 +27,8 @@ Mer information om samtycker till program finns i [Azure Active Directory medgiv
 ## <a name="prerequisites"></a>Krav
 
 Att bevilja administratörs tillåtelse kräver att du loggar in som global administratör, en program administratör eller en moln program administratör.
+
+Om du vill bevilja administrativt medgivande till behörigheter för Microsoft Graph och Azure AD Graph måste du ha global administratörs behörighet. 
 
 Om du vill begränsa åtkomsten till program måste du kräva användar tilldelning och sedan tilldela användare eller grupper till programmet.  Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
 

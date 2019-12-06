@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f1ac530fe4e20fe26f3a6b7d0111b0bd432928
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381680"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847719"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Övervakning och loggning av lösen ords skydd i Azure AD
 
@@ -313,7 +313,7 @@ Händelser loggas av de olika proxy-komponenterna med följande intervall:
 | --- | --- |
 |Värd process för proxy-tjänst| 10000-19999|
 |Proxy service Core affärs logik| 20000-29999|
-|PowerShell-cmdletar| 30000-39999|
+|PowerShell-cmdlet:ar| 30000-39999|
 
 ## <a name="proxy-service-text-logging"></a>Text loggning för proxy service
 

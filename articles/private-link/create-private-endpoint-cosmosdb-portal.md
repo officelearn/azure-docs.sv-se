@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229409"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851204"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Anslut privat till ett Azure Cosmos-konto med hjälp av Azure Private Link
 
@@ -33,9 +33,9 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
-    | Name | Ange *MyVirtualNetwork*. |
+    | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
@@ -52,7 +52,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -65,7 +65,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användar namn. |
-    | lösenordsinställning | Ange ett valfritt lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösen ordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -79,11 +79,11 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Subnet | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
@@ -129,9 +129,6 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 ## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Få åtkomst till Azure Cosmos-kontot privat från den virtuella datorn
 
 I det här avsnittet ska du ansluta privat till Azure Cosmos-kontot med hjälp av den privata slut punkten. 
-
-> [!IMPORTANT]
-> DNS-konfigurationen för Azure Cosmos-kontot måste ha en manuell ändring på värd filen för att inkludera det fullständiga domän namnet för det angivna kontot. I produktions scenarier konfigurerar du DNS-servern så att den använder de privata IP-adresserna. I demonstrations syfte kan du dock använda administratörs behörighet på den virtuella datorn och ändra `c:\Windows\System32\Drivers\etc\hosts`-filen (i Windows) eller `/etc/hosts` fil (på Linux) för att inkludera IP-adressen och DNS-mappningen.
 
 1. Om du vill inkludera IP-adressen och DNS-mappningen loggar du in på den virtuella datorn *myVM*, öppnar `c:\Windows\System32\Drivers\etc\hosts`-filen och inkluderar DNS-informationen från föregående steg i följande format:
 

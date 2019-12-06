@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228097"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851170"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Anslut privat till ett lagrings konto med hjälp av Azures privata slut punkt
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
@@ -34,9 +34,9 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
-    | Name | Ange *MyVirtualNetwork*. |
+    | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
@@ -53,7 +53,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -66,7 +66,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -80,11 +80,11 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Subnet | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
@@ -101,7 +101,7 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
 
 1. I **skapa lagrings konto – grunderna**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -119,17 +119,17 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
 5. I **skapa ett lagrings konto – nätverk**väljer du **Lägg till privat slut punkt**. 
 6. I **skapa privat slut punkt**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     |Plats|Välj **WestCentralUS**.|
-    |Name|Ange *myPrivateEndpoint*.  |
+    |Namn|Ange *myPrivateEndpoint*.  |
     |Lagrings under resurs|Lämna standard- **bloben**. |
     | **NÄTVERK** |  |
     | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |
-    | Subnet | Välj *undernät*. |
+    | Undernät | Välj *undernät*. |
     | **PRIVAT DNS-INTEGRERING**|  |
     | Integrera med privat DNS-zon  | Låt standardinställningen vara **Ja**. |
     | Privat DNS-zon  | Lämna standardvärdet * * (New) privatelink.blob.core.windows.net * *. |
@@ -169,9 +169,6 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 ## <a name="access-storage-account-privately-from-the-vm"></a>Få åtkomst till lagrings kontot privat från den virtuella datorn
 
 I det här avsnittet ska du ansluta privat till lagrings kontot med hjälp av den privata slut punkten.
-
-> [!IMPORTANT]
-> DNS-konfigurationen för Storage kräver en manuell ändring på värd filen för att inkludera det fullständiga domän namnet för det aktuella kontot. ändra följande fil med administratörs behörighet för Windows: c:\Windows\System32\Drivers\etc\hosts eller Linux/etc/hosts innehåller DNS-informationen för kontot från föregående steg i följande format [privat IP-adress] myaccount.blob.core.windows.net
 
 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 2. Ange `nslookup mystorageaccount.blob.core.windows.net` du får ett meddelande som liknar detta:

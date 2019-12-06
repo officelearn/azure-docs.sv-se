@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558541"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848399"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -52,7 +52,7 @@ Azure Multi-Factor Authentication distribueras genom att tvinga principer med vi
 
 * Alla användare, en speciell användare, medlem i en grupp eller tilldelad roll
 * Specifika moln program som ska användas
-* Enhets plattform
+* Enhetsplattform
 * Enhetens tillstånd
 * Nätverks plats eller geo-lokaliserad IP-adress
 * Klientprogram
@@ -113,7 +113,7 @@ Ett push-meddelande skickas till Microsoft Authenticator-appen på din mobila en
 
 En mobilapp som Microsoft Authenticator-appen genererar en ny OATH-verifierings kod var 30: e sekund. Användaren anger verifierings koden i inloggnings gränssnittet. Alternativet mobil app kan användas om telefonen har en data-eller mobilen signal.
 
-### <a name="call-to-phone"></a>Ring till telefon
+### <a name="call-to-phone"></a>Samtal till telefon
 
 Ett automatiskt röst samtal placeras till användaren. Användaren svarar på anropet och trycker **#** på telefon tangent bordet för att godkänna deras autentisering. Samtal till telefon är en bra säkerhets kopierings metod för meddelande-eller verifierings kod från en mobilapp.
 
@@ -288,11 +288,11 @@ Syftet med den här inställningen är att fastställa vad som ska göras när e
 | Nyckeln finns inte | Inte registrerad | MFA-utmaningen lyckades inte |
 | Värdet är inställt på Sant/ej angivet | Inte registrerad | MFA-utmaningen lyckades inte |
 | Nyckeln har angetts till false | Inte registrerad | Autentisering utan MFA |
-| Nyckeln har angetts till false eller True | Registrerade | Måste autentisera med MFA |
+| Nyckeln har angetts till false eller True | Registrerad | Måste autentisera med MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrera med Active Directory Federation Services (AD FS)
 
-Om din organisation är federerad med Azure AD kan du använda [azure Multi-Factor Authentication för att skydda AD FS resurser](multi-factor-authentication-get-started-adfs.md), både lokalt och i molnet. Med Azure MFA kan du minska lösen ord och tillhandahålla ett säkrare sätt att autentisera. Från och med Windows Server 2016 kan du nu konfigurera Azure MFA för primär autentisering.
+Om din organisation är federerad med Azure AD kan du använda [azure Multi-Factor Authentication för att skydda AD FS resurser](multi-factor-authentication-get-started-adfs.md), både lokalt och i molnet. Med Azure MFA kan du minska lösen ord och tillhandahålla ett säkrare sätt att autentisera. Från och med Windows Server 2016 konfigurera du nu Azure MFA för primär autentisering.
 
 Till skillnad från AD FS i Windows Server 2012 R2 integrerar AD FS 2016 Azure MFA-adaptern direkt med Azure AD och kräver inte en lokal Azure MFA-Server. Azure MFA-adaptern är inbyggd i Windows Server 2016 och det finns inget behov av en ytterligare installation.
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6a87b5797ea5c8f4ac116d6df9e6a48204f1fd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381905"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848518"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Användning av autentiseringsmetoder & insikter (för hands version)
 
@@ -27,13 +27,13 @@ Med hjälp & insikter kan du förstå hur autentiseringsmetoder för funktioner 
 Följande roller kan komma åt användning och insikter:
 
 - Global administratör
-- Säkerhets läsare
+- Säkerhetsläsare
 - Säkerhetsadministratör
 - Rapport läsare
 
 Ingen ytterligare licens krävs för att komma åt användning och insikter. Azure Multi-Factor Authentication och SSPR-licensierings information (Self-Service Password rereset) finns på [webbplatsen för Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Åtkomst till användning av autentiseringsmetoder och insikter:
 
@@ -65,7 +65,7 @@ Om du klickar på de användare som är **registrerade**, **användare aktiverad
 
 Rapporten registrerings information visar följande information för varje användare:
 
-- Name
+- Namn
 - Användarnamn
 - Registrerings status (alla, registrerad, ej registrerad)
 - Aktive rad status (all, aktive rad, inte aktive rad)
@@ -80,7 +80,7 @@ Om du klickar på registreringar eller återställer diagram går du till åters
 
 I rapporten Återställ detaljer visas registrerings-och återställnings händelser från de senaste 30 dagarna, inklusive:
 
-- Name
+- Namn
 - Användarnamn
 - Funktion (all, registrering, återställning)
 - Autentiseringsmetod (app-meddelande, app-kod, telefonsamtal, Office-samtal, SMS, e-post, säkerhets frågor)

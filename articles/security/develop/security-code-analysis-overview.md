@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695435"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851476"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Om Microsofts säkerhets kod analys
 
@@ -112,6 +112,6 @@ Du kan konfigurera den här uppgiften för att avbryta skapandet av problem som 
 
 Instruktioner för hur du installerar och installerar Microsofts säkerhets kod analys finns i vår [onboarding-och installations guide](security-code-analysis-onboard.md).
 
-Mer information om hur du konfigurerar build-aktiviteter finns i vår [konfigurations guide](security-code-analysis-customize.md).
+Mer information om hur du konfigurerar build-aktiviteter finns i vår [konfigurations guide](security-code-analysis-customize.md) eller i [konfigurations guiden för yaml](yaml-configuration.md).
 
 Om du har fler frågor om tillägget och de verktyg som finns kan du kolla in vår [FAQ-sida](security-code-analysis-faq.md).

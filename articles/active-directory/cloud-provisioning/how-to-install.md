@@ -1,5 +1,5 @@
 ---
-title: Installerar Azure AD Connect etablerings agent
+title: Installera Azure AD Connect Cloud Provisioning agent
 description: Det här avsnittet beskriver steg för steg hur du installerar en etablerings agent.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf479d4962f6d7aa9a0ba43b48f99bd67566fb6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 11e3b2a113d46ff3d8799927f56fa66601c94ed5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794489"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846240"
 ---
-# <a name="install-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agent
+# <a name="install-azure-ad-connect-cloud-provisioning-agent"></a>Installera Azure AD Connect Cloud Provisioning agent
 Det här dokumentet vägleder dig genom installations processen för Azure AD Connect etablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
 
 >[!IMPORTANT]

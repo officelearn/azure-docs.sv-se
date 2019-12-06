@@ -1,18 +1,18 @@
 ---
 title: CONCAt i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system-funktionen CONCAt i Azure Cosmos DB.
+description: Lär dig mer om hur funktionen CONCAt SQL system i Azure Cosmos DB Returnerar en sträng som är resultatet av sammanfogningen av två eller fler sträng värden
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1e61d61a3d64ca7d7808619159e4dfc8e8b33d68
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: adb8564d4addaaa3f4a383b32941549aed3d53bd
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351258"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871558"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAt (Azure Cosmos DB)
  Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden.  
@@ -26,7 +26,7 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
 ## <a name="arguments"></a>Argument
   
 *str_expr*  
-   Är ett sträng uttryck som sammanfogar till de andra värdena. Funktionen `CONCAT` kräver minst två *str_expr* -argument.  
+   Är ett sträng uttryck som sammanfogar till de andra värdena. Funktionen `CONCAT` kräver minst två *str_expr* argument.  
   
 ## <a name="return-types"></a>Retur typer
   

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88f6f344c77109ee01cd6b0332138518f70270d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 903551bfcaae3ffa7ccee72b1a5d781413864b32
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793788"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868464"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Vad är Azure AD Connect Cloud revisioner?
 Azure AD Connect Cloud etableringen är en ny Microsoft-Agent som är utformad för att möta och uppnå dina hybrid identitets mål för synkronisering av användare, grupper och kontakter till Azure AD.  Den kan användas tillsammans med Azure AD Connect Sync och ger följande fördelar:
@@ -59,8 +59,9 @@ Följande tabell innehåller en jämförelse mellan Azure AD Connect och Azure A
 | Tillåt borttagning av attribut som flödar från AD till Azure AD |● |● |
 | Tillåt avancerad anpassning av attributflöden |● | |
 | Stöd för tillbakaskrivning (lösen ord, enheter, grupper) |● | |
+| Azure AD Domain Services support|● | |
 
 ## <a name="next-steps"></a>Nästa steg 
 
 - [Vad är etablering?](what-is-provisioning.md)
-- [Vad är Azure AD Connect Cloud revisioner?](what-is-cloud-provisioning.md)
+- [Installera moln etablering](how-to-install.md)

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8c3e3c272ce12200ab7506fd7c9759a8cb3aa64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685924"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851748"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Arbets belastnings hantering med resurs klasser i Azure SQL Data Warehouse
 
@@ -24,7 +24,7 @@ Vägledning för att använda resurs klasser för att hantera minne och samtidig
 
 ## <a name="what-are-resource-classes"></a>Vad är resurs klasser
 
-Prestanda kapaciteten för en fråga bestäms av användarens resurs klass.  Resurs klasser är i förväg bestämda resurs gränser i Azure SQL Data Warehouse som styr beräknings resurser och samtidighet för frågekörningen. Resurs klasser kan hjälpa dig att hantera arbets belastningen genom att ange gränser för antalet frågor som körs samtidigt och på beräknings resurserna som tilldelas varje fråga.  Det finns en kompromiss mellan minne och samtidighet.
+Prestanda kapaciteten för en fråga bestäms av användarens resurs klass.  Resurs klasser är i förväg bestämda resurs gränser i Azure SQL Data Warehouse som styr beräknings resurser och samtidighet för frågekörningen. Resurs klasser kan hjälpa dig att konfigurera resurser för dina frågor genom att ange gränser för antalet frågor som körs samtidigt och på beräknings resurserna som tilldelas varje fråga.  Det finns en kompromiss mellan minne och samtidighet.
 
 - Mindre resurs klasser minskar högsta mängd minne per fråga, men ökar samtidigheten.
 - Större resurs klasser ökar det maximala minnet per fråga, men minskar samtidigheten.
@@ -65,14 +65,18 @@ De dynamiska resurs klasserna implementeras med följande fördefinierade databa
 - largerc
 - xlargerc
 
-Minnesallokering för varje resurs klass är följande, **oavsett service nivå**.  Minsta samtidiga frågor visas också.  För vissa tjänste nivåer kan mer än den minsta samtidigheten uppnås.
+Minnes tilldelningen för varje resurs klass är följande. 
 
-| Resursklass | Procent minne | Minsta antal samtidiga frågor |
-|:--------------:|:-----------------:|:----------------------:|
-| smallrc        | 3                | 32                     |
-| mediumrc       | 10 %               | 10                     |
-| largerc        | 22.2               | 4                      |
-| xlargerc       | 70%               | 1                      |
+| Servicenivå  | smallrc           | mediumrc               | largerc                | xlargerc               |
+|:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
+| DW100c         | 25 %               | 25 %                    | 25 %                    | 70 %                    |
+| DW200c         | 12,5%             | 12,5%                  | 22.2                    | 70 %                    |
+| DW300c         | 8 %                | 10 %                    | 22.2                    | 70 %                    |
+| DW400c         | 6,25%             | 10 %                    | 22.2                    | 70 %                    |
+| DW500c         | 20 %               | 10 %                    | 22.2                    | 70 %                    |
+| DW1000c till<br> DW30000c | 3 %       | 10 %                    | 22.2                    | 70 %                    |
+
+
 
 ### <a name="default-resource-class"></a>Standard resurs klass
 
@@ -105,6 +109,8 @@ Dessa åtgärder styrs av resurs klasser:
 
 > [!NOTE]  
 > SELECT-instruktioner i vyer för dynamisk hantering (DMV: er) eller andra systemvyer styrs inte av någon av samtidiga begränsningarna. Du kan övervaka systemet oavsett hur många frågor som körs på den.
+>
+>
 
 ### <a name="operations-not-governed-by-resource-classes"></a>Åtgärder som inte styrs av resurs klasser
 
@@ -179,6 +185,11 @@ Användare kan vara medlemmar i flera resurs klasser. När en användare tillhö
 
 ## <a name="recommendations"></a>Rekommendationer
 
+>[!NOTE]
+>Överväg att använda funktioner för hantering av arbets belastning ([arbets belastnings isolering](sql-data-warehouse-workload-isolation.md), [klassificering](sql-data-warehouse-workload-classification.md) och [prioritet](sql-data-warehouse-workload-importance.md)) för mer kontroll över din arbets belastning och förutsägbar prestanda.  
+>
+>
+
 Vi rekommenderar att du skapar en användare som är dedikerad för att köra en särskild typ av fråga eller inläsnings åtgärd. Ge den användaren en permanent resurs klass i stället för att ändra resurs klassen regelbundet. Statiska resurs klasser ger bättre övergripande kontroll över arbets belastningen, så vi rekommenderar att du använder statiska resurs klasser innan du överväger dynamiska resurs klasser.
 
 ### <a name="resource-classes-for-load-users"></a>Resurs klasser för inläsning av användare
@@ -231,12 +242,12 @@ Här är syftet med den här lagrade proceduren:
 
 ### <a name="usage-example"></a>Exempel på användning
 
-Uttryck  
+Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU: ange antingen en NULL-parameter för att extrahera den aktuella DWU från DW DB eller ange eventuella DWU som stöds i formatet "DW100c"
+1. @DWU: antingen ange en NULL-parameter för att extrahera den aktuella DWU från DW DB eller ange eventuella DWU som stöds i formatet "DW100c"
 2. @SCHEMA_NAME: ange ett schema namn för tabellen
-3. @TABLE_NAME: ger ett tabell namn för intresset
+3. @TABLE_NAME: ange ett tabell namn för intresset
 
 Exempel som kör den här lagrade proceduren:
 
@@ -250,7 +261,7 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 Följande instruktion skapar Table1 som används i föregående exempel.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-### <a name="stored-procedure-definition"></a>Definition av lagrad procedur
+### <a name="stored-procedure-definition"></a>Lagrad Procedurdefinition
 
 ```sql
 -------------------------------------------------------------------------------

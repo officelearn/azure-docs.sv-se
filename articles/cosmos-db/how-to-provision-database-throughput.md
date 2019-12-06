@@ -1,17 +1,17 @@
 ---
 title: Etablera dataflöde för en databas i Azure Cosmos DB
-description: Lär dig att etablera dataflöde på databasnivå i Azure Cosmos DB
+description: 'Lär dig hur du etablerar data flöde på databas nivå i Azure Cosmos DB att använda Azure Portal, CLI, PowerShell och andra SDK: er.'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 64a8bc9f4c9f5192dad22cb55cb4d2c4816d4fa5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575141"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873666"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera data flöde för en databas i Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du etablerar data flöde på en databas i Azure 
 
 ### <a id="portal-sql"></a>SQL (Core) API
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt Azure Cosmos-konto.
 
@@ -79,6 +79,6 @@ session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisio
 I följande artiklar finns information om etablerade data flöden i Azure Cosmos DB:
 
 * [Globalt skalat allokerat data flöde](scaling-throughput.md)
-* [Etablera data flöde på behållare och databaser](set-throughput.md)
+* [Etablera dataflöde på containrar och databaser](set-throughput.md)
 * [Etablera dataflöde för en container](how-to-provision-container-throughput.md)
 * [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)

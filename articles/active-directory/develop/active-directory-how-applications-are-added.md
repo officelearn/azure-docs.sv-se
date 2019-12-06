@@ -3,28 +3,24 @@ title: Hur och varför program läggs till i Azure Active Directory
 titleSuffix: Microsoft identity platform
 description: Vad innebär det att ett program läggs till i Azure AD och hur kommer de att få dit?
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 6a04315d887a1774fa50743d4bb361b9d9082aba
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533002"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845067"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
@@ -38,7 +34,7 @@ Det finns två representationer av program i Azure AD:
 Du kan hantera [program objekt](app-objects-and-service-principals.md#application-object) i Azure Portal via [appens registrerings](https://aka.ms/appregistrations) upplevelse. Program objekt beskriver programmet till Azure AD och kan betraktas som definition av programmet, vilket gör att tjänsten vet hur token ska utfärdas till programmet baserat på dess inställningar. Programobjektet finns bara i sin Hem Katalog, även om det är ett program med flera innehavare som stöder tjänstens huvud namn i andra kataloger. Programobjektet kan innehålla något av följande (och ytterligare information som inte nämns här):
 
 * Namn, logo typ och utgivare
-* Omdirigera URI: er
+* Omdirigerings-URI:er
 * Hemligheter (symmetriska och/eller asymmetriska nycklar som används för att autentisera programmet)
 * API-beroenden (OAuth)
 * Publicerade API: er/resurser/scope (OAuth)
@@ -110,7 +106,7 @@ Program som du lägger till själv (representeras som **app (dina)** i diagramme
   * Omvandlings regler för anspråk
   * Mappningar av attribut (användar etablering)
 * Mer detaljerad information om tjänstens huvud namn och program objekt finns i referens dokumentationen för Azure AD Graph REST API:
-  * [Applicering](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Programmet](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [Tjänstens huvud namn](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför integreras program med Azure AD?

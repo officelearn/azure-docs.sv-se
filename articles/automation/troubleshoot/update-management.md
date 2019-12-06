@@ -2,18 +2,18 @@
 title: Felsöka fel med Uppdateringshantering
 description: Lär dig hur du felsöker problem med Uppdateringshantering.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786065"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849249"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -68,7 +68,7 @@ Du kan ha definierat en kvot på din arbets yta som har nåtts och som förhindr
   | where OperationCategory == 'Data Collection Status'
   | sort by TimeGenerated desc
   ```
-  Om du får ett `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` resultat finns en kvot definierad på din arbets yta som har nåtts och som har stoppat data från att sparas. I arbets ytan går du till **användning och beräknade kostnader**  > **data volym hantering** och kontrollerar kvoten eller tar bort den.
+  Om du får ett `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` resultat finns en kvot definierad på din arbets yta som har nåtts och som har stoppat data från att sparas. I arbets ytan går du till **användning och beräknade kostnader** > **data volym hantering** och kontrollerar kvoten eller tar bort den.
 
 * Om de här stegen inte löser problemet följer du stegen i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md) för att installera om hybrid Worker för Windows. Eller, för Linux, [distribuerar du en Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
@@ -187,7 +187,7 @@ Felet kan uppstå på grund av någon av följande orsaker:
 
 ### <a name="resolution"></a>Upplösning
 
-Använd [dynamiska grupper](../automation-update-management-groups.md) för dina uppdaterings distributioner när det är tillämpligt. Dessutom
+Använd [dynamiska grupper](../automation-update-management-groups.md) för dina uppdaterings distributioner när det är tillämpligt. Dessutom:
 
 * Kontrol lera att datorn fortfarande finns och att den kan kontaktas. Om den inte finns redigerar du distributionen och tar bort datorn.
 * Se avsnittet [nätverks planering](../automation-update-management.md#ports) för en lista över portar och adresser som krävs för uppdateringshantering och kontrol lera att datorn uppfyller dessa krav.

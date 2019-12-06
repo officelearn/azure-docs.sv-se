@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 18c6499afe450a0387b0d9f0f13ee4378e0a21a9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173838"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849062"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualisera data med Azure Datautforskaren Connector för Excel
 
@@ -23,7 +23,7 @@ Azure Datautforskaren Excel Native Connector ger möjlighet att exportera fråge
 ## <a name="define-kusto-query-as-an-excel-data-source-and-load-the-data-to-excel"></a>Definiera Kusto-fråga som en Excel-datakälla och läsa in data till Excel
 
 1. Öppna **Microsoft Excel**.
-1. På fliken **data** väljer du **Hämta data** > **från** > Azure**från Azure datautforskaren**.
+1. På fliken **data** väljer du **Hämta data** > **från Azure** > **från Azure datautforskaren**.
 
     ![Hämta data från Azure Data Explorer](media/excel-connector/get-data-from-adx.png)
 
@@ -34,7 +34,7 @@ Azure Datautforskaren Excel Native Connector ger möjlighet att exportera fråge
     |Fält   |Beskrivning |
     |---------|---------|
     |**Flernodskluster**   |   Namn på kluster (obligatoriskt)      |    
-    |**Databas**     |    Namn på databasen      |    
+    |**Databas**     |    Namnet på databasen      |    
     |**Tabell namn eller Azure Datautforskaren fråga**    |     Namn på tabell eller Azure Datautforskaren fråga    | 
     
     **Avancerade alternativ:**
@@ -44,7 +44,7 @@ Azure Datautforskaren Excel Native Connector ger möjlighet att exportera fråge
     |**Begränsa post nummer för frågeresultat**     |     Begränsa antalet inlästa poster till Excel  |    
     |**Begränsa data storlek för frågeresultat (byte)**    |    Begränsa data storleken      |   
     |**Inaktivera avtrunkering av resultat uppsättning**    |         |      
-    |**Ytterligare set-instruktioner (avgränsade med semikolon)**    |    Lägg `set` till instruktioner som ska tillämpas på data källan     |   
+    |**Ytterligare set-instruktioner (avgränsade med semikolon)**    |    Lägg till `set`-instruktioner som ska tillämpas på data källan     |   
 
 1.  I **navigerings** fönstret navigerar du till rätt tabell. I rutan tabell förhands granskning väljer du **transformera data** för att göra ändringar i dina data eller väljer **Läs in** för att läsa in den i Excel.
 
@@ -75,3 +75,6 @@ När data har lästs in till Excel och är tillgängliga i ditt Excel-blad kan d
 
 1. Skapa fullständiga instrument paneler för att övervaka dina data.
 
+## <a name="next-steps"></a>Nästa steg
+
+[Visualisera data med en Azure Datautforskaren Kusto-fråga som importer ATS till Microsoft Excel](excel-blank-query.md)

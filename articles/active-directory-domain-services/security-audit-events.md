@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704297"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848907"
 ---
-# <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services (för hands version)
+# <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) säkerhets granskningar låter Azure Stream-säkerhetshändelser till riktade resurser. Dessa resurser omfattar Azure Storage, Azure Log Analytics-arbetsytor eller Azure Event Hub. När du har aktiverat säkerhets gransknings händelser skickar Azure AD DS alla granskade händelser för den valda kategorin till mål resursen. Du kan arkivera händelser i Azure Storage och strömma händelser till SIEM-program (Security information and Event Management) (eller motsvarande) med hjälp av Azure Event Hubs eller utföra din egen analys och använda Azure Log Analytics-arbetsytor från Azure Portal.
 
@@ -83,7 +83,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 
 1. Logga in på Azure Portal på https://portal.azure.com.
 1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *aadds.contoso.com*.
-1. I Azure AD DS-fönstret väljer du **diagnostikinställningar (för hands version)** på den vänstra sidan.
+1. I fönstret Azure AD DS väljer du **diagnostikinställningar** på vänster sida.
 1. Ingen diagnostik konfigureras som standard. Kom igång genom att välja **Lägg till diagnostisk inställning**.
 
     ![Lägg till en diagnostisk inställning för Azure AD Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
@@ -175,7 +175,7 @@ Med logg analys arbets ytor kan du Visa och analysera säkerhets gransknings hä
 * [Dokumentation om Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 * [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 * [Kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Skapa och dela instrument paneler för Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Skapa och dela instrumentpaneler för Log Analytics-data](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 Följande exempel frågor kan användas för att börja analysera säkerhets gransknings händelser från Azure AD DS.
 

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3611e61b303997a4291f4436403bb0a95e647e65
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686032"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851289"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Minnes-och samtidiga gränser för Azure SQL Data Warehouse
 Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure SQL Data Warehouse.  
@@ -24,11 +24,11 @@ Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna o
 ## <a name="data-warehouse-capacity-settings"></a>Kapacitets inställningar för informations lager
 I följande tabeller visas den maximala kapaciteten för data lagret på olika prestanda nivåer. Information om hur du ändrar prestanda nivån finns i [Scale Compute-Portal](quickstart-scale-compute-portal.md).
 
-### <a name="service-levels"></a>Service nivåer
+### <a name="service-levels"></a>Tjänstenivåer
 
 Tjänst nivåerna sträcker sig från DW100c till DW30000c.
 
-| Prestandanivå | Compute-noder | Distributioner per Compute-nod | Minne per informations lager (GB) |
+| Prestandanivå | Beräkningsnoder | Distributioner per Compute-nod | Minne per informations lager (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW100c            | 1             | 60                             |    60                          |
 | DW200c            | 1             | 60                             |   120                          |
@@ -50,26 +50,26 @@ Tjänst nivåerna sträcker sig från DW100c till DW30000c.
 Den högsta service nivån är DW30000c, som har 60 Compute-noder och en distribution per Compute-nod. Till exempel, ett 600 TB informations lager på DW30000c bearbetar cirka 10 TB per Compute-nod.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Concurrency-maximum för arbets belastnings grupper
-Med introduktionen av arbets belastnings grupper – länka TBD, gäller inte längre begreppet samtidiga platser.  Resurser per begäran tilldelas i procent och anges i definitionen av arbets belastnings gruppen.  Men även om du tar bort samtidiga platser, finns det minimala mängder resurser som krävs per fråga baserat på service nivå.  Tabellen nedan definierar den minsta mängd resurser som krävs per fråga över tjänst nivåer och den associerade samtidigheten som kan uppnås. 
+Med introduktionen av [arbets belastnings grupper](sql-data-warehouse-workload-isolation.md)gäller inte längre begreppet samtidiga platser.  Resurser per begäran tilldelas i procent och anges i definitionen av arbets belastnings gruppen.  Men även om du tar bort samtidiga platser, finns det minimala mängder resurser som krävs per fråga baserat på service nivå.  Tabellen nedan definierar den minsta mängd resurser som krävs per fråga över tjänst nivåer och den associerade samtidigheten som kan uppnås. 
 
-|Servicenivå|Maximalt antal samtidiga frågor|Min% som stöds för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Servicenivå|Maximalt antal samtidiga frågor|Lägsta% som stöds för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25 %|
 |DW200c|8|12,5%|
-|DW300c|12|7,8|
+|DW300c|12|8 %|
 |DW400c|16|6,25%|
 |DW500c|20|5 %|
-|DW1000c|32|3|
-|DW1500c|32|3|
-|DW2000c|48|11.2|
-|DW2500c|48|11.2|
-|DW3000c|64|1,5%|
-|DW5000c|64|1,5%|
-|DW6000c|128|0,75%|
-|DW7500c|128|0,75%|
-|DW10000c|128|0,75%|
-|DW15000c|128|0,75%|
-|DW30000c|128|0,75%|
+|DW1000c|32|3 %|
+|DW1500c|32|3 %|
+|DW2000c|48|2%|
+|DW2500c|48|2%|
+|DW3000c|64|1,5 %|
+|DW5000c|64|1,5 %|
+|DW6000c|128|0,75 %|
+|DW7500c|128|0,75 %|
+|DW10000c|128|0,75 %|
+|DW15000c|128|0,75 %|
+|DW30000c|128|0,75 %|
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Concurrency-maximum för resurs klasser

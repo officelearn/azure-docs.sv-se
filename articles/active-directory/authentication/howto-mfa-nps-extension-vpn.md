@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0158b99d10b426efb02ca31cef2bc0053a976f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404693"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848382"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Azure
 
@@ -49,7 +49,7 @@ Innan Azure-tillägget är tillgängligt för Azure måste kunder som vill imple
 
 Med NPS-tillägget för Azure kan organisationer skydda RADIUS-klientautentisering genom att distribuera antingen en lokal baserad MFA-lösning eller en molnbaserad MFA-lösning.
 
-## <a name="authentication-flow"></a>Autentiseringspaket
+## <a name="authentication-flow"></a>Autentiseringsflöde
 
 När användarna ansluter till en virtuell port på en VPN-server måste de först autentiseras med hjälp av olika protokoll. Protokollen gör det möjligt att använda en kombination av användar namn och lösen ord och certifikatbaserad autentiseringsmetoder.
 
@@ -98,7 +98,7 @@ Information om hur du installerar roll tjänsten nätverks policy och åtkomst t
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licens
 
-Det krävs en licens för Azure Multi-Factor Authentication och den är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en Multi-Factor Authentication fristående licens. Användnings licenser för Azure MFA, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget. Mer information finns i [så här skaffar du Azure-Multi-Factor Authentication](concept-mfa-licensing.md). I testsyfte kan du använda en utvärderingsprenumeration.
+Det krävs en licens för Azure Multi-Factor Authentication och den är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en Multi-Factor Authentication fristående licens. Användnings licenser för Azure MFA, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget. Mer information finns i [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md). I testsyfte kan du använda en utvärderingsprenumeration.
 
 ### <a name="windows-server-software"></a>Windows Server-programvara
 
@@ -324,7 +324,7 @@ Om värdet är inställt på *Sant* eller tomt, omfattas alla autentiseringsbeg�
 
 Som en del av konfigurationen av NPS-tillägget måste du ange administratörsautentiseringsuppgifter och ID för din Azure AD-klient. Hämta ID: t genom att göra följande:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör för Azure-klienten.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör för Azure-klient.
 
 2. I den vänstra rutan väljer du knappen **Azure Active Directory** .
 
@@ -426,7 +426,7 @@ På den server där du installerade NPS-tillägget för Azure Multi-Factor Authe
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
 
-Om konfigurationen inte fungerar som förväntat startar du fel sökningen genom att verifiera att användaren är konfigurerad att använda MFA. Be användaren att ansluta till [Azure Portal](https://portal.azure.com). Om användaren uppmanas att använda den sekundära autentiseringen och kan autentiseras kan du eliminera en felaktig konfiguration av MFA som ett problem.
+Om konfigurationen inte fungerar som förväntat startar du fel sökningen genom att verifiera att användaren är konfigurerad att använda MFA. Få användaren att ansluta till den [Azure-portalen](https://portal.azure.com). Om användaren uppmanas att använda den sekundära autentiseringen och kan autentiseras kan du eliminera en felaktig konfiguration av MFA som ett problem.
 
 Om MFA arbetar för användaren granskar du relevanta Loggboken loggar. Loggarna omfattar säkerhets händelsen, gatewayen och Azure Multi-Factor Authentication loggar som beskrivs i föregående avsnitt.
 

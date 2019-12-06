@@ -1,18 +1,18 @@
 ---
 title: ARCSin i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function ARCSin i Azure Cosmos DB.
+description: Lär dig mer om hur arcus sinus-funktionen (ARCSin) SQL system i Azure Cosmos DB Returnerar vinkeln, i radianer, vars sinus är det angivna numeriska uttrycket
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5a64fc8d8f87d38f001bf2bc9dd581692c97fe64
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3e790eb5ae5eb780637b199a1a65dec2dd02d1bc
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348504"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871746"
 ---
 # <a name="asin-azure-cosmos-db"></a>ARCSin (Azure Cosmos DB)
  Returnerar vinkeln i radianer vars sinus är det angivna numeriska uttrycket. Detta kallas också arcsinus.  
@@ -34,7 +34,7 @@ ASIN(<numeric_expr>)
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel returneras `ASIN` av-1.  
+  I följande exempel returneras `ASIN`-1.  
   
 ```sql
 SELECT ASIN(-1) AS asin  

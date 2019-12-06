@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 61deb5361c9857956318f8b9b4ca836fcfa65d48
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e11f560c2b101d86d41feb3f6c93cffe7c1a748d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798133"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851459"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generera jord fukt termisk karta
 
 Jord fukt är det vatten som hålls i utrymmet mellan jord partiklar. Jord-och fukt termisk karta hjälper dig att förstå fukt data i djup och med hög upplösning i dina grupper. En enhetlig distribution av sensorer från samma provider krävs för att generera en korrekt och användbar jord fukt termisk karta. Olika leverantörer kommer att ha skillnader i hur jord fukten mäts tillsammans med skillnader i kalibreringen. Termisk karta genereras för ett visst djup med de sensorer som distribueras med det djupet.
 
-Den här artikeln beskriver processen för att skapa en jord-fukt-termisk karta för din server grupp med hjälp av Azure FarmBeats-acceleratorn. I den här artikeln får du lära dig att:
+Den här artikeln beskriver processen för att skapa en jord-fukt-termisk karta för din server grupp med hjälp av Azure FarmBeats-acceleratorn. I den här artikeln får du lära dig hur du:
 
 - [Skapa Server grupper](#create-a-farm)
 - [Tilldela sensorer till Server grupper](#get-soil-moisture-sensor-data-from-partner)
@@ -24,13 +24,13 @@ Den här artikeln beskriver processen för att skapa en jord-fukt-termisk karta 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Kontrol lera följande:  
+Kontrollera följande:  
 
 - En Azure-prenumeration.
 - En instans av Azure-FarmBeats som körs.
 - Minst tre jord fukts sensorer är tillgängliga för Server gruppen.
 
-## <a name="create-a-farm"></a>Skapa en Server grupp
+## <a name="create-a-farm"></a>Skapa en grupp
 
 En grupp är ett geografiskt område som du vill skapa en jord-och fukt termisk karta för. Du kan skapa en Server grupp med hjälp av Server grupps- [API: et](https://aka.ms/FarmBeatsDatahubSwagger) eller i [användar gränssnittet för FarmsBeats Accelerator](manage-farms.md#create-farms)
 
@@ -85,7 +85,7 @@ Använd följande steg:
 
 1. På sidan **jobb** kontrollerar du **jobb status** för det jobb som du skapade i den senaste proceduren.
 2. När jobb statusen *har slutförts*klickar du på **kartor** på menyn.
-3. Sök efter kartan efter den dag då den skapades i formatet < moisture_MyFarm_YYYY-MM-DD >.
+3. Sök efter kartan efter den dag då den skapades i formatet < jord-moisture_MyFarm_YYYY-MM-DD >.
 4. Välj en karta i kolumnen **namn** . ett popup-fönster visas med förhands granskningen för den valda kartan.
 5. Välj **Ladda ned**. Kartan laddas ned och lagras i den lokala mappen på datorn.
 
@@ -93,4 +93,4 @@ Använd följande steg:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat en jord-fukt termisk karta kan du läsa om hur du [genererar sensor placering](generate-maps.md#sensor-placement-maps) och matar in [historiska telemetridata](ingest-historical-telemetry-data.md). 
+Nu när du har skapat en jord-fukt termisk karta kan du läsa om hur du [genererar sensor placering](generate-maps.md#sensor-placement-map) och matar in [historiska telemetridata](ingest-historical-telemetry-data.md). 

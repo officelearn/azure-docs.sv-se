@@ -1,5 +1,5 @@
 ---
-title: Skapa interaktiva rapporter med anpassade parametrar för Azure Monitor arbets böcker | Microsoft-dokument
+title: Azure Monitor arbets böcker med anpassade parametrar
 description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: eeb6eb5d8b3ad6498ff90a9afe1fa4f2c18d30e5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 19fd8c108e8075d30ca494ca75d52952849c284a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165958"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872850"
 ---
 # <a name="interactive-workbooks"></a>Interaktiva arbets böcker
 

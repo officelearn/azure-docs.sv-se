@@ -4,17 +4,17 @@ description: Beskriver hur du skapar och hämtar utdata och fel meddelanden frå
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df0842635d13180951f8d79a598fe0708ca64b8a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: af199439fedddaef5b1bd3b219a60db697fb25ab
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850527"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849657"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 
@@ -22,12 +22,12 @@ De flesta Azure Automation runbooks har någon form av utdata. De här utdata ka
 
 Följande tabell innehåller en kort beskrivning av varje data flöde och deras beteende i Azure Portal för publicerade Runbooks och när du [testar en Runbook](automation-testing-runbook.md). Mer information om varje data ström finns i senare avsnitt.
 
-| Stream | Beskrivning | Publicerad | Test |
+| Stream | Beskrivning | Publicerad | Testa |
 |:--- |:--- |:--- |:--- |
-| Utdata |Objekt som ska användas av andra runbooks. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
+| Resultat |Objekt som ska användas av andra runbooks. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Varning |Varningsmeddelande avsett för användaren. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Fel |Felmeddelande avsett för användaren. Till skillnad från ett undantag fortsätter runbooken när ett felmeddelande visas som standard. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
-| Utförlig |Meddelanden som ger allmän eller felsöknings information. |Skrivs till jobbhistoriken endast om utförlig loggning är aktiverad för runbooken. |Visas endast i fönstret för att testa utdata om $VerbosePreference har värdet Fortsätt i runbooken. |
+| Utförlig |Meddelanden som ger allmän eller felsöknings information. |Skrivs till jobbhistoriken endast om utförlig loggning är aktiverad för runbooken. |Visas bara i rutan Testutdata om $VerbosePreference har angetts till Continue i Runbooken. |
 | Pågår |Poster som genereras automatiskt före och efter varje aktivitet i runbook. Runbooken bör inte försöka skapa egna status poster eftersom de är avsedda för en interaktiv användare. |Skrivs till jobbhistoriken endast om förloppsloggning är aktiverad för runbooken. |Inte visas i rutan Testutdata. |
 | Felsöka |Meddelanden avsedda för en interaktiv användare. Bör inte användas i Runbooks. |Skrivs inte till jobbhistoriken. |Skrivs inte till rutan Testutdata. |
 
@@ -103,24 +103,24 @@ Workflow Test-Runbook
 }
  ```
 
-Om du vill deklarera en utdatatyp i grafiska eller grafiska PowerShell Workflow-Runbooks, kan du välja meny alternativet **indata och utdata** och skriva in namnet på utdatatypen. Vi rekommenderar att du använder det fullständiga .NET-klass namnet för att göra det enkelt att identifiera när du refererar till den från en överordnad Runbook. Detta visar alla egenskaper för den klassen för data bussen i runbooken och ger mycket flexibilitet när du använder dem för villkorlig logik, loggning och referenser som värden för andra aktiviteter i runbooken.<br> ![Alternativ för indata och utdata för Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+Om du vill deklarera en utdatatyp i grafiska eller grafiska PowerShell Workflow-Runbooks, kan du välja meny alternativet **indata och utdata** och skriva in namnet på utdatatypen. Vi rekommenderar att du använder det fullständiga .NET-klass namnet för att göra det enkelt att identifiera när du refererar till den från en överordnad Runbook. Detta visar alla egenskaper för den klassen för data bussen i runbooken och ger mycket flexibilitet när du använder dem för villkorlig logik, loggning och referenser som värden för andra aktiviteter i runbooken.<br> ![indata och utdata för Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
 I följande exempel har du två grafiska runbooks som demonstrerar den här funktionen. Om du använder design modellen modulär Runbook, har du en Runbook, som fungerar som Runbook- *mallen för autentisering* hantera autentisering med Azure med hjälp av kör som-kontot. Vår andra Runbook, som normalt skulle utföra huvud logiken för att automatisera ett specifikt scenario, kommer i det här fallet att köra *Runbook-mallen för autentisering* och visa resultatet i fönstret för att **testa** utdata. Under normala omständigheter skulle du ha denna Runbook att göra något mot en resurs som utnyttjar utdata från den underordnade runbooken.
 
-Här är den grundläggande logiken i **AuthenticateTo-Azure-** runbooken.<br> ![Exempel](media/automation-runbook-output-and-messages/runbook-authentication-template.png)på autentisering av Runbook-mall.
+Här är den grundläggande logiken i **AuthenticateTo-Azure-** runbooken.<br> Exempel](media/automation-runbook-output-and-messages/runbook-authentication-template.png)![autentisera Runbook-mall.
 
-Den innehåller utdatatypen *Microsoft. Azure. commands. Profile. Models. PSAzureContext*, som returnerar egenskaperna för verifierings profilen.<br> ![Exempel på Utdatatyp för Runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+Den innehåller utdatatypen *Microsoft. Azure. commands. Profile. Models. PSAzureContext*, som returnerar egenskaperna för verifierings profilen.<br> Exempel](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) ![Runbook-utdatatypen
 
 Det här Runbook-flödet är rakt framåt, men det finns ett konfigurations objekt som kan anropas här. Den senaste aktiviteten kör cmdleten **Write-output** och skriver profil data till en $ _-variabel med ett PowerShell-uttryck för parametern **InputObject** , vilket krävs för denna cmdlet.
 
-För den andra runbooken i det här exemplet har namnet *test-ChildOutputType*, så du har bara två aktiviteter.<br> ![Exempel på underordnad Utdatatyp Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+För den andra runbooken i det här exemplet har namnet *test-ChildOutputType*, så du har bara två aktiviteter.<br> ![exempel på underordnad Utdatatyp Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-Den första aktiviteten anropar **AuthenticateTo-Azure-** runbooken och den andra aktiviteten kör cmdleten **Write-Verbose** med **data källan** för **aktivitets utdata** och värdet för **fält Sök väg** är  **Context. Subscription. SubscriptionName**, som anger kontextens utdata från **AuthenticateTo-Azure-** runbooken.<br> ![Data källa för Write-utförlig cmdlet-parameter](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+Den första aktiviteten anropar **AuthenticateTo-Azure-** runbooken och den andra aktiviteten kör en **Write-Verbose-** cmdlet med **data källan** för **aktivitets utdata** och värdet för **fält Sök väg** är **context. Subscription. SubscriptionName**, som anger kontextens utdata från **AuthenticateTo-Azure-** runbooken.<br> ![data källa för Write-Verbose-cmdlet-parameter](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 Resultatet är namnet på prenumerationen.<br> ![Test-ChildOutputType Runbook-resultat](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
 > [!NOTE]
-> När du har angett ett värde i rutan Utdatatyp i fönstret Egenskaper för **indata och utdata** måste du klicka utanför kontrollen så att posten kan identifieras av kontrollen.
+> När du har angett ett värde **i rutan Utdatatyp i** fönstret **Egenskaper för indata och utdata** måste du klicka utanför kontrollen så att posten kan identifieras av kontrollen.
 
 ## <a name="message-streams"></a>Meddelandeströmmar
 
@@ -170,29 +170,29 @@ Windows PowerShell använder [preferensvariabler](https://technet.microsoft.com/
 
 I följande tabell visas de preferensvariabler som kan användas i runbooks med sina giltiga och standardvärden. Tabellen innehåller endast de värden som är giltiga i en Runbook. Ytterligare värden är giltiga för Preferences-variablerna när de används i Windows PowerShell utanför Azure Automation.
 
-| Variabel | Standardvärde | Giltiga värden |
+| Variabel | Default Value | Giltiga värden |
 |:--- |:--- |:--- |
-| WarningPreference |Fortsätta |Stop<br>Fortsätta<br>SilentlyContinue |
-| ErrorActionPreference |Fortsätta |Stop<br>Fortsätta<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Stop<br>Fortsätta<br>SilentlyContinue |
+| WarningPreference |Fortsätt |Stopp<br>Fortsätt<br>SilentlyContinue |
+| ErrorActionPreference |Fortsätt |Stopp<br>Fortsätt<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |Stopp<br>Fortsätt<br>SilentlyContinue |
 
 I följande tabell visas beteendet för de preferensvariabelvärden som är giltiga i runbooks.
 
 | Värde | Beteende |
 |:--- |:--- |
-| Fortsätta |Loggar meddelandet och fortsätter att köra runbooken. |
+| Fortsätt |Loggar meddelandet och fortsätter att köra runbooken. |
 | SilentlyContinue |Fortsätter att köra runbooken utan att logga meddelandet. Det här värdet innebär att meddelandet ignoreras. |
-| Stoppa |Loggar meddelandet och pausar runbooken. |
+| Stopp |Loggar meddelandet och pausar runbooken. |
 
 ## <a name="runbook-output"></a>Hämta utdata och meddelanden i Runbook
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-Du kan visa information om ett Runbook-jobb i Azure Portal från fliken jobb i en Runbook. Sammanfattningen av jobbet visar indataparametrarna och [utdataströmmen](#output-stream) Förutom allmän information om jobbet och eventuella undantag om de har inträffat. Historiken innehåller meddelanden från [utdataströmmen](#output-stream) och varnings- [och fel strömmar](#warning-and-error-streams) samt [utförlig data ström](#verbose-stream) och [förlopps poster](#progress-records) om runbooken är konfigurerad att logga utförliga och förlopps poster.
+Du kan visa information om ett Runbook-jobb i Azure Portal från fliken jobb i en Runbook. Sammanfattningen av jobbet visar indataparametrarna och [utdataströmmen](#output-stream) Förutom allmän information om jobbet och eventuella undantag om de har inträffat. Historiken innehåller meddelanden från [utdataströmmen](#output-stream) och [varnings-och fel strömmar](#warning-and-error-streams) samt [utförlig data ström](#verbose-stream) och [förlopps poster](#progress-records) om runbooken är konfigurerad att logga utförliga och förlopps poster.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
-I Windows PowerShell kan du hämta utdata och meddelanden från en Runbook med hjälp av cmdleten [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) . Denna cmdlet kräver jobbets ID och har en parameter med namnet Stream där du anger vilken data ström som ska returneras. Du kan ange **alla** att returnera alla dataströmmar för jobbet.
+I Windows PowerShell kan du hämta utdata och meddelanden från en Runbook med hjälp av cmdleten [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) . Denna cmdlet kräver ID för jobbet och har parametern Stream där du kan ange vilken dataström som ska returneras. Du kan ange **alla** att returnera alla dataströmmar för jobbet.
 
 I följande exempel startas en exempel-runbook och väntar sedan tills den är klar. När klar utdataström dess från jobbet.
 
@@ -250,4 +250,4 @@ Mer information om hur du konfigurerar integrering med Azure Monitor loggar för
 
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra runbook-jobb](automation-runbook-execution.md)
 * Information om hur du utformar och använder underordnade Runbooks finns under [underordnade Runbooks i Azure Automation](automation-child-runbooks.md)
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell](/powershell/scripting/overview)-dokumenten.
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](/powershell/scripting/overview).

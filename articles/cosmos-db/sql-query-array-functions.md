@@ -1,24 +1,24 @@
 ---
 title: Mat ris funktioner i Azure Cosmos DB frågespråk
-description: Lär dig mer om matrisens SQL-systemfunktioner i Azure Cosmos DB.
+description: Lär dig mer om hur mat ris funktionerna gör att du kan utföra åtgärder på matriser i Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f970ed03ef5a9ccbfb9664a6c2d9db424ee96ed1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a0256470892d634361498f1632027aff562c7761
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348686"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871813"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>Mat ris funktioner (Azure Cosmos DB)
 
 Med mat ris funktionerna kan du utföra åtgärder på matriser i Azure Cosmos DB.
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Följande skalära funktioner utför en åtgärd på ett värde för mat ris värden och returnerar numeriska värden, booleska eller matriskonstanter:
   
@@ -33,4 +33,4 @@ Följande skalära funktioner utför en åtgärd på ett värde för mat ris vä
 - [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
-- [Agg regeringar](sql-query-aggregates.md)
+- [Aggregeringar](sql-query-aggregates.md)

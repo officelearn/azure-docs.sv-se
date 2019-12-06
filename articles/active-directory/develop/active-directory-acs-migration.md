@@ -2,30 +2,26 @@
 title: Migrera från Azure-Access Control Service | Microsoft Docs
 description: Lär dig mer om alternativen för att flytta appar och tjänster från Azure-Access Control Service (ACS).
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59a2cc971fbc1df967bc2655c672ab8f419eef71
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c04377877619c96f139f4b6c1cf826573524d900
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835515"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845560"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Anvisningar: Migrera från Azure Access Control Service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
 
 Microsoft Azure Access Control Service (ACS), en tjänst Azure Active Directory (Azure AD) tas ur bruk den 7 november 2018. Program och tjänster som för närvarande använder Access Control måste migreras fullständigt till en annan autentiseringsmekanism av. Den här artikeln beskriver rekommendationer för aktuella kunder, när du planerar att använda Access Control. Om du inte använder Access Control för närvarande behöver du inte vidta några åtgärder.
 
@@ -58,7 +54,7 @@ Om du vill använda dessa komponenter måste du skapa en eller flera Access Cont
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-All kommunikation med STS-och Management-åtgärderna görs på denna URL. Du använder olika sökvägar för olika syfte. För att avgöra om dina program eller tjänster använder Access Control övervaka för all trafik till https://&lt;namespace&gt;. AccessControl.Windows.net. All trafik till denna URL hanteras av Access Control och måste avbrytas. 
+All kommunikation med STS-och Management-åtgärderna görs på denna URL. Du använder olika sökvägar för olika syfte. För att avgöra om dina program eller tjänster använder Access Control övervaka för all trafik till https://&lt;-namnrymden&gt;. accesscontrol.windows.net. All trafik till denna URL hanteras av Access Control och måste avbrytas. 
 
 Undantaget till detta är all trafik till `https://accounts.accesscontrol.windows.net`. Trafik till denna URL hanteras redan av en annan tjänst och påverkas **inte** av Access Control-utfasningen. 
 
@@ -102,9 +98,9 @@ Följ stegen i det här avsnittet för att ta reda på vilka av dina appar som k
 
 ### <a name="check-which-applications-will-be-impacted"></a>Kontrol lera vilka program som påverkas
 
-1. Använd namn området från föregående steg och gå till`https://<namespace>.accesscontrol.windows.net`
+1. Använd namn området från föregående steg och gå till `https://<namespace>.accesscontrol.windows.net`
 
-    Om ett av namn områdena till exempel är contoso-test går du till`https://contoso-test.accesscontrol.windows.net`
+    Om ett av namn områdena till exempel är contoso-test går du till `https://contoso-test.accesscontrol.windows.net`
 
 1. Under **förtroende relationer**väljer du **förlitande part program** om du vill se en lista över appar som kommer att påverkas av ACS-pensionen.
 1. Upprepa steg 1-2 för alla andra ACS-namnrymder som du har.
@@ -115,9 +111,9 @@ Från och med november 2017 stöds alla Access Control-komponenter fullständigt
 
 Här är schemat för inaktuella Access Control-komponenter:
 
-- **November 2017**:  Administratörs upplevelsen för Azure AD i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu finns namn områdes hantering för Access Control på en ny, dedikerad URL: `https://manage.windowsazure.com?restoreClassic=true`. Använd den här URl: en för att visa befintliga namn områden, aktivera och inaktivera namn områden och ta bort namnrum om du väljer att.
-- **2 April 2018**: Den klassiska Azure-portalen är helt tillbakadragen, vilket innebär att Access Control namn områdes hantering inte längre är tillgängligt via någon URL. I det här läget kan du inte inaktivera eller aktivera, ta bort eller räkna upp Access Control namnrum. Access Control hanterings portalen är dock helt funktionell och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att arbeta normalt.
-- **7 November 2018**: Alla Access Controls komponenter stängs av permanent. Detta inkluderar Access Control hanterings Portal, hanterings tjänst, STS och token för token för omvandling av token. I det här läget går det inte att skicka förfrågningar som skickats \<till\>Access Control (finns på namespace. AccessControl.Windows.net). Du bör ha migrerat alla befintliga appar och tjänster till andra tekniker precis innan den här gången.
+- **2017 november**: Azure AD-administrationskonsolen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). I det här läget finns namn områdes hantering för Access Control på en ny, dedikerad URL: `https://manage.windowsazure.com?restoreClassic=true`. Använd den här URl: en för att visa befintliga namn områden, aktivera och inaktivera namn områden och ta bort namnrum om du väljer att.
+- **2 April 2018**: den klassiska Azure-portalen är helt tillbakadragen, vilket innebär att Access Control namn områdes hantering inte längre är tillgängligt via någon URL. I det här läget kan du inte inaktivera eller aktivera, ta bort eller räkna upp Access Control namnrum. Access Control hanterings portalen är dock helt funktionell och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att arbeta normalt.
+- **7 November 2018**: alla Access Control-komponenter stängs av permanent. Detta inkluderar Access Control hanterings Portal, hanterings tjänst, STS och token för token för omvandling av token. I det här läget går det inte att skicka förfrågningar som skickas till Access Control (som finns i \<namn område\>. accesscontrol.windows.net). Du bör ha migrerat alla befintliga appar och tjänster till andra tekniker precis innan den här gången.
 
 > [!NOTE]
 > En princip inaktiverar namn rymder som inte har begärt en token under en viss tids period. Från och med den tidigaste september 2018 är denna tids period för närvarande 14 dagar av inaktivitet, men detta kommer att kortas till 7 dagars inaktivitet under de kommande veckorna. Om du har Access Control namn områden som för närvarande är inaktiverade kan du [Hämta och installera ACS PowerShell](#download-and-install-acs-powershell) för att återaktivera namn områdena.
@@ -130,7 +126,7 @@ I följande avsnitt beskrivs övergripande rekommendationer för migrering från
 
 Varje moln tjänst från Microsoft som accepterar token som utfärdas av Access Control stöder nu minst en annan form av autentisering. Rätt autentiseringsmekanism varierar för varje tjänst. Vi rekommenderar att du läser den detaljerade dokumentationen för varje tjänst för officiell vägledning. För enkelhetens skull finns varje uppsättning dokumentation här:
 
-| Tjänsten | Riktlinjer |
+| Tjänst | Vägledning |
 | ------- | -------- |
 | Azure Service Bus | [Migrera till signaturer för delad åtkomst](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus relä | [Migrera till signaturer för delad åtkomst](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -151,7 +147,7 @@ Varje moln tjänst från Microsoft som accepterar token som utfärdas av Access 
 
 SharePoint 2013-, 2016-och SharePoint Online-kunder har länge använt ACS för autentisering i molnet, lokalt och i hybrid scenarion. Vissa SharePoint-funktioner och användnings fall kommer att påverkas av ACS-dragande, medan andra inte kommer. I tabellen nedan sammanfattas vägledningen för migrering för några av de mest populära SharePoint-funktionerna som utnyttjar ACS:
 
-| Funktion | Riktlinjer |
+| Funktion | Vägledning |
 | ------- | -------- |
 | Autentisera användare från Azure AD | Tidigare har Azure AD inte stöd för SAML 1,1-token som krävs av SharePoint för autentisering, och ACS användes som en mellanhand som gjorde SharePoint kompatibelt med Azure AD-tokens. Nu kan du [ansluta SharePoint direkt till Azure AD med hjälp av Azure AD App galleriet SharePoint i den lokala appen](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [App-autentisering & server-till-Server-autentisering i SharePoint lokalt](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Påverkas inte av ACS-dragande, inga ändringar krävs. | 
@@ -190,7 +186,7 @@ I följande tabell jämförs funktionerna i Access Control som är relevanta fö
 
 På hög nivå *är Azure Active Directory förmodligen det bästa valet för din migrering om du låter användarna logga in enbart med sina arbets-eller skol konton i Microsoft*.
 
-| Funktion | Access Control support | Support för Azure AD |
+| Kapacitet | Access Control support | Support för Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Typer av konton** | | |
 | Microsoft arbets-eller skol konton | Stöds | Stöds |
@@ -205,7 +201,7 @@ På hög nivå *är Azure Active Directory förmodligen det bästa valet för di
 | WS-Trust | Stöds | Stöds inte |
 | **Token-format** | | |
 | JWT | Stöds i beta | Stöds |
-| SAML 1.1 | Stöds | Förhandsversion |
+| SAML 1,1 | Stöds | Förhandsversion |
 | SAML 2.0 | Stöds | Stöds |
 | SWT | Stöds | Stöds inte |
 | **Anpassningar** | | |
@@ -241,7 +237,7 @@ Azure AD B2C stöder dock inte bredden på autentiseringsprotokoll och token-for
 
 I följande tabell jämförs funktionerna i Access Control som är relevanta för webb program med de som är tillgängliga i Azure AD B2C. På hög nivå *är Azure AD B2C förmodligen det rätta valet för din migrering om ditt program är kund riktat eller om det stöder många olika typer av konton.*
 
-| Funktion | Access Control support | Azure AD B2C support |
+| Kapacitet | Access Control support | Azure AD B2C support |
 | ---------- | ----------- | ---------------- |
 | **Typer av konton** | | |
 | Microsoft arbets-eller skol konton | Stöds | Stöds via anpassade principer  |
@@ -256,7 +252,7 @@ I följande tabell jämförs funktionerna i Access Control som är relevanta fö
 | WS-Trust | Stöds | Stöds inte |
 | **Token-format** | | |
 | JWT | Stöds i beta | Stöds |
-| SAML 1.1 | Stöds | Stöds inte |
+| SAML 1,1 | Stöds | Stöds inte |
 | SAML 2.0 | Stöds | Stöds inte |
 | SWT | Stöds | Stöds inte |
 | **Anpassningar** | | |
@@ -320,12 +316,12 @@ Vår rekommendation för den här typen av autentiseringspaket är att migrera t
 
 Du kan också använda Azure AD för server-till-Server-autentisering med hjälp av Azure AD-implementeringen av tilldelningen av OAuth-klientautentiseringsuppgifter. I följande tabell jämförs funktionerna i Access Control Server-till-Server-autentisering med de som är tillgängliga i Azure AD.
 
-| Funktion | Access Control support | Support för Azure AD |
+| Kapacitet | Access Control support | Support för Azure AD |
 | ---------- | ----------- | ---------------- |
 | Registrera en webb tjänst | Skapa en förlitande part i Access Control hanterings portalen | Skapa ett Azure AD-webbprogram i Azure Portal |
 | Registrera en klient | Skapa en tjänst identitet i Access Control hanterings Portal | Skapa ett annat Azure AD-webbprogram i Azure Portal |
 | Protokoll som används |– OAuth-protokollet för att packa<br />– OAuth 2,0 Draft 13-tilldelning av klientautentiseringsuppgifter | Beviljande av autentiseringsuppgifter för OAuth 2.0-klient |
-| Klientautentiseringsmetoder |– Enkelt lösen ord<br />-Signerad SWT<br />– SAML-token från en federerad identitets leverantör |– Enkelt lösen ord<br />-Signerat JWT |
+| Metoder för klientautentisering |– Enkelt lösen ord<br />-Signerad SWT<br />– SAML-token från en federerad identitets leverantör |– Enkelt lösen ord<br />-Signerat JWT |
 | Token-format |– JWT<br />– SAML 1,1<br />– SAML 2,0<br />– SWT<br /> | Endast JWT |
 | Token-transformering |-Lägg till anpassade anspråk<br />– Enkel om-then utfärdande logik för anspråk | Lägg till anpassade anspråk | 
 | Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst | Stöds via Microsoft Graph och Azure AD Graph API |

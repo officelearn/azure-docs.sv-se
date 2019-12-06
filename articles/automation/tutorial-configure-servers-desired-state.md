@@ -4,17 +4,17 @@ description: Självstudie – hantera serverkonfigurationer med Azure Automation
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 72e5018dc1212e57dc190c05cc54158d37ca7fe1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0339796f028a0cc0b19533be06127544db396f92
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231504"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850099"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurera servrar till önskat tillstånd och hantera drift
 
@@ -170,7 +170,7 @@ Om du väljer att ta bort noden från tjänsten kan du göra det med hjälp av a
 > Detta påverkar inte den konfiguration som för närvarande används på noden.
 > Om du vill ta bort den aktuella konfigurationen använder du [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) eller tar bort den lokala konfigurations filen (detta är det enda alternativet för Linux-noder).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Klicka på **tillstånds konfiguration (DSC)** i innehålls förteckningen från Azure Automation.
 Klicka sedan på **noder** för att visa en lista över noder som är registrerade i tjänsten.

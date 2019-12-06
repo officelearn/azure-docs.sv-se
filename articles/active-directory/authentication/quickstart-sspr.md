@@ -6,23 +6,23 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 582a6a32aa4c34b2e6fef37f3de5b5414de16cf3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474376"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846665"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Quickstart: Självåterställning av lösenord
 
 I den här snabbstarten går du igenom konfiguration av självåterställning av lösenord (SSPR) som ett enkelt sätt för IT-administratörer att göra så att användarna kan återställa sina lösenord eller låsa upp sina konton.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens.
 * Ett konto med behörigheter som global administratör.
@@ -37,14 +37,14 @@ I den här snabbstarten går du igenom konfiguration av självåterställning av
 
 2. På sidan **Egenskaper** går du till alternativet **Self Service Password Reset Enabled** (Självåterställning av lösenord aktiverat) och väljer **Vald**.
     * Från **Välj grupp** väljer du den pilotgrupp som skapades i avsnittet om förutsättningar i den här artikeln.
-    * Klicka på **Spara**.
+    * Klicka på **Save** (Spara).
 
 3. Från sidan **Autentiseringsmetoder** gör du följande val:
    * Antal metoder som krävs för återställning: **1**
    * Metoder som är tillgängliga för användare:
       * **E-post**
       * **Kod för mobilapp (för hands version)**
-   * Klicka på **Spara**.
+   * Klicka på **Save** (Spara).
 
      ![Välja autentiseringsmetoder för SSPR][Authentication]
 

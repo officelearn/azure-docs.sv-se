@@ -4,21 +4,21 @@ description: I den här artikeln beskrivs de mappningar som tillåts mellan ett 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd4500b4ef6492f0b6499bb1e9aa1a773313e860
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 965d6b206bb64e90fe59798ce0c37ccf029117f5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498373"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849521"
 ---
 # <a name="workspace-mappings"></a>Mappningar för arbets ytor
 
-När du aktiverar lösningar som Uppdateringshantering, Ändringsspårning och inventering eller tjänsten starta/stoppa virtuella datorer vid låg belastnings tider, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. Den här mappningen gäller endast Automation-kontot och Log Analytics-arbetsytan. Resurserna som rapporterar till ditt Automation-konto eller Log Analytics arbets ytan kan finnas i andra regioner.
+När du aktiverar lösningar som Uppdateringshantering, Ändringsspårning och inventering eller Starta/stoppa virtuella datorer när de inte används lösning, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. Den här mappningen gäller endast Automation-kontot och Log Analytics-arbetsytan. Resurserna som rapporterar till ditt Automation-konto eller Log Analytics arbets ytan kan finnas i andra regioner.
 
 ## <a name="supported-mappings"></a>Mappningar som stöds
 
@@ -49,7 +49,7 @@ Följande tabell visar de mappningar som stöds:
 
 ## <a name="unlink-workspace"></a>Ta bort länk till arbets yta
 
-Om du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken till ditt konto direkt från Azure Portal. Innan du fortsätter måste du först ta bort Uppdateringshantering, Ändringsspårning och inventering, eller om du använder dem för att starta/stoppa virtuella datorer vid låg belastnings tider. Om du inte tar bort dem kommer den här processen att förhindras från att fortsätta. Läs artikeln för den specifika lösning som du har importerat för att förstå de steg som krävs för att ta bort den.
+Om du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken till ditt konto direkt från Azure Portal. Innan du fortsätter måste du först ta bort Uppdateringshantering, Ändringsspårning och inventering eller Starta/stoppa virtuella datorer när de inte används lösningar om du använder dem. Om du inte tar bort dem kommer den här processen att förhindras från att fortsätta. Läs artikeln för den specifika lösning som du har importerat för att förstå de steg som krävs för att ta bort den.
 
 När du har tagit bort dessa lösningar kan du utföra följande steg för att ta bort länken till ditt Automation-konto.
 
@@ -66,9 +66,9 @@ Om du använde Uppdateringshantering-lösningen kanske du vill ta bort följande
 
 * Uppdaterings scheman-varje kommer att ha namn som matchar de uppdaterings distributioner som du har skapat)
 
-* Hybrid Worker-grupper som har skapats för lösningen – var och en får `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`samma namn som).
+* Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`).
 
-Om du använde lösningen starta/stoppa virtuella datorer vid låg belastnings tider kanske du vill ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
+Om du använde Starta/stoppa virtuella datorer när de inte används-lösningen kanske du vill ta bort följande objekt som inte längre behövs efter att du har tagit bort lösningen.
 
 * Starta och stoppa virtuella dator Runbook-scheman
 * Starta och stoppa VM-Runbooks
@@ -89,4 +89,4 @@ Uppdateringshantering och Ändringsspårning och inventering:
 
 Starta/stoppa virtuella datorer utanför arbetstid
 
-* [Distribuera starta/stoppa virtuella datorer vid andra tider](../automation-solution-vm-management.md)
+* [Distribuera Starta/stoppa virtuella datorer när de inte används](../automation-solution-vm-management.md)

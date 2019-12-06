@@ -2,28 +2,23 @@
 title: Ord lista för Microsoft Identity Platform-utvecklare | Azure
 description: En lista med villkor för vanliga koncept och funktioner för Microsoft Identity Platform-utvecklare.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 221a491abad6c11ee12c75b1d69f1263f4abddc4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8ffc9c0ed5787803fff01d929567bda23b698135
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322600"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843214"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ord lista för Microsoft Identity Platform-utvecklare
 
@@ -79,7 +74,7 @@ Syftet med att begränsa en part för legitima autentiseringsuppgifter, och till
 
 En kort livs längd "token" som tillhandahålls till ett [klient program](#client-application) av [behörighets slut punkten](#authorization-endpoint), som en del av flödet "auktoriseringskod", ett av de fyra OAuth2 för [auktorisering](#authorization-grant). Koden returneras till klient programmet som svar på autentisering av en [resurs ägare](#resource-owner), vilket indikerar att resurs ägaren har delegerat behörighet att komma åt de begärda resurserna. Som en del av flödet löses koden senare för en [åtkomsttoken](#access-token).
 
-## <a name="authorization-endpoint"></a>Behörighets slut punkt
+## <a name="authorization-endpoint"></a>behörighets slut punkt
 
 En av slut punkterna som implementeras av [auktoriseringsservern](#authorization-server), används för att interagera med [resurs ägaren](#resource-owner) för att ge en [auktoriserad tilldelning](#authorization-grant) under ett OAuth2 Authorization Grant-flöde. Beroende på vilket flöde för auktoriserings tilldelning som används kan det faktiska bidraget variera, inklusive en [auktoriseringskod](#authorization-code) eller [säkerhetstoken](#security-token).
 
@@ -182,7 +177,7 @@ När du registrerar/uppdaterar ett program i [Azure Portal][AZURE-portal], skapa
 
 Mer information finns i [objekt för program-och tjänst objekt][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>Logga in
+## <a name="sign-in"></a>inloggning
 
 Processen för ett [klient program](#client-application) som initierar autentisering av slutanvändare och fångar relaterat tillstånd, i syfte att förvärva en [säkerhetstoken](#security-token) och omfånget för programsessionen till det aktuella läget. Tillstånd kan innehålla artefakter som användar profil information och information som härletts från token-anspråk.
 
@@ -202,7 +197,7 @@ En instans av en Azure AD-katalog kallas en Azure AD-klient. Den innehåller fle
 
 Azure AD-klienter skapas/associeras med Azure-och Office 365-prenumerationer under registreringen, vilket ger identitets-och åtkomsthantering funktioner för prenumerationen. Azure-prenumerations administratörer kan också skapa ytterligare Azure AD-klienter via Azure Portal. Se [hur du får en Azure Active Directory-klient][AAD-How-To-Tenant] för information om de olika sätt som du kan få åtkomst till en klient. Se [hur Azure-prenumerationer är associerade med Azure Active Directory][AAD-How-Subscriptions-Assoc] för information om relationen mellan prenumerationer och en Azure AD-klient.
 
-## <a name="token-endpoint"></a>Token-slutpunkt
+## <a name="token-endpoint"></a>token-slutpunkt
 
 En av slut punkterna som implementeras av [auktoriseringsservern](#authorization-server) för att stödja OAuth2- [auktorisering](#authorization-grant). Beroende på tilldelningen kan den användas för att hämta en åtkomsttoken (och relaterad "Refresh" [-token](#access-token) ) till en [klient](#client-application), eller [ID-token](#id-token) när den används med [OpenID Connect][OpenIDConnect] -protokollet.
 

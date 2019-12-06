@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278169"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849162"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera slack för automatisk användar etablering
 
@@ -66,13 +66,13 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till slack-API: et 
 
 4. Ställ in **etablerings läget** på **automatiskt**.
 
-   ![Slacktid-etablering](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Slacktid-etablering](./media/slack-provisioning-tutorial/slack1.png)
 
 5. Under avsnittet **admin credentials** klickar du på **auktorisera**. Då öppnas en dialog ruta för slack-auktorisering i ett nytt webbläsarfönster.
 
 6. I det nya fönstret loggar du in på slack med ditt team administratörs konto. i dialog rutan resulterande auktorisering väljer du det slack-team som du vill aktivera etablering för och väljer sedan **auktorisera**. När du är klar återgår du till Azure Portal för att slutföra etablerings konfigurationen.
 
-    ![Dialog rutan auktorisering](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Dialog rutan auktorisering](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din slack-app. Om anslutningen Miss lyckas kontrollerar du att ditt slack-konto har team administratörs behörighet och försöker sedan igen.
 
@@ -106,7 +106,7 @@ Alternativt kan du aktivera etableringen av grupp objekt från Azure AD till sla
 
 Detta resulterar i att alla grupp objekt som tilldelats slack i avsnittet **användare och grupper** är fullständigt synkroniserade från Azure AD till slack. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din slack-app.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 

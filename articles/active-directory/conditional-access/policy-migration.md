@@ -4,74 +4,61 @@ description: Lär dig vad du behöver veta för att migrera klassiska principer 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 11/21/2019
+ms.topic: conceptual
+ms.date: 12/04/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: nigu
+ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75d664f6e61dbbaaf0b8ab74c392596a206ff644
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380544"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846187"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Vad är en princip migrering i Azure Active Directory villkorlig åtkomst? 
+# <a name="conditional-access-classic-policy-migration"></a>Migrering av klassisk princip för villkorlig åtkomst
 
-[Villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active Directory (Azure AD) som gör att du kan styra hur auktoriserade användare får åtkomst till dina molnappar. Även om syftet fortfarande är detsamma, har lanseringen av den nya Azure Portal infört betydande förbättringar av hur villkorlig åtkomst fungerar.
+Villkorlig åtkomst är det verktyg som används av Azure Active Directory för att ta fram signaler, fatta beslut och tillämpa organisations principer. Villkorlig åtkomst är kärnan i det nya identitets drivna kontroll planet. Även om syftet fortfarande är detsamma, har lanseringen av den nya Azure Portal infört betydande förbättringar av hur villkorlig åtkomst fungerar.
 
 Överväg att migrera principerna som du inte har skapat i Azure Portal eftersom:
 
 - Nu kan du adressera scenarier som du inte kan hantera tidigare.
-- Du kan minska antalet principer som du måste hantera genom att konsolidera dem.   
+- Du kan minska antalet principer som du måste hantera genom att konsolidera dem.
 - Du kan hantera alla principer för villkorlig åtkomst på en central plats.
-- Den klassiska Azure-portalen kommer att dras tillbaka.   
+- Den klassiska Azure-portalen kommer att dras tillbaka.
 
 Den här artikeln förklarar vad du behöver veta för att migrera dina befintliga principer för villkorlig åtkomst till det nya ramverket.
- 
+
 ## <a name="classic-policies"></a>Klassiska principer
 
-På sidan [Azure Portal](https://portal.azure.com)är sidan [villkorlig åtkomst-principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) din start punkt för dina principer för villkorlig åtkomst. I din miljö kan du dock även ha principer för villkorlig åtkomst som du inte har skapat med hjälp av den här sidan. Dessa principer kallas *klassiska principer*. Klassiska principer är principer för villkorlig åtkomst, du har skapat i:
+I [Azure Portal](https://portal.azure.com)finns principer för villkorlig åtkomst under **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**. Din organisation kan också ha äldre principer för villkorlig åtkomst som inte skapas på den här sidan. Dessa principer kallas *klassiska principer*. Klassiska principer är principer för villkorlig åtkomst, du har skapat i:
 
 - Den klassiska Azure-portalen
 - Den klassiska Intune-portalen
 - Intune-appskydd Portal
 
-På sidan **villkorlig åtkomst** kan du komma åt dina klassiska principer genom att klicka på [**klassiska principer (för hands version)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) i avsnittet **Hantera** . 
+På sidan **villkorlig åtkomst** kan du komma åt dina klassiska principer genom att klicka på [**klassiska principer**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) i avsnittet **Hantera** . 
 
-![Azure Active Directory](./media/policy-migration/71.png)
+![Villkorlig åtkomst i Azure AD som visar klassisk policys-vy](./media/policy-migration/71.png)
 
 Vyn **klassiska principer** ger dig ett alternativ för att:
 
 - Filtrera dina klassiska principer.
- 
-   ![Azure Active Directory](./media/policy-migration/72.png)
-
 - Inaktivera klassiska principer.
+- Granska inställningarna för en klassisk princip och inaktivera den.
 
-   ![Azure Active Directory](./media/policy-migration/73.png)
-   
-- Granska inställningarna för en klassisk princip (och inaktivera den).
+   ![Princip information för klassisk inklusive befintlig princip konfiguration](./media/policy-migration/74.png)
 
-   ![Azure Active Directory](./media/policy-migration/74.png)
+> [!WARNING]
+> När inaktiverat en klassisk princip kan inte aktive ras igen.
 
-Om du har inaktiverat en klassisk princip kan du inte återställa det här steget längre. Det är därför du kan ändra grupp medlemskapet i en klassisk princip med hjälp av vyn **information** . 
+I vyn detaljer i en klassisk princip kan du dokumentera inställningarna, ändra de inkluderade eller exkluderade grupperna och inaktivera principen.
 
-![Azure Active Directory](./media/policy-migration/75.png)
+![Princip information – grupper som ska tas med eller undantas](./media/policy-migration/75.png)
 
-Genom att antingen ändra de valda grupperna eller genom att utesluta vissa grupper kan du testa resultatet av en inaktive rad klassisk princip för några test användare innan du inaktiverar principen för alla inkluderade användare och grupper. 
-
-## <a name="azure-ad-conditional-access-policies"></a>Principer för villkorlig åtkomst för Azure AD
-
-Med villkorlig åtkomst i Azure Portal kan du hantera alla principer på en central plats. Eftersom implementeringen av hur villkorlig åtkomst har ändrats bör du bekanta dig med de grundläggande begreppen innan du migrerar dina klassiska principer.
-
-Se:
-
-- [Vad är villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md) för att lära dig om de grundläggande begreppen och terminologin.
-- [Metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md) för att få vägledning om hur du distribuerar villkorlig åtkomst i din organisation.
-- [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md) för att bekanta dig med användar gränssnittet i Azure Portal.
+Genom att ändra de valda grupperna eller genom att exkludera vissa grupper kan du testa resultatet av en inaktive rad klassisk princip för några test användare innan du inaktiverar principen för alla inkluderade användare och grupper.
  
 ## <a name="migration-considerations"></a>Överväganden vid migrering
 
@@ -86,27 +73,25 @@ Följande aspekter är viktiga i samband med en princip konsolidering:
    - Kombinera flera villkor om ditt scenario kräver det. 
    - Välj flera bidrags krav som åtkomst kontroll och kombinera dem med ett logiskt *eller* (Kräv en av de valda kontrollerna) eller med ett logiskt *och* (Kräv alla valda kontroller).
 
-   ![Azure Active Directory](./media/policy-migration/25.png)
-
 ### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
 
 Om du vill migrera klassiska principer för **Office 365 Exchange Online** som innehåller **Exchange Active Sync** som klient program villkor, kanske du inte kan konsolidera dem till en ny princip. 
 
 Detta är till exempel fallet om du vill stödja alla typer av klient program. I en ny princip som har **Exchange Active Sync** som klient program villkor kan du inte välja andra klient program.
 
-![Azure Active Directory](./media/policy-migration/64.png)
+![Villkorlig åtkomst val av klient program](./media/policy-migration/64.png)
 
 Det går inte heller att utföra en konsolidering i en ny princip om de klassiska principerna innehåller flera villkor. En ny princip som har kon figurer ATS för **Exchange Active Sync** som klient program inte stöder andra villkor:   
 
-![Azure Active Directory](./media/policy-migration/08.png)
+![Exchange ActiveSync stöder inte de valda villkoren](./media/policy-migration/08.png)
 
 Om du har en ny princip som har konfigurerat villkor för **Exchange Active Sync** som klient program, måste du se till att alla andra villkor inte är konfigurerade. 
 
-![Azure Active Directory](./media/policy-migration/16.png)
+![Villkor för villkorlig åtkomst](./media/policy-migration/16.png)
  
 [App-baserade](technical-reference.md#approved-client-app-requirement) klassiska principer för Office 365 Exchange Online som omfattar **Exchange Active Sync** som klient program villkor tillåter **stöd** för [plattformar](technical-reference.md#device-platform-condition)som stöds och **inte stöds** . Även om du inte kan konfigurera enskilda enhets plattformar i en relaterad ny princip kan du begränsa stödet till endast [plattformar som stöds](technical-reference.md#device-platform-condition) . 
 
-![Azure Active Directory](./media/policy-migration/65.png)
+![Villkorlig åtkomst Välj Exchange ActiveSync](./media/policy-migration/65.png)
 
 Du kan konsolidera flera klassiska principer som omfattar **Exchange Active Sync** som klient program villkor om de har:
 
@@ -120,7 +105,7 @@ Ett vanligt scenario är konsolideringen av:
  
 I det här fallet kan du konsolidera dina klassiska principer till en ny princip som har båda de krav som valts.
 
-![Azure Active Directory](./media/policy-migration/62.png)
+![Kontroller för villkorlig åtkomst tilldelning](./media/policy-migration/62.png)
 
 ### <a name="device-platforms"></a>Enhets plattformar
 
@@ -128,9 +113,10 @@ Klassiska principer med [app-baserade kontroller](technical-reference.md#approve
 
 I en ny princip måste du välja de [enhets plattformar](technical-reference.md#device-platform-condition) som du vill stödja individuellt.
 
-![Azure Active Directory](./media/policy-migration/41.png)
+![Val av enhets plattformar för villkorlig åtkomst](./media/policy-migration/41.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+- [Använd endast rapport läge för villkorlig åtkomst för att fastställa effekten av nya princip beslut.](concept-conditional-access-report-only.md)
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md).
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa artikeln [så här: planera din distribution av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md). 

@@ -2,28 +2,23 @@
 title: Lär dig att tillhandahålla valfria anspråk till din Azure AD-App
 titleSuffix: Microsoft identity platform
 description: En guide för att lägga till anpassade eller ytterligare anspråk till token för SAML 2,0 och JSON Web tokens (JWT) som utfärdats av Azure Active Directory.
-documentationcenter: na
 author: rwike77
-services: active-directory
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74e680979ccbcc94f8a49e993c6d64797ab80b1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803417"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844727"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
 
@@ -35,7 +30,7 @@ Du kan använda valfria anspråk för att:
 - Ändra beteendet för vissa anspråk som Azure AD returnerar i tokens.
 - Lägg till och få till gång till anpassade anspråk för ditt program.
 
-Listor över standard anspråk [finns i dokumentationen för åtkomsttoken och](access-tokens.md) [id_token](id-tokens.md) -anspråk. 
+Listor över standard anspråk finns i [åtkomsttoken](access-tokens.md) och [id_token](id-tokens.md) dokumentation om anspråk. 
 
 Även om det finns stöd för valfria anspråk i både v 1.0-och v 2.0-format-token, och även SAML-token, ger de mest av sitt värde när de flyttas från v 1.0 till v 2.0. Ett av målen för [v 2.0 Microsoft Identity Platform-slutpunkten](active-directory-appmodel-v2-overview.md) är mindre token-storlekar för att säkerställa optimala prestanda av klienter. Det innebär att flera anspråk som tidigare inkluderats i åtkomst-och ID-token inte längre finns i v 2.0-token och måste tillfrågas specifikt för varje program.
 
@@ -61,7 +56,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 | `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
 | `home_oid`                 | För gäst användare: objekt-ID för användaren i användarens hem klient.| JWT        |           | |
 | `sid`                      | Sessions-ID som används för användar utloggning per session. | JWT        |  Personliga och Azure AD-konton.   |         |
-| `platf`                    | Enhets plattform    | JWT        |           | Begränsat till hanterade enheter som kan verifiera enhets typ.|
+| `platf`                    | Enhetsplattform    | JWT        |           | Begränsat till hanterade enheter som kan verifiera enhets typ.|
 | `verified_primary_email`   | Källan från användarens PrimaryAuthoritativeEmail      | JWT        |           |         |
 | `verified_secondary_email` | Källan från användarens SecondaryAuthoritativeEmail   | JWT        |           |        |
 | `enfpolids`                | Tvingade princip-ID: n. En lista med princip-ID: n som utvärderats för den aktuella användaren. | JWT |  |  |
@@ -88,11 +83,11 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
 | `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
-| `pwd_exp`     | Lösen ordets förfallo tid        | Det datum/tid-värde som lösen ordet upphör att gälla. |       |
+| `pwd_exp`     | Förfallotid för lösenord        | Det datum/tid-värde som lösen ordet upphör att gälla. |       |
 | `pwd_url`     | Ändra lösen ordets URL             | En URL som användaren kan besöka för att ändra sina lösen ord.   |   |
-| `in_corp`     | I företags nätverk        | Signalerar om klienten loggar in från företags nätverket. Om de inte är det inkluderas inte anspråket.   |  Baserat på de [betrodda IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) -inställningarna i MFA.    |
-| `nickname`    | Smek namn                        | Ett ytterligare namn för användaren, separat från förnamn eller efter namn. | 
-| `family_name` | Efternamn                       | Innehåller användarens efter namn, efter namn eller familj som definierats i användarobjektet. <br>"family_name": "Miller" | Stöds i MSA och Azure AD   |
+| `in_corp`     | Inifrån företagsnätverket        | Signalerar om klienten loggar in från företags nätverket. Om de inte är det inkluderas inte anspråket.   |  Baserat på de [betrodda IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) -inställningarna i MFA.    |
+| `nickname`    | Smeknamn                        | Ett ytterligare namn för användaren, separat från förnamn eller efter namn. | 
+| `family_name` | Efternamn                       | Innehåller användarens efter namn, efter namn eller familj som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och Azure AD   |
 | `given_name`  | Förnamn                      | Anger det första eller "tilldelade" namnet på användaren, enligt vad som anges på användarobjektet.<br>"given_name": "Frank"                   | Stöds i MSA och Azure AD  |
 | `upn`         | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och ska inte användas för nyckel data. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. |
 
@@ -186,7 +181,7 @@ Om det stöds av ett angivet anspråk kan du också ändra beteendet för Option
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Namnet på det valfria anspråket.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Källa (katalog objekt) för anspråket. Det finns fördefinierade anspråk och användardefinierade anspråk från tilläggs egenskaper. Om source-värdet är null är anspråket ett fördefinierat valfritt anspråk. Om source-värdet är User är värdet i egenskapen name egenskapen Extension från objektet User. |
-| `essential`            | Edm.Boolean             | Om värdet är True är det anspråk som anges av klienten nödvändigt för att säkerställa en smidig auktorisering för den specifika uppgift som användaren begärt. Standardvärdet är false.                                                                                                             |
+| `essential`            | Edm.Boolean             | Om värdet är True är det anspråk som anges av klienten nödvändigt för att säkerställa en smidig auktorisering för den specifika uppgift som användaren begärt. Standardvärdet är FALSKT.                                                                                                             |
 | `additionalProperties` | Samling (EDM. String) | Ytterligare egenskaper för anspråket. Om det finns en egenskap i den här samlingen ändras beteendet för det valfria anspråket som anges i egenskapen Name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Konfigurerar valfria anspråk för katalog tillägg
 
@@ -220,7 +215,7 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
 
    Giltiga värden är:
 
-   - Vissa
+   - "All"
    - "SecurityGroup"
    - "DistributionList"
    - "DirectoryRole"
@@ -260,14 +255,14 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
    | **Namn:** | Måste vara "grupper" |
    | **källicensservern** | Används inte. Utelämna eller ange null |
    | **största** | Används inte. Utelämna eller ange falskt |
-   | **additionalProperties:** | Lista över ytterligare egenskaper.  Giltiga alternativ är "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **additionalProperties:** | Lista över ytterligare egenskaper.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
 
    I additionalProperties krävs bara en av "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Om det finns fler än en används den första och andra ignoreras.
 
    Vissa program kräver grupp information om användaren i roll anspråket.  Om du vill ändra anspråks typen till från ett grupp anspråk till ett roll anspråk lägger du till "emit_as_roles" i ytterligare egenskaper.  Grupp värden genereras i roll anspråket.
 
    > [!NOTE]
-   > Om "emit_as_roles" används alla program roller som kon figurer ATS som användaren är tilldelad visas inte i roll anspråket
+   > Om emit_as_roles används alla program roller som kon figurer ATS som användaren är tilldelad visas inte i roll anspråket
 
 **Exempel:** Generera grupper som grupp namn i OAuth-åtkomsttoken i dnsDomainName\sAMAccountName-format
 
@@ -340,7 +335,7 @@ Det finns flera tillgängliga alternativ för att uppdatera egenskaperna för et
 
     ```
 
-    I det här fallet har olika valfria anspråk lagts till för varje typ av token som programmet kan ta emot. ID-token kommer nu att innehålla UPN för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). De åtkomsttoken som andra klienter begär för det här programmet kommer nu att innehålla auth_time-anspråket. SAML-token kommer nu att innehålla skypeId Directory schema-tillägget (i det här exemplet är app-ID: t för den här appen ab603c56068041afb2f6832e2a17e237). SAML-token kommer att exponera Skype-ID: t som `extension_skypeId`.
+    I det här fallet har olika valfria anspråk lagts till för varje typ av token som programmet kan ta emot. ID-token kommer nu att innehålla UPN för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). De åtkomsttoken som andra klienter begär för det här programmet kommer nu att innehålla auth_time-anspråk. SAML-token kommer nu att innehålla skypeId Directory schema-tillägget (i det här exemplet är app-ID: t för den här appen ab603c56068041afb2f6832e2a17e237). SAML-token kommer att exponera Skype-ID: t som `extension_skypeId`.
 
 1. När du är klar med att uppdatera manifestet klickar du på **Spara** för att spara manifestet
 

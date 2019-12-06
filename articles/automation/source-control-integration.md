@@ -4,17 +4,17 @@ description: I den här artikeln beskrivs integrering av käll kontroll med GitH
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886518"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850167"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
@@ -49,7 +49,7 @@ Fyll i informationen på sidan **Översikt över käll kontroll** och klicka på
 |---------|---------|
 |Namn på käll kontroll     | Ett eget namn för käll kontrollen. *Namnet får bara innehålla bokstäver och siffror.*        |
 |Typ av käll kontroll     | Käll kontroll källans typ. De tillgängliga alternativen är:</br> GitHub</br>Azure-databaser (git)</br> Azure-databaser (TFVC)        |
-|Lagrings platsen     | Namnet på databasen eller projektet. De första 200-databaserna returneras. Om du vill söka efter en lagrings plats skriver du namnet i fältet och klickar på **Sök på GitHub**.|
+|Lagringsplats     | Namnet på databasen eller projektet. De första 200-databaserna returneras. Om du vill söka efter en lagrings plats skriver du namnet i fältet och klickar på **Sök på GitHub**.|
 |Branch     | Grenen att hämta källfilerna från. Förgrenings inriktning är inte tillgängligt för käll kontroll typen TFVC.          |
 |Mappsökväg     | Den mapp som innehåller Runbooks som ska synkroniseras. Exempel:/Runbooks </br>*Endast Runbooks i den angivna mappen synkroniseras. Rekursion stöds inte.*        |
 |Automatisk synkronisering<sup>1</sup>     | Aktiverar eller inaktiverar automatisk synkronisering när ett genomförande görs i käll kontrollens lagrings plats         |
@@ -99,11 +99,11 @@ Mer information om hur du skapar en personlig åtkomsttoken i GitHub finns i [sk
 |lagrings platsen: status     | Status för åtkomst genomförande         |
 |repo_deployment      | Åtkomst distributions status         |
 |public_repo     | Åtkomst till offentliga databaser         |
-|**administratör: repo_hook**     |         |
+|**admin:repo_hook**     |         |
 |Skriv: repo_hook     | Skriv databas-hookar         |
 |Läs: repo_hook|Läsa databas-hookar|
 
-#### <a name="azure-repos"></a>Azure Repos
+#### <a name="azure-repos"></a>Azure-lagringsplatser
 
 Mer information om hur du skapar en personlig åtkomsttoken i Azure databaser finns i [autentisera åtkomst med personliga](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)åtkomsttoken.
 
@@ -118,7 +118,7 @@ Mer information om hur du skapar en personlig åtkomsttoken i Azure databaser fi
 
 <sup>1</sup> behörigheten tjänst anslutningar krävs endast om du har aktiverat automatisk synkronisering.
 
-## <a name="syncing"></a>Synkronisering
+## <a name="syncing"></a>Synkning
 
 Välj källan från tabellen på **käll kontroll** sidan. Starta synkroniseringsprocessen genom att klicka på **Starta synkronisering** .
 
@@ -169,7 +169,7 @@ Om du vill koppla bort från en lagrings plats för käll kontroll, öppnar du *
 
 Välj den käll kontroll som du vill ta bort. Klicka på **ta bort**på sidan **Översikt över käll kontroll** .
 
-## <a name="encoding"></a>Kodning
+## <a name="encoding"></a>Encoding
 
 Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare, finns det en chans att kunna köra kodnings problem. Den här situationen kan leda till felaktiga tecken i din Runbook. Mer information om detta finns i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 

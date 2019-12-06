@@ -1,18 +1,18 @@
 ---
 title: LOG10 i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function LOG10 i Azure Cosmos DB.
+description: Lär dig mer om SQL-Funktionen LOG10 i Azure Cosmos DB att returnera 10-logaritmen för det angivna numeriska uttrycket
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 56f1e96e7d4ee1b5f38ee7392665e17819ae554b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5950a2a40a78716a76e49fcdaeb3129948b6a0e1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349730"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871065"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
  Returnerar 10-logaritmen av uttryck.  
@@ -25,7 +25,7 @@ LOG10 (<numeric_expr>)
   
 ## <a name="arguments"></a>Argument
   
-*Numeric_Expression*  
+*numeric_expression*  
    Är ett numeriskt uttryck.  
   
 ## <a name="return-types"></a>Retur typer

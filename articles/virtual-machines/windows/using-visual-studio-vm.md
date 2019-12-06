@@ -12,15 +12,15 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 09/24/2019
+ms.date: 12/04/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 4b3b36f69387a6ae10a2b76154056f322fd4a41a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 25e5cda3b91dd4b14d0a3d82963404dde7a80aa4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170918"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851408"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett snabbt och enkelt sätt att gå från ingenting till en utvecklings miljö som är igång. System avbildningar med olika Visual Studio-konfigurationer är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -33,9 +33,9 @@ Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett 
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
 Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace.  För varje släppt större version ser du den ursprungligen "lanserad till webb"-versionen (RTW) och de senaste uppdaterade versionerna.  Var och en av dessa versioner har Visual Studio Enterprise-och community-versionerna av Visual Studio.  De här avbildningarna uppdateras minst varje månad för att inkludera de senaste versionerna av Visual Studio och Windows.  Även om namnen på bilderna är desamma, innehåller varje avbildnings Beskrivning den installerade produkt versionen och bildens datum.
 
-| Version                                                                                                                                                | Utgåvor              | Produkt version   |
+| Version                                                                                                                                                | Utgåvor              | Produktversion   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: senaste (version 16,3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.3.9    |
+| [Visual Studio 2019: senaste (version 16,4)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.4.0    |
 | [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, community | Version 16.0.9    |
 | [Visual Studio 2017: senaste (version 15,9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, community | Version 15.9.17   |
 | [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, community | Version 15.0.27  |
@@ -51,7 +51,7 @@ Varje bild innehåller den rekommenderade funktions uppsättningen för Visual S
 
 * Alla tillgängliga arbets belastningar, inklusive varje arbets belastnings rekommenderade valfria komponenter
 * .NET 4.6.2-och .NET 4,7-SDK: er, mål paket och Utvecklarverktyg
-* BildF#
+* Visual F#
 * GitHub-tillägg för Visual Studio
 * LINQ to SQL verktyg
 

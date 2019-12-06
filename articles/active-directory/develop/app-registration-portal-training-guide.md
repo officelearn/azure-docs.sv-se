@@ -1,31 +1,27 @@
 ---
-title: Över gång från program registrerings portalen till den nya Appregistreringar upplevelsen i Azure Portal
+title: Övergå från programregistreringsportalen till den nya Appregistreringar-miljön i Azure Portal
 titleSuffix: Microsoft identity platform
 description: En introduktion till den nya appens registrerings upplevelse i Azure Portal
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013029"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844524"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Över gång från program registrerings portalen till den nya Appregistreringar upplevelsen i Azure Portal
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Övergå från programregistreringsportalen till den nya Appregistreringar-miljön i Azure Portal
 
 Det finns många förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön i Azure Portal. Om du är mer bekant med program registrerings portalen (apps.dev.microsoft.com) för att registrera eller hantera konvergerade program, som kallas tidigare erfarenhet, kommer den här utbildnings guiden att hjälpa dig att komma igång med den nya upplevelsen.
 
@@ -55,7 +51,7 @@ Det finns många förbättringar i den nya [Appregistreringars](https://go.micro
 
 -   Listan över nya appar har två ytterligare kolumner: **skapad i** kolumnen kolumn och **certifikat & hemligheter** som visar status (aktuell, förfaller snart eller upphört) autentiseringsuppgifter som har registrerats i appen.
 
-## <a name="new-app-registration"></a>Ny app-registrering
+## <a name="new-app-registration"></a>Ny appregistrering
 
 För att registrera en konvergerad app var du bara tvungen att ange ett namn i den tidigare versionen. De appar som har skapats har registrerats som konvergerade appar som stöder all organisations katalog (flera innehavare) samt personliga Microsoft-konton.  Detta kunde inte ändras genom den gamla upplevelsen, vilket gör det svårt att skapa appar som endast stöder organisations konton (antingen flera innehavare eller en enskild klient). [Läs mer om konto typer som stöds](v2-supported-account-types.md)
 

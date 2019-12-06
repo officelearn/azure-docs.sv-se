@@ -1,20 +1,20 @@
 ---
-title: Konsistensnivå och API:er för Azure Cosmos DB
-description: 'Förstå konsekvens nivåer för API: er i Azure Cosmos DB.'
+title: Konsekvensnivåer och API:er för Azure Cosmos DB
+description: 'Förstå konsekvens nivå mappning mellan olika API: er i Azure Cosmos DB och Apache Cassandra, MongoDB'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c72c65c9d27810ce4ec2df0062dc41d83ed37a6b
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559109"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872187"
 ---
-# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsistensnivå och API:er för Azure Cosmos DB
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och API:er för Azure Cosmos DB
 
 Azure Cosmos DB har inbyggt stöd för API-kompatibla API: er för populära databaser. Dessa omfattar MongoDB, Apache Cassandra, Gremlin och Azure Table Storage. De här databaserna erbjuder inte exakt definierade konsekvens modeller eller garanti garantier för konsekvens nivå. De tillhandahåller vanligt vis endast en delmängd av de fem konsekvens modellerna som erbjuds av Azure Cosmos DB. 
 
@@ -57,6 +57,6 @@ I följande tabell illustreras hur de inbyggda Skriv-och Läs problemen i MongoD
 
 Läs mer om konsekvens nivåer och kompatibilitet mellan Azure Cosmos DB-API: er med API: er med öppen källkod. Se följande artiklar:
 
-* [Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](consistency-levels-tradeoffs.md)
+* [Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer](consistency-levels-tradeoffs.md)
 * [MongoDB-funktioner som stöds av Azure Cosmos DBs API för MongoDB](mongodb-feature-support.md)
 * [Apache Cassandra-funktioner som stöds av Azure Cosmos DB API för Cassandra](cassandra-support.md)

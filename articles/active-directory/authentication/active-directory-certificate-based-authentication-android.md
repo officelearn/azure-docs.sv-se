@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effa03f042b44890fccd474128e75bd1c0f782a3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f9f38c160a72b6c414cdde7d29e4056a4068cdc6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381990"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848824"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory certifikatbaserad autentisering på Android
 
@@ -33,7 +33,7 @@ Den här funktionen är tillgänglig i för hands versionen i Office 365 amerika
 
 ## <a name="microsoft-mobile-applications-support"></a>Stöd för Microsoft Mobile Applications
 
-| Program | Support |
+| Appar | Support |
 | --- | --- |
 | Azure Information Protection app |![Bock för att ange stöd för det här programmet][1] |
 | Intune-företagsportal |![Bock för att ange stöd för det här programmet][1] |

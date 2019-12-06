@@ -1,20 +1,18 @@
 ---
 title: Säkerhets kontroller för Azure Cosmos DB
-description: En check lista över säkerhets kontroller för utvärdering av Azure Cosmos DB
+description: Få en check lista över säkerhets kontroller som nätverk, övervakning, identitet och data skydd för att utvärdera Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: msmbaldwin
-manager: rkarlin
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 20cdfc61a4cdfe5263e48d049aab14cad2458b06
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 12/02/2019
+ms.author: sngun
+ms.openlocfilehash: 5ab4281f1ad591befda5a439906604331a1ab323
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886642"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872153"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Säkerhets kontroller för Azure Cosmos DB
 
@@ -27,8 +25,8 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 | Säkerhets kontroll | Ja/Nej | Anteckningar |
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja |  |
-| Stöd för VNet-injektering| Ja | Med VNet-tjänstens slut punkt kan du konfigurera ett Azure Cosmos DB konto för att tillåta åtkomst endast från ett speciellt undernät i ett virtuellt nätverk (VNet). Du kan också kombinera VNet-åtkomst med brand Väggs regler.  Se [åtkomst Azure Cosmos dB från virtuella nätverk](VNet-service-endpoint.md). |
-| Stöd för nätverks isolering och brand vägg| Ja | Med brand Väggs stöd kan du konfigurera ditt Azure Cosmos-konto så att det bara tillåter åtkomst från en godkänd uppsättning IP-adresser, ett intervall med IP-adresser och/eller moln tjänster. Se [Konfigurera IP-brandvägg i Azure Cosmos DB](how-to-configure-firewall.md).|
+| Stöd för VNet-injektering| Ja | Med VNet-tjänstens slut punkt kan du konfigurera ett Azure Cosmos DB konto för att tillåta åtkomst endast från ett speciellt undernät i ett virtuellt nätverk (VNet). Du kan också kombinera VNet-åtkomst med brand Väggs regler. Mer information finns i [åtkomst Azure Cosmos dB från virtuella nätverk](VNet-service-endpoint.md). |
+| Nätverks isolering och brand Väggs stöd| Ja | Med brand Väggs stöd kan du konfigurera ditt Azure Cosmos-konto så att det bara tillåter åtkomst från en godkänd uppsättning IP-adresser, ett intervall med IP-adresser och/eller moln tjänster. Läs mer i [Konfigurera IP-brandvägg i Azure Cosmos DB](how-to-configure-firewall.md).|
 | Stöd för Tvingad tunnel trafik| Ja | Kan konfigureras på klient sidan på det VNet där de virtuella datorerna finns.   |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
@@ -43,16 +41,16 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/Nej | Anteckningar|
 |---|---|--|
-| Authentication| Ja | Ja på databas konto nivå; på data planet nivå använder Cosmos DB resurspooler och nyckel åtkomst. |
-| Authorization| Ja | Stöds på Azure Cosmos-kontot med huvud nycklar (primära och sekundära) och resurs-token. Du kan hämta Läs-och skriv-eller Läs behörighet till data med huvud nycklar. Med resurs-token får du begränsad åtkomst till resurser som dokument och behållare. |
+| Autentisering| Ja | Ja på databas konto nivå; på data planet nivå använder Cosmos DB resurspooler och nyckel åtkomst. |
+| Autentisering| Ja | Stöds på Azure Cosmos-kontot med huvud nycklar (primära och sekundära) och resurs-token. Du kan hämta Läs-och skriv-eller Läs behörighet till data med huvud nycklar. Med resurs-token får du begränsad åtkomst till resurser som dokument och behållare. |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/Nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar | Ja | Alla Cosmos-databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](database-encryption-at-rest.md). Kryptering på Server sidan med Kundhanterade nycklar stöds inte. |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Alla Azure Cosmos-databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](database-encryption-at-rest.md). Kryptering på Server sidan med Kundhanterade nycklar stöds inte. |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej |  |
-| Kryptering på kolumn nivå (Azure Data Services)| Ja | Endast i Tables API Premium. Alla API: er stöder inte den här funktionen. Se [introduktion till Azure Cosmos DB: Tabell-API](table-introduction.md). |
+| Kryptering på kolumn nivå (Azure Data Services)| Ja | Endast i Tables API Premium. Alla API: er stöder inte den här funktionen. Se [Introduktion till Azure Cosmos DB: tabell-API](table-introduction.md). |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Alla Azure Cosmos DB data krypteras vid överföring. |
 | Krypterade API-anrop| Ja | Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2-anslutningar, men detta är inte tvingande än. Om kunderna stänger av lågnivå-TLS på deras sida, kan de se till att de ansluter till Cosmos DB.  |
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fdde89f9ff88b15c464af805b81708b268e5ddf5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 95b9c76a2ff962cb2fa4bacbb1b1e9a953b7014f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721729"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873819"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (för hands version) i Azure Kognitiv sökning
 
@@ -25,24 +25,46 @@ ms.locfileid: "73721729"
 
 Som standard beaktas innehållet i alla sökbara fält på den översta nivån. Om du vill ange specifika fält i stället kan du använda `searchFields`-parametern. 
 
-Du kan inte använda moreLikeThis i sökbara underordnade fält i en [komplex typ](search-howto-complex-data-types.md).
+Du kan inte använda `MoreLikeThis` i sökbara underordnade fält i en [komplex typ](search-howto-complex-data-types.md).
 
-## <a name="examples"></a>Exempel 
+## <a name="examples"></a>Exempel
 
-Nedan visas ett exempel på en moreLikeThis-fråga. Frågan söker efter dokument vars beskrivnings fält liknar det fält i käll dokumentet som anges i parametern `moreLikeThis`.
+I följande exempel används hotell exemplet från [snabb start: skapa ett sökindex i Azure Portal](search-get-started-portal.md).
+
+### <a name="simple-query"></a>Exempelfråga
+
+Följande fråga hittar dokument vars beskrivnings fält liknar det fält i käll dokumentet som anges av parametern `moreLikeThis`:
 
 ```
-Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2019-05-06-Preview
 ```
 
+I det här exemplet söker begäran efter hotell som liknar den som har `HotelId` 29.
+I stället för att använda HTTP GET kan du också anropa `MoreLikeThis` med HTTP POST:
+
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
     {
-      "moreLikeThis": "1002",
-      "searchFields": "description"
+      "moreLikeThis": "29",
+      "searchFields": "Description"
     }
 ```
 
+### <a name="apply-filters"></a>Använda filter
+
+`MoreLikeThis` kan kombineras med andra vanliga frågeparametrar som `$filter`. Till exempel kan frågan begränsas till endast hotell vars kategori är "budget" och där omdömet är högre än 3,5:
+
+```
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2019-05-06-Preview
+```
+
+### <a name="select-fields-and-limit-results"></a>Välj fält och begränsa resultaten
+
+`$top` väljare kan användas för att begränsa hur många resultat som ska returneras i en `MoreLikeThis` fråga. Du kan också välja fält med `$select`. Här är de tre översta hotellen markerade tillsammans med ID, namn och klassificering: 
+
+```
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2019-05-06-Preview
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

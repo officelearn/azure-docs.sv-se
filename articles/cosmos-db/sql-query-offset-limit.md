@@ -1,17 +1,17 @@
 ---
 title: OFFSET LIMIT-sats i Azure Cosmos DB
-description: Läs mer om OFFSET LIMIT-satsen för Azure Cosmos DB.
+description: Lär dig hur du använder OFFSET LIMIT-satsen för att hoppa över och ta vissa värden när du frågar i Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7aae56783f83f13b50321c88d69f07d910e589dd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326878"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873258"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>OFFSET LIMIT-sats i Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Här är ett exempel på en fråga som hoppar över det första värdet och retu
     OFFSET 1 LIMIT 1
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -69,7 +69,7 @@ Här är en fråga som hoppar över det första värdet och returnerar det andra
     OFFSET 1 LIMIT 1
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -83,5 +83,5 @@ Resultaten är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [SELECT-sats](sql-query-select.md)
+- [SELECT-satsen](sql-query-select.md)
 - [ORDER BY-sats](sql-query-order-by.md)

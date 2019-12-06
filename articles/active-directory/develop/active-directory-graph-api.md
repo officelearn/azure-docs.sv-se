@@ -2,27 +2,24 @@
 title: Azure Active Directory Graph API | Microsoft Docs
 description: En översikt och snabb starts guide för Azure AD Graph API, vilket ger programmatisk åtkomst till Azure AD via REST API slut punkter.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c1b5a3600c48dc548561df3cd2f955347a7e64
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c74c02d8a82c27c71ce01cd122082010487b453e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533038"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845050"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
@@ -31,7 +28,7 @@ ms.locfileid: "74533038"
 
 Den här artikeln gäller Azure AD Graph API. Liknande information som rör Microsoft Graph-API finns i [använda Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api).
 
-Azure Active Directory Graph API ger program mässig åtkomst till Azure AD via REST API slut punkter. Program kan använda Azure AD Graph API för att utföra åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) på katalog data och objekt. Till exempel stöder Azure AD Graph API följande vanliga åtgärder för ett användar objekt:
+Med API:t Azure Active Directory Graph får du programmeringsbaserad åtkomst till Azure AD via REST-API-slutpunkter. Program kan använda Azure AD Graph API för att utföra åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) på katalog data och objekt. Till exempel stöder Azure AD Graph API följande vanliga åtgärder för ett användar objekt:
 
 * Skapa en ny användare i en katalog
 * Hämta en användares detaljerade egenskaper, till exempel deras grupper

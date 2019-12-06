@@ -1,5 +1,5 @@
 ---
-title: Skapa interaktiva rapporter med Azure Monitor arbets böcker från flera dispate Azure-datakällor | Microsoft-dokument
+title: Azure Monitor arbets böcker data källor | Microsoft-dokument
 description: Förenkla komplex rapportering med färdiga och anpassade parameterstyrda Azure Monitor arbets böcker som skapats från flera data källor
 services: azure-monitor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd5068da31c3aa863fc56022834a28b60ee15004
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166205"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872901"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor arbets böcker data källor
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3071effeb2d5eeaafc48fd742559b093a0517c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279141"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851680"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använd portalen för att koppla en datadisk till en virtuell Linux-dator 
 Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Linux-dator via Azure Portal. Du kan också [ansluta en datadisk till en virtuell Windows-dator i Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -33,10 +33,9 @@ Innan du kopplar diskar till din virtuella dator kan du läsa följande tips:
 
 
 ## <a name="find-the-virtual-machine"></a>Hitta den virtuella datorn
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **Virtual Machines**på den vänstra menyn.
-3. Välj den virtuella datorn i listan.
-4. På sidan virtuella datorer i **Essentials**klickar du på **diskar**.
+1. Gå till [Azure Portal](https://portal.azure.com/) för att hitta den virtuella datorn. Sök efter och välj **virtuella datorer**.
+2. Välj den virtuella datorn i listan.
+3. På sidan **Virtual Machines** Page ( **Inställningar**) väljer du **diskar**.
    
     ![Öppna disk inställningar](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -109,7 +108,7 @@ Partitionera disken med `fdisk`. Om disk storleken är 2 tebibyte (TiB) eller st
 sudo fdisk /dev/sdc
 ```
 
-Använd `n`-kommandot för att lägga till en ny partition. I det här exemplet väljer vi också `p` för en primär partition och accepterar resten av standardvärdena. Utdata ser ut ungefär som i följande exempel:
+Använd kommandot `n` för att lägga till en ny partition. I det här exemplet väljer vi också `p` för en primär partition och accepterar resten av standardvärdena. Utdata blir något som liknar följande exempel:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -205,7 +204,7 @@ Använd `mount` för att montera fil systemet. I följande exempel monteras */de
 sudo mount /dev/sdc1 /datadrive
 ```
 
-För att säkerställa att enheten monteras om automatiskt efter en omstart måste den läggas till i */etc/fstab* -filen. Det rekommenderas också starkt att UUID (Universal Unique IDentifier) används i */etc/fstab* för att referera till enheten i stället för bara enhets namnet (t. ex. */dev/sdc1*). Om operativ systemet upptäcker ett diskfel under starten undviker du att den felaktiga disken monteras på en specifik plats med hjälp av UUID: n. Återstående data diskar tilldelas sedan samma enhets-ID. Använd `blkid`-verktyget för att hitta UUID för den nya enheten:
+För att säkerställa att enheten monteras om automatiskt efter en omstart måste den läggas till i */etc/fstab* -filen. Det rekommenderas också starkt att UUID (Universal Unique IDentifier) används i */etc/fstab* för att referera till enheten i stället för bara enhets namnet (t. ex. */dev/sdc1*). Om operativsystemet upptäcker ett diskfel vid start och använder UUID undviker du att den felaktiga disken monteras på en viss plats. Återstående datadiskar tilldelas sedan samma enhets-ID:n. Du kan hitta UUID för den nya enheten med verktyget `blkid`:
 
 ```bash
 sudo -i blkid
@@ -220,7 +219,7 @@ Utdata ser ut ungefär som i följande exempel:
 ```
 
 > [!NOTE]
-> Felaktig redigering av **/etc/fstab** -filen kan leda till ett system som inte kan startas. Om du vill veta mer om hur du redigerar den här filen i distributionens dokumentation. Vi rekommenderar också att du skapar en säkerhets kopia av/etc/fstab-filen innan du redigerar.
+> Felaktig redigering av **/etc/fstab** -filen kan leda till ett system som inte kan startas. Om du är osäker läser du distributionens dokumentation för att få information om hur du redigerar filen på rätt sätt. Vi rekommenderar också att du skapar en säkerhets kopia av/etc/fstab-filen innan du redigerar.
 
 Öppna sedan */etc/fstab* -filen i en text redigerare enligt följande:
 

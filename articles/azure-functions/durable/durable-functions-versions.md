@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 93c35eb4f69cc4f9b16f669d96c2df53f50bcf84
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231199"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849810"
 ---
 # <a name="durable-functions-versions-overview"></a>Översikt över Durable Functions-versioner
 
@@ -55,7 +55,7 @@ Durable Functions 2. x introducerar flera avbrytande ändringar. Durable Functio
 Durable Functions 2. x använder ett nytt Host. JSON-schema. Huvud ändringarna från 1. x är:
 
 * `"storageProvider"` (och underavsnittet `"azureStorage"`) för den platsspecifika konfigurationen.
-* `"tracking"` för spårning och loggnings konfiguration.
+* `"tracing"` för spårnings-och loggnings konfiguration.
 * `"notifications"` (och `"eventGrid"` underavsnitt) för konfiguration av event Grid-meddelanden.
 
 Mer information finns i [referens dokumentationen för Durable Functions Host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .

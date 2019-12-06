@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor for VMs integration med System Center Operations Manager | Microsoft Docs
+title: Integrera Azure Monitor for VMs karta med Operations Manager | Microsoft Docs
 description: Azure Monitor for VMs identifierar automatiskt program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Den här artikeln beskriver hur du använder Map-funktionen för att automatiskt skapa distribuerade program diagram i Operations Manager.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/12/2019
-ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f1acf3c1574fd94606d75c6250dedd40a9c7ea4d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553977"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849827"
 ---
-# <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>System Center Operations Manager integration med Azure Monitor for VMs kart funktion
+# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrera System Center Operations Manager med Azure Monitor for VMs kart funktion
 
-I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Med den här integreringen mellan kart funktionen och System Center Operations Manager kan du automatiskt skapa distribuerade program diagram i Operations Manager som baseras på de dynamiska beroende Maps i Azure Monitor for VMs. 
+I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Med den här integreringen mellan kart funktionen och System Center Operations Manager kan du automatiskt skapa distribuerade program diagram i Operations Manager som baseras på de dynamiska beroende Maps i Azure Monitor for VMs. I den här artikeln beskrivs hur du konfigurerar din System Center Operations Manager hanterings grupp så att den stöder den här funktionen.
 
 >[!NOTE]
 >Om du redan har distribuerat Tjänstkarta kan du Visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Kart funktionen i Azure Monitor for VMs är avsedd att ersätta den fristående Tjänstkarta-lösningen. Läs mer i [Azure Monitor for VMS översikt](vminsights-overview.md).
@@ -107,7 +107,7 @@ Mappen Tjänstkarta innehåller fyra noder:
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbets ytan
 
-Du kan redigera eller ta bort den konfigurerade arbets ytan via **tjänstkarta översikts** fönstret (**administrations** fönstret > **operations Management Suite**  > **tjänstkarta**).
+Du kan redigera eller ta bort den konfigurerade arbets ytan via **tjänstkarta översikts** fönstret (**administrations** fönstret > **operations Management Suite** > **tjänstkarta**).
 
 >[!NOTE]
 >[Operations Management Suite var en samling tjänster](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) som innehöll Log Analytics, som nu ingår i [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).

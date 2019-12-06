@@ -1,23 +1,23 @@
 ---
 title: Azure Table Storage-stöd i Azure Cosmos DB
-description: Läs hur Azure Cosmos DB Table API:t och Azure Storage-tabeller fungerar tillsammans.
+description: Lär dig hur Azure Cosmos DB Tabell-API och Azure Storage tabeller fungerar tillsammans genom att dela samma tabell data modell med åtgärder
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 12/02/2019
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 71bc5d73a7b5bc83dc1ac835c80ac1b14d5113e9
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4f742ce34ec429f0fc822562c1ad4ad07f3e7965
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814694"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870436"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Utveckla med Azure Cosmos DB Table API:t och Azure Table Storage
 
-Azure Cosmos DB Table API:t och Azure Table Storage delar samma tabelldatamodell och exponerar samma åtgärder för att skapa, ta bort, uppdatera och fråga via sina SDK:er. 
+Azure Cosmos DB Table API:t och Azure Table Storage delar samma tabelldatamodell och exponerar samma åtgärder för att skapa, ta bort, uppdatera och fråga via sina SDK:er.
 
 [!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 
@@ -27,14 +27,14 @@ Just nu har [Azure Cosmos DB Table API:t](table-introduction.md) fyra SDK:er til
 
 * [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table): .NET SDK. Det här biblioteket har NET Standard som mål och har samma klasser och metodsignaturer som den offentliga versionen av [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), men har även funktioner för att ansluta till Azure Cosmos DB-konton via Tabell-API. Användare av .NET Framework Library [Microsoft. Azure. CosmosDB. table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) rekommenderas för att uppgradera till [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) eftersom det är i underhålls läge och kommer att bli inaktuellt snart.
 
-* [Python SDK](table-sdk-python.md): Nya Azure Cosmos DB Python SDK är den enda SDK som stöder Azure Table Storage i Python. Detta SDK fungerar med både Azure Table Storage och Azure Cosmos DB Table API:t.
+* [Python SDK](table-sdk-python.md): den nya Azure Cosmos DB python SDK är den enda SDK som stöder Azure Table Storage i python. Detta SDK fungerar med både Azure Table Storage och Azure Cosmos DB Table API:t.
 
-* [Java SDK](table-sdk-java.md): Den här Azure Storage SDK:n kan ansluta till Azure Cosmos DB-konton med Table API:t.
+* [Java SDK](table-sdk-java.md): den här Azure Storage SDK kan ansluta till Azure Cosmos DB-konton med hjälp av tabell-API.
 
-* [Node.js SDK](table-sdk-nodejs.md): Den här Azure Storage SDK:n kan ansluta till Azure Cosmos DB-konton med Table API:t.
+* [Node. js SDK](table-sdk-nodejs.md): den här Azure Storage SDK kan ansluta till Azure Cosmos DB-konton med hjälp av tabell-API.
 
 
-Mer information om hur du arbetar med Tabell-API finns i artikeln [Vanliga frågor och svar: Utveckla med Tabell-API](faq.md#table).
+Ytterligare information om hur du arbetar med Table API:t finns i artikeln [Vanliga frågor och svar: utveckla med Table API](faq.md#table).
 
 ## <a name="developing-with-azure-table-storage"></a>Utveckla med Azure Table Storage
 

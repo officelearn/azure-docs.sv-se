@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c0d49c3ce06f6fa72daf7aff466ef65e09ced09a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 6c88fec4e6bea34dd3cf2e45300ae2c1ac15a1c6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241799"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851544"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -40,12 +40,14 @@ Windows Defender använder Windows Update-klienten för att ladda ned och instal
 
 Mer information om Windows Update fel och deras lösningar finns i [Windows Update felkoder per komponent](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) och TechNet [-artikeln Windows Update Agent-felkoder](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
+Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du våra [yaml-alternativ för program mot skadlig kod](yaml-configuration.md#anti-malware-scanner-task)
+
 ## <a name="binskim-task"></a>BinSkim-uppgift
 
 > [!NOTE]
 > Innan du kan köra BinSkim-uppgiften måste din version uppfylla något av följande villkor:
->    - Din version genererar binära artefakter från hanterad kod.
->    - Du har binära artefakter som du vill analysera med BinSkim.
+>  - Din version genererar binära artefakter från hanterad kod.
+>  - Du har binära artefakter som du vill analysera med BinSkim.
 
 Information om aktivitets konfigurationen visas i följande skärm bild och lista.
 
@@ -58,7 +60,7 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 - I **mål**anger du en eller flera specificerare för en fil, en katalog eller ett filter mönster. Dessa specificerare matchar en eller flera binärfiler som ska analyseras:
     - Flera angivna mål måste avgränsas med ett semikolon (;).
     - En specificerare kan vara en enskild fil eller innehålla jokertecken.
-    - Directory-specifikationer måste alltid avslutas \\med *.
+    - Directory-specifikationer måste alltid avslutas med \\*.
     - Exempel:
 
            *.dll;*.exe
@@ -79,72 +81,80 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 
 Mer information om kommando rads argument för BinSkim, regler per ID eller avslutnings koder finns i [användar handboken för BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
+Information om YAML-konfigurationen för den här uppgiften finns i våra [BINSKIM yaml-alternativ](yaml-configuration.md#binskim-task)
+
 ## <a name="credential-scanner-task"></a>Uppgift för genomsökning av autentiseringsuppgifter
 
 Information om aktivitets konfigurationen visas i följande skärm bild och lista.
 
 ![Konfigurera uppgiften för att läsa in autentiseringsuppgifter](./media/security-tools/3-taskdetails.png)
 
-De tillgängliga alternativen är:
+Tillgängliga alternativ inkluderar:
 
-  - **Utdataformat**: Tillgängliga värden är **TSV**, **CSV**, **SARIF**och **prefast**.
+  - **Utdataformat**: tillgängliga värden är **TSV**, **CSV**, **SARIF**och för **snabbt**.
   - **Verktygs version**: Vi rekommenderar att du väljer **senaste**.
-  - **Genomsök mapp**: Den mapp i databasen som ska genomsökas.
-  - **Filtypen sökvägar**: Alternativen för att hitta Sök efter-filen som används för genomsökning.
-  - **Undertrycks fil**: En [JSON](https://json.org/) -fil kan förhindra problem i utgående loggen. Mer information om under trycknings scenarier finns i avsnittet Vanliga frågor och svar i den här artikeln.
-  - **Utförliga utdata**: Själv för klar Ande.
-  - **Batchstorlek**: Antalet samtidiga trådar som används för att köra skannern för autentiseringsuppgifter. Standardvärdet är 20. Möjliga värden är mellan 1 och 2 147 483 647.
-  - **Matchnings-timeout**: Hur lång tid i sekunder det tar att försöka utföra en Sök funktion innan kontrollen överges.
-  - **Läs buffertstorlek för fil genomsökning**: Storleken i byte på den buffert som används när innehållet läses. Standardvärdet är 524 288.  
-  - **Maximalt antal lästa fil läsningar**: Det maximala antalet byte som ska läsas från en fil under innehålls analysen. Standardvärdet är 104 857 600.
-  - **Kontroll alternativ** > **kör den här uppgiften**: Anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
-  - **Version**: Versions aktivitets versionen i Azure DevOps. Det här alternativet används inte ofta.
+  - **Genomsök mapp**: den databasmapp som ska genomsökas.
+  - **Filtypen sökvägar**: alternativen för att hitta Sök efter-filen som används för genomsökning.
+  - **Undertrycks fil**: en [JSON](https://json.org/) -fil kan förhindra problem i utgående loggen. Mer information om under trycknings scenarier finns i avsnittet Vanliga frågor och svar i den här artikeln.
+  - **Utförlig utdata**: själv för klar Ande.
+  - **Batchstorlek**: antalet samtidiga trådar som används för att köra skannern för autentiseringsuppgifter. Standardvärdet är 20. Möjliga värden är mellan 1 och 2 147 483 647.
+  - **Matchnings-timeout**: hur lång tid i sekunder det tar att försöka lägga till en Sök funktion innan kontrollen avbryts.
+  - **Fil genomsökningens Läs buffertstorlek**: storleken i byte på den buffert som används när innehållet läses. Standardvärdet är 524 288.  
+  - **Maximal läsning av fil läsnings byte**: det maximala antalet byte som ska läsas från en fil under innehålls analysen. Standardvärdet är 104 857 600.
+  - **Kontroll alternativ** > att **köra den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
+  - **Version**: Bygg uppgifts versionen i Azure DevOps. Det här alternativet används inte ofta.
+
+Information om YAML-konfigurationen för den här aktiviteten finns i våra [yaml alternativ för inloggnings skanner](yaml-configuration.md#credential-scanner-task)
 
 ## <a name="microsoft-security-risk-detection-task"></a>Uppgift om Microsofts säkerhets risk identifiering
 
 > [!NOTE]
 > Du måste skapa och konfigurera ett konto med Microsofts tjänst för säkerhets risk identifiering (MSRD) innan du använder MSRD-aktiviteten. Den här tjänsten kräver en separat onboarding-process. Till skillnad från de flesta andra aktiviteter i det här tillägget kräver den här uppgiften en separat prenumeration med MSRD.
 >
-> Se [Microsofts säkerhets risk identifiering](https://aka.ms/msrddocs) och [Microsofts säkerhets risk identifiering: ](https://docs.microsoft.com/security-risk-detection/how-to/) Anvisningar.
+> Se [Microsofts säkerhets risk identifiering](https://aka.ms/msrddocs) och [Microsofts säkerhets risk identifiering: så här hittar du](https://docs.microsoft.com/security-risk-detection/how-to/) instruktioner.
 
 Information om hur du konfigurerar den här uppgiften visas i följande lista. För alla UI-element kan du hovra över det elementet för att få hjälp.
 
-   - **Namn på Azure DevOps-tjänstens slut punkt för MSRD**: En allmän typ av Azure DevOps-tjänstens slut punkt lagrar din MSRD-instans-URL och din REST API åtkomsttoken. Om du har skapat en sådan slut punkt kan du ange den här. Annars väljer du länken **Hantera** för att skapa och konfigurera en ny tjänst slut punkt för den här MSRD-aktiviteten.
-   - **Konto-ID**: Ett GUID som kan hämtas från MSRD-kontots URL.
-   - **URL: er till binärfiler**: En semikolonavgränsad lista med offentligt tillgängliga URL: er. Den suddiga datorn använder dessa URL: er för att ladda ned binärfilerna.
-   - **URL: er för startfilerna**: En semikolonavgränsad lista med offentligt tillgängliga URL: er. Den suddiga datorn använder dessa URL: er för att hämta frön. Att ange det här värdet är valfritt om startfilerna laddas ned tillsammans med binärfilerna.
-   - **Typ av operativ system plattform**: Operativ systemets plattform (OS) för datorer som kör det suddiga jobbet. Tillgängliga värden är **Windows** och **Linux**.
-   - **Windows-utgåva/Linux-utgåva**: Den OS-version av datorer som kör det suddiga jobbet. Du kan skriva över standardvärdet om datorerna har en annan operativ system version.
-   - **Paket installations skript**: Skriptet som ska köras på en test dator. Det här skriptet installerar test mål programmet och dess beroenden innan det suddiga jobbet skickas.
+   - **Namn på Azure DevOps-tjänstens slut punkt för MSRD**: en generisk typ av Azure DevOps-tjänstens slut punkt lagrar din inbyggda MSRD-instansen URL och din REST API åtkomsttoken. Om du har skapat en sådan slut punkt kan du ange den här. Annars väljer du länken **Hantera** för att skapa och konfigurera en ny tjänst slut punkt för den här MSRD-aktiviteten.
+   - **Konto-ID**: ett GUID som kan hämtas från MSRD-kontots URL.
+   - **URL: er till binärfiler**: en semikolonavgränsad lista med offentligt tillgängliga URL: er. Den suddiga datorn använder dessa URL: er för att ladda ned binärfilerna.
+   - **URL: er för startfilerna**: en semikolonavgränsad lista med offentligt tillgängliga URL: er. Den suddiga datorn använder dessa URL: er för att hämta frön. Att ange det här värdet är valfritt om startfilerna laddas ned tillsammans med binärfilerna.
+   - **Typ av operativ system plattform**: operativ systemets plattform (OS) för datorer som kör det suddiga jobbet. Tillgängliga värden är **Windows** och **Linux**.
+   - **Windows-utgåva/Linux-** utgåva: den OS-version av datorer som kör det suddiga jobbet. Du kan skriva över standardvärdet om datorerna har en annan operativ system version.
+   - **Paket installations skript**: ditt skript som ska köras på en test dator. Det här skriptet installerar test mål programmet och dess beroenden innan det suddiga jobbet skickas.
    - **Jobb överförings parametrar**:
-       - **Dirigerings katalog**: Sökvägen till katalogen på den suddiga datorn som innehåller frön.
-       - **Seed-tillägg**: Tilläggets fil namns tillägg.
-       - **Körbar test driv rutin**: Sökvägen till den körbara filens målfil på den suddiga datorn.
-       - Körnings **arkitektur för test driv rutin**: Den körbara filens arkitektur. Tillgängliga värden är **x86** och **amd64**.
-       - **Argument för test driv rutin**: Kommando rads argumenten som skickas till den körbara test filen. Argumentet "% testfile%", inklusive citat tecknen, ersätts automatiskt med den fullständiga sökvägen till mål filen. Den här filen parsas av test driv rutinen och krävs.
-       - **Test driv rutins processen avslutas vid test slut för ande**: Markera den här kryss rutan om test driv rutinen ska avslutas när den har slutförts. Avmarkera den om test driv rutinen måste tvingas stängas.
-       - **Maximal varaktighet (i sekunder)** : En uppskattning av den längsta förväntade förväntade tiden som mål programmet kräver för att parsa en indatafil. Den mer exakta uppskattningen, desto mer effektiv är den suddiga appen att köras.
+       - **Dirigerings katalog**: sökvägen till katalogen på den suddiga datorn som innehåller frön.
+       - **Seed-tillägg**: fil namns tillägget för frön.
+       - **Test driv rutin körbar**fil: sökvägen till den körbara filens målfil på den suddiga datorn.
+       - **Test driv Rutinens körbara arkitektur**: den körbara filens arkitektur. Tillgängliga värden är **x86** och **amd64**.
+       - **Argument för test driv rutin**: kommando rads argumenten som skickas till den körbara filen för test. Argumentet "% testfile%", inklusive citat tecknen, ersätts automatiskt med den fullständiga sökvägen till mål filen. Den här filen parsas av test driv rutinen och krävs.
+       - **Test driv rutins processen avslutas när testet slutförs**: Markera den här kryss rutan om test driv rutinen ska avslutas när den har slutförts. Avmarkera den om test driv rutinen måste tvingas stängas.
+       - **Maximal varaktighet (i sekunder)** : en uppskattning av den längsta förväntade förväntade tiden som mål programmet kräver för att parsa en indatafil. Den mer exakta uppskattningen, desto mer effektiv är den suddiga appen att köras.
        - **Test driv rutinen kan köras flera gånger**: Markera den här kryss rutan om test driv rutinen kan köras upprepade gånger utan att beroende på ett beständigt eller delat globalt tillstånd.
-       - **Du kan byta namn på test driv rutin**: Markera den här kryss rutan om du kan byta namn på test driv Rutinens körbara fil och fortfarande fungera korrekt.
+       - **Test driv rutin kan byta namn**: Markera den här kryss rutan om du kan byta namn på test driv Rutinens körbara fil och fortfarande fungera korrekt.
        - **Fuzzing-programmet körs som en enda operativ system process**: Markera den här kryss rutan om test driv rutinen körs under en enda operativ system process. Avmarkera det om test driv rutinen skapar ytterligare processer.
+
+Information om YAML-konfigurationen för den här uppgiften finns i följande [yaml-alternativ för Microsofts säkerhets risk](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## <a name="roslyn-analyzers-task"></a>Roslyn för analys uppgifter
 
 > [!NOTE]
 > Innan du kan köra Roslyn-uppgiften måste din version uppfylla följande villkor:
+>
 > - Din build-definition innehåller den inbyggda MSBuild-eller VSBuild build-uppgiften för C# att kompilera eller Visual Basic kod. Aktiviteten analyserare använder sig av indata och utdata för den inbyggda uppgiften för att köra MSBuild-kompilering med Roslyn-analyserare aktiverade.
 > - Build-agenten som kör den här bygg aktiviteten har Visual Studio 2017 version 15,5 eller senare installerad, så att den använder kompilator version 2,6 eller senare.
 
 Information om aktivitets konfigurationen visas i följande lista och anmärkning.
 
-De tillgängliga alternativen är:
+Tillgängliga alternativ inkluderar:
 
-- **Ruleset**: Värdena är **sdl krävs**, **sdl rekommenderas**eller din egen anpassade regel uppsättning.
-- **Analys verktyg version**: Vi rekommenderar att du väljer **senaste**.
-- **Kompilator varningar-ignorerar fil**: En textfil med en lista över varnings-ID: n som ignoreras.
-- **Kontroll alternativ** > **kör den här uppgiften**: Anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
+- **Ruleset**: värden är **sdl krävs**, **sdl rekommenderas**eller din egen anpassade regel uppsättning.
+- **Versions analys**: Vi rekommenderar att du väljer **senaste**.
+- **Kompilator varningar ignorerar fil**: en textfil med en lista över varnings-ID: n som ignoreras.
+- **Kontroll alternativ** > att **köra den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
 
 > [!NOTE]
+>
 > - Roslyn-analyser är integrerade med kompilatorn och kan endast köras som en del av CSC. exe-kompileringen. Den här uppgiften kräver därför kommandot compile som kördes tidigare i versionen för att kunna spelas upp eller köras igen. Den här omuppspelningen eller körningen görs genom att fråga Visual Studio Team Services (VSTS) för de MSBuild-skapa uppgifts loggarna.
 >
 >   Det finns inget annat sätt för uppgiften att på ett tillförlitligt sätt Hämta kommando raden för MSBuild-kompilering från build-definitionen. Vi ansåg att du lägger till en text ruta för fri hands text så att användarna kan ange sina kommando rader. Men det skulle vara svårt att hålla dessa kommando rader aktuella och synkroniserade med huvud versionen.
@@ -161,6 +171,8 @@ Mer resurser för Roslyn-uppgiften finns i [Roslyn-baserade analyser](https://do
 
 Du hittar det Analyzer-paket som har installerats och använts av den här bygg aktiviteten på NuGet-sidan [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
+Information om YAML-konfigurationen för den här uppgiften finns i våra [Roslyn-yaml alternativ](yaml-configuration.md#roslyn-analyzers-task)
+
 ## <a name="tslint-task"></a>TSLint-uppgift
 
 Mer information om TSLint finns i [TSLint GitHub-lagrings platsen](https://github.com/palantir/tslint).
@@ -168,15 +180,19 @@ Mer information om TSLint finns i [TSLint GitHub-lagrings platsen](https://githu
 >[!NOTE] 
 >Som du kanske är medveten om, kan [TSLint GitHub lagrings platsen](https://github.com/palantir/tslint) start sida säga att TSLint kommer att vara inaktuellt någon gång i 2019. Microsoft undersöker [ESLint](https://github.com/eslint/eslint) som en alternativ uppgift.
 
+Information om YAML-konfigurationen för den här uppgiften finns i våra [TSLINT yaml-alternativ](yaml-configuration.md#tslint-task)
+
 ## <a name="publish-security-analysis-logs-task"></a>Aktiviteten publicera säkerhets analys loggar
 
 Information om aktivitets konfigurationen visas i följande skärm bild och lista.
 
 ![Konfigurera aktiviteten publicera säkerhets analys loggar](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Artefakt namn**: Vilken sträng identifierare som helst.
-- **Artefakt typ**: Beroende på ditt val kan du publicera loggar till din Azure DevOps-Server eller till en delad fil som är tillgänglig för build-agenten.
-- **Verktyg**: Du kan välja att bevara loggar för vissa verktyg, eller så kan du välja **alla verktyg** för att bevara alla loggar.
+- **Artefakt namn**: valfri sträng identifierare.
+- **Artefakt typ**: beroende på ditt val kan du publicera loggar till din Azure DevOps Server eller till en delad fil som är tillgänglig för build-agenten.
+- **Verktyg**: du kan välja att bevara loggar för vissa verktyg, eller så kan du välja **alla verktyg** för att bevara alla loggar.
+
+Information om YAML-konfigurationen för den här uppgiften finns i YAML-alternativen för att [publicera säkerhets loggar](yaml-configuration.md#publish-security-analysis-logs-task)
 
 ## <a name="security-report-task"></a>Säkerhets rapports aktivitet
 
@@ -184,10 +200,12 @@ Information om konfigurationen av säkerhets rapporten visas i följande skärm 
 
 ![Konfigurera säkerhets rapportens Bygg aktivitet](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Rapporter**: Välj någon av **pipeline-konsolen**, **TSV-filen**och **HTML-filformat** . En rapport fil skapas för varje valt format.
+- **Rapporter**: Välj någon av **pipelinen-konsolen**, **TSV-filen**och **HTML-filformat** . En rapport fil skapas för varje valt format.
 - **Verktyg**: Välj de verktyg i build-definitionen som du vill ha en sammanfattning av identifierade problem för. För varje valt verktyg kan det finnas ett alternativ för att välja om du bara ska se fel eller Visa både fel och varningar i sammanfattnings rapporten.
-- **Avancerade alternativ**: Om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
-- **Mappen grundläggande loggar**: Du kan anpassa mappen grundläggande loggar där loggar ska hittas. Men det här alternativet används vanligt vis inte.
+- **Avancerade alternativ**: om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
+- **Mappen grundläggande loggar**: du kan anpassa mappen grundläggande loggar där loggar ska hittas. Men det här alternativet används vanligt vis inte.
+
+Information om YAML-konfigurationen för den här uppgiften finns i [säkerhets rapportens yaml alternativ](yaml-configuration.md#security-report-task)
 
 ## <a name="post-analysis-task"></a>Uppgift efter analys
 
@@ -195,10 +213,14 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 
 ![Konfigurera Bygg aktiviteten efter analys](./media/security-tools/a-post-analysis600.png)
 
-- **Verktyg**: Välj de verktyg i build-definitionen som du vill använda för att villkorligt mata in en versions rast. För varje valt verktyg kan det finnas ett alternativ för att välja om du bara vill bryta vid fel eller både fel och varningar.
-- **Rapport**: Du kan välja att skriva resultaten som orsakar Bygg rastet. Resultaten skrivs till Azure DevOps-konsol fönstret och logg filen.
-- **Avancerade alternativ**: Om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
+- **Verktyg**: Välj de verktyg i din build-definition som du vill använda för att villkorligt injicera en versions rast. För varje valt verktyg kan det finnas ett alternativ för att välja om du bara vill bryta vid fel eller både fel och varningar.
+- **Rapport**: du kan välja att skriva resultaten som orsakar Bygg rastet. Resultaten skrivs till Azure DevOps-konsol fönstret och logg filen.
+- **Avancerade alternativ**: om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
+
+Information om YAML-konfigurationen för den här uppgiften finns i alternativ för att [yaml för inläggs analys](yaml-configuration.md#post-analysis-task)
 
 ## <a name="next-steps"></a>Nästa steg
+
+Information om YAML-baserad konfiguration finns i vår [konfigurations guide för yaml](yaml-configuration.md).
 
 Om du har fler frågor om tillägget för säkerhets kod analys och de verktyg som erbjuds, kan du kolla in [vår vanliga frågor och svar](security-code-analysis-faq.md).

@@ -1,24 +1,24 @@
 ---
 title: Datum-och tids funktioner i Azure Cosmos DB frågespråk
-description: Lär dig mer om datum-och tids SQL-systemfunktioner i Azure Cosmos DB.
+description: Lär dig mer om datum-och tids funktioner i SQL system-funktioner i Azure Cosmos DB att utföra DateTime-och timestamp-åtgärder.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 763cac8736109952fdb32500dc669ace2ae7b585
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 93b3e90deb5e3764cb5402938c5d0e14cadb7883
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351226"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873394"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Datum-och tids funktioner (Azure Cosmos DB)
 
 Med funktionen för datum-och tids funktioner kan du utföra DateTime-och timestamp-åtgärder i Azure Cosmos DB.
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Med följande skalära funktioner kan du hämta aktuellt UTC-datum och tid i två formulär; en numerisk tidstämpel vars värde är UNIX-epoken i millisekunder eller som en sträng som följer ISO 8601-formatet:
 
@@ -32,4 +32,4 @@ Med följande skalära funktioner kan du hämta aktuellt UTC-datum och tid i tv�
 - [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
-- [Agg regeringar](sql-query-aggregates.md)
+- [Aggregeringar](sql-query-aggregates.md)

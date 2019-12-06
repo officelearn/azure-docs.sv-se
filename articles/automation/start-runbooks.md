@@ -4,17 +4,17 @@ description: Sammanfattar de olika metoder som kan användas för att starta en 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8200052e14161d91b7daef6a0acd9c851518d9c2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a6ef8d81e8a2845e62bf25d0bba4d6967cca65a4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886494"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849419"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en Runbook i Azure Automation
 
@@ -22,7 +22,7 @@ I följande tabell får du hjälp att avgöra hur du ska starta en Runbook i Azu
 
 | **Metod** | **Förhållanden** |
 | --- | --- |
-| [Azure Portal](#start-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med Interactive User Interface.<br> <li>Form för att tillhandahålla enkla parameter värden.<br> <li>Spåra jobbets status enkelt.<br> <li>Åtkomst autentiserad med Azure-inloggning. |
+| [Azure-portalen](#start-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med Interactive User Interface.<br> <li>Form för att tillhandahålla enkla parameter värden.<br> <li>Spåra jobbets status enkelt.<br> <li>Åtkomst autentiserad med Azure-inloggning. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Anropa från kommando raden med Windows PowerShell-cmdletar.<br> <li>Kan inkluderas i automatiserad lösning med flera steg.<br> <li>Begäran autentiseras med certifikat eller användar huvud/tjänstens huvud namn för OAuth-användare.<br> <li>Ange enkla och komplexa parameter värden.<br> <li>Spåra jobb status.<br> <li>Klienten krävde för att stödja PowerShell-cmdletar. |
 | [Azure Automation-API](/rest/api/automation/) |<li>Den mest flexibla metoden, men även mest komplex.<br> <li>Anropa från en anpassad kod som kan göra HTTP-förfrågningar.<br> <li>Begäran autentiserad med certifikat eller användar huvud för OAuth/tjänstens huvud namn.<br> <li>Ange enkla och komplexa parameter värden. *Om du anropar en python-Runbook med API: t måste JSON-nyttolasten serialiseras.*<br> <li>Spåra jobb status. |
 | [Webhooks](automation-webhooks.md) |<li>Starta Runbook från en enskild HTTP-begäran.<br> <li>Autentiserad med säkerhetstoken i URL.<br> <li>Klienten kan inte åsidosätta parameter värden som anges när webhooken skapades. En Runbook kan definiera en enda parameter som är ifylld med HTTP-begärans information.<br> <li>Det går inte att spåra jobb status via webhook-URL. |
@@ -44,13 +44,13 @@ Följande bild illustrerar en detaljerad steg-för-steg-process i livs cykeln f�
 
 ## <a name="start-a-runbook-with-powershell"></a>Starta en Runbook med PowerShell
 
-Du kan använda [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) för att starta en Runbook med Windows PowerShell. Följande exempel kod startar en Runbook med namnet test-Runbook.
+Du kan använda [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) för att starta en Runbook med Windows PowerShell. Följande exempelkod startar en Runbook med namnet Test-Runbook.
 
 ```azurepowershell-interactive
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-Start-AzureRmAutomationRunbook returnerar ett jobb objekt som du kan använda för att spåra dess status när Runbook startas. Du kan sedan använda detta jobb objekt med [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) för att bestämma status för jobbet och [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) för att få dess utdata. Följande exempel kod startar en Runbook med namnet test-Runbook, väntar tills den har slutförts och visar sedan dess utdata.
+Start-AzureRmAutomationRunbook returnerar ett jobb objekt som du kan använda för att spåra dess status när Runbook startas. Du kan sedan använda detta jobb objekt med [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) för att bestämma status för jobbet och [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) för att få dess utdata. Följande exempelkod startar en Runbook med namnet Test-Runbook, väntar tills den har slutförts och visar sedan dess utdata.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"
@@ -69,7 +69,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Om Runbook kräver parametrar måste du ange dem som en [hash](https://technet.microsoft.com/library/hh847780.aspx)-form. Nyckeln för hash-tabellen måste matcha parameter namnet och värdet är parametervärdet. I följande exempel visas hur du startar en Runbook med två sträng parametrar som heter FirstName och LastName, ett heltal med namnet RepeatCount och en boolesk parameter som heter show. Mer information om parametrar finns i [Runbook-parametrar](#runbook-parameters) nedan.
+Om Runbook kräver parametrar måste du ange dem som en [hash](https://technet.microsoft.com/library/hh847780.aspx)-form. Nyckeln för hash-tabellen måste matcha parameter namnet och värdet är parametervärdet. I följande exempel visas hur du startar en Runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbook-parametrar](#runbook-parameters) nedan.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -86,7 +86,7 @@ Azure Automation-webbtjänsten tillhandahåller särskilda funktioner för param
 
 Om parametern är data typen [objekt], kan du använda följande JSON-format för att skicka en lista över namngivna värden: *{Name1: "värde1", Name2: "värde2", Name3: ' Value3 '}* . Dessa värden måste vara enkla typer. Runbooken tar emot parametern som en [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) med egenskaper som motsvarar varje namngivet värde.
 
-Överväg följande test-Runbook som accepterar en parameter med namnet User.
+Överväg följande test-Runbook som accepterar en parameter med namnet user.
 
 ```powershell
 Workflow Test-Parameters
@@ -104,7 +104,7 @@ Workflow Test-Parameters
 }
 ```
 
-Följande text kan användas för användar parametern.
+Följande text kan användas för user-parameter.
 
 ```json
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
@@ -119,11 +119,11 @@ Joe
 Smith
 ```
 
-### <a name="arrays"></a>lagringsmatriser
+### <a name="arrays"></a>Matriser
 
 Om parametern är en matris som t. ex. [array] eller [string []], kan du använda följande JSON-format för att skicka en lista med värden: *[värde1, värde2, Value3]* . Dessa värden måste vara enkla typer.
 
-Överväg följande test-Runbook som accepterar en parameter med namnet *User*.
+Överväg följande test-Runbook som accepterar en parameter med namnet *user*.
 
 ```powershell
 Workflow Test-Parameters
@@ -140,7 +140,7 @@ Workflow Test-Parameters
 }
 ```
 
-Följande text kan användas för användar parametern.
+Följande text kan användas för user-parameter.
 
 ```input
 ["Joe","Smith",2,true]
@@ -159,7 +159,7 @@ Smith
 
 Om parametern är data typen **PSCredential**kan du ange namnet på en Azure Automation [behörighet till till gång](automation-credentials.md). Runbooken hämtar autentiseringsuppgiften med det namn som du anger.
 
-Överväg följande test-Runbook som accepterar en parameter med namnet Credential.
+Överväg följande test-Runbook som accepterar en parameter med namnet credential.
 
 ```powershell
 Workflow Test-Parameters

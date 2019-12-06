@@ -1,42 +1,56 @@
 ---
-title: Skapa och hantera Azure Cosmos DB med Azure Resource Manager-mallar
+title: Skapa och hantera Azure Cosmos DB med Azure Resource Manager mallar
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB för SQL-API (Core)
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 0cb6e80bafca3bb0bfc339552facae5bd16aced4
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 62c04fed03ad2346d0f548a4a8028f2d7d6b3486
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960539"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850473"
 ---
-# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB SQL (Core) API-resurser med Azure Resource Manager-mallar
+# <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB SQL (Core) API-resurser med Azure Resource Manager mallar
 
-Den här artikeln beskriver hur du utför olika åtgärder för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och behållare med hjälp av Azure Resource Manager mallar. Den här artikeln innehåller exempel på endast SQL API-konton, för att hitta exempel på andra typer av API-typer finns i: använda Azure Resource Manager mallar med Azure Cosmos DB s API för [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [tabell](manage-table-with-resource-manager.md) artiklar.
+I den här artikeln får du lära dig hur du använder Azure Resource Manager mallar för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och behållare.
 
-hur du skapar och hanterar Cosmos DB konton, databaser och behållare för MongoDB, Gremlin, Cassandra och Tabell-API.
+Den här artikeln innehåller bara exempel på Azure Resource Manager mallar för SQL API-konton. Du kan också hitta mall exempel för API: er för [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)och [Table](manage-table-with-resource-manager.md) .
 
-## Skapa ett Azure Cosmos-konto, en databas och en behållare<a id="create-resource"></a>
+<a id="create-resource"></a>
 
-Skapa Azure Cosmos DB-resurser med en Azure Resource Manager-mall. Den här mallen skapar ett Azure Cosmos-konto med två behållare som delar 400 RU/s-genomflöde på databas nivå och en enda behållare med dedikerat 400 RU/s-genomflöde. Kopiera mallen och distribuera på det sätt som visas nedan eller gå till [Azure snabb starts galleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) och distribuera från Azure Portal. Du kan också hämta mallen till den lokala datorn eller skapa en ny mall och ange den lokala sökvägen med parametern `--template-file`.
+## <a name="create-an-azure-cosmos-account-database-and-container"></a>Skapa ett Azure Cosmos-konto, en databas och en behållare
 
-> [!NOTE]
+Följande Azure Resource Manager mall skapar ett Azure Cosmos-konto med:
+
+* Två behållare som delar 400 begärda enheter per sekund (RU/s) genom strömning på databas nivå.
+* En behållare med dedikerade 400 RU/s-genomflöde.
+
+Om du vill skapa Azure Cosmos DB resurser kopierar du följande exempel mall och distribuerar den enligt beskrivningen, antingen via [PowerShell](#deploy-via-powershell) eller [Azure CLI](#deploy-via-azure-cli).
+
+* Du kan också gå till [Azure snabb starts galleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) och distribuera mallen från Azure Portal.
+* Du kan också hämta mallen till den lokala datorn eller skapa en ny mall och ange den lokala sökvägen med parametern `--template-file`.
+
+> [!IMPORTANT]
 >
-> - Du kan inte lägga till eller ta bort platser samtidigt i ett Azure Cosmos-konto och ändra andra egenskaper. Dessa måste göras som separata åtgärder.
-> - Konto namn måste bestå av gemener och 44 eller färre tecken.
-> - Om du vill uppdatera RU/s skickar du om mallen med uppdaterade egenskaper för data flödes värden.
+> * När du lägger till eller tar bort platser i ett Azure Cosmos-konto kan du ändra andra egenskaper samtidigt. Dessa åtgärder måste utföras separat.
+> * Konto namn är begränsade till 44 tecken, alla gemener.
+> * Om du vill ändra data flödes värden skickar du mallen igen med uppdaterade RU/s.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 
 > [!NOTE]
-> Om du vill skapa en behållare med stor partitionsnyckel tar du med egenskapen `"version":2` i `partitionKey`-objektet i föregående mall.
+> Om du vill skapa en behållare med en stor partitionsnyckel ändrar du den tidigare mallen så att den inkluderar egenskapen `"version":2` i `partitionKey`-objektet.
 
 ### <a name="deploy-via-powershell"></a>Distribuera via PowerShell
 
-Om du vill distribuera Azure Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **försök** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Så här använder du PowerShell för att distribuera Azure Resource Manager-mallen:
+
+1. **Kopiera** skriptet.
+2. Välj **försök** att öppna Azure Cloud Shell.
+3. Högerklicka på fönstret Azure Cloud Shell och välj **Klistra in**.
 
 ```azurepowershell-interactive
 
@@ -70,11 +84,15 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Om du väljer att använda en lokalt installerad version av PowerShell i stället för från Azure Cloud Shell måste du [installera](/powershell/azure/install-az-ps) Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen.
+Du kan välja att distribuera mallen med en lokalt installerad version av PowerShell i stället för att Azure Cloud Shell. Du måste [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Kör `Get-Module -ListAvailable Az` för att hitta den version som krävs.
 
 ### <a name="deploy-via-azure-cli"></a>Distribuera via Azure CLI
 
-Om du vill distribuera Azure Resource Manager-mallen med hjälp av Azure CLI väljer du **testa den** för att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Så här använder du Azure CLI för att distribuera Azure Resource Manager-mallen:
+
+1. **Kopiera** skriptet.
+2. Välj **försök** att öppna Azure Cloud Shell.
+3. Högerklicka på fönstret Azure Cloud Shell och välj **Klistra in**.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -105,17 +123,28 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-Kommandot `az cosmosdb show` visar det nyligen skapade Azure Cosmos-kontot efter att det har etablerats. Om du väljer att använda en lokalt installerad version av Azure CLI i stället för att använda CloudShell, kan du läsa artikeln om [kommando rads gränssnittet i Azure (CLI)](/cli/azure/) .
+Kommandot `az cosmosdb show` visar det nyligen skapade Azure Cosmos-kontot efter att det har tillhandahållits. Du kan välja att distribuera mallen med en lokalt installerad version av Azure CLI i stället Azure Cloud Shell. Mer information finns i artikeln [kommando rads gränssnitt för Azure (CLI)](/cli/azure/) .
 
-## Skapa en Azure Cosmos DB-behållare med Server sidans funktioner<a id="create-sproc"></a>
+<a id="create-sproc"></a>
 
-Skapa en Azure Cosmos DB-behållare med en lagrad procedur, utlösare och användardefinierad funktion med hjälp av en Azure Resource Manager mall. Kopiera mallen och distribuera på det sätt som visas nedan eller gå till [Azure snabb starts galleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) och distribuera från Azure Portal. Du kan också hämta mallen till den lokala datorn eller skapa en ny mall och ange den lokala sökvägen med parametern `--template-file`.
+## <a name="create-an-azure-cosmos-db-container-with-server-side-functionality"></a>Skapa en Azure Cosmos DB-behållare med Server sidans funktioner
+
+Du kan använda en Azure Resource Manager mall för att skapa en Azure Cosmos DB behållare med en lagrad procedur, utlösare och användardefinierad funktion.
+
+Kopiera följande exempel mall och distribuera den enligt beskrivningen, antingen med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli).
+
+* Du kan också gå till [Azure snabb starts galleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) och distribuera mallen från Azure Portal.
+* Du kan också hämta mallen till den lokala datorn eller skapa en ny mall och ange den lokala sökvägen med parametern `--template-file`.
 
 [!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
 
-### <a name="deploy-stored-procedure-template-via-powershell"></a>Distribuera lagrad procedur-mall via PowerShell
+### <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 
-Om du vill distribuera Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **försök** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Så här använder du PowerShell för att distribuera Azure Resource Manager-mallen:
+
+1. **Kopiera** skriptet.
+1. Välj **försök** att öppna Azure Cloud Shell.
+1. Högerklicka på fönstret Azure Cloud Shell och välj sedan **Klistra in**.
 
 ```azurepowershell-interactive
 
@@ -141,11 +170,15 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Om du väljer att använda en lokalt installerad version av PowerShell i stället för från Azure Cloud Shell måste du [installera](/powershell/azure/install-az-ps) Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen.
+Du kan välja att distribuera mallen med en lokalt installerad version av PowerShell i stället för att Azure Cloud Shell. Du måste [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Kör `Get-Module -ListAvailable Az` för att hitta den version som krävs.
 
-### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Distribuera lagrad procedur mal len via Azure CLI
+### <a name="deploy-with-azure-cli"></a>Distribuera med Azure CLI
 
-Om du vill distribuera Azure Resource Manager-mallen med hjälp av Azure CLI väljer du **testa den** för att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Så här använder du Azure CLI för att distribuera Azure Resource Manager-mallen:
+
+1. **Kopiera** skriptet.
+2. Välj **försök** att öppna Azure Cloud Shell.
+3. Högerklicka på fönstret Azure Cloud Shell och välj **Klistra in**.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -169,7 +202,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 Här följer några ytterligare resurser:
 
-- [Azure Resource Manager dokumentation](/azure/azure-resource-manager/)
-- [Schema för Azure Cosmos DB Resource Provider](/azure/templates/microsoft.documentdb/allversions)
-- [Azure Cosmos DB Snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Felsök vanliga Azure Resource Manager distributions fel](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Azure Resource Manager dokumentation](/azure/azure-resource-manager/)
+* [Schema för Azure Cosmos DB Resource Provider](/azure/templates/microsoft.documentdb/allversions)
+* [Azure Cosmos DB Snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Felsök vanliga Azure Resource Manager distributions fel](../azure-resource-manager/resource-manager-common-deployment-errors.md)

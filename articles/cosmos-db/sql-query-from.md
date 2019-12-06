@@ -1,17 +1,17 @@
 ---
 title: FROM-sats i Azure Cosmos DB
-description: Läs om SQL FROM-satsen för Azure Cosmos DB
+description: Läs om SQL-syntaxen och exempel för FROM-satsen för Azure Cosmos DB. Den här artikeln innehåller också exempel på omfattnings resultat och hämta under objekt med hjälp av from-satsen.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326999"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873377"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>FROM-sats i Azure Cosmos DB
 
@@ -114,7 +114,7 @@ FROM-satsen kan minska källan till en mindre delmängd. Om du bara vill räkna 
     FROM Families.children
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -154,7 +154,7 @@ Föregående fråga använde en matris som källa, men du kan också använda et
     FROM Families.address.state
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [

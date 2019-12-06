@@ -1,17 +1,17 @@
 ---
 title: SQL-underfrågor för Azure Cosmos DB
-description: Lär dig om SQL-underfrågaer och deras vanliga användnings fall i Azure Cosmos DB
+description: Lär dig om SQL-underfrågaer och deras vanliga användnings fall och olika typer av under frågor i Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003482"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870572"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exempel på SQL-underfrågan för Azure Cosmos DB
 
@@ -23,16 +23,16 @@ I den här artikeln beskrivs SQL-underfrågor och deras vanliga användnings fal
 
 Det finns två huvud typer av under frågor:
 
-* **Korrelerade**: En under fråga som refererar till värden från den yttre frågan. Under frågan utvärderas en gång för varje rad som den yttre frågan bearbetar.
-* **Icke-korrelerade**: En under fråga som är oberoende av den yttre frågan. Den kan köras på egen hand utan att det förlitar sig på den yttre frågan.
+* **Korrelerade**: en under fråga som refererar till värden från den yttre frågan. Under frågan utvärderas en gång för varje rad som den yttre frågan bearbetar.
+* **Icke-korrelerad**: en under fråga som är oberoende av den yttre frågan. Den kan köras på egen hand utan att det förlitar sig på den yttre frågan.
 
 > [!NOTE]
 > Azure Cosmos DB stöder endast korrelerade under frågor.
 
 Under frågor kan klassificeras ytterligare baserat på antalet rader och kolumner som de returnerar. Det finns tre typer:
-* **Tabell**: Returnerar flera rader och flera kolumner.
-* **Flera värden**: Returnerar flera rader och en enskild kolumn.
-* **Skalär**: Returnerar en enskild rad och en enskild kolumn.
+* **Tabell**: returnerar flera rader och flera kolumner.
+* **Flera värden**: returnerar flera rader och en kolumn.
+* **Skalär**: returnerar en enskild rad och en enskild kolumn.
 
 SQL-frågor i Azure Cosmos DB returnerar alltid en enda kolumn (antingen ett enkelt värde eller ett komplext dokument). Därför kan bara flera värden och skalära under frågor användas i Azure Cosmos DB. Du kan bara använda en under fråga med flera värden i FROM-satsen som ett Relations uttryck. Du kan använda en skalär under fråga som ett skalärt uttryck i SELECT-eller WHERE-satsen eller som ett Relations uttryck i from-satsen.
 
@@ -47,7 +47,7 @@ Under frågor med flera värden returnerar en uppsättning dokument och används
 
 Under frågor med flera värden kan optimera KOPPLINGs uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i WHERE-satsen.
 
-Tänk på följande fråga:
+Överväg följande fråga:
 
 ```sql
 SELECT Count(1) AS Count
@@ -79,7 +79,7 @@ Anta att endast ett objekt i matrisen taggar matchar filtret och det finns fem o
 
 Under frågor kan hjälpa till att optimera frågor med dyra uttryck, till exempel användardefinierade funktioner (UDF: er), komplexa strängar eller aritmetiska uttryck. Du kan använda en under fråga tillsammans med ett JOIN-uttryck för att utvärdera uttrycket en gång, men referera till det flera gånger.
 
-Följande fråga kör UDF `GetMaxNutritionValue` två gånger:
+Följande fråga kör UDF-`GetMaxNutritionValue` två gånger:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -126,22 +126,22 @@ Du kanske ofta behöver referera till statiska data som sällan ändras, till ex
 
 | **Processor** | **Namn**            | **Multiplikatorn** | **Bas enhet** |
 | -------- | ------------------- | -------------- | ------------- |
-| ng       | Nanogram            | 1,00 E-09       | Grammatikkontroll          |
-| µg       | Microgram           | 1,00 E-06       | Grammatikkontroll          |
-| mg       | Mg           | 1,00 E-03       | Grammatikkontroll          |
-| g        | Grammatikkontroll                | 1,00 E + 00       | Grammatikkontroll          |
-| kg       | Kilo            | 1,00 E + 03       | Grammatikkontroll          |
-| MB       | Megagram            | 1,00 E + 06       | Grammatikkontroll          |
-| Gg       | Gigagram            | 1,00 E + 09       | Grammatikkontroll          |
-| nJ       | Nanojoule           | 1,00 E-09       | Joule         |
-| µJ       | Microjoule          | 1,00 E-06       | Joule         |
-| mJ       | Millijoule          | 1,00 E-03       | Joule         |
-| J        | Joule               | 1,00 E + 00       | Joule         |
-| kJ       | Kilojoule           | 1,00 E + 03       | Joule         |
-| MJ       | Megajoule           | 1,00 E + 06       | Joule         |
-| GJ       | Gigajoule           | 1,00 E + 09       | Joule         |
-| installera      | Calorie             | 1,00 E + 00       | calorie       |
-| kcal     | Calorie             | 1,00 E + 03       | calorie       |
+| ng       | Nanogram            | 1,00 e-09       | Grammatikkontroll          |
+| µg       | Microgram           | 1,00 e-06       | Grammatikkontroll          |
+| mg       | Mg           | 1,00 e-03       | Grammatikkontroll          |
+| g        | Grammatikkontroll                | 1,00 e + 00       | Grammatikkontroll          |
+| kg       | Kilo            | 1,00 e + 03       | Grammatikkontroll          |
+| MB       | Megagram            | 1,00 e + 06       | Grammatikkontroll          |
+| Gg       | Gigagram            | 1,00 e + 09       | Grammatikkontroll          |
+| nJ       | Nanojoule           | 1,00 e-09       | Joule         |
+| µJ       | Microjoule          | 1,00 e-06       | Joule         |
+| mJ       | Millijoule          | 1,00 e-03       | Joule         |
+| J        | Joule               | 1,00 e + 00       | Joule         |
+| kJ       | Kilojoule           | 1,00 e + 03       | Joule         |
+| MJ       | Megajoule           | 1,00 e + 06       | Joule         |
+| GJ       | Gigajoule           | 1,00 e + 09       | Joule         |
+| installera      | Calorie             | 1,00 e + 00       | calorie       |
+| kcal     | Calorie             | 1,00 e + 03       | calorie       |
 | AGGLUTINATIONSENHETER       | Internationella enheter |                |               |
 
 
@@ -366,9 +366,9 @@ Om nyckelordet VALUE i föregående under fråga utelämnas, kommer frågan att 
 SELECT EXISTS (SELECT undefined) 
 ```
 
-Under frågan omger listan med värden i den markerade listan i ett objekt. Om den markerade listan inte har några värden returnerar under frågan det enskilda värdet{}. Det här värdet är definierat, så det finns utvärderas till sant.
+Under frågan omger listan med värden i den markerade listan i ett objekt. Om den markerade listan inte har några värden returnerar under frågan det enskilda värdet "{}". Det här värdet är definierat, så det finns utvärderas till sant.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exempel: Skriver om ARRAY_CONTAINS och ansluter som det finns
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exempel: skriva om ARRAY_CONTAINS och delta som det finns
 
 Ett vanligt användnings fall av ARRAY_CONTAINS är att filtrera ett dokument genom att finnas ett objekt i en matris. I det här fallet kontrollerar vi om taggarna innehåller ett objekt med namnet "orange".
 
@@ -388,7 +388,7 @@ WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 
 Dessutom kan ARRAY_CONTAINS bara kontrol lera om ett värde är lika med ett element i en matris. Om du behöver mer komplexa filter på mat ris egenskaper använder du JOIN.
 
-Tänk på följande fråga som filtrerar baserat på enheter och `nutritionValue` egenskaper i matrisen: 
+Tänk på följande fråga som filtrerar utifrån enheterna och `nutritionValue` egenskaper i matrisen: 
 
 ```sql
 SELECT VALUE c.description

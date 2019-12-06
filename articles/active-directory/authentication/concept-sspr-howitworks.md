@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88669b5453069d9f6bb64e803adc65baf8afc6b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420687"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848586"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösen ord för självbetjäning i Azure AD
 
@@ -60,7 +60,7 @@ Om SSPR har Aktiver ATS måste du välja minst ett av följande alternativ för 
 * Kod för mobilapp
 * E-post
 * Mobiltelefon
-* Arbets telefon
+* Arbetstelefon
 * Säkerhetsfrågor
 
 Användare kan bara återställa sina lösen ord om de har data som finns i de autentiseringsmetoder som administratören har aktiverat.
@@ -88,9 +88,9 @@ När du använder en mobilapp, t. ex. Microsoft Authenticator-appen, som en meto
 * När administratörer behöver en metod för att återställa ett lösen ord är verifierings koden det enda tillgängliga alternativet.
 * När administratörer kräver att två metoder används för att återställa ett lösen ord kan användare använda **antingen** meddelande- **eller** verifierings kod förutom andra aktiverade metoder.
 
-| Antal metoder som krävs för att återställa | Samtidigt | Två |
+| Antal metoder som krävs för återställning | En | Två |
 | :---: | :---: | :---: |
-| Mobile app-funktioner som är tillgängliga | Kod | Kod eller meddelande |
+| Mobile app-funktioner som är tillgängliga | Programmera | Kod eller meddelande |
 
 Användarna har inte möjlighet att registrera sin mobilapp när de registrerar sig för självbetjäning för återställning av lösen ord från [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Användare kan registrera sin mobilapp på [https://aka.ms/mfasetup](https://aka.ms/mfasetup)eller i den nya förhands granskningen av säkerhets information på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
@@ -127,7 +127,7 @@ Exempel:
 Om du aktiverar det här alternativet måste en användare slutföra registreringen av lösen ords återställning om de loggar in i alla program som använder Azure AD. Det här arbets flödet innehåller följande program:
 
 * Office 365
-* Azure Portal
+* Azure portal
 * Åtkomstpanel
 * Federerade program
 * Anpassade program med hjälp av Azure AD

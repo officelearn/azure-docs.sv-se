@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ae46df875d588186cd083134820f349158d7e307
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695207"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841225"
 ---
-# <a name="regular-expression-entity"></a>Entitet för reguljära uttryck 
+# <a name="regular-expression-entity"></a>Entitet för reguljära uttryck
 
 En entitet för reguljära uttryck extraherar en entitet baserat på ett mönster för reguljära uttryck som du anger.
 
-Ett reguljärt uttryck passar bäst för rå uttryck text. Det är inte skiftlägeskänslig och ignorerar kulturella variant.  Matchning med reguljära uttryck tillämpas efter ändringar av stavningskontroll på teckennivån, inte på token-nivå. Om det reguljära uttrycket är för komplex, t. ex. genom att använda många hakparenteser, kan du inte lägga till uttrycket i modellen. Använder en del men inte alla [.net regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) -bibliotek. 
+Ett reguljärt uttryck passar bäst för rå uttryck text. Det är inte skiftlägeskänslig och ignorerar kulturella variant.  Matchning med reguljära uttryck tillämpas efter ändringar av stavningskontroll på teckennivån, inte på token-nivå. Om det reguljära uttrycket är för komplex, t. ex. genom att använda många hakparenteser, kan du inte lägga till uttrycket i modellen. Använder en del men inte alla [.net regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) -bibliotek.
 
 **Entiteten passar bra när:**
 
 * Data formateras konsekvent med alla variationer som också är konsekventa.
-* Det reguljära uttrycket behöver inte fler än 2 kapslings nivåer. 
+* Det reguljära uttrycket behöver inte fler än 2 kapslings nivåer.
 
 ![Entitet för reguljära uttryck](./media/luis-concept-entities/regex-entity.png)
 
@@ -36,7 +36,7 @@ Reguljära uttryck kan matcha mer än vad du förväntar dig att matcha. Ett exe
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
+```
 
 Det här regex-uttrycket matchar även ord som slutar med talen, till exempel `phone`. För att åtgärda problem som detta måste du kontrol lera att regex-matchningarna tar hänsyn till ord gränser. Regex för att använda ord gränser för det här exemplet används i följande regex:
 
@@ -46,7 +46,7 @@ Det här regex-uttrycket matchar även ord som slutar med talen, till exempel `p
 
 ### <a name="example-json"></a>Exempel på JSON
 
-När du använder `kb[0-9]{6}`, som definitionen av entiteten för reguljära uttryck, är följande JSON-svar ett exempel på uttryck med returnerade reguljära uttrycks enheter för frågan:
+När du använder `kb[0-9]{6}`, som enhets definition för reguljärt uttryck, är följande JSON-svar ett exempel på uttryck med returnerade reguljära uttrycks enheter för frågan:
 
 `When was kb123456 published?`:
 
@@ -102,8 +102,8 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](luis-quickstart-intents-regex-entity.md)skapar du en app för att extrahera konsekvent formaterad data från en uttryck med hjälp av entiteten för **reguljära uttryck** .
+I den här [självstudien](tutorial-regex-entity.md)skapar du en app för att extrahera konsekvent formaterad data från en uttryck med hjälp av entiteten för **reguljära uttryck** .

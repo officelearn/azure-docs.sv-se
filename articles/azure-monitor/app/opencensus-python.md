@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2114e60b5ed684063ed100279ea19f561bd335ea
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132203"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849793"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
@@ -42,7 +42,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
    | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
-   | **Plats** | Östra USA | En plats nära dig, eller nära var din app finns |
+   | **Plats** | USA, östra | En plats nära dig, eller nära var din app finns |
 
 1. Välj **Skapa**.
 
@@ -268,7 +268,7 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
     90
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera loggdata till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     import logging
@@ -295,7 +295,53 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
 
 4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces`.
 
-5. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+5. Om du vill formatera logg meddelanden kan du använda `formatters` i det inbyggda python- [loggnings-API: et](https://docs.python.org/3/library/logging.html#formatter-objects).
+
+    ```python
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    
+    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(format_str, date_format)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    handler = AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
+    def valuePrompt():
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
+    def main():
+        while True:
+            valuePrompt()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+
+6. Du kan också lägga till anpassade dimensioner i dina loggar. De visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
+> [!NOTE]
+> För att den här funktionen ska fungera måste du skicka en ord lista som ett argument till dina loggar. alla andra data strukturer kommer att ignoreras. Om du vill underhålla sträng formateringen lagrar du dem i en ord lista och skickar dem som argument.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+    ```
+
+7. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## <a name="view-your-data-with-queries"></a>Visa dina data med frågor
 

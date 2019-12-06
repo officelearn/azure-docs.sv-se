@@ -1,18 +1,18 @@
 ---
 title: ATN2 i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function ATN2 i Azure Cosmos DB.
+description: Lär dig mer om hur funktionen ATN2 i SQL system i Azure Cosmos DB Returnerar Huvudvärdet för arcus tangens för y/x, uttryckt i radianer
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 43bf2f6e27d093b72560b87349150268e0f58a60
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 11321ef9d7b81af279b04e0e435b19c645cf3bcf
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350190"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871660"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
  Returnerar huvudvärdet arctangens av y / x, uttryckt i radianer.  

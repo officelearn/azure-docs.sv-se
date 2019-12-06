@@ -1,18 +1,18 @@
 ---
 title: Global distribution med Azure Cosmos DB – under huven
 description: Den här artikeln ger teknisk information som rör global distribution av Azure Cosmos DB
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615344"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872136"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Global data distribution med Azure Cosmos DB – under huven
 
@@ -50,11 +50,11 @@ En fysisk partition är materialiserad som en självhanterad och dynamiskt belas
 
 ## <a name="partition-sets"></a>Partitionsuppsättningarna
 
-En grupp med fysiska partitioner, en från var och en av de som kon figurer ATS med Cosmos-databas regionerna, är sammansatt för att hantera samma uppsättning nycklar som replikeras i alla konfigurerade regioner. Denna högre samordning är en partitions *uppsättning* – ett geografiskt distribuerat dynamiskt överlägg med fysiska partitioner som hanterar en specifik uppsättning nycklar. Även om en angiven fysisk partition (en replik uppsättning) är begränsad i ett kluster, kan en partitionsuppsättning spänna över kluster, data Center och geografiska regioner som visas på bilden nedan:  
+En grupp med fysiska partitioner, en från var och en av de som kon figurer ATS med Cosmos-databas regionerna, är sammansatt för att hantera samma uppsättning nycklar som replikeras i alla konfigurerade regioner. Denna högre samordning är en *partitions uppsättning* – ett geografiskt distribuerat dynamiskt överlägg med fysiska partitioner som hanterar en specifik uppsättning nycklar. Även om en angiven fysisk partition (en replik uppsättning) är begränsad i ett kluster, kan en partitionsuppsättning spänna över kluster, data Center och geografiska regioner som visas på bilden nedan:  
 
 ![Partitionsuppsättningarna](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 
-Du kan tänka dig en partitionsuppsättning som geografiskt spridda ”super-replikuppsättningar”, som består av flera-replikuppsättningar ägande samma uppsättning nycklar. På samma sätt som en replik uppsättning är en partitions uppsättnings medlemskap också dynamiskt – den varierar baserat på implicita hanterings åtgärder för fysiska partitioner för att lägga till/ta bort nya partitioner i/från en angiven partitionsuppsättning (till exempel när du skalar upp data flödet på en behållare, Lägg till/ta bort en region i Cosmos-databasen eller när fel inträffar. Genom att ha var och en av partitionerna (av en partitionsuppsättning) hanterar du medlemskapet för partitionsuppsättningen i sin egen replik uppsättning, är medlemskapet helt decentraliserat och med hög tillgänglighet. Topologin för överlägg mellan fysiska partitioner upprättas också under omkonfiguration av en partitionsuppsättning. Topologin väljs dynamiskt baserat på konsekvens nivå, geografiskt avstånd och tillgänglig nätverks bandbredd mellan käll-och mål-fysiska partitionerna.  
+Du kan tänka dig en partitionsuppsättning som geografiskt spridda ”super-replikuppsättningar”, som består av flera-replikuppsättningar ägande samma uppsättning nycklar. På samma sätt som en replik uppsättning är en partitions uppsättnings medlemskap också dynamiskt – den varierar baserat på implicita hanterings åtgärder för fysiska partitioner för att lägga till/ta bort nya partitioner i/från en angiven partitionsuppsättning (till exempel när du skalar upp data flödet i en behållare, lägger till/tar bort en region i Cosmos-databasen eller när fel uppstår). Genom att ha var och en av partitionerna (av en partitionsuppsättning) hanterar du medlemskapet för partitionsuppsättningen i sin egen replik uppsättning, är medlemskapet helt decentraliserat och med hög tillgänglighet. Topologin för överlägg mellan fysiska partitioner upprättas också under omkonfiguration av en partitionsuppsättning. Topologin väljs dynamiskt baserat på konsekvens nivå, geografiskt avstånd och tillgänglig nätverks bandbredd mellan käll-och mål-fysiska partitionerna.  
 
 Tjänsten kan du konfigurera Cosmos-databaser med en enda skrivregionen eller flera Skriv-regioner och beroende på valet-partitionsuppsättningarna är konfigurerade för att godkänna skrivningar i exakt en eller alla regioner. Systemet använder ett kapslat samförstånds protokoll på två nivåer – en nivå fungerar inom replikerna för en replik uppsättning av en fysisk partition som accepterar skrivningar, och den andra fungerar på samma nivå som en partitions uppsättning för att ge fullständiga ordnings garantier för alla genomförda skrivningar i partitionsuppsättningen. Den här flera lager, kapslade konsensus är viktigt för implementeringen av våra strikta serviceavtal för hög tillgänglighet, samt implementeringen av konsekvensmodeller som Cosmos DB erbjuder sina kunder.  
 
@@ -69,7 +69,7 @@ Vi använder kodade vektor klockor (som innehåller region-ID och logiska klocko
 För Cosmos-databaser som konfigurerats med flera Skriv-regioner, innehåller systemet ett antal flexibla automatisk konflikt lösning principer för utvecklare att välja bland, inklusive: 
 
 - **Senaste-skrivning-WINS (LWW)** , som standard använder en systemdefinierad timestamp-egenskap (som baseras på Time-Synchronize Clock-protokollet). Cosmos DB kan du ange någon annan anpassad numeriska egenskap som ska användas för konfliktlösning.  
-- **Programdefinierad (anpassad) konflikt lösnings princip** (uttryckt i sammanslagnings procedurer), som är utformat för programdefinierad semantik för konflikter. De här procedurerna hämta anropas vid identifiering av Skriv-Skriv-konflikt inom ramen för en databastransaktion på serversidan. Systemet ger exakt en garanti för körning av en sammanfognings procedur som en del av åtagande protokollet. Det finns [flera olika lösnings exempel för konflikter](how-to-manage-conflicts.md) som du kan spela med.  
+- **Programdefinierad (anpassad) konflikt lösnings princip** (uttrycks via sammanslagnings procedurer) som är utformad för programdefinierad semantik för konflikter. De här procedurerna hämta anropas vid identifiering av Skriv-Skriv-konflikt inom ramen för en databastransaktion på serversidan. Systemet ger exakt en garanti för körning av en sammanfognings procedur som en del av åtagande protokollet. Det finns [flera olika lösnings exempel för konflikter](how-to-manage-conflicts.md) som du kan spela med.  
 
 ## <a name="consistency-models"></a>Konsekvensmodeller
 

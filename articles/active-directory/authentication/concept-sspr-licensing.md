@@ -6,21 +6,21 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d7a23ed0a84ebd671c69744dfec145763ef6897
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 598f3bd8500a59cd41cc4126915e6cccbd4fb2f3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622720"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848569"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensierings krav för återställning av lösen ord för självbetjäning i Azure AD
 
-Azure Active Directory (Azure AD) ingår i flera versioner: Kostnads fri, Premium P1 och Premium P2. Det finns flera olika funktioner som utgör självbetjäning för återställning av lösen ord, inklusive ändring, återställning, upplåsning och tillbakaskrivning, som är tillgängliga i de olika versionerna av Azure AD. Den här artikeln försöker förklara skillnaderna. Mer information om de funktioner som ingår i varje Azure AD-utgåva finns på [sidan Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) ingår i flera versioner: kostnads fri, Premium P1 och Premium P2. Det finns flera olika funktioner som utgör självbetjäning för återställning av lösen ord, inklusive ändring, återställning, upplåsning och tillbakaskrivning, som är tillgängliga i de olika versionerna av Azure AD. Den här artikeln försöker förklara skillnaderna. Mer information om de funktioner som ingår i varje Azure AD-utgåva finns på [sidan Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Jämför versioner och funktioner
 
@@ -57,7 +57,7 @@ Ytterligare licens information, inklusive kostnader, finns på följande sidor:
 
 Azure AD stöder nu gruppbaserad licensiering. Administratörer kan tilldela licenser i bulk till en grupp användare i stället för att tilldela dem en i taget. Mer information finns i [tilldela, verifiera och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. Tilldelning av licenser kan göras i avsnittet **användar** > **profils** > **Inställningar** i Azure Portal. *När du använder grupp licens tilldelning ärver alla användare som saknar en användnings plats platsen för katalogen.*
+Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. Tilldelning av licenser kan göras i avsnittet **användar** > **profil** > **Inställningar** i Azure Portal. *När du använder grupp licens tilldelning ärver alla användare som saknar en användnings plats platsen för katalogen.*
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -70,5 +70,5 @@ Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en lice
 * [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
 * [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
-* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

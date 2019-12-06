@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4798b6908069af229c2bed4a2e5f38fa60e0d554
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219494"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849113"
 ---
 # <a name="common-cost-analysis-uses"></a>Vanliga kostnads analyser används
 
@@ -65,6 +65,8 @@ Att titta på dagliga och månatliga kostnader kan hjälpa dig att bättre förs
 
 Många Azure-användare använder taggar till sina resurser, till exempel ett kostnads ställe eller en utvecklings miljö (produktion och test) för att bättre kategorisera kostnader. Taggar visas som en dimension i kostnads analys. Du kan använda dimensionen för att få insikter om dina egna taggnings kategoriseringar.
 
+Stöd för Taggar gäller användning som rapporteras *efter* att taggen tillämpats på resursen. Taggar tillämpas inte retroaktivt för insamlade kostnader.
+
 1. I Azure Portal navigerar du till kostnads analys för ditt omfång. Exempel: **Cost Management + fakturerings** > **Cost Management** > **kostnads analys**.
 1. Välj **Gruppera efter** för taggen.
 
@@ -112,5 +114,5 @@ Se de netto kostnader som ackumulerats med tiden för att förstå övergripande
 ![Kostnader för ackumulerad registrering](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du inte redan har slutfört den första snabb starten för Cost Management läser du den för att [börja analysera kostnaderna](quick-acm-cost-analysis.md).
+- Om du inte har redan slutfört den första snabbstarten för kostnadshantering, kan du läsa den på [börja analysera kostnaderna](quick-acm-cost-analysis.md).
 - Läs [Cost Management-dokumentationen](index.yml).

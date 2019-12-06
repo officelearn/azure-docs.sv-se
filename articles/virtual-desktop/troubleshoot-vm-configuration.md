@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3312b5ba6f97dc51f5eeff06eeb194e367935e08
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791151"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869535"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -81,10 +81,10 @@ Det rekommenderade sättet att etablera virtuella datorer med hjälp av Azure Re
 Följ de här anvisningarna för att bekräfta att komponenterna är installerade och för att söka efter fel meddelanden.
 
 1. Bekräfta att de två komponenterna är installerade genom att kontrol lera i **kontroll panelen** > **program** > **program och funktioner**. Om **Windows Virtual Desktop-agenten** och **Start inläsaren för virtuella Skriv bords agenter** för Windows inte visas, är de inte installerade på den virtuella datorn.
-2. Öppna **Utforskaren** och gå till **C:\Windows\Temp\scriptlogs.log**. Om filen saknas, anger det att PowerShell DSC som installerade de två komponenterna inte kunde köras i den angivna säkerhets kontexten.
-3. Om filen **C:\Windows\Temp\scriptlogs.log** finns öppnar du den och kontrollerar om det finns fel meddelanden.
+2. Öppna **Utforskaren** och gå till **C:\Windows\Temp\ScriptLog.log**. Om filen saknas, anger det att PowerShell DSC som installerade de två komponenterna inte kunde köras i den angivna säkerhets kontexten.
+3. Om filen **C:\Windows\Temp\ScriptLog.log** finns öppnar du den och kontrollerar om det finns fel meddelanden.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Fel: Windows Virtual Desktop-agenten och start inläsaren för Windows Virtual Desktop agent saknas. C:\Windows\Temp\scriptlogs.log saknas också
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Fel: Windows Virtual Desktop-agenten och start inläsaren för Windows Virtual Desktop agent saknas. C:\Windows\Temp\ScriptLog.log saknas också
 
 **Orsak 1:** Autentiseringsuppgifterna som angavs vid indata för Azure Resource Manager mal len var felaktiga eller var otillräckliga.
 
@@ -98,7 +98,7 @@ Följ de här anvisningarna för att bekräfta att komponenterna är installerad
 - Bekräfta att klient organisationens namn är korrekt och att klient organisationen finns i det virtuella Windows-skrivbordet.
 - Bekräfta att kontot har minst behörighet för RDS-deltagare.
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>Fel: Autentiseringen misslyckades, fel i C:\Windows\Temp\scriptlogs.log
+### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Fel: Autentiseringen misslyckades, fel i C:\Windows\Temp\ScriptLog.log
 
 **Orsak:** PowerShell DSC kunde köra men kunde inte ansluta till det virtuella Windows-skrivbordet.
 

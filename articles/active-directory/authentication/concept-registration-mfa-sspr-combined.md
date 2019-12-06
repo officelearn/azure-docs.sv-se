@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381947"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848637"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerad säkerhets informations registrering (för hands version)
 
@@ -54,7 +54,7 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 | Maskinvaru-token | Nej | Nej | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
-| Arbets telefon | Nej | Nej | Nej |
+| Arbetstelefon | Nej | Nej | Nej |
 | E-post | Ja | Ja | Ja |
 | Säkerhetsfrågor | Ja | Nej | Ja |
 | Applösenord | Ja | Nej | Ja |
@@ -95,7 +95,7 @@ Här följer flera scenarier där användare kan uppmanas att registrera eller u
 
 När registreringen är aktive rad visas det minsta antal metoder som krävs för att uppfylla både Multi-Factor Authentication-och SSPR-principer, från de flesta till minst säkra.
 
-Till exempel:
+Exempel:
 
 - En användare har Aktiver ATS för SSPR. SSPR-principen krävde två metoder för att återställa och har aktiverat mobil kod, e-post och telefon.
    - Den här användaren krävs för att registrera två metoder.

@@ -1,17 +1,17 @@
 ---
 title: Alias i Azure Cosmos DB
-description: Lär dig mer om aliasing-värden i Azure Cosmos DB SQL-frågor
+description: Lär dig hur du använder alias i Azure Cosmos DB SQL-frågor för att skilja två egenskaper med samma namn
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3b17cbc7710647b1e1875025a1db1849034ec1dc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 74849eec4c5808a584894321269c49c41f0b8a5c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002075"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873479"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>Alias i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Du kan uttryckligen Ali Aset värden i frågor. Om en fråga har två egenskaper
 
 ## <a name="examples"></a>Exempel
 
-AS-nyckelordet som används för alias är valfritt, som du ser i följande exempel när du projicerar det andra `NameInfo`värdet som:
+AS-nyckelordet som används för alias är valfritt, som visas i följande exempel när du projicerar det andra värdet som `NameInfo`:
 
 ```sql
     SELECT 
@@ -29,7 +29,7 @@ AS-nyckelordet som används för alias är valfritt, som du ser i följande exem
     WHERE f.id = "AndersenFamily"
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [{

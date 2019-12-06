@@ -126,9 +126,6 @@
         - name: Initiera klusternoder
           href: /azure/databricks/clusters/init-scripts
           maintainContext: true
-        - name: Anpassade containrar
-          href: /azure/databricks/clusters/custom-containers
-          maintainContext: true
         - name: GPU-aktiverade kluster
           href: /azure/databricks/clusters/gpu
           maintainContext: true
@@ -226,9 +223,6 @@
       maintainContext: true
     - name: Data
       items:
-        - name: Databricks-filsystem (DBFS)
-          href: /azure/databricks/data/databricks-file-system
-          maintainContext: true
         - name: Databaser och tabeller
           href: /azure/databricks/data/tables
           maintainContext: true
@@ -317,6 +311,9 @@
             - name: ZIP-filer
               href: /azure/databricks/data/data-sources/zip-files
               maintainContext: true
+        - name: Databricks-filsystem (DBFS)
+          href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
         - name: FileStore
           href: /azure/databricks/data/filestore
           maintainContext: true
@@ -829,8 +826,8 @@
             - name: Modellinferens med TensorFlow
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
               maintainContext: true
-            - name: Prestandajustering för modellinferens
-              href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
+            - name: Referenslösning för slutsatsdragning i distribuerad avbildningsmodell
+              href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
               maintainContext: true
     - name: MLflow
       items:
@@ -1066,9 +1063,6 @@
             - name: Översikt över klusterkonfiguration
               href: /azure/databricks/administration-guide/clusters/index
               maintainContext: true
-            - name: Aktivera containertjänster
-              href: /azure/databricks/administration-guide/clusters/container-services
-              maintainContext: true
             - name: Aktivera Databricks Runtime för Genomics
               href: /azure/databricks/administration-guide/clusters/genomics-runtime
               maintainContext: true
@@ -1137,9 +1131,6 @@
               maintainContext: true
             - name: Konfigurationsinställningen skriver över standardinställningarna
               href: /azure/databricks/kb/clusters/conf-overwrites-default-settings
-              maintainContext: true
-            - name: Köra JNI-bibliotek på utförare med en kärna
-              href: /azure/databricks/kb/clusters/multiple-executors-single-worker
               maintainContext: true
             - name: Skriva över log4j-konfigurationer
               href: /azure/databricks/kb/clusters/overwrite-log4j-logs
@@ -1544,6 +1535,9 @@
           items:
             - name: Versionsinformation för plattformen
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: December 2019
+              href: /azure/databricks/release-notes/product/2019/december
               maintainContext: true
             - name: November 2019
               href: /azure/databricks/release-notes/product/2019/november

@@ -48,13 +48,13 @@
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
         - name: 3. Extrahera sentiment från användaryttranden
           href: tutorial-publish-settings.md
-    - name: Bygg en app
+    - name: Skapa och använda entiteter
       items:
-        - name: Extrahera välutformade data med reguljära uttryck
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Extrahera exakta textmatchningar med listor
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Hämta relaterade data med entitetsroller
+        - name: Lägga till entiteter för reguljära uttryck
+          href: tutorial-regex-entity.md
+        - name: Listentiteter
+          href: tutorial-list-entity.md
+        - name: Entitetsroller
           href: tutorial-entity-roles.md
           displayName: 'roles, geographyV2, context'
         - name: Gruppera och extrahera relaterade data med sammansatta entiteter

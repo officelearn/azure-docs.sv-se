@@ -12,10 +12,6 @@
       href: require-tou.md
     - name: Blockera åtkomst när en sessionsrisk identifieras
       href: app-sign-in-risk.md
-- name: Självstudier
-  items:
-    - name: Migrera en klassisk MFA-princip
-      href: policy-migration-mfa.md
 - name: Begrepp
   expanded: false
   items:
@@ -37,6 +33,8 @@
       href: service-dependencies.md
     - name: Konsekvensverktyg
       href: what-if-tool.md
+    - name: Klassisk policymigrering
+      href: policy-migration.md
     - name: Principer för baslinjeskydd
       href: concept-baseline-protection.md
 - name: Instruktionsguider
@@ -83,7 +81,7 @@
     - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
       href: howto-conditional-access-session-lifetime.md
     - name: Migrera klassiska principer
-      href: policy-migration.md
+      href: policy-migration-mfa.md
     - name: Använda villkorsstyrd åtkomst
       href: howto-conditional-access-adoption-kit.md
     - name: Felsökning

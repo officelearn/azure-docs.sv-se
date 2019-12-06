@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: Konfigurera utelåsningsprinciper för lösenord och konton
           href: password-policy.md
-        - name: Aktivera säkerhetsgranskningshändelser (förhandsversion)
+        - name: Aktivera säkerhetsgranskningshändelser
           href: security-audit-events.md
     - name: Domänansluta virtuella datorer
       items:

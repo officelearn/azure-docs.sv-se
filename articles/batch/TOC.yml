@@ -113,6 +113,8 @@
           href: batch-user-accounts.md
         - name: Skicka ett stort antal aktiviteter
           href: large-number-tasks.md
+        - name: Söka efter jobb- och uppgiftsfel
+          href: batch-job-task-error-checking.md
     - name: Skapa resursfiler
       href: resource-files.md
     - name: Bevara jobb- och uppgiftsutdata

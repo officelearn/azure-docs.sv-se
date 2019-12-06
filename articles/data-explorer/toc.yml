@@ -178,7 +178,7 @@
               href: dealing-with-duplicates.md
     - name: Distribuera
       items:
-        - name: Distribuera klustret till ditt virtuella nätverk
+        - name: Distribuera ditt kluster i ett virtuellt nätverk
           href: vnet-deployment.md
     - name: Övervaka
       items:

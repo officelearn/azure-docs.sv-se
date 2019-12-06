@@ -203,6 +203,10 @@
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Skapa ett namnområde med ämne, prenumeration och regel'
               href: service-bus-resource-manager-namespace-topic-with-rule.md
+    - name: Skydda
+      items:
+        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data (förhandsversion)
+          href: configure-customer-managed-key.md
     - name: Felsöka
       items:
         - name: Felsökningsguide

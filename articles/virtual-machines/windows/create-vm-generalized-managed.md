@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037536"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841939"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Skapa en virtuell dator från en hanterad avbildning
 
@@ -29,8 +29,7 @@ Innan du skapar en ny virtuell dator måste du [skapa en hanterad virtuell dator
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Välj **alla resurser**på den vänstra menyn. Du kan sortera resurserna efter **typ** för att enkelt hitta dina avbildningar.
+1. Gå till [Azure Portal](https://portal.azure.com) för att hitta en hanterad avbildning. Sök efter och välj **bilder**.
 3. Välj den avbildning som du vill använda från listan. Sidan **Översikt över** avbildning öppnas.
 4. Välj **Skapa virtuell dator** på menyn.
 5. Ange informationen för den virtuella datorn. Användar namnet och lösen ordet som anges här kommer att användas för att logga in på den virtuella datorn. När du är klar väljer du **OK**. Du kan skapa den nya virtuella datorn i en befintlig resurs grupp eller välja **Skapa ny** för att skapa en ny resurs grupp för att lagra den virtuella datorn.

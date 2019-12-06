@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 108d116500454605f33de201caffc11ae263f74c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707256"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851510"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding och installation
 
@@ -31,23 +31,23 @@ Krav för att komma igång med Microsofts säkerhets kod analys:
 ## <a name="onboarding-the-microsoft-security-code-analysis-extension"></a>Onboarding The Microsoft Security code Analysis extension
 
 - Om du har något av följande Support erbjudanden kontaktar du din tekniska konto ansvarig för att köpa eller byta ut befintliga timmar för att få åtkomst till tillägget:
-   - Enhetlig support avancerad nivå
-   - Enhetlig support prestanda nivå
-   - Premier Support för utvecklare
-   - Premier Support för partner
-   - Premier Support för företag
+  - Enhetlig support avancerad nivå
+  - Enhetlig support prestanda nivå
+  - Premier Support för utvecklare
+  - Premier Support för partner
+  - Premier Support för företag
 - Om du har någon av följande Support tjänster eller saknar Microsoft support avtal, måste du uppgradera till ett berättigat support erbjudande:
-   - Azure-support för partners
-   - Azure Basic-support
-   - Azure-Developer Support
-   - Azure-Standard Support
-   - Azure-Professional Direct
-   - Enhetlig support kärn nivå
+  - Azure-support för partners
+  - Azure Basic-support
+  - Azure-Developer Support
+  - Azure-Standard Support
+  - Azure-Professional Direct
+  - Enhetlig support kärn nivå
 - Om du vill köpa ett berättigat support erbjudande går du till [Start sidan för Support tjänster](https://www.microsoft.com/enterprise/services/support).
 - När ett Support kontrakt är på plats kontaktar du din teknik konto ansvarig för att hjälpa dig att komma igång och hjälpa dig att samla in all nödvändig information.
 
 >[!NOTE]
-> Om du är en partner som är registrerad i Microsoft Partner Network, är du berättigad att köpa Premier Support för partner. Annars måste du köpa ett av de stödberättigade Support erbjudanden som nämns ovan.
+>Om du inte har ett support avtal arbetar vi också med ett partner köps program där du kan utnyttja partner företag från tredje part för att köpa tillägget utan att behöva köpa det enhetliga support avtalet. Vänligen [e-posta oss](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding%20Request). för att berätta för oss att du är intresse rad av det här alternativet. Vi noterar ditt intresse och kommer tillbaka till dig så snart det här alternativet är tillgängligt.
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installera tillägget Microsoft Security code Analysis
 
@@ -87,6 +87,6 @@ När du har installerat tillägget visas de säkra utvecklings uppgifterna och d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du konfigurerar build-aktiviteter finns i vår [konfigurations guide](security-code-analysis-customize.md).
+Mer information om hur du konfigurerar build-aktiviteter finns i vår [konfigurations guide](security-code-analysis-customize.md) eller i [konfigurations guiden för yaml](yaml-configuration.md).
 
 Om du har fler frågor om tillägget och de verktyg som erbjuds kan du kolla in vår [vanliga frågor och svar](security-code-analysis-faq.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac52fa7eab055a2b2e9154481019d49acdca65d9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420533"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842415"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -33,7 +33,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 - Du behöver inte längre hantera lokala administratörs konton.
 - Med Azure RBAC kan du ge rätt åtkomst till virtuella datorer baserat på behov och ta bort den när den inte längre behövs.
 - Innan du tillåter åtkomst till en virtuell dator kan villkorlig åtkomst för Azure AD framtvinga ytterligare krav som: 
-   - Multi-Factor Authentication
+   - Multifaktorautentisering
    - Kontroll av inloggnings risker
 - Automatisera och skala Azure AD-anslutning för virtuella Azure Windows-datorer som ingår i dina VDI-distributioner.
 
@@ -79,7 +79,7 @@ Så här skapar du en Windows Server 2019 datacenter-VM i Azure med Azure AD-inl
 1. Logga in på [Azure Portal](https://portal.azure.com)med ett konto som har åtkomst till att skapa virtuella datorer och välj **+ skapa en resurs**.
 1. Skriv **Windows Server** i Sök i Sök fältet i Marketplace.
    1. Klicka på **Windows Server** och välj **Windows Server 2019 Data Center** i list rutan Välj en program varu plan.
-   1. Klicka på **skapa**.
+   1. Klicka på **Skapa**.
 1. På fliken "hantering" aktiverar du alternativet att **Logga in med AAD-autentiseringsuppgifter (för hands version)** under avsnittet Azure Active Directory från till **på**.
 1. Se till att **systemtilldelad hanterad identitet** under avsnittet identitet är inställt **på on**. Den här åtgärden ska ske automatiskt när du aktiverar inloggning med autentiseringsuppgifter för Azure AD.
 1. Gå igenom resten av upplevelsen med att skapa en virtuell dator. Under för hands versionen måste du skapa ett administratörs användar namn och lösen ord för den virtuella datorn.
@@ -116,6 +116,9 @@ az vm create \
     --admin-username azureuser \
     --admin-password yourpassword
 ```
+
+> [!NOTE]
+> Det krävs att du aktiverar systemtilldelad hanterad identitet på den virtuella datorn innan du installerar tillägget Azure AD login VM.
 
 Det tar några minuter att skapa den virtuella datorn och stödresurser.
 
@@ -213,7 +216,7 @@ Du är nu inloggad på den virtuella Windows Server 2019 Azure-datorn med roll b
 > [!NOTE]
 > Du kan spara. RDP-fil lokalt på datorn för att starta framtida fjärr skrivbords anslutningar till den virtuella datorn i stället för att behöva gå till översikts sidan för den virtuella datorn i Azure Portal och med alternativet Connect.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 ### <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 
@@ -230,24 +233,24 @@ AADLoginForWindows-tillägget måste kunna installeras för att den virtuella da
 
    | Kommando som ska köras | Förväntad utdata |
    | --- | --- |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Korrigera information om den virtuella Azure-datorn |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Giltigt klient-ID som är associerat med Azure-prenumerationen |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Giltig åtkomsttoken utfärdat av Azure Active Directory för den hanterade identitet som har tilldelats den här virtuella datorn |
+   | klammer-H metadata: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Korrigera information om den virtuella Azure-datorn |
+   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | Giltigt klient-ID som är associerat med Azure-prenumerationen |
+   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | Giltig åtkomsttoken utfärdat av Azure Active Directory för den hanterade identitet som har tilldelats den här virtuella datorn |
 
    > [!NOTE]
    > Åtkomsttoken kan avkodas med hjälp av ett verktyg som [http://calebb.net/](http://calebb.net/). Verifiera att "AppID" i åtkomsttoken matchar den hanterade identitet som tilldelats den virtuella datorn.
 
 1. Se till att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
    
-   - spiral https://login.microsoftonline.com/-D –
-   - spiral https://login.microsoftonline.com/`<TenantID>`/-D –
+   - spiral https://login.microsoftonline.com/ -D –
+   - spiral https://login.microsoftonline.com/`<TenantID>` /-D –
 
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen.
 
-   - spiral https://enterpriseregistration.windows.net/-D-
-   - spiral https://device.login.microsoftonline.com/-D-
-   - spiral https://pas.windows.net/-D-
+   - spiral https://enterpriseregistration.windows.net/ -D-
+   - spiral https://device.login.microsoftonline.com/ -D-
+   - spiral https://pas.windows.net/ -D-
 
 1. Enhetens tillstånd kan visas genom att köra `dsregcmd /status`. Målet är för enhets tillstånd att visas som `AzureAdJoined : YES`.
 
@@ -270,19 +273,19 @@ Den här avslutnings koden översätts till DSREG_E_MSI_TENANTID_UNAVAILABLE eft
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problem 2: AADLoginForWindows-tillägget kan inte installeras med avslutnings koden:-2145648607
 
-Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom tillägget inte kan komma åt https://enterpriseregistration.windows.net-slutpunkten.
+Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom tillägget inte kan komma åt https://enterpriseregistration.windows.net -slutpunkten.
 
 1. Verifiera att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
 
-   - spiral https://login.microsoftonline.com/-D –
-   - spiral https://login.microsoftonline.com/`<TenantID>`/-D –
+   - spiral https://login.microsoftonline.com/ -D –
+   - spiral https://login.microsoftonline.com/`<TenantID>` /-D –
    
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen. Om du behöver hitta klient-ID: t kan du hovra över ditt konto namn för att hämta katalog-ID eller välja Azure Active Directory > Egenskaper > katalog-ID i Azure Portal.
 
-   - spiral https://enterpriseregistration.windows.net/-D-
-   - spiral https://device.login.microsoftonline.com/-D-
-   - spiral https://pas.windows.net/-D-
+   - spiral https://enterpriseregistration.windows.net/ -D-
+   - spiral https://device.login.microsoftonline.com/ -D-
+   - spiral https://pas.windows.net/ -D-
 
 1. Om något av kommandona Miss lyckas med "Det gick inte att matcha värd `<URL>`", kan du prova att köra det här kommandot för att avgöra vilken DNS-server som används av den virtuella datorn.
    

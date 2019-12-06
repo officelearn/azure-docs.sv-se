@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 07/01/2019
-ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/05/2019
+ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823744"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873751"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Översikt över Azure SQL Database elastisk fråga (för hands version)
 
@@ -56,10 +56,10 @@ En elastisk fråga ger enkel åtkomst till en hel samling databaser via frågor 
 Kund scenarier för elastiska frågor kännetecknas av följande topologier:
 
 * **Vertikal partitionering-frågor över flera databaser** (topologi 1): data partitioneras lodrätt mellan ett antal databaser i en data nivå. Vanligt vis finns olika uppsättningar med tabeller i olika databaser. Det innebär att schemat är olika i olika databaser. Till exempel är alla tabeller för inventering i en databas medan alla redovisnings tabeller finns på en andra databas. Vanliga användnings fall med den här topologin kräver att en fråga över eller kompilerar rapporter över tabeller i flera databaser.
-* **Horisontell partitionering-horisontell partitionering** (topologi 2): data är partitionerade vågrätt för att distribuera rader över en utskalad data nivå. Med den här metoden är schemat identiskt på alla deltagande databaser. Den här metoden kallas även för "horisontell partitionering". Horisontell partitionering kan utföras och hanteras med hjälp av (1) de elastiska databas verktyg biblioteken eller (2) Self-horisontell partitionering. En elastisk fråga används för att fråga eller kompilera rapporter över flera Shards.
+* **Horisontell partitionering-horisontell partitionering** (topologi 2): data är partitionerade vågrätt för att distribuera rader över en utskalad data nivå. Med den här metoden är schemat identiskt på alla deltagande databaser. Den här metoden kallas även för "horisontell partitionering". Horisontell partitionering kan utföras och hanteras med hjälp av (1) de elastiska databas verktyg biblioteken eller (2) Self-horisontell partitionering. En elastisk fråga används för att fråga eller kompilera rapporter över flera Shards. Shards är vanligt vis databaser inom en elastisk pool. Du kan tänka på elastisk fråga som ett effektivt sätt att fråga alla databaser i elastisk pool på en gång, så länge databaserna delar det gemensamma schemat.
 
 > [!NOTE]
-> Elastisk fråga fungerar bäst för rapporterings scenarier där merparten av bearbetningen (filtrering, agg regering) kan utföras på den externa käll sidan. Det är inte lämpligt för ETL-åtgärder där stora mängder data överförs från fjärrdatabaser. För tung rapportering av arbets belastningar eller data lager scenarier med mer komplexa frågor kan du även överväga att använda [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+> Elastisk fråga fungerar bäst för rapporterings scenarier där merparten av bearbetningen (filtrering, agg regering) kan utföras på den externa käll sidan. Det är inte lämpligt för ETL-åtgärder där stora mängder data överförs från fjärrdatabaser. För tung rapportering av arbets belastningar eller data lager scenarier med mer komplexa frågor kan du även överväga att använda [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
 >  
 
 ## <a name="vertical-partitioning---cross-database-queries"></a>Vertikal partitionering-frågor mellan databaser
@@ -117,6 +117,9 @@ När du har utfört de här stegen kan du komma åt den vågrätt partitionerade
 Mer information om de steg som krävs för det horisontella partitionerings scenariot finns i [elastisk fråga för horisontell partitionering](sql-database-elastic-query-horizontal-partitioning.md).
 
 För att börja koda, se [komma igång med elastisk fråga för horisontell partitionering (horisontell partitionering)](sql-database-elastic-query-getting-started.md).
+
+> [!IMPORTANT]
+> Lyckad körning av elastiska frågor över en stor uppsättning databaser är beroende av tillgängligheten för varje databas under frågekörningen. Om en av databaserna inte är tillgänglig, kommer hela frågan att Miss förvänta. Om du planerar att fråga hundratals eller tusentals databaser samtidigt, kontrollerar du att ditt klient program har omslags logik inbäddat, eller funderar över [Elastic Database jobb](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (för hands version) och frågar efter mindre del mängder av databaser, konsoliderar resultat från varje fråga till ett enda mål.
 
 ## <a name="t-sql-querying"></a>T-SQL-fråga
 

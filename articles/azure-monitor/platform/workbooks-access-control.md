@@ -1,5 +1,5 @@
 ---
-title: Skapa interaktiva rapporter med Azure Monitor arbets böcker med rollbaserad åtkomst kontroll | Microsoft-dokument
+title: Åtkomst kontroll för Azure Monitor-arbetsböcker
 description: Förenkla komplex rapportering med färdiga och anpassade parameterstyrda arbets böcker med rollbaserad åtkomst kontroll
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: e2f1388d9823744d2382f1818ecb8dcb613895bc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c9b9f9ca2a9c08c05a3ce32230a39ca79625cd72
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166192"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872935"
 ---
 # <a name="access-control"></a>Åtkomstkontroll
 

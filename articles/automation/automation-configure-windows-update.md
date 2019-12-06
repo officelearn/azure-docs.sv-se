@@ -4,17 +4,17 @@ description: I den här artikeln beskrivs de Windows Update inställningar som d
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 813d34f9c07e6c2909c483f040d4f3bf09b3ad24
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690845"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850422"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Konfigurera Windows Update inställningar för Uppdateringshantering
 
@@ -34,7 +34,7 @@ $WUSettings.Save()
 
 ## <a name="disable-automatic-installation"></a>Inaktivera automatisk installation
 
-Automatisk installation av uppdateringar är aktiverat som standard på virtuella datorer i Azure. Detta kan leda till att uppdateringar installeras innan du schemalägger dem för installation genom att Uppdateringshantering. Du kan inaktivera det här beteendet genom att ange register nyckeln `NoAutoUpdate` till `1`. Följande PowerShell-kodfragment visar hur du gör detta:
+Automatisk installation av uppdateringar är aktiverat som standard på virtuella datorer i Azure. Detta kan leda till att uppdateringar installeras innan du schemalägger dem för installation genom att Uppdateringshantering. Du kan inaktivera det här beteendet genom att ange `NoAutoUpdate` register nyckeln som `1`. Följande PowerShell-kodfragment visar hur du gör detta:
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -43,7 +43,7 @@ Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 
 ## <a name="configure-reboot-settings"></a>Konfigurera inställningar för omstart
 
-De register nycklar som visas i [Konfigurera automatiska uppdateringar genom att redigera registret](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) och [register nycklarna som används för att hantera omstart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) kan orsaka att datorerna startas om, även om du **inte anger omstart** i **uppdaterings distributions** inställningarna . Du bör konfigurera dessa register nycklar så att de passar bäst för din miljö.
+De register nycklar som visas i [Konfigurera automatiska uppdateringar genom att redigera register](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) -och [register nycklar som används för att hantera omstart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) kan göra att datorerna startas om, även om du **inte anger starta** om i **uppdaterings distributions** inställningarna. Du bör konfigurera dessa register nycklar så att de passar bäst för din miljö.
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>Aktivera uppdateringar för andra Microsoft-produkter
 

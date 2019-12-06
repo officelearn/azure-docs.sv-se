@@ -4,17 +4,17 @@ description: Den här artikeln innehåller information om hur du felsöker start
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 860a47386b31403b6a3d41fc2473b1e1040889a7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1817d8e060f944b1bcc31c8ea9eb4fbcff58a165
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162029"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850116"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsök lösningen starta/stoppa virtuella datorer under låg tid
 
@@ -112,7 +112,7 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
 
 * Kontrol lera att ditt kör som- [konto](../manage-runas-account.md) har rätt behörigheter till de virtuella datorer som du försöker starta eller stoppa. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller tilldelade till en användare med hjälp av Azure Portal](../../role-based-access-control/check-access.md). Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
 
-* Det går inte att starta eller stoppa virtuella datorer om de uttryckligen utesluts. Undantagna virtuella datorer angavs i **External_ExcludeVMNames** -variabeln i Automation-kontot som lösningen distribueras till. I följande exempel visas hur du kan fråga det värdet med PowerShell.
+* Det går inte att starta eller stoppa virtuella datorer om de uttryckligen utesluts. Exkluderade virtuella datorer i uppsättningen i **External_ExcludeVMNames** -variabeln i Automation-kontot som lösningen distribueras till. I följande exempel visas hur du kan fråga det värdet med PowerShell.
 
   ```powershell-interactive
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
@@ -143,7 +143,7 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
   ```
 
-* Det går inte att starta eller stoppa virtuella datorer om de uttryckligen utesluts. Undantagna virtuella datorer angavs i **External_ExcludeVMNames** -variabeln i Automation-kontot som lösningen distribueras till. I följande exempel visas hur du kan fråga det värdet med PowerShell.
+* Det går inte att starta eller stoppa virtuella datorer om de uttryckligen utesluts. Exkluderade virtuella datorer i uppsättningen i **External_ExcludeVMNames** -variabeln i Automation-kontot som lösningen distribueras till. I följande exempel visas hur du kan fråga det värdet med PowerShell.
 
   ```powershell-interactive
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value

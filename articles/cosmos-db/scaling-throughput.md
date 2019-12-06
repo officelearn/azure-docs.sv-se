@@ -1,18 +1,18 @@
 ---
 title: Skala data flöde i Azure Cosmos DB
-description: I den här artikeln beskrivs hur Azure Cosmos DB skalar data flödet elastiskt
-author: dharmas-cosmos
+description: I den här artikeln beskrivs hur Azure Cosmos DB skalar data flödet i olika regioner där Azure Cosmos-kontot har tillhandahållits.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 29a92f04a1d36004fa082bfafe2310f9e0e3e5c6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467608"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873513"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Skala etablerat dataflöde globalt 
 
@@ -34,7 +34,7 @@ Förutsatt att en Cosmos-behållare har kon figurer ATS med *"R"* -ru: er och de
 
 - Om Cosmos-kontot har kon figurer ATS med flera Skriv regioner, är den totala ru: er tillgänglig globalt på behållaren = *R* x (*N*+ 1). Ytterligare *R* -ru: er tillhandahålls automatiskt för att bearbeta uppdaterings konflikter och trafikentropi trafik i regionerna.
 
-Ditt val av [konsekvens modell](consistency-levels.md) påverkar också data flödet. Du kan hämta ungefär 2x-lästa data flöden för mer avslappnad konsekvens nivåer (t. ex. *session*, *konsekvent prefix* och *eventuell* konsekvens) jämfört med starkare konsekvens nivåer (t. ex. avgränsad föråldrad eller   *stark* konsekvens).
+Ditt val av [konsekvens modell](consistency-levels.md) påverkar också data flödet. Du kan få ungefär dubbelt dubbelt läsnings data flöde för mer avslappnad konsekvens nivåer (t. ex. *session*, *konsekvent prefix* och *eventuell* konsekvens) jämfört med starkare konsekvens nivåer (t. ex. *avgränsad föråldrad* eller *stark* konsekvens).
 
 ## <a name="next-steps"></a>Nästa steg
 

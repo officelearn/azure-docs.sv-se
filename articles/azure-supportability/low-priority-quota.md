@@ -1,34 +1,34 @@
 ---
-title: Kvot för låg prioritet | Microsoft Docs
-description: Kvot begär Anden med låg prioritet
+title: Kvot för punkt | Microsoft Docs
+description: Begär Anden om kvot begär Anden
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 11/19/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 49ac478330cf73dff050a3edcc15933692fa6448
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 09c9d7940314b691e6351353e6a0076510fdcb13
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535176"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850575"
 ---
-# <a name="low-priority-quota-limit-increase-for-all-vm-series"></a>Kvot för låg prioritet: begränsa ökningen för alla VM-serier
+# <a name="spot-quota-limit-increase-for-all-vm-series"></a>Kvot för punkt: begränsa ökningen för alla VM-serier
 
-Virtuella datorer med låg prioritet har en annan modell av Azure-användning, handel med lägre kostnad för att låta Azure ta bort en virtuell dator efter behov för distributioner med betala per användning eller reserverade VM-instanser. Läs mer om virtuella datorer med låg prioritet [här](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority).
+Virtuella datorer för virtuella datorer ger en annan modell av Azure-användning, en lägre kostnad för att låta Azure ta bort en virtuell dator efter behov för distributioner med betala per användning eller reserverad VM-instans. Läs mer om de virtuella datorerna på plats [här](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer. Använd standard kvot **för virtuella datorer som du betalar per användning och reserverade VM-instanser** . **Virtuella datorer med låg prioritet** använder låg prioritets kvot. 
+Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer. Använd standard kvot **för virtuella datorer som du betalar per användning och reserverade VM-instanser** . **Virtuella datorer** som använder punkt kvoter. 
 
-För **kvot typen med låg prioritet** tillämpas kvoterna för vCPU i alla tillgängliga VM-serier som en enda regional gräns.
+För en **kvot** typ tillämpas Resource Manager-vCPU kvoter i alla tillgängliga VM-serier som en enda regional gräns.
 
-När en ny virtuell dator med låg prioritet ska distribueras måste summan av den nya och befintliga virtuella processorer-användningen för alla virtuella datorer med låg prioritet inte överskrida den godkända kvot gränsen för låg prioritets vCPU. Om kvoten för låg prioritet överskrids, tillåts inte distributionen av den virtuella datorn med låg prioritet. Du kan begära en ökning av kvot gränsen för virtuella processorer med låg prioritet från Azure Portal. 
+När en ny virtuell dator ska distribueras måste summan av nya och befintliga virtuella processorer-användningar för alla VM-instanser för virtuella datorer inte överskrida den godkända kvot gränsen för vCPU. Om kvoten överskrids tillåts inte distributionen av virtuella datorer. Du kan begära en ökning av virtuella processorer kvot gräns från Azure Portal. 
 
 Läs mer om standard kvoter för vCPU på sidan för virtuella datorer vCPU kvoter och sidan för Azure-prenumeration och tjänst begränsningar. Läs mer om hur du ökar den regionala vCPU-gränsen för standard kvot på den här [sidan](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests).
 
-Du kan nu begära en ökning av **kvot gränser med låg prioritet för alla VM-serier** via **Hjälp + Support** -bladet eller **användnings** -och kvot bladet i portalen.
+Du kan nu begära en ökning av **kvot gränser för alla VM-serier** via **Hjälp + Support** -bladet eller **användnings** -och kvot bladet i portalen.
 
-## <a name="request-low-priority-quota-limit-increase-for-all-vm-series-per-subscription-using-the-help--support-blade"></a>Begär låg prioritets gräns för kvot ökning för alla VM-serier per prenumeration med hjälp + support-bladet
+## <a name="request-spot-quota-limit-increase-for-all-vm-series-per-subscription-using-the-help--support-blade"></a>Begäran om kvot gräns för begär ande punkt för alla VM-serier per prenumeration via hjälp + support-bladet
 
 Följ instruktionerna nedan för att skapa en support förfrågan via Azures hjälp + support-bladet som är tillgängligt i Azure Portal.
 
@@ -37,7 +37,7 @@ Du kan också **begära kvot för flera regioner** genom ett enda support ärend
 
 1. Välj **Hjälp + Support**från https://portal.azure.com.
 
-   ![Hjälp + support](./media/resource-manager-core-quotas-request/helpsupport.png)
+   ![Hjälp + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Välj **Ny supportbegäran**. 
 
@@ -63,7 +63,7 @@ Du kan också **begära kvot för flera regioner** genom ett enda support ärend
 
 ![Ange information](./media/resource-manager-core-quotas-request/3-7.png)
 
-8. För den valda platsen väljer du **Ange** värde som **"låg prioritet"** . Du kan begära både standard-och låg prioritets kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Läs mer om att **öka standard kvoten per VM-serien** på den här [sidan](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+8. För den valda platsen väljer du **Ange** värde som **"dekor"** . Du kan begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Läs mer om att **öka standard kvoten per VM-serien** på den här [sidan](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
 ![Ange information](./media/resource-manager-core-quotas-request/3-8.png)
 
@@ -77,7 +77,7 @@ Du kan också **begära kvot för flera regioner** genom ett enda support ärend
 
 11. När du har angett önskad kvot klickar du på **Spara och fortsätter** med att fortsätta med att skapa support förfrågan i panelen kvot information.
 
-## <a name="request-low-priority-quota-limit-increase-for-all-vm-series-per-subscription-using-usages--quota-blade"></a>Begär låg prioritets gräns för kvot ökning för alla VM-serier per prenumeration med användnings-och kvot blad
+## <a name="request-spot-quota-limit-increase-for-all-vm-series-per-subscription-using-usages--quota-blade"></a>Begäran om kvot gräns för begär ande punkt för alla VM-serier per prenumeration med användnings-och kvot blad
 
 Följ instruktionerna nedan för att skapa en support förfrågan via Azures blad "användning + kvot" som är tillgängligt i Azure Portal.
 
@@ -107,7 +107,7 @@ Du kan också **begära kvot för flera regioner** genom ett enda support ärend
 
   ![Fyll i formulär](./media/resource-manager-core-quotas-request/3-2-6.png)
  
-7.  För den valda platsen väljer du **Ange** värde som **"låg prioritet".** Du kan begära både standard-och låg prioritets kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Läs mer om att **öka standard kvoten per VM-serien** på den här [sidan](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+7.  För den valda platsen väljer du **Ange** värde som **"dekor".** Du kan begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Läs mer om att **öka standard kvoten per VM-serien** på den här [sidan](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
   ![Fyll i formulär](./media/resource-manager-core-quotas-request/3-2-7.png)
  
@@ -120,4 +120,5 @@ Du kan också **begära kvot för flera regioner** genom ett enda support ärend
   ![Fyll i formulär](./media/resource-manager-core-quotas-request/3-2-9.png)
  
 10. När du har angett önskad kvot klickar du på **Spara och fortsätter** med att fortsätta med att skapa support förfrågan i panelen kvot information.
+
 

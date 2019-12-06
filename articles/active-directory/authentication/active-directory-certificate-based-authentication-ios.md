@@ -1,85 +1,85 @@
 ---
-title: Certifikatbaserad autentisering på iOS - Azure Active Directory
-description: Läs mer om scenarierna som stöds och kraven för att konfigurera certifikatbaserad autentisering i lösningar med iOS-enheter
+title: Certifikatbaserad autentisering på iOS – Azure Active Directory
+description: Lär dig mer om de scenarier som stöds och kraven för att konfigurera certifikatbaserad autentisering i lösningar med iOS-enheter
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d2f9e7d71ab660c4df6f65d6bebe1d3854086bdd
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60416015"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848807"
 ---
-# <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory-certifikatbaserad autentisering på iOS
+# <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory certifikatbaserad autentisering på iOS
 
-iOS-enheter kan använda certifikatbaserad autentisering (CBA) för att autentisera till Azure Active Directory med ett klientcertifikat på enheten när du ansluter till:
+iOS-enheter kan använda certifikatbaserad autentisering (CBA) för att autentisera till Azure Active Directory att använda ett klient certifikat på sin enhet vid anslutning till:
 
-* Mobila Office-program, till exempel Microsoft Outlook och Microsoft Word
-* Exchange ActiveSync (EAS) klienter
+* Office Mobile-program som Microsoft Outlook och Microsoft Word
+* Exchange ActiveSync-klienter (EAS)
 
-Konfigurerar den här funktionen eliminerar behovet av att ange en kombination av användarnamn och lösenord i vissa e-post och Microsoft Office-program på din mobila enhet.
+Genom att konfigurera den här funktionen slipper du ange en kombination av användar namn och lösen ord i vissa e-post-och Microsoft Office program på din mobila enhet.
 
-Det här avsnittet innehåller kraven och scenarierna som stöds för att konfigurera CBA på en iOS(Android) enhet för användare av klienter i Office 365 Enterprise, företag, utbildning, US Government, Kina och Tyskland planer.
+Det här avsnittet innehåller kraven och de scenarier som stöds för att konfigurera CBA på en iOS-enhet (Android) för användare av klienter i Office 365 Enterprise, Business, Education, amerikanska myndigheter, Kina och tyska planer.
 
-Den här funktionen är tillgänglig som förhandsversion i Office 365 US Government Defense och federala planer.
+Den här funktionen är tillgänglig i för hands versionen i Office 365 amerikanska myndigheter och federala planer.
 
-## <a name="microsoft-mobile-applications-support"></a>Microsoft-supporten för mobila program
+## <a name="microsoft-mobile-applications-support"></a>Stöd för Microsoft Mobile Applications
 
-| Program | Support |
+| Appar | Support |
 | --- | --- |
-| Azure Information Protection-appen |![Markera vilket tyder på stöd för det här programmet][1] |
-| Intune-Företagsportalen |![Markera vilket tyder på stöd för det här programmet][1] |
-| Microsoft Teams |![Markera vilket tyder på stöd för det här programmet][1] |
-| OneNote |![Markera vilket tyder på stöd för det här programmet][1] |
-| OneDrive |![Markera vilket tyder på stöd för det här programmet][1] |
-| Outlook |![Markera vilket tyder på stöd för det här programmet][1] |
-| Power BI |![Markera vilket tyder på stöd för det här programmet][1] |
-| Skype för företag |![Markera vilket tyder på stöd för det här programmet][1] |
-| Word / Excel / PowerPoint |![Markera vilket tyder på stöd för det här programmet][1] |
-| Yammer |![Markera vilket tyder på stöd för det här programmet][1] |
+| Azure Information Protection app |![Bock för att ange stöd för det här programmet][1] |
+| Intune-företagsportal |![Bock för att ange stöd för det här programmet][1] |
+| Microsoft Teams |![Bock för att ange stöd för det här programmet][1] |
+| OneNote |![Bock för att ange stöd för det här programmet][1] |
+| OneDrive |![Bock för att ange stöd för det här programmet][1] |
+| Outlook |![Bock för att ange stöd för det här programmet][1] |
+| Power BI |![Bock för att ange stöd för det här programmet][1] |
+| Skype för företag |![Bock för att ange stöd för det här programmet][1] |
+| Word/Excel/PowerPoint |![Bock för att ange stöd för det här programmet][1] |
+| Yammer |![Bock för att ange stöd för det här programmet][1] |
 
 ## <a name="requirements"></a>Krav
 
 Enhetens OS-version måste vara iOS 9 och senare
 
-En federationsserver måste konfigureras.
+En Federations Server måste konfigureras.
 
 Microsoft Authenticator krävs för Office-program på iOS.
 
-AD FS-token måste ha följande anspråk för Azure Active Directory att återkalla ett klientcertifikat:
+För att Azure Active Directory återkalla ett klient certifikat måste ADFS-token ha följande anspråk:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (Serienummer för klientcertifikatet)
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (Sträng för utfärdaren av klientcertifikatet)
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (serie numret för klient certifikatet)
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (strängen för utfärdaren av klient certifikatet)
 
-Dessa anspråk till uppdateringstoken infogas i Azure Active Directory om de är tillgängliga i AD FS-token (eller andra SAML-token). När uppdateringstoken måste verifieras, används den här informationen till den återkallningskontroll.
+Azure Active Directory lägger till dessa anspråk till uppdateringstoken om de är tillgängliga i ADFS-token (eller någon annan SAML-token). När uppdateringstoken behöver verifieras används den här informationen för att kontrol lera återkallning.
 
-Som bästa praxis bör du uppdatera din organisations AD FS-felsidor med följande information:
+Vi rekommenderar att du uppdaterar organisationens ADFS-felsidor med följande information:
 
-* Krav för att installera Microsoft Authenticator på iOS
-* Anvisningar för hur du hämtar ett användarcertifikat.
+* Kravet för att installera Microsoft Authenticator på iOS
+* Instruktioner om hur du hämtar ett användar certifikat.
 
-Mer information finns i [anpassa sidor AD FS Sign-in](https://technet.microsoft.com/library/dn280950.aspx).
+Mer information finns i [anpassa AD FS inloggnings sidor](https://technet.microsoft.com/library/dn280950.aspx).
 
-Vissa Office-appar (med modern autentisering är aktiverat) skicka ”*kommandoprompt = login*' till Azure AD i begäran. Som standard översätter Azure AD ”*kommandoprompt = login*'i begäran till AD FS som”*wauth = usernamepassworduri*”(ber ADFS göra U/P Auth) och”*wfresh = 0*' (ber ADFS till Ignorera SSO tillstånd och gör en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för dessa appar måste du ändra standardbeteendet för Azure AD. Ange den '*PromptLoginBehavior*”i inställningarna för din federerad domän till'*inaktiverad*'.
-Du kan använda den [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet för att utföra den här uppgiften:
+Vissa Office-appar (med modern autentisering aktive rad) skicka '*prompt = inloggning*' till Azure AD i sin begäran. Som standard översätter Azure AD "*prompt = login*" i begäran till ADFS som "*WAUTH = usernamepassworduri*" (uppmanar ADFS att göra U/P auth) och "*wfresh = 0*" (uppmanar ADFS att ignorera SSO-tillstånd och gör en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna måste du ändra standard beteendet för Azure AD. Ställ bara in "*PromptLoginBehavior*" i dina federerade domän inställningar till "*Disabled*".
+Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) -cmdlet: en för att utföra den här uppgiften:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
 ## <a name="exchange-activesync-clients-support"></a>Stöd för Exchange ActiveSync-klienter
 
-Den interna iOS e-postklienten stöds på iOS 9 eller senare. Kontakta din programutvecklare för att avgöra om den här funktionen stöds för alla Exchange ActiveSync-program.
+På iOS 9 eller senare stöds den inbyggda iOS-e-postklienten. För alla andra Exchange ActiveSync-program kan du kontakta programutvecklaren för att ta reda på om den här funktionen stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera certifikatbaserad autentisering i din miljö finns i [Kom igång med certifikatbaserad autentisering på Android](../authentication/active-directory-certificate-based-authentication-get-started.md) anvisningar.
+Om du vill konfigurera certifikatbaserad autentisering i din miljö, se [Kom igång med certifikatbaserad autentisering på Android](../authentication/active-directory-certificate-based-authentication-get-started.md) för instruktioner.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png

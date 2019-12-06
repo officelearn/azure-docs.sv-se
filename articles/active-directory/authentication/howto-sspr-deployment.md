@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bc2c68c53a7c03d1de08e5cde528f27aa61b0096
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381294"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847277"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuera självbetjäning av lösenordsåterställning för Azure AD
 
@@ -31,7 +31,7 @@ Hjälp användarna att komma igång snabbt genom att distribuera SSPR tillsamman
 
 Innan du distribuerar SSPR kanske organisationer vill fastställa hur många relaterade svar på lösen ords återställning sker över tid och den genomsnittliga kostnaden för varje anrop. De kan använda den här data publicerings distributionen för att visa värdet som SSPR ansluter till din organisation.  
 
-## <a name="how-sspr-works"></a>Så här fungerar SSPR
+## <a name="how-sspr-works"></a>Så fungerar SSPR
 
 1. När en användare försöker återställa ett lösen ord måste han eller hon verifiera sin identitet genom att verifiera deras tidigare registrerade autentiseringsmetod eller metoder.
 1. Användaren anger sedan ett nytt lösen ord.
@@ -65,8 +65,8 @@ Följande inställningar krävs för att aktivera SSPR tillsammans med rekommend
 |   | Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation | 90 – 180 dagar |
 | **Meddelanden** | Meddela användare om lösenordsåterställning | Ja |
 |   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Ja |
-| **Eventuella** | Anpassa supportavdelningen-länk | Ja |
-|   | E-post eller URL för anpassad helpdesk | Support webbplats eller e-postadress |
+| **Eventuella** | Anpassa länk till supportavdelningen | Ja |
+|   | Anpassad e-postadress eller webbadress för supportavdelningen | Support webbplats eller e-postadress |
 | **Lokal integration** | Skriv tillbaka lösen ord till lokal AD | Ja |
 |   | Tillåt att användare låser upp kontot utan att återställa lösen ordet | Ja |
 
@@ -90,7 +90,7 @@ Ange **Kräv att användare registrerar sig när de loggar in** på **Ja**. Den 
 
 Ange **antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation** till mellan **90** och **180** dagar, om inte din organisation har ett affärs behov för kortare tids ramar.
 
-### <a name="notifications-settings"></a>Aviserings inställningar
+### <a name="notifications-settings"></a>Meddelandeinställningar
 
 Konfigurera både **meddela användare om lösen ords** återställning och **meddela alla administratörer när andra administratörer återställer sina lösen ord** till **Ja**. Om du väljer **Ja** på båda ökar säkerheten genom att se till att användarna är medvetna om deras lösen ord har återställts och att alla administratörer är medvetna om en administratör ändrar ett lösen ord. Om användare eller administratörer får sådant meddelande och de inte har initierat ändringen, kan de omedelbart rapportera en potentiell säkerhets överträdelse.
 
@@ -217,7 +217,7 @@ Nödvändiga roller för att hantera funktioner som är associerade med lösen o
 
 | Affärs roll/persona | Azure AD-roll (om det behövs) |
 | :---: | :---: |
-| Nivå 1-helpdesk | Lösen ords administratör |
+| Nivå 1-helpdesk | Lösenordsadministratör |
 | Nivå 2-supportavdelningen | Användar administratör |
 | SSPR-administratör | Global administratör |
 

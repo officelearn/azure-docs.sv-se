@@ -4,12 +4,12 @@ description: Lär dig hur du lägger till en utgående bindning för C# att ansl
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd899c5cc7aafc5b3349cf4cec9098a849665a2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227427"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849215"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Ansluta funktioner till Azure Storage med hjälp av Visual Studio
 
@@ -19,11 +19,11 @@ Den här artikeln visar hur du använder Visual Studio för att ansluta den funk
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln måste du: 
 
- - Slutför [del 1 av Visual Studio snabb start] [./Functions-Create-First-Function-vs-Code.MD]. 
+ - Slutför [snabb starten i del 1 av Visual Studio](./functions-create-first-function-vs-code.md). 
 
 - Logga in på din Azure-prenumeration från Visual Studio.
 

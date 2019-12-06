@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 9/27/2018
+ms.date: 12/5/2019
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 0d3cbe8c3d2d7931e3e4cc052eedc844a296ccf0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 496e8673e1cbf31f4c71db00b7eaf1c0618e509f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775798"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872952"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
@@ -795,10 +795,10 @@ Du kan använda följande mall för att skapa en statisk mått varnings regel f�
 En enda varnings regel kan övervaka flera tids serier i taget, vilket leder till att färre varnings regler hanteras.
 
 I exemplet nedan övervakar varnings regeln dimensions värde kombinationerna för **ResponseType** -och **ApiName** -dimensionerna för **transaktionernas** mått:
-1. **ResponsType** – användningen av jokertecknet "\*" innebär att för varje värde av **ResponseType** -dimensionen, inklusive framtida värden, kommer en annan tids serie att övervakas separat.
-2. **ApiName** – en annan tids serie kommer endast att övervakas för **GetBlob** -och **PutBlob** -dimensionsvärdena.
+1. **ResponsType** – användningen av jokertecknet "\*" innebär att för varje värde av **ResponseType** -dimensionen, inklusive framtida värden, övervakas en annan tids serie individuellt.
+2. **ApiName** – en annan tids serie övervakas endast för **GetBlob** -och **PutBlob** -dimensionsvärdena.
 
-Till exempel är några av de tänkbara tids serier som ska övervakas av den här aviserings regeln:
+Till exempel är några av de tänkbara tids serier som övervakas av den här aviserings regeln:
 - Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
 - Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
 - Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
@@ -1015,10 +1015,10 @@ Du kan använda följande mall för att skapa en mer avancerad dynamisk tröskel
 En varnings regel för ett enskilt dynamiskt tröskelvärden kan skapa skräddarsydda tröskelvärden för hundratals tids serier (även olika typer) i taget, vilket resulterar i färre varnings regler.
 
 I exemplet nedan övervakar varnings regeln dimensions värde kombinationerna för **ResponseType** -och **ApiName** -dimensionerna för **transaktionernas** mått:
-1. **ResponsType** – för varje värde i dimensionen **ResponseType** , inklusive framtida värden, kommer en annan tids serie att övervakas separat.
-2. **ApiName** – en annan tids serie kommer endast att övervakas för **GetBlob** -och **PutBlob** -dimensionsvärdena.
+1. **ResponsType** – för varje värde i dimensionen **ResponseType** , inklusive framtida värden, övervakas en annan tids serie individuellt.
+2. **ApiName** – en annan tids serie övervakas endast för **GetBlob** -och **PutBlob** -dimensionsvärdena.
 
-Till exempel är några av de tänkbara tids serier som ska övervakas av den här aviserings regeln:
+Till exempel är några av de tänkbara tids serier som övervakas av den här aviserings regeln:
 - Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
 - Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
 - Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
@@ -1230,6 +1230,270 @@ az group deployment create \
 >[!NOTE]
 >
 > Flera kriterier stöds för närvarande inte för mått varnings regler som använder dynamiska tröskelvärden.
+
+
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>Mall för en statisk tröskel mått avisering som övervakar ett anpassat mått
+
+Du kan använda följande mall för att skapa en mer avancerad varnings regel för statiskt tröskelvärde för ett anpassat mått.
+
+Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+
+När du skapar en varnings regel för ett anpassat mått måste du ange både måttets namn och mått namn området.
+
+Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gången.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "metricNamespace": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Namespace of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterThan",
+            "allowedValues": [
+                "Equals",
+                "NotEquals",
+                "GreaterThan",
+                "GreaterThanOrEqual",
+                "LessThan",
+                "LessThanOrEqual"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "threshold": {
+            "type": "string",
+            "defaultValue": "0",
+            "metadata": {
+                "description": "The threshold value at which the alert is activated."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total",
+                "Count"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "How often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {  },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "metricNamespace": "[parameters('metricNamespace')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "threshold" : "[parameters('threshold')]",
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
+
+Spara och ändra JSON nedan som customstaticmetricalert. Parameters. JSON för den här genom gången.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New alert rule on a custom metric"
+        },
+        "alertDescription": {
+            "value": "New alert rule on a custom metric created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/components/replace-with-application-insights-resource-name"
+        },
+        "metricName": {
+            "value": "The custom metric name"
+        },
+        "metricNamespace": {
+            "value": "Azure.ApplicationInsights"
+        },
+        "operator": {
+          "value": "GreaterThan"
+        },
+        "threshold": {
+            "value": "80"
+        },
+        "timeAggregation": {
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group"
+        }
+    }
+}
+```
+
+
+Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+
+Använda Azure PowerShell
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupOfTargetResource `
+  -TemplateFile customstaticmetricalert.json -TemplateParameterFile customstaticmetricalert.parameters.json
+```
+
+
+
+Använda Azure CLI
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupOfTargetResource \
+    --template-file customstaticmetricalert.json \
+    --parameters @customstaticmetricalert.parameters.json
+```
+
+>[!NOTE]
+>
+> Du kan hitta mått namn området för en speciell anpassad mått genom [att bläddra bland dina anpassade mått via Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Mall för en mått avisering som övervakar flera resurser
 
@@ -3180,7 +3444,7 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="template-for-a-availability-test-along-with-availability-test-alert"></a>Mall för ett tillgänglighets test tillsammans med avisering om tillgänglighets test
+## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Mall för ett tillgänglighets test tillsammans med en mått avisering
 
 Med [Application Insights tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) kan du övervaka tillgängligheten för webbplatsen/programmet från olika platser världen över. Aviseringar om tillgänglighets test meddelar dig när tillgänglighets testen kraschar från ett visst antal platser.
 Tillgänglighets test aviseringar av samma resurs typ som mått varningar (Microsoft. Insights/metricAlerts). Följande exempel på Azure Resource Manager mall kan användas för att konfigurera ett enkelt tillgänglighets test och en associerad avisering.

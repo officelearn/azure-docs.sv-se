@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20e9f0b9a993d2a8af9b9d91399fdd49f9a06eaa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381833"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848433"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 
@@ -44,7 +44,7 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
 7. Välj **Autentiseringsmetodreferenser** som den inkommande anspråkstypen.
 8. Välj **Släpp igenom alla anspråksvärden**.
     ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/configurewizard.png)
-9. Klicka på **Slutför**. Stäng AD FS-hanteringskonsolen.
+9. Klicka på **Finish**. Stäng AD FS-hanteringskonsolen.
 
 ## <a name="trusted-ips-for-federated-users"></a>Tillförlitliga IP-adresser för federerade användare
 
@@ -58,8 +58,8 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 
 1. Öppna AD FS-hantering.
 2. Välj **Förlitande partsförtroenden** till vänster.
-3. Högerklicka på **Microsoft Office 365 identitets plattform** och välj **Redigera anspråks regler...** 
-   ![ADFS-konsol – redigera anspråks regler](./media/howto-mfa-adfs/trustedip1.png)
+3. Högerklicka på **Microsoft Office 365-Identitetsplattform** och välj **redigera Anspråksregler...** 
+   ![ADFS-konsolen – redigera Anspråksregler](./media/howto-mfa-adfs/trustedip1.png)
 4. Klicka på **Lägg till regel** vid omvandling av utfärdande regler.
    ![lägga till en anspråks regel](./media/howto-mfa-adfs/trustedip2.png)
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
@@ -67,7 +67,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 6. I rutan bredvid Anspråksregelns namn ger du regeln ett namn. Exempel: InsideCorpNet.
 7. Välj **Inom företagsnätverket** i listrutan bredvid Typ av inkommande anspråk.
    ![att lägga till i företags nätverks anspråk](./media/howto-mfa-adfs/trustedip4.png)
-8. Klicka på **Slutför**.
+8. Klicka på **Finish**.
 9. För Utfärdande av transformeringsregler klickar du på **Lägg till regel**.
 10. I guiden Lägg till anspråksregel för transformering väljer du **Skicka anspråk med hjälp av en anpassad regel** i listrutan och klickar sedan på **Nästa**.
 11. I rutan under Anspråksregelns namn skriver du *Håll användarna inloggade*.
@@ -76,8 +76,8 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Skapa anpassat anspråk för att hålla användare inloggade](./media/howto-mfa-adfs/trustedip5.png)
-13. Klicka på **Slutför**.
-14. Klicka på **Använd**.
+13. Klicka på **Finish**.
+14. Klicka på **Verkställ**.
 15. Klicka på **OK**.
 16. Stäng AD FS-hantering.
 
@@ -85,7 +85,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 
 När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Azure Active Directory** > **villkorlig åtkomst** > **namngivna platser**.
 3. Från bladet **villkorlig åtkomst – namngivna platser** väljer du **Konfigurera MFA-betrodda IP-adresser**
 

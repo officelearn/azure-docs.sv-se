@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7176101a1e6c1da54ddd8b5f22b61b91fbc5115a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267945"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869329"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal
 
@@ -36,11 +36,11 @@ Kontrol lera att organisationens inställningar för externt samarbete är konfi
 Följ dessa steg om du vill lägga till B2B-samarbets användare i katalogen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som en användare som har tilldelats en begränsad administratörs katalog roll eller rollen som gäst deltagare.
-2. I navigerings fönstret väljer du **Azure Active Directory**.
+2. Sök efter och välj **Azure Active Directory** från vilken sida som helst.
 3. Under **Hantera** väljer du **Användare**.
 4. Välj **Ny gästanvändare**.
 
-   ![Visar var nya gäst användare finns i användar gränssnittet](./media/add-users-administrator/NewGuestUser-Directory.png) 
+   ![Visar var nya gäst användare finns i användar gränssnittet](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
    > [!NOTE]
    > Det **nya alternativet gäst användare** är också tillgängligt på sidan **organisations relationer** . I **Azure Active Directory**, under **Hantera**, väljer du **organisations relationer**.
@@ -63,11 +63,11 @@ När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen
 
 ![Visar B2B-användare med typ av gäst användare](./media/add-users-administrator/GuestUserType.png)  
 
-## <a name="add-guest-users-to-a-group"></a>Lägga till gäst användare i en grupp
+## <a name="add-guest-users-to-a-group"></a>Lägga till gästanvändare i en grupp
 Följ dessa steg om du behöver lägga till B2B-samarbets användare manuellt i en grupp:
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
-2. I navigerings fönstret väljer du **Azure Active Directory**.
+2. Sök efter och välj **Azure Active Directory** från vilken sida som helst.
 3. Under **Hantera**väljer du **grupper**.
 4. Välj en grupp (eller klicka på **ny grupp** för att skapa en ny). Det är en bra idé att inkludera i grupp beskrivningen att gruppen innehåller B2B-gäst användare.
 5. Välj **medlemmar**. 
@@ -79,12 +79,12 @@ Följ dessa steg om du behöver lägga till B2B-samarbets användare manuellt i 
    
 Du kan också använda dynamiska grupper med Azure AD B2B-samarbete. Mer information finns i [dynamiska grupper och Azure Active Directory B2B-samarbete](use-dynamic-groups.md).
 
-## <a name="add-guest-users-to-an-application"></a>Lägga till gäst användare i ett program
+## <a name="add-guest-users-to-an-application"></a>Lägga till gästanvändare i ett program
 
 Följ dessa steg om du vill lägga till B2B-samarbets användare till ett program:
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
-2. I navigerings fönstret väljer du **Azure Active Directory**.
+2. Sök efter och välj **Azure Active Directory** från vilken sida som helst.
 3. Under **Hantera**väljer du **företags program** > **alla program**.
 4. Välj det program som du vill lägga till gäst användare i.
 5. På programmets instrument panel väljer du **Totalt antal användare** för att öppna fönstret **användare och grupper** .
@@ -107,18 +107,18 @@ Följ dessa steg om du vill lägga till B2B-samarbets användare till ett progra
    - Klicka på **Välj**.
    - Klicka på **Tilldela**.
  
-## <a name="resend-invitations-to-guest-users"></a>Skicka om inbjudningar till gäst användare
+## <a name="resend-invitations-to-guest-users"></a>Skicka om inbjudningar till gästanvändare
 
 Om en gäst användare ännu inte har löst in sin inbjudan kan du skicka e-postinbjudan igen.
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
-2. I navigerings fönstret väljer du **Azure Active Directory**.
+2. Sök efter och välj **Azure Active Directory** från vilken sida som helst.
 3. Under **Hantera** väljer du **Användare**.
 5. Välj användar kontot.
 6. Under **Hantera**väljer du **profil**.
 7. Om användaren inte har accepterat inbjudan än, är alternativet **skicka om inbjudan** tillgängligt. Välj den här knappen för att skicka igen.
 
-   ![Skicka Inbjudnings alternativ i användar profilen](./media/add-users-administrator/Resend-Invitation.png)
+   ![Skicka Inbjudnings alternativ i användar profilen](./media/add-users-administrator/b2b-user-resend-invitation.png)
 
 > [!NOTE]
 > Om du skickar en inbjudan som ursprungligen dirigerade användaren till en speciell app förstår du att länken i den nya inbjudan tar användaren till den översta åtkomst panelen i stället.

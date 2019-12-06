@@ -1,21 +1,21 @@
 ---
-title: Mängdfunktioner i Azure Cosmos DB
-description: Läs mer om SQL-syntax för mängdfunktionen för Azure Cosmos DB.
+title: Mängd funktioner i Azure Cosmos DB
+description: Lär dig mer om SQL agg regering Function-syntax, typer av mängd funktioner som stöds av Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: a6937e9e811ea8e44eda6f2bcb5d2c7d78db4934
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1ce3b18dd31944a1a4d4e6fad8fb49e63996dace
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342888"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871847"
 ---
-# <a name="aggregate-functions-in-azure-cosmos-db"></a>Mängdfunktioner i Azure Cosmos DB
+# <a name="aggregate-functions-in-azure-cosmos-db"></a>Mängd funktioner i Azure Cosmos DB
 
-Mängdfunktioner utföra beräkningar på en uppsättning värden i SELECT-satsen och returnera ett enstaka värde. Till exempel följande fråga returnerar antalet objekt i den `Families` behållare:
+Mängd funktioner utför en beräkning av en uppsättning värden i SELECT-satsen och returnerar ett enda värde. Följande fråga returnerar till exempel antalet objekt i `Families` container:
 
 ## <a name="examples"></a>Exempel
 
@@ -32,7 +32,7 @@ Resultatet är:
     }]
 ```
 
-Du kan också returnera endast skalära värdet för mängden med hjälp av nyckelordet värde. Till exempel returnerar följande fråga antalet värden som ett enskilt tal:
+Du kan också returnera det skalära värdet för agg regeringen genom att använda nyckelordet VALUE. Till exempel returnerar följande fråga antalet värden som ett enskilt tal:
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -45,7 +45,7 @@ Resultatet är:
     [ 2 ]
 ```
 
-Du kan också kombinera aggregeringar med filter. Till exempel följande fråga returnerar antalet objekt med adressen tillstånd `WA`.
+Du kan också kombinera agg regeringar med filter. Följande fråga returnerar till exempel antalet objekt med adress läget för `WA`.
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -59,9 +59,9 @@ Resultatet är:
     [ 1 ]
 ```
 
-## <a name="types-of-aggregate-functions"></a>Typer av mängdfunktioner
+## <a name="types-of-aggregate-functions"></a>Typer av mängd funktioner
 
-SQL-API: et stöder mängdfunktionerna. Summa och Genomsnittlig fungerar på numeriska värden och COUNT, MIN och MAX fungerar på tal, strängar, booleska värden och null-värden.
+SQL-API: et stöder följande mängd funktioner. SUM och AVG fungerar på numeriska värden och antal, MIN och MAX arbetet med siffror, strängar, booleska värden och null-värden.
 
 | Funktion | Beskrivning |
 |-------|-------------|
@@ -71,13 +71,13 @@ SQL-API: et stöder mängdfunktionerna. Summa och Genomsnittlig fungerar på num
 | MAX   | Returnerar maxvärdet i uttrycket. |
 | AVG   | Returnerar medelvärdet av värdena i uttrycket. |
 
-Du kan även aggregera över resultatet av en matris iteration.
+Du kan också aggregera över resultatet av en mat ris iteration.
 
 > [!NOTE]
-> I Datautforskaren i Azure portal, kan mängdfrågor aggregera ofullständiga resultat via sidan för enbart en fråga. SDK: N producerar en enda ackumulerade värdet på alla sidor. Om du vill utföra mängdfrågor med hjälp av kod du behöver .NET SDK 1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.
+> I Azure Portals Datautforskaren kan agg regerings frågor aggregera delar av resultaten över bara en fråge sida. SDK skapar ett enda ackumulerat värde för alla sidor. Om du vill utföra agg regerings frågor med hjälp av kod behöver du .NET SDK-1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
-- [Systemfunktioner](sql-query-system-functions.md)
+- [System funktioner](sql-query-system-functions.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)

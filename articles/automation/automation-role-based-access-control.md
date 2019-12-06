@@ -5,21 +5,21 @@ keywords: automation rbac, rollbaserad åtkomstkontroll, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477718"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850796"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
-Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med hjälp av [RBAC](../role-based-access-control/overview.md), du kan hålla isär uppgifter i ditt team och bevilja endast mängden åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete. Rollbaserad åtkomst kan beviljas till användare som använder Azure Portal, Azure-kommandoradsverktygen eller Azure Management-API:er.
+Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med [RBAC](../role-based-access-control/overview.md)kan du åtskilja uppgifter i ditt team och endast bevilja den mängd åtkomst till användare, grupper och program som de behöver för att utföra sina jobb. Rollbaserad åtkomst kan beviljas till användare som använder Azure Portal, Azure-kommandoradsverktygen eller Azure Management-API:er.
 
 ## <a name="roles-in-automation-accounts"></a>Roller i Automation-konton
 
@@ -27,45 +27,45 @@ I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till
 
 | **Roll** | **Beskrivning** |
 |:--- |:--- |
-| Ägare |Ägarrollen ger tillgång till alla resurser och åtgärder i ett Automation-konto, inklusive att ge åtkomst till andra användare, grupper och program hanteringsåtkomst till Automation-kontot. |
+| Ägare |Ägar rollen ger till gång till alla resurser och åtgärder i ett Automation-konto, inklusive att ge åtkomst till andra användare, grupper och program för att hantera Automation-kontot. |
 | Deltagare |Med deltagarrollen kan du hantera allt, men du kan inte ändra andra användares åtkomstbehörighet till ett Automation-konto. |
 | Läsare |Med läsarrollen kan du visa alla resurser i ett Automation-konto men inte göra några ändringar. |
-| Automation-operatör |Rollen Automation-operatör kan du visa runbook-namn och egenskaper att skapa och hantera jobb för alla runbooks i ett Automation-konto. Den här rollen är användbar om du vill skydda dina Automation-kontoresurser, t.ex. autentiseringstillgångar och runbooks, så att de inte kan visas eller ändras men fortfarande vill att medlemmar i din organisation ska kunna köra dessa runbooks. |
-|Automation-Jobboperator|Rollen Automation-Jobboperator kan du skapa och hantera jobb för alla runbooks i ett Automation-konto.|
-|Automation Runbook-Operator|Rollen Automation Runbook-operatör kan du visa namn och egenskaper för en runbook.|
-| Log Analytics Contributor | Rollen Log Analytics Contributor kan du läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägg till virtuella datorer, läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure storage, skapa och konfigurera automationskonton, lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser.|
-| Log Analytics Reader | Log Analytics Reader-rollen kan du visa och söka efter alla data samt visa övervakningsinställningar. Detta omfattar visning av konfigurationen av Azure diagnostics på alla Azure-resurser. |
-| Övervaka deltagare | Övervakning av deltagarrollen kan du läsa alla övervakningsdata och uppdatera övervakningsinställningarna.|
-| Övervaka läsare | Med övervakning läsarrollen kan du läsa alla övervakningsdata. |
+| Automation-operatör |Med rollen som Automation-operatör kan du Visa Runbook-namn och egenskaper och skapa och hantera jobb för alla Runbooks i ett Automation-konto. Den här rollen är användbar om du vill skydda dina Automation-kontoresurser, t.ex. autentiseringstillgångar och runbooks, så att de inte kan visas eller ändras men fortfarande vill att medlemmar i din organisation ska kunna köra dessa runbooks. |
+|Automatiserings jobb operatör|Med rollen automatiserings jobb operatör kan du skapa och hantera jobb för alla Runbooks i ett Automation-konto.|
+|Automation Runbook-operator|Med rollen Automation Runbook-operatör kan du Visa namn och egenskaper för en Runbook.|
+| Log Analytics Contributor | Med rollen Log Analytics Contributor kan du läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna kan du lägga till VM-tillägget till virtuella datorer, läsa lagrings konto nycklar för att kunna konfigurera insamling av loggar från Azure Storage, skapa och konfigurera Automation-konton, lägga till lösningar och konfigurera Azure Diagnostics på alla Azure-resurser.|
+| Log Analytics Reader | Med rollen Log Analytics läsare kan du Visa och söka i alla övervaknings data samt Visa övervaknings inställningar. Detta inkluderar visning av Azure Diagnostics-konfigurationen på alla Azure-resurser. |
+| Övervaknings deltagare | Med rollen övervaknings deltagare kan du läsa alla övervaknings data och uppdatera övervaknings inställningar.|
+| Övervaknings läsare | Med rollen övervaknings läsare kan du läsa alla övervaknings data. |
 | Administratör för användaråtkomst |Med rollen Administratör för användaråtkomst kan du hantera användaråtkomsten till Azure Automation-konton. |
 
-## <a name="role-permissions"></a>Rollbehörigheter
+## <a name="role-permissions"></a>Roll behörigheter
 
-I följande tabeller beskrivs de specifika behörigheter till varje roll. Detta kan inkludera åtgärder, som ger behörigheter och NotActions, vilket begränsar dem.
+I följande tabeller beskrivs de angivna behörigheterna för varje roll. Detta kan omfatta åtgärder som ger behörigheter och NotActions, vilket begränsar dem.
 
 ### <a name="owner"></a>Ägare
 
-Ägare kan hantera allt, inklusive åtkomst. I följande tabell visas de behörigheter som beviljas för rollen:
+En ägare kan hantera allt, inklusive åtkomst. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |Åtgärder|Beskrivning|
 |---|---|
-|Microsoft.Automation/automationAccounts/|Skapa och hantera resurser av alla typer.|
+|Microsoft. Automation/automationAccounts/|Skapa och hantera resurser av alla typer.|
 
 ### <a name="contributor"></a>Deltagare
 
-Deltagare kan hantera allt utom åtkomst. I följande tabell visas de behörigheter som beviljas och nekas för rollen:
+En deltagare kan hantera allt utom åtkomst. Följande tabell visar de behörigheter som beviljas och nekas för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/|Skapa och hantera resurser för alla typer av|
+|Microsoft. Automation/automationAccounts/|Skapa och hantera resurser av alla typer|
 |**Inte åtgärder**||
-|Microsoft.Authorization/*/Delete| Ta bort roller och rolltilldelningar.       |
-|Microsoft.Authorization/*/Write     |  Skapa roller och rolltilldelningar.       |
-|Microsoft.Authorization/elevateAccess/Action    | Nekar möjligheten att skapa en administratör för användaråtkomst.       |
+|Microsoft. Authorization/*/Delete| Ta bort roller och roll tilldelningar.       |
+|Microsoft. Authorization/*/Write     |  Skapa roller och roll tilldelningar.       |
+|Microsoft.Authorization/elevateAccess/Action    | Nekar möjligheten att skapa en administratör för användar åtkomst.       |
 
 ### <a name="reader"></a>Läsare
 
-En läsare kan visa alla resurser i ett Automation-konto men göra inte några ändringar.
+En läsare kan visa alla resurser i ett Automation-konto, men kan inte göra några ändringar.
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -73,251 +73,251 @@ En läsare kan visa alla resurser i ett Automation-konto men göra inte några �
 
 ### <a name="automation-operator"></a>Automation-operatör
 
-En Automation-operatör kan skapa och hantera jobb och läsa runbook-namn och egenskaper för alla runbooks i ett Automation-konto.  Obs! Om du vill kontrollera operatorn åtkomst till enskilda runbooks och sedan inte den här rollen och i stället använda rollerna ”Automation-Jobboperator och Automation Runbook-operatör i kombination. I följande tabell visas de behörigheter som beviljas för rollen:
+En Automation-operatör kan skapa och hantera jobb och läsa Runbook-namn och egenskaper för alla Runbooks i ett Automation-konto.  Obs! Om du vill kontrol lera operatörs åtkomst till enskilda Runbooks anger du inte den här rollen och använder i stället rollerna "automatiserings jobb operatör" och "Automation Runbook-operatör" i kombination. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|Microsoft.Authorization/*/read|Läsa auktorisering.|
-|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Läsa Hybrid Runbook Worker-resurser.|
-|Microsoft.Automation/automationAccounts/jobs/read|Lista jobb för runbook.|
+|Microsoft.Authorization/*/read|Läs behörighet.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Läs Hybrid Runbook Worker-resurser.|
+|Microsoft.Automation/automationAccounts/jobs/read|Lista jobb för Runbook.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|Återuppta ett jobb som har pausats.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Avbryta ett jobb pågår.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Läsa Jobbströmmar och utdata.|
-|Microsoft.Automation/automationAccounts/jobs/output/read|Hämta utdata för ett jobb.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausa ett jobb pågår.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Avbryt ett pågående jobb.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Läs jobb strömmar och utdata.|
+|Microsoft. Automation/automationAccounts/Jobs/utdata/Read|Hämta utdata för ett jobb.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausa ett pågående jobb.|
 |Microsoft.Automation/automationAccounts/jobs/write|Skapa jobb.|
-|Microsoft.Automation/automationAccounts/jobSchedules/read|Hämta ett Azure Automation-Jobbschema.|
-|Microsoft.Automation/automationAccounts/jobSchedules/write|Skapa ett Azure Automation-Jobbschema.|
-|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Hämta den arbetsyta som är länkad till automation-kontot.|
-|Microsoft.Automation/automationAccounts/read|Skaffa ett Azure Automation-konto.|
-|Microsoft.Automation/automationAccounts/runbooks/read|Hämta en Azure Automation-runbook.|
-|Microsoft.Automation/automationAccounts/schedules/read|Hämta en Azure Automation-schematillgång.|
-|Microsoft.Automation/automationAccounts/schedules/write|Skapa eller uppdatera en Azure Automation-schematillgång.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Läsa roller och rolltilldelningar.         |
-|Microsoft.Resources/deployments/*      |Skapa och hantera distribution av resursgrupper.         |
-|Microsoft.Insights/alertRules/*      | Skapa och hantera aviseringsregler.        |
-|Microsoft.Support/* |Skapa och hantera supportärenden.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Hämta ett jobb schema för Azure Automation.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Skapa ett jobb schema för Azure Automation.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Hämta arbets ytan som är länkad till Automation-kontot.|
+|Microsoft.Automation/automationAccounts/read|Hämta ett Azure Automation-konto.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Hämta en Azure Automation Runbook.|
+|Microsoft.Automation/automationAccounts/schedules/read|Få en Azure Automation schema till gång.|
+|Microsoft.Automation/automationAccounts/schedules/write|Skapa eller uppdatera en Azure Automation schema till gång.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Läs roller och roll tilldelningar.         |
+|Microsoft. Resources/Deployments/*      |Skapa och hantera distributioner av resurs grupper.         |
+|Microsoft.Insights/alertRules/*      | Skapa och hantera aviserings regler.        |
+|Microsoft.Support/* |Skapa och hantera support ärenden.|
 
-### <a name="automation-job-operator"></a>Automation-Jobboperator
+### <a name="automation-job-operator"></a>Automatiserings jobb operatör
 
-En Automation-Jobboperator roll beviljas på Automation-kontoomfånget. På så sätt kan operatören behörighet att skapa och hantera jobb för alla runbooks i kontot. I följande tabell visas de behörigheter som beviljas för rollen:
+En rollen automatiserings jobb operatör beviljas i omfånget Automation-konto. Detta gör det möjligt för operatörs behörighet att skapa och hantera jobb för alla Runbooks i kontot. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|Microsoft.Authorization/*/read|Läsa auktorisering.|
-|Microsoft.Automation/automationAccounts/jobs/read|Lista jobb för runbook.|
+|Microsoft.Authorization/*/read|Läs behörighet.|
+|Microsoft.Automation/automationAccounts/jobs/read|Lista jobb för Runbook.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|Återuppta ett jobb som har pausats.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Avbryta ett jobb pågår.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Läsa Jobbströmmar och utdata.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausa ett jobb pågår.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Avbryt ett pågående jobb.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Läs jobb strömmar och utdata.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausa ett pågående jobb.|
 |Microsoft.Automation/automationAccounts/jobs/write|Skapa jobb.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |  Läsa roller och rolltilldelningar.       |
-|Microsoft.Resources/deployments/*      |Skapa och hantera distribution av resursgrupper.         |
-|Microsoft.Insights/alertRules/*      | Skapa och hantera aviseringsregler.        |
-|Microsoft.Support/* |Skapa och hantera supportärenden.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |  Läs roller och roll tilldelningar.       |
+|Microsoft. Resources/Deployments/*      |Skapa och hantera distributioner av resurs grupper.         |
+|Microsoft.Insights/alertRules/*      | Skapa och hantera aviserings regler.        |
+|Microsoft.Support/* |Skapa och hantera support ärenden.|
 
-### <a name="automation-runbook-operator"></a>Automation Runbook-Operator
+### <a name="automation-runbook-operator"></a>Automation Runbook-operator
 
-En Automation Runbook-operatörsrollen beviljas definitionsområdet Runbook. En Runbook Automation-operatör kan visa runbookens namn och egenskaper.  Den här rollen som kombineras med rollen ”Automation-Jobboperator gör det möjligt för operatorn som ska också skapa och hantera jobb för runbook. I följande tabell visas de behörigheter som beviljas för rollen:
+En rollen Automation Runbook-operatör beviljas i Runbook-omfånget. En Automation Runbook-operatör kan visa Runbooks namn och egenskaper.  Den här rollen tillsammans med rollen automatiserings jobb operatör gör det möjligt för operatören att även skapa och hantera jobb för runbooken. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/runbooks/read     | Lista över runbooks.        |
-|Microsoft.Authorization/*/read      | Läsa auktorisering.        |
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Läsa roller och rolltilldelningar.         |
-|Microsoft.Resources/deployments/*      | Skapa och hantera distribution av resursgrupper.         |
-|Microsoft.Insights/alertRules/*      | Skapa och hantera aviseringsregler.        |
-|Microsoft.Support/*      | Skapa och hantera supportärenden.        |
+|Microsoft.Automation/automationAccounts/runbooks/read     | Visa en lista över Runbooks.        |
+|Microsoft.Authorization/*/read      | Läs behörighet.        |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Läs roller och roll tilldelningar.         |
+|Microsoft. Resources/Deployments/*      | Skapa och hantera distributioner av resurs grupper.         |
+|Microsoft.Insights/alertRules/*      | Skapa och hantera aviserings regler.        |
+|Microsoft.Support/*      | Skapa och hantera support ärenden.        |
 
 ### <a name="log-analytics-contributor"></a>Log Analytics Contributor
 
-En Log Analytics Contributor kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägget för virtuella datorer; läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure-lagring. Skapa och konfigurera automationskonton; lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser. I följande tabell visas de behörigheter som beviljas för rollen:
+En Log Analytics deltagare kan läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna lägger du till VM-tillägget till virtuella datorer. läsning av lagrings konto nycklar för att kunna konfigurera samling av loggar från Azure Storage. Skapa och konfigurera Automation-konton. lägga till lösningar. och konfigurera Azure Diagnostics på alla Azure-resurser. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
-|Microsoft.Automation/automationAccounts/*|Hantera automation-konton.|
-|Microsoft.ClassicCompute/virtualMachines/extensions/*|Skapa och hantera virtuella datorer, tillägg.|
-|Microsoft.ClassicStorage/storageAccounts/listKeys/action|Lista klassiska lagringskontonycklar.|
-|Microsoft.Compute/virtualMachines/extensions/*|Skapa och hantera klassiska virtuella datorer, tillägg.|
-|Microsoft.Insights/alertRules/*|Läs/Skriv/ta bort aviseringsregler.|
-|Microsoft.Insights/diagnosticSettings/*|Läs/Skriv/ta bort diagnostikinställningar.|
-|Microsoft.OperationalInsights/*|Hantera Azure Monitor-loggar.|
-|Microsoft.OperationsManagement/*|Hantera lösningar i arbetsytor.|
-|Microsoft.Resources/deployments/*|Skapa och hantera distribution av resursgrupper.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Skapa och hantera distribution av resursgrupper.|
-|Microsoft.Storage/storageAccounts/listKeys/action|Lista nycklar för lagringskonto.|
-|Microsoft.Support/*|Skapa och hantera supportärenden.|
+|*/read|Läs resurser av alla typer, förutom hemligheter.|
+|Microsoft. Automation/automationAccounts/*|Hantera Automation-konton.|
+|Microsoft.ClassicCompute/virtualMachines/extensions/*|Skapa och hantera tillägg för virtuella datorer.|
+|Microsoft.ClassicStorage/storageAccounts/listKeys/action|Lista klassiska lagrings konto nycklar.|
+|Microsoft.Compute/virtualMachines/extensions/*|Skapa och hantera klassiska tillägg för virtuella datorer.|
+|Microsoft.Insights/alertRules/*|Läsa/skriva/ta bort aviserings regler.|
+|Microsoft.Insights/diagnosticSettings/*|Läsa/skriva/ta bort diagnostikinställningar.|
+|Microsoft.OperationalInsights/*|Hantera Azure Monitor loggar.|
+|Microsoft.OperationsManagement/*|Hantera lösningar i arbets ytor.|
+|Microsoft. Resources/Deployments/*|Skapa och hantera distributioner av resurs grupper.|
+|Microsoft. Resources/Subscriptions/ResourceGroups/distributions/*|Skapa och hantera distributioner av resurs grupper.|
+|Microsoft. Storage/storageAccounts/Listnycklar/åtgärd|Lista lagrings konto nycklar.|
+|Microsoft.Support/*|Skapa och hantera support ärenden.|
 
 ### <a name="log-analytics-reader"></a>Log Analytics Reader
 
-En Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom visa övervakningsinställningar, även konfiguration av Azure-diagnostik visas på alla Azure-resurser. I följande tabell visas de behörigheter som beviljas eller nekas för rollen:
+En Log Analytics läsare kan visa och söka i alla övervaknings data samt Visa övervaknings inställningar, inklusive Visa konfigurationen av Azure Diagnostics på alla Azure-resurser. Följande tabell visar de behörigheter som beviljas eller nekas för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Hantera frågor i Azure Monitor-loggar.|
-|Microsoft.OperationalInsights/workspaces/search/action|Sök Azure Monitor-loggdata.|
-|Microsoft.Support/*|Skapa och hantera supportärenden.|
+|*/read|Läs resurser av alla typer, förutom hemligheter.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Hantera frågor i Azure Monitor loggar.|
+|Microsoft.OperationalInsights/workspaces/search/action|Sök Azure Monitor loggdata.|
+|Microsoft.Support/*|Skapa och hantera support ärenden.|
 |**Inte åtgärder**| |
-|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Det går inte att läsa in delade åtkomstnycklar.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Det går inte att läsa nycklar för delad åtkomst.|
 
-### <a name="monitoring-contributor"></a>Övervaka deltagare
+### <a name="monitoring-contributor"></a>Övervaknings deltagare
 
-Övervaka deltagare kan läsa alla övervakningsdata och uppdatera inställningarna för övervakning. I följande tabell visas de behörigheter som beviljas för rollen:
+En övervaknings deltagare kan läsa alla övervaknings data och uppdatera övervaknings inställningar. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
-|Microsoft.AlertsManagement/alerts/*|Hantera aviseringar.|
-|Microsoft.AlertsManagement/alertsSummary/*|Hantera aviseringar instrumentpanelen.|
-|Microsoft.Insights/AlertRules/*|Hantera Varningsregler.|
+|*/read|Läs resurser av alla typer, förutom hemligheter.|
+|Microsoft. AlertsManagement/Alerts/*|Hantera aviseringar.|
+|Microsoft.AlertsManagement/alertsSummary/*|Hantera aviserings instrument panelen.|
+|Microsoft.Insights/AlertRules/*|Hantera aviserings regler.|
 |Microsoft.Insights/components/*|Hantera Application Insights-komponenter.|
 |Microsoft.Insights/DiagnosticSettings/*|Hantera diagnostikinställningar.|
-|Microsoft.Insights/eventtypes/*|Lista över aktivitetslogghändelser (av hanteringshändelser) i en prenumeration. Den här behörigheten gäller för både program- och portalen åtkomst till aktivitetsloggen.|
-|Microsoft.Insights/LogDefinitions/*|Den här behörigheten krävs för användare som behöver åtkomst till aktivitetsloggar via portalen. Lista loggkategorier i aktivitetsloggen.|
-|Microsoft.Insights/MetricDefinitions/*|Läs måttdefinitionerna (lista över tillgängliga typer av mått för en resurs).|
-|Microsoft.Insights/Metrics/*|Läsa måtten för en resurs.|
-|Microsoft.Insights/Register/Action|Registrera Microsoft.Insights-providern.|
-|Microsoft.Insights/webtests/*|Hantera webbtester med Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Hantera lösningspaket för Azure Monitor-loggar.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Hantera Azure Monitor loggar sparade sökningar.|
-|Microsoft.OperationalInsights/workspaces/search/action|Sök Log Analytics-arbetsytor.|
-|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lista över nycklar för Log Analytics-arbetsytan.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Hantera Azure Monitor-loggar insight lagringskonfigurationer.|
-|Microsoft.Support/*|Skapa och hantera supportärenden.|
-|Microsoft.WorkloadMonitor/workloads/*|Hantera arbetsbelastningar.|
+|Microsoft.Insights/eventtypes/*|Visa lista över aktivitets logg händelser (hanterings händelser) i en prenumeration. Den här behörigheten gäller för både program mässig och Portal åtkomst till aktivitets loggen.|
+|Microsoft.Insights/LogDefinitions/*|Den här behörigheten krävs för användare som behöver åtkomst till aktivitets loggar via portalen. Lista logg kategorier i aktivitets loggen.|
+|Microsoft.Insights/MetricDefinitions/*|Läs mått definitioner (lista över tillgängliga mått typer för en resurs).|
+|Microsoft.Insights/Metrics/*|Läs mått för en resurs.|
+|Microsoft.Insights/Register/Action|Registrera Microsoft. Insights-providern.|
+|Microsoft.Insights/webtests/*|Hantera Application Insights webbtester.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Hantera lösnings paket för Azure Monitor loggar.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Hantera sparade sökningar i Azure Monitor loggar.|
+|Microsoft.OperationalInsights/workspaces/search/action|Sök Log Analytics arbets ytor.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lista nycklar för en Log Analytics-arbetsyta.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Hantera Azure Monitor loggar lagrings Insight-konfigurationer.|
+|Microsoft.Support/*|Skapa och hantera support ärenden.|
+|Microsoft. WorkloadMonitor/arbets belastningar/*|Hantera arbets belastningar.|
 
-### <a name="monitoring-reader"></a>Övervaka läsare
+### <a name="monitoring-reader"></a>Övervaknings läsare
 
-En övervakning läsare kan läsa alla övervakningsdata. I följande tabell visas de behörigheter som beviljas för rollen:
+En övervaknings läsare kan läsa alla övervaknings data. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|\* / läsa|Läsa resurser av alla typer utom hemligheter.|
-|Microsoft.OperationalInsights/workspaces/search/action|Sök Log Analytics-arbetsytor.|
-|Microsoft.Support/*|Skapa och hantera supportärenden|
+|*/read|Läs resurser av alla typer, förutom hemligheter.|
+|Microsoft.OperationalInsights/workspaces/search/action|Sök Log Analytics arbets ytor.|
+|Microsoft.Support/*|Skapa och hantera support biljetter|
 
 ### <a name="user-access-administrator"></a>Administratör för användaråtkomst
 
-En administratör för användaråtkomst kan hantera användarnas åtkomst till Azure-resurser. I följande tabell visas de behörigheter som beviljas för rollen:
+En administratör för användar åtkomst kan hantera användar åtkomst till Azure-resurser. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
-|\* / läsa|Läsa alla resurser|
-|Microsoft.Authorization/*|Hantera auktorisering|
-|Microsoft.Support/*|Skapa och hantera supportärenden|
+|*/read|Läs alla resurser|
+|Microsoft. Authorization/*|Hantera auktorisering|
+|Microsoft.Support/*|Skapa och hantera support biljetter|
 
 ## <a name="onboarding"></a>Publicering
 
-Följande tabeller visar de minsta nödvändiga behörigheter som behövs för att konfigurera virtuella datorer för ändringsspårning eller uppdatera hanteringslösningar.
+I följande tabeller visas minimi kraven för de behörigheter som krävs för att registrera virtuella datorer för lösningarna för ändrings spårning eller uppdaterings hantering.
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Onboarding från en virtuell dator
 
 |**Åtgärd**  |**Permission**  |**Minsta omfång**  |
 |---------|---------|---------|
-|Skriva ny distribution      | Microsoft.Resources/deployments/*          |Prenumeration          |
-|Skriva ny resursgrupp      | Microsoft.Resources/subscriptions/resourceGroups/write        | Prenumeration          |
-|Skapa ny standard arbetsyta      | Microsoft.OperationalInsights/workspaces/write         | Resursgrupp         |
-|Skapa nytt konto      |  Microsoft.Automation/automationAccounts/write        |Resursgrupp         |
-|Länk-arbetsyta och konto      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Arbetsyta</br>Automation-konto
+|Skriv ny distribution      | Microsoft. Resources/Deployments/*          |Prenumeration          |
+|Skriv ny resurs grupp      | Microsoft. Resources/Subscriptions/resourceGroups/Write        | Prenumeration          |
+|Skapa ny standard arbets yta      | Microsoft. OperationalInsights/arbets ytor/Skriv         | Resursgrupp         |
+|Skapa nytt konto      |  Microsoft. Automation/automationAccounts/Write        |Resursgrupp         |
+|Länka arbets yta och konto      |Microsoft. OperationalInsights/arbets ytor/Skriv</br>Microsoft.Automation/automationAccounts/read|Arbetsyta</br>Automation-konto
 |Skapa lösning      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resursgrupp          |
-|Skapa MMA-tillägg      | Microsoft.Compute/virtualMachines/write         | Virtuell dator         |
-|Skapa sparad sökning      | Microsoft.OperationalInsights/workspaces/write          | Arbetsyta         |
-|Skapa scope-konfiguration      | Microsoft.OperationalInsights/workspaces/write          | Arbetsyta         |
-|Länk-lösning i scope-konfigurationen      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Lösning         |
-|Publiceringsstatus för Kontrollera – Läs arbetsyta      | Microsoft.OperationalInsights/workspaces/read         | Arbetsyta         |
-|Kontrollera Onboarding - Läs länkad arbetsyta-egenskapen för konto     | Microsoft.Automation/automationAccounts/read      | Automation-konto        |
-|Publiceringsstatus för Kontrollera – Läs lösning      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Lösning         |
-|Kontrollera Onboarding - Läs VM      | Microsoft.Compute/virtualMachines/read         | Virtuell dator         |
-|Publiceringsstatus för Kontrollera – Läs konto      | Microsoft.Automation/automationAccounts/read  |  Automation-konto   |
-| Onboarding-arbetsyta-kontroll för VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Prenumeration         |
-| Registrera providern Log Analytics |Microsoft.Insights/register/action | Prenumeration|
+|Skapa MMA-tillägg      | Microsoft.Compute/virtualMachines/write         | Virtuell maskin         |
+|Skapa Sparad sökning      | Microsoft. OperationalInsights/arbets ytor/Skriv          | Arbetsyta         |
+|Skapa omfattnings konfiguration      | Microsoft. OperationalInsights/arbets ytor/Skriv          | Arbetsyta         |
+|Länka lösning till omfångs konfiguration      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Lösning         |
+|Registrerings tillstånds kontroll – Läs arbets yta      | Microsoft.OperationalInsights/workspaces/read         | Arbetsyta         |
+|Registrerings tillstånds kontroll – Läs den länkade arbets ytans egenskap för konto     | Microsoft.Automation/automationAccounts/read      | Automation-konto        |
+|Registrerings tillstånds kontroll – Läs lösning      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Lösning         |
+|Registrerings tillstånds kontroll – läsa virtuell dator      | Microsoft.Compute/virtualMachines/read         | Virtuell maskin         |
+|Registrerings tillstånds kontroll – Läs konto      | Microsoft.Automation/automationAccounts/read  |  Automation-konto   |
+| Kontroll av arbets ytan för VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Prenumeration         |
+| Registrera Log Analytics-providern |Microsoft. Insights/register/åtgärd | Prenumeration|
 
-<sup>1</sup> den här behörigheten krävs för att publicera via en VM-Portal.
+<sup>1</sup> den här behörigheten krävs för att publicera via den virtuella datorns Portal upplevelse.
 
 ### <a name="onboarding-from-automation-account"></a>Onboarding från Automation-konto
 
 |**Åtgärd**  |**Permission** |**Minsta omfång**  |
 |---------|---------|---------|
-|Skapa ny distribution     | Microsoft.Resources/deployments/*        | Prenumeration         |
-|Skapa ny resursgrupp     | Microsoft.Resources/subscriptions/resourceGroups/write         | Prenumeration        |
-|AutomationOnboarding bladet – Skapa ny arbetsyta     |Microsoft.OperationalInsights/workspaces/write           | Resursgrupp        |
-|AutomationOnboarding-bladet – Läs länkad arbetsyta     | Microsoft.Automation/automationAccounts/read        | Automation-konto       |
-|AutomationOnboarding-bladet – Läs lösning     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Lösning        |
-|AutomationOnboarding-bladet – läsa arbetsyta     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Arbetsyta        |
-|Skapa länk för arbetsyta och konto     | Microsoft.OperationalInsights/workspaces/write        | Arbetsyta        |
-|Skriva konto för lådan      | Microsoft.Automation/automationAccounts/write        | Konto        |
+|Skapa ny distribution     | Microsoft. Resources/Deployments/*        | Prenumeration         |
+|Skapa ny resurs grupp     | Microsoft. Resources/Subscriptions/resourceGroups/Write         | Prenumeration        |
+|Bladet AutomationOnboarding – skapa ny arbets yta     |Microsoft. OperationalInsights/arbets ytor/Skriv           | Resursgrupp        |
+|AutomationOnboarding blad – Läs länkad arbets yta     | Microsoft.Automation/automationAccounts/read        | Automation-konto       |
+|AutomationOnboarding-lösning för blad läsning     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Lösning        |
+|AutomationOnboarding blad – Läs arbets yta     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Arbetsyta        |
+|Skapa länk för arbets yta och konto     | Microsoft. OperationalInsights/arbets ytor/Skriv        | Arbetsyta        |
+|Skriv konto för sko      | Microsoft. Automation/automationAccounts/Write        | Konto        |
 |Skapa lösning      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Resursgrupp         |
-|Skapa/redigera sparad sökning     | Microsoft.OperationalInsights/workspaces/write        | Arbetsyta        |
-|Skapa/redigera scope-config     | Microsoft.OperationalInsights/workspaces/write        | Arbetsyta        |
-|Länk-lösning i scope-konfigurationen      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Lösning         |
-| Registrera providern Log Analytics |Microsoft.Insights/register/action | Prenumeration|
+|Skapa/redigera Sparad sökning     | Microsoft. OperationalInsights/arbets ytor/Skriv        | Arbetsyta        |
+|Skapa/redigera omfattnings konfiguration     | Microsoft. OperationalInsights/arbets ytor/Skriv        | Arbetsyta        |
+|Länka lösning till omfångs konfiguration      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Lösning         |
+| Registrera Log Analytics-providern |Microsoft. Insights/register/åtgärd | Prenumeration|
 |**Steg 2 – publicera flera virtuella datorer**     |         |         |
-|VMOnboarding bladet – skapa MMA-tillägg     | Microsoft.Compute/virtualMachines/write           | Virtuell dator        |
-|Skapa / redigera sparad sökning     | Microsoft.OperationalInsights/workspaces/write           | Arbetsyta        |
-|Skapa / redigera scope-config  | Microsoft.OperationalInsights/workspaces/write   | Arbetsyta|
+|Bladet VMOnboarding – skapa MMA-tillägg     | Microsoft.Compute/virtualMachines/write           | Virtuell maskin        |
+|Skapa/redigera Sparad sökning     | Microsoft. OperationalInsights/arbets ytor/Skriv           | Arbetsyta        |
+|Skapa/redigera omfattnings konfiguration  | Microsoft. OperationalInsights/arbets ytor/Skriv   | Arbetsyta|
 
 ## <a name="update-management"></a>Hantering av uppdateringar
 
-Uppdateringshantering når för flera tjänster att tillhandahålla sin tjänst. I följande tabell visas de behörigheter som krävs för att hantera distributioner av management:
+Uppdaterings hanteringen når över flera tjänster för att tillhandahålla tjänsten. I följande tabell visas de behörigheter som krävs för att hantera distributioner av uppdaterings hantering:
 
 |**Resurs**  |**Roll**  |**Omfång**  |
 |---------|---------|---------|
 |Automation-konto     | Log Analytics Contributor       | Automation-konto        |
-|Automation-konto    | Virtuell Datordeltagare        | Resursgruppen för kontot        |
+|Automation-konto    | Virtuell datordeltagare        | Resurs grupp för kontot        |
 |Log Analytics-arbetsyta     | Log Analytics Contributor| Log Analytics-arbetsyta        |
 |Log Analytics-arbetsyta |Log Analytics Reader| Prenumeration|
 |Lösning     |Log Analytics Contributor         | Lösning|
-|Virtuell dator     | Virtuell Datordeltagare        | Virtuell dator        |
+|Virtuell maskin     | Virtuell datordeltagare        | Virtuell maskin        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Konfigurera RBAC för ditt Automation-konto
 
-I följande avsnitt beskrivs hur du konfigurerar RBAC för ditt Automation-konto via den [portal](#configure-rbac-using-the-azure-portal) och [PowerShell](#configure-rbac-using-powershell)
+I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via [portalen](#configure-rbac-using-the-azure-portal) och [PowerShell](#configure-rbac-using-powershell)
 
-### <a name="configure-rbac-using-the-azure-portal"></a>Konfigurera RBAC med Azure portal
+### <a name="configure-rbac-using-the-azure-portal"></a>Konfigurera RBAC med hjälp av Azure Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Automation-kontot från sidan Automation-konton.
-2. Klicka på den **åtkomstkontroll (IAM)** kontroll i det övre vänstra hörnet. Då öppnas det **åtkomstkontroll (IAM)** sidan där du kan lägga till nya användare, grupper och program för att hantera ditt Automation-kontot och visa befintliga roller som kan konfigureras för Automation-kontot.
+2. Klicka på kontrollen **åtkomst kontroll (IAM)** i det övre vänstra hörnet. Då öppnas sidan **åtkomst kontroll (IAM)** där du kan lägga till nya användare, grupper och program för att hantera ditt Automation-konto och visa befintliga roller som kan konfigureras för Automation-kontot.
 3. Klicka på den **rolltilldelningar** fliken.
 
    ![Knappen Åtkomst](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Lägga till en ny användare och tilldela en roll
 
-1. Från den **åtkomstkontroll (IAM)** klickar du på **+ Lägg till rolltilldelning** att öppna den **Lägg till rolltilldelning** sida där du kan lägga till en användare, grupp eller program och tilldela en roll till dem.
+1. På sidan **åtkomst kontroll (IAM)** klickar du på **+ Lägg till roll tilldelning** för att öppna sidan **Lägg till roll tilldelning** där du kan lägga till en användare, grupp eller ett program och tilldela dem en roll.
 
-2. Välj en roll i listan över tillgängliga roller. Du kan välja någon av de tillgängliga inbyggda rollerna som har stöd för ett Automation-konto eller en anpassad roll som du har definierat.
+2. Välj en roll i listan över tillgängliga roller. Du kan välja någon av de tillgängliga inbyggda rollerna som ett Automation-konto har stöd för eller en anpassad roll som du kan ha definierat.
 
-3. Skriv användarnamnet för användaren som du vill ge behörigheter till i den **Välj** fält. Välj användaren i listan och klicka på **spara**.
+3. Ange användar namnet för den användare som du vill ge behörighet till i fältet **Välj** . Välj användaren i listan och klicka på **Spara**.
 
    ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   Nu bör du se användaren på den **användare** sida med den valda rollen tilldelad
+   Nu bör du se användaren som har lagts till på sidan **användare** med den valda rollen tilldelad
 
    ![Visa användare](media/automation-role-based-access-control/automation-05-list-users.png)
 
    Du kan också tilldela en roll till användaren från sidan **Roller**.
-4. Klicka på **roller** från den **åtkomstkontroll (IAM)** kan du öppna den **roller** sidan. Härifrån kan du visa namnet på rollen och antalet användare och grupper som har tilldelats till rollen.
+4. Öppna sidan **roller** genom att klicka på **roller** på sidan **åtkomst kontroll (IAM)** . Härifrån kan du visa namnet på rollen och antalet användare och grupper som har tilldelats till rollen.
 
     ![Tilldela en roll från sidan Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
    > [!NOTE]
-   > Rollbaserad åtkomstkontroll kan bara anges på Automation-kontoomfånget och inte på en resurs under Automation-kontot.
+   > Rollbaserad åtkomst kontroll kan bara ställas in i Automation-kontots omfattning och inte på någon resurs under Automation-kontot.
 
 #### <a name="remove-a-user"></a>Ta bort en användare
 
-Du kan ta bort åtkomstbehörigheten för en användare som inte hanterar Automation-kontot eller som inte längre arbetar i organisationen. Nedan följer stegen för att ta bort en användare:
+Du kan ta bort åtkomst behörigheten för en användare som inte hanterar Automation-kontot eller som inte längre fungerar för organisationen. Nedan följer stegen för att ta bort en användare:
 
-1. Från den **åtkomstkontroll (IAM)** väljer användaren vill ta bort och klicka på **ta bort**.
+1. På sidan **åtkomst kontroll (IAM)** väljer du den användare som du vill ta bort och klickar på **ta bort**.
 2. Klicka på knappen **Ta bort** på sidan med tilldelningsinformation.
 3. Bekräfta borttagningen genom att klicka på **Ja**.
 
    ![Ta bort användare](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-### <a name="configure-rbac-using-powershell"></a>Konfigurera RBAC med hjälp av PowerShell
+### <a name="configure-rbac-using-powershell"></a>Konfigurera RBAC med PowerShell
 
-Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlets](../role-based-access-control/role-assignments-powershell.md):
+Rollbaserad åtkomst kan också konfigureras till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlet: ar](../role-based-access-control/role-assignments-powershell.md):
 
 [Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda det här kommandot tillsammans med egenskapen **Namn** för att visa en lista över alla de åtgärder som kan vidtas av en viss roll.
 
@@ -325,7 +325,7 @@ Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hj�
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
 ```
 
-Följande är på Exempelutdata:
+Följande är exempel på utdata:
 
 ```azurepowershell
 Name             : Automation Operator
@@ -338,14 +338,14 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) visar Azure AD RBAC-rolltilldelningar i det specificerade omfånget. Utan parametrar returnerar detta kommando alla rolltilldelningar som skapats under prenumerationen. Använd parametern **ExpandPrincipalGroups** om du vill visa en lista med alla åtkomsttilldelningar för den angivna användaren och för de grupper som användaren är medlem i.
-    **Exempel:** Använd följande kommando för att lista alla användare och deras roller i ett automation-konto.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) visar Azure AD RBAC-roll tilldelningar i det angivna omfånget. Utan parametrar returnerar detta kommando alla rolltilldelningar som skapats under prenumerationen. Använd parametern **ExpandPrincipalGroups** om du vill visa en lista med alla åtkomsttilldelningar för den angivna användaren och för de grupper som användaren är medlem i.
+    **Exempel:** Använd följande kommando om du vill visa alla användare och deras roller i ett Automation-konto.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Följande är på Exempelutdata:
+Följande är exempel på utdata:
 
 ```powershell
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
@@ -359,14 +359,14 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[Ny-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) att tilldela åtkomst till användare, grupper och program till ett visst omfång.
-    **Exempel:** Använd följande kommando för att tilldela rollen ”Automation-operatör” för en användare i Automation-kontoomfånget.
+[New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) för att tilldela åtkomst till användare, grupper och program till ett visst omfång.
+    **Exempel:** Använd följande kommando för att tilldela rollen "Automation-operatör" för en användare i Automation-kontots omfattning.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Följande är på Exempelutdata:
+Följande är exempel på utdata:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
@@ -380,24 +380,24 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Använd [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) att ta bort åtkomst till en specifik användare, grupp eller program från ett visst omfång.
-    **Exempel:** Använd följande kommando för att ta bort användaren från rollen ”Automation-operatör” i Automation-kontoomfånget.
+Använd [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) om du vill ta bort åtkomsten till en angiven användare, grupp eller program från ett visst omfång.
+    **Exempel:** Använd följande kommando för att ta bort användaren från rollen "Automation-operatör" i Automation-kontots omfattning.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-I föregående exempel ersätter **inloggnings-Id**, **prenumerations-Id**, **Resursgruppsnamn**, och **Automation-kontonamn** med din information om kontot. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort rolltilldelningen för användaren.
+I föregående exempel ersätter du **inloggnings-ID**, **prenumerations-ID**, **resurs grupp namn**och **namn på Automation-konto** med din konto information. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort rolltilldelningen för användaren.
 
-### <a name="user-experience-for-automation-operator-role---automation-account"></a>Användarupplevelse för Automation-operatörsrollen - Automation-konto
+### <a name="user-experience-for-automation-operator-role---automation-account"></a>Användar upplevelse för rollen Automation-operatör – Automation-konto
 
-När en användare som har tilldelats rollen Automation-operatör i Automation-kontoomfånget visar det Automation-kontot som de är tilldelade till de bara kan visa en lista med runbooks, runbook-jobb och scheman som skapats i Automation-konto, men inte deras definition. Användaren kan starta, stoppa, pausa, återuppta eller schemalägga runbook-jobbet. Användaren har inte åtkomst till andra Automation-resurser, till exempel konfigurationer, hybrid worker-grupper eller DSC-noder.
+När en användare som är tilldelad rollen som Automation-operatör i Automation-kontots omfång visar det Automation-konto som de är tilldelade till, kan de bara visa listan över Runbooks, Runbook-jobb och scheman som skapats i Automation-kontot, men kan inte visa sina definition. Användaren kan starta, stoppa, pausa, återuppta eller schemalägga runbook-jobbet. Användaren har inte åtkomst till andra Automation-resurser, till exempel konfigurationer, hybrid Worker-grupper eller DSC-noder.
 
 ![Ingen åtkomst till resurser](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
 ## <a name="configure-rbac-for-runbooks"></a>Konfigurera RBAC för Runbooks
 
-Azure Automation kan du tilldela RBAC till specifika runbooks. Om du vill göra detta kör följande skript för att lägga till en användare till en specifik runbook. Följande skript som kan vara körts av en Automation-kontoadministratör eller en Innehavaradministratör.
+Med Azure Automation kan du tilldela RBAC till vissa Runbooks. Gör detta genom att köra följande skript för att lägga till en användare till en angiven Runbook. Följande skript kan köras av en administratör för Automation-kontot eller klient organisations administratören.
 
 ```azurepowershell-interactive
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
@@ -418,15 +418,15 @@ New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job 
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-En gång körde, har användaren logga in på Azure-portalen och visa **alla resurser**. I listan visas den Runbook som de har lagts till som en **Automation Runbook-operatör** för.
+När du har kört användaren loggar du in på Azure Portal och visar **alla resurser**. I listan visas den Runbook som de lades till som en **Automation Runbook-operator** för.
 
 ![Runbook RBAC i portalen](./media/automation-role-based-access-control/runbook-rbac.png)
 
-### <a name="user-experience-for-automation-operator-role---runbook"></a>Användarupplevelse för Automation-operatörsrollen - Runbook
+### <a name="user-experience-for-automation-operator-role---runbook"></a>Användar upplevelse för Automation-operatörs roll – Runbook
 
-När en användare som har tilldelats rollen Automation-operatör på Runbook-omfångsvyer en Runbook som de är tilldelade till, kan de bara starta runbooken och visa runbook-jobb.
+När en användare, som är tilldelad rollen som Automation-operatör i Runbook-omfånget, visar en Runbook som de är kopplade till, kan de bara starta runbooken och Visa Runbook-jobben.
 
-![Endast har åtkomst till start](media/automation-role-based-access-control/automation-only-start.png)
+![Har bara åtkomst att starta](media/automation-role-based-access-control/automation-only-start.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

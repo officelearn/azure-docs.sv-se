@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: ccd0c88c95ae9a752ef8ea2387bbde4f8559bc68
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 280561126186e4c70399b3a1ddd177ff4eb54400
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531750"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850048"
 ---
 # <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>Standard kvot: vCPU gräns för VM-serien per virtuell dator
 
-Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer. Använd standard kvot **för virtuella datorer som du betalar per användning och reserverade VM-instanser** . **Virtuella datorer med låg prioritet** använder låg prioritets kvot. Standard vCPU-kvot för betala per användning och reserverade VM-instanser tillämpas på två nivåer för varje prenumeration i varje region
+Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer. Använd standard kvot **för virtuella datorer som du betalar per användning och reserverade VM-instanser** . **Virtuella datorer** som använder punkt kvoter. Standard vCPU-kvot för betala per användning och reserverade VM-instanser tillämpas på två nivåer för varje prenumeration i varje region
 
 Den första nivån är den **totala regionala virtuella processorer-gränsen** (i alla VM-serien) och den andra nivån är **virtuella processorer-gränsen för VM-serien** (exempelvis dv3-serien virtuella processorer). När en ny virtuell dator ska distribueras måste summan av nya och befintliga virtuella processorer-användning för den virtuella dator serien inte överskrida vCPU-kvoten som har godkänts för den aktuella VM-serien. Dessutom bör det totala antalet nya och befintliga vCPU som distribueras över alla VM-serien inte överskrida den totala regionala virtuella processorer-kvoten som har godkänts för prenumerationen. Om någon av dessa kvoter överskrids, kommer distributionen av virtuella datorer inte att tillåtas.
 Du kan begära en ökning av virtuella processorer kvot gräns för VM-serien från Azure Portal. En ökning av kvoten för VM-serien ökar automatiskt den totala regionala virtuella processorer-gränsen med samma belopp. 
@@ -25,7 +25,7 @@ Läs mer om standard kvoter för vCPU på [sidan för virtuella datorer vCPU kvo
 
 Läs mer om hur du ökar den regionala vCPU-gränsen för standard kvot [här](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-Lär dig mer om att **öka gränsen för VM-vCPU med låg prioritet** [här](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Lär dig mer om att **öka gränserna för VM-vCPU** [här](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 Du kan begära en ökning av **standard kvot gränser för vCPU per VM-serien** via **Hjälp + Support** -bladet eller **användnings** -och kvot bladet i portalen.
 
@@ -37,7 +37,7 @@ Du kan också begära kvot för flera regioner genom ett enda support ärende. M
 
 1. Välj **Hjälp + Support**från https://portal.azure.com.
 
-   ![Hjälp + support](./media/resource-manager-core-quotas-request/helpsupport.png)
+   ![Hjälp + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Välj **Ny supportbegäran**. 
 
@@ -63,7 +63,7 @@ Du kan också begära kvot för flera regioner genom ett enda support ärende. M
 
    ![Kvot information DM](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. För den valda platsen väljer du **Ange** värde som **standard**. Du kan begära både standard-och låg prioritets kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Läs mer om att **öka kvot gränserna med låg prioritet** på **sidan < >** .
+8. För den valda platsen väljer du **Ange** värde som **standard**. Du kan begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Lär dig mer om att **öka kvot gränserna för platsen** på den här [sidan](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
 
    ![SKU-familj](./media/resource-manager-core-quotas-request/1-8.png)
 
@@ -111,7 +111,7 @@ Du kan också **begära kvot för flera regioner** genom ett enda support ärend
 
    ![Bladet kvot problem](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. För den valda platsen väljer du **Ange** värde som **standard**. Du kan begära både standard-och låg prioritets kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Lär dig mer om att **öka virtuella processorer-gränserna för låg prioritet** på den här [sidan](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+7. För den valda platsen väljer du **Ange** värde som **standard**. Du kan begära både standard-och låg prioritets kvot typer från ett enda support ärende via stöd för flera markeringar i fältet **typ** . Lär dig mer om att **öka gränsen för virtuella processorer** på den här [sidan](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
    ![SKU-serien har valts](./media/resource-manager-core-quotas-request/1-1-7.png)
    

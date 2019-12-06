@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: d372b94ac0df4cef3c43fab10686e9bf20633bfe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034251"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873955"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-skript körs vid första start när resurserna har etablerats av Azure.  
@@ -39,6 +39,7 @@ Vi arbetar aktivt med våra godkända Linux-distribution partner för att få cl
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |förhandsversion |
+|Oracle 7,7 |Oracle-Linux |77 – CI |7.7.01|förhandsversion |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |ja |
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |förhandsversion |
     
@@ -47,6 +48,7 @@ För närvarande har Azure Stack inte stöd för etablering av RHEL 7. x och Cen
 * För RHEL 7,6, Cloud-Init-paket, är det paket som stöds: *18.2-1. el7_6.2* 
 * För RHEL 7,7 (för hands version), Cloud-Init-paket, är för hands versionen: *18.5 -3. el7*
 * För CentOS 7,7 (för hands version), Cloud-Init-paket, är för hands versionen: *18.5 -3. el7. CentOS*
+* För Oracle 7,7 (för hands version), Cloud-Init-paket, är för hands versions paketet: *18.5-3.0.1. el7*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Vad är skillnaden mellan Cloud-Init och Linux-agenten (WALA)?
 WALA är en Azure Platform-Specific-agent som används för att etablera och konfigurera virtuella datorer och hantera Azure-tillägg. Vi förbättrar uppgiften att konfigurera virtuella datorer för att använda Cloud-Init i stället för Linux-agenten för att tillåta att befintliga Cloud-Init-kunder använder sina aktuella moln-init-skript.  Om du har befintliga investeringar i Cloud-Init-skript för att konfigurera Linux-system finns det **inga ytterligare inställningar som krävs** för att aktivera dem. 
@@ -88,7 +90,7 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-När den virtuella datorn har skapats visar Azure CLI information som är unik för din distribution. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.  Det tar lite tid för den virtuella datorn att skapas, paketen som ska installeras och appen att starta. Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. Du kan använda SSH i den virtuella datorn och använda stegen som beskrivs i avsnittet fel sökning för att Visa Cloud-Init-loggarna. 
+När den virtuella datorn har skapats visar Azure CLI information som är unik för din distribution. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.  Det tar lite tid för den virtuella datorn att skapas, paketen som ska installeras och appen att starta. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Du kan använda SSH i den virtuella datorn och använda stegen som beskrivs i avsnittet fel sökning för att Visa Cloud-Init-loggarna. 
 
 ## <a name="troubleshooting-cloud-init"></a>Felsöka Cloud-Init
 När den virtuella datorn har etablerats kommer Cloud-Init att köras genom alla moduler och skript som definierats i `--custom-data` för att konfigurera den virtuella datorn.  Om du behöver felsöka fel eller utelämnanden från konfigurationen måste du söka efter modulnamnet (`disk_setup` eller `runcmd` till exempel) i den Cloud-Init-logg som finns i **/var/log/Cloud-init.log**.

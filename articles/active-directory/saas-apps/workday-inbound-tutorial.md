@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80d356426fe312708d64cc4284dbb1fd925e47c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233337"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849350"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -87,7 +87,7 @@ Innan du påbörjar din arbets dags integrering kontrollerar du kraven nedan och
 
 I det här avsnittet beskrivs följande aspekter av planeringen:
 
-* [Krav](#prerequisites)
+* [Förutsättningar](#prerequisites)
 * [Välja etablerings anslutnings program som ska distribueras](#selecting-provisioning-connector-apps-to-deploy)
 * [Planera distribution av Azure AD Connect etablerings agent](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [Integrera med flera Active Directory domäner](#integrating-with-multiple-active-directory-domains)
@@ -238,14 +238,14 @@ Ett gemensamt krav på alla tilldelnings anslutningar för arbets dagar är att 
 
 1. Logga in på din Workday-klient med ett administratörs konto. I **programmet Workday**anger du skapa användare i rutan Sök och klickar sedan på **skapa integrations system användare**.
 
-    ![Skapa användare](./media/workday-inbound-tutorial/wd_isu_01.png "Skapa användare")
+   ![Skapa användare](./media/workday-inbound-tutorial/wd_isu_01.png "Skapa användare")
 2. Slutför **användar uppgiften skapa integrations system** genom att ange ett användar namn och lösen ord för en ny integrations system användare.  
   
-* Lämna alternativet **Kräv nytt lösen ord vid nästa inloggning** omarkerat, eftersom den här användaren kommer att logga in program mässigt.
-* Lämna timeout-värdet i **sessionen** med standardvärdet 0, vilket hindrar användarens sessioner från timeout för tidigt.
-* Välj alternativet **Tillåt inte UI-sessioner** eftersom det ger ett extra säkerhets lager som förhindrar att en användare med lösen ordet för integrations systemet loggar in på arbets dagen.
+   * Lämna alternativet **Kräv nytt lösen ord vid nästa inloggning** omarkerat, eftersom den här användaren kommer att logga in program mässigt.
+   * Lämna timeout-värdet i **sessionen** med standardvärdet 0, vilket hindrar användarens sessioner från timeout för tidigt.
+   * Välj alternativet **Tillåt inte UI-sessioner** eftersom det ger ett extra säkerhets lager som förhindrar att en användare med lösen ordet för integrations systemet loggar in på arbets dagen.
 
-    ![Skapa integrations system användare](./media/workday-inbound-tutorial/wd_isu_02.png "Skapa integrations system användare")
+   ![Skapa integrations system användare](./media/workday-inbound-tutorial/wd_isu_02.png "Skapa integrations system användare")
 
 ### <a name="creating-an-integration-security-group"></a>Skapa en integrerings säkerhets grupp
 
@@ -292,7 +292,7 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
 
      ![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_08.png "Domän säkerhets principer") 
 
-     Klicka på **OK**.
+     Klicka på **OK**
 
 3. I rapporten som visas, väljer du ellipsen (...) som visas bredvid **externt konto etablering** och klickar på meny alternativet **domän-> redigera säkerhets princip behörigheter**
 
@@ -356,20 +356,44 @@ I det här steget ska du bevilja princip behörigheter för affärs processer f�
 
 Det här avsnittet innehåller steg för etablering av användar konton från arbets dagar till varje Active Directory domän inom omfånget för din integrering.
 
-* [Installera och konfigurera lokala etablerings agenter](#part-1-install-and-configure-on-premises-provisioning-agents)
-* [Lägga till etablerings anslutnings programmet och skapa anslutningen till arbets dagen](#part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [Konfigurera mappningar för attribut](#part-3-configure-attribute-mappings)
+* [Lägg till etablerings anslutnings programmet och ladda ned etablerings agenten](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Installera och konfigurera lokala etablerings agenter](#part-2-install-and-configure-on-premises-provisioning-agents)
+* [Konfigurera anslutning till arbets dagar och Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory)
+* [Konfigurera mappningar för attribut](#part-4-configure-attribute-mappings)
 * [Aktivera och starta användar etablering](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>Del 1: installera och konfigurera lokala etablerings agenter
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Del 1: Lägg till etablerings anslutnings programmet och ladda ned etablerings agenten
 
-För att kunna etablera Active Directory lokalt måste en agent installeras på en server som har .NET 4.7.1 + Framework och nätverks åtkomst till önskad Active Directory domän (er).
+**Konfigurera arbets dagar för att Active Directory etablering:**
+
+1. Gå till <https://portal.azure.com>
+
+2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
+
+3. Välj **företags program**och sedan **alla program**.
+
+4. Välj **Lägg till ett program**och välj kategorin **alla** .
+
+5. Sök efter **arbets plats etablering till Active Directory**och Lägg till den appen från galleriet.
+
+6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
+
+7. Ändra **etablerings** **läget** till **automatiskt**
+
+8. Klicka på den informations banderoll som visas för att ladda ned etablerings agenten. 
+
+   ![Hämta agent](./media/workday-inbound-tutorial/pa-download-agent.png "Ladda ned agent skärm")
+
+
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Del 2: installera och konfigurera lokala etablerings agenter
+
+För att etablera till Active Directory lokalt måste etablerings agenten installeras på en server som har .NET 4.7.1 + Framework och nätverks åtkomst till önskad Active Directory domän (er).
 
 > [!TIP]
 > Du kan kontrol lera versionen av .NET Framework på servern med hjälp av anvisningarna [här](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Om inte .NET 4.7.1 eller senare är installerat på servern kan du ladda ned den [här](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
-När du har distribuerat .NET 4.7.1 + kan du ladda ned den **[lokala etablerings agenten här](https://go.microsoft.com/fwlink/?linkid=847801)** och följa stegen nedan för att slutföra Agent konfigurationen.
+Överför de hämtade agent installations programmet till Server värden och följ stegen nedan för att slutföra Agent konfigurationen.
 
 1. Logga in på den Windows Server där du vill installera den nya agenten.
 
@@ -418,27 +442,14 @@ När du har distribuerat .NET 4.7.1 + kan du ladda ned den **[lokala etablerings
    
 1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
   
-   ![Tjänster](./media/workday-inbound-tutorial/services.png)
+   ![Services](./media/workday-inbound-tutorial/services.png)
 
-### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Del 2: lägga till etablerings anslutnings programmet och skapa anslutningen till arbets dagen
+### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Del 3: Konfigurera anslutning till arbets dagar och Active Directory i etablerings appen
+I det här steget upprättar vi anslutningen till arbets dagar och Active Directory i Azure Portal. 
 
-**Konfigurera arbets dagar för att Active Directory etablering:**
+1. Gå tillbaka till arbets dagen i Azure Portal och Active Directory användar etablerings appen som skapats i [del 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 
-1. Gå till <https://portal.azure.com>
-
-2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
-
-3. Välj **företags program**och sedan **alla program**.
-
-4. Välj **Lägg till ett program**och välj kategorin **alla** .
-
-5. Sök efter **arbets plats etablering till Active Directory**och Lägg till den appen från galleriet.
-
-6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
-
-7. Ändra **etablerings** **läget** till **automatiskt**
-
-8. Slutför avsnittet **admin credentials** enligt följande:
+1. Slutför avsnittet **admin credentials** enligt följande:
 
    * **Administratörens användar** namn – Ange användar namnet för kontot för arbets dag integrerings systemet med klient domän namnet tillagt. Det bör se ut ungefär så här: **användar namn\@tenant_name**
 
@@ -461,11 +472,11 @@ När du har distribuerat .NET 4.7.1 + kan du ladda ned den **[lokala etablerings
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att autentiseringsuppgifterna för arbets dag och de AD-autentiseringsuppgifter som kon figurer ATS för Agent installationen är giltiga.
 
-     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * När autentiseringsuppgifterna har sparats visar avsnittet **mappningar** standard mappningen **Synkronisera arbets uppgifter för arbets dagar till lokalt Active Directory**
 
-### <a name="part-3-configure-attribute-mappings"></a>Del 3: Konfigurera mappningar för attribut
+### <a name="part-4-configure-attribute-mappings"></a>Del 4: Konfigurera mappningar för attribut
 
 I det här avsnittet ska du konfigurera hur användar data flödar från arbets dagar till Active Directory.
 
@@ -526,7 +537,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
 1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Nedan visas några exempel på attribut mappningar mellan arbets dagar och Active Directory, med några vanliga uttryck
 
@@ -541,14 +552,14 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **WorkerID**  |  EmployeeID | **Ja** | Endast skrivet vid skapande |
 | **PreferredNameData**    |  CN    |   |   Endast skrivet vid skapande |
 | **SelectUniqueValue (JOIN ("\@", JOIN (".", \[FirstName\], \[efter namn\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 1), \[efter namn\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 2), \[efter namn\]), "contoso.com")**   | userPrincipalName     |     | Endast skrivet vid skapande 
-| **Ersätt (MID (replace (\[UserID\],, "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\]) ",," ",,), 1, 20)," ([\\\\.)\*\$] (file:///\\.) *$)", , "", , )**      |    Sam            |     |         Endast skrivet vid skapande |
-| **Växel (\[aktiva\],, "0", "true", "1", "false")** |  accountDisabled      |     | Skapa + uppdatera |
-| **FirstName**   | givenName       |     |    Skapa + uppdatera |
-| **LastName**   |   SN   |     |  Skapa + uppdatera |
+| **Ersätt(Mid(Ersätt(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Endast skrivet vid skapande |
+| **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Skapa + uppdatera |
+| **Förnamn**   | givenName       |     |    Skapa + uppdatera |
+| **Efternamn**   |   SN   |     |  Skapa + uppdatera |
 | **PreferredNameData**  |  displayName |     |   Skapa + uppdatera |
-| **Firm**         | företag   |     |  Skapa + uppdatera |
+| **Företag**         | company   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
-| **ManagerReference**   | Manager  |     |  Skapa + uppdatera |
+| **ManagerReference**   | ansvarig  |     |  Skapa + uppdatera |
 | **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa + uppdatera |
 | **Kommuner**   |   L   |     | Skapa + uppdatera |
@@ -558,8 +569,8 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa + uppdatera |
 | **Post nummer**  |   Postnummer  |     | Skapa + uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa + uppdatera |
-| **Faxfel**      | facsimileTelephoneNumber     |     |    Skapa + uppdatera |
-| **Enheter**  |    mobila       |     |       Skapa + uppdatera |
+| **Fax**      | facsimileTelephoneNumber     |     |    Skapa + uppdatera |
+| **Mobil**  |    mobila       |     |       Skapa + uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa + uppdatera |                                               
 | **Växel (\[kommun\]"OU = standard användare, OU = användare, OU = standard, OU = platser, DC = contoso, DC = com", "Borås", "OU = standard användare, OU = användare, OU = Borås, OU = platser, DC = contoso, DC = com", "Austin", "OU = standard användare, OU = användare, OU = Austin, OU = locations, DC = contoso, DC = com", "Seattle", "OU = standard användare, OU = användare, OU = Seattle, OU = locations, DC = contoso, DC = com", "London", "OU = standard användare, OU = användare, OU = London, OU = locations, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Skapa + uppdatera |
 
@@ -734,7 +745,7 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 
 5. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor (FAQ)
 
@@ -837,7 +848,7 @@ När du föreslår en ny idé bör du kontrol lera om någon annan redan har fö
 * Gå till **kontroll panelen** -> **Avinstallera eller ändra en program** meny
 * Leta efter den version som motsvarar posten **Microsoft Azure AD ansluta etablerings agenten**
 
-  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Push-överför Microsoft automatiskt Provisioning agent-uppdateringar?
 
@@ -973,7 +984,7 @@ Här kan du hantera sådana krav för att skapa *CN* eller *DisplayName* för at
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
      | PreferredLastName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
-     | Företag | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data [WD: Organization_Data/WD: Organization_Type_Reference/WD: ID [@wd:type= ' Organization_Type_ID '] = ' Company ']/wd:Organization_Reference/@wd:Descriptor |
+     | Företag | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data/WD: Organization_Data [WD: Organization_Type_Reference/WD: ID [@wd:type= ' Organization_Type_ID '] = ' övervakande ']/WD: Organization_Name/text () |
   
    Bekräfta med ditt Workday-team att API-uttrycket ovan är giltigt för din arbets grupps klient konfiguration. Om det behövs kan du redigera dem enligt beskrivningen i avsnittet [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
@@ -984,10 +995,10 @@ Här kan du hantera sådana krav för att skapa *CN* eller *DisplayName* för at
 
      | Workday-attribut | API XPATH-uttryck |
      | ----------------- | -------------------- |
-     | CountryReference | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Alpha-3_Code ']/text () |
+     | CountryReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Alpha-3_Code']/text() |
      | CountryReferenceFriendly | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/@wd:Descriptor |
-     | CountryReferenceNumeric | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Numeric-3_Code ']/text () |
-     | CountryReferenceTwoLetter | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Alpha-2_Code ']/text () |
+     | CountryReferenceNumeric | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Numeric-3_Code']/text() |
+     | CountryReferenceTwoLetter | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Alpha-2_Code']/text() |
      | CountryRegionReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Region_Reference/@wd:Descriptor |
 
   Bekräfta med ditt Workday-team att API-uttrycken ovan är giltiga för din konfiguration av din arbets dag. Om det behövs kan du redigera dem enligt beskrivningen i avsnittet [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.

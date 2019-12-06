@@ -1,17 +1,17 @@
 ---
 title: SQL-konstanter i Azure Cosmos DB
-description: Lär dig mer om SQL-konstanter i Azure Cosmos DB
+description: Läs om hur SQL Query-konstanterna i Azure Cosmos DB används för att representera ett särskilt data värde
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002033"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873428"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL Query-konstanter  
 

@@ -1,18 +1,18 @@
 ---
 title: COS i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function COS i Azure Cosmos DB.
+description: Lär dig mer om hur funktionen cosinus (COS) i SQL system i Azure Cosmos DB Returnerar det trigonometriska cosinus för den angivna vinkeln, i radianer, i det angivna uttrycket
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7e64127b7af749af87b90331c3f175957cfa7f09
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 05546ef531059e05a1426a288a48446d63d8e5df
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351080"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873411"
 ---
 # <a name="cos-azure-cosmos-db"></a>COS (Azure Cosmos DB)
  Returnerar trigonometrisk cosinus för den angivna vinkeln i radianer i det angivna uttrycket.  
@@ -34,7 +34,7 @@ COS(<numeric_expr>)
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel beräknas `COS` för den angivna vinkeln.  
+  I följande exempel beräknas `COS` av den angivna vinkeln.  
   
 ```sql
 SELECT COS(14.78) AS cos  

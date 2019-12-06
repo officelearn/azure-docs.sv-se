@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ed13b5028341637d71dee95f38cc44cc91aa2376
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481430"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851846"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg
 
@@ -127,13 +127,15 @@ Om du vill ange en regel för IP-brandvägg på server nivå i Azure Portal går
 
 #### <a name="from-the-database-overview-page"></a>På sidan databas översikt
 
-1. Om du vill ange en regel för IP-brandvägg på server nivå från sidan databas översikt väljer du **Ange server brand vägg** i verktygsfältet, som följande bild visar. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
+1. Om du vill ange en regel för IP-brandvägg på server nivå från sidan databas översikt väljer du **Ange server brand vägg** i verktygsfältet, som följande bild visar. 
 
-      ![Regel för Server-IP-brandvägg](./media/sql-database-get-started-portal/server-firewall-rule.png)
+    ![Regel för Server-IP-brandvägg](./media/sql-database-get-started-portal/sql-database-server-set-firewall-rule.png)
+
+    Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
 
 2. Välj **Lägg till klient-IP** i verktygsfältet för att lägga till IP-adressen för den dator som du använder och välj sedan **Spara**. En regel för IP-brandvägg på server nivå skapas för din aktuella IP-adress.
 
-      ![Ange regel för IP-brandvägg på server nivå](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
+    ![Ange regel för IP-brandvägg på server nivå](./media/sql-database-get-started-portal/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>På sidan Server översikt
 

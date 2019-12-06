@@ -1,6 +1,6 @@
 ---
-title: Utföra åtgärder för Azure Table storage med PowerShell | Microsoft Docs
-description: Utföra åtgärder för Azure Table storage med PowerShell.
+title: Utföra Azure Table Storage-åtgärder med PowerShell | Microsoft Docs
+description: Lär dig hur du kör vanliga uppgifter som att skapa, fråga och ta bort data från Azure Table Storage-kontot med hjälp av PowerShell.
 services: cosmos-db
 author: roygara
 ms.service: cosmos-db
@@ -8,40 +8,40 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: b1cae7dc553ce324349e66f1bcb8a281d7c7c7e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4591cded820bbefb741d55a22d10a91bd4fff383
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101310"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868515"
 ---
-# <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Table storage med Azure PowerShell 
+# <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utför Azure Table Storage-åtgärder med Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-Azure Table storage är en NoSQL-datalager som du kan använda för att lagra och fråga stora mängder strukturerad, icke-relationella data. Huvudkomponenterna i tjänsten är tabeller, entiteter och egenskaper. En tabell är en samling entiteter. En entitet är en uppsättning egenskaper. Varje entitet kan ha upp till 252 egenskaper, som är alla namn / värde-par. Den här artikeln förutsätter att du redan är bekant med principerna för Azure Table Storage-tjänsten. Detaljerad information finns i [förstå den tabelltjänst-datamodellen](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) och [komma igång med Azure Table storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+Azure Table Storage är ett NoSQL-datalager som du kan använda för att lagra och fråga enorma mängder strukturerade, icke-relationella data. Huvud komponenterna i tjänsten är tabeller, entiteter och egenskaper. En tabell är en samling entiteter. En entitet är en uppsättning egenskaper. Varje entitet kan ha upp till 252 egenskaper, vilket är alla namn/värde-par. Den här artikeln förutsätter att du redan är bekant med Azure Table Storage-tjänstens koncept. Detaljerad information finns i [förstå tabell tjänstens data modell](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) och [komma igång med Azure Table Storage med hjälp av .net](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
-I den här artikeln beskriver vanliga Azure Table storage-åtgärder. Lär dig att: 
+Den här instruktions artikeln beskriver vanliga åtgärder för Azure Table Storage. Lär dig att: 
 
 > [!div class="checklist"]
 > * Skapa en tabell
 > * Hämta en tabell
-> * Lägg till tabellentiteter
+> * Lägg till tabell enheter
 > * Fråga en tabell
-> * Ta bort tabellenheter
+> * Ta bort tabell enheter
 > * Ta bort en tabell
 
-I den här artikeln visar hur du skapar ett nytt Azure Storage-konto i en ny resursgrupp så att du kan enkelt ta bort den när du är klar. Om du föredrar att använda ett befintligt lagringskonto, kan du göra det i stället.
+Den här instruktions artikeln visar hur du skapar ett nytt Azure Storage konto i en ny resurs grupp så att du enkelt kan ta bort det när du är klar. Om du hellre vill använda ett befintligt lagrings konto kan du göra det i stället.
 
-Exemplen kräver Az PowerShell-moduler `Az.Storage (1.1.0 or greater)` och `Az.Resources (1.2.0 or greater)`. Kör i ett PowerShell-fönster `Get-Module -ListAvailable Az*` att hitta versionen. Om inget att visas eller om du behöver uppgradera kan du se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
-
-> [!IMPORTANT]
-> Med den här funktionen i Azure från PowerShell måste du ha den `Az` -modulen installerad. Den aktuella versionen av `AzTable` är inte kompatibelt med äldre AzureRM-modulen.
-> Följ den [senaste Installationsinstruktioner för att installera modulen Az](/powershell/azure/install-az-ps) om det behövs.
-
-När Azure PowerShell har installerats eller uppdaterats, måste du installera modulen **AzTable**, som innehåller kommandon för att hantera entiteterna. Installera den här modulen genom att köra PowerShell som administratör och Använd den **Install-Module** kommando.
+I exemplen krävs AZ PowerShell-moduler `Az.Storage (1.1.0 or greater)` och `Az.Resources (1.2.0 or greater)`. Kör `Get-Module -ListAvailable Az*` för att hitta versionen i ett PowerShell-fönster. Om inget visas, eller om du behöver uppgradera, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> För modulen namn kompatibilitet orsakerna till att vi fortfarande publicerar det här samma modul med det gamla namnet `AzureRmStorageTables` i PowerShell-galleriet. Det här dokumentet ska referera till det nya namnet.
+> Om du använder den här Azure-funktionen från PowerShell måste du ha installerat `Az`-modulen. Den aktuella versionen av `AzTable` är inte kompatibel med den äldre AzureRM-modulen.
+> Följ de [senaste installations anvisningarna för att installera AZ-modulen](/powershell/azure/install-az-ps) om det behövs.
+
+När Azure PowerShell har installerats eller uppdaterats måste du installera module **AzTable**, som har kommandon för att hantera entiteterna. Om du vill installera den här modulen kör du PowerShell som administratör och använder kommandot **install-module** .
+
+> [!IMPORTANT]
+> För kompatibilitet av Modulnamn publicerar vi fortfarande samma modul under det gamla namnet `AzureRmStorageTables` i PowerShell-galleriet. Det här dokumentet refererar endast till det nya namnet.
 
 ```powershell
 Install-Module AzTable
@@ -57,7 +57,7 @@ Add-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Hämta lista över platser
 
-Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. De här exemplen använder **eastus**. Store det här värdet i variabeln **plats** för framtida användning.
+Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. I de här exemplen används **öster**. Lagra det här värdet på variabel **platsen** för framtida användning.
 
 ```powershell
 Get-AzLocation | select Location
@@ -68,7 +68,7 @@ $location = "eastus"
 
 Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Store resursgruppens namn i en variabel för framtida användning. I det här exemplet, en resursgrupp med namnet *pshtablesrg* skapas i den *eastus* region.
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Lagra resurs grupps namnet i en variabel för framtida användning. I det här exemplet skapas en resurs grupp med namnet *pshtablesrg* i regionen *östra* .
 
 ```powershell
 $resourceGroup = "pshtablesrg"
@@ -77,7 +77,7 @@ New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Skapa lagringskonto
 
-Skapa ett allmänt standardlagringskonto med lokalt redundant lagring (LRS) med hjälp av [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Glöm inte att ange ett unikt namn på lagringskontot. Hämta sedan kontexten som representerar storage-konto. När du arbetar med ett storage-konto, refererar du till kontexten i stället för att ange dina autentiseringsuppgifter flera gånger.
+Skapa ett allmänt standard lagrings konto med lokalt redundant lagring (LRS) med [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Se till att ange ett unikt lagrings konto namn. Sedan hämtar du den kontext som representerar lagrings kontot. När du agerar på ett lagrings konto kan du referera till kontexten i stället för att flera gånger ange dina autentiseringsuppgifter.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
@@ -92,35 +92,35 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>Skapa en ny tabell
 
-Du kan skapa en tabell med den [New AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) cmdlet. I det här exemplet tabellen kallas `pshtesttable`.
+Använd cmdleten [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) för att skapa en tabell. I det här exemplet kallas tabellen `pshtesttable`.
 
 ```powershell
 $tableName = "pshtesttable"
 New-AzStorageTable –Name $tableName –Context $ctx
 ```
 
-## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>Hämta en lista över tabeller i lagringskontot
+## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>Hämta en lista över tabeller i lagrings kontot
 
-Hämta en lista över tabeller i storage-konto med [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
+Hämta en lista över tabeller i lagrings kontot med hjälp av [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 Get-AzStorageTable –Context $ctx | select Name
 ```
 
-## <a name="retrieve-a-reference-to-a-specific-table"></a>Hämta en referens till en viss tabell
+## <a name="retrieve-a-reference-to-a-specific-table"></a>Hämta en referens till en speciell tabell
 
-För att utföra åtgärder på en tabell, behöver du en referens till tabellen. Hämta en referens med hjälp av [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
+Om du vill utföra åtgärder i en tabell behöver du en referens till den aktuella tabellen. Hämta en referens med [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ```
 
-## <a name="reference-cloudtable-property-of-a-specific-table"></a>Referens för CloudTable-egenskapen för en viss tabell
+## <a name="reference-cloudtable-property-of-a-specific-table"></a>Referens CloudTable-egenskap för en speciell tabell
 
 > [!IMPORTANT]
-> Användning av CloudTable är obligatorisk när du arbetar med **AzTable** PowerShell-modulen. Anropa den **Get-AzTableTable** kommando för att hämta en referens till det här objektet. Det här kommandot skapar även tabellen om den inte redan finns.
+> Användningen av CloudTable är obligatorisk när du arbetar med **AzTable** PowerShell-modulen. Anropa kommandot **Get-AzTableTable** för att hämta referensen till det här objektet. Det här kommandot skapar även tabellen om den inte redan finns.
 
-Att utföra åtgärder på en tabell med **AzTable**, behöver du en referens till CloudTable egenskap för en specifik tabell.
+Om du vill utföra åtgärder för en tabell med **AzTable**måste du ha en referens till egenskapen CloudTable för en speciell tabell.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
@@ -130,7 +130,7 @@ $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
 
-Ta bort en tabell genom att använda [Remove-AzStorageTable](/powershell/module/az.storage/Remove-AzStorageTable). Denna cmdlet tar bort tabellen, samt alla data.
+Om du vill ta bort en tabell använder du [Remove-AzStorageTable](/powershell/module/az.storage/Remove-AzStorageTable). Den här cmdleten tar bort tabellen, inklusive alla dess data.
 
 ```powershell
 Remove-AzStorageTable –Name $tableName –Context $ctx
@@ -141,7 +141,7 @@ Get-AzStorageTable –Context $Ctx | select Name
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du har skapat en ny grupp och lagring resurskontot i början av den här anvisningen, kan du ta bort alla resurser som du har skapat i den här övningen genom att ta bort resursgruppen. Det här kommandot tar bort alla resurser som ingår i gruppen samt själva resursgruppen.
+Om du har skapat en ny resurs grupp och ett lagrings konto i början av den här instruktionen kan du ta bort alla till gångar som du har skapat i den här övningen genom att ta bort resurs gruppen. Det här kommandot tar bort alla resurser som ingår i gruppen samt själva resurs gruppen.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -149,20 +149,20 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln berättade om vanliga Azure Table storage-åtgärder med PowerShell, inklusive hur du: 
+I den här instruktions artikeln har du lärt dig om vanliga Azure Table Storage-åtgärder med PowerShell, inklusive hur du: 
 
 > [!div class="checklist"]
 > * Skapa en tabell
 > * Hämta en tabell
-> * Lägg till tabellentiteter
+> * Lägg till tabell enheter
 > * Fråga en tabell
-> * Ta bort tabellenheter
+> * Ta bort tabell enheter
 > * Ta bort en tabell
 
 Mer information finns i följande artiklar
 
 * [Storage PowerShell cmdletar](/powershell/module/az.storage#storage)
 
-* [Arbeta med Azure-tabeller från PowerShell - AzureRmStorageTable/AzTable PS-modulen v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
+* [Arbeta med Azure-tabeller från PowerShell-AzureRmStorageTable/AzTable PS module v 2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

@@ -4,17 +4,17 @@ description: Den här artikeln är avsedd att hjälpa dig att konfigurera System
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 92a93982cdd042a92b006cab7052ad4a6fee6fff
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 345adeee37f5f9bc4c794eb9bb624e7797197f22
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478207"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850218"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrera System Center Configuration Manager med uppdateringshantering
 
@@ -22,11 +22,11 @@ Kunder som har investerat i System Center Configuration Manager för att hantera
 
 Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och förinstallera programuppdateringsdistributioner i Configuration Manager och få detaljerad status för slutförda uppdateringsdistributioner med den [lösningen för uppdateringshantering](automation-update-management.md). Om du använder Configuration Manager för uppdatering av efterlevnadsrapportering men inte för att hantera uppdateringsdistributioner med dina Windows-servrar kan fortsätta du att rapportera till Configuration Manager medan säkerhetsuppdateringar hanteras med lösningen för uppdateringshantering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du måste ha den [uppdateringshanteringslösningen](automation-update-management.md) lagts till i ditt Automation-konto.
 * Windows-servrar som för närvarande hanteras av System Center Configuration Manager-miljön måste också rapportera till Log Analytics-arbetsytan som även har lösningen för uppdateringshantering aktiverad.
-* Den här funktionen är aktiverad i System Center Configuration Manager current branch-versionen 1606 och högre. Om du vill integrera den centrala administrationswebbplatsen för Configuration Manager eller en fristående primär plats med Azure Monitor-loggar och importera samlingar, granska [Anslut Konfigurationshanteraren till Azure Monitor loggar](../azure-monitor/platform/collect-sccm.md).  
+* Den här funktionen är aktiverad i System Center Configuration Manager current branch-versionen 1606 och högre. Om du vill integrera Configuration Manager Central administrations plats eller en fristående primär plats med Azure Monitor loggar och importera samlingar, granskar [du anslut Configuration Manager till Azure Monitor loggar](../azure-monitor/platform/collect-sccm.md).  
 * Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update om de inte får säkerhetsuppdateringar från Configuration Manager.   
 
 Hur du hanterar klienter som finns i Azure IaaS med den befintliga Configuration Manager-miljön beror främst på anslutningen mellan dina Azure-datacenter och din infrastruktur. Den här anslutningen påverkar alla ändringar du kan behöva göra i Configuration Manager-infrastrukturen och relaterade kostnader för att stödja de nödvändiga ändringarna. För att förstå vilka överväganden för planering du behöver utvärdera innan du fortsätter kan du läsa [vanliga frågor och svar om Configuration Manager på Azure](/sccm/core/understand/configuration-manager-on-azure#networking).

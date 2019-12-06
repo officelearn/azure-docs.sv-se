@@ -4,21 +4,21 @@ description: En webhook som gör att en klient kan starta en Runbook i Azure Aut
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061447"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849606"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation Runbook med en webhook
 
-Med en webhook kan du starta en viss runbook i Azure Automation via en enda http-begäran. Detta gör att externa tjänster som Azure DevOps Services, GitHub, Azure Monitor loggar eller anpassade program kan starta Runbooks utan att implementera en fullständig lösning med hjälp av Azure Automation API.
+Med en *webhook* kan du starta en viss runbook i Azure Automation via en enda http-begäran. Detta gör att externa tjänster som Azure DevOps Services, GitHub, Azure Monitor loggar eller anpassade program kan starta Runbooks utan att implementera en fullständig lösning med hjälp av Azure Automation API.
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Du kan jämföra Webhooks med andra metoder för att starta en runbook när du [startar en Runbook i Azure Automation](automation-starting-a-runbook.md)
@@ -30,12 +30,12 @@ Du kan jämföra Webhooks med andra metoder för att starta en runbook när du [
 
 I följande tabell beskrivs de egenskaper som du måste konfigurera för en webhook.
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| Name |Du kan ange vilket namn du vill för en webhook eftersom det inte visas för klienten. Den används bara för att identifiera runbooken i Azure Automation. <br> Vi rekommenderar att du ger webhooken ett namn som är relaterat till klienten som använder den. |
+| Namn |Du kan ange vilket namn du vill för en webhook eftersom det inte visas för klienten. Den används bara för att identifiera runbooken i Azure Automation. <br> Vi rekommenderar att du ger webhooken ett namn som är relaterat till klienten som använder den. |
 | URL |URL: en för webhook är den unika adress som en klient anropar med ett HTTP-inlägg för att starta den Runbook som är länkad till webhooken. Den skapas automatiskt när du skapar webhooken. Du kan inte ange en anpassad URL. <br> <br> URL: en innehåller en säkerhetstoken som gör att runbooken kan anropas av ett system från tredje part utan ytterligare autentisering. Av den anledningen bör det behandlas som ett lösen ord. Av säkerhets skäl kan du bara Visa webb adressen i Azure Portal när webhooken skapas. Notera URL: en på en säker plats för framtida användning. |
-| Upphörandedatum |Precis som ett certifikat har varje webhook ett förfallo datum då den inte längre kan användas. Detta förfallo datum kan ändras efter att webhooken har skapats så länge webhooken inte har upphört att gälla. |
-| Aktiverad |En webhook är aktive rad som standard när den skapas. Om du ställer in den på inaktive rad kan ingen klient använda den. Du kan ställa in egenskapen Enabled när du skapar webhooken eller när den skapas. |
+| Förfallodatum |Precis som ett certifikat har varje webhook ett förfallo datum då den inte längre kan användas. Detta förfallo datum kan ändras efter att webhooken har skapats så länge webhooken inte har upphört att gälla. |
+| Enabled |En webhook är aktive rad som standard när den skapas. Om du ställer in den på inaktive rad kan ingen klient använda den. Du kan ställa in egenskapen **Enabled** när du skapar webhooken eller när den skapas. |
 
 ### <a name="parameters"></a>Parametrar
 
@@ -51,7 +51,7 @@ När en klient startar en Runbook med en webhook kan den inte åsidosätta de pa
 |:--- |:--- |
 | WebhookName |Namnet på webhooken. |
 | RequestHeader |Hash-tabell som innehåller rubrikerna för inkommande POST-begäran. |
-| RequestBody |Bröd texten i begäran om inkommande POST. Detta behåller all formatering, till exempel sträng-, JSON-, XML-eller form-kodade data. Runbooken måste skrivas för att fungera med det data format som förväntas. |
+| requestBody |Bröd texten i begäran om inkommande POST. Detta behåller all formatering, till exempel sträng-, JSON-, XML-eller form-kodade data. Runbooken måste skrivas för att fungera med det data format som förväntas. |
 
 Det krävs ingen konfiguration av webhook för att stödja **$WebhookData** -parametern och det krävs ingen Runbook för att acceptera den. Om runbooken inte definierar parametern, ignoreras all information om begäran som skickas från klienten.
 
@@ -66,7 +66,7 @@ Om du till exempel startar följande Runbook från Azure Portal och vill skicka 
 
 För följande Runbook, om du har följande egenskaper för parametern WebhookData:
 
-* WebhookName *MyWebhook*
+* WebhookName: *MyWebhook*
 * RequestBody: *[{' ResourceGroup ': ' myResourceGroup ', ' name ': ' VM01 '}, {' ResourceGroup ': ' myResourceGroup ', ' namn ': ' VM02 '}]*
 
 Sedan skickar du följande JSON-värde i användar gränssnittet för parametern WebhookData. Följande exempel med tecknen vagn returer och rad matningar matchar formatet som skickas från en webhook.
@@ -93,15 +93,15 @@ En annan strategi är att låta Runbook utföra en del validering av ett externt
 Använd följande procedur för att skapa en ny webhook som är länkad till en Runbook i Azure Portal.
 
 1. På **sidan Runbooks** i Azure Portal klickar du på den Runbook som webhooken börjar visa sin informations sida. Se till att Runbook- **statusen** har **publicerats**.
-2. Klicka på webhook överst på sidan för att öppna sidan **Lägg till webhook** .
+2. Klicka på **webhook** överst på sidan för att öppna sidan **Lägg till webhook** .
 3. Klicka på **Skapa ny webhook** för att öppna **sidan Skapa webhook**.
 4. Ange ett **namn**, **utgångs datum** för webhooken och om det ska aktive ras. Se [information om en webhook](#details-of-a-webhook) för mer information om dessa egenskaper.
 5. Klicka på Kopiera-ikonen och tryck på CTRL + C för att kopiera URL: en för webhooken. Registrera den på ett säkert ställe. **När du skapar webhooken kan du inte hämta URL: en igen.**
 
    ![Webhook-URL](media/automation-webhooks/copy-webhook-url.png)
 
-1. Klicka på **parametrar** för att ange värden för Runbook-parametrarna. Om runbooken har obligatoriska parametrar kan du inte skapa webhooken om inte värden anges.
-1. Skapa webhooken genom att klicka på **skapa** .
+1. Klicka på **parametrar** för att ange värden för Runbook-parametrarna. Om runbooken har obligatoriska parametrar kan du inte skapa webhooken utan att ange värdena.
+1. Skapa webhooken genom att klicka på **Skapa**.
 
 ## <a name="using-a-webhook"></a>Använda en webhook
 
@@ -113,12 +113,12 @@ http://<Webhook Server>/token?=<Token Value>
 
 Klienten får en av följande retur koder från POST-begäran.
 
-| Kod | Text | Beskrivning |
+| Programmera | Text | Beskrivning |
 |:--- |:--- |:--- |
-| 202 |Accepterad |Begäran accepterades och Runbook har placerats i kö. |
-| 400 |Felaktig begäran |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Webhooken har upphört att gälla.</li> <li>Webhooken är inaktive rad.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
-| 404 |Kunde inte hittas |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Det gick inte att hitta webhooken.</li> <li>Det gick inte att hitta Runbook-flödet.</li> <li>Det gick inte att hitta kontot.</li>  </ul> |
-| 500 |Internt serverfel |URL: en var giltig, men ett fel uppstod. Skicka begäran igen. |
+| 202 |Godkänd |Begäran accepterades och Runbook har placerats i kö. |
+| 400 |Felaktig förfrågan |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Webhooken har upphört att gälla.</li> <li>Webhooken är inaktive rad.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
+| 404 |Hittades inte |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Det gick inte att hitta webhooken.</li> <li>Det gick inte att hitta Runbook-flödet.</li> <li>Det gick inte att hitta kontot.</li>  </ul> |
+| 500 |Internt Server fel |URL: en var giltig, men ett fel uppstod. Skicka begäran igen. |
 
 Förutsatt att begäran lyckas innehåller webhook-svaret jobb-ID i JSON-format på följande sätt. Det innehåller ett enda jobb-ID, men JSON-formatet möjliggör framtida framtida förbättringar.
 
@@ -132,7 +132,7 @@ Klienten kan inte avgöra när Runbook-jobbet har slutförts eller om dess slut 
 
 När en webhook skapas har den en giltighets tid på ett år. Efter det året förfaller webhooken automatiskt. När en webhook har gått ut kan den inte återaktiveras. den måste tas bort och återskapas. Om en webhook inte har nått sin förfallo tid kan den utökas.
 
-Om du vill utöka en webhook navigerar du till den Runbook som innehåller webhooken. Välj Webhooks under **resurser**. Klicka på webhooken som du vill utöka. den här åtgärden öppnar **webhook** -sidan.  Välj ett nytt förfallo datum och tid och klicka på **Spara**.
+Om du vill utöka en webhook navigerar du till den Runbook som innehåller webhooken. Välj **Webhooks** under **resurser**. Klicka på webhooken som du vill utöka. den här åtgärden öppnar **webhook** -sidan.  Välj ett nytt förfallo datum och tid och klicka på **Spara**.
 
 ## <a name="sample-runbook"></a>Exempel-Runbook
 

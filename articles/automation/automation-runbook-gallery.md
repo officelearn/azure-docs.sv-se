@@ -4,17 +4,17 @@ description: Runbooks och moduler från Microsoft och communityn är tillgängli
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231615"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850728"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook-och modul-gallerier för Azure Automation
 
@@ -43,7 +43,7 @@ Du kan bara importera direkt från PowerShell-galleriet med hjälp av Azure Port
 5. Klicka på **Visa käll projekt** om du vill visa objektet i [TechNets skript Center](https://gallery.technet.microsoft.com/).
 6. Om du vill importera ett objekt klickar du på det för att visa information om det och klickar sedan på knappen **Importera** .
 
-   ![Knappen Importera](media/automation-runbook-gallery/gallery-item-detail.png)
+   ![Knappen Import](media/automation-runbook-gallery/gallery-item-detail.png)
 
 7. Du kan också ändra namnet på runbooken och sedan klicka på **OK** för att importera runbooken.
 8. Runbooken visas på fliken **Runbooks** för Automation-kontot.
@@ -71,7 +71,7 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
 
    * Modulnamn
    * Taggar
-   * Författare
+   * Skapa
    * Namn på cmdlet/DSC-resurs
 
 5. Leta upp en modul som du är intresse rad av och välj den för att visa information om den.

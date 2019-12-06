@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a60691222c6f5f31a5b5c97df029790c1fd690ed
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584528"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873900"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,31 +32,31 @@ Förbättra skapande processen för modeller genom att spåra experiment och öv
 
 ## <a name="available-metrics-to-track"></a>Tillgängliga mått som ska spåras
 
-Du kan lägga till följande mått i en körning medan du tränar ett experiment. Om du vill visa en mer detaljerad lista över vad som kan spåras i en körning, se [referens dokumentationen för körnings klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
+Följande mått kan läggas till en körning vid utbildning ett experiment. Om du vill visa en mer detaljerad lista över vad som kan spåras på en körning, se den [kör klass referensdokumentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Typ| Python-funktionen | Anteckningar|
+|Typ| Python-funktion | Anteckningar|
 |----|:----|:----|
-|Skalära värden |Funktioner<br>`run.log(name, value, description='')`<br><br>Exempel:<br>Kör. log ("noggrannhet", 0,95) |Logga ett numeriskt värde eller sträng värde för körningen med det tilldelade namnet. Att logga ett mått på en körning gör att måttet lagras i körnings posten i experimentet.  Du kan logga samma mått flera gånger i en körning, och resultatet betraktas som en Vector för det måttet.|
-|Vilka|Funktioner<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Kör. log _list ("felaktigheter", [0,6, 0,7, 0,87]) | Logga en lista med värden som ska köras med det aktuella namnet.|
-|radhöjd|Funktioner<br>`run.log_row(name, description=None, **kwargs)`<br>Exempel:<br>Kör. log _row ("Y över X", X = 1, Y = 0.4) | Om du använder *log_row* skapas ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngiven parameter genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tupel eller flera gånger i en slinga för att generera en fullständig tabell.|
-|Tabell|Funktioner<br>`run.log_table(name, value, description='')`<br><br>Exempel:<br>Kör. log _table ("Y över X", {"X": [1, 2, 3], "Y": [0.6, 0,7, 0,89]}) | Logga ett Dictionary-objekt i körningen med det aktuella namnet. |
-|Avbildningar|Funktioner<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plt)` | Logga en bild i körnings posten. Använd log_image för att logga en bildfil eller en matplotlib-rityta för körningen.  De här bilderna visas och är jämförbara i körnings posten.|
-|Tagga en körning|Funktioner<br>`run.tag(key, value=None)`<br><br>Exempel:<br>Kör. tag ("vald", "Ja") | Tagga körningen med en sträng nyckel och ett valfritt sträng värde.|
-|Ladda upp fil eller katalog|Funktioner<br>`run.upload_file(name, path_or_stream)`<br> <br> Exempel:<br>Kör. upload_file ("best_model. PKL", "./Model.PKL") | Ladda upp en fil till körnings posten. Kör automatiskt avbilda fil i den angivna utdatakatalogen som är "./outputs" som standard för de flesta körnings typer.  Använd endast upload_file när ytterligare filer behöver överföras eller om ingen utmatnings katalog har angetts. Vi rekommenderar att du lägger till `outputs` till namnet så att det överförs till katalogen utdata. Du kan visa en lista över alla filer som är associerade med den här körnings posten genom att anropa `run.get_file_names()`|
+|Skalära värden |Funktionen:<br>`run.log(name, value, description='')`<br><br>Exempel:<br>Run.log (”Precision”, 0,95) |Logga en numeriska eller Anslutningssträngens värde ska köras med det angivna namnet. Logga ett mått på en körning gör det måttet som ska lagras i den kör posten i experimentet.  Du kan logga samma mått flera gånger inom en körning resultatet ses som en vektor för att mått.|
+|Visar en lista över|Funktionen:<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Run.log_list (”noggrannhet” [0,6, 0,7, 0.87]) | Logga in en lista med värden ska köras med det angivna namnet.|
+|Rad|Funktionen:<br>`run.log_row(name, description=None, **kwargs)`<br>Exempel:<br>Run.log_row (”Y över X” x = 1, y = 0.4) | Med hjälp av *log_row* skapar ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngivna parametern genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tuppel eller flera gånger i en loop för att generera en hel tabell.|
+|Tabell|Funktionen:<br>`run.log_table(name, value, description='')`<br><br>Exempel:<br>Run.log_table (”Y över X”, {”x”: [1, 2, 3], ”y”: [0,6, 0,7, 0,89 tum]}) | Logga ett katalogobjekt ska köras med det angivna namnet. |
+|Avbildningar|Funktionen:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plt)` | Logga in en avbildning kör posten. Använd log_image för att logga en fil eller en matplotlib ritning körningen.  Dessa avbildningar är synlig och jämförbar i posten kör.|
+|Tagga en körning|Funktionen:<br>`run.tag(key, value=None)`<br><br>Exempel:<br>Run.tag (”valda”, ”yes”) | Tagga kör med en strängnyckel och ett valfritt strängvärde.|
+|Ladda upp filen eller katalogen|Funktionen:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exempel:<br>Run.upload_file (”best_model.pkl” ”,. / model.pkl”) | Ladda upp en fil till kör posten. Körs automatiskt samla in fil i den angivna katalogen, där standardinställningen är ”. / matar ut” för de flesta typer som körs.  Använd upload_file endast när ytterligare filer måste överföras eller en utdatakatalog har inte angetts. Vi rekommenderar att lägga till `outputs` namn så att den hämtar överförs till utdata-katalogen. Du kan lista alla filer som är associerade med detta kör post efter kallas `run.get_file_names()`|
 
 > [!NOTE]
-> Mått för skalärer, listor, rader och tabeller kan ha typen: Float, Integer eller String.
+> Mått för skalärer, listor, rader och tabeller kan ha typen: flyttal, heltal eller string.
 
 ## <a name="choose-a-logging-option"></a>Välj ett loggnings alternativ
 
-Om du vill spåra eller övervaka experimentet måste du lägga till kod för att starta loggning när du skickar in körningen. Följande är exempel på hur du kan starta sändningen:
-* __Kör. start_logging__ – Lägg till loggnings funktioner i ditt utbildnings skript och starta en interaktiv loggningsmodul i det angivna experimentet. **start_logging** skapar en interaktiv körning för användning i scenarier som antecknings böcker. Alla mått som loggas under sessionen läggs till i körnings posten i experimentet.
-* __ScriptRunConfig__ – Lägg till loggnings funktioner i ditt utbildnings skript och Läs in hela skript-mappen med körningen.  **ScriptRunConfig** är en klass för att konfigurera konfigurationer för skript körningar. Med det här alternativet kan du lägga till övervaknings kod för att få ett meddelande om slut för ande eller för att få en visuell widget att övervaka.
+Om du vill spåra och övervaka ditt experiment, måste du lägga till kod för att starta loggning när du skickar in körningen. Här följer några sätt att utlösa kör överföringen:
+* __Run.start_logging__ – Lägg till loggningsfunktioner i dina utbildningsskript och starta en interaktiv loggningssession i det angivna experimentet. **start_logging** skapar en interaktiv körning för användning i scenarier, till exempel bärbara datorer. Alla mått som är inloggad under sessionen har lagts till den kör posten i experimentet.
+* __ScriptRunConfig__ – Lägg till loggningsfunktioner i utbildningsskript och läsa in mappen hela skriptet med alternativet Kör.  **ScriptRunConfig** är en klass för att konfigurera konfigurationer för skriptet körs. Du kan använda det här alternativet för att lägga till koden för övervakning för att aviseras om slutförande eller för att hämta en visual widget att övervaka.
 
-## <a name="set-up-the-workspace"></a>Konfigurera arbets ytan
-Innan du lägger till loggning och skickar ett experiment måste du konfigurera arbets ytan.
+## <a name="set-up-the-workspace"></a>Ställ in arbetsytan
+Innan du lägger till loggning och skicka ett experiment, måste du ställa in arbetsytan.
 
-1. Läs in arbets ytan. Mer information om hur du anger arbets ytans konfiguration finns i [konfigurations filen för arbets ytan](how-to-configure-environment.md#workspace).
+1. Läs in arbetsytan. Mer information om hur du anger arbets ytans konfiguration finns i [konfigurations filen för arbets ytan](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -67,11 +67,11 @@ Innan du lägger till loggning och skickar ett experiment måste du konfigurera 
   
 ## <a name="option-1-use-start_logging"></a>Alternativ 1: Använd start_logging
 
-**start_logging** skapar en interaktiv körning för användning i scenarier som antecknings böcker. Alla mått som loggas under sessionen läggs till i körnings posten i experimentet.
+**start_logging** skapar en interaktiv körning för användning i scenarier, till exempel bärbara datorer. Alla mått som är inloggad under sessionen har lagts till den kör posten i experimentet.
 
-I följande exempel tågen en enkel sklearn Ridge-modell lokalt i en lokal Jupyter-anteckningsbok. Mer information om hur du skickar experiment till olika miljöer finns i [Konfigurera beräknings mål för modell utbildning med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+I följande exempel träna en enkel modell sklearn upphöjning lokalt i en lokal Jupyter-anteckningsbok. Mer information om hur du skickar experiment till olika miljöer finns i [Konfigurera beräknings mål för modell utbildning med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 
-1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. 
+1. Skapa ett inlärningsskript i en lokal Jupyter-anteckningsbok. 
 
    ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
@@ -95,7 +95,7 @@ I följande exempel tågen en enkel sklearn Ridge-modell lokalt i en lokal Jupyt
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Lägg till experiment uppföljning med Azure Machine Learning SDK och ladda upp en beständiga modell i experiment körnings posten. Följande kod lägger till taggar, loggar och laddar upp en modell fil till experimentet.
+2. Lägg till experiment uppföljning med Azure Machine Learning SDK och ladda upp en beständiga modell i experiment körnings posten. Följande kod lägger till taggar, loggar, och laddar upp en modellfil till körningen av experimentet.
 
    ```python
     # Get an experiment object from Azure Machine Learning
@@ -127,13 +127,13 @@ I följande exempel tågen en enkel sklearn Ridge-modell lokalt i en lokal Jupyt
     run.complete()
    ```
 
-    Skriptet slutar med ```run.complete()```, vilket markerar kör som slutfört.  Den här funktionen används vanligt vis i interaktiva scenarier för bärbara datorer.
+    Skriptet slutar med ```run.complete()```, som markeras körningen som slutfört.  Den här funktionen används vanligtvis i interaktiva notebook-scenarier.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använd ScriptRunConfig
 
-[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) är en klass för att konfigurera konfigurationer för skript körningar. Med det här alternativet kan du lägga till övervaknings kod för att få ett meddelande om slut för ande eller för att få en visuell widget att övervaka.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) är en klass för att konfigurera konfigurationer för skript körningar. Du kan använda det här alternativet för att lägga till koden för övervakning för att aviseras om slutförande eller för att hämta en visual widget att övervaka.
 
-Det här exemplet expanderas i den grundläggande sklearn Ridge-modellen från ovan. Det gör att en enkel parameter svep för att svepa över alfa värden i modellen för att samla in mått och utbildade modeller i körs under experimentet. Exemplet körs lokalt mot en användar hanterad miljö. 
+Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ovan. Den gör en enkel parameter Svep svep över alfavärden av modellen för att hämta mått och tränade modeller i körs under experimentet. Exemplet körs lokalt mot en användarhanterade miljö. 
 
 1. Skapa ett utbildnings skript `train.py`.
 
@@ -201,7 +201,7 @@ Det här exemplet expanderas i den grundläggande sklearn Ridge-modellen från o
       return np.arange(0.0, 1.0, 0.05)
    ```
 
-3. Konfigurera en användare hanterad lokal miljö.
+3. Konfigurera en lokal miljö med användarhanterade.
 
    ```python
    from azureml.core import Environment
@@ -215,7 +215,7 @@ Det här exemplet expanderas i den grundläggande sklearn Ridge-modellen från o
    #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
-4. Skicka ```train.py``` skriptet som ska köras i den användar hanterade miljön. Hela skriptets mapp skickas för utbildning, inklusive ```mylib.py```-filen.
+4. Skicka den ```train.py``` skript som ska köras i användarhanterade-miljö. Den här mappen för hela skriptet har skickats för utbildning, inklusive den ```mylib.py``` filen.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -230,19 +230,38 @@ Det här exemplet expanderas i den grundläggande sklearn Ridge-modellen från o
 
 [Övnings körningen starta, övervaka och Avbryt visar](how-to-manage-runs.md) mer information Azure Machine Learning arbets flöden för hur du hanterar experiment.
 
-## <a name="view-run-details"></a>Visa körnings information
+## <a name="view-run-details"></a>Visa körningsinformation
+
+### <a name="view-activequeued-runs-from-the-browser"></a>Visa aktiva/köade körningar från webbläsaren
+
+Beräknings mål som används för att träna modeller är en delad resurs. Därför kan de ha flera körningar i kö eller aktiva vid en specifik tidpunkt. Använd följande steg för att se körningarna för ett bestämt beräknings mål i webbläsaren:
+
+1. Välj din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com/)och välj sedan __Beräkna__ på sidans vänstra sida.
+
+1. Välj __utbildnings kluster__ om du vill visa en lista med beräknings mål som används för utbildning. Välj sedan klustret.
+
+    ![Välj utbildnings kluster](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Välj __körningar__. Listan över körningar som använder det här klustret visas. Om du vill visa information om en speciell körning använder du länken i kolumnen __Kör__ . Om du vill visa information om experimentet använder du länken i kolumnen __experimentera__ .
+
+    ![Välj körningar för utbildnings kluster](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > En körning kan innehålla underordnade körningar, så ett utbildnings jobb kan resultera i flera poster.
+
+När en körning har slutförts visas den inte längre på den här sidan. Om du vill visa information om slutförda körningar går du till avsnittet __experiment__ i Studio och väljer experimentet och kör. Mer information finns i avsnittet [köra mått för frågor](#queryrunmetrics) .
 
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>Övervaka körning med Jupyter Notebook-widget
 När du använder **ScriptRunConfig** -metoden för att skicka körningar kan du se förloppet för körningen med en [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Precis som körningsöverföringen är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till var 15:e sekund tills jobbet har slutförts.
 
-1. Visa widgeten Jupyter i väntan på att körningen ska slutföras.
+1. Visa widgeten Jupyter under väntan på Kör för att slutföra.
 
    ```python
    from azureml.widgets import RunDetails
    RunDetails(run).show()
    ```
 
-   ![Skärm bild av widgeten Jupyter Notebook](./media/how-to-track-experiments/run-details-widget.png)
+   ![Skärmbild av Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
 
 Du kan också hämta en länk till samma visning i din arbets yta.
 
@@ -250,7 +269,7 @@ Du kan också hämta en länk till samma visning i din arbets yta.
 print(run.get_portal_url())
 ```
 
-2. **[För automatiserade maskin inlärnings körningar]** För att få åtkomst till diagram från en tidigare körning. Ersätt `<<experiment_name>>` med lämpligt experiment namn:
+2. **[Automatiserad machine learning i körningar]**  Att komma åt diagrammen från en tidigare körning. Ersätt `<<experiment_name>>` med lämpligt experiment namn:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -262,55 +281,56 @@ print(run.get_portal_url())
    RunDetails(run).show()
    ```
 
-   ![Jupyter Notebook-widget för automatiserad Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+   ![Jupyter notebook widget för automatiserad Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 Om du vill visa mer information om en pipeline klickar du på pipelinen som du vill utforska i tabellen och diagrammet visas i ett popup-fönster från Azure Machine Learning Studio.
 
 ### <a name="get-log-results-upon-completion"></a>Hämta loggresultat när åtgärden har slutförts
 
-Modell träning och övervakning sker i bakgrunden så att du kan köra andra uppgifter medan du väntar. Du kan också vänta tills modellen har slutfört utbildningen innan du kör mer kod. När du använder **ScriptRunConfig**kan du använda ```run.wait_for_completion(show_output = True)``` för att visa när modell träningen är klar. Med flaggan ```show_output``` får du utförliga utdata. 
+Modellen tränas och övervakning sker i bakgrunden så att du kan köra andra uppgifter medan du väntar. Du kan också vänta tills modellen har slutförts utbildning innan du kör mer kod. När du använder **ScriptRunConfig**, du kan använda ```run.wait_for_completion(show_output = True)``` ska visas när modellträning är klar. Den ```show_output``` flaggan ger dig utförliga utdata. 
 
+<a id="queryrunmetrics"></a>
 
-### <a name="query-run-metrics"></a>Kör mått för fråga
+### <a name="query-run-metrics"></a>Frågekörningen mått
 
-Du kan visa måtten för en tränad modell med ```run.get_metrics()```. Nu kan du hämta alla mått som loggades i exemplet ovan för att fastställa den bästa modellen.
+Du kan visa mått för en tränade modellen med hjälp av ```run.get_metrics()```. Nu kan du få alla mått som loggats i exemplet ovan för att avgöra den bästa modellen.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Visa experimentet i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com)
 
-När ett experiment har körts kan du bläddra till den registrerade experiment körnings posten. Du kan komma åt historiken från [Azure Machine Learning Studio](https://ml.azure.com).
+När ett experiment har körts kan du bläddra till inspelade experimentet körningsposten. Du kan komma åt historiken från [Azure Machine Learning Studio](https://ml.azure.com).
 
-Gå till fliken experiment och välj experimentet. Du kommer till experiment körnings instrument panelen där du kan se spårade mått och diagram som loggas för varje körning. I det här fallet loggade vi MSE och alpha-värdena.
+Gå till fliken experiment och välj experimentet. Du kommer till experiment körnings instrument panelen där du kan se spårade mått och diagram som loggas för varje körning. I det här fallet loggas vi MSE och alfanumeriska värden.
 
   ![Kör information i Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
 
 Du kan öka detalj nivån till en speciell körning för att visa dess utdata eller loggar, eller ladda ned ögonblicks bilden av experimentet som du har skickat så att du kan dela experiment-mappen med andra.
 
-### <a name="viewing-charts-in-run-details"></a>Visa diagram i körnings information
+### <a name="viewing-charts-in-run-details"></a>Visa diagram i körningsinformation
 
 Det finns olika sätt att använda loggnings-API: er för att registrera olika typer av mått under en körning och visa dem som diagram i Azure Machine Learning Studio.
 
-|Loggat värde|Exempel kod| Visa i portalen|
+|Loggade värde|Exempelkod| Visa på portal|
 |----|----|----|
-|Logga en matris med numeriska värden| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|linje diagram med en variabel|
-|Logga ett enkelt numeriskt värde med samma mått namn som används upprepade gånger (som i en for-slinga)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| linje diagram med en variabel|
-|Logga en rad med två numeriska kolumner upprepade gånger|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Linje diagram med två variabler|
-|Logg tabell med 2 numeriska kolumner|`run.log_table(name='Sine Wave', value=sines)`|Linje diagram med två variabler|
+|Logga en matris med numeriska värden| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Single-variable linjediagram|
+|Logga ett numeriskt värde med samma måttnamnet används flera gånger (liknande inifrån en slinga)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable linjediagram|
+|Logga en rad med 2 numeriska kolumner upprepade gånger|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Två variabler linjediagram|
+|Tabell med 2 numeriska kolumner|`run.log_table(name='Sine Wave', value=sines)`|Två variabler linjediagram|
 
 
-## <a name="example-notebooks"></a>Exempel på bärbara datorer
-Följande antecknings böcker demonstrerar begrepp i den här artikeln:
-* [instruktionen att använda – azureml/Training/Train-i-Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [instruktionen att använda – azureml/Training/träna-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [How-to-use-azureml/Training/Logging-API/Logging-API. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+## <a name="example-notebooks"></a>Exempel-anteckningsböcker
+Följande anteckningsböcker demonstrera begreppen i den här artikeln:
+* [How-to-use-azureml/Training/Train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
+* [How-to-use-azureml/Training/Train-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [How-to-use-azureml/Training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova följande steg för att lära dig hur du använder Azure Machine Learning SDK för python:
+Prova de här nästa steg om du vill veta hur du använder Azure Machine Learning-SDK för Python:
 
-* Se ett exempel på hur du registrerar den bästa modellen och distribuerar den i självstudien, [träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
+* Se ett exempel på hur du registrerar den bästa modellen och distribuerar den i självstudierna [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-* Lär dig hur du [tränar PyTorch-modeller med Azure Machine Learning](how-to-train-pytorch.md).
+* Lär dig hur du [skapa PyTorch-modeller med Azure Machine Learning](how-to-train-pytorch.md).

@@ -1,5 +1,5 @@
 ---
-title: Skapa interaktiva rapporter med Azure Monitor-arbetsböcker-visualiseringar | Microsoft-dokument
+title: Azure Monitor arbets bok visualiseringar
 description: Lär dig mer om alla Azure Monitor-arbetsböckers visualiserings komponenter, inklusive text, diagram, rutnät, träd och diagram.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165061"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872799"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor arbets bok visualiseringar
 
@@ -41,7 +41,7 @@ Text läggs till via en markdown-kontroll som ger fullständig formatering.
 > [!TIP]
 > Använd det här [markdown lathund-bladet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) för att lära dig om olika formateringsalternativ.
 
-## <a name="charts"></a>Hierarkidiagram
+## <a name="charts"></a>Diagram
 
 Med arbets böcker kan övervaknings data visas som diagram. Diagram typer som stöds innehåller linje, stapel, kategoriska, område, punkt diagram, cirkel och tid. Författare kan välja att anpassa höjden, bredden, färgpaletten, förklaringen, titlar, inga data meddelanden osv.
 
@@ -115,7 +115,7 @@ Exemplet nedan visar ett rutnät som kombinerar ikoner, termiska kartor och Spar
 
 ![Skärm bild av fråga om logg beroende rutnät](./media/workbooks-visualizations/grid-query.png)
 
-## <a name="tiles"></a>Ordnar
+## <a name="tiles"></a>Ikoner
 
 Paneler är ett mycket användbart sätt att Visa sammanfattnings data i arbets böcker. I bilden nedan visas ett vanligt användnings fall av sammanfattningar på App-nivå ovanpå ett detaljerat rutnät.
 

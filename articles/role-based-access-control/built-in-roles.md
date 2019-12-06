@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f3ee958484fdb8cacad0a3bfa0c3385374ac7487
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 00d4487abed97084976d81ee1ec78316fc688193
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185741"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851391"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -123,9 +123,10 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | [Övervaknings läsare](#monitoring-reader) | Kan läsa alla övervaknings data (mått, loggar osv.). Se även [komma igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Nätverksdeltagare](#network-contributor) | Gör att du kan hantera nätverk, men inte till gång till dem. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Ny Relic APM-konto deltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management konton och program, men inte till gång till dem. | 5d28c62d-5b37-4476-8438-e587778df237 |
+> | [Data skrivare för princip insikter (för hands version)](#policy-insights-data-writer-preview) | Tillåter Läs åtkomst till resurs principer och Skriv behörighet till resurs komponent princip händelser. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | [Läsare och data åtkomst](#reader-and-data-access) | Gör att du kan visa allting men du kan inte ta bort eller skapa ett lagrings konto eller en resurs som saknas. Den kommer också att tillåta Läs-/skriv åtkomst till alla data som finns i ett lagrings konto via åtkomst till lagrings konto nycklar. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Redis Cache deltagare](#redis-cache-contributor) | Låter dig hantera Redis-cacheer, men inte till gång till dem. | e0f68234-74aa-48ed-b826-c38b57376e17 |
-> | [Resurs princip deltagare (för hands version)](#resource-policy-contributor-preview) | Förhandsgranskningsvyn Användare med egna användare från EA, med behörighet att skapa/ändra resurs principer, skapa support ärende och läsa resurser/hierarki. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | [Resurs princip deltagare](#resource-policy-contributor) | Användare med behörighet att skapa/ändra resurs principer, skapa support ärende och läsa resurser/hierarki. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Jobb samlings deltagare i Scheduler](#scheduler-job-collections-contributor) | Gör att du kan hantera jobb samlingar i Scheduler, men inte till gång till dem. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Search Service deltagare](#search-service-contributor) | Låter dig hantera Sök tjänster, men inte till gång till dem. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Säkerhets administratör](#security-admin) | Endast i Security Center: kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer | fb1c8493-542b-48eb-b624-b4c8fea62acd |
@@ -190,7 +191,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotActions** |  |
 > | Microsoft. Authorization/*/Delete | Ta bort roller, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
 > | Microsoft. Authorization/*/Write | Skapa roller, roll tilldelningar, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
-> | Microsoft.Authorization/elevateAccess/Action | Beviljar åtkomst administratörs åtkomst till anroparens användare i klient omfånget |
+> | Microsoft.Authorization/elevateAccess/Action | Beviljar anroparen Användaråtkomst Administratörsåtkomst för klientomfånget |
 > | Microsoft. skiss/blueprintAssignments/Write | Skapa eller uppdatera alla skiss uppgifter |
 > | Microsoft. skiss/blueprintAssignments/Delete | Ta bort alla skiss uppgifter |
 > | **DataActions** |  |
@@ -305,7 +306,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="api-management-service-contributor"></a>API Management Service Contributor
+## <a name="api-management-service-contributor"></a>API Management-tjänstdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -326,7 +327,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="api-management-service-operator-role"></a>Rollen API Management tjänst operatör
+## <a name="api-management-service-operator-role"></a>API Management-tjänstoperatorroll
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -666,6 +667,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/*/Read |  |
 > | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
 > | Microsoft. Insights/arbets böcker/* |  |
 > | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
@@ -693,6 +695,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. OperationalInsights/arbets ytor/savedSearches/Read | Hämtar en sparad Sök fråga |
 > | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/*/Read |  |
 > | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
 > | Microsoft. Insights/arbets böcker/läsa | Läs en arbets bok |
 > | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
@@ -722,6 +725,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. OperationalInsights/arbets ytor/savedSearches/Read | Hämtar en sparad Sök fråga |
 > | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/*/Read |  |
 > | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
 > | Microsoft. Insights/arbets böcker/läsa | Läs en arbets bok |
 > | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
@@ -858,7 +862,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="backup-operator"></a>Ansvarig för säkerhets kopiering
+## <a name="backup-operator"></a>Säkerhetskopieringsoperator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1361,6 +1365,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Ansluter till en resurs som lagrings konto eller SQL-databas till ett undernät. Det går inte att avisera. |
 > | **NotActions** |  |
 > | Microsoft. DocumentDB/databaseAccounts/readonlyKeys/* |  |
 > | Microsoft. DocumentDB/databaseAccounts/regenerateKey/* |  |
@@ -1631,6 +1636,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Ansluter till en resurs som lagrings konto eller SQL-databas till ett undernät. Det går inte att avisera. |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |
@@ -1878,7 +1884,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Insights/metricDefinitions/*/read | Hämtar tillgängliga mått för Logic Apps. |
 > | Microsoft.Logic/*/read | Läser Logic Apps-resurser. |
 > | Microsoft. Logic/-arbets flöden/inaktivera/åtgärd | Inaktiverar arbets flödet. |
-> | Microsoft. Logic/-arbets flöden/aktivera/åtgärd | Aktiverar arbets flödet. |
+> | Microsoft. Logic/-arbets flöden/aktivera/åtgärd | Aktiverar arbetsflödet |
 > | Microsoft.Logic/workflows/validate/action | Verifierar arbets flödet. |
 > | Microsoft.Resources/deployments/operations/read | Hämtar eller visar distributions åtgärder. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Hämta prenumerations åtgärds resultatet. |
@@ -2139,6 +2145,24 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
+## <a name="policy-insights-data-writer-preview"></a>Data skrivare för princip insikter (för hands version)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter Läs åtkomst till resurs principer och Skriv behörighet till resurs komponent princip händelser. |
+> | **Id** | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
+> | **Åtgärder** |  |
+> | Microsoft. Authorization/policyassignments/Read | Hämta information om en princip tilldelning. |
+> | Microsoft. Authorization/policydefinitions/Read | Hämta information om en princip definition. |
+> | Microsoft. Authorization/policysetdefinitions/Read | Hämta information om en princip uppsättnings definition. |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | Microsoft. PolicyInsights/checkDataPolicyCompliance/Action | Kontrol lera status för efterlevnad för en specifik komponent mot data policys. |
+> | Microsoft. PolicyInsights/policyEvents/logDataEvents/Action | Logga händelser för resurs komponents princip. |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
 ## <a name="reader-and-data-access"></a>Läsare och data åtkomst
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2177,11 +2201,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="resource-policy-contributor-preview"></a>Resurs princip deltagare (för hands version)
+## <a name="resource-policy-contributor"></a>Deltagare för resursprincip
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Förhandsgranskningsvyn Användare med egna användare från EA, med behörighet att skapa/ändra resurs principer, skapa support ärende och läsa resurser/hierarki. |
+> | **Beskrivning** | Användare med behörighet att skapa/ändra resurs principer, skapa support ärende och läsa resurser/hierarki. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Åtgärder** |  |
 > | */read | Läs resurser av alla typer, förutom hemligheter. |
@@ -2288,7 +2312,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="security-reader"></a>Säkerhets läsare
+## <a name="security-reader"></a>Säkerhetsläsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2343,6 +2367,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan över lagrings konton eller hämtar egenskaperna för det angivna lagrings kontot. |
+> | Microsoft. RecoveryServices/valv/replicationOperationStatus/läsa | Läs eventuell åtgärds status för valvets replikering |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
 > | **NotActions** |  |
 > | *alternativet* |  |
@@ -2388,7 +2413,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Växla skydds behållare |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Testa redundans |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Rensning av redundanstest |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Redundans |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | växling vid fel |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Uppdatera mobilitets tjänsten |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Läs alla skydds behållar mappningar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Läs eventuella Recovery Services-leverantörer |
@@ -3007,7 +3032,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="virtual-machine-contributor"></a>Virtuell dator deltagare
+## <a name="virtual-machine-contributor"></a>Virtuell datordeltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -3018,7 +3043,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Compute/availabilitySets/* | Skapa och hantera beräknings tillgänglighets uppsättningar |
 > | Microsoft. Compute/locations/* | Skapa och hantera beräknings platser |
 > | Microsoft.Compute/virtualMachines/* | Skapa och hantera virtuella datorer |
-> | Microsoft.Compute/virtualMachineScaleSets/* | Skapa och hantera skalnings uppsättningar för virtuella datorer |
+> | Microsoft.Compute/virtualMachineScaleSets/* | Skapa och hantera VM-skalningsuppsättningar |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera insikter aviserings regler |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Ansluter till en programgateways backend-adresspool. Det går inte att avisera. |

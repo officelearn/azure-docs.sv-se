@@ -1,18 +1,18 @@
 ---
 title: LÄGRE Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system-funktionen lägre i Azure Cosmos DB.
+description: Lär dig mer om den lägre SQL system-funktionen i Azure Cosmos DB att returnera ett sträng uttryck efter konvertering av versaler till gemener
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3a9c122ef65772458b832d3b1651e7e63e42985e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8f7cd864d90b8ab17a180a00a7a6d4bb683da9be
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349702"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873309"
 ---
 # <a name="lower-azure-cosmos-db"></a>LÄGRE (Azure Cosmos DB)
  Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener.  

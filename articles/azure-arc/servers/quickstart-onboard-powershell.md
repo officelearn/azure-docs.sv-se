@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 7fb24d53876ab8c06fca4fbfe929c06a889335f3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b5299f49663fbf2e828f76d9c240a86fdccb2ff2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786358"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872697"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Snabb start: ansluta datorer till Azure med Azure Arc for servers – PowerShell
 
@@ -55,6 +55,12 @@ Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
 Type                  :
 ```
 
+> [!NOTE] 
+> Det kan ta en stund att få dina SPN-behörigheter korrekt ifyllda. Kör följande roll tilldelning för att ange behörigheterna mycket snabbare.
+> ``` PowerShell
+> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
+> ```
+
 Hämta nu lösen ordet med PowerShell.
 
 ```azurepowershell-interactive
@@ -73,7 +79,7 @@ I installera agent onboarding-skriptet:
 
 I följande guide kan du ansluta en dator till Azure genom att logga in på datorn och utföra stegen. Du kan också ansluta datorer till Azure [från portalen](quickstart-onboard-portal.md).
 
-### <a name="download-and-install-the-agent"></a>Hämta och installera agenten
+### <a name="download-and-install-the-agent"></a>Ladda ned och installera agenten
 
 Installation av agent paketet kräver åtkomst till rot-eller lokal administratör på mål servern, men ingen Azure-åtkomst.
 

@@ -1,79 +1,79 @@
 ---
-title: Visa ändringar i filinnehåll med Azure Automation
-description: Använd funktionen filen innehållsändringar i ändringsspårning för att visa innehållet i en fil som har ändrats.
+title: Visa ändringar i fil innehåll med Azure Automation
+description: Använd funktionen ändring av fil innehåll i ändrings spårning för att visa innehållet i en fil som har ändrats.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6aef9a24e3337d1f5a5a6c9ac6b510cc7f9a66a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 4ab88aa2dc604172f00d875353dabba61fd101af
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478651"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850592"
 ---
-# <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visa innehållet i en fil som spåras med ändringsspårning
+# <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visa innehållet i en fil som spåras med Ändringsspårning
 
-Filspårning innehåll kan du visa innehållet i en fil före och efter en ändring som spåras med ändringsspårning. Om du vill göra detta måste sparas i filens innehåll till ett lagringskonto efter varje ändring sker.
+Med fil innehålls spårning kan du visa innehållet i en fil före och efter en ändring som spåras med Ändringsspårning. Det gör du genom att spara fil innehållet till ett lagrings konto när varje ändring sker.
 
 ## <a name="requirements"></a>Krav
 
-* Ett standardlagringskonto med hjälp av Resource Manager-distributionsmodellen krävs för att lagra innehåll. Premium- och klassisk distribution modellen storage-konton ska inte användas. Mer information om lagringskonton finns i [om Azure storage-konton](../storage/common/storage-create-storage-account.md)
+* Ett standard lagrings konto som använder distributions modellen för Resource Manager krävs för att lagra fil innehåll. Lagrings konton för Premium och klassisk distributions modell ska inte användas. Mer information om lagrings konton finns i [om Azure Storage-konton](../storage/common/storage-create-storage-account.md)
 
-* Lagringskontot används kan bara ha 1 Automation-konto som är anslutna.
+* Det lagrings konto som används kan bara ha ett Automation-konto anslutet.
 
 * [Ändringsspårning](automation-change-tracking.md) är aktiverat i ditt Automation-konto.
 
-## <a name="enable-file-content-tracking"></a>Aktivera innehåll filspårning
+## <a name="enable-file-content-tracking"></a>Aktivera spårning av fil innehåll
 
-1. Öppna ditt Automation-konto i Azure-portalen och välj sedan **ändringsspårning**.
-2. På menyn högst upp väljer **redigera inställningar för**.
-3. Välj **filinnehåll** och klicka på **länk**. Då öppnas det **Lägg till innehållsplats för ändringsspårning** fönstret.
+1. I Azure Portal öppnar du ditt Automation-konto och väljer sedan **ändrings spårning**.
+2. På den översta menyn väljer du **Redigera inställningar**.
+3. Välj **fil innehåll** och klicka på **Länka**. Då öppnas fönstret **Lägg till innehålls plats för ändringsspårning** .
 
    ![Aktivera](./media/change-tracking-file-contents/enable.png)
 
-4. Välj prenumeration och storage-konto du använder för att lagra innehållet i filen till. Om du vill aktivera innehåll filspårning för alla befintliga spårade filer väljer **på** för **ladda upp innehåll för alla inställningar**. Du kan därefter ändra detta för varje sökväg.
+4. Välj den prenumeration och det lagrings konto som du vill använda för att lagra filens innehåll. Om du vill aktivera spårning av fil innehåll för alla befintliga spårade filer väljer du **på** för att **Ladda upp fil innehåll för alla inställningar**. Du kan ändra detta för varje fil Sök väg efteråt.
 
-   ![Ange storage-konto](./media/change-tracking-file-contents/storage-account.png)
+   ![Ange lagrings konto](./media/change-tracking-file-contents/storage-account.png)
 
-5. När du har aktiverat, visas lagringskontot och SAS-URI: er. SAS-URI: er upphör att gälla efter 365 dagar och kan skapas på nytt genom att klicka på den **återskapa** knappen.
+5. När den är aktive rad visas lagrings kontot och SAS-URI: er. SAS-URI: er upphör att gälla efter 365 dagar och kan återskapas genom att klicka på knappen **skapa** igen.
 
-   ![Lista nycklar](./media/change-tracking-file-contents/account-keys.png)
+   ![lista konto nycklar](./media/change-tracking-file-contents/account-keys.png)
 
 ## <a name="add-a-file"></a>Lägg till en fil
 
-I följande steg vägleder dig genom att aktivera ändringsspårning för en fil:
+Följande steg beskriver hur du aktiverar ändrings spårning för en fil:
 
-1. På den **redigera inställningar för** sidan **ändringsspårning**, väljer du antingen **Windows filer** eller **Linux-filer** och på  **Lägg till**
+1. På sidan **Redigera inställningar** i **ändringsspårning**väljer du fliken **Windows-filer** eller **Linux-filer** och klickar på **Lägg till**
 
-1. Fyll i informationen för sökvägen till filen och välj **SANT** under **ladda upp innehåll för alla inställningar**. Den här inställningen aktiverar filinnehåll spårning för den filsökvägen.
+1. Fyll i informationen för fil Sök vägen och välj **Sant** under **överför fil innehåll för alla inställningar**. Med den här inställningen aktive ras fil innehålls spårning endast för fil Sök vägen.
 
-   ![Lägg till en linux-fil](./media/change-tracking-file-contents/add-linux-file.png)
+   ![Lägg till en Linux-fil](./media/change-tracking-file-contents/add-linux-file.png)
 
-## <a name="viewing-the-contents-of-a-tracked-file"></a>Visa innehållet i en spårade fil
+## <a name="viewing-the-contents-of-a-tracked-file"></a>Visa innehållet i en spårad fil
 
-1. När en ändring har upptäckts för fil eller en fil i sökvägen, visas den i portalen. Välj filen ändras från en lista över ändringar. Den **ändringsinformation** egenskapsruta visas.
+1. När en ändring har identifierats för filen eller en fil i sökvägen visas den i portalen. Välj fil ändringen i listan över ändringar. Fönstret **ändrings information** visas.
 
-   ![Lista ändringar](./media/change-tracking-file-contents/change-list.png)
+   ![lista ändringar](./media/change-tracking-file-contents/change-list.png)
 
-1. På den **ändringsinformation** kan du se standard före och efter filen information längst upp till vänster, klickar på **visa ändringar i filinnehåll** att se innehållet i filen.
+1. På sidan **ändrings information** ser du filen standard före och efter fil information. i det övre vänstra hörnet klickar du på **Visa fil innehåll ändringar** för att se innehållet i filen.
 
-   ![Information om ändringar](./media/change-tracking-file-contents/change-details.png)
+   ![Ändra information](./media/change-tracking-file-contents/change-details.png)
 
-1. Den nya sidan visar filinnehållet i en sida-vid-sida-vy. Du kan också välja **infogade** att visa ändringarna infogade.
+1. På den nya sidan visas fil innehållet i en sida-vid-sida-vy. Du kan också välja **infogat** för att visa en infogad vy över ändringarna.
 
-   ![Visa filändringar](./media/change-tracking-file-contents/view-file-changes.png)
+   ![Visa fil ändringar](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå kursen på ändringsspårning vill veta mer om hur du använder lösningen:
+Mer information om hur du använder lösningen finns i kursen om Ändringsspårning:
 
 > [!div class="nextstepaction"]
 > [Felsöka ändringar i din miljö](automation-tutorial-troubleshoot-changes.md)
 
-* Använd [Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md) att visa detaljerad spårning av data.
+* Använd [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) om du vill visa detaljerade ändrings spårnings data.
 

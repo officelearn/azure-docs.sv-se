@@ -4,17 +4,17 @@ description: DevOps kontinuerlig distribution med Azure Automation tillstånds k
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243594"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850371"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användnings exempel: kontinuerlig distribution till Virtual Machines med automatiserings tillstånds konfiguration och choklad
 
@@ -109,7 +109,7 @@ Det inkluderade exemplet utför de här stegen för cChoco och xNetworking. Se [
 
 Det finns inget särskilt om första gången du importerar konfigurationen till pull-servern och kompilerar. All efterföljande import/kompilering av samma konfiguration ser exakt likadant ut. Varje gång du uppdaterar ditt paket och behöver skicka ut det till produktion kan du göra det här steget när du har säkerställt att konfigurations filen är korrekt, inklusive den nya versionen av paketet. Här är konfigurations filen och PowerShell:
 
-ISVBoxConfig. ps1:
+ISVBoxConfig.ps1:
 
 ```powershell
 Configuration ISVBoxConfig

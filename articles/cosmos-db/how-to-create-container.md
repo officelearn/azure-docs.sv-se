@@ -1,17 +1,17 @@
 ---
 title: Skapa en container i Azure Cosmos DB
-description: Lär dig att skapa en container i Azure Cosmos DB
+description: 'Lär dig hur du skapar en behållare i Azure Cosmos DB genom att använda Azure Portal, .net, Java, python, Node. js och andra SDK: er.'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242414"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873717"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
@@ -51,7 +51,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
     ![Skärm bild av dialog rutan Azure Cosmos DB-API för MongoDB, Lägg till behållare](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>Cassandra-API
+### <a id="portal-cassandra"></a>API för Cassandra
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -154,7 +154,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 > [!Note]
 > MongoDB Wire Protocol förstår inte konceptet för enheter för [programbegäran](request-units.md). Om du vill skapa en ny samling med ett tillhandahållet data flöde på den använder du Azure Portal eller Cosmos DB SDK: er för SQL API.
 
-### <a id="dotnet-cassandra"></a>Cassandra-API
+### <a id="dotnet-cassandra"></a>API för Cassandra
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.

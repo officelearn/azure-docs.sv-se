@@ -3,27 +3,23 @@ title: Anpassa webbläsare och webbvyer
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du anpassar webb läsar miljön som används av MSAL för iOS och macOS för att logga in användare
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 69b1e217bfa64ad08136e2763716d455332c5ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803372"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843333"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
 
@@ -45,9 +41,9 @@ MSAL för macOS stöder bara `WKWebView`.
 
 ## <a name="system-browsers"></a>System webbläsare
 
-För iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession` och `SFSafariViewController` betraktas som system webbläsare. I allmänhet delar system webbläsare cookies och andra webbplats data med webb programmet Safari.
+För iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`och `SFSafariViewController` betraktas som system webbläsare. I allmänhet delar system webbläsare cookies och andra webbplats data med webb programmet Safari.
 
-Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den rekommenderade system webbläsaren som är tillgänglig i den versionen. På iOS 12 + blir det `ASWebAuthenticationSession`. 
+Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den rekommenderade system webbläsaren som är tillgänglig i den versionen. På iOS 12 + kommer det att `ASWebAuthenticationSession`. 
 
 | Version | Webbläsare |
 |:-------------:|:-------------:|
@@ -58,7 +54,7 @@ Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den 
 Utvecklare kan också välja en annan system webbläsare för MSAL-appar:
 
 - `SFAuthenticationSession` är iOS 11-versionen av `ASWebAuthenticationSession`.
-- `SFSafariViewController` är ett allmänt syfte och innehåller ett gränssnitt för att surfa på webben och kan även användas för inloggnings ändamål. I iOS 9 och 10 delas cookies och andra webbplats data med Safari – men inte i iOS 11 och senare.
+- `SFSafariViewController` är mer generella och innehåller ett gränssnitt för att surfa på webben och kan även användas för inloggnings ändamål. I iOS 9 och 10 delas cookies och andra webbplats data med Safari – men inte i iOS 11 och senare.
 
 ## <a name="in-app-browser"></a>Webbläsare i app
 
@@ -68,12 +64,12 @@ Utvecklare kan också välja en annan system webbläsare för MSAL-appar:
 
 Den webbläsare du använder påverkar SSO-upplevelsen på grund av hur de delar cookies. I följande tabeller sammanfattas SSO-upplevelser per webbläsare.
 
-| Teknik    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | DEFINITION |
+| Teknik    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Ja | endast iOS | b/Safari-instanser
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | Gäller inte | Ja | endast iOS |  b/Safari-instanser
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | Gäller inte | Nej | endast iOS | Nej * *
-| **SFSafariViewController** | System | iOS10 | Gäller inte | Ja | endast iOS |  b/Safari-instanser
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Ja | enbart iOS | b/Safari-instanser
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | Gäller inte | Ja | enbart iOS |  b/Safari-instanser
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | Gäller inte | Nej | enbart iOS | Nej * *
+| **SFSafariViewController** | System | iOS10 | Gäller inte | Ja | enbart iOS |  b/Safari-instanser
 | **WKWebView**  | In-app | iOS8 och upp | macOS 10,10 och uppåt | Nej | iOS och macOS | Nej * *
 
 \* * För att SSO ska fungera måste tokens delas mellan appar. Detta kräver ett token-cache-eller Broker-program, till exempel Microsoft Authenticator för iOS.

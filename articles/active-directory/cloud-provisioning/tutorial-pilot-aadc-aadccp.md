@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 163d1f7f457dcbca7fbb9e331ec889bcc0894dfc
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814459"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868770"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilot moln etablering för en befintlig synkroniserad AD-skog 
 
@@ -28,7 +28,11 @@ Den här självstudien vägleder dig genom pilot etablering av molnet för en te
 Tänk på följande innan du provar den här självstudien:
 1. Se till att du är bekant med grunderna i moln etableringen. 
 2. Se till att du kör Azure AD Connect Sync version 1.4.32.0 eller senare och har konfigurerat reglerna för synkronisering enligt dokumentationen. Vid pilotering kommer du att ta bort en test-OU eller-grupp från Azure AD Connect Sync-omfånget. Att flytta objekt utanför omfattning leder till att dessa objekt tas bort i Azure AD. Om det rör sig om användar objekt är objekten i Azure AD mjuk-borttagna och kan återställas. I händelse av grupp objekt tas objekten i Azure AD bort och kan inte återställas. En ny länktyp har introducerats i Azure AD Connect Sync som förhindrar borttagningen om ett pilot scenario används. 
-3. Se till att objekten i pilot omfattningen har ms-DS-consistencyGUID ifyllda så att moln etablerings hårdheten matchar objekten. Observera att Azure AD Connect Sync inte fyller i ms-DS-consistencyGUID som standard för grupp objekt.
+3. Se till att objekten i pilot omfattningen har ms-DS-consistencyGUID ifyllda så att moln etablerings hårdheten matchar objekten. 
+
+   > [!NOTE]
+   > Azure AD Connect Sync fyller inte i *MS-DS-consistencyGUID* som standard för grupp objekt. Följ stegen som beskrivs i [det här blogg inlägget](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) för att fylla i *MS-DS-consistencyGUID* för grupp objekt.
+
 4. Det här är ett avancerat scenario. Se till att du följer de steg som beskrivs i den här självstudien noggrant.
 
 ## <a name="prerequisites"></a>Krav
@@ -36,10 +40,11 @@ Följande är förutsättningar som krävs för den här självstudien
 - En test miljö med Azure AD Connect Sync version 1.4.32.0 eller senare
 - En ORGANISATIONSENHET eller grupp som finns i omfånget och kan användas som pilot. Vi rekommenderar att du börjar med en liten uppsättning objekt.
 - En server som kör Windows Server 2012 R2 eller senare och som kommer att vara värd för etablerings agenten.  Detta kan inte vara samma server som Azure AD Connect servern.
+- Käll ankare för AAD Connect-synkronisering ska vara antingen *objectGUID* eller *MS-DS-consistencyGUID*
 
 ## <a name="update-azure-ad-connect"></a>Uppdatera Azure AD Connect
 
-Som minst bör du ha [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) -1.4.32.0. Slutför stegen i Azure AD Connect för att uppdatera Azure AD Connect synkronisering [: uppgradera till den senaste versionen](../hybrid/how-to-upgrade-previous-version.md).  Det här steget tillhandahålls om din test miljö inte har den senaste versionen av Azure AD Connect.
+Som minst bör du ha [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) -1.4.32.0. Slutför stegen i Azure AD Connect för att uppdatera Azure AD Connect synkronisering [: uppgradera till den senaste versionen](../hybrid/how-to-upgrade-previous-version.md).  
 
 ## <a name="stop-the-scheduler"></a>Stoppa Scheduler
 Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala katalog med hjälp av en Scheduler. För att kunna ändra och lägga till anpassade regler vill du inaktivera Scheduler så att synkroniseringarna inte körs medan du arbetar med detta.  Använd följande steg:
@@ -47,6 +52,9 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
 1.  På den server som kör Azure AD Connect synkroniserar du öppna PowerShell med administratörs behörighet.
 2.  Kör `Stop-ADSyncSyncCycle`.  Tryck på RETUR.
 3.  Kör `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+
+>[!NOTE] 
+>Om du kör en egen anpassad schemaläggare för AAD Connect-synkronisering inaktiverar du Scheduler. 
 
 ## <a name="create-custom-user-inbound-rule"></a>Skapa anpassad regel för inkommande användare
 
@@ -81,7 +89,7 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
  6. På sidan **omvandlingar** lägger du till en konstant omvandling: Flow true to cloudNoFlow-attribut. Klicka på **Lägg till**.
  ![anpassad regel](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
-Samma steg måste följas för alla typer av objekt (användare, grupp och kontakt).
+Samma steg måste följas för alla typer av objekt (användare, grupp och kontakt). Upprepa steg per konfigurerad AD-anslutning/per AD-skog. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Skapa anpassad regel för utgående användare
 
@@ -92,7 +100,7 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
 
     **Namn:** Ge regeln ett beskrivande namn<br>
     **Beskrivning:** Lägg till en meningsfull beskrivning<br> 
-    **anslutna system:** Välj den AD-anslutning som du vill skriva den anpassade synkroniseringsregeln för<br>
+    **anslutna system:** Välj den AAD-anslutning som du skriver den anpassade synkroniseringsregeln för<br>
     **Ansluten system objekt typ:** Användarvänlig<br>
     **Metaversum-objekt typ:** Sända<br>
     **Länktyp:** JoinNoFlow<br>
@@ -109,48 +117,38 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
 
 Samma steg måste följas för alla typer av objekt (användare, grupp och kontakt).
 
-## <a name="scope-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Omfånget Azure AD Connect Sync för att undanta pilot-OU
-Nu ska du konfigurera Azure AD Connect för att utesluta pilot ORGANISATIONSENHETen som skapades ovan.  Moln Provisioning-agenten hanterar synkronisering av dessa användare.  Använd följande steg för att omfånget Azure AD Connect.
-
- 1. Dubbelklicka på Azure AD Connect-ikonen på den server som kör Azure AD Connect.
- 2. Klicka på **Konfigurera**
- 3. Välj **Anpassa alternativ för synkronisering** och klicka på Nästa.
- 4. Logga in på Azure AD och klicka på **Nästa**.
- 5. På sidan **Anslut dina kataloger** klickar du på **Nästa**.
- 6. På skärmen **domän-och OU-filtrering** väljer du **Synkronisera valda domäner och organisationsenheter**.
- 7. Expandera din domän och **avmarkera** **CPU: er** ou.  Klicka på **Next**.
-![omfång](media/tutorial-existing-forest/scope1.png)</br>
- 9. Klicka på **Nästa**på skärmen **valfria funktioner** .
- 10. Klicka på **Konfigurera** på skärmen **Klart att konfigurera**.
- 11. När den är klar klickar du på **Avsluta**. 
-
-## <a name="start-the-scheduler"></a>Starta Scheduler
-Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala katalog med hjälp av en Scheduler. Nu när du har ändrat reglerna kan du starta om Scheduler.  Använd följande steg:
-
-1.  Öppna PowerShell med administratörs behörighet på den server som kör Azure AD Connect Sync
-2.  Kör `Set-ADSyncScheduler -SyncCycleEnabled $true`.
-3.  Kör `Start-ADSyncSyncCycle`.  Tryck på RETUR.  
-
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agenten
-1. Logga in på den domänanslutna servern.  Om du använder [Basic AD-och Azures miljö](tutorial-basic-ad-azure.md) vägledning är det DC1.
-2. Logga in på Azure Portal med endast molnbaserad autentiseringsuppgifter för globala administratörer.
-3. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)** .</br>
-![Azure-portalen](media/how-to-install/install6.png)</br>
-4. Klicka på "Ladda ned agent"
-5. Kör Azure AD Connect etablerings agenten
-6. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
+1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder [Basic AD-och Azure-miljön](tutorial-basic-ad-azure.md) blir det CP1.
+2. Hämta Azure AD Connect Cloud Provisioning-agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
+3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
+3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
 ![Välkomstskärmen](media/how-to-install/install1.png)</br>
 
-7. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
-8. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
+4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
+5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
 ![Välkomstskärmen](media/how-to-install/install3.png)</br>
 
-9. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
+6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
 ![Välkomstskärmen](media/how-to-install/install4.png)</br>
 
-10. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
+7. När den här åtgärden har slutförts bör du se ett meddelande om **att det har verifierats.**  Du kan klicka på **Avsluta**.</br>
 ![Välkomstskärmen](media/how-to-install/install5.png)</br>
-11. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
+8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**. 1. Logga in på den server som du vill använda med företags administratörs behörighet.
+2. Hämta Azure AD Connect Cloud Provisioning-agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
+3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
+3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
+![Välkomstskärmen](media/how-to-install/install1.png)</br>
+
+4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
+5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Next**.</br>
+![Välkomstskärmen](media/how-to-install/install3.png)</br>
+
+6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
+![Välkomstskärmen](media/how-to-install/install4.png)</br>
+
+7. När den här åtgärden har slutförts bör du se ett meddelande om **att det har verifierats.**  Du kan klicka på **Avsluta**.</br>
+![Välkomstskärmen](media/how-to-install/install5.png)</br>
+8. Om du fortfarande ser den inledande välkomst skärmen klickar du på **Stäng**.
 
 ## <a name="verify-agent-installation"></a>Verifiera agent installation
 Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten.
@@ -208,10 +206,35 @@ Nu ska du kontrol lera att användarna som du hade i vår lokala katalog har syn
 
 Dessutom kan du kontrol lera att användaren och gruppen finns i Azure AD.
 
+## <a name="start-the-scheduler"></a>Starta Scheduler
+Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala katalog med hjälp av en Scheduler. Nu när du har ändrat reglerna kan du starta om Scheduler.  Använd följande steg:
+
+1.  Öppna PowerShell med administratörs behörighet på den server som kör Azure AD Connect Sync
+2.  Kör `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+3.  Kör `Start-ADSyncSyncCycle`.  Tryck på RETUR.  
+
+>[!NOTE] 
+>Aktivera Scheduler om du kör en egen schemaläggare för AAD Connect-synkronisering. 
+
 ## <a name="something-went-wrong"></a>Något gick fel
 Om piloten inte fungerar som förväntat kan du gå tillbaka till Azure AD Connect Sync-installationen genom att följa stegen nedan:
 1.  Inaktivera etablerings konfiguration i Azure Portal. 
 2.  Inaktivera alla regler för anpassad synkronisering som skapats för moln etablering med hjälp av verktyget Sync Rule Editor. Om du inaktiverar, bör det orsaka fullständig synkronisering för alla anslutningar.
+
+## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Konfigurera Azure AD Connect Sync att undanta pilot-OU
+När du har kontrollerat att användare från pilot-ORGANISATIONSENHETen hanteras av moln etableringen kan du konfigurera om Azure AD Connect för att utesluta pilot ORGANISATIONSENHETen som skapades ovan.  Moln Provisioning-agenten hanterar synkronisering för de här användarna kommer att vidarebefordra.  Använd följande steg för att omfånget Azure AD Connect.
+
+ 1. Dubbelklicka på Azure AD Connect-ikonen på den server som kör Azure AD Connect.
+ 2. Klicka på **Konfigurera**
+ 3. Välj **Anpassa alternativ för synkronisering** och klicka på Nästa.
+ 4. Logga in på Azure AD och klicka på **Nästa**.
+ 5. På sidan **Anslut dina kataloger** klickar du på **Nästa**.
+ 6. På skärmen **domän-och OU-filtrering** väljer du **Synkronisera valda domäner och organisationsenheter**.
+ 7. Expandera din domän och **avmarkera** **CPU: er** ou.  Klicka på **Next**.
+![omfång](media/tutorial-existing-forest/scope1.png)</br>
+ 9. Klicka på **Nästa**på skärmen **valfria funktioner** .
+ 10. Klicka på **Konfigurera** på skärmen **Klart att konfigurera**.
+ 11. När den är klar klickar du på **Avsluta**. 
 
 ## <a name="next-steps"></a>Nästa steg 
 

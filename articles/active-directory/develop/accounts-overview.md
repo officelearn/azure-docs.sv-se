@@ -2,27 +2,24 @@
 title: Microsoft Identity Platform-konton och klient profiler (Android) | Azure
 description: En översikt över Microsoft Identity Platform-konton för Android
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7beab6759524037f86c83429644c1bb1fffe4d07
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9af7d8c5a1793b34dd609c2cfd68fb468884ef8f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679846"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845730"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konton och klientorganisationsprofiler (Android)
 
@@ -32,10 +29,10 @@ API: t för Microsoft Authentication Library (MSAL) ersätter termen *användare
 
 Ett konto i Microsoft Identity Platform består av:
 
-  - En unik identifierare.
-  - En eller flera autentiseringsuppgifter som används för att demonstrera ägarskapet/kontrollen av kontot.
-  - En eller flera profiler som består av attribut som:
-    - Bild, tilldelat namn, familje namn, titel, kontors plats
+- En unik identifierare.  
+- En eller flera autentiseringsuppgifter som används för att demonstrera ägarskapet/kontrollen av kontot.
+- En eller flera profiler som består av attribut som:
+  - Bild, tilldelat namn, familje namn, titel, kontors plats
 - Ett konto har en källa till en myndighet eller en post i systemet. Det här är systemet där kontot skapas och var de autentiseringsuppgifter som är kopplade till kontot lagras. I datorer med flera innehavare som Microsoft Identity Platform är postsystemet det `tenant` där kontot skapades. Den här klienten kallas även för `home tenant`.
 - Konton i Microsoft Identity Platform har följande post system:
   - Azure Active Directory, inklusive Azure Active Directory B2C.
@@ -49,7 +46,6 @@ Ett konto i Microsoft Identity Platform består av:
   - Den här lokala posten, som är representationen av kontot, är kopplad till det ursprungliga kontot.
   - MSAL exponerar den här lokala posten som en `Tenant Profile`.
   - Klient profilen kan ha olika attribut som är lämpliga för den lokala kontexten, till exempel befattning, kontor, kontakt information osv.
- 
 - Eftersom ett konto kan finnas i en eller flera klienter kan ett konto ha fler än en profil.
 
 > [!NOTE]

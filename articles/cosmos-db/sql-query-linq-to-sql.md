@@ -1,17 +1,17 @@
 ---
 title: LINQ to SQL översättning i Azure Cosmos DB
-description: Mappar LINQ-frågor till Azure Cosmos DB SQL-frågor.
+description: Läs om de LINQ-operatörer som stöds och hur LINQ-frågorna mappas till SQL-frågor i Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003562"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871167"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 
@@ -58,19 +58,19 @@ Frågans provider stöder följande skalära uttryck:
 
 LINQ-providern som ingår i SQL .NET SDK stöder följande operatorer:
 
-- **Select**: Projektioner översätts till SQL SELECT, inklusive objekt konstruktion.
-- **Where**: Filter översätts till SQL WHERE, och stöder `&&`översättning `||`mellan, `!` , och till SQL-operatörerna
+- **Välj**: projektioner översätts till SQL SELECT, inklusive objekt konstruktion.
+- **Där**: filter översätter till SQL WHERE, och stöder översättning mellan `&&`, `||`och `!` till SQL-operatörerna
 - **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
-- **OrderBy** och **OrderByDescending**: Översätt till ORDER BY med ASC eller DESC.
+- **OrderBy** och **OrderByDescending**: Översätt till order by med ASC eller DESC.
 - Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
 - **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
-- **Take**: Översätter till SQL TOP för att begränsa resultat från en fråga.
-- **Matematik funktioner**: Stöder översättning från .NET `Abs`, `Acos` `Atan` ,`Ceiling` ,,`Cos`, ,,`Log`,, ,,`Log10` `Exp` `Floor` `Pow` `Asin` `Round`, `Sign`, ,,`Sin`och tillmotsvarandeinbyggda`Truncate` SQL-funktioner. `Sqrt` `Tan`
-- **Sträng funktioner**: Stöder översättning från .NET `Concat`, `Contains` `EndsWith`,`IndexOf` ,,`Replace`, ,,`SubString`,, ,,`ToLower` `Reverse` `StartsWith` `ToUpper` `Count` `TrimEnd`, och `TrimStart` till motsvarande inbyggda SQL-funktioner.
-- **Mat ris funktioner**: Stöder översättning från .net `Concat`, `Contains`och `Count` till motsvarande inbyggda SQL-funktioner.
-- **Geospatiala utöknings funktioner**: Stöder översättning från stub- `Distance`metoder `IsValid` `IsValidDetailed`,,, `Within` och till motsvarande inbyggda SQL-funktioner.
-- **Användardefinierad funktions utöknings funktion**: Stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande användardefinierad funktion.
-- **Miscellaneous** (Övrigt): Stöder översättning av `Coalesce` och villkorliga operatorer. Kan översättas `Contains` till String innehåller, ARRAY_CONTAINS eller SQL i, beroende på kontext.
+- **Ta**: översätts till SQL Top för att begränsa resultat från en fråga.
+- **Matematiska funktioner**: stöder översättning från .net `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`och `Truncate` till motsvarande inbyggda SQL-funktioner.
+- **Sträng funktioner**: stöder översättning från .net `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`och `TrimStart` till motsvarande inbyggda SQL-funktioner.
+- **Mat ris funktioner**: stöder översättning från .net `Concat`, `Contains`och `Count` till motsvarande inbyggda SQL-funktioner.
+- **Geospatiala utöknings funktioner**: stöder översättning från stub-metoder `Distance`, `IsValid`, `IsValidDetailed`och `Within` till motsvarande inbyggda SQL-funktioner.
+- **Användardefinierad funktions utöknings funktion**: stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande användardefinierade funktion.
+- **Diverse**: stöder översättning av `Coalesce` och villkorliga operatorer. Kan översätta `Contains` till sträng innehåller, ARRAY_CONTAINS eller SQL i, beroende på kontext.
 
 ## <a name="examples"></a>Exempel
 
@@ -192,7 +192,7 @@ Du kan skapa föregående operatorer för att bilda mer kraftfulla frågor. Efte
 
 ### <a name="concatenation"></a>Sammanfogning
 
-Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråga kan börja med en valfri `SelectMany` fråga, följt av flera `Select` eller `Where` -operatorer.
+Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråga kan inledas med en valfri `SelectMany` fråga, följt av flera `Select` eller `Where` operatörer.
 
 **Sammanfogning, exempel 1:**
 
@@ -264,7 +264,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråg
 
 ### <a name="nesting"></a>Kapsling
 
-Syntaxen är `input.SelectMany(x=>x.Q())` där `Q` är en `Select`, `SelectMany`-eller `Where` -operator.
+Syntaxen är `input.SelectMany(x=>x.Q())` där `Q` är en `Select`-, `SelectMany`-eller `Where`-operatör.
 
 En kapslad fråga använder den inre frågan för varje element i den yttre behållaren. En viktig funktion är att den inre frågan kan referera till fälten för elementen i den yttre behållaren, t. ex. en själv koppling.
 

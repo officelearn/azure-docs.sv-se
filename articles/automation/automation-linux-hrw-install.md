@@ -4,17 +4,17 @@ description: Den här artikeln innehåller information om hur du installerar en 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01dcb30fca2819bc4cf85ea624de5735cc84801b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129851"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850830"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -41,7 +41,7 @@ Om du vill installera och konfigurera en Hybrid Runbook Worker på Linux-datorn 
 Minimi kraven för en Linux-Hybrid Runbook Worker är:
 
 * Två kärnor
-* 4 GB RAM-minne
+* 4 GB RAM
 * Port 443 (utgående)
 
 ### <a name="package-requirements"></a>Paket krav
@@ -50,7 +50,7 @@ Minimi kraven för en Linux-Hybrid Runbook Worker är:
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotek| 2.5-12 |
 |Openssl| OpenSSL-bibliotek | 1,0 (TLS 1,1 och TLS 1,2 stöds|
-|Klammerparentes | webb klient för sväng | 7.15.5|
+|Curl | webb klient för sväng | 7.15.5|
 |Python – ctypes | Python 2. x krävs |
 |PAM | Pluggable Authentication Modules|
 | **Valfritt paket** | **Beskrivning** | **Lägsta version**|

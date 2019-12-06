@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: def0ac11edfa5a17a8e506c79d91885dd3c9ab66
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770411"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849267"
 ---
 # <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Förstå Linux Hybrid Runbook Worker hälsan i Uppdateringshantering
 
@@ -29,24 +29,24 @@ Följande lista är de tre beredskaps tillstånd som en dator kan vara i:
 > [!NOTE]
 > Det kan uppstå en liten fördröjning mellan det Azure Portal visar och datorns aktuella tillstånd.
 
-## <a name="start-the-troubleshooter"></a>Starta fel sökaren
+## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
 För Azure-datorer öppnar du sidan Felsök **uppdaterings agent** genom att klicka på länken **Felsök** i kolumnen **Uppdatera agent beredskap** i portalen. För datorer som inte är Azure-datorer går länken till den här artikeln. Se offline-instruktionerna för att felsöka en dator som inte är en Azure-dator.
 
-![Sidan VM-lista](../media/update-agent-issues-linux/vm-list.png)
+![sidan virtuell dator](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> Kontrollerna kräver att den virtuella datorn körs. Om den virtuella datorn inte körs visas en knapp för att **starta den virtuella datorn**.
+> Kontrollerna kräver den virtuella datorn körs. Om den virtuella datorn inte körs visas en knapp för att **starta den virtuella datorn**.
 
-På sidan **Felsök uppdaterings agent** klickar du på **Kör kontroller**för att starta fel sökaren. Fel sökaren använder [Kör-kommandot](../../virtual-machines/linux/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När fel sökaren är slutförd returneras resultatet av kontrollerna.
+På den **felsöka Update-agenten** klickar du på **kör kontrollerar**, för att starta felsökningen. Fel sökaren använder [Kör-kommandot](../../virtual-machines/linux/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När felsökaren är klar, returnerar resultatet av kontrollerna.
 
-![Fel söknings sida](../media/update-agent-issues-linux/troubleshoot-page.png)
+![Felsöka sidan](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-När du är klar returneras resultatet i fönstret. Kryss avsnitten innehåller information om vad varje kontroll söker efter.
+När du är klar returneras resultaten i fönstret. Kryss avsnitten innehåller information om vad varje kontroll söker efter.
 
-![Uppdatera agent kontroller Sidan](../media/update-agent-issues-linux/update-agent-checks.png)
+![Update-agenten kontrollerar sidan](../media/update-agent-issues-linux/update-agent-checks.png)
 
-## <a name="prerequisite-checks"></a>Krav kontroller
+## <a name="prerequisite-checks"></a>Nödvändiga kontroller
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -57,13 +57,13 @@ Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av f�
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. Klassificerings baserad uppdatering kräver ' yum ' för att returnera säkerhets data som CentOS inte har gjort i rutan.         |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Ubuntu 14,04 LTS, 16,04 LTS och 18,04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+|Ubuntu 14.04 LTS, 16.04 LTS och 18.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
 
-## <a name="monitoring-agent-service-health-checks"></a>Övervaka Agent tjänstens hälso kontroller
+## <a name="monitoring-agent-service-health-checks"></a>Hälsokontroller för övervakning agent-tjänsten
 
 ### <a name="log-analytics-agent"></a>Log Analytics agent
 
-Den här kontrollen säkerställer att Log Analytics-agenten för Linux är installerad. Anvisningar om hur du installerar den finns i [Installera agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+Den här kontrollen säkerställer att Log Analytics-agenten för Linux är installerad. Anvisningar för hur du installerar den finns i [installera agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### <a name="log-analytics-agent-status"></a>Log Analytics agent status
@@ -76,15 +76,15 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="multihoming"></a>Multihoming
 
-Den här kontrollen avgör om agenten rapporterar till flera arbets ytor. Multi-värdar stöds inte av Uppdateringshantering.
+Den här kontrollen avgör om agenten rapporterar till flera arbetsytor. Flera värdar stöds inte av hantering av uppdateringar.
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-Den här kontrollen kontrollerar om Log Analytics-agenten för Linux har Hybrid Runbook Worker-paketet. Det här paketet krävs för att Uppdateringshantering ska fungera.
+Den här kontrollen kontrollerar om Log Analytics-agenten för Linux har Hybrid Runbook Worker-paketet. Det här paketet måste anges för hantering av uppdateringar ska fungera.
 
-### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker status
+### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker-status
 
-Den här kontrollen säkerställer att Hybrid Runbook Worker körs på datorn. Följande processer bör finnas om Hybrid Runbook Worker körs på rätt sätt. Mer information finns i [felsöka Log Analytics agent för Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+Den här kontrollen ser till att Hybrid Runbook Worker körs på datorn. Följande processer ska vara tillgänglig om Hybrid Runbook Worker körs korrekt. Mer information finns i [felsökning Log Analytics-agenten för Linux](hybrid-runbook-worker.md#oms-agent-not-running).
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -92,39 +92,39 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-## <a name="connectivity-checks"></a>Anslutnings kontroller
+## <a name="connectivity-checks"></a>Anslutningskontroller
 
-### <a name="general-internet-connectivity"></a>Allmän Internet anslutning
+### <a name="general-internet-connectivity"></a>Allmän Internetanslutning
 
-Den här kontrollen ser till att datorn har åtkomst till Internet.
+Den här kontrollen ser till att datorn har åtkomst till internet.
 
-### <a name="registration-endpoint"></a>Registrerings slut punkt
+### <a name="registration-endpoint"></a>Registreringsslutpunkt
 
 Den här kontrollen avgör om Hybrid Runbook Worker kan kommunicera korrekt med Azure Automation arbets ytan Log Analytics.
 
-Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med registrerings slut punkten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med slutpunkten för registrering. En lista över adresser och portar som ska öppnas finns [Network planera för Hybrid Worker-arbeten](../automation-hybrid-runbook-worker.md#network-planning)
 
-### <a name="operations-endpoint"></a>Åtgärds slut punkt
+### <a name="operations-endpoint"></a>Operations-slutpunkt
 
-Den här kontrollen avgör om agenten kan kommunicera korrekt med jobb körnings data tjänsten.
+Den här kontrollen avgör om agenten kan kommunicera med tjänsten jobbet Runtime Data korrekt.
 
-Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med jobb körnings data tjänsten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med tjänsten jobbet Runtime Data. En lista över adresser och portar som ska öppnas finns [Network planera för Hybrid Worker-arbeten](../automation-hybrid-runbook-worker.md#network-planning)
 
-### <a name="log-analytics-endpoint-1"></a>Log Analytics slut punkt 1
+### <a name="log-analytics-endpoint-1"></a>Log Analytics slutpunkt 1
 
-Den här kontrollen kontrollerar att datorn har åtkomst till de slut punkter som krävs av Log Analytics agenten.
+Det här kontrollerar att datorn har åtkomst till de slutpunkter som krävs av Log Analytics-agenten.
 
-### <a name="log-analytics-endpoint-2"></a>Log Analytics slut punkt 2
+### <a name="log-analytics-endpoint-2"></a>Log Analytics slutpunkt 2
 
-Den här kontrollen kontrollerar att datorn har åtkomst till de slut punkter som krävs av Log Analytics agenten.
+Det här kontrollerar att datorn har åtkomst till de slutpunkter som krävs av Log Analytics-agenten.
 
-### <a name="log-analytics-endpoint-3"></a>Log Analytics slut punkt 3
+### <a name="log-analytics-endpoint-3"></a>Log Analytics-slutpunkten 3
 
-Den här kontrollen kontrollerar att datorn har åtkomst till de slut punkter som krävs av Log Analytics agenten.
+Det här kontrollerar att datorn har åtkomst till de slutpunkter som krävs av Log Analytics-agenten.
 
 ## <a name="troubleshoot-offline"></a>Felsöka offline
 
-Du kan använda fel sökaren offline på en Hybrid Runbook Worker genom att köra skriptet lokalt. Python-skriptet [update_mgmt_health_check. py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) finns i Script Center. Ett exempel på utdata från det här skriptet visas i följande exempel:
+Du kan använda felsökaren offline på en Hybrid Runbook Worker genom att köra skriptet lokalt. Python-skriptet [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) finns i Script Center. Ett exempel på utdata från det här skriptet visas i följande exempel:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2
@@ -179,4 +179,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du felsöker ytterligare problem med dina hybrid Runbook Worker finns i [Felsöka-hybrid Runbook Worker](hybrid-runbook-worker.md)
+Information om hur du felsöker ytterligare problem med dina hybrid Runbook Worker finns i [Felsöka-hybrid Runbook Worker](hybrid-runbook-worker.md).

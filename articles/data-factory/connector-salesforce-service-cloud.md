@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från och till Salesforce-tjänstemolnet med hjälp av Azure Data Factory
+title: Kopiera data från och till Salesforce-tjänstemoln
 description: Lär dig hur du kopierar data från Salesforce-tjänstemolnet till mottagar data lager eller från käll data lager som stöds till Salesforce-tjänstens moln genom att använda en kopierings aktivitet i en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 5b98e11d4b8d820c87dfb6ffc5e98b46f2095ace
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3d49ec7260017421a60268e159c8152359455871
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680361"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895620"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce-tjänstemolnet med hjälp av Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Salesforce-tjänstemolnet. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Salesforce-tjänstemolnet. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över kopieringsaktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -39,7 +39,7 @@ Mer specifikt stöder den här Salesforce-tjänstens moln koppling:
 
 Salesforce-tjänstens moln koppling bygger på Salesforce-REST/bulk-API: et, med [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för att kopiera data från och [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för att kopiera data till.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 API-behörighet måste vara aktiverat i Salesforce. Mer information finns i [Aktivera API-åtkomst i Salesforce med behörighets uppsättning](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 
@@ -52,13 +52,13 @@ Salesforce har gränser för både totalt antal API-begäranden och samtidiga AP
 
 Du kan också få fel meddelandet "REQUEST_LIMIT_EXCEEDED" i båda scenarierna. Mer information finns i avsnittet "begränsningar för API-begäranden" i [gränser för Salesforce-utvecklare](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Salesforce-tjänstens moln anslutning.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Följande egenskaper stöds för den länkade Salesforce-tjänsten.
 
@@ -67,9 +67,9 @@ Följande egenskaper stöds för den länkade Salesforce-tjänsten.
 | typ |Egenskapen Type måste anges till **SalesforceServiceCloud**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-tjänstens moln instans. <br> – Standardvärdet är `"https://login.salesforce.com"`. <br> – Om du vill kopiera data från sandbox anger du `"https://test.salesforce.com"`. <br> – Om du vill kopiera data från en anpassad domän anger du exempelvis `"https://[domain].my.salesforce.com"`. |Nej |
 | användarnamn |Ange ett användar namn för användar kontot. |Ja |
-| lösenord |Ange ett lösen ord för användar kontot.<br/><br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| securityToken |Ange en säkerhetstoken för användar kontot. Instruktioner för hur du återställer och hämtar en säkerhetstoken finns i [Hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om inget värde anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har integration runtime |
+| lösenord |Ange ett lösen ord för användar kontot.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| securityToken |Ange en säkerhetstoken för användar kontot. Instruktioner för hur du återställer och hämtar en säkerhetstoken finns i [Hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har integration runtime |
 
 >[!IMPORTANT]
 >När du kopierar data till Salesforce-tjänstemolnet kan standard Azure Integration Runtime inte användas för att köra kopiering. Om den länkade käll tjänsten inte har en angiven integration runtime, kan du [skapa en Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din moln instans för Salesforce-tjänsten. Koppla den länkade tjänsten för Salesforce-tjänstemolnet som i följande exempel.
@@ -134,9 +134,9 @@ Följande egenskaper stöds för den länkade Salesforce-tjänsten.
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av data uppsättningen för Salesforce-tjänstens moln.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av data uppsättningen för Salesforce-tjänstens moln.
 
 Följande egenskaper stöds för att kopiera data från och till Salesforce-tjänstemolnet.
 
@@ -146,7 +146,7 @@ Följande egenskaper stöds för att kopiera data från och till Salesforce-tjä
 | objectApiName | Salesforce-objektets namn att hämta data från. | Nej för källa, Ja för mottagare |
 
 > [!IMPORTANT]
-> Delen "__c" i **API-namn** krävs för alla anpassade objekt.
+> En "__c"-del av **API-namn** krävs för alla anpassade objekt.
 
 ![Data Factory API-namn för Salesforce-anslutning](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
@@ -176,7 +176,7 @@ Följande egenskaper stöds för att kopiera data från och till Salesforce-tjä
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce-tjänstens moln källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce-tjänstens moln källa och mottagare.
 
 ### <a name="salesforce-service-cloud-as-a-source-type"></a>Salesforce-tjänstens moln som käll typ
 
@@ -185,11 +185,11 @@ För att kunna kopiera data från Salesforce-tjänstemolnet stöds följande ege
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **SalesforceServiceCloudSource**. | Ja |
-| query |Använd den anpassade frågan för att läsa data. Du kan använda [SOQL-](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga eller SQL-92-fråga för Salesforce-objekt frågor. Se fler tips i avsnittet [tips](#query-tips) . Om fråga inte anges hämtas alla data för det moln objekt för Salesforce-tjänsten som anges i "objectApiName" i data uppsättningen. | Nej (om "objectApiName" i data uppsättningen har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. Du kan använda [SOQL-](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga eller SQL-92-fråga för Salesforce-objekt frågor. Se fler tips i avsnittet [tips](#query-tips) . Om fråga inte anges hämtas alla data för det moln objekt för Salesforce-tjänsten som anges i "objectApiName" i data uppsättningen. | Nej (om "objectApiName" i data uppsättningen har angetts) |
 | readBehavior | Indikerar om du vill fråga befintliga poster eller fråga alla poster inklusive borttagna. Om inget värde anges är standard beteendet det tidigare. <br>Tillåtna värden: **fråga** (standard), **queryAll**.  | Nej |
 
 > [!IMPORTANT]
-> Delen "__c" i **API-namn** krävs för alla anpassade objekt.
+> En "__c"-del av **API-namn** krävs för alla anpassade objekt.
 
 ![Lista med Data Factory API-namn för Salesforce-anslutning](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
@@ -232,10 +232,10 @@ För att kopiera data till Salesforce-tjänstemolnet stöds följande egenskaper
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SalesforceServiceCloudSink**. | Ja |
-| WriteBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **insert** -och **upsert**. | Nej (standard är Insert) |
+| writeBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **insert** -och **upsert**. | Nej (standard är Insert) |
 | externalIdFieldName | Namnet på det externa ID-fältet för upsert-åtgärden. Det angivna fältet måste definieras som "externt ID-fält" i Salesforce-tjänstens moln objekt. Det får inte ha NULL-värden i motsvarande indata. | Ja för "upsert" |
 | writeBatchSize | Rad antalet data som skrivits till Salesforce-tjänstens moln i varje batch. | Nej (standard är 5 000) |
-| ignoreNullValues | Anger om NULL-värden ska ignoreras från indata under en Skriv åtgärd.<br/>Tillåtna värden är **True** och **false**.<br>- **Sant**: lämna kvar data i målobjektet oförändrade när du gör en upsert-eller uppdaterings åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **falskt**: uppdatera data i MÅLOBJEKTET till null när du gör en upsert-eller uppdaterings åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
+| ignoreNullValues | Anger om NULL-värden ska ignoreras från indata under en Skriv åtgärd.<br/>Tillåtna värden är **true** och **false**.<br>- **Sant**: lämna kvar data i målobjektet oförändrade när du gör en upsert-eller uppdaterings åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **falskt**: uppdatera data i MÅLOBJEKTET till null när du gör en upsert-eller uppdaterings åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
 
 **Exempel:**
 
@@ -297,39 +297,39 @@ När du kopierar data från Salesforce-tjänstemolnet kan du använda antingen S
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Hämta data med hjälp av en WHERE-sats i kolumnen DateTime
 
-När du anger SOQL eller SQL-frågan bör du tänka på DateTime-formatets skillnad. Till exempel:
+När du anger SOQL eller SQL-frågan bör du tänka på DateTime-formatets skillnad. Exempel:
 
 * **SOQL-exempel**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL-exempel**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_querytruncated"></a>Fel i MALFORMED_QUERY: trunkerad
 
-Om du trycker på fel "MALFORMED_QUERY: trunkerad" beror det vanligt vis på att du har JunctionIdList typ kolumn i data och Salesforce har en begränsning på stöd av sådana data med ett stort antal rader. Du kan undvika detta genom att försöka undanta JunctionIdList-kolumnen eller begränsa antalet rader som ska kopieras (du kan partitionera till flera kopierings aktivitets körningar).
+Om du får fel meddelandet "MALFORMED_QUERY: trunkerad" beror det vanligt vis på att du har JunctionIdList typ kolumn i data och Salesforce har begränsningar för att stödja sådana data med ett stort antal rader. Du kan undvika detta genom att försöka undanta JunctionIdList-kolumnen eller begränsa antalet rader som ska kopieras (du kan partitionera till flera kopierings aktivitets körningar).
 
 ## <a name="data-type-mapping-for-salesforce-service-cloud"></a>Data typs mappning för Salesforce-tjänstemoln
 
 När du kopierar data från Salesforce-tjänstemolnet används följande mappningar från data typerna för Salesforce-tjänstemolnet för att Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren finns i [schema-och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-| Moln data typ för Salesforce-tjänst | Data Factory data typen Interim |
+| Moln data typ för Salesforce-tjänst | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| Automatisk numrering |Sträng |
-| Rute |Boolesk |
+| Auto Number |Sträng |
+| Checkbox |Boolesk |
 | Valuta |Decimal |
-| Date |DateTime |
+| Datum |DateTime |
 | Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
-| Sök relation |Sträng |
-| Listruta för flera val |Sträng |
+| Lookup Relationship |Sträng |
+| Multi-Select Picklist |Sträng |
 | Tal |Decimal |
 | Procent |Decimal |
 | Telefon |Sträng |
-| Listan |Sträng |
+| Picklist |Sträng |
 | Text |Sträng |
-| Text områden |Sträng |
-| Text områden (långt) |Sträng |
-| Text områden (Rich) |Sträng |
-| Text (krypterad) |Sträng |
+| Text Area |Sträng |
+| Text Area (Long) |Sträng |
+| Text Area (Rich) |Sträng |
+| Text (Encrypted) |Sträng |
 | URL |Sträng |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
@@ -338,4 +338,4 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

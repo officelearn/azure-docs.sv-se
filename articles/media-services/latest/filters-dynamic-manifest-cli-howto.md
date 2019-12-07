@@ -1,6 +1,6 @@
 ---
 title: Använd CLI för att skapa filter med Azure Media Services | Microsoft Docs
-description: Det här avsnittet visar hur du använder CLI för att skapa filter med Media Services.
+description: Den här artikeln visar hur du använder CLI för att skapa filter med Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26350479f0f066f45c143e1a35061b3a409de309
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786481"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896061"
 ---
 # <a name="creating-filters-with-cli"></a>Skapa filter med CLI 
 
@@ -32,7 +32,7 @@ Det här avsnittet visar hur du konfigurerar ett filter för en Video på begär
 > [!NOTE]
 > Se till att granska [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
 
@@ -40,10 +40,10 @@ Det här avsnittet visar hur du konfigurerar ett filter för en Video på begär
 
 ## <a name="define-a-filter"></a>Definiera ett filter 
 
-I följande exempel definierar spåra val av villkoren som läggs till sista manifestet. Det här filtret innehåller alla ljudspår som är EG-3 och alla video spår har bithastighet i 0-1000000 intervall.
+I följande exempel definierar spåra val av villkoren som läggs till sista manifestet. Det här filtret innehåller alla ljud spår som är EC-3 och alla video spår som har bit hastighet i intervallet 0-1000000.
 
 > [!TIP]
-> Om du planerar att definiera **filter** i REST, Lägg märke till att du behöver inkludera ”egenskaper” wrapper JSON-objekt.  
+> Observera att du måste ta med JSON-objektet "egenskaper" om du planerar att definiera **filter** i vila.  
 
 ```json
 [
@@ -82,7 +82,7 @@ I följande exempel definierar spåra val av villkoren som läggs till sista man
 
 Följande [az ams-konto-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) kommandot skapar ett kontofilter med filter spåra val som var [definierade tidigare](#define-a-filter). 
 
-Kommandot kan du skicka en valfri `--tracks` parameter som innehåller JSON som representerar spåra val.  Använd @{file} för att läsa in JSON från en fil. Om du använder Azure CLI lokalt kan du ange hela sökvägen:
+Med kommandot kan du skicka en valfri `--tracks` parameter som innehåller JSON som representerar spårnings valen.  Använd @ {File} för att läsa in JSON från en fil. Om du använder Azure CLI lokalt anger du hela fil Sök vägen:
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
@@ -100,11 +100,11 @@ az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-
 
 Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
-## <a name="associate-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
+## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
-Du kan ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Den [dynamisk Paketeraren (slutpunkt för direktuppspelning)](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska Manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+Du kan ange en lista över till gångs-eller konto filter, som gäller för din strömmande positionerare. Den [dynamiska Paketeraren (slut punkt för direkt uppspelning)](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i de URL: er som du anger på en strömmande positionerare. Vi rekommenderar att du använder den här funktionen om du vill tillämpa filter men inte vill visa filter namnen i URL: en.
 
-Följande CLI-kod visar hur du skapar en positionerare för direktuppspelning och ange `filters`. Det här är en valfri egenskap som tar en blankstegsavgränsad lista med filtret resursnamn och/eller filter kontonamn.
+Följande CLI-kod visar hur du skapar en strömmande lokaliserare och anger `filters`. Det här är en valfri egenskap som tar en blankstegsavgränsad lista över till gångs filter namn och/eller konto filter namn.
 
 ```azurecli
 az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
@@ -114,13 +114,13 @@ az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocat
                                 
 ```
 
-## <a name="stream-using-filters"></a>Stream med hjälp av filter
+## <a name="stream-using-filters"></a>Data ström med filter
 
-När du har definierat filter kan klienterna använda dem i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming.
+När du har definierat filter kan klienterna använda dem i strömnings-URL: en. Filter kan tillämpas på strömnings protokoll med anpassningsbar bit hastighet: Apple HTTP Live Streaming (HLS), MPEG-streck och Smooth Streaming.
 
 I följande tabell visas några exempel på URL: er med filter:
 
-|Protocol|Exempel|
+|Protokoll|Exempel|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

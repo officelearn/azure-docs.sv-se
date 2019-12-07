@@ -1,6 +1,6 @@
 ---
 title: Konfigurera PostMan för Azure Media Services REST API-anrop
-description: Lär dig hur du konfigurerar Postman för Media Services REST API samtal.
+description: 'Den här artikeln visar hur du konfigurerar Postman så att den kan användas för att anropa Azure Media Services REST-API: er för (AMS).'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839588"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888112"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera PostMan för Media Services REST API-anrop
 
@@ -26,9 +26,9 @@ Den här artikeln visar hur du konfigurerar **Postman** så att den kan använda
 
 Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
 - Hämta information som krävs för att [få åtkomst till API: er](access-api-cli-how-to.md)
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
@@ -92,7 +92,7 @@ Innan du börjar ändra AMS v3-resurser måste du hämta och ange Azure AD-token
 
     ![Hämta AAD-token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="troubleshooting"></a>Felsökning 
+## <a name="troubleshooting"></a>Felsöka 
 
 * Om programmet Miss lyckas med "HTTP 504: Gateway-tidsgräns" kontrollerar du att plats variabeln inte uttryckligen har angetts till ett annat värde än den förväntade platsen för Media Services kontot. 
 * Om du får ett fel meddelande om att det inte gick att hitta kontot kontrollerar du också att egenskapen location i meddelandets JSON-meddelande har angetts till den plats där Media Servicess kontot finns. 

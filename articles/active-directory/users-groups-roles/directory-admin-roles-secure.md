@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028444"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900788"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD
 
@@ -44,7 +44,7 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 För de flesta organisationer är säkerheten för företagets till gångar beroende av integriteten hos de privilegierade konton som administrerar och hanterar IT-system. Cyberhot-angripare fokuserar på privilegie rad åtkomst till infrastruktur system (till exempel Active Directory och Azure Active Directory) för att få åtkomst till en organisations känsliga data. 
 
-Traditionella metoder som fokuserar på att skydda ingångs-och utförsel platser i ett nätverk som primär säkerhetsperimeter är mindre effektiva på grund av ökningen av användningen av SaaS-appar och personliga enheter på Internet. Naturlig ersättning för nätverks säkerhets perimeternätverket i ett komplext modernt företag är autentiserings-och auktoriserings kontrollerna i en organisations identitets lager.
+Traditionella metoder som fokuserar på att skydda ingångs-och utförsel platser i ett nätverk som primär säkerhetsperimeter är mindre effektiva på grund av ökningen av användningen av SaaS-appar och personliga enheter på Internet. Ersättningar för nätverkets säkerhetsperimeter i ett komplext modernt företag är autentiserings- och auktoriseringskontroller i en organisations identitetslager.
 
 Privilegierade administrativa konton styrs effektivt för den här nya "säkerhetsperimetern". Det är viktigt att skydda privilegie rad åtkomst, oavsett om miljön är lokal, moln eller hybrid lokala och värdbaserade tjänster i molnet. Att skydda administrativ åtkomst mot bestämda angripare kräver att du tar en komplett och genomtänkt metod för att isolera organisationens system från risker. 
 
@@ -94,7 +94,7 @@ När du har aktiverat Azure AD Privileged Identity Management:
 
 2. Om du vill välja den klient där du vill använda Privileged Identity Management väljer du ditt användar namn i det övre högra hörnet av Azure Portal.
 
-3. Välj **alla tjänster** och filtrera listan för **Azure AD Privileged Identity Management**.
+3. På Azure Portal-menyn väljer du **alla tjänster** och filtrerar listan för **Azure AD Privileged Identity Management**.
 
 4. Öppna Privileged Identity Management från listan **alla tjänster** och fäst den på din instrument panel.
 
@@ -241,7 +241,7 @@ Kräv C-Suite-chefer, högnivå ansvariga, viktiga IT-och säkerhets personal oc
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Använda dedikerade arbets stationer för administration för Azure AD
 
-Angripare kan försöka rikta in sig på privilegierade konton för att få åtkomst till en organisations data och system, så att de kan störa integriteten och äktheten på data genom skadlig kod som ändrar program logiken eller snooping som administratören anger en autentiseringsuppgift. Arbets stationer med privilegie rad åtkomst (Paw) tillhandahåller ett dedikerat operativ system för känsliga uppgifter som skyddas från Internet attacker och hot vektorer. Att avgränsa dessa känsliga uppgifter och konton från de dagliga arbets stationerna och enheterna ger mycket starkt skydd mot nätfiske-attacker, program-och OS-sårbarheter, olika personifieringar och stöld attacker, till exempel tangenttryckning loggning, pass-The-hash och pass-The-Ticket. Genom att distribuera arbets stationer med privilegie rad åtkomst kan du minska risken för att administratörer anger autentiseringsuppgifter för administratörer, förutom i en stationär miljö som har härdats. Mer information finns i [arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Angripare kan försöka rikta in sig på privilegierade konton för att få åtkomst till en organisations data och system, så att de kan störa integriteten och äktheten på data genom skadlig kod som ändrar program logiken eller snooping som administratören anger en autentiseringsuppgift. Arbetsstationer för privilegierad åtkomst (PAW, Privileged Access Workstation) ger tillgång till ett dedikerat operativsystem för känsliga uppgifter som är skyddat mot Internetattacker och hotvektorer. Att avgränsa dessa känsliga uppgifter och konton från de dagliga arbets stationerna och enheterna ger mycket starkt skydd mot nätfiske-attacker, program-och OS-sårbarheter, olika personifieringar och stöld attacker, till exempel tangenttryckning loggning, pass-The-hash och pass-The-Ticket. Genom att distribuera arbets stationer med privilegie rad åtkomst kan du minska risken för att administratörer anger autentiseringsuppgifter för administratörer, förutom i en stationär miljö som har härdats. Mer information finns i [arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Granska National Institute of Standards och teknik rekommendationer för hantering av incidenter 
 
@@ -261,7 +261,7 @@ Om du redan använder Azure AD Privileged Identity Management justerar du tids r
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Bestäm exponering för lösenordsbaserade inloggnings protokoll (om du använder Exchange Online)
 
-Tidigare antog protokollen att kombinationer av användar namn/lösen ord är inbäddade i enheter, e-postkonton, telefoner och så vidare. Men nu med risken för cyberhot-attacker i molnet, rekommenderar vi att du identifierar alla potentiella användare som, om deras autentiseringsuppgifter har komprometterats, kan vara oåterkalleliga för organisationen, och undanta dem från att kunna logga in på sin e-post via användar namn/lösen ord genom att implementera starka autentiseringskrav och villkorlig åtkomst. Du kan blockera [äldre autentisering med villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Läs informationen om [hur du blockerar grundläggande autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) genom exchnage online. 
+Tidigare antog protokollen att kombinationer av användar namn/lösen ord är inbäddade i enheter, e-postkonton, telefoner och så vidare. Men nu med risken för cyberhot-attacker i molnet, rekommenderar vi att du identifierar alla potentiella användare som, om deras autentiseringsuppgifter har komprometterats, kan vara oåterkalleliga för organisationen, och undanta dem från att kunna logga in på sin e-post via användar namn/lösen ord genom att implementera starka autentiseringskrav och villkorlig åtkomst. Du kan blockera [äldre autentisering med villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Läs informationen om [hur du blockerar grundläggande autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange Online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Slutför en gransknings bedömning för roller för Office 365-roller (om du använder Office 365)
 

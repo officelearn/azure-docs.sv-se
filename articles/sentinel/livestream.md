@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/06/2019
 ms.author: cabailey
-ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546854"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900463"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Använd jakt liveström i Azure Sentinel för att identifiera hot
 
@@ -70,7 +70,7 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
 
 5. Välj **spela upp** från kommando fältet.
     
-    Statusfältet under kommando fältet visar om din liveström körs eller har pausats. I följande exempel körs sessionen:
+    Statusfältet under kommando fältet visar om din liveström-session körs eller har pausats. I följande exempel körs sessionen:
     
     > [!div class="mx-imgBorder"]
     > ![skapa liveström-session från Azure Sentinel jakt](./media/livestream/livestream-session.png)
@@ -110,7 +110,6 @@ Den här åtgärden öppnar guiden Skapa regel som är förifylld med frågan so
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig hur du använder jakt liveström i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-
 
 - [Söker proaktivt efter hot](hunting.md)
 - [Använd antecknings böcker för att köra automatiserade jakt kampanjer](notebooks.md)

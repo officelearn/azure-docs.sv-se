@@ -6,18 +6,18 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725586"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896655"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
 
-Du kan distribuera VPN-och ExpressRoute-gatewayer i [Azure-tillgänglighetszoner](../availability-zones/az-overview.md). Detta ger återhämtning, skalbarhet och högre tillgänglighet till virtuella nätverks-gatewayer. Att distribuera gateways i Azure-tillgänglighetszoner fysiskt och logiskt särskiljer gatewayer inom en region, samtidigt som du skyddar din lokala nätverks anslutning till Azure från felaktiga zon nivåer.
+Du kan distribuera VPN-och ExpressRoute-gatewayer i [Azure-tillgänglighetszoner](../availability-zones/az-overview.md). Det ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribution av gatewayer i Azure-tillgänglighetszoner skiljer gatewayerna åt fysiskt och logiskt i en region, samtidigt som din lokala nätverksanslutning till Azure skyddas mot fel på zonnivå.
 
 ### <a name="zrgw"></a>Zoner-redundanta gateways
 
@@ -39,21 +39,9 @@ Om du vill distribuera gateways i en speciell zon kan du använda zonindelade-ga
 
 ## <a name="gwskus"></a>Gateway-SKU:er
 
-Zoner-redundanta och zonindelade-gatewayer är tillgängliga som nya gateway SKU: er. Vi har lagt till nya virtuella nätverksgateway-SKU: er i Azure AZ-regioner. Dessa SKU: er liknar motsvarande befintliga SKU: er för ExpressRoute och VPN Gateway, förutom att de är relaterade till zoner-redundanta och zonindelade-gatewayer.
+Zoner-redundanta och zonindelade-gatewayer är tillgängliga som nya gateway SKU: er. Vi har lagt till nya virtuella nätverksgateway-SKU: er i Azure AZ-regioner. Dessa SKU: er liknar motsvarande befintliga SKU: er för ExpressRoute och VPN Gateway, förutom att de är relaterade till zoner-redundanta och zonindelade-gatewayer. Du kan identifiera dessa SKU: er med "AZ" i SKU-namnet.
 
-Nya gateway-SKU: er är:
-
-### <a name="vpn-gateway"></a>VPN Gateway
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+Information om Gateway-SKU: er finns i [VPN gateway SKU: er](vpn-gateway-about-vpngateways.md#gwsku) och [ExpressRoute Gateway SKU: er](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>Offentliga IP-SKU: er
 

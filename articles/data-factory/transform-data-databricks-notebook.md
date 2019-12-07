@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Databricks Notebook – Azure
+title: Transformera data med Databricks Notebook
 description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks Notebook.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0768c16562a3931249dbbbc8f836ae14e7d0958b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683925"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894002"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks Notebook
 
@@ -60,12 +60,12 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 |Egenskap|Beskrivning|Krävs|
 |---|---|---|
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
-|description|Text som beskriver vad aktiviteten gör.|Nej|
+|beskrivning|Text som beskriver vad aktiviteten gör.|Nej|
 |typ|Aktivitets typen är DatabricksNotebook för Databricks Notebook-aktivitet.|Ja|
 |linkedServiceName|Namnet på den länkade Databricks-tjänsten som Databricks-anteckningsboken körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute Linked services](compute-linked-services.md) .|Ja|
 |notebookPath|Den absoluta sökvägen till antecknings boken som ska köras i Databricks-arbetsytan. Sökvägen måste börja med ett snedstreck.|Ja|
 |baseParameters|En matris med nyckel/värde-par. Du kan använda bas parametrar för varje aktivitets körning. Om antecknings boken använder en parameter som inte har angetts används standardvärdet från antecknings boken. Hitta mer information om parametrar i [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nej|
-|biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med \<sträng, objekt >.|Nej|
+|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med \<sträng, objekt >.|Nej|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för Databricks-aktiviteter

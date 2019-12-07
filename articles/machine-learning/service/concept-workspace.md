@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 14fc91feb16fb45eee1fe2e757a717e04ef07f99
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580754"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894729"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -28,7 +28,7 @@ Vilka priser och funktioner som är tillgängliga beror på om [Basic eller Ente
 
 En taxonomi i arbets ytan illustreras i följande diagram:
 
-[taxonomi för ![-arbetsyta](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 Diagrammet visar följande komponenter för en arbets yta:
 
@@ -73,8 +73,8 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 |---------------------------|---------|---------|------------|------------|
 | Skapa en arbetsyta        | **&check;**     | | **&check;** | **&check;** |
 | Hantera åtkomst till arbets ytan    | **&check;**   || |  **&check;**    |
-| Uppgradera till Enterprise Edition    | **&check;** |  | |     |
-| Skapa och hantera beräknings resurser    |   | **&check;** | **&check;** |  **&check;**   |
+| Uppgradera till Enterprise Edition    | **&check;** | **&check;**  | |     |
+| Skapa och hantera beräknings resurser    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Skapa en virtuell dator för Notebook |   | **&check;** | |     |
 
 
@@ -95,7 +95,7 @@ Du kan [uppgradera din arbets yta från Basic till Enterprise Edition](how-to-ma
 
 ## <a name="resources"></a>Associerade resurser
 
-När du skapar en ny arbets yta skapar den automatiskt flera Azure-resurser som används av arbets ytan:
+När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som används av arbetsytan:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registrerar Docker-behållare som du använder under utbildningen och när du distribuerar en modell. För att minimera kostnaderna är ACR en **Lazy-inläst** tills distributions avbildningar skapas.
 + [Azure Storage konto](https://azure.microsoft.com/services/storage/): används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med din Azure Machine Learning VM-anteckningsbok lagras också här.

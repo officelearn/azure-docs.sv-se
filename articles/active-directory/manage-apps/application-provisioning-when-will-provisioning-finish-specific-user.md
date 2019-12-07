@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: ebe362be49995ce2cd1f4c43a5cfbee408396976
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275746"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900407"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Kontrol lera status för användar etablering
 
@@ -40,7 +40,7 @@ När du först konfigurerar automatisk etablering visas statusen för den inleda
 
 När en etablerings cykel är klar visar **statistik till datum** avsnittet det ackumulerade antalet användare och grupper som har etablerats till datum, tillsammans med slutdatum och varaktighet för den senaste cykeln. **Aktivitets-ID: t** identifierar unikt den senaste etablerings cykeln. **Jobb-ID: t** är en unik identifierare för etablerings jobbet och är särskilt för appen i din klient organisation.
 
-Etablerings förloppet kan visas i Azure Portal i **Azure Active Directory &gt; Enterprise Apps &gt; \[program namn\] etablering** fliken.&gt;
+Etablerings förloppet kan visas i Azure Portal i **Azure Active Directory &gt; Enterprise Apps &gt; \[program namn\] etablering** fliken.
 
 ![Förlopps indikator för etablerings Sidan](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -101,6 +101,8 @@ Sammanfattning av faktorer som påverkar hur lång tid det tar att slutföra en 
 - Hastighets begränsningar och begränsning för begäran som implementeras av mål systemet. Vissa mål system implementerar begränsningar för begär ande hastighet och begränsning, vilket kan påverka prestanda under stora synkroniseringar. Under dessa villkor kan en app som tar emot för många begär Anden för snabbt få en långsam svars frekvens eller stänga anslutningen. För att förbättra prestanda måste anslutningen justeras genom att inte skicka app-begärandena snabbare än appen kan bearbeta dem. Etablerings anslutningar som skapats av Microsoft gör den här ändringen. 
 
 - Antalet och storlekarna för tilldelade grupper. Synkronisering av tilldelade grupper tar längre tid än att synkronisera användare. Både antalet och storlekarna i de tilldelade grupperna påverkar prestanda. Om ett program har [mappningar aktiverade för synkronisering av grupp objekt](customize-application-attributes.md#editing-group-attribute-mappings)synkroniseras grupp egenskaper, till exempel grupp namn och medlemskap, förutom användare. Dessa ytterligare synkroniseringar tar längre tid än att synkronisera användar objekt.
+
+- Om prestanda blir ett problem och du försöker etablera de flesta användare och grupper i din klient organisation använder du områdes filter. Med omfångs filter kan du finjustera de data som etablerings tjänsten extraherar från Azure AD genom att filtrera ut användare baserat på särskilda attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
 ## <a name="next-steps"></a>Nästa steg
 [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)

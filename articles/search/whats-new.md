@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 247378461a99d42f21a67a2c0aebc7019727f3a0
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555146"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901327"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -29,7 +29,11 @@ API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Dina 
 
 ## <a name="feature-announcements"></a>Funktions aviseringar
 
-4 november 2019-inbrännings konferens
+### <a name="december-2019"></a>December 2019
+
++ [Skapa app (för hands version)](search-create-app-portal.md) är en ny guide i portalen som genererar en nedladdnings bar HTML-fil. Filen levereras med inbäddat skript som återger en fungerande "localhost"-webbapp som är knutet till ett index i din Sök tjänst. Sidor kan konfigureras i guiden och kan innehålla ett sökfält, resultat område, navigerings fält för navigering och stöd för typeahead-frågor. Du kan ändra HTML-koden offline för att utöka eller anpassa arbets flödet eller utseendet.
+
+### <a name="november-2019---ignite-conference"></a>2019 november-inbrännings konferens
 
 + Med [stegvis indexering (för hands version)](cognitive-search-incremental-indexing-conceptual.md) kan du välja och välja vilka steg som ska utföras när du gör ändringar i en berikad pipeline. Stegvis indexering är användbart om du har bild innehåll som du tidigare har analyserat. Utdata från kostsam analys lagras och används sedan som grund för ytterligare indexering eller berikning.
 
@@ -44,7 +48,7 @@ API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Dina 
 
 + [Azure Data Lake Storage Gen2 (för hands version)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (för hands version)](search-howto-index-cosmosdb.md)och [Cosmos DB API för Cassandra (för hands version)](search-howto-index-cosmosdb.md) stöds nu i indexerare. Du kan registrera dig med [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). Du får ett bekräftelse meddelande när du har accepterat i för hands versions programmet.
 
-Juli 24 2019
+### <a name="july-2019"></a>Juli 2019
 
 + Allmänt tillgänglig i [Azure Government Cloud](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 

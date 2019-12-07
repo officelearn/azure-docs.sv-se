@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d22bfb0743bc18102e665a63f7e36ed75dd39cab
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716091"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900320"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Version och spårning av data uppsättningar i experiment
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Scenarier för typiska versioner:
 * När nya data är tillgängliga för omskolning
 * När du använder olika metoder för data förberedelse eller funktions teknik
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för den här självstudien:
 
@@ -146,7 +146,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Spåra data uppsättningar i experiment
 
-För varje Machine Learning experiment kan du enkelt spåra data uppsättningarna som används som indata via den registrerade modellens `Run`-objekt.
+För varje Machine Learning experiment kan du enkelt spåra data uppsättningarna som används som indata genom experiment `Run`-objektet.
+
+I följande kod används metoden [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) för att spåra vilka indata-datauppsättningar som användes när experimentet kördes:
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+Du kan också hitta `input_datasets` från experiment med [Azure Machine Learning Studio](https://ml.azure.com/). 
+
+Följande bild visar var du hittar indata-datauppsättningen för ett experiment på Azure Machine Learning Studio. I det här exemplet går du till fönstret **experiment** och öppnar fliken **Egenskaper** för en speciell körning av experimentet `keras-mnist`.
+
+![Indata-datauppsättningar](media/how-to-version-datasets/input-datasets.png)
 
 Använd följande kod för att registrera modeller med data uppsättningar:
 
@@ -156,26 +173,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med python eller [Azure Machine Learning Studio](https://ml.azure.com/).
-
-I följande kod används metoden [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) för att spåra vilka indata-datauppsättningar som användes när experimentet kördes:
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-Du kan också hitta `input_datasets` från experiment med [Azure Machine Learning Studio](https://ml.azure.com/). 
-
-Följande bild visar var du hittar indata-datauppsättningen för ett experiment på Azure Machine Learning Studio. I det här exemplet går du till fönstret **experiment** och öppnar fliken **Egenskaper** för en speciell körning av experimentet `keras-mnist`.
-
-![Indata-datauppsättningar](media/how-to-version-datasets/input-datasets.png)
-
-Du kan också hitta de modeller som använde din data uppsättning. Följande vy är från fönstret **data uppsättningar** under **till gångar**. Välj data uppsättningen och välj sedan fliken **modeller** för en lista med de modeller som använder den data uppsättningen. 
+Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med python eller [Azure Machine Learning Studio](https://ml.azure.com/). Följande vy är från fönstret **data uppsättningar** under **till gångar**. Välj data uppsättningen och välj sedan fliken **modeller** för en lista med de modeller som är registrerade med data uppsättningen. 
 
 ![Data uppsättnings modeller för indata](media/how-to-version-datasets/dataset-models.png)
 

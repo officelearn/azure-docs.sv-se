@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: d2b92759384a9a0b63d784a8cb1afb3d18d55aeb
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d0118f815a2ceb149c62363fa334c16d28c6d615
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219327"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894408"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Säkerhets kontroller för Azure Service Bus meddelanden
 
@@ -41,15 +41,15 @@ I den här artikeln dokumenteras säkerhets kontroller som är inbyggda i Azure 
 
 | Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
-| Authentication| Ja | Hanteras via [Azure Active Directory hanterad tjänstidentitet](service-bus-managed-service-identity.md).| [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md). |
-| Authorization| Ja | Stöder auktorisering via [RBAC](authenticate-application.md) och SAS-token. | [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md). |
+| Autentisering| Ja | Hanteras via [Azure Active Directory hanterad tjänstidentitet](service-bus-managed-service-identity.md).| [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md). |
+| Autentisering| Ja | Stöder auktorisering via [RBAC](authenticate-application.md) och SAS-token. | [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md). |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar |  Ja för kryptering på Server sidan – rest som standard. | Kundhanterade nycklar och BYOK stöds inte ännu. Kryptering på klient sidan är klientens ansvar |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej |   |   |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Ja för kryptering på Server sidan – rest som standard. |  |  |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja. För hands version | En kundhanterad nyckel i Azure-valv kan användas för att kryptera data i namn området Service Bus i vila. | [Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal (förhands granskning)](configure-customer-managed-key.md)  |
 | Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |   |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Stöder standard-HTTPS/TLS-mekanismen. |   |
 | Krypterade API-anrop| Ja | API-anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |   |

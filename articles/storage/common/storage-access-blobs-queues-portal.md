@@ -1,20 +1,21 @@
 ---
-title: Använd Azure Portal för att komma åt BLOB-eller Queue data-Azure Storage
+title: Använd Azure Portal för att få åtkomst till BLOB-eller Queue-data
+titleSuffix: Azure Storage
 description: När du har åtkomst till BLOB-eller Queue-data med hjälp av Azure Portal, gör portalen förfrågningar till Azure Storage under försättsblad. Dessa förfrågningar till Azure Storage kan autentiseras och auktoriseras med hjälp av antingen ditt Azure AD-konto eller lagrings kontots åtkomst nyckel.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5d5bd6400fdf09216124665b6b236b4da2583b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673279"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892405"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använd Azure Portal för att få åtkomst till BLOB-eller Queue-data
 
@@ -48,11 +49,11 @@ Roll **tilldelnings rollen eller** en annan Azure Resource Manager roll tilldeln
 
 De inbyggda rollerna som stöder åtkomst till BLOB-eller Queue-data är:
 
-- [Ägare till Storage BLOB-data](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): För POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2.
-- [Data deltagare i Storage BLOB](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Läs-/skriv-/borttagnings behörigheter för blobbar.
-- [Storage BLOB data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Skrivskyddade behörigheter för blobbar.
-- [Deltagare i Storage Queue-data](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Läs-/skriv-/borttagnings behörigheter för köer.
-- [Data läsare för lagrings köer](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Skrivskyddade behörigheter för köer.
+- [Storage BLOB data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): för POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2.
+- [Storage BLOB data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Läs-/skriv-/borttagnings behörigheter för blobbar.
+- [Storage BLOB data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): skrivskyddade behörigheter för blobbar.
+- [Data deltagare i Storage Queue](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Läs-/skriv-/borttagnings behörigheter för köer.
+- [Data läsare för lagrings köer](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Läs behörighet för köer.
     
 Anpassade roller har stöd för olika kombinationer av samma behörigheter som tillhandahålls av de inbyggda rollerna. Mer information om hur du skapar anpassade RBAC-roller finns i [anpassade roller för Azure-resurser](../../role-based-access-control/custom-roles.md) och [förstå roll definitioner för Azure-resurser](../../role-based-access-control/role-definitions.md).
 

@@ -1,25 +1,26 @@
 ---
-title: 'Självstudier: Simulera ett fel vid läsåtkomst till redundant lagring i Azure | Microsoft Docs'
-description: Simulera ett fel vid läsåtkomst till geografiskt redundant lagring
+title: Självstudie – simulera ett problem med att läsa data från den primära regionen
+titleSuffix: Azure Storage
+description: Simulera ett fel vid läsning av data från den primära regionen när Geo-redundant lagring med Läs behörighet (RA-GRS) är aktiverat för lagrings kontot.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 1f5c404e410ded2714be761e35060f3c07379bd3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508101"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892455"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Självstudier: Simulera ett fel vid läsåtkomst till redundant lagring
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Självstudie: simulera ett problem med att läsa data från den primära regionen
 
 Den här självstudien är del två i en serie. I den lär du dig om fördelarna med [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) genom att simulera ett fel.
 
-För att simulera ett fel, kan du använda antingen [statisk routning](#simulate-a-failure-with-an-invalid-static-route) eller [Fiddler](#simulate-a-failure-with-fiddler). Båda metoderna gör att du kan simulera fel för begäranden till den primära slutpunkten för din [read-access geo redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) lagringskonto (RA-GRS), leder till att programmet läsa från den sekundära slutpunkten i stället.
+Du kan använda antingen [statiska routnings](#simulate-a-failure-with-an-invalid-static-route) -eller [Fiddler](#simulate-a-failure-with-fiddler)för att simulera ett haveri. Med båda metoderna kan du simulera misslyckade begär anden till den primära slut punkten för det [geo-redundanta](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) lagrings kontot med Läs åtkomst (RA-GRS), vilket gör att programmet läses från den sekundära slut punkten i stället.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -27,16 +28,16 @@ I del två i serien lär du dig hur du:
 
 > [!div class="checklist"]
 > * Kör och pausar programmet
-> * Simulera ett fel med [en felaktig statisk väg](#simulate-a-failure-with-an-invalid-static-route) eller [Fiddler](#simulate-a-failure-with-fiddler)
+> * Simulera ett fel med [en ogiltig statisk väg](#simulate-a-failure-with-an-invalid-static-route) eller [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simulerar en återställning av den primära slutpunkten
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar med den här självstudien slutför du föregående självstudie: [Ge programdata hög tillgänglighet med Azure Storage][previous-tutorial].
+Innan du påbörjar den här självstudien slutför du den föregående själv studie kursen: [gör dina program data hög tillgängliga med Azure Storage][previous-tutorial].
 
-Om du vill simulera ett fel med statisk routning, använder du en upphöjd kommandotolk.
+Om du vill simulera ett haveri med statisk routning använder du en upphöjd kommando tolk.
 
-För att simulera ett fel med Fiddler, hämta och [installera Fiddler](https://www.telerik.com/download/fiddler)
+Om du vill simulera ett haveri med Fiddler kan du hämta och [Installera Fiddler](https://www.telerik.com/download/fiddler)
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simulera ett fel med en felaktig statisk väg
 
@@ -44,13 +45,13 @@ Du kan skapa en felaktig statisk väg för alla begäranden till den primära sl
 
 ### <a name="start-and-pause-the-application"></a>Starta och pausa programmet
 
-Följ instruktionerna i den [föregående självstudie] [ previous-tutorial] starta exemplet och ladda ned Testfilen, bekräftar du att det kommer från primär lagring. Beroende på din målplattform kan du sedan manuellt pausa exemplet eller vänta i en kommandotolk.
+Följ anvisningarna i [föregående självstudie][previous-tutorial] för att starta exemplet och hämta test filen, vilket bekräftar att den kommer från primär lagring. Beroende på din mål plattform kan du sedan manuellt pausa exemplet eller vänta i en prompt.
 
 ### <a name="simulate-failure"></a>Simulera ett fel
 
-När programmet är pausat, öppna en kommandotolk i Windows som en administratör eller kör terminal som rot på Linux.
+När programmet har pausats öppnar du en kommando tolk i Windows som administratör eller kör Terminal som rot på Linux.
 
-Få information om den primära slutpunkten kontodomänen lagring genom att ange följande kommando på ett kommando fråga eller terminal ersätta `STORAGEACCOUNTNAME` med namnet på ditt lagringskonto.
+Hämta information om den primära slut punkts domänen för lagrings kontot genom att ange följande kommando i en kommando tolk eller Terminal, och ersätta `STORAGEACCOUNTNAME` med namnet på ditt lagrings konto.
 
 ```
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
@@ -60,7 +61,7 @@ Kopiera IP-adressen för ditt lagringskonto till en textredigerare för senare a
 
 För att hämta IP-adressen för din lokala värd skriver du `ipconfig` i kommandotolken i Windows eller `ifconfig` i terminalen i Linux.
 
-För att lägga till en statisk väg för en målvärd skriver du följande kommando i Kommandotolken för Windows eller i terminalen i Linux, ersätta `<destination_ip>` med storage-konto IP-adress och `<gateway_ip>` med din lokala värd-IP-adress.
+Om du vill lägga till en statisk väg för en målvärd skriver du följande kommando i kommando tolken i Windows eller Linux-terminalen, ersätter `<destination_ip>` med ditt lagrings kontos IP-adress och `<gateway_ip>` med IP-adressen för din lokala värd.
 
 #### <a name="linux"></a>Linux
 
@@ -74,11 +75,11 @@ route add <destination_ip> gw <gateway_ip>
 route add <destination_ip> <gateway_ip>
 ```
 
-I fönstret med köra exemplet återuppta programmet eller tryck på den att hämta filen och bekräfta att det kommer från sekundär lagring. Du kan pausa exemplet igen eller vänta i Kommandotolken.
+I fönstret med det aktiva exemplet, återuppta programmet eller tryck på lämplig nyckel för att ladda ned exempel filen och bekräfta att den kommer från sekundär lagring. Du kan sedan Pausa exemplet igen eller vänta i prompten.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simulerar en återställning av den primära slutpunkten
 
-Ta bort felaktig statisk väg från routningstabellen för att simulera den primära slutpunkten blir fungerar igen. Detta innebär att alla begäranden till den primära slutpunkten dirigeras via standardgatewayen. Skriver du följande kommando i Kommandotolken för Windows eller Linux-terminal.
+Om du vill simulera den primära slut punkten när den fungerar igen tar du bort den ogiltiga statiska vägen från routningstabellen. Detta innebär att alla begäranden till den primära slutpunkten dirigeras via standardgatewayen. Skriv följande kommando i en Windows-kommandotolk eller Linux-terminal.
 
 #### <a name="linux"></a>Linux
 
@@ -92,7 +93,7 @@ route del <destination_ip> gw <gateway_ip>
 route delete <destination_ip>
 ```
 
-Du kan sedan fortsätta till programmet eller genom att trycka på rätt nyckel för att ladda ned exemplet filen igen, den här tiden som bekräftar att det igen kommer från primär lagring.
+Du kan sedan återuppta programmet eller trycka på lämplig nyckel för att ladda ned exempel filen igen, den här gången bekräftar att den återigen kommer från primär lagring.
 
 ## <a name="simulate-a-failure-with-fiddler"></a>Simulera ett fel med Fiddler
 
@@ -108,9 +109,9 @@ Följande avsnitt visar hur du simulerar ett fel samt återställning av den pri
 
 Fiddler ScriptEditor startas och visar filen **SampleRules.js**. Den här filen används för att anpassa Fiddler.
 
-Klistra in följande kodexempel i den `OnBeforeResponse` fungera måste ersätta `STORAGEACCOUNTNAME` med namnet på ditt lagringskonto. Beroende på det här exemplet du också behöva ersätta `HelloWorld` med namnet på Testfilen (eller ett prefix som `sampleFile`) laddas ned. Den nya koden är utkommenterad för att se till att den inte köras omedelbart.
+Klistra in följande kod exempel i funktionen `OnBeforeResponse`, och ersätt `STORAGEACCOUNTNAME` med namnet på ditt lagrings konto. Beroende på exemplet kan du också behöva ersätta `HelloWorld` med namnet på test filen (eller ett prefix som `sampleFile`) som hämtas. Den nya koden är kommenterad för att säkerställa att den inte körs direkt.
 
-När det är klart väljer du **File** (Arkiv) och **Save** (Spara) för att spara ändringarna. Lämna fönstret ScriptEditor öppen för användning i följande steg.
+När det är klart väljer du **File** (Arkiv) och **Save** (Spara) för att spara ändringarna. Lämna fönstret ScriptEditor öppet för användning i följande steg.
 
 ```javascript
     /*
@@ -132,19 +133,19 @@ När det är klart väljer du **File** (Arkiv) och **Save** (Spara) för att spa
 
 ### <a name="start-and-pause-the-application"></a>Starta och pausa programmet
 
-Följ instruktionerna i den [föregående självstudie] [ previous-tutorial] starta exemplet och ladda ned Testfilen, bekräftar du att det kommer från primär lagring. Beroende på din målplattform kan du sedan manuellt pausa exemplet eller vänta i en kommandotolk.
+Följ anvisningarna i [föregående självstudie][previous-tutorial] för att starta exemplet och hämta test filen, vilket bekräftar att den kommer från primär lagring. Beroende på din mål plattform kan du sedan manuellt pausa exemplet eller vänta i en prompt.
 
 ### <a name="simulate-failure"></a>Simulera ett fel
 
-När programmet är pausat växla tillbaka till Fiddler och ta bort kommentarerna för den anpassade regeln som du sparade i den `OnBeforeResponse` funktion. Se till att välja **filen** och **spara** att spara dina ändringar så att regeln ska gälla. Den här koden söker efter begäranden till RA-GRS-lagringskonto och, om sökvägen innehåller namnet på filen exemplet returnerar svarskoden `503 - Service Unavailable`.
+När programmet är pausat växlar du tillbaka till Fiddler och tar bort kommentaren till den anpassade regeln som du sparade i funktionen `OnBeforeResponse`. Se till att välja **Arkiv** och **Spara** för att spara ändringarna så att regeln börjar gälla. Den här koden söker efter begär anden till kontot RA-GRS lagrings konto och returnerar en svarskod för `503 - Service Unavailable`om sökvägen innehåller namnet på exempel filen.
 
-I fönstret med köra exemplet återuppta programmet eller tryck på den att hämta filen och bekräfta att det kommer från sekundär lagring. Du kan pausa exemplet igen eller vänta i Kommandotolken.
+I fönstret med det aktiva exemplet, återuppta programmet eller tryck på lämplig nyckel för att ladda ned exempel filen och bekräfta att den kommer från sekundär lagring. Du kan sedan Pausa exemplet igen eller vänta i prompten.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simulerar en återställning av den primära slutpunkten
 
-Ta bort i Fiddler, eller kommentera ut den anpassade regeln igen. Välj **filen** och **spara** att se till att regeln inte längre kommer att tillämpas.
+Ta bort eller kommentera den anpassade regeln igen i Fiddler. Välj **fil** och **Spara** för att se till att regeln inte längre tillämpas.
 
-I fönstret med köra exemplet återuppta programmet eller tryck på den att hämta filen och bekräfta att det kommer från primär lagring igen. Du kan sedan avsluta exemplet.
+I fönstret med det aktiva exemplet, återuppta programmet eller tryck på lämplig nyckel för att ladda ned exempel filen och bekräfta att den kommer från den primära lagrings platsen en gång till. Du kan sedan avsluta exemplet.
 
 ## <a name="next-steps"></a>Nästa steg
 

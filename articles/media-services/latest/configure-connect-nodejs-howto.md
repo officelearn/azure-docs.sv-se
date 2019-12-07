@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Azure Media Services v3 API-Node. js
-description: Lär dig hur du ansluter till Media Services v3-API med Node. js.
+description: Den här artikeln visar hur du ansluter till Media Services v3-API med Node. js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5361a820da0caa336ccc95ae657407889443268c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048418"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896107"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ansluta till Media Services v3 API-Node. js
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 Node. js SD
 
 ## <a name="prerequisites"></a>Krav
 
-- Installera [Node. js](https://nodejs.org/en/download/).
+- Installera [Node.js](https://nodejs.org/en/download/).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
 
 > [!IMPORTANT]
@@ -123,7 +123,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Media Services begrepp](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)

@@ -1,57 +1,58 @@
 ---
-title: Hantera lagring i Azure oberoende moln med hjälp av Azure PowerShell | Microsoft Docs
-description: Hantera lagring i Kina-molnet, Government-molnet och tyska molnet med hjälp av Azure PowerShell
+title: Använda PowerShell för att hantera data i Azures oberoende moln
+titleSuffix: Azure Storage
+description: Hantering av lagring i molnet i Kina, i det offentliga molnet i molnet och i Tyskland med Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 10/24/2017
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 69707eec0ea1f2260ee50a48ce1dcb82dc9ddd8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145872"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895241"
 ---
-# <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azure-oberoende molnet med hjälp av PowerShell
+# <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azures oberoende moln med PowerShell
 
-De flesta använda Azures offentliga moln för sin globala Azure-distribution. Det finns även vissa oberoende distributioner av Microsoft Azure på grund av landsbaserad placering och så vidare. Dessa oberoende distributioner kallas ”miljöer”. I följande lista beskrivs de oberoende moln som är tillgänglig för tillfället.
+De flesta människor använder Azures offentliga moln för sin globala Azure-distribution. Det finns också några oberoende distributioner av Microsoft Azure av suveränitets skäl och så vidare. Dessa oberoende distributioner kallas "miljöer". I följande lista beskrivs de oberoende moln som är tillgängliga för närvarande.
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-* [Azure Kina-molnet som drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
+* [Azure Kina 21Vianet-moln som drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
 * [Azure German Cloud](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="using-an-independent-cloud"></a>Med hjälp av en oberoende molnet 
+## <a name="using-an-independent-cloud"></a>Använda ett oberoende moln
 
-För att använda Azure Storage i ett av de oberoende moln måste ansluta du till molnet i stället för offentlig Azure. Använda en av de oberoende moln i stället för offentlig Azure:
+Om du vill använda Azure Storage i ett av de oberoende molnen ansluter du till det molnet i stället för Azure Public. Så här använder du ett av de oberoende molnen i stället för Azure Public:
 
-* Du anger den *miljö* som ska anslutas.
-* Du avgör och använder de tillgängliga regionerna.
-* Du använder rätt slutpunkt-suffix som skiljer sig från Azure offentlig.
+* Du anger *miljön* som du vill ansluta till.
+* Du fastställer och använder de tillgängliga regionerna.
+* Du använder rätt slut punkts suffix, vilket skiljer sig från Azure Public.
 
-Exemplen kräver Azure PowerShell-modulen Az version 0.7 eller senare. Kör i ett PowerShell-fönster `Get-Module -ListAvailable Az` att hitta versionen. Om det inte finns eller om du behöver uppgradera kan du se [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps). 
+Exemplen kräver Azure PowerShell module AZ version 0,7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen i ett PowerShell-fönster. Om inget anges eller om du behöver uppgradera, se [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Kör den [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) cmdlet för att se tillgängliga Azure-miljöer:
-   
+Kör cmdleten [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) för att se tillgängliga Azure-miljöer:
+
 ```powershell
 Get-AzEnvironment
 ```
 
-Logga in på ditt konto som har åtkomst till molnet som du vill ansluta och ställer in miljön. Det här exemplet visar hur du loggar in på ett konto som använder Azure Government-molnet.   
+Logga in på ditt konto som har åtkomst till molnet som du vill ansluta till och ange miljön. Det här exemplet visar hur du loggar in på ett konto som använder Azure Government molnet.   
 
 ```powershell
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-För att komma åt Kina-molnet, använder du miljön **AzureChinaCloud**. Du kommer åt tyska molnet genom att använda **AzureGermanCloud**.
+Använd miljön **AzureChinaCloud**för att få åtkomst till Kina-molnet. Använd **AzureGermanCloud**för att få åtkomst till det tyska molnet.
 
-Om du behöver listan över platser för att skapa ett lagringskonto eller en annan resurs kan du nu fråga platserna som är tillgängliga för den valda molnet med hjälp av [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
+Om du behöver listan över platser för att skapa ett lagrings konto eller en annan resurs kan du nu fråga de platser som är tillgängliga för det valda molnet med hjälp av [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```powershell
 Get-AzLocation | select Location, DisplayName
@@ -59,21 +60,23 @@ Get-AzLocation | select Location, DisplayName
 
 I följande tabell visas de platser som returneras för det tyska molnet.
 
-|Location | displayName |
+|Plats | Visningsnamn |
 |----|----|
-| germanycentral | Centrala Tyskland|
-| germanynortheast | Nordöstra Tyskland | 
+| `germanycentral` | Tyskland, centrala|
+| `germanynortheast` | Tyskland, nordöstra |
 
 
-## <a name="endpoint-suffix"></a>Slutpunktssuffixet
+## <a name="endpoint-suffix"></a>Slut punkts suffix
 
-Slutpunktssuffixet för var och en av dessa miljöer skiljer sig från offentlig Azure-slutpunkten. Suffix för blob-slutpunkten för offentlig Azure-är till exempel **blob.core.windows.net**. För Government-molnet suffix för blob-slutpunkten är **blob.core.usgovcloudapi.net**. 
+Slut punktens suffix för var och en av dessa miljöer skiljer sig från den offentliga Azure-slutpunkten. Till exempel är BLOB Endpoint-suffixet för Azure Public **blob.Core.Windows.net**. För det offentliga molnet är BLOB-slutpunktens suffix **blob.Core.usgovcloudapi.net**.
 
-### <a name="get-endpoint-using-get-azenvironment"></a>Hämta slutpunkten med hjälp av Get-AzEnvironment 
+### <a name="get-endpoint-using-get-azenvironment"></a>Hämta slut punkt med Get-AzEnvironment
 
-Hämta slutpunkten suffix med [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). Slutpunkten är den *StorageEndpointSuffix* egenskap för miljön. I följande kodavsnitt visar hur du gör detta. Alla dessa kommandon returnera något ”core.cloudapp.net” eller ”core.cloudapi.de”, t.ex. Lägg till detta till storage-tjänsten för att komma åt tjänsten. Till exempel kommer ”queue.core.cloudapi.de” åt kötjänsten i tyska molnet.
+Hämta slut punktens suffix med [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). Slut punkten är miljöns *StorageEndpointSuffix* -egenskap.
 
-Det här kodfragmentet hämtar alla miljöerna och slutpunktssuffixet för var och en.
+Följande kodfragment visar hur du hämtar slut punktens suffix. Alla dessa kommandon returnerar något som "core.cloudapp.net" eller "core.cloudapi.de" osv. Lägg till suffixet till lagrings tjänsten för att komma åt tjänsten. Exempel: "queue.core.cloudapi.de" kommer att ha åtkomst till kötjänsten i tyskt moln.
+
+Det här kodfragmentet hämtar alla miljöer och slut punktens suffix för var och en.
 
 ```powershell
 Get-AzEnvironment | select Name, StorageEndpointSuffix 
@@ -81,51 +84,48 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Det här kommandot returnerar följande resultat.
 
-| Name| StorageEndpointSuffix|
+| Namn| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-Om du vill hämta alla egenskaper för den angivna miljön anropa **Get-AzEnvironment** och ange namnet på molnet. Det här kodfragmentet returnerar en lista med egenskaper. Leta efter **StorageEndpointSuffix** i listan. I följande exempel är för det tyska molnet.
+Om du vill hämta alla egenskaper för den angivna miljön anropar du **Get-AzEnvironment** och anger moln namnet. Det här kodfragmentet returnerar en lista med egenskaper. Leta efter **StorageEndpointSuffix** i listan. Följande exempel gäller för det tyska molnet.
 
 ```powershell
-Get-AzEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud
 ```
 
-Resultatet liknar följande:
+Resultatet liknar följande värden:
 
 |Egenskapsnamn|Värde|
 |----|----|
-| Name | AzureGermanCloud |
-| EnableAdfsAuthentication | False |
-| ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
-| GalleryURL | https://gallery.cloudapi.de/ |
-| ManagementPortalUrl | https://portal.microsoftazure.de/ | 
-| ServiceManagementUrl | https://manage.core.cloudapi.de/ |
-| PublishSettingsFileUrl| https://manage.microsoftazure.de/publishsettings/index |
-| ResourceManagerUrl | http://management.microsoftazure.de/ |
-| SqlDatabaseDnsSuffix | .database.cloudapi.de |
-| **StorageEndpointSuffix** | core.cloudapi.de |
-| ... | ... | 
-
-Om du vill hämta bara storage suffix slutpunktsegenskapen hämta specifika molnet och ber om precis som en egenskap.
+| Namn | `AzureGermanCloud` |
+| EnableAdfsAuthentication | `False` |
+| ActiveDirectoryServiceEndpointResourceI | `http://management.core.cloudapi.de/` |
+| GalleryURL | `https://gallery.cloudapi.de/` |
+| ManagementPortalUrl | `https://portal.microsoftazure.de/` |
+| ServiceManagementUrl | `https://manage.core.cloudapi.de/` |
+| PublishSettingsFileUrl| `https://manage.microsoftazure.de/publishsettings/index` |
+| ResourceManagerUrl | `http://management.microsoftazure.de/` |
+| SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
+| **StorageEndpointSuffix** | `core.cloudapi.de` |
+| ... | ... |
+Om du bara vill hämta lagrings slut punktens suffix-egenskap hämtar du det aktuella molnet och frågar efter bara den ena egenskapen.
 
 ```powershell
 $environment = Get-AzEnvironment -Name AzureGermanCloud
-Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
+Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix
 ```
 
-Det här returnerar följande information.
+Det här kommandot returnerar följande information:
 
-```
-Storage Endpoint Suffix = core.cloudapi.de
-```
+`Storage Endpoint Suffix = core.cloudapi.de`
 
-### <a name="get-endpoint-from-a-storage-account"></a>Hämta slutpunkten från ett lagringskonto
+### <a name="get-endpoint-from-a-storage-account"></a>Hämta slut punkt från ett lagrings konto
 
-Du kan också kontrollera egenskaperna för ett lagringskonto för att hämta slutpunkterna. Det kan vara användbart om du redan använder ett lagringskonto i din PowerShell-skript; Du kan bara hämta slutpunkten som du behöver. 
+Du kan också granska egenskaperna för ett lagrings konto för att hämta slut punkterna:
 
 ```powershell
 # Get a reference to the storage account.
@@ -141,7 +141,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-Det här returnerar ett lagringskonto i molnet för myndigheter, följande: 
+För ett lagrings konto i det offentliga molnet returnerar det här kommandot följande utdata:
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
@@ -152,11 +152,11 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## <a name="after-setting-the-environment"></a>När du har angett miljön
 
-Från här framöver, du kan använda samma PowerShell används för att hantera dina lagringskonton och få åtkomst till dataplanet enligt beskrivningen i artikeln [med hjälp av Azure PowerShell med Azure Storage](storage-powershell-guide-full.md).
+Härifrån kan du använda samma PowerShell som för att hantera dina lagrings konton och komma åt data planet enligt beskrivningen i artikeln [med hjälp av Azure PowerShell med Azure Storage](storage-powershell-guide-full.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du har skapat en ny resursgrupp och ett lagringskonto för den här övningen kan du ta bort alla tillgångar genom att ta bort resursgruppen. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tas bort lagringskontot som skapas och själva resursgruppen.
+Om du har skapat en ny resurs grupp och ett lagrings konto för den här övningen kan du ta bort båda till gångarna genom att ta bort resurs gruppen. Alla resurser som ingår i gruppen tas bort om resursgruppen tas bort.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -164,8 +164,8 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Bevara användarinloggningar mellan PowerShell-sessioner](/powershell/azure/context-persistence)
-* [Azure Government-lagring](../../azure-government/documentation-government-services-storage.md)
-* [Utvecklarguide för Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
-* [Kommentarer för utvecklare för Azure Kina program](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-* [Azure Tyskland-dokumentation](../../germany/germany-welcome.md)
+* [Bevara användar inloggningar mellan PowerShell-sessioner](/powershell/azure/context-persistence)
+* [Azure Government lagring](../../azure-government/documentation-government-services-storage.md)
+* [Guide för Microsoft Azure Government utvecklare](../../azure-government/documentation-government-developer-guide.md)
+* [Developer-kommentarer för Azure Kina 21Vianet-program](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Dokumentation om Azure Germany](../../germany/germany-welcome.md)

@@ -1,22 +1,22 @@
 ---
-title: Läs in data i Azure Data Lake Storage Gen1 med Azure Data Factory
+title: Läs in data i Azure Data Lake Storage Gen1
 description: Använd Azure Data Factory för att kopiera data till Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: b8e5841e6869bd6f19b07bf71434de809cdcb74f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: adad770926b23e0529d5a6e08605a338d958ae09
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672722"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892965"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läs in data i Azure Data Lake Storage Gen1 med Azure Data Factory
 
@@ -36,7 +36,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 > [!NOTE]
 > Mer information finns i [Kopiera data till eller från data Lake Storage gen1 med Azure Data Factory](connector-azure-data-lake-store.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Data Lake Storage Gen1 konto: om du inte har ett Data Lake Storage Gen1-konto kan du läsa anvisningarna i [skapa ett data Lake Storage gen1 konto](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
@@ -63,7 +63,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
    
    ![Datafabrikens startsida](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
-   Välj panelen **författare & Monitor** för att starta programmet för data integrering på en separat flik.
+   Välj panelen **Författare och övervakare** för att starta dataintegreringsprogrammet på en separat flik.
 
 ## <a name="load-data-into-data-lake-storage-gen1"></a>Läs in data i Data Lake Storage Gen1
 
@@ -92,7 +92,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
    
    ![Ange Amazon S3-konto](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
-5. På sidan **Välj indatafil eller mapp** bläddrar du till mappen och filen som du vill kopiera. Välj mappen/filen, Välj **Välj**och välj sedan **Nästa**:
+5. På sidan **Välj indatafil eller mapp** bläddrar du till den mapp och fil du vill kopiera över. Välj mappen/filen, Välj **Välj**och välj sedan **Nästa**:
 
     ![Välj indatafil eller mapp](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
@@ -130,7 +130,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 13. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **åtgärder** finns länkar för att Visa aktivitets körnings information och köra pipelinen igen:
 
     ![Övervaka pipelinekörningar](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-14. Om du vill visa aktivitets körningar som är associerade med pipeline-körningen väljer du länken **Visa aktivitet kör** i kolumnen **åtgärder** . Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Om du vill växla tillbaka till vyn pipeline-körningar väljer du länken **pipelines** överst. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). 
+14. Om du vill visa aktivitets körningar som är associerade med pipeline-körningen väljer du länken **Visa aktivitet kör** i kolumnen **åtgärder** . Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Om du vill växla tillbaka till vyn pipeline-körningar väljer du länken **pipelines** överst. Om du vill uppdatera listan väljer du **Uppdatera**. 
 
     ![Övervaka aktivitetskörningar](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 

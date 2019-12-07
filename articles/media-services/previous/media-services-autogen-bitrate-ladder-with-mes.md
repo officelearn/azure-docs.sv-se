@@ -1,6 +1,6 @@
 ---
 title: Använd Media Encoder Standard för att automatiskt skapa en bit hastighets steg-Azure | Microsoft Docs
-description: I det här avsnittet visas hur du använder Media Encoder Standard (en gång) för att automatiskt generera en bit hastighets steg baserat på inlösningen och bit hastigheten. Den angivna upplösningen och bit hastigheten överskrids aldrig. Om t. ex. indata är 720p på 3Mbps, kommer utdata att bli 720p på bästa och kommer att börja med lägre taxa än 3Mbps.
+description: I det här avsnittet visas hur du använder Media Encoder Standard (en gång) för att automatiskt generera en bit hastighets steg baserat på inlösningen och bit hastigheten.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543548"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896024"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Använd Media Encoder Standard för att automatiskt generera en bit hastighets steg  
 

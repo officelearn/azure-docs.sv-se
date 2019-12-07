@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261110"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887959"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
 
@@ -26,7 +26,7 @@ Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och 
 
 Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan visar data. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 - Granska [övervaknings Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
@@ -49,7 +49,7 @@ Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan vis
 
    ![Avsnittet diagnostikinställningar](media/media-services-diagnostic-logs/logs02.png)
 1. Ställ in reglaget **Bevarande (dagar)** till 30. Det här reglaget anger hur många dagar som övervakningsdata behålls på lagringskontot. Azure Monitor avlägsnar automatiskt data som är äldre än det angivna antalet dagar. Om du ställer in noll dagar lagras data utan tidsbegränsning.
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 Nu flödar övervakningsdata från resursen till lagringskontot.
 

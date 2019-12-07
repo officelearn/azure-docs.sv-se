@@ -1,18 +1,19 @@
 ---
-title: Hantera egenskaper och metadata för en BLOB-behållare med .NET-Azure Storage
+title: Använda .NET för att hantera egenskaper och metadata för en BLOB-behållare
+titleSuffix: Azure Storage
 description: Lär dig hur du ställer in och hämtar system egenskaper och lagrar anpassade metadata i BLOB-behållare i ditt Azure Storage konto med hjälp av .NET-klient biblioteket.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d63c78fedb8dbd48655d36fecc3544fd512072e3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 17ed10d424d606091bd2b7d6f3e325955c48a5a2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673380"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894206"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Hantera behållar egenskaper och metadata med .NET
 
@@ -20,9 +21,9 @@ BLOB-behållare stöder system egenskaper och användardefinierade metadata, fö
 
 ## <a name="about-properties-and-metadata"></a>Om egenskaper och metadata
 
-- **System egenskaper**: Det finns system egenskaper på varje Blob Storage-resurs. En del av dem kan läsas eller anges, medan andra är skrivskyddade. Under försättsblad motsvarar vissa system egenskaper vissa standard-HTTP-huvuden. Azure Storage klient bibliotek för .NET underhåller dessa egenskaper åt dig.
+- **System egenskaper**: system egenskaper finns på varje Blob Storage-resurs. En del av dem kan läsas eller anges, medan andra är skrivskyddade. Under försättsblad motsvarar vissa system egenskaper vissa standard-HTTP-huvuden. Azure Storage klient bibliotek för .NET underhåller dessa egenskaper åt dig.
 
-- **Användardefinierade metadata**: Användardefinierade metadata består av ett eller flera namn-värdepar som du anger för en Blob Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med resursen. Metadata-värden är enbart för egna behov och påverkar inte hur resursen beter sig.
+- **Användardefinierade metadata**: användardefinierade metadata består av ett eller flera namn-värdepar som du anger för en Blob Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med resursen. Metadata-värden är enbart för egna behov och påverkar inte hur resursen beter sig.
 
 Att hämta egenskaps-och metadata-värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att anropa metoden **FetchAttributes** eller **FetchAttributesAsync** . Undantaget till den här regeln är att metoderna **exists** och **ExistsAsync** anropar lämplig **FetchAttributes** -metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa **FetchAttributes**.
 

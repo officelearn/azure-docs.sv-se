@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 48357adccea201aaeb99863b39e9c8cabce915ce
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262052"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894138"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor data plattform
 
@@ -42,13 +42,13 @@ Mått är tillgängliga för interaktiv analys i Azure Portal med [Metrics Explo
 
 Läs mer om Azure Monitor mått, inklusive deras data källor i [mått i Azure Monitor](data-platform-metrics.md).
 
-### <a name="logs"></a>Logs
+### <a name="logs"></a>Loggar
 [Loggar](data-platform-logs.md) är händelser som inträffat i systemet. De kan innehålla olika typer av data och kan vara strukturerade eller kostnads fria formulär text med en tidsstämpel. De kan skapas sporadiskt när händelser i miljön genererar logg poster och ett system under hög belastning genererar vanligt vis mer logg volym.
 
 Loggar i Azure Monitor lagras i en Log Analytics arbets yta som baseras på [Azure datautforskaren](/azure/data-explorer/) , vilket ger en kraftfull analys motor och ett [Avancerat frågespråk](/azure/kusto/query/). Loggarna ger vanligt vis tillräckligt med information för att tillhandahålla en komplett kontext för det problem som identifieras och är värdefullt för att identifiera problem med rot fall.
 
 > [!NOTE]
-> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](activity-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [diagnostisk logg](resource-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och diagnostikloggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
+> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](activity-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [resurs logg](resource-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och resurs loggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
 
 
  Du kan arbeta med [logg frågor](../log-query/log-query-overview.md) interaktivt med [Log Analytics](../log-query/portals.md) i Azure Portal eller lägga till resultaten till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data. Du kan också skapa [logg aviseringar](alerts-log.md) som utlöser en avisering baserat på resultatet av en schema fråga.
@@ -67,14 +67,14 @@ Läs mer om distribuerad spårning i [Vad är distribuerad spårning?](../app/di
 
 I följande tabell jämförs mått och loggar i Azure Monitor.
 
-| Attribut  | Mått | Logs |
+| Attribut  | Mått | Loggar |
 |:---|:---|:---|
-| Fördelar | Lätta och kan användas nära real tids scenarier, till exempel aviseringar. Idealisk för snabb identifiering av problem. | Analyseras med RTF-frågespråket. Perfekt för djup analys och identifiering av rotor saken. |
+| Erbjudande | Lätta och kan användas nära real tids scenarier, till exempel aviseringar. Idealisk för snabb identifiering av problem. | Analyseras med RTF-frågespråket. Perfekt för djup analys och identifiering av rotor saken. |
 | Data | Endast numeriska värden | Text eller numeriska data |
 | Struktur | Standard uppsättning egenskaper, inklusive exempel tid, resurs som övervakas, ett numeriskt värde. Vissa mått innehåller flera dimensioner för ytterligare definition. | Unik uppsättning egenskaper beroende på logg typen. |
-| Collection | Samlas in med jämna mellanrum. | Kan samlas in sporadiskt när händelser utlöser en post som ska skapas. |
+| Samling | Samlas in med jämna mellanrum. | Kan samlas in sporadiskt när händelser utlöser en post som ska skapas. |
 | Visa i Azure Portal | Metrics Explorer | Log Analytics |
-| Data källor innehåller | Plattforms mått som samlas in från Azure-resurser.<br>Program som övervakas av Application Insights.<br>Anpassad definierad av program eller API. | Program-och diagnostikloggar.<br>Övervaknings lösningar.<br>Agenter och VM-tillägg.<br>Program begär Anden och undantag.<br>Azure Security Center.<br>API för data insamling. |
+| Data källor innehåller | Plattforms mått som samlas in från Azure-resurser.<br>Program som övervakas av Application Insights.<br>Anpassad definierad av program eller API. | Program-och resurs loggar.<br>Övervaknings lösningar.<br>Agenter och VM-tillägg.<br>Program begär Anden och undantag.<br>Azure Security Center.<br>API för data insamling. |
 
 ## <a name="collect-monitoring-data"></a>Samla in övervaknings data
 Olika [data källor för Azure Monitor](data-sources.md) skriver till antingen en Log Analytics arbets yta (loggar) eller Azure Monitor mått databas (mått) eller båda. Vissa källor kommer att skriva direkt till dessa data lager, medan andra kan skriva till en annan plats, till exempel Azure Storage och kräva viss konfiguration för att fylla i loggar eller mått. 

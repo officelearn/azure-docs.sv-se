@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/05/2019
+ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792090"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893709"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -86,14 +86,6 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 1. [Hämta och kör installations programmet för gatewayen på en lokal dator](https://aka.ms/on-premises-data-gateway-installer).
 
-1. När installations programmet har öppnats väljer du **Nästa**.
-
-   ![Introduktions skärm för gateway Installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. Välj **lokal datagateway (rekommenderas)** , vilket är standard läge och välj sedan **Nästa**.
-
-   ![Välj körnings läge för datagateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
-
 1. Granska minimi kraven, behåll standard installations Sök vägen, Godkänn användnings villkoren och välj sedan **Installera**.
 
    ![Granska krav och godkänn användnings villkoren](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
@@ -147,7 +139,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 ## <a name="check-or-adjust-communication-settings"></a>Kontrol lera eller justera kommunikations inställningar
 
-Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i följande avsnitt:
+Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i de här ämnena:
 
 * [Justera kommunikations inställningarna för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
 * [Konfigurera proxyinställningar för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
@@ -196,7 +188,7 @@ För att få insyn i alla lokala datagatewayer i en Azure AD-klient kan globala 
 
 <a name="restart-gateway"></a>
 
-## <a name="restart-gateway"></a>Starta om Gateway
+## <a name="restart-gateway"></a>Starta om gateway
 
 Som standard körs Gateway-installationen på den lokala datorn som ett Windows-tjänst konto med namnet "lokal datagateway-tjänst". Gateway-installationen använder dock `NT SERVICE\PBIEgwService` namnet för inloggnings uppgifterna "logga in som" och har behörighet att logga in som en tjänst.
 
@@ -234,7 +226,7 @@ Dessa steg beskriver vad som händer när du interagerar med ett element som är
 
 1. Resultaten skickas från data källan tillbaka till gatewayen och sedan till moln tjänsten Gateway. Gateway-moln tjänsten använder sedan resultaten.
 
-### <a name="authentication-to-on-premises-data-sources"></a>Autentisering till lokala data källor
+### <a name="authentication-to-on-premises-data-sources"></a>Autentisering till lokala datakällor
 
 En lagrad autentiseringsuppgift används för att ansluta från gatewayen till lokala data källor. Oavsett användare använder gatewayen lagrade autentiseringsuppgifter för att ansluta. Det kan finnas autentiserings undantag för vissa tjänster, till exempel DirectQuery och LiveConnect för Analysis Services i Power BI.
 
@@ -246,7 +238,7 @@ Microsofts moln tjänster använder [Azure AD](../active-directory/fundamentals/
 
 Om du inte är en domän administratör kanske du inte känner till ditt UPN. Du hittar UPN för ditt konto genom att köra kommandot `whoami /upn` från din arbets Station. Även om resultatet ser ut som en e-postadress, är resultatet UPN för ditt lokala domän konto.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synkronisera en lokal Active Directory med Azure AD
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synkronisera ett lokalt Active Directory med Azure AD
 
 UPN för lokala Active Directory-konton och Azure AD-konton måste vara samma. Se därför till att varje lokalt Active Directory konto matchar ditt Azure AD-konto. Moln tjänsterna vet bara om konton i Azure AD. Så du behöver inte lägga till ett konto i din lokala Active Directory. Om kontot inte finns i Azure AD kan du inte använda det kontot.
 
@@ -267,7 +259,7 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 ## <a name="faq-and-troubleshooting"></a>Vanliga frågor och svar
 
-Mer information finns i följande avsnitt:
+Mer information finns i de här ämnena:
 
 * [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
 * [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)

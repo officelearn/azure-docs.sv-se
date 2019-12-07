@@ -1,22 +1,23 @@
 ---
-title: Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure Portal-Azure Storage
+title: Använd Azure Portal för att konfigurera Kundhanterade nycklar
+titleSuffix: Azure Storage
 description: Lär dig hur du använder Azure Portal för att konfigurera Kundhanterade nycklar med Azure Key Vault för Azure Storage kryptering. Med Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomst kontroller.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b72f30a636d0177edb8b3254d14be941b2d4e6bc
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: b1006fead92763c5c2e670527b5e232618b633e5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665923"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895309"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för Azure Storage med hjälp av Azure Portal
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure Portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 

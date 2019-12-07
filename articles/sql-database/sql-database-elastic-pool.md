@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0cda55d42f0d89d61919b751335ec95ef8143274
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186475"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901176"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 
-Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav. Databaserna i en elastisk pool finns på en enda Azure SQL Database Server och delar ett visst antal resurser till ett visst pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
+Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav. Databaserna i en elastisk pool finns på en enda Azure SQL Database-server och delar ett bestämt antal resurser till ett fast pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
 
 ## <a name="what-are-sql-elastic-pools"></a>Vad är elastiska SQL-pooler
 
-SaaS-utvecklare utvecklar program på storskaliga datanivåer som består av flera databaser. Ett vanligt programmönster är att etablera en enkel databas för varje kund. Men olika kunder har ofta varierande och oförutsägbara användningsmönster, och det är svårt att förutse resursbehoven för varje enskild databasanvändare. Traditionellt har du två alternativ:
+SaaS-utvecklare utvecklar program på storskaliga datanivåer som består av flera databaser. Ett vanligt programmönster är att etablera en enkel databas för varje kund. Men olika kunder har ofta varierande och oförutsägbara användnings mönster, och det är svårt att förutse resurs kraven för varje enskild databas användare. Traditionellt har du två alternativ:
 
 - Resurser med överetablering baserat på högsta användning och över betalning, eller
 - Under etableringen för att spara kostnaderna, vid kostnader för prestanda och kund nöjdhet under toppar.
@@ -48,7 +48,7 @@ I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parame
 
 Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar.
 
-Ju fler databaser du kan lägga till i en pool desto större blir dina besparingar. Beroende på ditt programanvändningsmönster kan du få besparingar med så lite som två S3-databaser.
+Ju fler databaser du kan lägga till i en pool desto större blir dina besparingar. Beroende på ditt användnings mönster för ditt program är det möjligt att se besparingar med så få som två S3-databaser.
 
 Följande avsnitt hjälper dig att förstå hur du avgör om en specifik samling databaser kan ha nytta av att tillhöra en pool. I exemplen används Standard-pooler, men samma principer gäller även för Basic- och Premium-pooler.
 
@@ -95,7 +95,7 @@ Genom att dela resurser kan inte alla databaser i en pool samtidigt använda res
 
 För att minska kostnaderna för tre S3-databaser i en pool med 200 eDTU:er kan högst två av dessa databaser ha belastningstoppar samtidigt. Annars, om fler än två av dessa fyra S3-databaser har toppar samtidigt, skulle poolen behöva utökas till mer än 200 eDTU:er. Om poolen ändras till mer än 200 eDTU: er, skulle fler S3-databaser behöva läggas till i poolen för att hålla lägre kostnader än beräknings storlekar för enskilda databaser.
 
-Observera att det här exemplet inte tar hänsyn till användningen av andra databaser i poolen. Om alla databaser har viss belastning vid en given tidpunkt kan mindre än 2/3 (eller 67 %) av databaserna ha aktivitetstoppar samtidigt.
+Observera att det här exemplet inte förlitar sig på användning av andra databaser i poolen. Om alla databaser har viss belastning vid en given tidpunkt kan mindre än 2/3 (eller 67 %) av databaserna ha aktivitetstoppar samtidigt.
 
 ### <a name="resource-utilization-per-database"></a>Resursutnyttjande per databas
 
@@ -155,7 +155,7 @@ Pooldatabaser stöder generellt sett samma [funktioner för affärskontinuitet](
 
 Det finns två sätt att skapa en elastisk pool i Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om Azure SQL inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
+1. Gå till [Azure Portal](https://portal.azure.com) för att skapa en elastisk pool. Sök efter och välj **Azure SQL**.
 2. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information om elastiska pooler genom att välja **Visa information** på panelen **databaser** .
 3. På panelen **databaser** väljer du **elastisk pool** i list rutan **resurs typ** och väljer sedan **skapa**:
 
@@ -177,7 +177,7 @@ När du har konfigurerat poolen kan du klicka på "Använd", namnge poolen och k
 
 I Azure Portal kan du övervaka användningen av en elastisk pool och databaserna i poolen. Du kan också göra en uppsättning ändringar i den elastiska poolen och skicka alla ändringar samtidigt. Ändringarna omfattar att lägga till eller ta bort databaser, ändra inställningarna för elastisk pool eller ändra databas inställningarna.
 
-Starta övervakningen av den elastiska poolen genom att söka efter och öppna en elastisk pool i portalen. Först visas en skärm som ger dig en översikt över statusen för den elastiska poolen. Det här omfattar:
+Starta övervakningen av den elastiska poolen genom att söka efter och öppna en elastisk pool i portalen. Först ser du en skärm som ger dig en översikt över statusen för den elastiska poolen. Det här omfattar:
 
 - Övervaka diagram som visar resursanvändningen i den elastiska poolen
 - Nya aviseringar och rekommendationer, om det är tillgängligt, för den elastiska poolen

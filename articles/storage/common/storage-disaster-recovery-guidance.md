@@ -1,22 +1,23 @@
 ---
-title: Haveri beredskap och lagrings konto redundans (för hands version) – Azure Storage
+title: Haveri beredskap och lagrings konto redundans (för hands version)
+titleSuffix: Azure Storage
 description: Azure Storage stöder redundans av konton (för hands version) för geo-redundanta lagrings konton. Med konto redundans kan du initiera redundansväxlingen för ditt lagrings konto om den primära slut punkten blir otillgänglig.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775936"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895358"
 ---
-# <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage
+# <a name="disaster-recovery-and-account-failover-preview"></a>Haveri beredskap och konto redundans (för hands version)
 
 Microsoft strävar efter att se till att Azure-tjänster alltid är tillgängliga. Oplanerade drifts avbrott kan dock uppstå. Om ditt program kräver återhämtning rekommenderar Microsoft att använda Geo-redundant lagring, så att dina data replikeras i en annan region. Dessutom bör kunderna ha en katastrof återställnings plan för hantering av ett regionalt tjänst avbrott. En viktig del av en katastrof återställnings plan förbereder att redundansväxla till den sekundära slut punkten i händelse av att den primära slut punkten blir otillgänglig. 
 
@@ -69,7 +70,7 @@ Microsoft rekommenderar också att du utformar ditt program för att förbereda 
 
 Med hjälp av redundans för kund hanterade konton (för hands version) kan du inte återställa hela lagrings kontot till den sekundära regionen om den primära inte är tillgänglig av någon anledning. När du tvingar fram en redundansväxling till den sekundära regionen kan klienterna börja skriva data till den sekundära slut punkten när redundansväxlingen är klar. Redundansväxlingen tar vanligt vis ungefär en timme.
 
-### <a name="how-an-account-failover-works"></a>Så här fungerar en konto redundansväxling
+### <a name="how-an-account-failover-works"></a>Så här fungerar kontoredundans
 
 Under normala omständigheter skriver en klient data till ett Azure Storage-konto i den primära regionen och dessa data replikeras asynkront till den sekundära regionen. Följande bild visar scenariot när den primära regionen är tillgänglig:
 

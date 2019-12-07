@@ -1,6 +1,6 @@
 ---
 title: Skala medie bearbetning genom att lägga till kodnings enheter – Azure |  Microsoft Docs
-description: Lär dig hur du lägger till kodnings enheter med .NET
+description: Den här artikeln visar hur du lägger till kodnings enheter med Azure Media Services .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 9d393e07008d981834d9deb48ded73995366d7e4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016571"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887296"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Hur du skalar kodning med .NET SDK:n
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-scale-media-processing.md)
+> * [Portalen](media-services-portal-scale-media-processing.md)
 > * [NET](media-services-dotnet-encoding-units.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -34,7 +34,7 @@ ms.locfileid: "69016571"
 
 ## <a name="overview"></a>Översikt
 > [!IMPORTANT]
-> Se översikten för att [](media-services-scale-media-processing-overview.md) få mer information om skalning av medie bearbetning.
+> Se [översikten](media-services-scale-media-processing-overview.md) för att få mer information om skalning av medie bearbetning.
 > 
 > 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 091d7f598a9841ae45b4248ad8a07a355203445a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894251"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893645"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
@@ -26,8 +26,8 @@ Följande bild visar exempel på data källor som skriver till olika tabeller so
 
 ![Tabeller](media/logs-structure/queries-tables.png)
 
-## <a name="log-analytics-workspace"></a>Log Analytics arbets yta
-Alla data som samlas in av Azure Monitor loggar förutom Application Insights lagras på en [Log Analytics arbets yta](../platform/manage-access.md). Du kan skapa en eller flera arbets ytor beroende på dina specifika krav. [Data källor](../platform/data-sources.md) som aktivitets loggar och diagnostiska loggar från Azure-resurser, agenter på virtuella datorer och data från insikter och övervaknings lösningar skriver data till en eller flera arbets ytor som du konfigurerar som en del av deras onboarding. Andra tjänster som [Azure Security Center](/azure/security-center/) och [Azure Sentinel](/azure/sentinel/) använder också en Log Analytics arbets yta för att lagra sina data så att de kan analyseras med hjälp av logg frågor tillsammans med övervaknings data från andra källor.
+## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
+Alla data som samlas in av Azure Monitor loggar förutom Application Insights lagras på en [Log Analytics arbets yta](../platform/manage-access.md). Du kan skapa en eller flera arbets ytor beroende på dina specifika krav. [Data källor](../platform/data-sources.md) som aktivitets loggar och resurs loggar från Azure-resurser, agenter på virtuella datorer och data från insikter och övervaknings lösningar kommer att skriva data till en eller flera arbets ytor som du konfigurerar som en del av deras onboarding. Andra tjänster som [Azure Security Center](/azure/security-center/) och [Azure Sentinel](/azure/sentinel/) använder också en Log Analytics arbets yta för att lagra sina data så att de kan analyseras med hjälp av logg frågor tillsammans med övervaknings data från andra källor.
 
 Olika typer av data lagras i olika tabeller i arbets ytan och varje tabell har en unik uppsättning egenskaper. En standard uppsättning tabeller läggs till i en arbets yta när den skapas och nya tabeller läggs till för olika data källor, lösningar och tjänster, när de har publicerats. Du kan också skapa anpassade tabeller med hjälp av [API: et för data insamling](../platform/data-collector-api.md).
 
@@ -43,7 +43,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Se dokumentationen för varje data källa för information om de tabeller som de skapar. Exempel är artiklar för [agent data källor](../platform/agent-data-sources.md), [diagnostikloggar](../platform/diagnostic-logs-schema.md)och [övervaknings lösningar](../insights/solutions-inventory.md).
+Se dokumentationen för varje data källa för information om de tabeller som de skapar. Exempel är artiklar för [agent data källor](../platform/agent-data-sources.md), [resurs loggar](../platform/diagnostic-logs-schema.md)och [övervaknings lösningar](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Behörigheter för arbets ytan
 Se [utforma en Azure Monitor loggar distribution](../platform/design-logs-deployment.md) för att förstå strategi och rekommendationer för åtkomst kontroll för att ge åtkomst till data i en arbets yta. Förutom att bevilja åtkomst till själva arbets ytan, kan du begränsa åtkomsten till enskilda tabeller med [RBAC på tabell nivå](../platform/manage-access.md#table-level-rbac).
@@ -59,11 +59,11 @@ Till skillnad från en Log Analytics arbets yta har ett Application Insights-pro
 | browserTimings      | Data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data. |
 | customEvents        | Anpassade händelser som skapats av ditt program. |
 | customMetrics       | Anpassade mått som skapats av ditt program. |
-| Relation        | Anropar från programmet till externa komponenter. |
+| beroenden        | Anropar från programmet till externa komponenter. |
 | Undantag          | Undantag som har utlösts av program körningen. |
-| PageViews           | Data om varje webbplats-vy med webb läsar information. |
+| pageViews           | Data om varje webbplats-vy med webb läsar information. |
 | performanceCounters | Prestanda mått från beräknings resurserna som stöder programmet. |
-| Autentiseringsbegäran            | Information om varje program förfrågan.  |
+| Begäranden            | Information om varje program förfrågan.  |
 | Anden              | Resultat från distribuerad spårning. |
 
 Du kan visa schemat för varje tabell på fliken **schema** i Log Analytics för programmet.
@@ -73,10 +73,10 @@ Du kan visa schemat för varje tabell på fliken **schema** i Log Analytics för
 ## <a name="standard-properties"></a>Standardegenskaper
 Varje tabell i Azure Monitor-loggar har ett eget schema, men det finns standard egenskaper som delas av alla tabeller. Mer information om var och en finns [i standard egenskaper i Azure Monitor loggar](../platform/log-standard-properties.md) .
 
-| Log Analytics arbets yta | Application Insights program | Beskrivning |
+| Log Analytics-arbetsyta | Application Insights program | Beskrivning |
 |:---|:---|:---|
 | TimeGenerated | tidsstämpel  | Datum och tid då posten skapades. |
-| Typ          | ItemType   | Namnet på tabellen som posten hämtades från. |
+| Typ          | itemType   | Namnet på tabellen som posten hämtades från. |
 | _ResourceId   |            | Unik identifierare för den resurs som posten är kopplad till. |
 | _IsBillable   |            | Anger om inmatade data är fakturerbara. |
 | _BilledSize   |            | Anger storleken i byte på data som ska faktureras. |

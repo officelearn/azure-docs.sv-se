@@ -1,5 +1,5 @@
 ---
-title: Delta kopia från en databas med hjälp av en kontroll tabell med Azure Data Factory
+title: Delta kopia från en databas med hjälp av en kontroll tabell
 description: Lär dig hur du använder en lösnings mall för att stegvis kopiera nya eller uppdaterade rader från en databas med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.openlocfilehash: c9ab1d005cf71dbe03546ce5b6014f616a872f8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22723033b59fafc0b9dfd1ae4fc08e5f6e9145ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684206"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896222"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta kopia från en databas med en kontroll tabell
 
@@ -36,19 +36,19 @@ Den här mallen hämtar först det gamla värdet för vatten märket och jämfö
 Mallen innehåller fyra aktiviteter:
 - **Lookup** hämtar det gamla värdet för hög vatten märket, som lagras i en extern kontroll tabell.
 - En annan **Lookup** -aktivitet hämtar det aktuella värdet för hög vatten märket från käll databasen.
-- **Kopiera** kopierar endast ändringar från käll databasen till mål lagret. Frågan som identifierar ändringarna i käll databasen liknar "SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column >" sista övre vatten märket "och TIMESTAMP_Column < =" aktuell High-vattenstämpel ".
+- **Kopiera** kopierar endast ändringar från käll databasen till mål lagret. Frågan som identifierar ändringarna i käll databasen liknar "SELECT * FROM Data_Source_Table där TIMESTAMP_Column >" sista övre vatten märket "och TIMESTAMP_Column < =" aktuell övre vatten märke "".
 - **SqlServerStoredProcedure** skriver det aktuella värdet för hög vatten märket till en extern kontroll tabell för delta kopiering nästa tillfälle.
 
 Mallen definierar fem parametrar:
 - *Data_Source_Table_Name* är tabellen i käll databasen som du vill läsa in data från.
 - *Data_Source_WaterMarkColumn* är namnet på kolumnen i käll tabellen som används för att identifiera nya eller uppdaterade rader. Den här kolumnens typ är normalt *datetime*, *int*eller liknande.
 - *Data_Destination_Folder_Path* eller *Data_Destination_Table_Name* är den plats där data kopieras till i mål lagret.
-- *Control_Table_Table_Name* är den externa kontroll tabell som lagrar det högsta värdet för vatten märket.
+- *Control_Table_Table_Name* är den externa kontroll tabell där värdet för hög vatten märket lagras.
 - *Control_Table_Column_Name* är kolumnen i den externa kontroll tabell som lagrar värdet för den högsta vatten märket.
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
-1. Utforska den käll tabell som du vill läsa in och definiera den övre vatten märkes kolumnen som kan användas för att identifiera nya eller uppdaterade rader. Typen för den här kolumnen kan vara *datetime*, *int*eller liknande. Den här kolumnens värde ökar när nya rader läggs till. I följande exempel käll tabell (data_source_table) kan vi använda *LastModifytime* -kolumnen som övre vatten märkes kolumn.
+1. Utforska den käll tabell som du vill läsa in och definiera den övre vatten märkes kolumnen som kan användas för att identifiera nya eller uppdaterade rader. Typen för den här kolumnen kan vara *datetime*, *int*eller liknande. Den här kolumnens värde ökar när nya rader läggs till. I följande exempel käll tabell (data_source_table) kan vi använda kolumnen *LastModifytime* som övre vatten märkes kolumn.
 
     ```sql
             PersonID    Name    LastModifytime

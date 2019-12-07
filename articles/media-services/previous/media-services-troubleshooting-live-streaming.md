@@ -1,6 +1,6 @@
 ---
-title: Felsökningsguide för liveuppspelning | Microsoft Docs
-description: Det här avsnittet innehåller förslag om hur du felsöker problem med direktsänd strömning.
+title: Fel söknings guide för direkt uppspelning | Microsoft Docs
+description: Den här artikeln innehåller förslag på hur du felsöker Azure Media Services direkt uppspelnings problem.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,45 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f502e3228274840d23b9f52512280fc0d9f0553b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b00df5e8176aaad86be5cf3ae4e04c736f36cf5b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544702"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885610"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Felsökningsguide för liveuppspelning  
 
-Den här artikeln innehåller förslag om hur du felsöker vissa live direktuppspelning problem.
+Den här artikeln innehåller förslag på hur du kan felsöka problem med direkt uppspelning.
 
-## <a name="issues-related-to-on-premises-encoders"></a>Problem relaterade till lokala kodare
-Det här avsnittet innehåller förslag om hur du felsöker problem med lokala kodare som är konfigurerade för att skicka en enda bithastighet till AMS-kanaler som är aktiverade för live encoding.
+## <a name="issues-related-to-on-premises-encoders"></a>Problem som rör lokala kodare
+Det här avsnittet innehåller förslag på hur du felsöker problem som rör lokala kodare som är konfigurerade att skicka en enda bit ström till AMS kanaler som är aktiverade för direktsänd kodning.
 
-### <a name="problem-would-like-to-see-logs"></a>Problem: Skulle vilja se loggar
-* **Potentiella problem**: Det går inte att hitta encoder-loggar som kan hjälpa dig att vid felsökning av problem.
+### <a name="problem-would-like-to-see-logs"></a>Problem: vill du se loggar
+* **Möjligt problem**: det går inte att hitta kodare loggar som kan hjälpa till att felsöka problem.
   
-  * **Telestream Wirecast**: Vanligtvis finns det loggar under C:\Users\{användarnamn} \AppData\Roaming\Wirecast\ 
-  * **Elemental Live**: Du kan hitta finns länkar till loggar på hanteringsportalen. Klicka på **Stats**, sedan **loggar**. På den **loggfiler** sidan visas en lista över loggar för alla LiveEvent objekt, väljer du det alternativ som matchar den aktuella sessionen. 
-  * **Flash Media Live Encoder**: Du hittar den **loggkatalogen...**  genom att navigera till den **kodning Log** fliken.
+  * **Wirecast för multistream**: du hittar oftast loggar under C:\Users\{username} \AppData\Roaming\Wirecast\ 
+  * **Grundämne Live**: du hittar länkar till loggar på hanterings portalen. Klicka på **statistik**och sedan **loggar**. På sidan **loggfiler** visas en lista över loggar för alla LiveEvent-objekt. Välj den som matchar din aktuella session. 
+  * **Flash Media Live Encoder**: du hittar **logg katalogen...** genom att gå till fliken **encoding-logg** .
 
-### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problem: Det finns inget alternativ för att mata ut en progressiv dataström
-* **Potentiella problem**: Kodaren används inte automatiskt ändra Ej sammanflätning. 
+### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problem: det finns inget alternativ för att placera en progressiv ström
+* **Möjligt problem**: kodaren som används inte automatiskt sammanflätning. 
   
-    **Felsökningssteg**: Leta efter ett avlägsnande av sammanflätning alternativ inom encoder-gränssnittet. När ta bort sammanflätning har aktiverats, Kontrollera igen för progressiv utdatainställningar. 
+    **Fel söknings steg**: Sök efter ett alternativ för att sammanflätning i kodarens gränssnitt. När de har Aktiver ATS kan du kontrol lera inställningarna för Progressive-utdata igen. 
 
-### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problem: Försökte flera kodare utdatainställningar och fortfarande inte kan ansluta.
-* **Potentiella problem**: Azure kodning kanal har inte återställts korrekt. 
+### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problem: det har gjorts flera inställningar för kodare och kan fortfarande inte ansluta.
+* **Möjligt problem**: Azure encoding Channel har inte återställts korrekt. 
   
-    **Felsökningssteg**: Kontrollera att kodaren inte längre push-överföring till AMS, stoppa och återställa kanalen. När du kör igen kan du försöka ansluta kodaren med de nya inställningarna. Om du fortfarande inte kan lösa problemet, försök att skapa en ny kanal helt och hållet, ibland kanaler kan bli skadad efter flera misslyckade försök.  
-* **Potentiella problem**: GOP storlek eller viktiga ramens inställningar är inte optimala. 
+    **Fel söknings steg**: kontrol lera att kodaren inte längre skickas till AMS, stoppa och Återställ kanalen. När du har kört igen kan du försöka ansluta din kodare med de nya inställningarna. Om detta fortfarande inte löser problemet kan du försöka att skapa en ny kanal helt, men ibland kan kanaler skadas efter flera misslyckade försök.  
+* **Möjligt problem**: inställningarna för GOP storlek eller nyckel bild är inte optimala. 
   
-    **Felsökningssteg**: Rekommenderade GOP-storlek eller bildrutan intervallet är två sekunder. Vissa kodare beräkna den här inställningen i antal bildrutor, medan andra använder sekunder. Exempel: När du genererar 30 bilder per sekund, är GOP-storlek 60 ramar, vilket motsvarar 2 sekunder.  
-* **Potentiella problem**: Stängda portar blockerar dataströmmen. 
+    **Fel söknings steg**: Rekommenderad GOP storlek eller nyckel intervall är två sekunder. Vissa kodare beräknar den här inställningen i antal ramar, medan andra använder sekunder. Exempel: när du placerar 30 fps blir GOP storlek 60 ramar, vilket motsvarar 2 sekunder.  
+* **Möjligt problem**: stängda portar blockerar strömmen. 
   
-    **Felsökningssteg**: När strömmande via RTMP, kontrollerar du inställningarna för brandväggen och/eller proxyn för att bekräfta att utgående portar 1935 och 1936 är öppna. 
+    **Fel söknings steg**: när du strömmar via RTMP kontrollerar du brand Väggs-och/eller proxyinställningar för att bekräfta att de utgående portarna 1935 och 1936 är öppna. 
 
 > [!NOTE]
-> Om när du har följt anvisningarna du fortfarande inte kan har strömma, skicka ett supportärende i Azure Portal.
+> Om du efter att ha använt fel söknings stegen fortfarande inte kan strömmas, skicka ett support ärende med hjälp av Azure Portal.
 > 
 > 
 

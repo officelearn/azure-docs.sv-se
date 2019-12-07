@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 36035d844237115361ccb3c1e1bc0dcb91250881
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 3b6a16436b2719d1571f5d5a3c16711a9100b75d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423868"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894412"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Översikt över Azure Standard Load Balancer
 
@@ -38,11 +38,6 @@ Load Balancer resursens funktioner uttrycks alltid som en klient del, en regel, 
 En viktig aspekt är omfånget för resursens virtuella nätverk.  När Basic Load Balancer finns inom omfånget för en tillgänglighets uppsättning, är en Standard Load Balancer helt integrerad med omfånget för ett virtuellt nätverk och alla virtuella nätverks koncept gäller.
 
 Load Balancer-resurser är objekt som du kan använda för att uttrycka hur Azure ska program mera infrastruktur för flera innehavare för att uppnå det scenario som du vill skapa.  Det finns ingen direkt relation mellan Load Balancer resurser och faktisk infrastruktur. När du skapar en Load Balancer skapas inte en instans, kapaciteten är alltid tillgänglig och det finns inga fördröjningar att starta eller skala. 
-
->[!NOTE]
-> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du letar efter Transport Layer Security (TLS) protokoll avslutning ("SSL-avlastning") eller per HTTP/HTTPS-begäran, program lager bearbetning, se [Vad är Azure Application Gateway?](../application-gateway/overview.md) Om du letar efter global belastnings utjämning för DNS, se [Vad är Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Dina scenarier från slut punkt till slut punkt kan dra nytta av att kombinera dessa lösningar.
->
-> En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-standard-load-balancer"></a>Varför ska jag använda Standard Load Balancer?
 
@@ -206,7 +201,7 @@ SKU: er är inte föränderligt. Följ stegen i det här avsnittet om du vill fl
 >
 >Matchande SKU: er måste användas för Load Balancer och offentliga IP-resurser. Du kan inte ha en blandning av grundläggande SKU-resurser och standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 
 Standard Load Balancer är för närvarande tillgänglig i alla offentliga moln regioner.
 
@@ -214,7 +209,7 @@ Standard Load Balancer är för närvarande tillgänglig i alla offentliga moln 
 
 Standard belastnings utjämning är tillgängliga med ett service avtal på 99,99%.  Se [standard load BALANCER SLA](https://aka.ms/lbsla) för mer information.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Standard Load Balancer-användning debiteras.
 
@@ -240,7 +235,7 @@ Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-pri
 - Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md).
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Lär dig mer om [flerdimensionella mått som stöds](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) för diagnostik i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Lär dig mer om hur du använder [Load Balancer för utgående anslutningar](load-balancer-outbound-connections.md).
+- Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
 - Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).
 - Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).
 - Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).

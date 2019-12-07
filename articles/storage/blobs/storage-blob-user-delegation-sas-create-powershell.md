@@ -1,20 +1,21 @@
 ---
-title: Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell (för hands version) – Azure Storage
-description: Lär dig hur du skapar en signatur för delad åtkomst (SAS) med Azure Active Directory autentiseringsuppgifter i Azure Storage med PowerShell.
+title: Använd PowerShell för att skapa en användar Delegerings-SAS för en behållare eller BLOB
+titleSuffix: Azure Storage
+description: Lär dig hur du skapar en användar Delegerings-SAS (för hands version) med Azure Active Directory autentiseringsuppgifter med hjälp av PowerShell.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0164c97adf720a618179908298223c54bf48824e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673346"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892523"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell (för hands version)
 
@@ -31,7 +32,7 @@ Om du vill använda PowerShell för att skapa en användar Delegerings-SAS måst
 1. Avinstallera tidigare installationer av Azure PowerShell:
 
     - Ta bort alla tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
-    - Ta bort alla **Azure** - `%Program Files%\WindowsPowerShell\Modules`moduler från.
+    - Ta bort alla **Azure** -moduler från `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
 
@@ -102,7 +103,7 @@ När du skapar en användar Delegerings-SAS med Azure PowerShell skapas den anv�
 
 Eftersom det maximala intervallet med vilken användar Delegerings nyckeln är giltigt är 7 dagar från start datumet, bör du ange en förfallo tid för SAS som ligger inom 7 dagar från start tiden. SAS är ogiltig när användar Delegerings nyckeln upphör att gälla, så en SAS med en förfallo tid på mer än 7 dagar är fortfarande bara giltig i 7 dagar.
 
-Om du vill skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure PowerShell måste du först skapa ett nytt Azure Storage-kontext objekt och ange parametern `-UseConnectedAccount`. Parametern `-UseConnectedAccount` anger att kommandot skapar ett kontext objekt under det Azure AD-konto som du loggade in med.
+Om du vill skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure PowerShell måste du först skapa ett nytt Azure Storage-kontext objekt och ange `-UseConnectedAccount`-parametern. Parametern `-UseConnectedAccount` anger att objektet skapar objektet context under det Azure AD-konto som du loggade in med.
 
 Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 
@@ -134,7 +135,7 @@ Den användardefinierade SAS-token som returnerades ser ut ungefär så här:
 
 Om du vill returnera en användar delegering SAS-token för en BLOB anropar du kommandot [New-AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) och skickar det Azure Storage-kontext objekt som du skapade tidigare.
 
-Följande syntax returnerar en användar Delegerings-SAS för en blob. I exemplet anges parametern `-FullUri`, som returnerar BLOB-URI: n med den SAS-token som lagts till. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+Följande syntax returnerar en användar Delegerings-SAS för en blob. I exemplet anges `-FullUri` parameter, som returnerar BLOB-URI: n med SAS-token tillagda. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
 ```powershell
 New-AzStorageBlobSASToken -Context $ctx `

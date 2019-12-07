@@ -1,5 +1,5 @@
 ---
-title: Exempel på & genom gångar
+title: Exempel program & ML-genom gångar
 titleSuffix: Azure Data Science Virtual Machine
 description: I de här exemplen och genom gången lär du dig hur du hanterar vanliga uppgifter och scenarier med Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802443"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900052"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exempel på Azure Data Science-Virtual Machines
 
@@ -23,7 +23,7 @@ Azure Data Science Virtual Machines (Dsvm) innehåller en omfattande uppsättnin
 > [!NOTE]
 > Mer information om hur du kör Jupyter-anteckningsböcker på dina virtuella datorer för data vetenskap finns i avsnittet [Access Jupyter](#access-jupyter) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna köra dessa exempel måste du ha etablerad en Data Science Virtual Machine. Se snabb starter för [Windows](./provision-vm.md) och [Ubuntu](./dsvm-ubuntu-intro.md).
 
@@ -39,7 +39,7 @@ För att kunna köra dessa exempel måste du ha etablerad en Data Science Virtua
 | Microsoft Cognitive Toolkit <br/>   | Exempel på djup inlärning som publicerats av Cognitive Toolkits teamet på Microsoft.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
 | Caffe2 | Exempel på djup inlärning som använder Caffe2-baserade neurala-nätverk. Flera antecknings böcker bekanta användare med Caffe2 och hur de används effektivt. Exempel på hur du skapar och skapar data uppsättningar är avbildningar. De omfattar också regression och hur man använder förtränade modeller. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Python-baserade exempel som använder H2O för verkliga problem scenarier. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| SparkML språk  | Exempel som använder funktioner i Apache Spark MLLib Toolkit via pySpark och MMLSpark: Microsoft Machine Learning för Apache Spark på Apache Spark 2. x.  <br/> [SparkML språk](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
+| SparkML språk  | Exempel som använder funktionerna i Apache Spark MLLib Toolkit via pySpark och MMLSpark: Microsoft Machine Learning för Apache Spark på Apache Spark 2. x.  <br/> [SparkML språk](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
 | XGBoost | Standard maskin inlärnings exempel i XGBoost för scenarier som klassificering och regression. <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>

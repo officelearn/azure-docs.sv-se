@@ -1,33 +1,33 @@
 ---
 title: Bildpartnerintegration
-description: Beskriver bilder partner integration
+description: I den här artikeln beskrivs integrering av bilder-partner.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 788ffd9e7036996f6ac1bc7fcbc33137aca40ee2
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 6ef800e7c5ecdfd6805fb8405caca8393a47ff83
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132017"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896555"
 ---
 # <a name="imagery-partner-integration"></a>Bildpartnerintegration
 
-Den här artikeln beskriver hur du använder Azure FarmBeats Translator-komponenten för att skicka bilder-data till FarmBeats. Jordbruks bilder data kan vara från olika källor, inklusive Multispectral-kameror, satelliter och drönare. Bilder-partner kan integreras med FarmBeats för att förse kunder med anpassade, genererade kartor för sina grupper.
+Den här artikeln beskriver hur du använder Azure FarmBeats Translator-komponenten för att skicka bilder-data till FarmBeats. Bilder data kan genereras från olika källor, till exempel Multispectral-kameror, satelliter och drönare. Bilder-partner kan integreras med FarmBeats för att förse kunder med anpassade, genererade kartor för sina grupper.
 
-Data, när de är tillgängliga, kan visualiseras genom FarmBeats-acceleratorn och kan användas för data fusion och (Machine Learning/artificiell intelligens) ML/AI-modell som bygger på jordbruks företag, eller kund system integrerare.
+Data, när de är tillgängliga, kan visualiseras genom FarmBeats-acceleratorn och kan användas för data fusion och Machine Learning/artificiell intelligens (ML/AI) modell uppbyggnad av jordbruks företag eller kund system integrerare.
 
 FarmBeats ger dig möjlighet att:
 
-- Definiera anpassade avbildnings typer, källa, fil format med utökat typ-API: er
-- Mata in bilder-data från olika källor via scen & SceneFile-API: er.
+- Definiera anpassade avbildnings typer, käll-och fil format med hjälp av/ExtendedType-API: er.
+- Mata in bilder-data från olika källor via/Scene-och/SceneFile-API: erna.
 
-Informationen nedan fokuserar på att få en form av bilder till FarmBeats-systemet.
+Följande information fokuserar på att få en form av bilder till FarmBeats-systemet.
 
-När du väljer avsnittet drönare bilder öppnas ett popup-fönster för att visa en hög upplöst bild av drönare-orthomosaic. Du kan komma åt partner program varan, som hjälper dig att planera drönare-flygningar och hämta rå data. Du kommer att fortsätta att använda partnerns program vara för Sök vägs planering och orthomosaic bild häftning.
+När du väljer avsnittet **drönare bilder** öppnas ett popup-fönster för att visa en hög upplöst bild av drönare-orthomosaic. Du kan komma åt partner program varan, som hjälper dig att planera drönare-flygningar och hämta rå data. Du kommer att fortsätta att använda partnerns program vara för Sök vägs planering och orthomosaic bild häftning.
 
-Drönare-partner måste göra det möjligt för kunder att koppla sitt kund konto till sina FarmBeats-instanser på Azure.
+Drönare-partner måste göra det möjligt för kunder att koppla sitt kund konto till sin FarmBeats-instans på Azure.
 
 Du måste använda följande autentiseringsuppgifter i drönare-partner program för att länka FarmBeats:
 
@@ -38,28 +38,27 @@ Du måste använda följande autentiseringsuppgifter i drönare-partner program 
 
 ## <a name="api-development"></a>API-utveckling
 
-API: erna innehåller Swagger teknisk dokumentation. Granska [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) för information om API: er och motsvarande begär Anden/svar.
+API: erna innehåller Swagger teknisk dokumentation. Information om API: er och motsvarande begär Anden eller svar finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ## <a name="authentication"></a>Autentisering
 
-FarmBeats utnyttjar Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization). Azure App Service tillhandahåller stöd för inbyggd autentisering och auktorisering. 
+FarmBeats använder Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD). Azure App Service tillhandahåller stöd för inbyggd autentisering och auktorisering. 
 
-Mer information om finns i [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+Mer information om Azure AD finns [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
-FarmBeats-datahubben använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
+FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
 
 - Klientorganisations-ID
 - Klienthemlighet
 - Klient-ID:t
 
-Med hjälp av ovanstående autentiseringsuppgifter kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i rubrik avsnittet enligt följande:
+Med hjälp av de tidigare autentiseringsuppgifterna kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i avsnittet rubrik enligt följande:
 
 ```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
-Nedan visas ett python-kod exempel som hämtar åtkomsttoken. Du kan sedan använda token för efterföljande API-anrop till FarmBeat:   
-Importera Azure 
+Följande python-kod exempel hämtar åtkomsttoken. Du kan sedan använda token för efterföljande API-anrop till FarmBeats.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials 
@@ -80,22 +79,27 @@ access_token = token_response.get('accessToken') 
 
 ## <a name="http-request-headers"></a>Rubriker för HTTP-begäran
 
-Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats-data hubben:
+Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub.
 
 **Huvud** | **Beskrivning och exempel**
 --- | ---
-Content-Type  | Formatet för begäran (Content-Type: Application/<format>) för API: t för FarmBeats data Hub är JSON. Innehålls typ: Application/JSON
-Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare < åtkomst-token >
-Godkänt  | Svars formatet. För FarmBeats-API: er är formatet JSON accept: Application/JSON
+Content-Type  | Formatet för begäran (innehålls typ: program/<format>). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
+Autentisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare < åtkomst-token >
+Acceptera  | Svars formatet. För FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 
 
 ## <a name="api-requests"></a>API-begäranden
 
-Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET/POST/service), URL: en till API-tjänsten, resurs-URI: n (för att fråga, skicka data, uppdatera eller ta bort) och en eller flera HTTP-begärandehuvuden.
+Om du vill göra en REST API-begäran kombinerar du:
+
+- HTTP-metoden (GET, POST och placering).
+- API-tjänstens URL.
+- Resurs-URI: n (för att fråga, skicka data, uppdatera eller ta bort).
+- En eller flera huvuden för HTTP-begäran.
 
 Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, begränsa storleken på och sortera data i svaren.
 
-Nedanstående exempel förfrågan är att hämta listan över enheter:
+Följande exempel förfrågan är att hämta listan över enheter:
 
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
@@ -105,7 +109,7 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 De flesta GET-, POST-och parkera-anrop kräver en text för JSON-begäran.
 
-Nedanstående exempel förfrågan är att skapa en enhet (detta har en indataport med en indataport med begär ande texten).
+Följande exempel förfrågan är att skapa en enhet. Det här exemplet har en inmatad JSON med begär ande texten.
 
 
 ```bash
@@ -116,36 +120,36 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
-## <a name="data-format"></a>Data format
+## <a name="data-format"></a>Dataformat
 
-JSON (JavaScript Object Notation) är ett gemensamt, språk oberoende data format som ger en enkel text representation av godtyckliga data strukturer. Mer information finns i [JSON org](https://JSON.org).
+JSON är ett gemensamt språk oberoende data format som ger en enkel text representation av godtyckliga data strukturer. Mer information finns i [JSON org](https://JSON.org).
 
-## <a name="ingesting-imagery-into-farmbeats"></a>Mata in bilder i FarmBeats
+## <a name="ingest-imagery-into-farmbeats"></a>Mata in bilder i FarmBeats
 
-När partnern har autentiseringsuppgifter för att ansluta till FarmBeats-datahubben gör partnern följande i Translator-komponenten:
+När partnern har autentiseringsuppgifter för att ansluta till FarmBeats-Datahub vidtar partnern följande steg i Translator-komponenten.
 
 1.  Skapa en ny utökad typ för följande fält, i enlighet med den typ av bilder som ska överföras:
 
-    - Scen Källa: till exempel < drone_partner_name >
-    - Scen typ: till exempel <drone>
-    - Scen fil typ: till exempel <chlorophyll index>
-    - Scen fil innehålls typ: till exempel < bild/TIFF >
+    - **Scen källa**: till exempel drone_partner_name
+    - **Scen typ**: till exempel drönare
+    - **Scen fil typ**: till exempel Chlorophyll index
+    - **Scen fil innehålls typ**: till exempel bild/TIFF
 
-2.  Anropa Server grupps-API: et för att hämta listan över Server grupper från Azure FarmBeats-systemet.
+2.  Anropa/Farms-API: et för att hämta listan över Server grupper i Azure FarmBeats-systemet.
 3.  Ge kunden möjlighet att välja en enda server grupp i listan över Server grupper.
 
     Partner systemet måste visa Server gruppen i partner programmet för att kunna utföra Sök vägs planeringen och drönare flyg-och bild insamling.
 
-4.  Anropa API: et för scenen och ange nödvändig information för att skapa en ny scen med en unik SceneID.
-5.  Ta emot en blobb-SAS-URL för att överföra de avbildningar som krävs till FarmBeats-datahubben, i kontexten för den valda Server gruppen, till FarmBeats-systemet.
+4.  Anropa/Scene-API: et och ange nödvändig information för att skapa en ny scen med ett unikt scen-ID.
+5.  Ta emot en blobb-SAS-URL för att överföra de avbildningar som krävs till FarmBeats-Datahub, i kontexten för den valda Server gruppen, i FarmBeats-systemet.
 
-Här är ett detaljerat flöde för API-anrop:
+Här är ett detaljerat flöde på API-anropen.
 
 ### <a name="step-1-extendedtype"></a>Steg 1: ExtendedType
 
-Kontrol lera i ExtendedType-API: et om typ och fil källa är tillgängliga på FarmBeats. Du kan göra detta genom att anropa en GET-/ExtendedType-API.
+Kontrol lera i/ExtendedType-API: et för att se om typen och fil källan är tillgängliga på FarmBeats. Det gör du genom att anropa en GET-/ExtendedType-API.
 
-Följande är systemdefinierade värden:
+Här är systemdefinierade värden:
 
 ```json
 {
@@ -327,9 +331,9 @@ Följande är systemdefinierade värden:
 }
 ```
 
-Detta kommer att vara en eng ång slö period och omfånget för den nya scenetype är begränsat till den prenumeration där FarmBeats-projektet distribueras.
+Det här steget är en eng ång slö period. Omfånget för den nya scen typen är begränsat till den prenumeration som FarmBeats-projektet har distribuerats i.
 
-Exempel: om du vill lägga till SceneSource: "SlantRange", lägger du till ID: t för/ExtendedType med nyckel: "SceneSource" indatakälla:
+Om du till exempel vill lägga till SceneSource: "SlantRange" gör du en placering av ID: t för/ExtendedType-API: t med nyckeln "SceneSource".
 
 ```json
 {
@@ -347,11 +351,11 @@ Exempel: om du vill lägga till SceneSource: "SlantRange", lägger du till ID: t
 
 ```
 
-Grönt fält är det nya tillägget av de systemdefinierade scen källvärdena.
+Det gröna fältet är det nya tillägget för de systemdefinierade scen käll värdena.
 
-### <a name="step-2-get-farmdetails"></a>Steg 2: Hämta FarmDetails
+### <a name="step-2-get-farm-details"></a>Steg 2: Hämta Server grupps information
 
-Scener (TIFF-eller CSV-filer) kommer att ingå i en server grupps kontext. Du måste hämta server grupps informationen genom att göra en Get on/Farm-API. API: n kommer att returnera listan över Server grupper som är tillgängliga i FarmBeats och du kan välja den server grupp som du vill mata in data för.
+Scener (. TIFF-eller. csv-filer) finns i kontexten för en Server grupp. Du måste hämta server grupps informationen genom att göra en hämtning av/Farm-API: et. API: et returnerar listan över de Server grupper som är tillgängliga i FarmBeats. Du kan välja den server grupp som du vill mata in data för.
 
 Hämta/Farm-svar:
 
@@ -399,13 +403,13 @@ Hämta/Farm-svar:
 }
  ```
 
-### <a name="step-3-create-ascene-id-post-call"></a>Steg 3: skapa ett/scen-ID (post-anrop)
+### <a name="step-3-create-a-scene-id-post-call"></a>Steg 3: skapa ett scen-ID (POST samtal)
 
-Skapa en ny scen (TIFF-eller. csv-fil) med den information som anges, och ange datum, sekvens och Server grupp-ID som scenen ska associeras med. Metadata som är kopplade till scenen kan definieras under egenskaper, inklusive varaktighet och typ av mått.
+Skapa en ny scen (. TIFF-eller. csv-fil) med den information som innehåller den information som innehåller det datum, den sekvens och det Server grupps-ID som scenen är associerad med. Metadata som är kopplade till scenen kan definieras under egenskaper, vilket innefattar varaktighet och typ av mått.
 
-Detta skapar en ny SceneID som kommer att associeras med Server gruppen. När SceneID har skapats kan användaren använda samma för att skapa en ny fil (TIFF eller. csv) & lagra innehållet i filen.
+När du skapar en ny scen skapas ett nytt scen-ID, som är associerat med Server gruppen. När scen-ID: t har skapats kan användaren använda samma för att skapa en ny fil (. TIFF eller. csv) och lagra innehållet i filen.
 
-Exempel på indata-nyttolast för API: et efter anrop på/scen
+Exempel på indata-nyttolast för POST anropet i/Scene-API: et:
 
 ```json
 {
@@ -441,13 +445,13 @@ API-svar:
 
 ```
 
-**Skapa/SceneFile**
+**Skapa en scen fil**
 
-Det scen-ID som returnerades i steg tre är indatamängden för SceneFile. SceneFile returnerar en SAS-URL-token som är giltig i 24 timmar.
+Det scen-ID som returnerades i steg 3 är indata för scen filen. Scen filen returnerar en SAS-URL-token som är giltig i 24 timmar.
 
-Om användaren behöver ett programmerings sätt för att ladda upp en avbildning av avbildningar kan du använda Blob Storage SDK för att definiera en metod med Scenefile-ID, plats & URL.
+Om användaren behöver ett programmerings sätt för att ladda upp en avbildning av avbildningar, kan Blob Storage SDK användas för att definiera en metod med hjälp av scenens fil-ID, plats och URL.
 
-Exempel på indata-nyttolast för anropet efter anrop i/Scenefile-API:
+Exempel på indata-nyttolast för POST anropet i/SceneFile-API: et:
 
 ```json
 {
@@ -483,9 +487,9 @@ API-svar:
 
 ```
 
-Anropet post-anrop till/SceneFile returnerar en SAS-uppladdnings-URL som kan användas för att ladda upp CSV-eller TIFF-filen med hjälp av Azure Blob Storage-klienten/-biblioteket.
+Anropet POST-anropet till/SceneFile-API: t returnerar en SAS-uppladdnings-URL som kan användas för att ladda upp CSV-eller TIFF-filen med hjälp av Azure Blob Storage-klienten eller-biblioteket.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om REST API-baserad integrerings information finns [REST API](references-for-farmbeats.md#rest-api).
+Mer information om REST API-baserad integrations information finns i [REST API](references-for-farmbeats.md#rest-api).

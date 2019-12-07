@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SmartDraw | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SmartDraw | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SmartDraw.
 services: active-directory
 documentationCenter: na
@@ -13,244 +13,182 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 9bafad5d28ef25f7f7bebe3899f288d0dfa72acb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3a7d4a400681113736c52046fb6aa5c04098ddda
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090267"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893237"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Självstudier: Azure Active Directory-integrering med SmartDraw
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SmartDraw
 
-I den här självstudien får du lära dig hur du integrerar SmartDraw med Azure Active Directory (AD Azure).
-Integrera SmartDraw med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar SmartDraw med Azure Active Directory (Azure AD). När du integrerar SmartDraw med Azure AD kan du:
 
-* Du kan styra i Azure AD som har åtkomst till SmartDraw.
-* Du kan aktivera användarna att vara automatiskt inloggad till SmartDraw (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till SmartDraw.
+* Gör det möjligt för användarna att logga in automatiskt till SmartDraw med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med SmartDraw, behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* SmartDraw enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* SmartDraw för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Har stöd för SmartDraw **SP och IDP** -initierad SSO
 
-* Har stöd för SmartDraw **Just In Time** etableringen av användare
 
-## <a name="adding-smartdraw-from-the-gallery"></a>Att lägga till SmartDraw från galleriet
+* SmartDraw stöder **SP-och IDP** -INITIERAd SSO
+* SmartDraw stöder **just-in-Time** User-etablering
 
-För att konfigurera integrering av SmartDraw i Azure AD, som du behöver lägga till SmartDraw från galleriet i din lista över hanterade SaaS-appar.
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
-**Utför följande steg för att lägga till SmartDraw från galleriet:**
+## <a name="adding-smartdraw-from-the-gallery"></a>Lägga till SmartDraw från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+Om du vill konfigurera integreringen av SmartDraw i Azure AD måste du lägga till SmartDraw från galleriet i listan över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **SmartDraw** i sökrutan.
+1. Välj **SmartDraw** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-smartdraw"></a>Konfigurera och testa enkel inloggning med Azure AD för SmartDraw
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+Konfigurera och testa Azure AD SSO med SmartDraw med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i SmartDraw.
 
-    ![Knappen Nytt program](common/add-new-app.png)
+Om du vill konfigurera och testa Azure AD SSO med SmartDraw, slutför du följande Bygg stenar:
 
-4. I sökrutan skriver **SmartDraw**väljer **SmartDraw** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera SMARTDRAW SSO](#configure-smartdraw-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa SmartDraw test User](#create-smartdraw-test-user)** -om du vill ha en motsvarighet till B. Simon i SmartDraw som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-     ![SmartDraw i resultatlistan](common/search-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SmartDraw baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SmartDraw upprättas.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **SmartDraw** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SmartDraw, måste du utföra följande byggblock:
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera SmartDraw Single Sign-On](#configure-smartdraw-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare SmartDraw](#create-smartdraw-test-user)**  – du har en motsvarighet för Britta Simon i SmartDraw som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **spara** .
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera Azure AD enkel inloggning med SmartDraw:
-
-1. I den [Azure-portalen](https://portal.azure.com/)på den **SmartDraw** application integration markerar **enkel inloggning**.
-
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge som användaren inte behöver utföra några steg som appen är redan förintegrerade med Azure.
-
-    ![SmartDraw domän och URL: er med enkel inloggning för information](common/preintegrated.png)
-
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
-
-    ![SmartDraw domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://cloud.smartdraw.com/sso/saml/login/<domain>`
 
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Du uppdaterar värdet för inloggnings-URL med den faktiska inloggnings-URL:en, vilket förklaras senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. SmartDraw program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
+1. SmartDraw-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
-7. Förutom ovanstående SmartDraw program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
+1. Utöver ovan förväntar sig SmartDraw-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
     | Namn | Källattribut|
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
     | E-post | user.mail |
-    | Grupper | User.groups |
+    | Grupper | användare. grupper |
 
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![image](common/new-save-attribute.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![image](common/new-attribute-details.png)
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-
-    c. Lämna **Namnrymd** tom.
-
-    d. Välj Källa som **Attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    f. Klicka på **Ok**
-
-    g. Klicka på **Spara**.
-
-8. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
-
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
-
-9. På den **konfigurera SmartDraw** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+1. I avsnittet **Konfigurera SmartDraw** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
 
-    b. Microsoft Azure Active Directory-identifierare
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-    c. Utloggnings-URL
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-### <a name="configure-smartdraw-single-sign-on"></a>Konfigurera SmartDraw Single Sign-On
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-1. I ett annat webbläsarfönster, logga in på SmartDraw som administratör.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-2. Klicka på **enkel inloggning** under hantera SmartDraw-licens.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SmartDraw.
 
-    ![SmartDraw konfiguration](./media/smartdraw-tutorial/configure01.png)
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **SmartDraw**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-smartdraw-sso"></a>Konfigurera SmartDraw SSO
+
+1. Logga in på SmartDraw som administratör i ett annat webbläsarfönster.
+
+2. Klicka på **enkel inloggning** under hantera din SmartDraw-licens.
+
+    ![SmartDraw-konfiguration](./media/smartdraw-tutorial/configure01.png)
 
 3. Utför följande steg på sidan konfiguration:
 
-    ![SmartDraw konfiguration](./media/smartdraw-tutorial/configure02.png)
+    ![SmartDraw-konfiguration](./media/smartdraw-tutorial/configure02.png)
 
-    a. I den **din domän (till exempel acme.com)** textrutan skriver din domän.
+    a. Skriv din domän i text rutan **din domän (t. ex. Acme.com)** .
 
-    b. Kopiera den **Your SP initierade inloggnings-Url kommer att** för din instans och klistra in den i inloggnings-URL-textrutan i **SAML grundkonfiguration** på Azure-portalen.
+    b. Kopiera **din inloggnings-URL för SP-initierad inloggning** för din instans och klistra in den i text rutan för inloggnings-URL i **grundläggande SAML-konfiguration** på Azure Portal.
     
-    c. I den **säkerhetsgrupper för att tillåta åtkomst för SmartDraw** textrutan typ **alla**.
+    c. Skriv **alla**i rutan **säkerhets grupper för att tillåta SmartDraw-åtkomst** .
 
-    d. I den **din Url för SAML-utfärdare** textrutan klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+    d. I text rutan **URL för SAML-utfärdare** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal.
 
-    e. I anteckningar, öppna XML-Metadata för filen som du hämtade från Azure-portalen, kopiera innehållet och klistra in den i den **Your SAML-MetaData** box.
+    e. I anteckningar öppnar du XML-filen med metadata som du laddade ned från Azure Portal, kopierar innehållet och klistrar in det i rutan **med dina SAML-metadata** .
 
-    f. Klicka på **spara konfigurationen** 
+    f. Klicka på **Spara konfiguration** 
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-smartdraw-test-user"></a>Skapa SmartDraw test användare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet skapas en användare som kallas Britta Simon i SmartDraw. SmartDraw stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i SmartDraw skapas en ny efter autentiseringen.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+## <a name="test-sso"></a>Testa SSO 
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SmartDraw.
-
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SmartDraw**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. I listan med program väljer **SmartDraw**.
-
-    ![Länken SmartDraw i listan med program](common/all-applications.png)
-
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-smartdraw-test-user"></a>Skapa SmartDraw testanvändare
-
-I det här avsnittet skapas en användare som kallas Britta Simon i SmartDraw. SmartDraw stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i SmartDraw, skapas en ny efter autentisering.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen SmartDraw i åtkomstpanelen, bör det vara loggas in automatiskt till SmartDraw som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen SmartDraw på åtkomst panelen, bör du loggas in automatiskt på den SmartDraw som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova SmartDraw med Azure AD](https://aad.portal.azure.com/)
 

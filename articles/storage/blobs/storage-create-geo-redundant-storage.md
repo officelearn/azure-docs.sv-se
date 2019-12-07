@@ -1,25 +1,26 @@
 ---
-title: 'Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage – Azure Storage'
-description: Använd RA-GRS för att ge programdata hög tillgänglighet
+title: Självstudie – Bygg ett program med hög tillgänglighet med Blob Storage
+titleSuffix: Azure Storage
+description: Använd Geo-redundant lagring med Läs behörighet för att göra dina program data hög tillgängliga.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 6b0ac017704c599e96543ed36a13ff5d3ddef9fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838577"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892914"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
 
-Den här självstudien ingår i en serie. I den lär du dig att ge programdata hög tillgänglighet i Azure.
+Den här självstudien är del ett i en serie. I den lär du dig att ge programdata hög tillgänglighet i Azure.
 
 När du har slutfört den här självstudien har du ett konsolprogram som laddar upp och hämtar en blob från ett [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS).
 
@@ -27,21 +28,20 @@ Med RA-GRS replikeras transaktioner från en primär region till en sekundär re
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-I en del av serien får du lära dig hur du:
+I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
 # <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
-* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
-  - **Azure Development**
+* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **Azure Development** .
 
   ![Azure-utveckling (under Web & Cloud (Webb och moln))](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -52,7 +52,7 @@ För att slutföra den här självstudien behöver du:
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-* Installera [Node. js](https://nodejs.org).
+* Installera [Node.js](https://nodejs.org).
 
 ---
 
@@ -191,7 +191,6 @@ I exempelkoden används metoden `run_circuit_breaker` i filen `circuitbreaker.py
 
 Innan nedladdningen definieras tjänst objekt [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) -funktionen. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
 
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 Kör exemplet genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `node index.js`.
@@ -223,7 +222,7 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+### <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
 
@@ -274,7 +273,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+### <a name="pythontabpython"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
 
@@ -317,7 +316,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 Med Node. js v10 SDK är återanrops hanterare onödig. I stället skapar exemplet en pipeline som kon figurer ATS med alternativ för återförsök och en sekundär slut punkt. Detta gör att programmet automatiskt växlar till den sekundära pipelinen om det inte går att komma åt dina data via den primära pipelinen.
 
@@ -349,4 +348,4 @@ I den första delen i serien lärde du dig hur du skapar ett program med hög ti
 Gå vidare till den andra delen i serien och lär dig hur du simulerar ett fel och tvingar programmet att använda den sekundära RA-GRS-slutpunkten.
 
 > [!div class="nextstepaction"]
-> [Simulera ett fel i anslutningen till din primära lagringsslutpunkt](storage-simulate-failure-ragrs-account-app.md)
+> [Simulera ett problem med att läsa från den primära regionen](storage-simulate-failure-ragrs-account-app.md)

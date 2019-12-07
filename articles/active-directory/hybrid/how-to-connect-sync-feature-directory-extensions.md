@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fdfce58bdd8e13637e77d01d4b6c0ab21f696a
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 138ca9bf3352c46b8ac495b58a2fd6d7bafeb658
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607648"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889910"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalogtillägg
-Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [Azure AD Graph API Directory-tillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) respektive [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalog tillägg
+Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [Azure AD Graph API Directory-tillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) respektive [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också använda den här funktionen för att skapa dynamiska grupper i Azure AD.
 
 Inga Office 365-arbetsbelastningar förbrukar dessa attribut.
+
+## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Anpassa vilka attribut som ska synkroniseras med Azure AD
 
 Du konfigurerar vilka ytterligare attribut som du vill synkronisera i sökvägen för anpassade inställningar i installations guiden.
 
@@ -38,8 +40,8 @@ Du konfigurerar vilka ytterligare attribut som du vill synkronisera i sökvägen
 I installationen visas följande attribut, som är giltiga kandidater:
 
 * Användar-och grupp objekt typer
-* Attribut med enkel värde: Sträng, boolesk, heltal, binär
-* Attribut med flera värden: Sträng, binär
+* Attribut med enkel värde: sträng, boolesk, heltal, binär
+* Attribut med flera värden: sträng, binär
 
 
 >[!NOTE]
@@ -49,11 +51,17 @@ Listan med attribut läses från det schema-cacheminne som skapas under installa
 
 Ett objekt i Azure AD kan ha upp till 100 attribut för katalog tillägg. Den maximala längden är 250 tecken. Om ett attributvärde är längre, trunkerar Synkroniseringsmotorn det.
 
-Under installationen av Azure AD Connect registreras ett program där dessa attribut är tillgängliga. Du kan se det här programmet i Azure Portal.
+## <a name="configuration-changes-in-azure-ad-made-by-the-wizard"></a>Konfigurations ändringar i Azure AD som skapats av guiden
+
+Under installationen av Azure AD Connect registreras ett program där dessa attribut är tillgängliga. Du kan se det här programmet i Azure Portal. Namnet är alltid **appen för schema tillägg för klient organisationer**.
 
 ![App för schema tillägg](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 
-Attributen föregås av tillägget \_{AppClientId}.\_ AppClientId har samma värde för alla attribut i din Azure AD-klient.
+Se till att du väljer **alla program** för att se den här appen.
+
+Attributen föregås av **tillägget \_{ApplicationId}\_** . ApplicationId har samma värde för alla attribut i din Azure AD-klient. Du behöver det här värdet för alla andra scenarier i det här avsnittet.
+
+## <a name="viewing-attributes-using-graph"></a>Visa attribut med Graph
 
 De här attributen är nu tillgängliga via Azure AD-Graph API. Du kan fråga dem med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
 
@@ -62,9 +70,31 @@ De här attributen är nu tillgängliga via Azure AD-Graph API. Du kan fråga de
 Du kan också fråga attributen via Microsoft Graph-API: et genom att använda [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Du måste be om de attribut som ska returneras. Välj uttryckligen attributen så här: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $Select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
+> I Microsoft Graph måste du be om de attribut som ska returneras. Välj uttryckligen attribut som detta: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division.
 >
 > Mer information finns i [Microsoft Graph: Använd frågeparametrar](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+
+## <a name="use-the-attributes-in-dynamic-groups"></a>Använda attributen i dynamiska grupper
+
+Ett av de mer användbara scenarierna är att använda de här attributen i dynamiska säkerhets-eller Office 365-grupper.
+
+1. Skapa en ny grupp i Azure AD. Ge det ett lämpligt namn och se till att **medlemskaps typen** är **dynamisk användare**.
+
+   ![Skärm bild med en ny grupp](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup1.png)
+
+2. Välj om du vill **lägga till dynamisk fråga**. Om du tittar på egenskaperna visas inte dessa utökade attribut. Du måste först lägga till dem. Klicka på **Hämta anpassade tilläggs egenskaper**, ange program-ID och klicka på **Uppdatera egenskaper**.
+
+   ![Skärm bild där katalog tillägg har lagts till](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup2.png) 
+
+3. Öppna List rutan egenskap och Observera att de attribut som du har lagt till nu visas.
+
+   ![Skärm bild med nya attribut som visas i användar gränssnittet](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
+
+   Fyll i uttrycket så att det passar dina behov. I vårt exempel är regeln inställd på **(User. extension_9d98ed114c4840d298fad781915f27e4_division-EQ "försäljning och marknadsföring")** .
+
+4. När gruppen har skapats kan du ge Azure AD lite tid för att fylla medlemmarna och sedan granska medlemmarna.
+
+   ![Skärm bild med medlemmar i den dynamiska gruppen](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup4.png)  
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [Azure AD Connect Sync](how-to-connect-sync-whatis.md) -konfigurationen.

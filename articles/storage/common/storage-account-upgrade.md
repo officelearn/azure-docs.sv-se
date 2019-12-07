@@ -1,18 +1,19 @@
 ---
-title: Uppgradera till ett allmänt-syfte v2-lagrings konto – Azure Storage | Microsoft Docs
+title: Uppgradera till ett allmänt-syfte v2-lagrings konto
+titleSuffix: Azure Storage
 description: Uppgradera till General-Purpose v2-lagrings konton.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 03/26/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806991"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892234"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett allmänt-syfte v2-lagrings konto
 
@@ -84,7 +85,7 @@ För alla lagringskonton används en prissättningsmodell för bloblagring som b
 
 * **Dataöverföringskostnader för geo-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
 
-* **Kostnader för utgående data överföring**: utgående data överföringar (data som överförs från en Azure-region) debiteras för bandbredds användning per GB, konsekvent med allmänna lagrings konton.
+* **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
 
 * **Ändra lagrings åtkomst nivån**: om du ändrar åtkomst nivån för konto lagring från låg frekvent till frekvent tillkommer en avgift som motsvarar att läsa alla data som finns i lagrings kontot. Att ändra kontots åtkomst nivå från frekvent till låg frekvent innebär dock en avgift som motsvarar skrivning av alla data till den låg frekventa nivån (endast GPv2-konton).
 
@@ -96,11 +97,12 @@ För alla lagringskonton används en prissättningsmodell för bloblagring som b
 För att beräkna kostnaden för att lagra och komma åt BLOB-data i ett allmänt lagrings konto i en viss nivå, ska du utvärdera ditt befintliga användnings mönster eller approximera ditt förväntade användnings mönster. Vanligtvis vill du veta:
 
 * Din användning av Blob Storage, i gigabyte, inklusive:
-    - Hur mycket data lagras i lagringskontot?
-    - Hur ändras datavolymen på månadsbasis; ersätter nya data ständigt gamla data?
+  * Hur mycket data lagras i lagringskontot?
+  * Hur ändras datavolymen på månadsbasis; ersätter nya data ständigt gamla data?
+
 * Det primära åtkomst mönstret för dina Blob Storage-data, inklusive:
-    - Hur mycket data läses från och skrivs till lagrings kontot?
-    - Hur många Läs åtgärder och skriv åtgärder sker på data i lagrings kontot?
+  * Hur mycket data läses från och skrivs till lagrings kontot?
+  * Hur många Läs åtgärder och skriv åtgärder sker på data i lagrings kontot?
 
 För att avgöra den bästa åtkomst nivån för dina behov kan det vara bra att fastställa din BLOB-datakapacitet och hur dessa data används. Detta gör du genom att titta på övervaknings måtten för ditt konto.
 
@@ -119,7 +121,7 @@ När du har gjort det registreras kapacitetsdata varje dag för ett lagringskont
 Om du vill övervaka dataåtkomstmönstren för Blob Storage måste du aktivera transaktionsmått för varje timme från API:et. Med transaktionsmått för varje timme aktiverat aggregeras transaktioner för varje API varje timme, och registreras som en tabellpost som skrivs till tabellen *$MetricsHourPrimaryTransactionsBlob* i samma lagringskonto. Tabellen *$MetricsHourSecondaryTransactionsBlob* registrerar transaktionerna till den sekundära slutpunkten när du använder RA-GRS-lagringskonton.
 
 > [!NOTE]
-> Om du har ett allmänt lagrings konto där du har lagrat sid-blobbar och virtuella dator diskar, eller köer, filer eller tabeller, tillsammans med blockera och lägga till BLOB-data, gäller inte uppskattnings processen. Kapacitetsdata gör ingen åtskillnad mellan blockblobar och andra typer och kapacitetsdata visas inte för andra datatyper. Om du använder dessa typer är en alternativ metod att titta på kvantiteterna på din senaste faktura.
+> Om du har ett allmänt lagringskonto (GPvX) där du har lagrat sidblobar och virtuella datordiskar, eller köer, filer eller tabeller, utöver block- och tilläggsblobdata så gäller inte den här uppskattningsberäkningen. Kapacitetsdata gör ingen åtskillnad mellan blockblobar och andra typer och kapacitetsdata visas inte för andra datatyper. Om du använder dessa typer är en alternativ metod att titta på kvantiteterna på din senaste faktura.
 
 För att få en bra uppskattning av din dataförbrukning och ditt åtkomstmönster rekommenderar vi att du väljer en kvarhållningsperiod för mätvärden som är representativ för din normala användning, och att du utgår därifrån. Ett alternativ är att spara mätvärdena i sju dagar och samla in data varje vecka, för att sedan analysera dessa data i slutet av månaden. Ett annat alternativ är att spara mätvärden i 30 dagar och samla in och analysera dessa data i slutet av 30-dagarsperioden.
 
@@ -165,5 +167,5 @@ När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöv
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa ett lagringskonto](storage-quickstart-create-account.md)
-- [Hantera Azure Storage-konton](storage-account-manage.md)
+* [Skapa ett lagringskonto](storage-quickstart-create-account.md)
+* [Hantera Azure Storage-konton](storage-account-manage.md)

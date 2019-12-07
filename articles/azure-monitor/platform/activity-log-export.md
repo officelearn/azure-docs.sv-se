@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f2366d60868dd1db52fd8bfc2149756ed4b1b0d1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048254"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893628"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure aktivitets logg till lagring eller Azure Event Hubs
 
@@ -33,13 +33,13 @@ Att arkivera aktivitets loggen på ett lagrings konto är användbart om du vill
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="storage-account"></a>Lagringskonto
-Om du ska arkivera aktivitets loggen måste du [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också vill arkivera diagnostikloggar och mått till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
+Om du ska arkivera aktivitets loggen måste du [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också arkiverar loggar och mått till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
 
 Lagrings kontot behöver inte finnas i samma prenumeration som den prenumeration som avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 > [!NOTE]
 >  Du kan för närvarande inte arkivera data till ett lagrings konto som ligger bakom ett säkert virtuellt nätverk.
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Händelsehubbar
 Om du skickar aktivitets loggen till en Event Hub måste du [skapa en Event Hub](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du tidigare har strömmat aktivitets logg händelser till den här Event Hubs namn rymden, kommer den händelsehubben att återanvändas.
 
 Principen för delad åtkomst definierar de behörigheter som används av den strömmande mekanismen. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst för Event Hubs namn området i Azure Portal under fliken Konfigurera för ditt Event Hubs namn område.
@@ -169,7 +169,7 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
 Oavsett om du skickar till Azure Storage eller Event Hub, skrivs aktivitets logg data till JSON med följande format.
 
 
-> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring för att Azure Monitor diagnostikloggar arkiverade på ett lagrings konto](diagnostic-logs-append-blobs.md) för information om det här format ändringen.
+> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](diagnostic-logs-append-blobs.md) för information om det här formatet.
 
 ``` JSON
 {
@@ -239,9 +239,9 @@ Elementen i denna JSON beskrivs i följande tabell.
 | durationMs |Varaktighet i millisekunder |
 | callerIpAddress |IP-adressen för den användare som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
 | correlationId |Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| identity |JSON-blob som beskriver auktoriseringen och anspråk. |
+| identitet |JSON-blob som beskriver auktoriseringen och anspråk. |
 | authorization |BLOB för RBAC-egenskaper för händelsen. Innehåller vanligt vis egenskaperna "Action", "roll" och "omfattning". |
-| nivå |Händelsens nivå. Ett av följande värden: _kritisk_, _fel_, _Varning_, _information_och _utförlig_ |
+| level |Händelsens nivå. Ett av följande värden: _kritisk_, _fel_, _Varning_, _information_och _utförlig_ |
 | location |Region där platsen inträffade (eller global). |
 | properties |Uppsättning `<Key, Value>` par (t. ex. ord lista) som beskriver information om händelsen. |
 

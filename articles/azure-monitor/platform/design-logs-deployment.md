@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 09/20/2019
-ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932357"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894223"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
 
@@ -63,14 +63,14 @@ Med rollbaserad åtkomst kontroll (RBAC) kan du endast bevilja användare och gr
 
 De data som en användare har åtkomst till bestäms av en kombination av faktorer som anges i följande tabell. Var och en beskrivs i avsnitten nedan.
 
-| Delas | Beskrivning |
+| Faktor | Beskrivning |
 |:---|:---|
-| [Åtkomst läge](#access-mode) | Metod som användaren använder för att få åtkomst till arbets ytan.  Definierar omfattningen av tillgängliga data och åtkomst kontroll läge som används. |
+| [Åtkomstläge](#access-mode) | Metod som användaren använder för att få åtkomst till arbets ytan.  Definierar omfattningen av tillgängliga data och åtkomst kontroll läge som används. |
 | [Åtkomst kontrol läge](#access-control-mode) | Inställning på arbets ytan som definierar om behörigheter tillämpas på arbets ytan eller resurs nivån. |
 | [Behörigheter](manage-access.md) | Behörigheter som tillämpas på enskilda eller grupper av användare för arbets ytan eller resursen. Definierar vilka data som användaren kommer att ha åtkomst till. |
 | [RBAC för tabell nivå](manage-access.md#table-level-rbac) | Valfria detaljerade behörigheter som gäller för alla användare oavsett åtkomst läge eller åtkomst kontrol läge. Definierar vilka data typer som en användare kan komma åt. |
 
-## <a name="access-mode"></a>Åtkomst läge
+## <a name="access-mode"></a>Åtkomstläge
 
 *Åtkomst Läget* avser hur en användare kommer åt en Log Analytics-arbetsyta och definierar omfattningen av de data som de har åtkomst till. 
 
@@ -80,7 +80,7 @@ Användare har två alternativ för att komma åt data:
 
     ![Log Analytics kontext från arbets ytan](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Resurs kontext**: när du öppnar arbets ytan för en viss resurs, resurs grupp eller prenumeration, t. ex. När du väljer **loggar** från en resurs meny i Azure Portal, kan du bara visa loggar för resurser i alla tabeller som du har åtkomst till. Frågor i det här läget är begränsade till data som är associerade med den resursen. Det här läget möjliggör även detaljerad RBAC.
+* **Resurs kontext**: när du öppnar arbets ytan för en viss resurs, resurs grupp eller prenumeration, t. ex. När du väljer **loggar** från en resurs meny i Azure Portal, kan du Visa loggar för endast resurser i alla tabeller som du har åtkomst till. Frågor i det här läget är begränsade till data som är associerade med den resursen. Det här läget möjliggör även detaljerad RBAC.
 
     ![Log Analytics kontext från resurs](./media/design-logs-deployment/query-from-resource.png)
 
@@ -90,7 +90,7 @@ Användare har två alternativ för att komma åt data:
     > - Service Fabric
     > - Application Insights
     >
-    > Du kan testa om loggarna är korrekt kopplade till sin resurs genom att köra en fråga och granska de poster som du är intresse rad av. Om rätt resurs-ID finns i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) är data tillgängliga för resursbaserade frågor.
+    > Du kan testa om loggarna är korrekt kopplade till sin resurs genom att köra en fråga och granska de poster som du är intresse rad av. Om rätt resurs-ID är i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) är data tillgängliga för resursbaserade frågor.
 
 Azure Monitor anger automatiskt rätt läge beroende på vilken kontext du utför loggs ökningen från. Omfattningen visas alltid i det övre vänstra avsnittet av Log Analytics.
 
@@ -102,7 +102,7 @@ I följande tabell sammanfattas åtkomst lägena:
 |:---|:---|:---|
 | Vem är varje modell avsedd för? | Central administration. Administratörer som behöver konfigurera data insamling och användare som behöver åtkomst till en mängd olika resurser. Krävs också för användare som behöver åtkomst till loggar för resurser utanför Azure. | Program team. Administratörer av Azure-resurser som övervakas. |
 | Vad kräver en användare att visa loggar? | Behörigheter till arbets ytan. Se **behörigheter för arbets ytan** i [Hantera åtkomst med hjälp av arbets ytans behörigheter](manage-access.md#manage-access-using-workspace-permissions). | Läs åtkomst till resursen. Se **resurs behörigheter** i [Hantera åtkomst med Azure-behörigheter](manage-access.md#manage-access-using-azure-permissions). Behörigheter kan ärvas (till exempel från resurs gruppen innehåller) eller tilldelas direkt till resursen. Behörighet till loggarna för resursen tilldelas automatiskt. |
-| Vad är behörighets omfånget? | Platsen. Användare med åtkomst till arbets ytan kan fråga alla loggar i arbets ytan från tabeller som de har behörighet till. Se [tabell åtkomst kontroll](manage-access.md#table-level-rbac) | Azure-resurs. Användaren kan söka i loggar efter vissa resurser, resurs grupper eller prenumerationer som de har åtkomst till från en arbets yta, men inte skicka frågor till loggar för andra resurser. |
+| Vad är behörighets omfånget? | platsen. Användare med åtkomst till arbets ytan kan fråga alla loggar i arbets ytan från tabeller som de har behörighet till. Se [tabell åtkomst kontroll](manage-access.md#table-level-rbac) | Azure-resurs. Användaren kan söka i loggar efter vissa resurser, resurs grupper eller prenumerationer som de har åtkomst till från en arbets yta, men inte skicka frågor till loggar för andra resurser. |
 | Hur kan användare få åtkomst till loggar? | <ul><li>Starta **loggar** från **Azure Monitor** -menyn.</li></ul> <ul><li>Starta **loggar** från **Log Analytics arbets ytor**.</li></ul> <ul><li>Från Azure Monitor [arbets böcker](../visualizations.md#workbooks).</li></ul> | <ul><li>Starta **loggar** från menyn för Azure-resursen</li></ul> <ul><li>Starta **loggar** från **Azure Monitor** -menyn.</li></ul> <ul><li>Starta **loggar** från **Log Analytics arbets ytor**.</li></ul> <ul><li>Från Azure Monitor [arbets böcker](../visualizations.md#workbooks).</li></ul> |
 
 ## <a name="access-control-mode"></a>Åtkomst kontrol läge
@@ -115,7 +115,7 @@ I följande tabell sammanfattas åtkomst lägena:
 
     Detta är standardinställningen för alla arbets ytor som skapats före mars 2019.
 
-* **Använd resurs-eller arbets ytans behörigheter**: det här kontroll läget möjliggör detaljerad RBAC. Användare kan beviljas åtkomst till data som är associerade med resurser som de kan visa genom att tilldela Azure-`read`-behörighet. 
+* **Använd resurs-eller arbets ytans behörigheter**: det här kontroll läget möjliggör detaljerad RBAC. Användare kan beviljas åtkomst till data som är associerade med resurser som de kan visa genom att tilldela Azure `read`-behörighet. 
 
     När en användare ansluter till arbets ytan i Sammanhangs läge för arbets ytan gäller arbets ytans behörigheter. När en användare ansluter till arbets ytan i resurs kontext läge, verifieras endast resurs behörigheter och behörigheter för arbets ytan ignoreras. Aktivera RBAC för en användare genom att ta bort dem från arbets ytans behörigheter och tillåta att deras resurs behörigheter identifieras.
 
@@ -147,7 +147,7 @@ Det här scenariot täcker en enskild design av arbets ytan i IT-organisationens
 
 Alla resurser, övervaknings lösningar och insikter som Application Insights och Azure Monitor for VMs, stöd för infrastruktur och program som underhålls av de olika teamen konfigureras för att vidarebefordra insamlade loggdata till IT-organisationer centraliserad delad arbets yta. Användare i varje team beviljas åtkomst till loggar för resurser som de har fått åtkomst till.
 
-När du har distribuerat din arbets ytas arkitektur kan du framtvinga detta på Azure-resurser med [Azure policy](../../governance/policy/overview.md). Det är ett sätt att definiera principer och se till att dina Azure-resurser är kompatibla så att de skickar alla diagnostikloggar till en viss arbets yta. Till exempel kan du använda befintliga principer som utvärderar arbets ytans efterlevnad och rapport resultat, eller anpassa för att åtgärda om det inte är kompatibelt, med Azure Virtual Machines eller Virtual Machine Scale Sets.  
+När du har distribuerat din arbets ytas arkitektur kan du framtvinga detta på Azure-resurser med [Azure policy](../../governance/policy/overview.md). Det är ett sätt att definiera principer och se till att dina Azure-resurser är kompatibla så att de skickar alla resurs loggar till en viss arbets yta. Till exempel kan du använda befintliga principer som utvärderar arbets ytans efterlevnad och rapport resultat, eller anpassa för att åtgärda om det inte är kompatibelt, med Azure Virtual Machines eller Virtual Machine Scale Sets.  
 
 ## <a name="workspace-consolidation-migration-strategy"></a>Arbets yta konsoliderings strategi för migrering
 
@@ -160,7 +160,7 @@ När du planerar migreringen till den här modellen bör du tänka på följande
 * Identifiera den åtkomst som beviljas resurser för dina program team och testa i en utvecklings miljö innan du implementerar i produktion.
 * Konfigurera arbets ytan för att aktivera **Använd resurs-eller arbets ytans behörigheter**.
 * Ta bort program Teams behörighet att läsa och fråga arbets ytan.
-* Aktivera och konfigurera övervaknings lösningar, insikter som Azure Monitor för behållare och/eller Azure Monitor for VMs, ditt Automation-konto och hanterings lösningar som Uppdateringshantering, starta/stoppa virtuella datorer osv., som har distribuerats i det ursprungliga platsen.
+* Aktivera och konfigurera övervaknings lösningar, insikter som Azure Monitor för behållare och/eller Azure Monitor for VMs, ditt Automation-konto och hanterings lösningar som Uppdateringshantering, starta/stoppa virtuella datorer osv., som har distribuerats på den ursprungliga arbets ytan.
 
 ## <a name="next-steps"></a>Nästa steg
 

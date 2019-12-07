@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200514"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894518"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in Azures resurs loggar i Log Analytics arbets yta i Azure Monitor
 [Resurs loggar](resource-logs-overview.md) i Azure ger omfattande, frekventa data om den interna driften av en Azure-resurs. I den här artikeln beskrivs hur du samlar in resurs loggar på en Log Analytics arbets yta som gör att du kan analysera den med andra övervaknings data som samlas in i Azure Monitor loggar med kraftfulla logg frågor och även för att utnyttja andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. 
@@ -51,14 +51,14 @@ Tänk på följande exempel där diagnostikinställningar samlas in i samma arbe
 
 AzureDiagnostics-tabellen ser ut så här:  
 
-| ResourceProvider    | Kategori     | A  | B  | C  | D  | Ö  | F  | G  | H  | I  |
+| ResourceProvider    | Kategori     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft. Service1 | AuditLogs    | PCIe | Y1 | z1 |    |    |    |    |    |    |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | bästa | W1 | E1 |    |    |    |
+| Microsoft. Service1 | AuditLogs    | x1 | Y1 | z1 |    |    |    |    |    |    |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | e1 |    |    |    |
 | Microsoft. service2 | AuditLogs    |    |    |    |    |    |    | j1 | K1 | L1 |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | Q2 | w2 | E2 |    |    |    |
-| Microsoft. service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | L3 |
-| Microsoft. Service1 | AuditLogs    | GPS | y5 värdefält | z5 |    |    |    |    |    |    |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
+| Microsoft. service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
+| Microsoft. Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
 | ... |
 
 ### <a name="resource-specific"></a>Resurs-/regionsspecifika
@@ -70,16 +70,16 @@ Exemplet ovan skulle resultera i att tre tabeller skapas:
 
     | Resurs leverantör | Kategori | A | B | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | PCIe | Y1 | z1 |
-    | Service1 | AuditLogs | GPS | y5 värdefält | z5 |
+    | Service1 | AuditLogs | x1 | Y1 | z1 |
+    | Service1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
 - Tabell *Service1ErrorLogs* enligt följande:  
 
-    | Resurs leverantör | Kategori | D | Ö | F |
+    | Resurs leverantör | Kategori | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  bästa | W1 | E1 |
-    | Service1 | ErrorLogs |  Q2 | w2 | E2 |
+    | Service1 | ErrorLogs |  q1 | W1 | e1 |
+    | Service1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
 - Tabell *Service2AuditLogs* enligt följande:  
@@ -87,7 +87,7 @@ Exemplet ovan skulle resultera i att tre tabeller skapas:
     | Resurs leverantör | Kategori | G | H | I |
     | -- | -- | -- | -- | -- |
     | Service2 | AuditLogs | j1 | K1 | L1|
-    | Service2 | AuditLogs | j3 | k3 | L3|
+    | Service2 | AuditLogs | j3 | k3 | l3|
     | ... |
 
 
@@ -110,7 +110,7 @@ Fortsätt att titta på [Azures uppdaterings](https://azure.microsoft.com/update
 ### <a name="column-limit-in-azurediagnostics"></a>Kolumn begränsning i AzureDiagnostics
 Det finns en gräns på 500-egenskapen för alla tabeller i Azure Monitor loggar. När den här gränsen har uppnåtts raderas alla rader som innehåller data med en egenskap utanför de första 500 vid inmatnings tiden. *AzureDiagnostics* -tabellen är särskilt känslig för den här gränsen eftersom den innehåller egenskaper för alla Azure-tjänster som skriver till den.
 
-Om du samlar in diagnostikloggar från flera tjänster kan _AzureDiagnostics_ överskrida den här gränsen och data kommer att saknas. Tills alla Azure-tjänster har stöd för det resursbaserade läget bör du konfigurera resurser för att skriva till flera arbets ytor för att minska risken för att nå 500-kolumn gränsen.
+Om du samlar in resurs loggar från flera tjänster kan _AzureDiagnostics_ överskrida den här gränsen och data kommer att saknas. Tills alla Azure-tjänster har stöd för det resursbaserade läget bör du konfigurera resurser för att skriva till flera arbets ytor för att minska risken för att nå 500-kolumn gränsen.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory, på grund av en mycket detaljerad uppsättning loggar, är en tjänst som är känd för att skriva ett stort antal kolumner och eventuellt orsaka att _AzureDiagnostics_ överskrider gränsen. För alla diagnostikinställningar som kon figurer ATS innan det resurs-specifika läget har Aktiver ATS kommer det att finnas en ny kolumn som skapats för varje unik, namngiven användar parameter mot valfri aktivitet. Fler kolumner kommer att skapas på grund av den utförliga typen av aktivitets indata och utdata.

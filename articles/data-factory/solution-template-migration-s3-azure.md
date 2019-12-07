@@ -1,5 +1,5 @@
 ---
-title: Migrera data från Amazon S3 till Azure Data Lake Storage Gen2 med Azure Data Factory
+title: Migrera data från Amazon S3 till Azure Data Lake Storage Gen2
 description: Lär dig hur du använder en lösnings mall för att migrera data från Amazon S3 genom att använda en extern kontroll tabell för att lagra en partitionstabell på AWS S3 med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
-ms.openlocfilehash: a8591762bf4e8eccd5e1b7d67538674feed720b9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b1e7d15f1c747644c755b1e0bbe3351c626f7c28
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684190"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890818"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrera data från Amazon S3 till Azure Data Lake Storage Gen2
 
@@ -38,7 +38,7 @@ Datamigreringen kräver vanligt vis historisk datamigrering vid en tidpunkt och 
 Den här mallen (*Mallnamn: Migrera historiska data från AWS S3 till Azure Data Lake Storage Gen2*) förutsätter att du har skrivit en partitionerad lista i en extern kontroll tabell i Azure SQL Database. Därför används en *Lookup* -aktivitet för att hämta en lista över partitioner från den externa kontroll tabellen, iterera över varje partition och göra varje jobb i utskriften kopiera en partition i taget. När ett kopierings jobb har slutförts används aktiviteten *lagrad procedur* för att uppdatera statusen för kopiering av varje partition i kontroll tabellen.
 
 Mallen innehåller fem aktiviteter:
-- **Lookup** hämtar de partitioner som inte har kopierats till Azure Data Lake Storage Gen2 från en extern kontroll tabell. Tabell namnet är *s3_partition_control_table* och frågan om att läsa in data från tabellen är *"Select PARTITIONPREFIX from s3_partition_control_table WHERE SuccessOrFailure = 0"* .
+- **Lookup** hämtar de partitioner som inte har kopierats till Azure Data Lake Storage Gen2 från en extern kontroll tabell. Tabell namnet är *s3_partition_control_table* och frågan för att läsa in data från tabellen är *"SELECT PARTITIONPREFIX from s3_partition_control_table WHERE SuccessOrFailure = 0"* .
 - Med den här **listan får du** en lista över partitionerna från *söknings* aktiviteten och upprepar varje partition till *TriggerCopy* -aktiviteten. Du kan ställa in *batchCount* att köra flera jobb för ADF-kopiering samtidigt. Vi har angett 2 i den här mallen.
 - **ExecutePipeline** kör *CopyFolderPartitionFromS3* -pipeline. Anledningen till att vi skapar en till pipeline för att göra varje kopierings jobb kopiera en partition beror på att det gör att du enkelt kan köra om det misslyckade kopierings jobbet för att läsa in den aktuella partitionen igen från AWS S3. Alla andra kopierings jobb som läser in andra partitioner påverkas inte.
 - **Copy** kopierar varje partition från AWS S3 till Azure Data Lake Storage Gen2.
@@ -46,24 +46,24 @@ Mallen innehåller fem aktiviteter:
 
 Mallen innehåller två parametrar:
 - **AWS_S3_bucketName** är ditt Bucket-namn på AWS S3 där du vill migrera data från. Om du vill migrera data från flera buckets på AWS S3 kan du lägga till en kolumn i den externa kontroll tabellen för att lagra Bucket-namnet för varje partition och även uppdatera din pipeline för att hämta data från den kolumnen.
-- **Azure_Storage_fileSystem** är namnet på fil systemet på Azure Data Lake Storage Gen2 där du vill migrera data till.
+- **Azure_Storage_fileSystem** är fil namns namnet på Azure Data Lake Storage Gen2 dit du vill migrera data till.
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>För mallen för att kopiera ändrade filer enbart från Amazon S3 till Azure Data Lake Storage Gen2
 
-Den här mallen (*Mallnamn: kopiera delta data från AWS S3 till Azure Data Lake Storage Gen2*) använder LastModifiedTime för varje fil för att kopiera nya eller uppdaterade filer enbart från AWS S3 till Azure. Tänk på att om dina filer eller mappar redan har tidspartitioner ATS med timeslice-information som en del av fil-eller mappnamnet på AWS S3 (till exempel/YYYY/MM/DD/File.csv), kan du gå till den här [självstudien](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) för att få en mer välpresterande metod för stegvis läser in nya filer. Den här mallen förutsätter att du har skrivit en partitionerad lista i en extern kontroll tabell i Azure SQL Database. Därför används en *Lookup* -aktivitet för att hämta en lista över partitioner från den externa kontroll tabellen, iterera över varje partition och göra varje jobb i utskriften kopiera en partition i taget. När varje kopierings jobb börjar kopiera filerna från AWS S3 förlitar sig det på egenskapen LastModifiedTime för att identifiera och kopiera endast nya eller uppdaterade filer. När ett kopierings jobb har slutförts används aktiviteten *lagrad procedur* för att uppdatera statusen för kopiering av varje partition i kontroll tabellen.
+Den här mallen (*Mallnamn: kopiera delta data från AWS S3 till Azure Data Lake Storage Gen2*) använder LastModifiedTime för varje fil för att kopiera nya eller uppdaterade filer enbart från AWS S3 till Azure. Tänk på att om dina filer eller mappar redan har tidspartitioner ATS med timeslice-information som en del av fil-eller mappnamnet på AWS S3 (till exempel/YYYY/MM/DD/File.csv), kan du gå till den här [självstudien](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) för att få en mer bra metod för att hämta nya filer med stegvisa inläsningar. Den här mallen förutsätter att du har skrivit en partitionerad lista i en extern kontroll tabell i Azure SQL Database. Därför används en *Lookup* -aktivitet för att hämta en lista över partitioner från den externa kontroll tabellen, iterera över varje partition och göra varje jobb i utskriften kopiera en partition i taget. När varje kopierings jobb börjar kopiera filerna från AWS S3 förlitar sig det på egenskapen LastModifiedTime för att identifiera och kopiera endast nya eller uppdaterade filer. När ett kopierings jobb har slutförts används aktiviteten *lagrad procedur* för att uppdatera statusen för kopiering av varje partition i kontroll tabellen.
 
 Mallen innehåller sju aktiviteter:
-- **Lookup** hämtar partitionerna från en extern kontroll tabell. Tabell namnet är *s3_partition_delta_control_table* och frågan om att läsa in data från tabellen är *"Select DISTINCT PartitionPrefix from s3_partition_delta_control_table"* .
+- **Lookup** hämtar partitionerna från en extern kontroll tabell. Tabell namnet är *s3_partition_delta_control_table* och frågan för att läsa in data från tabellen är *"Select distinct PartitionPrefix from s3_partition_delta_control_table"* .
 - Med den här **listan får du** en lista över partitionerna från *söknings* aktiviteten och upprepar varje partition till *TriggerDeltaCopy* -aktiviteten. Du kan ställa in *batchCount* att köra flera jobb för ADF-kopiering samtidigt. Vi har angett 2 i den här mallen.
 - **ExecutePipeline** kör *DeltaCopyFolderPartitionFromS3* -pipeline. Anledningen till att vi skapar en till pipeline för att göra varje kopierings jobb kopiera en partition beror på att det gör att du enkelt kan köra om det misslyckade kopierings jobbet för att läsa in den aktuella partitionen igen från AWS S3. Alla andra kopierings jobb som läser in andra partitioner påverkas inte.
-- **Lookup** hämtar den senaste körnings tiden för kopierings jobb från den externa kontroll tabellen så att de nya eller uppdaterade filerna kan identifieras via LastModifiedTime. Tabell namnet är *s3_partition_delta_control_table* och frågan om att läsa in data från tabellen är *"Select Max (JobRunTime) som LastModifiedTime från s3_partition_delta_control_table där PartitionPrefix = ' @ {pipeline (). Parameters. prefixStr } och SuccessOrFailure = 1*.
+- **Lookup** hämtar den senaste körnings tiden för kopierings jobb från den externa kontroll tabellen så att de nya eller uppdaterade filerna kan identifieras via LastModifiedTime. Tabell namnet är *s3_partition_delta_control_table* och frågan för att läsa in data från tabellen är *"Select Max (JobRunTime) som LastModifiedTime från s3_partition_delta_control_table där PartitionPrefix =" @ {pipeline (). Parameters. prefixStr} "och SuccessOrFailure = 1"* .
 - **Kopiera** kopierar bara nya eller ändrade filer för varje partition från AWS S3 till Azure Data Lake Storage Gen2. Egenskapen för *modifiedDatetimeStart* anges till den senaste körnings tiden för kopierings jobb. Egenskapen för *modifiedDatetimeEnd* har angetts till den aktuella kopierings jobb körnings tiden. Tänk på att tiden tillämpas på UTC-tidszonen.
 - **SqlServerStoredProcedure** uppdaterar status för kopiering av varje partition och kopierings körnings tid i kontroll tabellen när den lyckas. Kolumnen i SuccessOrFailure har angetts till 1.
 - **SqlServerStoredProcedure** uppdaterar status för kopiering av varje partition och kopierings körnings tid i kontroll tabellen när den Miss lyckas. Kolumnen i SuccessOrFailure har angetts till 0.
 
 Mallen innehåller två parametrar:
 - **AWS_S3_bucketName** är ditt Bucket-namn på AWS S3 där du vill migrera data från. Om du vill migrera data från flera buckets på AWS S3 kan du lägga till en kolumn i den externa kontroll tabellen för att lagra Bucket-namnet för varje partition och även uppdatera din pipeline för att hämta data från den kolumnen.
-- **Azure_Storage_fileSystem** är namnet på fil systemet på Azure Data Lake Storage Gen2 där du vill migrera data till.
+- **Azure_Storage_fileSystem** är fil namns namnet på Azure Data Lake Storage Gen2 dit du vill migrera data till.
 
 ## <a name="how-to-use-these-two-solution-templates"></a>Använda de här två lösnings mallarna
 
@@ -190,7 +190,7 @@ Mallen innehåller två parametrar:
 
     ![Granska resultatet](media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png)
 
-8. Du kan också kontrol lera resultatet från kontroll tabellen med en fråga *"Select * from s3_partition_delta_control_table"* . resultatet ser ut ungefär som i följande exempel:
+8. Du kan också kontrol lera resultatet från kontroll tabellen med en fråga *"Välj * från s3_partition_delta_control_table"* . resultatet ser ut ungefär som i följande exempel:
 
     ![Granska resultatet](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     

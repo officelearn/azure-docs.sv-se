@@ -1,5 +1,5 @@
 ---
-title: Flytta filer mellan filbaserad lagring med hjälp av Azure Data Factory
+title: Flytta filer mellan filbaserad lagring
 description: Lär dig hur du använder en lösnings mall för att flytta filer mellan filbaserad lagring med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0f9179918016b9eaec04b0d559e25ed7973f18a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684178"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896202"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Flytta filer med Azure Data Factory
 
@@ -39,11 +39,11 @@ Mallen innehåller fem aktiviteter:
 
 Mallen definierar två parametrar:
 - *FolderPath_SourceStore* är mappsökvägen till käll arkivet där du vill flytta filer från. 
-- *FolderPath_DestinationStore* är sökvägen till den mål lagrings plats där du vill flytta filer till. 
+- *FolderPath_DestinationStore* är mappsökvägen till din destinations lager dit du vill flytta filer till. 
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
-1. Gå till mallen **Flytta filer** . Välj en befintlig anslutning eller skapa en **ny** anslutning till käll fil arkivet dit du vill flytta filer. Tänk på att **DataSource_Folder** och **DataSource_File** refererar till samma anslutning till käll fil arkivet.
+1. Gå till mallen **Flytta filer** . Välj en befintlig anslutning eller skapa en **ny** anslutning till käll fil arkivet dit du vill flytta filer. Tänk på att **DataSource_Folder** och **DataSource_File** refererar till samma anslutning av käll fil arkivet.
 
     ![Skapa en ny anslutning till källan](media/solution-template-move-files/move-files1.png)
 

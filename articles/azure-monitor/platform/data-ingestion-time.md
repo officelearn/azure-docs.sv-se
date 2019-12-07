@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 8b40d89920208eaf15e01b3519b667a77baf8671
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bd6590ebbd33dc5c9b65fc193679f4bf99760c3a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932571"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894155"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tid för att mata in logg data i Azure Monitor
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om hur lång tid det tar för loggdata att bli tillgängliga när de har samlats in. I den här artikeln beskrivs de olika faktorer som påverkar den här svars tiden.
@@ -40,10 +40,10 @@ Agenter och hanterings lösningar använder olika strategier för att samla in d
 ### <a name="agent-upload-frequency"></a>Agent överförings frekvens
 För att säkerställa att Log Analytics-agenten är låg, buffrar agenten loggar och överför dem regelbundet till Azure Monitor. Uppladdnings frekvensen varierar mellan 30 sekunder och 2 minuter beroende på vilken typ av data du har. De flesta data laddas upp under 1 minut. Nätverks förhållandena kan påverka svars tiden för dessa data negativt för att uppnå Azure Monitor inmatnings punkt.
 
-### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure-aktivitets loggar, diagnostikloggar och mått
+### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Azure aktivitets loggar, resurs loggar och mått
 Azure Data lägger till ytterligare tid för att bli tillgänglig vid Log Analytics inmatnings punkt för bearbetning:
 
-- Data från diagnostikloggar tar 2-15 minuter, beroende på Azure-tjänsten. Se [frågan nedan](#checking-ingestion-time) för att undersöka den här svars tiden i din miljö
+- Data från resurs loggar tar 2-15 minuter, beroende på Azure-tjänsten. Se [frågan nedan](#checking-ingestion-time) för att undersöka den här svars tiden i din miljö
 - Azures plattforms mått tar 3 minuter att skickas till Log Analytics inmatnings platsen.
 - Aktivitets logg data tar cirka 10-15 minuter att skickas till Log Analytics inmatnings plats.
 
@@ -58,7 +58,7 @@ Vissa lösningar samlar inte in data från en agent och kan använda en samlings
 Se dokumentationen för varje lösning för att fastställa dess samlings frekvens.
 
 ### <a name="pipeline-process-time"></a>Pipeline-process tid
-När logg poster matas in i Azure Monitor pipelinen (som identifieras i egenskapen [_TimeReceived](log-standard-properties.md#_timereceived) ), skrivs de till tillfällig lagring för att säkerställa klient isoleringen och se till att data inte förloras. Den här processen lägger normalt till 5-15 sekunder. Vissa hanterings lösningar implementerar tyngre algoritmer för att samla in data och härleda insikter när data strömmas i. Exempel: övervakning av nätverks prestanda sammanställer inkommande data över 3 minuters intervall, vilket effektivt lägger till en fördröjning på 3 minuter. En annan process som lägger till latens är den process som hanterar anpassade loggar. I vissa fall kan den här processen lägga till några minuters svars tid på loggar som samlas in från filer av agenten.
+När logg poster matas in i Azure Monitor pipelinen (som identifieras i egenskapen [_TimeReceived](log-standard-properties.md#_timereceived) ), skrivs de till temporär lagring för att säkerställa klient isoleringen och se till att data inte förloras. Den här processen lägger normalt till 5-15 sekunder. Vissa hanterings lösningar implementerar tyngre algoritmer för att samla in data och härleda insikter när data strömmas i. Exempel: övervakning av nätverks prestanda sammanställer inkommande data över 3 minuters intervall, vilket effektivt lägger till en fördröjning på 3 minuter. En annan process som lägger till latens är den process som hanterar anpassade loggar. I vissa fall kan den här processen lägga till några minuters svars tid på loggar som samlas in från filer av agenten.
 
 ### <a name="new-custom-data-types-provisioning"></a>Ny anpassad data typs etablering
 När en ny typ av anpassade data skapas från en [anpassad logg](data-sources-custom-logs.md) eller [data insamlings-API: et](data-collector-api.md)skapar systemet en dedikerad lagrings behållare. Detta är ett engångs arbete som bara inträffar när den här data typen är första.
@@ -78,12 +78,12 @@ Hämtnings tiden kan variera beroende på olika resurser under olika omständigh
 
 | Steg | Egenskap eller funktion | Kommentarer |
 |:---|:---|:---|
-| Post skapad vid data Källa | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Om data källan inte anger detta värde, ställs den in på samma tid som _TimeReceived. |
+| Post skapad vid data Källa | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Om data källan inte anger det här värdet, kommer den att ställas in på samma tid som _TimeReceived. |
 | Posten togs emot av Azure Monitor-inmatnings slut punkt | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Post lagrad i arbets ytan och tillgänglig för frågor | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Post lagrad i arbets ytan och tillgänglig för frågor | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Fördröjningar vid inmatnings fördröjning
-Du kan mäta svars tiden för en speciell post genom att jämföra resultatet från funktionen [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) i egenskapen _TimeGenerated_ . Dessa data kan användas med olika agg regeringar för att ta reda på hur inmatnings fördröjningen fungerar. Granska några percentiler av Inhämtnings tiden för att få insikter om stora mängder data. 
+Du kan mäta svars tiden för en speciell post genom att jämföra resultatet av funktionen [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) i egenskapen _TimeGenerated_ . Dessa data kan användas med olika agg regeringar för att ta reda på hur inmatnings fördröjningen fungerar. Granska några percentiler av Inhämtnings tiden för att få insikter om stora mängder data. 
 
 Följande fråga visar t. ex. vilka datorer som hade den högsta inmatnings tiden under de senaste 8 timmarna: 
 

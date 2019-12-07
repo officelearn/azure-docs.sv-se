@@ -1,6 +1,6 @@
 ---
-title: Azure AD-direktautentisering - Snabbstart | Microsoft Docs
-description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory (Azure AD)-direktautentisering.
+title: Vidarekoppling av Azure AD-vidarekoppling – snabb start | Microsoft Docs
+description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory (Azure AD) genom strömnings-autentisering.
 services: active-directory
 keywords: Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
@@ -16,154 +16,154 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fe38b434c4e54b375b22d76c573d3bbe88b0e16
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243586"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889948"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart
+# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory direktautentisering: snabb start
 
-## <a name="deploy-azure-ad-pass-through-authentication"></a>Distribuera Azure AD-direktautentisering
+## <a name="deploy-azure-ad-pass-through-authentication"></a>Distribuera direkt autentisering i Azure AD
 
-Azure Active Directory (Azure AD)-direktautentisering kan användarna att logga in på både lokala och molnbaserade program genom att använda samma lösenord. Direktautentisering loggar användarna in genom att verifiera sina lösenord direkt mot den lokala Active Directory.
+Med direkt autentisering i Azure Active Directory (Azure AD) kan användarna logga in i både lokala och molnbaserade program genom att använda samma lösen ord. Direktautentisering loggar användare i genom att verifiera sina lösen ord direkt mot lokala Active Directory.
 
 >[!IMPORTANT]
->Om du migrerar från AD FS (eller andra tekniker för federation) till direktautentisering, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://aka.ms/adfstoPTADPDownload).
+>Om du migrerar från AD FS (eller andra Federations tekniker) till direktautentisering, rekommenderar vi starkt att du följer vår detaljerade distributions guide publicerad [här](https://aka.ms/adfstoPTADPDownload).
 
-Följ dessa instruktioner för att distribuera direktautentisering på din klient:
+Följ de här anvisningarna för att distribuera direktautentisering på klienten:
 
-## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera förutsättningarna
+## <a name="step-1-check-the-prerequisites"></a>Steg 1: kontrol lera kraven
 
 Se till att följande krav är uppfyllda.
 
-### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory Administrationscenter
+### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory administrations Center
 
-1. Skapa ett molnbaserad globalt administratörskonto på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient bör din lokala tjänster misslyckas eller inte tillgänglig. Lär dig mer om [att lägga till en molnbaserad globala administratörskonto](../active-directory-users-create-azure-portal.md). Du har slutfört det här steget är viktigt att se till att du inte blir utelåst från klientorganisationen.
-2. Lägg till en eller flera [anpassade domännamn](../active-directory-domains-add-azure-portal.md) till Azure AD-klienten. Användarna kan logga in med något av dessa domännamn.
+1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient organisation om dina lokala tjänster kraschar eller blir otillgängliga. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../active-directory-users-create-azure-portal.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
+2. Lägg till ett eller flera [anpassade domän namn](../active-directory-domains-add-azure-portal.md) i Azure AD-klienten. Användarna kan logga in med ett av dessa domän namn.
 
 ### <a name="in-your-on-premises-environment"></a>I din lokala miljö
 
-1. Identifiera en server som kör Windows Server 2012 R2 eller senare för att köra Azure AD Connect. Om inte redan är aktiverad [Aktivera TLS 1.2 på servern](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Lägg till servern i samma Active Directory-skog som användare vars lösenord du måste verifiera.
-2. Installera den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) på den server som anges i föregående steg. Om du redan har Azure AD Connect körs kan du kontrollera att versionen är 1.1.750.0 eller senare.
+1. Identifiera en server som kör Windows Server 2012 R2 eller senare för att köra Azure AD Connect. Om du inte redan har aktiverat [aktiverar du TLS 1,2 på servern](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Lägg till servern i samma Active Directory skog som de användare vars lösen ord du behöver validera.
+2. Installera den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) på den server som identifierades i föregående steg. Om du redan har Azure AD Connect kört, se till att versionen är 1.1.750.0 eller senare.
 
     >[!NOTE]
-    >Azure AD Connect-versioner 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem med synkronisering av lösenordshash. Om du _inte_ planerar att använda synkronisering av lösenordshash tillsammans med direktautentisering, läsa den [viktig information om Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
+    >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering tillsammans med direktautentisering kan du läsa [Azure AD Connect viktig information](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare med TLS 1.2 aktiverat) där du kan köra fristående Autentiseringsagenter. Dessa ytterligare servrar behövs för att garantera hög tillgänglighet för begäranden för att logga in. Lägg till servrar i samma Active Directory-skog som användare vars lösenord du måste verifiera.
+3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare, med TLS 1,2 aktiverat) där du kan köra fristående autentiserings agenter. Dessa ytterligare servrar behövs för att säkerställa hög tillgänglighet för begär Anden att logga in. Lägg till servrarna i samma Active Directory skog som de användare vars lösen ord du behöver validera.
 
     >[!IMPORTANT]
-    >I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 40 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >I produktions miljöer rekommenderar vi att du har minst 3 autentiserings agenter som körs på din klient. Det finns en system gräns på 40-autentiseringspaket per klient. Och bästa praxis är att behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-4. Om det finns en brandvägg mellan dina servrar och Azure AD måste du konfigurera följande objekt:
-   - Se till att Autentiseringsagenter kan göra *utgående* begäranden till Azure AD via följande portar:
+4. Om det finns en brand vägg mellan dina servrar och Azure AD konfigurerar du följande objekt:
+   - Se till att autentiserings agenter kan göra *utgående* begär anden till Azure AD över följande portar:
 
      | Portnummer | Hur den används |
      | --- | --- |
-     | **80** | Hämtar listor över återkallade certifikat (CRL) vid verifiering av SSL-certifikatet |
+     | **80** | Hämtar listor över återkallade certifikat (CRL) när SSL-certifikatet verifieras |
      | **443** | Hanterar all utgående kommunikation med tjänsten |
-     | **8080** (valfritt) | Autentiseringsagenter rapportera status för var tionde minut över port 8080, om port 443 är inte tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 är _inte_ används för användarinloggningar. |
+     | **8080** (valfritt) | Authentication agents rapporterar status var tionde minut via port 8080, om port 443 inte är tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 används _inte_ för användar inloggningar. |
      
-     Om din brandvägg tillämpar regler enligt ursprungliga användarna, kan du öppna dessa portar för trafik från Windows-tjänster som körs som en nätverkstjänst.
-   - Om din brandvägg eller proxyserver kan DNS-lista över tillåtna, lista över tillåtna anslutningar till  **\*. msappproxy.net** och  **\*. servicebus.windows.net**. Om den inte tillåter åtkomst till den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
-   - Din Autentiseringsagenter behöver åtkomst till **login.windows.net** och **login.microsoftonline.com** för inledande registrering. Öppna din brandvägg för dessa URL: er samt.
-   - Certifikatsverifiering, avblockera i följande webbadresser: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, och **www \.microsoft.com:80**. Eftersom dessa URL: er används för certifikatsverifiering med andra Microsoft-produkter som du kan redan ha dessa URL: er avblockerad.
+     Om brand väggen tillämpar regler enligt de ursprungliga användarna öppnar du portarna för trafik från Windows-tjänster som körs som en nätverks tjänst.
+   - Om din brand vägg eller proxy tillåter DNS-vit listning, vitlista anslutningar till **\*. msappproxy.net** och **\*. ServiceBus.Windows.net**. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
+   - Dina autentiserings agenter behöver åtkomst till **login.Windows.net** och **login.microsoftonline.com** för inledande registrering. Öppna brand väggen för dessa URL: er även.
+   - För certifikat validering, avblockera följande URL: er: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**och **www\.Microsoft.com:80**. Eftersom dessa URL: er används för certifikat validering med andra Microsoft-produkter kan dessa URL: er vara avblockerade.
 
-## <a name="step-2-enable-the-feature"></a>Steg 2: Aktivera funktionen
+## <a name="step-2-enable-the-feature"></a>Steg 2: aktivera funktionen
 
-Aktivera direktautentisering via [Azure AD Connect](whatis-hybrid-identity.md).
-
->[!IMPORTANT]
->Du kan aktivera direktautentisering på Azure AD Connect primär eller fristående server. Vi rekommenderar starkt att du aktiverar det från den primära servern. Om du ställer in en Azure AD Connect-mellanlagringsserver i framtiden kommer du **måste** Fortsätt med att välja direktautentisering som alternativet inloggning, välja ett annat alternativ kommer **inaktivera** Direktautentisering på klient- och åsidosättning inställningen i den primära servern.
-
-Om du installerar Azure AD Connect för första gången, väljer du den [anpassade installationssökväg](how-to-connect-install-custom.md). På den **användarinloggning** väljer **direktautentisering** som den **inloggningsmetod**. Åtgärden lyckades, är en Autentiseringsagenten för direktautentisering installerad på samma server som Azure AD Connect. Dessutom är funktionen direktautentisering aktiverad på klienten.
-
-![Azure AD Connect: Användarinloggning](./media/how-to-connect-pta-quick-start/sso3.png)
-
-Om du redan har installerat Azure AD Connect med hjälp av den [Snabbinstallation](how-to-connect-install-express.md) eller [anpassad installation](how-to-connect-install-custom.md) sökvägen markerar den **ändra användarinloggning** uppgiften på Azure AD Ansluta och väljer **nästa**. Välj sedan **direktautentisering** som metod för inloggning. När åtgärden har slutförts, en Autentiseringsagenten för direktautentisering är installerad på samma server som Azure AD Connect och funktionen är aktiverad på klienten.
-
-![Azure AD Connect: Ändra användarinloggning](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+Aktivera direkt autentisering via [Azure AD Connect](whatis-hybrid-identity.md).
 
 >[!IMPORTANT]
->Direktautentisering är en funktion på klientnivå. Att aktivera den påverkar inloggning för användare i _alla_ de hanterade domänerna i din klient. Om du växlar från Active Directory Federation Services (AD FS) till direktautentisering, bör du vänta minst 12 timmar innan du stänger av AD FS-infrastrukturen. Den här väntetid är att säkerställa att användarna kan hålla inloggning till Exchange ActiveSync under övergången. Kolla in vår detaljerad distributionsplan som publicerats för mer hjälp om hur du migrerar från AD FS till direktautentisering [här](https://aka.ms/adfstoptadpdownload).
+>Du kan aktivera direktautentisering på den Azure AD Connect primära eller mellanlagrings servern. Vi rekommenderar starkt att du aktiverar den från den primära servern. Om du ställer in en Azure AD Connect fristående server i framtiden **måste** du fortsätta att välja direktautentisering som inloggnings alternativ. Om du väljer ett annat alternativ **inaktive ras** direkt autentisering på klienten och åsidosätter inställningen på den primära servern.
 
-## <a name="step-3-test-the-feature"></a>Steg 3: Testa funktionen
+Om du installerar Azure AD Connect för första gången väljer du den [anpassade installations Sök vägen](how-to-connect-install-custom.md). På sidan **användar inloggning** väljer du **direktautentisering** som **inloggnings metod**. Vid lyckad slut för ande installeras en vidarekoppling på samma server som Azure AD Connect. Dessutom är funktionen för direkt autentisering aktive rad på din klient.
 
-Följ dessa instruktioner för att kontrollera att du har aktiverat direktautentisering korrekt:
+![Azure AD Connect: användar inloggning](./media/how-to-connect-pta-quick-start/sso3.png)
 
-1. Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med autentiseringsuppgifterna för global administratör för din klient.
-2. Välj **Azure Active Directory** i den vänstra rutan.
+Om du redan har installerat Azure AD Connect med hjälp av [Express installation](how-to-connect-install-express.md) eller [anpassad installations](how-to-connect-install-custom.md) Sök väg väljer du uppgiften **ändra användar inloggning** på Azure AD Connect och väljer sedan **Nästa**. Välj sedan **direktautentisering** som inloggnings metod. Vid lyckad slut för ande installeras en vidarekoppling på samma server som Azure AD Connect och funktionen är aktive rad på din klient.
+
+![Azure AD Connect: ändra användar inloggning](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+
+>[!IMPORTANT]
+>Direktautentisering är en funktion på klient nivå. Att aktivera det påverkar inloggningen för användare i _alla_ hanterade domäner i din klient organisation. Om du växlar från Active Directory Federation Services (AD FS) (AD FS) för att sprida autentiseringen bör du vänta minst 12 timmar innan du stänger av din AD FS-infrastruktur. Den här vänte tiden är att se till att användarna kan fortsätta att logga in på Exchange ActiveSync under över gången. Mer hjälp om hur du migrerar från AD FS till direktautentisering finns i vår detaljerade distributions plan publicerad [här](https://aka.ms/adfstoptadpdownload).
+
+## <a name="step-3-test-the-feature"></a>Steg 3: testa funktionen
+
+Följ de här anvisningarna för att kontrol lera att du har aktiverat direktautentisering korrekt:
+
+1. Logga in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med autentiseringsuppgifterna för global administratör för din klient organisation.
+2. Välj **Azure Active Directory** i det vänstra fönstret.
 3. Välj **Azure AD Connect**.
-4. Kontrollera att den **direktautentisering** funktionen visas som **aktiverad**.
-5. Välj **direktautentisering**. Den **direktautentisering** rutan visas de servrar där autentisering-agenter är installerade.
+4. Kontrol lera att funktionen för **direkt autentisering** visas som **aktive rad**.
+5. Välj **direktautentisering**. I fönstret genom **strömnings** fönstret visas de servrar där dina autentiseringsinställningar är installerade.
 
-![Azure Active Directory Administrationscenter: Azure AD Connect-fönstret](./media/how-to-connect-pta-quick-start/pta7.png)
+![Azure Active Directory administrations Center: Azure AD Connects fönstret](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Azure Active Directory Administrationscenter: Direkt-autentisering-fönstret](./media/how-to-connect-pta-quick-start/pta8.png)
+![Azure Active Directory administrations Center: direkt inloggnings fönster](./media/how-to-connect-pta-quick-start/pta8.png)
 
-I det här skedet kan användare från de hanterade domänerna i din klient logga in med hjälp av direktautentisering. Användare från federerade domäner fortsätter dock att logga in med hjälp av AD FS eller en annan federationsleverantör som du tidigare har konfigurerat. Om du konverterar en domän från federerad som hanteras, börjar alla användare från domänen automatiskt loggar in med hjälp av direktautentisering. Funktionen direktautentisering påverkar inte molnexklusiva användare.
+I det här skedet kan användare från alla hanterade domäner i din klient logga in med hjälp av direktautentisering. Användare från federerade domäner fortsätter dock att logga in genom att använda AD FS eller en annan Federations leverantör som du tidigare har konfigurerat. Om du konverterar en domän från federerade till hanterad börjar alla användare från den domänen att logga in automatiskt med hjälp av direktautentisering. Funktionen för direkt autentisering påverkar inte enbart moln användare.
 
-## <a name="step-4-ensure-high-availability"></a>Steg 4: Garantera hög tillgänglighet
+## <a name="step-4-ensure-high-availability"></a>Steg 4: Säkerställ hög tillgänglighet
 
-Om du planerar att distribuera direktautentisering i en produktionsmiljö bör du installera ytterligare fristående Autentiseringsagenter. Installera de här autentiseringsagenter på servrarna _andra_ än en aktiva Azure AD Connect. Den här konfigurationen ger hög tillgänglighet för begäranden för användare logga in.
+Om du planerar att distribuera direktautentisering i en produktions miljö bör du installera ytterligare fristående autentiserings agenter. Installera de här autentiseringsinställningarna på _andra_ servrar än den som kör Azure AD Connect. Den här inställningen ger dig hög tillgänglighet för användar inloggnings begär Anden.
 
 >[!IMPORTANT]
->I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 40 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>I produktions miljöer rekommenderar vi att du har minst 3 autentiserings agenter som körs på din klient. Det finns en system gräns på 40-autentiseringspaket per klient. Och bästa praxis är att behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Installera flera Autentiseringsagenter för vidarekoppling säkerställer hög tillgänglighet, men inte deterministisk belastningsutjämning mellan agenter för autentisering. Överväg att högsta och genomsnittliga belastningen för inloggningsförfrågningar du förväntar dig att se på din klient för att avgöra hur många Autentiseringsagenter som du behöver för din klient. Som prestandamått, kan en enda autentiseringsagent hantera 300 och 400 autentiseringar per sekund på en standard processor i 4 kärnor, 16 GB RAM-servern.
+Att installera flera direktautentisering för direktautentisering säkerställer hög tillgänglighet, men inte deterministisk belastnings utjämning mellan Authentication Agents. Ta reda på hur många autentiseringsmetoder du behöver för din klient genom att tänka på den högsta och genomsnittliga belastningen för de inloggnings begär Anden som du förväntar dig att se på din klient. Som riktmärke kan en enda autentiserings-agent hantera 300 till 400-autentiseringar per sekund på en standard processor på 4 kärnor, 16 GB RAM-Server.
 
-Du kan beräkna nätverkstrafik, använder du följande storlek-riktlinjer:
-- Varje begäran har en nyttolast på (0,5 k + 1 K * num_of_agents) byte. d.v.s. utgående data från Azure AD-autentisering-agenten. Här anger ”num_of_agents” antalet Autentiseringsagenter registrerad på din klient.
-- Varje svar har en nyttolast på 1K byte. d.v.s. utgående data från agenten autentisering till Azure AD.
+Använd följande vägledning för att beräkna nätverks trafik:
+- Varje begäran har en nytto Last storlek på (0,5 K + 1 KB * num_of_agents) byte; t. ex. data från Azure AD till Authentication agent. Här anger "num_of_agents" det antal autentiseringspaket som har registrerats för din klient.
+- Varje svar har en nytto Last storlek på 1 kB byte; dvs. data från Authentication agent till Azure AD.
 
-Tre Autentiseringsagenter totalt är tillräckliga för hög tillgänglighet och kapacitet för de flesta kunder. Du bör installera Autentiseringsagenter nära domänkontrollanterna för att förbättra inloggningen svarstid.
+För de flesta kunder räcker det att tre autentiserande agenter för hög tillgänglighet och kapacitet. Du bör installera autentiseringsprinciper nära domän kontrol Lanterna för att förbättra inloggnings fördröjningen.
 
-För att börja, följer du dessa instruktioner för att hämta programvaran autentiseringsagent:
+Börja genom att följa de här anvisningarna för att hämta program varan för autentiserings agenten:
 
-1. Ladda ned den senaste versionen av Autentiseringsagenten (version 1.5.193.0 eller senare), logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med global administratörsbehörighet för din klient.
-2. Välj **Azure Active Directory** i den vänstra rutan.
-3. Välj **Azure AD Connect**väljer **direktautentisering**, och välj sedan **ladda ned Agent**.
-4. Välj den **acceptera villkoren och hämta** knappen.
+1. Om du vill hämta den senaste versionen av Autentiseringstjänsten (version 1.5.193.0 eller senare) loggar du in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med klient organisationens globala administratörs behörigheter.
+2. Välj **Azure Active Directory** i det vänstra fönstret.
+3. Välj **Azure AD Connect**, Välj **direktautentisering**och välj sedan **Hämta agent**.
+4. Välj knappen **acceptera villkor & hämtning** .
 
-![Azure Active Directory Administrationscenter: Autentiseringsagent knappen ladda ned](./media/how-to-connect-pta-quick-start/pta9.png)
+![Azure Active Directory administrations Center: knappen Hämta Authentication agent](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Azure Active Directory Administrationscenter: Ladda ned agenten fönstret](./media/how-to-connect-pta-quick-start/pta10.png)
+![Azure Active Directory administrations Center: Ladda ned agent fönstret](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
->Du kan också direkt [ladda ned programvaran Autentiseringsagenten](https://aka.ms/getauthagent). Granska och Godkänn den Autentiseringsagenten [användningsvillkoren](https://aka.ms/authagenteula) _innan_ installerar den.
+>Du kan också [Hämta program varan för Authentication agent](https://aka.ms/getauthagent)direkt. Granska och godkänn [användnings villkoren för](https://aka.ms/authagenteula) autentiserings agenten _innan_ du installerar den.
 
-Det finns två sätt att distribuera en fristående autentiseringsagent:
+Det finns två sätt att distribuera en fristående autentiserings agent:
 
-Först måste kan du göra det interaktivt genom att bara köra den hämtade körbara autentiseringsagent och att tillhandahålla autentiseringsuppgifterna för din klient global administratör när du uppmanas.
+Först kan du göra det interaktivt genom att köra den hämtade körbara autentiserings agenten och ange klient organisationens autentiseringsuppgifter för global administratör när du uppmanas till det.
 
-Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är användbart när du vill distribuera flera Autentiseringsagenter samtidigt eller installera Autentiseringsagenter på Windows-servrar som inte har aktiverat användargränssnittet eller som du inte kommer åt via ett fjärrskrivbord. Här följer instruktioner om hur du använder den här metoden:
+Sedan kan du skapa och köra ett obevakat distributions skript. Detta är användbart när du vill distribuera flera autentiseringsförsök samtidigt eller installera autentiseringsprinciper på Windows-servrar som inte har användar gränssnitt aktiverat eller som du inte kan komma åt med fjärr skrivbord. Här följer instruktioner för hur du använder den här metoden:
 
-1. Kör följande kommando för att installera en Agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Du kan registrera agenten autentisering med vår tjänst med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter objekt `$cred` som innehåller en global administratörsanvändarnamn och lösenord för din klient. Kör följande kommando ersätter *\<användarnamn\>* och  *\<lösenord\>* :
+1. Kör följande kommando för att installera en agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Du kan registrera Autentiseringstjänsten med tjänsten med hjälp av Windows PowerShell. Skapa ett objekt för PowerShell-autentiseringsuppgifter `$cred` som innehåller ett globalt administratörs användar namn och lösen ord för din klient. Kör följande kommando och Ersätt *\<användar namn\>* och *\<lösen ord\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-3. Gå till **C:\Program Files\Microsoft Azure AD Connect-Autentiseringsagenten** och kör följande skript med den `$cred` objektet som du skapade:
+        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+3. Gå till **c:\program\microsoft Azure AD Connect Authentication agent** och kör följande skript med `$cred`-objektet som du skapade:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
->Om en Authentication-Agent installeras på en virtuell dator, kan du klona den virtuella datorn för att konfigurera en annan Autentiseringsagenten. Den här metoden är **stöds inte**.
+>Om en autentiseringstjänst är installerad på en virtuell dator kan du inte klona den virtuella datorn för att konfigurera en annan agent för autentisering. Den här metoden **stöds inte**.
 
-## <a name="step-5-configure-smart-lockout-capability"></a>Steg 5: Konfigurera funktionen för smarta kontoutelåsning
+## <a name="step-5-configure-smart-lockout-capability"></a>Steg 5: Konfigurera funktionen för smart utelåsning
 
-Smart kontoutelåsning hjälper utelåsning illvilliga aktörer som försöker gissa användarnas lösenord eller med brute force-metoder för att få. Genom att konfigurera inställningar för Smart kontoutelåsning i Azure AD och / eller lämpliga kontoutelåsning inställningar i den lokala Active Directory, att attacker filtreras bort innan de når Active Directory. Läs [i den här artikeln](../authentication/howto-password-smart-lockout.md) mer information om hur du konfigurerar inställningar för Smart kontoutelåsning på din klient för att skydda dina användarkonton.
+Smart utelåsning hjälper dig att låsa upp dåliga aktörer som försöker gissa dina användares lösen ord eller använda brute-force-metoder för att komma igång. Genom att konfigurera inställningar för smart utelåsning i Azure AD och/eller lämpliga utelåsnings inställningar i lokala Active Directory kan attacker filtreras ut innan de når Active Directory. Läs [den här artikeln](../authentication/howto-password-smart-lockout.md) om du vill veta mer om hur du konfigurerar inställningar för smart utelåsning på din klient organisation för att skydda dina användar konton.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Migrera från AD FS till direktautentisering](https://aka.ms/adfstoptadp) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
-- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
-- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs om vilka scenarier som stöds med den direktautentisering och vilka som inte är.
-- [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.
-- [Vanliga frågor och svar](how-to-connect-pta-faq.md): Få svar på vanliga frågor och svar.
-- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
-- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): Få teknisk information om funktionen direktautentisering.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet till filen nya funktionbegäran.
+- [Migrera från AD FS till vidarekoppling](https://aka.ms/adfstoptadp) – en detaljerad guide för att migrera från AD FS (eller andra Federations tekniker) till vidarekoppling.
+- [Smart utelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smart utelåsning på klienten för att skydda användar konton.
+- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Lär dig vilka scenarier som stöds med direkt autentiseringen och vilka som inte är det.
+- [Teknisk djupgående](how-to-connect-pta-how-it-works.md): förstå hur funktionen för direkt autentisering fungerar.
+- [Vanliga frågor](how-to-connect-pta-faq.md)och svar: få svar på vanliga frågor.
+- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen för direkt autentisering.
+- [Djupgående säkerhets](how-to-connect-pta-security-deep-dive.md)information: få teknisk information om funktionen för direkt autentisering.
+- [Azure AD sömlös SSO](how-to-connect-sso.md): Lär dig mer om den här kompletterande funktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet för att fil nya funktions begär Anden.

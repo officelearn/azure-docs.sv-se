@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a1e299f195a148ebd1bdbda91e5a56e297f34d31
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887523"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889183"
 ---
-# <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
+# <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
+
 ## <a name="some-of-my-telemetry-is-missing"></a>En del av min telemetri saknas
 *I Application Insights ser jag bara en bråkdel av de händelser som genereras av appen.*
 
@@ -58,7 +59,7 @@ Sannolika orsaker:
 * Det finns ett problem med ditt Azure-konto.
 * Du har bara [Läs behörighet till den prenumeration eller grupp där du försökte skapa den nya resursen](../../azure-monitor/app/resources-roles-access-control.md).
 
-Löser
+Åtgärd:
 
 * Kontrol lera att du har angett inloggnings uppgifter för rätt Azure-konto.
 * Kontrol lera att du har åtkomst till [Azure Portal](https://portal.azure.com)i webbläsaren. Öppna inställningar och se om det finns någon begränsning.
@@ -83,7 +84,7 @@ Sannolika orsaker:
 * Developer Analytics Tools är inaktiverade i Visual Studio.
 * Visual Studio är äldre än 2013 uppdatering 3.
 
-Löser
+Åtgärd:
 
 * Se till att Visual Studio-versionen är 2013 uppdatering 3 eller senare.
 * Välj **verktyg**, **tillägg och uppdateringar** och kontrol lera att **Developer Analytics tools** är installerat och aktiverat. Om så är fallet klickar du på **uppdateringar** för att se om det finns en tillgänglig uppdatering.
@@ -111,7 +112,7 @@ Sannolika orsaker:
 
 Instrumentation-nyckeln i ApplicationInsights. config styr var Telemetrin skickas. En rad i projekt filen styr vilken resurs som öppnas när du använder kommandot i Visual Studio.
 
-Löser
+Åtgärd:
 
 * I Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurerar Application Insights. I dialog rutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. Eller
 * Öppna resursen direkt. Logga in på [Azure Portal](https://portal.azure.com), klicka på Application Insights i det vänstra navigerings fältet och välj sedan din app.
@@ -212,7 +213,7 @@ Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramv
 
 1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsights`
 
-Den senaste versionen av Microsoft. ApplicationInsights. AspNetCore är 2.7.1 och refererar till Microsoft. ApplicationInsights version 2,10. Därför bör den version av Microsoft. ASPNET. ApplicationInsights. HostingStartup som ska installeras vara 2.10.0
+Den senaste versionen av Microsoft. ApplicationInsights. AspNetCore är 2.8.2 och refererar till Microsoft. ApplicationInsights version 2.11.2. Därför bör den version av Microsoft. ASPNET. ApplicationInsights. HostingStartup som ska installeras vara 2.11.2
 
 2. Ändra `ConfigureServices` metod i `Startup.cs`-klassen.:
 
@@ -247,7 +248,7 @@ Du kan ändra dessa parametrar efter behov:
 - **NoGui**. Ange den här parametern om du vill samla in loggar utan det grafiska användar gränssnittet.
 
 
-Mer information
+Om du vill ha mer information läser du
 - [Prestanda spår registreras med PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Application Insights händelse källor](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 

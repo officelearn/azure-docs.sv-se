@@ -5,26 +5,24 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 82f983f6fc55c01c4e445915d06da33889977d24
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 12/04/2019
+ms.openlocfilehash: ec0181dd75cd656859967c30dc3941175407413a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213431"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895004"
 ---
-# <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs
+# <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs | Microsoft Docs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -41,17 +39,17 @@ Du utför följande steg:
 > * Skapa en Windows-exempelapp
 > * Skicka testmeddelanden
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) eller senare.
+- **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Microsoft Visual Studio 2017 eller senare. Exemplet i den här självstudien använder [Visual Studio 2019](https://www.visualstudio.com/products).
 - [Installerade verktyg för UWP-apputveckling](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - Ett aktivt Windows Store-konto
 - Bekräfta att inställningen **Hämta meddelanden från appar och annan avsändare** är aktive rad. 
     - Starta fönstret **Inställningar** på datorn.
     - Välj **system** panelen.
     - Välj **meddelanden & åtgärder** på den vänstra menyn. 
-    - Bekräfta att inställningen **Hämta meddelanden från appar och andra avsändare** är aktive rad. Aktivera den om den inte är aktive rad. 
+    - Bekräfta att inställningen **Hämta meddelanden från appar och andra avsändare** är aktive rad. Aktivera den om den inte är aktive rad.
 
 Du måste slutföra den här självstudiekursen innan du börjar någon annan kurs om Notification Hubs för UWP-appar.
 
@@ -59,16 +57,16 @@ Du måste slutföra den här självstudiekursen innan du börjar någon annan ku
 
 Om du vill skicka push-meddelanden till UWP-appar, associerar du din app med Windows Store. Konfigurera sedan meddelandehubben för att integrera den med WNS.
 
-1. Navigera till [Windows Dev Center](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience), logga in med ditt Microsoft-konto och välj sedan **Skapa en ny app**.
+1. Navigera till [Windows Dev Center](https://partner.microsoft.com/dashboard/windows/first-run-experience), logga in med ditt Microsoft-konto och välj sedan **Skapa en ny app**.
 
     ![Knappen Ny app](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. Ange ett namn på appen och markera sedan **Reservera produktnamn**. På så sätt skapas en ny Windows Store-registrering för din app.
 
     ![Lagra appnamnet](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Expandera **Apphantering**. Välj **WNS/MPNS** och sedan **Live Services-webbplats**. Logga in på ditt Microsoft-konto. **Programregistreringsportalen** öppnas på en ny flik. Du kan också navigera direkt till [programregistreringsportalen](https://apps.dev.microsoft.com) och gå till den här sidan genom att välja ditt programnamn.
+3. Expandera **produkt hantering**, Välj **WNS/MPNS**och välj sedan **Live Services site**. Logga in på ditt Microsoft-konto. Sidan program registrering öppnas på en ny flik. du kan också gå direkt till sidan [Mina program](https://apps.dev.microsoft.com) och välja ditt program namn för att komma till den här sidan.
 
     ![WNS MPNS-sida](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Anteckna lösenordet för **Application Secret** (programhemlighet) och **Package security identifier (SID)** .
+4. Observera lösen ordet för **program hemligheter** och **paket säkerhets identifieraren (sid)** .
 
     >[!WARNING]
     >Programhemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app.
@@ -90,17 +88,18 @@ Din meddelandehubb har nu konfigurerats för att fungera med WNS. Du har anslutn
 ## <a name="create-a-sample-windows-app"></a>Skapa en Windows-exempelapp
 
 1. I Visual Studio öppnar du menyn **Arkiv**. Välj **Nytt** och sedan **Projekt**.
-2. I dialogrutan **Nytt projekt** utför du följande steg:
+2. Utför följande steg i dialog rutan **skapa ett nytt projekt** :
 
-    1. Utöka **Visual C#** .
-    2. Välj **Windows Universal**.
-    3. Välj **Tom app (Universal Windows)** .
-    4. Ange ett **namn** för projektet.
-    5. Välj **OK**.
+    1. Skriv **Windows Universal**i rutan Sök högst upp.
+    2. I Sök resultaten väljer du **Tom app (Universal Windows)** och väljer sedan **Nästa**.
 
-        ![Dialogrutan Nytt projekt](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+       ![Dialogrutan Nytt projekt](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+
+    3. I dialog rutan **Konfigurera ditt nya projekt** anger du ett **projekt namn**och en **plats** för projektfilerna.
+    4. Välj **Skapa**.
+
 3. Acceptera standardinställningarna för **mål**- och **minimum**plattformsversioner och välj **OK**.
-4. I Solution Explorer högerklickar du på Windows Store-approjektet, väljer **Store** och väljer sedan **Associate App with the Store** (associera app med Store). Guiden **Associera din app med Windows Store** visas.
+4. I Solution Explorer högerklickar du på projektet för Windows Store-appen, väljer **publicera**och väljer sedan **associera app med Store**. Guiden **Associera din app med Windows Store** visas.
 5. I guiden loggar du in med ditt Microsoft-konto.
 6. Välj den app som du registrerade i steg 2, väljer **Nästa** och välj sedan **Associera**. På så sätt läggs den registreringsinformation som krävs för Windows Store till i programmanifestet.
 7. Högerklicka på lösningen i Vision Studio och välj sedan **Hantera NuGet-paket**. Fönstret **Hantera NuGet-paket** öppnas.
@@ -117,7 +116,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med WNS. Du har anslutn
     using Windows.UI.Popups;
     ```
 
-10. I projektets `App.xaml.cs`-fil letar du upp klassen `App` och lägger till följande `InitNotificationsAsync`-metoddefinition:
+10. Leta upp `App`-klassen i projektets `App.xaml.cs`-fil och Lägg till följande `InitNotificationsAsync` metod definition. Ersätt `<your hub name>` med namnet på den aviserings hubb som du skapade i Azure Portal och ersätt `<Your DefaultListenSharedAccessSignature connection string>` med `DefaultListenSharedAccessSignature` anslutnings sträng från sidan **åtkomst principer** i Notification Hub:
 
     ```csharp
     private async void InitNotificationsAsync()
@@ -172,7 +171,7 @@ Du kan snabbt testa att ta emot meddelanden i appen genom att skicka meddelanden
 3. Se resultatet av Send-åtgärden i listan **Resultat** längst ned i fönstret. Du kan också se ett varningsmeddelande.
 
     ![Resultatet av Send-åtgärden](./media/notification-hubs-windows-store-dotnet-get-started/result-of-send.png)
-4. Följande aviseringsmeddelande visas: **Testmeddelande** på skrivbordet.
+4. Aviseringsmeddelandet **Testmeddelande** visas på skrivbordet.
 
     ![Aviseringsmeddelande](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 

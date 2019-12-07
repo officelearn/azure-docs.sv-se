@@ -1,23 +1,23 @@
 ---
-title: Transformera data med U-SQL-skript – Azure
+title: Transformera data med U-SQL-skript
 description: Lär dig hur du bearbetar eller transformerar data genom att köra U-SQL-skript på Azure Data Lake Analytics Compute service.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: abnarain
-ms.openlocfilehash: 53fb6773becff9f76c9658171965fbd148e94bc8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cb0ff5d93afc0941faa84028ad6454371cd0442c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683871"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893900"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -46,7 +46,7 @@ Följande tabell innehåller beskrivningar av de allmänna egenskaper som använ
 Den Azure Data Lake Analytics länkade tjänsten kräver en tjänstens huvud namns autentisering för att ansluta till Azure Data Lake Analyticss tjänsten. Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD) och ger den åtkomst till både Data Lake Analytics och Data Lake Store den använder. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
 * Program-ID:t
-* Program nyckel 
+* Programnyckel 
 * Klient-ID:t
 
 Bevilja tjänstens huvud namn behörighet till din Azure Data Lake-Anatlyics med hjälp av [guiden Lägg till användare](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
@@ -57,7 +57,7 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckel.           | Ja      |
-| **innehav**              | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja      |
+| **tenant**              | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja      |
 
 **Exempel: autentisering av tjänstens huvud namn**
 ```json
@@ -120,7 +120,7 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 | Egenskap            | Beskrivning                              | Krävs |
 | :------------------ | :--------------------------------------- | :------- |
 | namn                | Namn på aktiviteten i pipelinen     | Ja      |
-| description         | Text som beskriver vad aktiviteten gör.  | Nej       |
+| beskrivning         | Text som beskriver vad aktiviteten gör.  | Nej       |
 | typ                | För Data Lake Analytics U-SQL-aktivitet är aktivitets typen **DataLakeAnalyticsU-SQL**. | Ja      |
 | linkedServiceName   | Länkad tjänst till Azure Data Lake Analytics. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  |Ja       |
 | scriptPath          | Sökväg till mapp som innehåller U-SQL-skriptet. Filens namn är Skift läges känsligt. | Ja      |
@@ -129,7 +129,7 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 | prioritet            | Bestämmer vilka jobb som inte är i kö som ska väljas för att köras först. Ju lägre siffra, desto högre prioritet. | Nej       |
 | parameters          | Parametrar för att skicka till U-SQL-skriptet.    | Nej       |
 | runtimeVersion      | Körnings version av U-SQL-motorn som ska användas. | Nej       |
-| compilationMode     | <p>Compiler-läge för U-SQL. Måste vara något av följande värden: **semantik:** utför endast semantiska kontroller och nödvändiga Sanity-kontroller, **fullständig:** utför fullständig kompilering, inklusive syntaxkontroll, optimering, kodgenerering osv., **enkel:** utför fullständig kompilering med TargetType-inställning till en enda. Om du inte anger något värde för den här egenskapen, fastställer servern det optimala kompilerings läget. | Nej |
+| compilationMode     | <p>Compiler-läge för U-SQL. Måste vara något av följande värden: **semantik:** utför endast semantiska kontroller och nödvändiga Sanity-kontroller, **fullständig:** utför fullständig kompilering, inklusive syntaxkontroll, optimering, kodgenerering för kod osv., **enkel:** utföra fullständig kompilering med TargetType-inställning till en enda. Om du inte anger något värde för den här egenskapen, fastställer servern det optimala kompilerings läget. | Nej |
 
 Se [SearchLogProcessing. txt](#sample-u-sql-script) för skript definitionen. 
 
@@ -176,7 +176,7 @@ I exempel definitionen för pipeline kan in-och out-parametrarna tilldelas med h
 }
 ```
 
-Du kan använda dynamiska parametrar i stället. Till exempel: 
+Du kan använda dynamiska parametrar i stället. Exempel: 
 
 ```json
 "parameters": {

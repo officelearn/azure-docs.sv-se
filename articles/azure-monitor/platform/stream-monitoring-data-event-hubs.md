@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f282fce8070d440bdd3a518b4444eb0e67110961
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 952485a3bb8feb1434f4f4705f6c07176dd1e1f6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559072"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894470"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Strömma Azure övervaknings data till en Event Hub
 Azure Monitor ger en fullständig lösning för stack övervakning för program och tjänster i Azure, i andra moln och lokalt. Förutom att använda Azure Monitor för att analysera data och använda dem för olika övervaknings scenarier, kan du behöva skicka dem till andra övervaknings verktyg i din miljö. Den mest effektiva metoden att strömma övervaknings data till externa verktyg i de flesta fall är att använda [Azure Event Hubs](/azure/event-hubs/). Den här artikeln innehåller en kort beskrivning av hur du kan strömma övervaknings data från olika källor till en Event Hub och länkar till detaljerad vägledning.
@@ -30,7 +30,6 @@ Innan du konfigurerar strömning för en data källa måste du [skapa ett Event 
 * För Azure aktivitets loggen väljer du ett Event Hubs namn område och Azure Monitor skapar en händelsehubben i det namn området som kallas _Insights-loggar-operativa loggar_. För andra typer av loggar kan du antingen välja en befintlig händelsehubben eller låta Azure Monitor skapa en Event Hub per logg kategori.
 * Utgående port 5671 och 5672 måste vanligt vis öppnas på datorn eller VNET som använder data från händelsehubben.
 
-
 ## <a name="monitoring-data-available"></a>Tillgängliga övervaknings data
 [Källor för övervaknings data för Azure Monitor](data-sources.md) beskriver olika data nivåer för Azure-program och vilka typer av övervaknings data som är tillgängliga för var och en. I följande tabell visas var och en av dessa nivåer och en beskrivning av hur data kan strömmas till en händelsehubben. Följ länkarna som finns för ytterligare information.
 
@@ -38,7 +37,7 @@ Innan du konfigurerar strömning för en data källa måste du [skapa ett Event 
 |:---|:---|:---|
 | [Azure-klient](data-sources.md#azure-tenant) | Azure Active Directory gransknings loggar | Konfigurera en inställning för klientens diagnostik på din AAD-klient. Mer information finns i [Självstudier: strömma Azure Active Directory loggar till en Azure Event Hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
 | [Azure-prenumeration](data-sources.md#azure-subscription) | Azure-aktivitetslogg | Skapa en logg profil för att exportera aktivitets logg händelser till Event Hubs.  Mer information finns i [Exportera Azure aktivitets logg till Storage eller azure Event Hubs](activity-log-export.md) . |
-| [Azure-resurser](data-sources.md#azure-resources) | Plattforms mått<br>Diagnostikloggar |Båda typerna av data skickas till en Event Hub med en inställning för resurs diagnostik. Mer information finns i [Stream Azure-diagnostikloggar till en Event Hub](resource-logs-stream-event-hubs.md) . |
+| [Azure-resurser](data-sources.md#azure-resources) | Plattforms mått<br> Resursloggar |Båda typerna av data skickas till en Event Hub med en inställning för resurs diagnostik. Mer information finns i [strömma Azure-resurstilldelningar till en Event Hub](resource-logs-stream-event-hubs.md) . |
 | [Operativ system (gäst)](data-sources.md#operating-system-guest) | Azure Virtual Machines | Installera [Azure-diagnostik-tillägget](diagnostics-extension-overview.md) på virtuella Windows-och Linux-datorer i Azure. Se [strömmande Azure-diagnostik data i den aktiva sökvägen med hjälp av Event Hubs](diagnostics-extension-stream-event-hubs.md) för information om virtuella Windows-datorer och [Använd Linux Diagnostic-tillägg för att övervaka statistik och loggar](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) för information om virtuella Linux-datorer. |
 | [Program kod](data-sources.md#application-code) | Application Insights | Application Insights tillhandahåller inte någon direkt metod för att strömma data till händelse nav. Du kan [Konfigurera kontinuerlig export](../../azure-monitor/app/export-telemetry.md) av Application Insights data till ett lagrings konto och sedan använda en Logi Kap par för att skicka data till en Event Hub enligt beskrivningen i [manuell strömning med Logic app](#manual-streaming-with-logic-app). |
 

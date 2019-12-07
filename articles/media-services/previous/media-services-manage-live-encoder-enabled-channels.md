@@ -1,6 +1,6 @@
 ---
 title: Direkt uppspelning med Azure Media Services för att skapa data strömmar med flera bit hastigheter | Microsoft Docs
-description: 'I det här avsnittet beskrivs hur du konfigurerar en kanal som tar emot en enda bit hastighets ström från en lokal kodare och sedan utför live encoding på en anpassad bit hastighets ström med Media Services. Data strömmen kan sedan levereras till klientens uppspelnings program via en eller flera slut punkter för direkt uppspelning med något av följande anpassningsbara direkt uppspelnings protokoll: HLS, slät ström, MPEG-datastreck.'
+description: I det här avsnittet beskrivs hur du konfigurerar en kanal som tar emot en enda bit hastighets ström från en lokal kodare och sedan utför live encoding på en anpassad bit hastighets ström med Media Services.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 4131e9b0ec057c16516f5a656debcf7053c2c1fe
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 32a4fde12287e06c12fac9ed13ad7a8889b49fc1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598302"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895918"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -71,7 +71,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 | Kanaltillstånd | Portalgränssnittsindikatorer | Faktureras det? |
 | --- | --- | --- |
 | Startar |Startar |Nej (övergångsläge) |
-| Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |Ja |
+| Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |JA |
 | Stoppas |Stoppas |Nej (övergångsläge) |
 | Stoppad |Stoppad |Nej |
 
@@ -170,7 +170,7 @@ Du kan hämta inmatnings-URL: er när du har skapat en kanal. För att hämta de
 Du kan välja att mata in fragmenterad MP4 (Smooth Streaming) Live Stream via en SSL-anslutning. För att mata in via SSL, se till att uppdatera inmatnings-URL: en till HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  
 
 ### <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
-Du kan definiera de IP-adresser som tillåts att publicera video till den här kanalen. Tillåtna IP-adresser kan anges antingen som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med en IP-adress och en CIDR-nätmask (till exempel "10.0.0.1/22") eller ett IP-intervall med en IP-adress och en punktavgränsad decimal näts mask (till exempel , ' 10.0.0.1 (255.255.252.0) ').
+Du kan definiera de IP-adresser som tillåts att publicera video till den här kanalen. Tillåtna IP-adresser kan anges antingen som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med en IP-adress och en CIDR-nätmask (till exempel "10.0.0.1/22") eller ett IP-intervall med en IP-adress och en punktavgränsad decimal näts mask (till exempel 10.0.0.1 (255.255.252.0)).
 
 Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
@@ -188,7 +188,7 @@ När kanalen börjar mata in data kan du förhandsgranska data strömmen.
 > 
 
 ### <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
-Du kan definiera de IP-adresser som tillåts att ansluta till förhands gransknings slut punkten. Om inga IP-adresser anges kommer en IP-adress att tillåtas. Tillåtna IP-adresser kan anges antingen som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med en IP-adress och en CIDR-nätmask (till exempel "10.0.0.1/22") eller ett IP-intervall med en IP-adress och en punktavgränsad decimal näts mask (till exempel , ' 10.0.0.1 (255.255.252.0) ').
+Du kan definiera de IP-adresser som tillåts att ansluta till förhands gransknings slut punkten. Om inga IP-adresser anges kommer en IP-adress att tillåtas. Tillåtna IP-adresser kan anges antingen som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med en IP-adress och en CIDR-nätmask (till exempel "10.0.0.1/22") eller ett IP-intervall med en IP-adress och en punktavgränsad decimal näts mask (till exempel 10.0.0.1 (255.255.252.0)).
 
 ## <a name="live-encoding-settings"></a>Inställningar för Live-kodning
 I det här avsnittet beskrivs hur inställningarna för Live-kodaren i kanalen kan justeras när **kodnings typen** för en kanal är inställd på **standard**.
@@ -217,7 +217,7 @@ Anger den för inställning som ska användas av direktsänd kodare i den här k
 
 #### <a name="output-video-stream"></a>Video ström för utdata
 
-| Hastigheten | LED | Våghöjd | MaxFPS | Profil | Namn på utdataström |
+| Hastigheten | Bredd | Höjd | MaxFPS | Profil | Namn på utdataström |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hög |Video_1280x720_3500kbps |
 | 2200 |960 |540 |30 |Hög |Video_960x540_2200kbps |
@@ -260,7 +260,7 @@ Live-kodaren kan konfigureras för att växla till en bakgrunds bild och dölja 
 Sidans varaktighet i sekunder. Det måste vara ett positivt värde som inte är noll för att starta sidan. Om det finns ett pågående Skriv sätt och en varaktighet på noll anges, avslutas den pågående ingångs perioden.
 
 ### <a name="insert-slate-on-ad-marker"></a>Infoga Skriv platta på AD-markör
-När värdet är true konfigurerar den här inställningen att Live-kodaren ska infoga en bakgrunds bild under en annons rast. Standardvärdet är true. 
+När värdet är true konfigurerar den här inställningen att Live-kodaren ska infoga en bakgrunds bild under en annons rast. Standardvärdet är sant. 
 
 ### <a id="default_slate"></a>Standardformat till gångs-ID
 

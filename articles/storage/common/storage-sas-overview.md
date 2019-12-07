@@ -1,20 +1,21 @@
 ---
-title: Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
+title: Ge begränsad åtkomst till data med signaturer för delad åtkomst (SAS)
+titleSuffix: Azure Storage
 description: Lär dig mer om att använda signaturer för delad åtkomst (SAS) för att delegera åtkomst till Azure Storage resurser, inklusive blobbar, köer, tabeller och filer.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382018"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895143"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -75,13 +76,13 @@ Här är ett exempel på en SAS-URI för tjänsten som visar resurs-URI och SAS-
 
 Använd en SAS när du vill ge säker åtkomst till resurser i ditt lagrings konto till alla klienter som inte på annat sätt har behörighet till dessa resurser.
 
-Ett vanligt scenario där en SAS är användbar är en tjänst där användare kan läsa och skriva egna data till ditt lagrings konto. I ett scenario där ett lagrings konto lagrar användar data finns det två typiska design mönster:
+Ett vanligt scenario där en SAS är användbar är en tjänst där användare kan läsa och skriva egna data till ditt lagrings konto. I ett scenario där ett lagringskonto lagrar användardata finns det två typiska designmönster:
 
-1. Klienterna överför och laddar ned data via en frontend-proxyserver som utför autentisering. Den här frontend-proxyservern har fördelen att tillåta validering av affärs regler, men för stora mängder data eller hög volym transaktioner kan du skapa en tjänst som kan skalas för att matcha efter frågan kan vara kostsam eller svår.
+1. Klienter laddar upp och laddar ned en via en klientproxytjänst, som utför autentisering. Den här frontend-proxyservern har fördelen att tillåta validering av affärs regler, men för stora mängder data eller hög volym transaktioner kan du skapa en tjänst som kan skalas för att matcha efter frågan kan vara kostsam eller svår.
 
    ![Scenario diagram: klient delens proxy-tjänst](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
-1. En Lightweight-tjänst autentiserar klienten vid behov och genererar sedan en SAS. När klient programmet tar emot SAS, kan de komma åt lagrings konto resurser direkt med behörigheterna som definieras av SAS och för det intervall som tillåts av SAS. SAS minimerar behovet av att dirigera alla data via frontend-proxyservern.
+1. En förenklad tjänst autentiserar klienten efter behov och genererar sedan en SAS. När klient programmet tar emot SAS, kan de komma åt lagrings konto resurser direkt med behörigheterna som definieras av SAS och för det intervall som tillåts av SAS. SAS minskar behovet att dirigera alla data genom klientproxytjänsten.
 
    ![Scenario diagram: SAS-tjänstleverantör](./media/storage-sas-overview/sas-storage-provider-service.png)
 

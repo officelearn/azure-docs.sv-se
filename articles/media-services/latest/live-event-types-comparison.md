@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services LiveEvent-typer | Microsoft Docs
-description: Den här artikeln innehåller en detaljerad tabell som jämför LiveEvent-typer.
+description: I Azure Media Services kan en Live-händelse vara en av två typer, direktsänd kodning och genom strömning. Den här artikeln innehåller en detaljerad tabell som jämför aktiva händelse typer.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 884cf8d913cec038df3b38c8af2ed0a67bd8060d
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802241"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888401"
 ---
 # <a name="live-event-types-comparison"></a>Jämförelse av händelse typer i real tid
 
@@ -113,7 +113,7 @@ I föregående avsnitt beskrivs egenskaperna för den Live-kodare som kan styras
 
 Live-kodaren följer [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) -strukturen för bidrags flödet, vilket innebär att output-lagren har samma GOP-varaktighet. Därför rekommenderar vi att du konfigurerar den lokala kodare för att skapa en bidrags flöde som har fast GOP varaktighet (vanligt vis 2 sekunder). Detta säkerställer att utgående HLS-och MPEG-dataströmmar från tjänsten också har fasta GOP-varaktigheter. Små variationer i GOP-varaktigheter kan förmodligen tolereras av de flesta enheter.
 
-### <a name="frame-rate"></a>Bildfrekvens
+### <a name="frame-rate"></a>Bild Rute frekvens
 
 Live-kodaren följer också varaktigheten för enskilda video bild rutor i bidrags flödet – vilket innebär att utmatnings lagren har bild rutor med samma varaktighet. Därför rekommenderar vi att du konfigurerar den lokala kodare för att skapa en bidrags flöde som har fast bild Rute frekvens (högst 30 bild rutor per sekund). Detta säkerställer att de utgående HLS och MPEG-dataströmmarna från tjänsten också har varaktigheter för fasta bild hastigheter. Små variationer i bild Rute frekvenser kan tolereras av de flesta enheter, men det finns ingen garanti för att Live-kodaren kommer att skapa utdata som spelas upp korrekt. Din lokala Live-kodare ska inte släppa ramar (t. ex. under låg energi förhållanden) eller varierande bild Rute frekvens på något sätt.
 

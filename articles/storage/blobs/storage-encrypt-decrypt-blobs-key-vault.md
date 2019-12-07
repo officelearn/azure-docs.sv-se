@@ -1,33 +1,33 @@
 ---
-title: 'Självstudier: Kryptera och dekryptera blobbar i Azure Storage med Azure Key Vault | Microsoft Docs'
-description: Så här krypterar och dekrypterar du en blob med kryptering på klient sidan för Microsoft Azure Storage med Azure Key Vault.
+title: Självstudie – kryptera och dekryptera blobbar med Azure Key Vault
+titleSuffix: Azure Storage
+description: Lär dig hur du krypterar och dekrypterar en blob med kryptering på klient sidan med Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003440"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892897"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Självstudie – kryptera och dekryptera blobbar med Azure Key Vault
 
-## <a name="introduction"></a>Introduktion
 Den här självstudien beskriver hur du använder lagrings kryptering på klient sidan med Azure Key Vault. Den vägleder dig genom hur du krypterar och dekrypterar en BLOB i ett konsol program med hjälp av dessa tekniker.
 
-**Uppskattad tidsåtgång:** 20 minuter
+**Uppskattad tidsåtgång:** 20 minuter
 
 Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
 Översikts information om kryptering på klient sidan för Azure Storage finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
@@ -48,7 +48,7 @@ Här är en kort beskrivning av hur kryptering på klient sidan fungerar:
 
 ## <a name="set-up-your-azure-key-vault"></a>Konfigurera din Azure Key Vault
 
-För att kunna fortsätta med den här själv studie kursen måste du utföra följande steg, som beskrivs i snabb starten för självstudie [: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-](../../key-vault/quick-create-net.md)webbapp:
+För att kunna fortsätta med den här självstudien måste du utföra följande steg, som beskrivs i snabb starten för självstudier [: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp](../../key-vault/quick-create-net.md):
 
 * Skapa ett nyckelvalv.
 * Lägg till en nyckel eller hemlighet till nyckel valvet.
@@ -121,7 +121,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>Åtkomst till lagring och Key Vault i ditt program
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Komma åt Azure Storage och Key Vault i ditt program
 
 Lägg till följande kod i Main ()-metoden.
 
@@ -229,7 +229,8 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-Klart! Ha det så kul!
+
+Det var allt. Ha det så kul!
 
 ## <a name="next-steps"></a>Nästa steg
 

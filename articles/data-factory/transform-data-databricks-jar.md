@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Databricks jar – Azure
+title: Transformera data med Databricks jar
 description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks-jar.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 982f00b5de9fd3e84233e5fe3b68e22fa6f7fe2a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4a01a21259c4957b6f497bf213a3ef53f940bab7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683953"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893968"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformera data genom att köra en jar-aktivitet i Azure Databricks
 
@@ -59,15 +59,15 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 |Egenskap|Beskrivning|Krävs|
 |:--|---|:-:|
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
-|description|Text som beskriver vad aktiviteten gör.|Nej|
+|beskrivning|Text som beskriver vad aktiviteten gör.|Nej|
 |typ|För Databricks jar-aktivitet är aktivitets typen DatabricksSparkJar.|Ja|
 |linkedServiceName|Namnet på den länkade Databricks-tjänst som jar-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute Linked services](compute-linked-services.md) .|Ja|
 |mainClassName|Det fullständiga namnet på klassen som innehåller den huvudsakliga metoden som ska köras. Den här klassen måste finnas i en JAR-form som är ett bibliotek.|Ja|
 |parameters|Parametrar som skickas till main-metoden.  Detta är en sträng mat ris.|Nej|
-|biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Ja (minst en som innehåller mainClassName-metoden)|
+|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Ja (minst en som innehåller mainClassName-metoden)|
 
 > [!NOTE]
-> **Känt problem** – när du använder samma [interaktiva kluster](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) för att köra samtidiga Databricks jar-aktiviteter (utan kluster omstart), finns det ett känt problem i Databricks där i parametrarna för den första aktiviteten kommer att användas av följande aktiviteter också. Därför leder det till att felaktiga parametrar skickas till efterföljande jobb. För att minimera detta använder du i stället ett [jobb kluster](compute-linked-services.md#example---using-new-job-cluster-in-databricks) . 
+> **Känt problem** – när du använder samma [interaktiva kluster](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) för att köra samtidiga Databricks jar-aktiviteter (utan kluster omstart), finns det ett känt problem i Databricks där i parametrarna för den första aktiviteten kommer att användas av följande aktiviteter. Därför leder det till att felaktiga parametrar skickas till efterföljande jobb. För att minimera detta använder du i stället ett [jobb kluster](compute-linked-services.md#example---using-new-job-cluster-in-databricks) . 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för databricks-aktiviteter
 

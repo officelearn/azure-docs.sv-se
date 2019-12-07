@@ -4,15 +4,15 @@ description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar m
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/15/2019
-ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 386c171e4785fac2c7fa6da39f249e211f4c660c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131885"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893306"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -35,7 +35,7 @@ En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs f
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.2" />
     </ItemGroup>
 ```
 
@@ -136,11 +136,12 @@ Normalt anger `APPINSIGHTS_INSTRUMENTATIONKEY` Instrumentation-nyckeln för prog
 > En Instrumentation-nyckel som anges i kod WINS över miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY`, som vinner över andra alternativ.
 
 ## <a name="aspnet-core-background-tasks-with-hosted-services"></a>ASP.NET Core bakgrunds aktiviteter med värdbaserade tjänster
+
 [Det här](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) dokumentet beskriver hur du skapar aktiviteter för bakgrunder i ASP.net Core 2.1/2.2-program.
 
 Det fullständiga exemplet delas [här](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Installera Microsoft. ApplicationInsights. WorkerService (https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)-paketet i programmet.
+1. Installera Microsoft. ApplicationInsights. WorkerService (https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) -paketet i programmet.
 2. Lägg till `services.AddApplicationInsightsTelemetryWorkerService();` i `ConfigureServices()`-metoden, som i det här exemplet:
 
 ```csharp
@@ -227,7 +228,7 @@ Som vi nämnt i början av den här artikeln kan det nya paketet användas för 
 
 Det fullständiga exemplet delas [här](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Installera Microsoft. ApplicationInsights. WorkerService (https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)-paketet i programmet.
+1. Installera Microsoft. ApplicationInsights. WorkerService (https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) -paketet i programmet.
 
 2. Ändra Program.cs enligt exemplet nedan.
 
@@ -355,14 +356,14 @@ Inställningar som används ofta i `ApplicationInsightsServiceOptions`
 
 |Inställning | Beskrivning | Standard
 |---------------|-------|-------
-|EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
-|EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true
-|EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartBeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | true
-|AddAutoCollectedMetricExtractor | Aktivera/inaktivera AutoCollectedMetrics Extractor, som är en TelemetryProcessor som skickar församlade mått om begär Anden/beroenden innan provtagning sker. | true
+|EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | sant
+|EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | sant
+|EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartBeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | sant
+|AddAutoCollectedMetricExtractor | Aktivera/inaktivera AutoCollectedMetrics Extractor, som är en TelemetryProcessor som skickar församlade mått om begär Anden/beroenden innan provtagning sker. | sant
 
 Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) för den senaste listan.
 
-### <a name="sampling"></a>Samling
+### <a name="sampling"></a>Sampling
 
 Application Insights SDK för Worker-tjänsten stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard. Konfigurering av sampling för Worker-tjänsten görs på samma sätt som för [ASP.net Core program](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
 
@@ -492,7 +493,7 @@ Om du vill inaktivera telemetri villkorligt och dynamiskt kan du lösa `Telemetr
     }
 ```
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Hur kan jag spåra telemetri som inte samlas in automatiskt?
 

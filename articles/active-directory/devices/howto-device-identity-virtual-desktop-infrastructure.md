@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1cba2c4572b2f898f631aefbbf316fae1195ac
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596362"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900379"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Enhets identitet och skriv bords virtualisering
 
@@ -44,26 +44,27 @@ Innan du konfigurerar enhets identiteter i Azure AD för din VDI-miljö kan du b
 | Enhets identitets typ | Identitets infrastruktur | Windows-enheter | VDI-plattforms version | Stöds |
 | --- | --- | --- | --- | --- |
 | Hybrid Azure AD-ansluten | Externt | Windows-aktuell * * * * och Windows-äldre * * * * | Permanent | Ja |
-|   |   |   | Icke-beständig | Ja |
-|   | Hanterad * * | Windows aktuella och Windows-äldre | Permanent | Ja |
-|   |   | Äldre Windows-enheter | Icke-beständig | Ja |
 |   |   | Windows-aktuell | Icke-beständig | Nej |
-| Azure AD-ansluten | Externt | Windows-aktuell | Permanent | Nej |
+|   |   | Äldre Windows-enheter | Icke-beständig | Ja |
+|   | Hanterad * * | Windows aktuella och Windows-äldre | Permanent | Ja |
+|   |   | Windows-aktuell | Icke-beständig | Nej |
+|   |   | Äldre Windows-enheter | Icke-beständig | Ja |
+| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | Nej |
 |   |   |   | Icke-beständig | Nej |
 |   | Hanterad | Windows-aktuell | Permanent | Nej |
 |   |   |   | Icke-beständig | Nej |
-| Azure AD har registrerats | Externt | Windows-aktuell | Permanent | Nej |
+| Azure AD-registrerad | Federerade | Windows-aktuell | Permanent | Nej |
 |   |   |   | Icke-beständig | Nej |
 |   | Hanterad | Windows-aktuell | Permanent | Nej |
 |   |   |   | Icke-beständig | Nej |
 
 \* en miljö för **federerade** identiteter som representerar en miljö med en identitets leverantör, till exempel AD FS eller annan IdP från tredje part.
 
-\* \* en **hanterad** identitets infrastruktur miljö representerar en miljö med Azure AD som identitets leverantören distribuerad med antingen [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [ sömlös enkel inloggning](../hybrid/how-to-connect-sso.md).
+\*\* en **hanterad** identitets infrastruktur miljö representerar en miljö med Azure AD som identitets leverantören distribuerad med antingen [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md).
 
-\* \* \* **Windows aktuella** enheter representerar Windows 10, windows Server 2016 och Windows Server 2019.
+\*\*\* **Windows aktuella** enheter representerar Windows 10, windows Server 2016 och Windows Server 2019.
 
-\* \* \* \* **Windows-** enheter på den äldre nivån representerar Windows 7, Windows 8,1, windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2. Information om support för Windows 7 finns i [Support för Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Information om support för Windows Server 2008 R2 finns i [förbereda för Windows server 2008-slut för support](https://www.microsoft.com/cloud-platform/windows-server-2008).
+\*\*\*\* **Windows-** enheter på den äldre nivån representerar Windows 7, Windows 8,1, windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2. Information om support för Windows 7 finns i [Support för Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Information om support för Windows Server 2008 R2 finns i [förbereda för Windows server 2008-slut för support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 ## <a name="microsofts-guidance"></a>Microsofts vägledning
 
@@ -79,8 +80,7 @@ Om du förlitar dig på en ögonblicks bild av en virtuell dator (VM) för att s
 När du distribuerar icke-permanent VDI bör IT-administratörerna betala nära uppmärksamheten för att hantera inaktuella enheter i Azure AD. Microsoft rekommenderar att IT-administratörer implementerar vägledningen nedan. Om du inte gör det kommer din katalog ha många inaktuella hybrid Azure AD-anslutna enheter som har registrerats från den icke-permanenta VDI-plattformen.
 
 - Skapa och Använd ett prefix för visnings namnet på datorn som anger Skriv bordet som VDI-baserat.
-- Implementera följande kommandon som en del av utloggnings skriptet. De här kommandona utlöser ett samtal med bästa prestanda till Azure AD för att ta bort enheten.
-   - För aktuella Windows-enheter – dsregcmd. exe/Leave
+- Implementera följande kommando som en del av utloggnings skriptet. Det här kommandot utlöser ett samtal med bästa prestanda till Azure AD för att ta bort enheten.
    - För Windows-enheter på äldre nivå –/Leave för arbets plats. exe
 - Definiera och implementera process för att [Hantera inaktuella enheter](manage-stale-devices.md).
    - När du har en strategi för att identifiera dina icke-beständiga Azure AD-anslutna enheter kan du vara mer aggressiva vid rensning av dessa enheter för att se till att din katalog inte används med massor av inaktuella enheter.

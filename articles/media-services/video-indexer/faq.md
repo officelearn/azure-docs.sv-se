@@ -1,7 +1,7 @@
 ---
 title: Vanliga frågor om Video Indexer – Azure
 titleSuffix: Azure Media Services
-description: Få svar på vanliga frågor om Video Indexer.
+description: Den här artikeln innehåller svar på vanliga frågor om Azure Media Services Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fc5457fd44bd27731cad6269ee95aed838a3d755
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838234"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892795"
 ---
-# <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+# <a name="frequently-asked-questions"></a>Vanliga frågor
 
 I den här artikeln får du svar på vanliga frågor om Video Indexer.
 

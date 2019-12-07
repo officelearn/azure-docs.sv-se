@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899214"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889115"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -51,7 +51,7 @@ Använd följande instruktioner för att installera och konfigurera Azure Key Va
 8. Klicka på *Spara* för att aktivera loggning av diagnostik till Log Analytics arbets ytan.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Aktivera Key Vault diagnostik med PowerShell
-Följande PowerShell-skript innehåller ett exempel på hur du använder `Set-AzDiagnosticSetting` för att aktivera diagnostisk loggning för Key Vault:
+Följande PowerShell-skript innehåller ett exempel på hur du använder `Set-AzDiagnosticSetting` för att aktivera resurs loggning för Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -115,7 +115,7 @@ Azure Key Vault-lösningen analyserar poster som har en typ av nyckel **valv** s
 | `ResourceGroup` |Nyckel valvets resurs grupp |
 | `ResourceId` |Azure Resource Manager Resource-ID. För Key Vault loggar är detta Key Vault resurs-ID. |
 | `ResourceProvider` |*Utforskaren. KEYVAULT* |
-| `ResourceType` | *VALV* |
+| `ResourceType` | *VAULTS* |
 | `ResultSignature` |HTTP-status (till exempel *OK*) |
 | `ResultType` |Resultat av REST API begäran (till exempel *lyckad*) |
 | `SubscriptionId` |Prenumerations-ID för Azure som innehåller Key Vault |

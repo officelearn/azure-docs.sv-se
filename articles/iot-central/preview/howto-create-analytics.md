@@ -3,17 +3,17 @@ title: Analysera enhets data i ditt Azure IoT Central-program | Microsoft Docs
 description: Analysera enhets data i ditt Azure IoT Central-program.
 author: ankitgup
 ms.author: ankitgup
-ms.date: 10/17/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 77ee15d581cfc17af01ae0fa53139edc331a4fea
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4cf4469833e28a594996b981a47a964131026a7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896013"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895710"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Använda analys för att analysera enhets data
 
@@ -61,11 +61,11 @@ När du har frågat dina data kan du börja visualisera dem i linje diagrammet. 
    
     - **Skjutreglage för yttre datum intervall**: Använd slut punkts kontrollerna för att välja det yttre datum intervallet, som är tillgängligt för den interna datum intervalls kontrollen.
 
-    - **Öka och minska datum intervall knappar**: öka eller minska din tids period genom att välja någon av knapparna för det intervall du vill ha.
+    - **Öka och minska datum intervallet knappar**: öka eller minska din tid sträcker sig över genom att välja någon av knapparna för intervallet.
 
-    - **Skjutreglage för intervall storlek**: Använd det för att zooma in och ut ur intervall över samma tids period. Den här åtgärden ger en mer exakt kontroll av rörelsen mellan stora sektorer av tiden. Du kan använda den för att visa detaljerade och högupplösta vyer över dina data, till och med millisekunder. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val, som balanserar lösning, frågans hastighet och granularitet.
+    - **Skjutreglage för intervall storlek**: Använd det för att zooma in och ut ur intervall över samma tids period. Den här åtgärden ger mer exakt kontroll av flytt mellan stora sektorer tid. Du kan använda den för att visa detaljerade och högupplösta vyer över dina data, till och med millisekunder. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val, som balanserar lösning, frågans hastighet och granularitet.
     
-    - **Väljare för datum intervall**: med den här webb kontrollen kan du enkelt välja de datum-och tidsintervall som du vill använda. Du kan också använda kontrollen för att växla mellan olika tids zoner. När du har gjort ändringarna som ska gälla för din aktuella arbets yta väljer du spara.
+    - **Väljare för datum intervall**: med den här webb kontrollen kan du enkelt välja de datum-och tidsintervall som du vill använda. Du kan också använda kontrollen för att växla mellan olika tidszoner. När du har gjort ändringarna som ska gälla för din aktuella arbets yta väljer du spara.
 
     > [!TIP]
     > Intervall storleken bestäms dynamiskt baserat på det valda tidsintervallet. Kortare tidsintervaller gör det möjligt att aggregera data i mycket detaljerade intervall på upp till några sekunder.

@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Azure Media Services v3 API-.NET
-description: Lär dig hur du ansluter till Media Services v3 API med .NET.
+description: Den här artikeln visar hur du ansluter till Media Services v3 API med .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122892"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899898"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3 API-.NET
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK med inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att spara resurs gruppens namn och Media Services konto namnet
 - Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C# ](https://code.visualstudio.com/docs/languages/csharp). Eller så kan du använda en annan kod redigerare.
@@ -42,8 +42,8 @@ Exempel programmet i det här avsnittet är mål `netcoreapp2.0`. Koden använde
 
 ## <a name="add-required-nuget-packages"></a>Lägg till nödvändiga NuGet-paket
 
-1. I Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **NuGet Manager Console**.
-2. I fönstret **Package Manager-konsol** använder `Install-Package` du kommandot för att lägga till följande NuGet-paket. Till exempel `Install-Package Microsoft.Azure.Management.Media`.
+1. I Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **NuGet Manager-konsolen**.
+2. I fönstret **Package Manager-konsol** använder du `Install-Package` kommandot för att lägga till följande NuGet-paket. Till exempel `Install-Package Microsoft.Azure.Management.Media`.
 
 |Paket|Beskrivning|
 |---|---|
@@ -57,20 +57,20 @@ Exempel programmet i det här avsnittet är mål `netcoreapp2.0`. Koden använde
 
 ### <a name="create-appsettingsjson"></a>Skapa appSettings. JSON
 
-1. Gå till filen **allmän** > **textfil**.
+1. Gå till **allmän** > **textfil**.
 1. Ge den namnet appSettings. JSON.
 1. Ange egenskapen "Kopiera till utgående katalog" för. JSON-filen till "Kopiera om nyare" (så att programmet kan komma åt det när det publiceras).
 
 ### <a name="set-values-in-appsettingsjson"></a>Ange värden i appSettings. JSON
 
-Kör kommandot enligt beskrivningen i [API: er för åtkomst](access-api-cli-how-to.md). `az ams account sp create` Kommandot returnerar JSON som du bör kopiera till "appSettings. JSON".
+Kör kommandot `az ams account sp create` som beskrivs i [API: er för åtkomst](access-api-cli-how-to.md). Kommandot returnerar JSON som du bör kopiera till "appSettings. JSON".
  
 ## <a name="add-configuration-file"></a>Lägga till en konfigurationsfil
 
 För enkelhetens skull lägger du till en konfigurations fil som ansvarar för att läsa värden från "appSettings. JSON".
 
 1. Lägg till en ny CS-klass i projektet. Ge den namnet `ConfigWrapper`. 
-1. Klistra in följande kod i den här filen (det här exemplet förutsätter att du `ConsoleApp1`har namn området).
+1. Klistra in följande kod i den här filen (det här exemplet förutsätter att du har namn området `ConsoleApp1`).
 
 ```csharp
 using System;
@@ -228,9 +228,9 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
-- [Självstudier: Strömma live med Media Services v3 – .NET](stream-live-tutorial-with-api.md)
-- [Självstudier: Analysera videor med Media Services v3 – .NET](analyze-videos-tutorial-with-api.md)
+- [Självstudie: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
+- [Självstudie: strömma live med Media Services v3-.NET](stream-live-tutorial-with-api.md)
+- [Självstudie: analysera videor med Media Services v3-.NET](analyze-videos-tutorial-with-api.md)
 - [Skapa jobbindata från en lokal fil – .NET](job-input-from-local-file-how-to.md)
 - [Skapa jobbindata från en HTTPS-URL – .NET](job-input-from-http-how-to.md)
 - [Koda med en anpassad transformering – .NET](customize-encoder-presets-how-to.md)

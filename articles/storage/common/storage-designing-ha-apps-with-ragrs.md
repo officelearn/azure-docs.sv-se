@@ -1,20 +1,21 @@
 ---
-title: Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet (RA-GZRS eller RA-GRS) | Microsoft Docs
-description: Så här använder du Azure RA-GZRS eller RA-GRS-lagring för att skapa ett program med hög tillgänglighet som är tillräckligt flexibelt för att hantera avbrott.
+title: Skapa program med hög tillgänglighet med Geo-redundant lagring
+titleSuffix: Azure Storage
+description: Lär dig hur du använder Geo-redundant lagring med Läs behörighet för att skapa ett program med hög tillgänglighet som är tillräckligt flexibelt för att hantera avbrott.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673115"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895346"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet
 
@@ -27,7 +28,7 @@ Lagrings konton som kon figurer ATS för Geo-redundant replikering replikeras sy
 
 Den här artikeln visar hur du utformar ditt program för att hantera ett avbrott i den primära regionen. Om den primära regionen blir otillgänglig kan programmet anpassas för att utföra Läs åtgärder mot den sekundära regionen i stället. Kontrol lera att ditt lagrings konto har kon figurer ATS för RA-GRS eller RA-GZRS innan du börjar.
 
-Information om vilka primära regioner som är kopplade till vilka sekundära regioner finns i [Business kontinuitet och haveri beredskap (BCDR): Länkade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Information om vilka primära regioner som är kopplade till vilka sekundära regioner finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Det finns kodfragment som ingår i den här artikeln och en länk till ett fullständigt exempel i slutet som du kan hämta och köra.
 
@@ -66,7 +67,7 @@ Om du till exempel använder köer och blobbar i ditt program kan du välja att 
 
 I slut änden beror detta på programmets komplexitet. Du kan välja att inte hantera fel efter tjänst, utan i stället omdirigera Läs begär Anden för alla lagrings tjänster till den sekundära regionen och köra programmet i skrivskyddat läge när du upptäcker ett problem med lagrings tjänsten i den primära regionen.
 
-### <a name="other-considerations"></a>Annat att tänka på
+### <a name="other-considerations"></a>Andra överväganden
 
 Det här är andra saker som vi ska diskutera i resten av den här artikeln.
 
@@ -100,7 +101,7 @@ Det finns många sätt att hantera uppdaterings begär anden när de körs i skr
 
 Azure Storage klient biblioteket hjälper dig att avgöra vilka fel som kan göras. Till exempel kan ett 404-fel (resurs hittades inte) göras om, eftersom det inte troligt vis uppstår något att försöka igen. Å andra sidan kan ett 500-fel inte göras igen eftersom det är ett Server fel, och det kan bara vara ett tillfälligt problem. Mer information finns i den [Öppna käll koden för ExponentialRetry-klassen](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) i klient biblioteket för .net-lagring. (Leta efter ShouldRetry-metoden.)
 
-### <a name="read-requests"></a>Läsförfrågningar
+### <a name="read-requests"></a>Läs begär Anden
 
 Läs begär Anden kan omdirigeras till sekundär lagring om det är problem med den primära lagringen. Som nämnts ovan i att [använda konsekventa data](#using-eventually-consistent-data)måste det vara acceptabelt att ditt program kan läsa inaktuella data. Om du använder lagrings klient biblioteket för att komma åt data från den sekundära kan du ange ett återförsöks beteende för en läsbegäran genom att ange ett värde för egenskapen **LocationMode** till något av följande:
 
@@ -199,17 +200,17 @@ Geo-redundant lagring fungerar genom att replikera transaktioner från den prim�
 
 I följande tabell visas ett exempel på vad som kan hända när du uppdaterar information om en medarbetare så att de blir medlem i rollen *Administratörer* . För det här exemplet kräver detta att du uppdaterar den **anställdas** entitet och uppdaterar en **Administratörs roll** -entitet med ett antal av det totala antalet administratörer. Observera hur uppdateringarna tillämpas i rätt ordning i den sekundära regionen.
 
-| **Tid** | **Transaktionen**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Medför** |
+| **Tid** | **Transaktionen**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Resultat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktion A: <br> Infoga medarbetare <br> entitet i primär |                                   |                    | Transaktion A infogad till primär,<br> ännu inte repliker ATS. |
-| T1       |                                                            | Transaktion A <br> replikeras till<br> sekundär | T1 | Transaktion A replikerad till sekundär. <br>Tid för senaste synkronisering uppdaterades.    |
+| T1       |                                                            | Transaktion A <br> replikeras till<br> alternativ | T1 | Transaktion A replikerad till sekundär. <br>Tid för senaste synkronisering uppdaterades.    |
 | T2       | Transaktion B:<br>Uppdatera<br> Anställd entitet<br> i primär  |                                | T1                 | Transaktion B skriven till primär,<br> ännu inte repliker ATS.  |
-| T3       | Transaktion C:<br> Uppdatera <br>administratör<br>roll entitet i<br>primär |                    | T1                 | Transaktion C skriven till primär,<br> ännu inte repliker ATS.  |
-| *T4*     |                                                       | Transaktion C <br>replikeras till<br> sekundär | T1         | Transaktion C replikerad till sekundär.<br>LastSyncTime har inte uppdaterats eftersom <br>transaktion B har ännu inte repliker ATS.|
+| T3       | Transaktion C:<br> Uppdatera <br>administratör<br>roll entitet i<br>huvud |                    | T1                 | Transaktion C skriven till primär,<br> ännu inte repliker ATS.  |
+| *T4*     |                                                       | Transaktion C <br>replikeras till<br> alternativ | T1         | Transaktion C replikerad till sekundär.<br>LastSyncTime har inte uppdaterats eftersom <br>transaktion B har ännu inte repliker ATS.|
 | *T*     | Läs entiteter <br>från sekundär                           |                                  | T1                 | Du får det inaktuella värdet för anställda <br> entitet eftersom transaktion B inte har <br> har repliker ATS än. Du får det nya värdet för<br> administratörs roll entitet eftersom C har<br> replikeras. Tiden för senaste synkroniseringen är fortfarande inte<br> uppdaterats eftersom transaktion B<br> har inte repliker ATS. Du kan se att<br>administratörs rollens entitet är inkonsekvent <br>eftersom entitetens datum/tid är efter <br>Tid för senaste synkronisering. |
-| *T6*     |                                                      | Transaktion B<br> replikeras till<br> sekundär | T6                 | *T6* – alla transaktioner via C har <br>replikerad, tid för senaste synkronisering<br> har uppdaterats. |
+| *T6*     |                                                      | Transaktion B<br> replikeras till<br> alternativ | T6                 | *T6* – alla transaktioner via C har <br>replikerad, tid för senaste synkronisering<br> har uppdaterats. |
 
-I det här exemplet antar du att klienten växlar till att läsa från den sekundära regionen på T5. Det går att läsa entiteten **Administratörs roll** just nu, men entiteten innehåller ett värde för antalet administratörer som inte är konsekvent med antalet **anställdas** enheter som har marker ATS som administratörer i den sekundära region för tillfället. Klienten kan enkelt visa det här värdet, med risken att det är inkonsekvent information. Alternativt kan klienten försöka fastställa att **Administratörs rollen** är i ett potentiellt inkonsekvent tillstånd eftersom uppdateringarna har inträffat i rätt ordning och sedan informerar användaren om detta faktum.
+I det här exemplet antar du att klienten växlar till att läsa från den sekundära regionen på T5. Det går att läsa entiteten **Administratörs roll** just nu, men entiteten innehåller ett värde för antalet administratörer som inte är konsekvent med antalet **anställdas** enheter som är markerade som administratörer i den sekundära regionen just nu. Klienten kan enkelt visa det här värdet, med risken att det är inkonsekvent information. Alternativt kan klienten försöka fastställa att **Administratörs rollen** är i ett potentiellt inkonsekvent tillstånd eftersom uppdateringarna har inträffat i rätt ordning och sedan informerar användaren om detta faktum.
 
 För att identifiera att den har potentiellt inkonsekventa data kan klienten använda värdet för den *senaste synkroniseringstid* som du kan hämta när som helst genom att skicka en fråga till en lagrings tjänst. Detta anger den tid då data i den sekundära regionen senast var konsekventa och när tjänsten hade tillämpat alla transaktioner innan den tidpunkten. I exemplet ovan har den senaste synkroniseringstid angetts till *T1*när tjänsten infogar entiteten **anställda** i den sekundära regionen. Den finns kvar i *T1* tills tjänsten uppdaterar den **anställdas** entitet i den sekundära regionen när den är inställd på *T6*. Om klienten hämtar den senaste synkroniseringen när den läser entiteten *T5*, kan den jämföra den med tidsstämpeln för entiteten. Om tidsstämpeln i entiteten är senare än den senaste synkroniseringen, är entiteten i ett potentiellt inkonsekvent tillstånd och du kan vidta det som är lämplig åtgärd för ditt program. Om du använder det här fältet måste du känna till när den senaste uppdateringen till den primära uppdateringen slutfördes.
 

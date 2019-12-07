@@ -1,6 +1,6 @@
 ---
 title: Uppspelning med Azure Media Player – Azure | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure Media Player.
+description: Azure Media Player är en webb Videos pelare som skapats för att spela upp medie innehåll från Microsoft Azure Media Services på en rad olika webbläsare och enheter.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311826"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900357"
 ---
 # <a name="azure-media-player-overview"></a>Översikt över Azure Media Player
 

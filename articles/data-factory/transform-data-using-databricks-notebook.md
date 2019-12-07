@@ -1,5 +1,5 @@
 ---
-title: Kör en Databricks-anteckningsbok med Databricks Notebook-aktiviteten
+title: Kör en Databricks Notebook med aktiviteten
 description: Lär dig hur du kan använda Databricks Notebook-aktiviteten i Azure Data Factory för att köra en Databricks Notebook mot Databricks-jobbklustret.
 services: data-factory
 ms.service: data-factory
@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
-ms.openlocfilehash: 7ad7c8e70d8669612baf00f19d3695dc7fab07f5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6cd80492c6901cc80c2e3f3c22536580c471ea37
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217880"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893934"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
 
@@ -44,7 +44,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1.  Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1.  Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 
 1.  Välj **Skapa en resurs** på den vänstra menyn, välj **Analys** och välj sedan **Data Factory**.
 
@@ -188,7 +188,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
     ![Publicera de nya datafabriksentiteterna](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 
 Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu).
 

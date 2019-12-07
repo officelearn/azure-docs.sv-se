@@ -2,19 +2,19 @@
 title: RBAC-roller och-behörigheter
 description: Använd rollbaserad åtkomst kontroll i Azure (RBAC) och identitets-och åtkomst hantering (IAM) för att ge detaljerade behörigheter till resurser i ett Azure Container Registry.
 ms.topic: article
-ms.date: 03/20/2019
-ms.openlocfilehash: 8ef4f26dfd59c7b3b177ef58fa23e08f7e66d328
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 12/02/2019
+ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456234"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893492"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
 
-Tjänsten Azure Container Registry stöder en uppsättning Azure-roller som ger olika behörighets nivåer till ett Azure Container Registry. Använd [rollbaserad åtkomst kontroll](../role-based-access-control/index.yml) (RBAC) i Azure för att tilldela särskilda behörigheter till användare eller tjänst huvud namn som behöver interagera med ett register.
+Tjänsten Azure Container Registry stöder en uppsättning [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md) som ger olika behörighets nivåer till ett Azure Container Registry. Använd [rollbaserad åtkomst kontroll](../role-based-access-control/index.yml) (RBAC) i Azure för att tilldela särskilda behörigheter till användare, tjänst huvud namn eller andra identiteter som behöver samverka med ett register. 
 
-| Roll/behörighet       | [Åtkomst till Resource Manager](#access-resource-manager) | [Skapa/ta bort registret](#create-and-delete-registry) | [Push-avbildning](#push-image) | [Hämta bild](#pull-image) | [Ta bort avbildnings data](#delete-image-data) | [Ändra principer](#change-policies) |   [Signera bilder](#sign-images)  |
+| Roll/behörighet       | [Access Resource Manager](#access-resource-manager) | [Skapa/ta bort registret](#create-and-delete-registry) | [Push-avbildning](#push-image) | [Hämta bild](#pull-image) | [Ta bort avbildnings data](#delete-image-data) | [Ändra principer](#change-policies) |   [Signera bilder](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Ägare | X | X | X | X | X | X |  |  
 | Deltagare | X | X | X |  X | X | X |  |  
@@ -68,8 +68,25 @@ Möjlighet att konfigurera principer i ett register. Principerna omfattar avbild
 
 Möjlighet att signera bilder, som vanligt vis tilldelas till en automatiserad process, som använder ett huvud namn för tjänsten. Den här behörigheten kombineras vanligt vis med [push-avbildning](#push-image) för att tillåta att en betrodd avbildning överförs till ett register. Mer information finns [i innehålls förtroende i Azure Container Registry](container-registry-content-trust.md).
 
+## <a name="custom-roles"></a>Anpassade roller
+
+Precis som med andra Azure-resurser kan du skapa egna [anpassade roller](../role-based-access-control/custom-roles.md) med detaljerade behörigheter att Azure Container Registry. Tilldela sedan de anpassade rollerna till användare, tjänstens huvud namn eller andra identiteter som behöver samverka med ett register. 
+
+För att avgöra vilka behörigheter som ska gälla för en anpassad roll, se listan över Microsoft. ContainerRegistry- [åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry), granska de tillåtna åtgärderna för de [inbyggda ACR-rollerna](../role-based-access-control/built-in-roles.md)eller kör följande kommando:
+
+```azurecli
+az provider operation show --namespace Microsoft.ContainerRegistry
+```
+
+För att definiera en anpassad roll, se [steg för att skapa en anpassad roll](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+
+> [!IMPORTANT]
+> I en anpassad roll stöder Azure Container Registry för närvarande inte jokertecken som `Microsoft.ContainerRegistry/*` eller `Microsoft.ContainerRegistry/registries/*` som beviljar åtkomst till alla matchande åtgärder. Ange eventuella nödvändiga åtgärder individuellt i rollen.
+
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om att tilldela RBAC-roller till en Azure-identitet med hjälp av [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md)eller andra Azure-verktyg.
 
 * Lär dig mer om [autentiseringsalternativ](container-registry-authentication.md) för Azure Container Registry.
+
+* Lär dig mer om hur du aktiverar [databasens begränsade behörigheter](container-registry-repository-scoped-permissions.md) (för hands version) i ett behållar register.

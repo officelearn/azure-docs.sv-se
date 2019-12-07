@@ -1,12 +1,12 @@
 ---
-title: Avsökning långvariga åtgärder | Microsoft Docs
-description: Det här avsnittet visar hur du avsöker långvariga åtgärder.
+title: Avsöknings tids krävande åtgärder | Microsoft Docs
+description: 'Azure Media Services erbjuder API: er som skickar begär anden till Media Services för att starta åtgärder (till exempel skapa, starta, stoppa eller ta bort en kanal) körs de här åtgärderna länge. Det här avsnittet visar hur du avsöker tids krävande åtgärder.'
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
+writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43d9a6adc935010eab6e5e52d73f2019c8afcf5f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464988"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887190"
 ---
-# <a name="delivering-live-streaming-with-azure-media-services"></a>Leverera direktsänd strömning med Azure Media Services
+# <a name="delivering-live-streaming-with-azure-media-services"></a>Leverera Direktsänd strömning med Azure Media Services
 
 ## <a name="overview"></a>Översikt
 
-Microsoft Azure Media Services erbjuder API: er som skickar begäranden till Media Services för att starta åtgärder (till exempel: skapa, starta, stoppa eller ta bort en kanal). Dessa åtgärder är långvariga.
+Microsoft Azure Media Services erbjuder API: er som skickar begär anden till Media Services för att starta åtgärder (till exempel: skapa, starta, stoppa eller ta bort en kanal). De här åtgärderna är tids krävande.
 
-Media Services .NET SDK innehåller API: er som skickar begäran och vänta tills åtgärden har slutförts (internt API: erna avsökningen för åtgärdsförlopp med vissa intervall). Till exempel när du anropar kanal. Start(), returnerar-metoden när kanalen har startats. Du kan också använda den asynkrona versionen: await kanal. StartAsync() (information om uppgiftsbaserat asynkront mönster finns i [trycker du på](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API: er som skickar en begäran om åtgärden och sedan söka efter status tills åtgärden har slutförts kallas ”avsökningen metoder”. Dessa metoder (särskilt den asynkron versionen) rekommenderas för rich-klientprogram och/eller tillståndskänsliga tjänster.
+Media Services .NET SDK innehåller API: er som skickar begäran och väntar på att åtgärden ska slutföras (internt, API: erna avsöker för åtgärds förlopp i vissa intervall). Till exempel när du anropar en kanal. Start (), metoden returnerar när kanalen har startats. Du kan också använda den asynkrona versionen: väntar på kanal. StartAsync () (för information om uppgiftsbaserade asynkrona mönster, se [Knacka](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API: er som skickar en åtgärds förfrågan och sedan söker efter statusen tills åtgärden har slutförts kallas för "avsöknings metoder". Dessa metoder (särskilt den asynkrona versionen) rekommenderas för omfattande klient program och/eller tillstånds känsliga tjänster.
 
-Det finns scenarier där ett program inte kan vänta på en tidskrävande http-begäran och vill söka efter förloppet för åtgärden manuellt. Ett typexempel är en webbläsare som interagerar med en tillståndslös webbtjänst: när webbläsaren skickar en begäran för att skapa en kanal, webbtjänsten initierar en långvarig åtgärd och returnerar åtgärds-ID till webbläsaren. Webbläsaren kan sedan be webbtjänsten för att hämta Åtgärdsstatus för baseras på ID. Media Services .NET SDK innehåller API: er som är användbara för det här scenariot. Dessa API: er kallas ”icke-avsökning metoder”.
-”Icke-avsökning metoder” har följande namngivningsmönstret: Skicka*OperationName*åtgärden (till exempel SendCreateOperation). Skicka*OperationName*åtgärdsmetoder returnera den **IOperation** objekt; den returnerade objekt innehåller information som kan användas för att spåra igen. Skicka*OperationName*OperationAsync metoder returnerar **uppgift\<IOperation >** .
+Det finns scenarier där ett program inte kan vänta på en tids krävande http-begäran och vill söka efter åtgärdens förlopp manuellt. Ett typiskt exempel är en webbläsare som interagerar med en tillstånds lös webb tjänst: när webbläsaren begär att skapa en kanal, initierar webb tjänsten en tids krävande åtgärd och returnerar åtgärds-ID: t till webbläsaren. Webbläsaren kan sedan be webb tjänsten att hämta åtgärds status baserat på ID. Media Services .NET SDK innehåller API: er som är användbara för det här scenariot. Dessa API: er kallas "icke-avsöknings metoder".
+"Icke-avsöknings metoder" har följande namn mönster: skicka*OperationName*-åtgärd (till exempel SendCreateOperation). Skicka*OperationName*-åtgärds metoder returnerar **IOperation** -objektet; det returnerade objektet innehåller information som kan användas för att spåra åtgärden. OperationAsync-metoderna för att skicka*OperationName*returnerar **Task\<IOperation >** .
 
-Följande klasser stöder för närvarande icke-avsökning metoder:  **Kanalen**, **StreamingEndpoint**, och **programmet**.
+För närvarande stöder följande klasser icke-avsöknings metoder: **kanal**, **StreamingEndpoint**och **program**.
 
-Om du vill söka efter Åtgärdsstatus, använda den **GetOperation** metoden på den **OperationBaseCollection** klass. Använd följande intervall för att kontrollera Åtgärdsstatus: för **kanal** och **StreamingEndpoint** åtgärder, använder 30 sekunder; för **programmet** åtgärder, använda 10 sekunder.
+Om du vill avsöka efter åtgärds status använder du **Get operation** -metoden i **OperationBaseCollection** -klassen. Använd följande intervall för att kontrol lera åtgärds status: för **kanal** -och **StreamingEndpoint** -åtgärder ska du använda 30 sekunder; Använd 10 sekunder för **program** åtgärder.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -42,11 +42,11 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 ## <a name="example"></a>Exempel
 
-Följande exempel definierar en klass med namnet **ChannelOperations**. Den här klassdefinitionen kan vara en startpunkt för web service klassdefinitionen. I följande exempel används för enkelhetens skull icke asynkrona versioner av metoderna.
+I följande exempel definieras en klass med namnet **ChannelOperations**. Den här klass definitionen kan vara en start punkt för din webb tjänst klass definition. För enkelhetens skull använder följande exempel de icke-asynkrona versionerna av metoderna.
 
 Exemplet visar också hur klienten kan använda den här klassen.
 
-### <a name="channeloperations-class-definition"></a>ChannelOperations klassdefinitionen
+### <a name="channeloperations-class-definition"></a>Definition av ChannelOperations-klass
 
 ```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;
@@ -191,7 +191,7 @@ public class ChannelOperations
 }
 ```
 
-### <a name="the-client-code"></a>Klientkoden
+### <a name="the-client-code"></a>Klient koden
 
 ```csharp
 ChannelOperations channelOperations = new ChannelOperations();

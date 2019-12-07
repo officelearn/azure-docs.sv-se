@@ -1,5 +1,5 @@
 ---
-title: Skapa förväntande data pipelines med Azure Data Factory
+title: Skapa data pipeliner för förutsägelser
 description: Lär dig hur du skapar en förutsägelse pipeline med hjälp av Azure Machine Learning körnings aktivitet för batch i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dc2104495f231a316a1354100ecc105e8fda5bb4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683777"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893849"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -66,7 +66,7 @@ Du skapar en **Azure Machine Learning** länkad tjänst för att länka en Azure
 
 Se artikeln om att [Beräkna länkade tjänster](compute-linked-services.md) för beskrivningar av egenskaper i JSON-definitionen.
 
-Azure Machine Learning stödja både klassiska webb tjänster och nya webb tjänster för ditt förutsägelse experiment. Du kan välja den rätt som du vill använda från Data Factory. För att hämta den information som krävs för att skapa den länkade tjänsten Azure Machine Learning går du till https://services.azureml.netdär alla dina (nya) webb tjänster och klassiska webb tjänster visas. Klicka på den webb tjänst som du vill få åtkomst till och klicka på **Använd sida.** Kopiera **primär nyckel** för egenskapen **apiKey** och **batch-begäranden** för egenskapen **mlEndpoint** .
+Azure Machine Learning stödja både klassiska webb tjänster och nya webb tjänster för ditt förutsägelse experiment. Du kan välja den rätt som du vill använda från Data Factory. För att hämta den information som krävs för att skapa den länkade tjänsten Azure Machine Learning går du till https://services.azureml.net där alla dina (nya) webb tjänster och klassiska webb tjänster visas. Klicka på den webb tjänst som du vill få åtkomst till och klicka på **Använd sida.** Kopiera **primär nyckel** för egenskapen **apiKey** och **batch-begäranden** för egenskapen **mlEndpoint** .
 
 ![Azure Machine Learning webb tjänster](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -127,7 +127,7 @@ Följande JSON-kodfragment definierar en Azure Machine Learning batch execution-
 | Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | namn              | Namn på aktiviteten i pipelinen     | Ja      |
-| description       | Text som beskriver vad aktiviteten gör.  | Nej       |
+| beskrivning       | Text som beskriver vad aktiviteten gör.  | Nej       |
 | typ              | För Data Lake Analytics U-SQL-aktivitet är aktivitets typen **AzureMLBatchExecution**. | Ja      |
 | linkedServiceName | Länkade tjänster till den länkade tjänsten Azure Machine Learning. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | webServiceInputs  | Nyckel, värdepar, mappar namnen på Azure Machine Learning webb tjänst indata. Nyckeln måste matcha de indataparametrar som definierats i webb tjänsten för publicerade Azure Machine Learning. Värdet är ett Azure Storage länkade tjänster och egenskaper för fil Sök väg som anger indata-BLOB-platser. | Nej       |

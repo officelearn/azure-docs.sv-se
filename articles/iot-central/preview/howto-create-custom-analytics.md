@@ -3,18 +3,18 @@ title: Utöka Azure IoT Central med anpassad analys | Microsoft Docs
 description: Som en lösnings utvecklare konfigurerar du ett IoT Central program för att göra anpassade analyser och visualiseringar. Den här lösningen använder Azure Databricks.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a29cae2fabe1542a7498bca19dc0a6e147d1d024
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 59fb0dfbc44746853f25437e8e13a1cbc317e151
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895155"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895545"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks-preview-features"></a>Utöka Azure IoT Central med anpassad analys med hjälp av Azure Databricks (förhands gransknings funktioner)
 
@@ -29,7 +29,7 @@ I den här instruktions guiden får du lära dig att:
 * Strömma telemetri från ett IoT Central program med *kontinuerlig data export*.
 * Skapa en Azure Databricks-miljö för att analysera och rita telemetri för enheter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
@@ -41,7 +41,7 @@ Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Applicatio
 
 | Inställning | Värde |
 | ------- | ----- |
-| Betalnings plan | Betala per användning |
+| Betalnings plan | Användningsbaserad betalning |
 | Programmall | In-Store Analytics – villkors övervakning |
 | Programnamn | Acceptera standardvärdet eller Välj ditt eget namn |
 | URL | Acceptera standardvärdet eller Välj ditt eget unika URL-prefix |
@@ -67,8 +67,8 @@ Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.
 | Prisnivå | Basic |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | IoTCentralAnalysis |
-| Plats | Östra USA |
-| Genomflödesenheter | 1 |
+| Plats | USA, östra |
+| Dataflödesenheter | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks arbets yta
 
@@ -76,10 +76,10 @@ Använd [Azure Portal för att skapa en Azure Databricks tjänst](https://portal
 
 | Inställning | Värde |
 | ------- | ----- |
-| Namn på arbets yta    | Välj namn på arbets yta |
+| Namn på arbetsyta    | Välj namn på arbets yta |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | IoTCentralAnalysis |
-| Plats | Östra USA |
+| Plats | USA, östra |
 | Prisnivå | Standard |
 
 När du har skapat de resurser som krävs ser **IoTCentralAnalysis** -resurs gruppen ut som följande skärm bild:
@@ -135,14 +135,14 @@ Använd informationen i följande tabell för att skapa klustret:
 | Inställning | Värde |
 | ------- | ----- |
 | Klusternamn | centralanalysis |
-| Kluster läge | Standard |
-| Databricks Runtime version | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
+| Klusterläge | Standard |
+| Databricks Runtime-version | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
 | Python-version | 3 |
 | Aktivera automatisk skalning | Nej |
 | Avsluta efter minuter av inaktivitet | 30 |
-| Typ av arbetare | Standard_DS3_v2 |
+| Arbetartyp | Standard_DS3_v2 |
 | Arbetare | 1 |
-| Driv rutins typ | Samma som arbetare |
+| Drivrutinstyp | Samma som arbetare |
 
 Det kan ta flera minuter att skapa ett kluster, vänta tills klustret har skapats innan du fortsätter.
 

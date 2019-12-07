@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure on-demand Media Encoder | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure-kodare på begäran.
+description: Azure Media Services tillhandahåller flera alternativ för kodning av media i molnet. Den här artikeln ger en översikt över Azure on-demand Media Encoder.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019035"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901519"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Översikt över Azure on-demand Media Encoder 
 
@@ -32,7 +32,7 @@ Codecenheter är program varan som implementerar algoritmerna för komprimering/
 
 Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera din anpassningsbara bit hastighets-MP4 eller Smooth Streaming kodat innehåll i strömnings format som stöds av Media Services (MPEG-streck, HLS Smooth Streaming) utan att du behöver paketera om till dessa strömmande format.
 
-När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. Faktureringen av slut punkter för direkt uppspelning sker när slut punkten är i ett körnings tillstånd.
+När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. Faktureringen av slut punkter för direkt uppspelning sker när slut punkten är i ett **körnings** tillstånd.
 
 Media Services stöder följande kodare på begäran som beskrivs i den här artikeln:
 
@@ -48,7 +48,7 @@ Som standard kan varje Media Services konto ha en aktiv kodnings aktivitet i tag
 ### <a name="how-to-use"></a>Hur du ska använda detta
 [Så här kodar du med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-### <a name="formats"></a>Form
+### <a name="formats"></a>Format
 [Format och codecenheter](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Förinställningar

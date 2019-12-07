@@ -1,7 +1,7 @@
 ---
 title: Vad är Video Indexer?
 titleSuffix: Azure Media Services
-description: En översikt över tjänsten Azure Media Services Video Indexer.
+description: Den här artikeln ger en översikt över tjänsten Azure Media Services Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: 9f6a5fa96034e0bf43ddd573a425de8d114d47ce
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a942277b5616f3e8220e7fc0fd00f7d660d76d3e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575102"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892710"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -33,7 +33,7 @@ Video Indexer insikter kan tillämpas på många olika scenarier:
 
 * *Djupgående sökning*: Använd de insikter som extraheras från videon för att förbättra Sök upplevelsen i ett video bibliotek. Att indexera talade ord och ansikten kan till exempel göra det möjligt att söka efter moment i en video där en person har ekrar på vissa ord eller när två personer setts tillsammans. Sök baserat på sådana insikter från videor är tillämpligt på nyhets myndigheter, utbildnings institut,-sändningar, nöjes innehålls ägare, företags-LOB-appar och i allmänhet till alla branscher som har ett video bibliotek som användare behöver söka mot.
 * *Skapa innehåll*: skapa trailrar, markera rullar, innehåll i sociala medier eller nyhets klipp baserat på insikter video Indexer extraherar från ditt innehåll. Nyckel bild rutor, scener och tidsstämplar för visning av personer och etiketter gör processen mycket smidigare och enklare, och gör att du kan komma åt de delar av videon du behöver för det innehåll som du skapar.
-* *Hjälpmedel*: om du vill göra ditt innehåll tillgängligt för personer med funktions nedsättning eller om du vill att innehållet ska distribueras till olika regioner med olika språk kan du använda avskriften och översättningen som tillhandahålls av video indexerare på flera språk.
+* *Hjälpmedel*: om du vill göra ditt innehåll tillgängligt för personer med funktions nedsättning eller om du vill att innehållet ska distribueras till olika regioner med olika språk kan du använda avskriften och översättningen från video Indexer på flera språk.
 * *Monetarisering*: video Indexer kan hjälpa till att öka värdet för videor. Till exempel kan branscher som förlitar sig på AD-intäkter (nyhets medier, sociala medier osv.) leverera relevanta annonser genom att använda de extraherade insikterna som ytterligare signaler till AD-servern.
 * *Innehålls moderator*: Använd text-och visuella innehålls redigerings modeller för att hålla dina användare skyddade från olämpligt innehåll och kontrol lera att innehållet som du publicerar matchar din organisations värden. Du kan automatiskt blockera vissa videor eller Varna dina användare om innehållet.
 * *Rekommendationer*: video insikter kan användas för att förbättra användarnas engagemang genom att markera relevant video moment till användare. Genom att tagga varje video med ytterligare metadata kan du rekommendera användare de mest relevanta videor och markera de delar av videon som ska matcha deras behov.

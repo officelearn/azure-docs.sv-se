@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Databricks arbets yta i en Virtual Network
+title: Skapa en Azure Databricks arbets yta i din egen Virtual Network snabb start
 description: Den här artikeln beskriver hur du distribuerar Azure Databricks till ditt virtuella nätverk.
 services: azure-databricks
 author: mamccrea
@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 69afe2aab3c10707f7160d727b970ad73d59a952
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/04/2019
+ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791550"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893467"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Snabb start: skapa en Azure Databricks arbets yta i en Virtual Network
+# <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Snabb start: skapa en Azure Databricks arbets yta i din egen Virtual Network
 
-Den här snabb starten visar hur du skapar en Azure Databricks arbets yta i ett virtuellt nätverk. Du kommer också att skapa ett Apache Spark-kluster på arbets ytan.
+Standard distributionen av Azure Databricks skapar ett nytt virtuellt nätverk som hanteras av Databricks. Den här snabb starten visar hur du skapar en Azure Databricks arbets yta i ditt eget virtuella nätverk i stället. Du skapar också ett Apache Spark-kluster på arbets ytan. 
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+Mer information om varför du kan välja att skapa en Azure Databricks arbets yta i ditt eget virtuella nätverk finns i [Distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)] (/databricks/Administration-Guide/Cloud-Configurations/Azure/VNet-Inject).
+
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/databricks/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -31,19 +33,21 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. I Azure Portal väljer du **skapa en resurs** > **nätverk** > **virtuella nätverk**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**. Välj sedan **nätverk > virtuellt nätverk**.
+
+    ![Skapa ett virtuellt nätverk på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-portal.png)
 
 2. Använd följande inställningar under **Skapa virtuellt nätverk**: 
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Namn|databricks – snabb start|Välj ett namn för det virtuella nätverket.|
-    |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adress intervall i CIDR-notation.|
+    |Namn|databricks-quickstart|Välj ett namn för det virtuella nätverket.|
+    |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adress intervall i CIDR-notation. CIDR-intervallet måste vara mellan/16 och/eller 24|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
-    |Resursgrupp|databricks – snabb start|Välj **Skapa nytt** och ange ett nytt resurs grupp namn för ditt konto.|
+    |Resursgrupp|databricks-quickstart|Välj **Skapa nytt** och ange ett nytt resurs grupp namn för ditt konto.|
     |Plats|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan vara värd för det virtuella nätverket. Använd den plats som är närmast dina användare.|
     |Namn på undernät|standard|Välj ett namn för standard under nätet i det virtuella nätverket.|
-    |Undernätsadressintervall|10.1.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas i det virtuella nätverkets adress utrymme. Det går inte att redigera adress intervallet för ett undernät som används.|
+    |Adressintervall för undernät|10.1.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas i det virtuella nätverkets adress utrymme. Det går inte att redigera adress intervallet för ett undernät som används.|
 
     ![Skapa ett virtuellt nätverk på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
 
@@ -53,23 +57,25 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
-1. I Azure Portal väljer du **skapa en resurs** > **analys** > **Databricks**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**. Välj sedan **analys > Databricks**.
+
+    ![Skapa en Azure Databricks arbets yta på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-portal.png)
 
 2. Använd följande inställningar under **Azure Databricks tjänst**:
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Namn på arbets yta|databricks – snabb start|Välj ett namn för din Azure Databricks-arbetsyta.|
+    |Namn på arbetsyta|databricks-quickstart|Välj ett namn för din Azure Databricks-arbetsyta.|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
-    |Resursgrupp|databricks – snabb start|Välj samma resurs grupp som du använde för det virtuella nätverket.|
+    |Resursgrupp|databricks-quickstart|Välj samma resurs grupp som du använde för det virtuella nätverket.|
     |Plats|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
     |Prisnivå|Välj mellan standard eller Premium.|Mer information om pris nivåer finns på [prissättnings sidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
-    |Distribuera Azure Databricks arbets ytan i Virtual Network|Ja|Med den här inställningen kan du distribuera en Azure Databricks arbets yta i det virtuella nätverket.|
-    |Virtual Network|databricks – snabb start|Välj det virtuella nätverk som du skapade i föregående avsnitt.|
+    |Distribuera Azure Databricks arbets yta i Virtual Network (VNet)|Ja|Med den här inställningen kan du distribuera en Azure Databricks arbets yta i det virtuella nätverket.|
+    |Virtual Network|databricks-quickstart|Välj det virtuella nätverk som du skapade i föregående avsnitt.|
     |Namn på offentligt undernät|offentligt-undernät|Använd standard namnet för offentliga undernät.|
-    |CIDR-intervall för offentliga undernät|10.179.64.0/18|CIDR-intervallet för det här under nätet måste vara mellan/18 och/26.|
+    |CIDR-intervall för offentliga undernät|10.179.64.0/18|Använd ett CIDR-intervall upp till och inklusive/26.|
     |Namn på privat undernät|privat-undernät|Använd namnet på det privata under nätet som är standard.|
-    |CIDR-intervall för privata undernät|10.179.0.0/18|CIDR-intervallet för det här under nätet måste vara mellan/18 och/26.|
+    |CIDR-intervall för privata undernät|10.179.0.0/18|Använd ett CIDR-intervall upp till och inklusive/26.|
 
     ![Skapa en Azure Databricks arbets yta på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
@@ -77,7 +83,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
     ![Azure Databricks översikt i Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
 
-    Den hanterade resurs gruppen innehåller lagrings kontots fysiska plats (DBFS), Worker-SG (nätverks säkerhets grupp), arbetare-VNet (virtuellt nätverk). Det är också den plats där virtuella datorer, disk, IP-adress och nätverks gränssnitt kommer att skapas. Den här resurs gruppen är låst som standard. När ett kluster startas i det virtuella nätverket skapas dock ett nätverks gränssnitt mellan arbets tagarna-VNet i den hanterade resurs gruppen och det virtuella nätverket "hubb".
+    Den hanterade resurs gruppen kan inte ändras och den används inte för att skapa virtuella datorer. Du kan bara skapa virtuella datorer i den resurs grupp som du hanterar.
 
     ![Azure Databricks hanterad resurs grupp](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 

@@ -1,20 +1,21 @@
 ---
-title: Kör Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data | Microsoft Docs
+title: Kör Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data
+titleSuffix: Azure Storage
 description: Azure CLI och PowerShell stöder inloggning med Azure AD-autentiseringsuppgifter för att köra kommandon på Azure Storage blob-och köer-data. En åtkomsttoken har angetts för sessionen och används för att auktorisera anrops åtgärder. Behörigheter är beroende av den RBAC-roll som tilldelats Azure AD-säkerhetsobjektet.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1c7f4531dee8673cc5b6dfe675e4c793144931e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 07abb9d604c14a5c78a088cb07f57088b84552a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671089"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891872"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Kör Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data
 
@@ -26,14 +27,14 @@ Du kan tilldela behörigheter till blob-och Queue-data till ett säkerhets objek
 
 Tilläggen stöds för åtgärder på behållare och köer. Vilka åtgärder som kan anropas beror på vilka behörigheter som beviljats för det säkerhets objekt i Azure AD som du loggar in på Azure CLI eller PowerShell. Behörigheter för att Azure Storage behållare eller köer tilldelas via rollbaserad åtkomst kontroll (RBAC). Om du till exempel har tilldelats rollen **BLOB data Reader** kan du köra skript kommandon som läser data från en behållare eller kö. Om du har tilldelats rollen **BLOB data Contributor** kan du köra skript kommandon som läser, skriver eller tar bort en behållare eller kö eller de data som de innehåller. 
 
-Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd på en behållare eller kö finns i [anropa lagrings åtgärder med OAuth](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)-token.  
+Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd på en behållare eller kö finns i [anropa lagrings åtgärder med OAuth-token](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Anropa CLI-kommandon med Azure AD-autentiseringsuppgifter
 
-Azure CLI stöder `--auth-mode` parametern för blob-och Queue data-åtgärder:
+Azure CLI stöder `--auth-mode` parameter för blob-och Queue data-åtgärder:
 
-- Ange att `login` parametern ska logga in med ett säkerhets objekt i Azure AD. `--auth-mode`
-- Ange parametern till det bakåtkompatibla `key` värdet för att försöka fråga efter en konto nyckel om inga autentiseringsmetoder har angetts för kontot. `--auth-mode` 
+- Ange `--auth-mode` parametern till `login` för att logga in med ett säkerhets objekt för Azure AD.
+- Ange `--auth-mode` parametern till det äldre `key`-värdet för att försöka fråga efter en konto nyckel om inga autentiseringsinställningar för kontot har angetts. 
 
 I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto från Azure CLI med hjälp av dina autentiseringsuppgifter för Azure AD. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden: 
 
@@ -67,7 +68,7 @@ I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto 
     > [!IMPORTANT]
     > Det kan ta några minuter att sprida RBAC-roll tilldelningar.
 
-1. Anropa kommandot [AZ Storage container Create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) med `--auth-mode` parametern inställd på `login` för att skapa behållaren med dina autentiseringsuppgifter för Azure AD:
+1. Anropa kommandot [AZ Storage container Create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) med parametern `--auth-mode` som har angetts till `login` för att skapa behållaren med dina autentiseringsuppgifter för Azure AD:
 
     ```azurecli
     az storage container create \ 
@@ -76,13 +77,13 @@ I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto 
         --auth-mode login
     ```
 
-Den miljö variabel som är associerad `--auth-mode` med parametern `AZURE_STORAGE_AUTH_MODE`är. Du kan ange lämpligt värde i miljövariabeln för att undvika att inkludera det vid varje anrop till en Azure Storage data åtgärd.
+Den miljö variabel som är associerad med `--auth-mode`-parametern är `AZURE_STORAGE_AUTH_MODE`. Du kan ange lämpligt värde i miljövariabeln för att undvika att inkludera det vid varje anrop till en Azure Storage data åtgärd.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Anropa PowerShell-kommandon med Azure AD-autentiseringsuppgifter
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du vill använda Azure PowerShell för att logga in och köra efterföljande åtgärder mot Azure Storage med Azure AD-autentiseringsuppgifter skapar du en lagrings kontext för att referera till lagrings kontot och inkluderar parametern `-UseConnectedAccount`.
+Om du vill använda Azure PowerShell för att logga in och köra efterföljande åtgärder mot Azure Storage med Azure AD-autentiseringsuppgifter skapar du en lagrings kontext för att referera till lagrings kontot och inkluderar `-UseConnectedAccount`-parametern.
 
 I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto från Azure PowerShell med dina autentiseringsuppgifter för Azure AD. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 
@@ -111,7 +112,7 @@ I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto 
       -Location $location `
     ```
 
-1. Hämta lagrings konto kontexten som anger det nya lagrings kontot genom att anropa [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). När du agerar på ett lagrings konto kan du referera till kontexten i stället för att upprepade gånger skicka in autentiseringsuppgifterna. `-UseConnectedAccount` Inkludera parametern för att anropa eventuella efterföljande data åtgärder med dina autentiseringsuppgifter för Azure AD:
+1. Hämta lagrings konto kontexten som anger det nya lagrings kontot genom att anropa [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). När du agerar på ett lagrings konto kan du referera till kontexten i stället för att upprepade gånger skicka in autentiseringsuppgifterna. Ta med parametern `-UseConnectedAccount` för att anropa eventuella efterföljande data åtgärder med dina Azure AD-autentiseringsuppgifter:
 
     ```powershell
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount

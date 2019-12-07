@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 23b10bed3b741ec76167eb5a976bf5737d20b173
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172592"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894019"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -22,10 +22,12 @@ Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa A
 **Felkod**: UserErrorGuestAgentStatusUnavailable <br>
 **Fel meddelande**: VM-agenten kan inte kommunicera med Azure Backup<br>
 
-Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd eller inte installerad och förhindra att Azure Backup-tjänsten utlöser ögonblicks bilder.  
+Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd eller inte installerad och förhindra att Azure Backup-tjänsten utlöser ögonblicks bilder.
 
-- Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd **startar du om agenten** och försöker säkerhetskopiera igen (försök med en säkerhets kopiering på begäran). Anvisningar för att starta om agenten finns i [Virtuella Windows-datorer](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) eller [Virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
-- Om VM-agenten inte är installerad eller är inaktuell, installerar/uppdaterar du VM-agenten och försöker säkerhetskopiera igen. Anvisningar för hur du installerar/uppdaterar agenten finns i virtuella [Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) eller [virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
+- **Öppna Azure Portal > inställningar för virtuella datorer > > egenskaper-bladet** > Se till att VM- **status** är **igång** och att **agent status** är **klar**. Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd startar du om agenten<br>
+  - För virtuella Windows-datorer följer du de här [stegen](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) för att starta om gäst agenten.<br>
+  - För virtuella Linux-datorer följer du de här [stegen](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) för att starta om gäst agenten.
+
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-det gick inte att kommunicera med VM-agenten för ögonblicks bild status
 
@@ -41,6 +43,16 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Orsak 3: [ögonblicks bilds status kan inte hämtas eller så går det inte att hämta ögonblicks bilder](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Orsak 4: [säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**
+
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-den virtuella datorn är i ett misslyckat etablerings tillstånd
+
+**Felkod**: UserErrorVmProvisioningStateFailed<br>
+**Fel meddelande**: det gick inte att etablerings status för den virtuella datorn<br>
+
+Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella datorn i etablerings läget misslyckades.<br>**Öppna Azure Portal > inställningar för virtuella datorer > > tillägg > tillägg status** och kontrol lera om alla tillägg har statusen **slutfört** .
+
+- Om VMSnapshot-tillägget är i felaktigt tillstånd högerklickar du på det misslyckade tillägget och tar bort det. Utlös en adhoc-säkerhets kopiering, Detta installerar om tilläggen och kör säkerhets kopierings jobbet.  <br>
+- Om något annat tillägg är i felaktigt tillstånd kan det störa säkerhets kopieringen. Se till att de här tilläggs problemen är lösta och försök att säkerhetskopiera igen.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached-Max gränsen för återställnings punkt samlingen har uppnåtts
 

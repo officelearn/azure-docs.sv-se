@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebfe5f75d5d8546e0f5e8ad6f8c5d0063e5bda2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376450"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893509"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EZOfficeInventory
 
@@ -87,14 +87,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.ezofficeinventory.com/users/sign_in`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.ezofficeinventory.com/users/sign_in`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EZOfficeInventory client support team](mailto:support@ezofficeinventory.com) för att hämta värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EZOfficeInventory client support team](mailto:support@ezofficeinventory.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. EZOfficeInventory-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig EZOfficeInventory-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
@@ -144,13 +144,21 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-ezofficeinventory-sso"></a>Konfigurera EZOfficeInventory SSO
 
-1. Öppna ett nytt webbläsarfönster och logga in på din EZOfficeInventory företags webbplats som administratör.
+1. Om du vill automatisera konfigurationen i EZOfficeInventory måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
-2. Klicka på **profil** i det övre högra hörnet på sidan och gå sedan till **Inställningar** > **tillägg**.
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+1. När du har lagt till tillägg i webbläsaren kan du klicka på **Konfigurera EZOfficeInventory** för att dirigera dig till EZOfficeInventory-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på EZOfficeInventory. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-5.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+1. Om du vill konfigurera EZOfficeInventory manuellt öppnar du ett nytt webbläsarfönster och loggar in på din EZOfficeInventory-företags webbplats som administratör och utför följande steg:
+
+1. I det övre högra hörnet på sidan klickar du på **profil** och navigerar sedan till **Inställningar** > **lägga till tillägg**.
 
     ![EZOfficeInventory-konfiguration](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. Rulla nedåt till avsnittet **SAML-integration** och utför följande steg:
+1. Rulla nedåt till avsnittet **SAML-integration** och utför följande steg:
 
     ![EZOfficeInventory-konfiguration](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -176,11 +184,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 I det här avsnittet skapas en användare som kallas Britta Simon i EZOfficeInventory. EZOfficeInventory stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i EZOfficeInventory skapas en ny efter autentiseringen.
 
-## <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen EZOfficeInventory på åtkomst panelen, bör du loggas in automatiskt på den EZOfficeInventory som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen EZOfficeInventory på åtkomst panelen, bör du loggas in automatiskt på den EZOfficeInventory som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -191,4 +199,3 @@ När du klickar på panelen EZOfficeInventory på åtkomst panelen, bör du logg
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova EZOfficeInventory med Azure AD](https://aad.portal.azure.com/)
-

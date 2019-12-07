@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 230b79a5062262a85d3090e15ed52d67c38ed3e9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928462"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888792"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -70,7 +70,7 @@ Vissa övervaknings data samlas in automatiskt, men du kan behöva utföra vissa
 - [Resurs loggar](../platform/resource-logs-overview.md) – resurs loggar genereras automatiskt av Azure-resurser, men samlas inte in utan en diagnostisk inställning.  Skapa en diagnostisk inställning för att skicka poster till Azure Monitor loggar eller vidarebefordra dem utanför Azure.
 - [Aktivitets logg](../platform/activity-logs-overview.md) – aktivitets loggen samlas in automatiskt utan konfiguration som krävs och kan visas i Azure Portal. Skapa en diagnostisk inställning för att kopiera dem till Azure Monitor loggar eller vidarebefordra dem utanför Azure.
 
-### <a name="log-analytics-workspace"></a>Log Analytics arbets yta
+### <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
 Att samla in data i Azure Monitor loggar kräver en Log Analytics arbets yta. Du kan börja övervaka din tjänst snabbt genom att skapa en ny arbets yta, men det kan finnas ett värde i använda en arbets yta som samlar in data från andra tjänster. Mer information om hur du skapar en arbets yta och hur du skapar [distributioner för Azure Monitor loggar](../platform/design-logs-deployment.md) finns i [skapa en Log Analytics arbets yta i Azure Portal](../learn/quick-create-workspace.md) . Om du använder en befintlig arbets yta i din organisation behöver du nödvändiga behörigheter enligt beskrivningen i [Hantera åtkomst till loggdata och arbets ytor i Azure Monitor](../platform/manage-access.md). 
 
 
@@ -91,7 +91,7 @@ Följ proceduren i [skapa diagnostisk inställning för att samla in plattforms 
  Du kan komma åt övervaknings data för de flesta Azure-resurser från resurs menyn i Azure Portal. Detta ger dig åtkomst till en enskild resurs data med hjälp av standard Azure Monitor verktyg. Vissa Azure-tjänster tillhandahåller olika alternativ, så du bör hänvisa till dokumentationen för tjänsten för ytterligare information. Använd **Azure Monitor** -menyn om du vill analysera data från alla övervakade resurser. 
 
 ### <a name="overview"></a>Översikt
-Många tjänster omfattar övervaknings data på sina **översikts** sidor så att du snabbt kan se hur de fungerar. Detta är vanligt vis baserat på en delmängd av plattforms måtten som lagras i Azure Monitor Mät värden. Andra övervaknings alternativ är vanligt vis tillgängliga i ett **övervaknings** avsnitt i tjänsterna. hoppmeny.
+Många tjänster omfattar övervaknings data på sina **översikts** sidor så att du snabbt kan se hur de fungerar. Detta är vanligt vis baserat på en delmängd av plattforms måtten som lagras i Azure Monitor Mät värden. Andra övervaknings alternativ är vanligt vis tillgängliga i ett **övervaknings** avsnitt i tjänsterna. .
 
 ![Översikts sida](media/monitor-azure-resource/overview-page.png)
 
@@ -164,4 +164,4 @@ Använd **aviseringar** från en resurs meny för att visa aviseringar och hante
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om resurs loggar för olika Azure-tjänster finns i [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../platform/diagnostic-logs-schema.md) .  
+* Mer information om resurs loggar för olika Azure-tjänster finns i [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/diagnostic-logs-schema.md) .  

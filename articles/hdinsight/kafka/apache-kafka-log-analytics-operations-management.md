@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122601"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894266"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka i HDInsight
 
@@ -56,7 +56,7 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* Inkommande meddelanden per sekund:
+* Inkommande meddelanden per sekund: (Ersätt `your_kafka_cluster_name` med ditt kluster namn.)
 
     ```kusto
     metrics_kafka_CL 
@@ -64,7 +64,7 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Inkommande byte per sekund:
+* Inkommande byte per sekund: (Ersätt `wn0-kafka` med ett värd namn för arbetsnoden.)
 
     ```kusto
     metrics_kafka_CL 
@@ -72,7 +72,7 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* Utgående byte per sekund:
+* Utgående byte per sekund: (Ersätt `your_kafka_cluster_name` med ditt kluster namn.)
 
     ```kusto
     metrics_kafka_CL 
@@ -80,16 +80,13 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-    > [!IMPORTANT]  
-    > Ersätt värdena i frågan med din klustrade information. Till exempel `ClusterName_s` måste vara inställt på namnet på klustret. `HostName_s`måste anges till domän namnet för en arbetsnoden i klustret.
-
-    Du kan också ange `*` om du vill söka efter alla typer som loggas. För närvarande finns följande loggar för frågor:
+    Du kan också ange `*` för att söka igenom alla typer som loggas. För närvarande finns följande loggar för frågor:
 
     | Loggtyp | Beskrivning |
     | ---- | ---- |
-    | Logga\_kafkaserver\_cl | Kafka Broker-Server. log |
+    | Logga\_kafkaserver\_CL | Kafka Broker-Server. log |
     | log\_kafkacontroller\_CL | Kafka Broker-styrenhet. log |
-    | \_mått Kafkacl\_ | Kafka JMX-mått |
+    | mått\_Kafka\_CL | Kafka JMX-mått |
 
     ![Apache Kafka Log Analytics CPU-användning](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
 
@@ -100,6 +97,6 @@ Mer information om Azure Monitor finns i [Azure Monitor översikt](../../log-ana
 Mer information om hur du arbetar med Apache Kafka finns i följande dokument:
 
 * [Spegla Apache Kafka mellan HDInsight-kluster](apache-kafka-mirroring.md)
-* [Öka skalbarheten för Apache Kafka i HDInsight](apache-kafka-scalability.md)
+* [Öka skalningen för Apache Kafka i HDInsight](apache-kafka-scalability.md)
 * [Använda Apache Spark strömning (DStreams) med Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
 * [Använd Apache Spark strukturerad strömning med Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Hadoop MapReduce-aktivitet i Azure Data Factory
+title: Transformera data med Hadoop MapReduce-aktivitet
 description: Lär dig hur du bearbetar data genom att köra Hadoop MapReduce-program i ett Azure HDInsight-kluster från en Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 49e00d9a47f92fb30a29e7051cba35f54bde3700
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8f66062f5de514390a8e4a3fdea85dd645ff0da1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683863"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893815"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformera data med Hadoop MapReduce-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -63,7 +63,7 @@ Se [gris](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-ha
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | namn              | Namn på aktiviteten                     | Ja      |
-| description       | Text som beskriver vad aktiviteten används för | Nej       |
+| beskrivning       | Text som beskriver vad aktiviteten används för | Nej       |
 | typ              | Aktivitets typen är HDinsightMapReduce för MapReduce-aktivitet | Ja      |
 | linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | className         | Namnet på klassen som ska köras         | Ja      |
@@ -72,7 +72,7 @@ Se [gris](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-ha
 | jarlibs           | Sträng mat ris för sökvägen till jar-biblioteksfilerna som refereras av jobbet som lagras i Azure Storage som definierats i jarLinkedService. Fil namnet är Skift läges känsligt. | Nej       |
 | getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av jarLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
 | ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
-| definierar           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       |
+| defines           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       |
 
 
 

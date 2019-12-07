@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: c4c2b1f334e37691655b18d2c629fbd8edc95382
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171596"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900184"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Matchnings villkor i standard regel motorn för Azure CDN
 
@@ -30,7 +30,7 @@ Du kan till exempel använda ett matchnings villkor för att:
 
 Följande matchnings villkor är tillgängliga för användning i standard regel motorn för Azure CDN. 
 
-### <a name="device-type"></a>Enhets typ 
+### <a name="device-type"></a>Enhetstyp 
 
 Identifierar förfrågningar som görs från en mobil enhet eller en stationär enhet.  
 
@@ -60,9 +60,9 @@ Cookiens namn | Operator | Cookie-värde | Skift läges omvandling
 ------------|----------|--------------|---------------
 Sträng | [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Viktig information
+#### <a name="key-information"></a>Nyckelinformation
 
-- Du kan inte använda jokertecken (inklusive asterisker (\*)) när du anger ett cookie-namn. du Muses använda ett exakt cookie-namn.
+- Du kan inte använda jokertecken (inklusive asterisker (\*)) när du anger ett cookie-namn. Du måste använda ett exakt cookie-namn.
 - Du kan bara ange ett enda cookie-namn per instans av matchnings villkoret.
 - Cookie-namn jämförelser är inte Skift läges känsliga.
 - Om du vill ange flera cookie-värden använder du ett enda blank steg mellan varje cookie-värde. 
@@ -97,19 +97,19 @@ Identifierar förfrågningar baserat på beställarens plats eller IP-adress.
 
 Operator | Värden som stöds
 ---------|-----------------
-Alla | Saknas
+Alla | Gäller inte
 Geo-matchning | Landskod
 IP-matchning | IP-adress (blankstegsavgränsad)
-Inte alla | Saknas
+Inte alla | Gäller inte
 Ingen geo-matchning | Landskod
 Inte IP-matchning | IP-adress (blankstegsavgränsad)
 
-#### <a name="key-information"></a>Viktig information
+#### <a name="key-information"></a>Nyckelinformation
 
 - Använd CIDR-notering.
 - Om du vill ange flera IP-adresser och IP-adressblock använder du ett enda blank steg mellan värdena:
   - **IPv4-exempel**: *1.2.3.4 10.20.30.40* matchar alla begär Anden som kommer från adressen 1.2.3.4 eller 10.20.30.40.
-  - **IPv6-exempel**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:8*0 matchar alla begär Anden som kommer från adress 1:2:3:4:5:6:7:8 eller 10:20:30:40:50:60:70:80.
+  - **IPv6-exempel**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matchar alla begär Anden som kommer från adress 1:2:3:4:5:6:7:8 eller 10:20:30:40:50:60:70:80.
 - Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Exempel:
   - **IPv4-exempel**: *5.5.5.64/26* matchar alla begär Anden som kommer från adresser 5.5.5.64 via 5.5.5.127.
   - **IPv6-exempel**: *1:2:3:/48* matchar alla begär Anden som kommer från adresser 1:2:3:0:0:0:0:0 till och med 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
@@ -144,7 +144,7 @@ Operator | Värden som stöds
 ---------|----------------
 Lika med, inte lika med | HÄMTA, POSTA, PLACERA, TA BORT, HUVUD, ALTERNATIV, SPÅRA
 
-#### <a name="key-information"></a>Viktig information
+#### <a name="key-information"></a>Nyckelinformation
 
 - Endast GET Request-metoden kan generera cachelagrat innehåll i Azure CDN. Alla andra metoder för begäran är proxy via nätverket. 
 
@@ -168,7 +168,7 @@ Operator | URL för begäran | Skift läges omvandling
 ---------|-------------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Viktig information
+#### <a name="key-information"></a>Nyckelinformation
 
 - När du använder det här regel villkoret ska du se till att inkludera protokoll information. Exempel: *https://www.\<yourdomain\>.com* .
 
@@ -178,11 +178,11 @@ Identifierar begär Anden som innehåller det angivna fil namns tillägget i fil
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Anknytning | Skift läges omvandling
+Operator | Tillägg | Skift läges omvandling
 ---------|-----------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Viktig information
+#### <a name="key-information"></a>Nyckelinformation
 
 - Inkludera inte en inledande period för tillägg. Använd till exempel *HTML* i stället för *. html*.
 
@@ -196,7 +196,7 @@ Operator | Filnamn | Skift läges omvandling
 ---------|-----------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Viktig information
+#### <a name="key-information"></a>Nyckelinformation
 
 - Om du vill ange flera fil namn avgränsar du varje fil namn med ett enda blank steg. 
 
@@ -210,7 +210,7 @@ Operator | Värde | Skift läges omvandling
 ---------|-------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Viktig information
+#### <a name="key-information"></a>Nyckelinformation
 
 - Ett fil namns värde kan dra nytta av jokertecken. Varje fil namns mönster kan till exempel bestå av en eller flera asterisker (*), där varje asterisk matchar en sekvens med ett eller flera tecken.
 
@@ -222,7 +222,7 @@ Följande operatorer är giltiga för regler som accepterar värden från standa
 
 - Alla
 - Lika med 
-- innehåller 
+- Contains 
 - Börjar med 
 - slutar med 
 - Mindre än

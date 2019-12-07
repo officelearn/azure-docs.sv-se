@@ -1,6 +1,6 @@
 ---
-title: Få åtkomst till Azure Media Services-API – Azure CLI | Microsoft Docs
-description: Följ stegen i den här anvisningen att få åtkomst till Azure Media Services-API.
+title: Åtkomst till Azure Media Services API – Azure CLI | Microsoft Docs
+description: Följ stegen i den här instruktions artikeln för att få åtkomst till Azure Media Services API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,27 +12,27 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 5dbcf446a609adcd0f1902fcca2ac19ad87f17b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d66b3e1b6ed2c8eef9f5cd21c0657648ad550ebe
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779672"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896155"
 ---
-# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Åtkomst till Azure Media Services API med Azure CLI
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Åtkomst Azure Media Services API med Azure CLI
  
-Om du vill använda den Azure AD autentiseringen av tjänstens huvudnamn för att ansluta till Azure Media Services-API, behöver programmet för att begära en Azure AD-token som har följande parametrar:
+Om du vill använda autentisering av Azure AD-tjänstens huvud namn för att ansluta till Azure Media Services API måste programmet begära en Azure AD-token som har följande parametrar:
 
-* Azure AD-klientorganisationsslutpunkt
+* Azure AD-klientens slut punkt
 * Media Services resurs-URI
-* Resurs-URI för REST Media Services
-* Azure AD application värden: klient-ID och klienthemlighet
+* Resurs-URI för REST-Media Services
+* Azure AD-program värden: klient-ID och klient hemlighet
 
-Detaljerad förklaring finns i [API: er för åtkomst till Media Services v3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
+Detaljerad förklaring finns i [komma åt Media Services v3-API: er](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
-Den här artikeln visar hur du använder Azure CLI för att skapa en Azure AD-program och tjänstens huvudnamn och hämta de värden som behövs för att få åtkomst till Azure Media Services-resurser.
+Den här artikeln visar hur du använder Azure CLI för att skapa ett Azure AD-program och tjänstens huvud namn och hämta de värden som behövs för att få åtkomst till Azure Media Services resurser.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Krav 
 
 [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -50,7 +50,7 @@ Se till att komma ihåg de värden som du använde för resursgruppens namn och 
 - [Skapa resurser – CLI](cli-create-asset.md)
 - [Ladda upp en fil – CLI](cli-upload-file-asset.md)
 - [Skapa transformeringar – CLI](cli-create-transform.md)
-- [Koda med en anpassad transformering – CLI](custom-preset-cli-howto.md)
+- [Koda med en anpassad Transform-CLI](custom-preset-cli-howto.md)
 - [Skapa jobb – CLI](cli-create-jobs.md)
 - [Skapa EventGrid – CLI](job-state-events-cli-how-to.md)
 - [Publicera en resurs – CLI](cli-publish-asset.md)
@@ -59,7 +59,7 @@ Se till att komma ihåg de värden som du använde för resursgruppens namn och 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Slutpunkt för direktuppspelning som du vill spela upp innehåll måste vara i tillståndet körs. Följande CLI-kommando startar din standard-slutpunkt för direktuppspelning:
+Den slut punkt för direkt uppspelning som du vill strömma innehåll från måste vara i kör tillstånd. Följande CLI-kommando startar din standard slut punkt för direkt uppspelning:
 
 `az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`
 

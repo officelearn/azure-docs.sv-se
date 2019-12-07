@@ -1,5 +1,5 @@
 ---
-title: Kopiera och transformera data i Azure SQL Database med Data Factory
+title: Kopiera och transformera data i Azure SQL Database
 description: Lär dig hur du kopierar data till och från Azure SQL Database och hur du omvandlar data i Azure SQL Database genom att använda Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b899d9884a80a882ca03d3d970421227a48a3803
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8b09bb50df18660ae6fb21febc121d17058be23b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075599"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891056"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure SQL Database med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -48,7 +48,7 @@ För kopierings aktiviteten stöder den här Azure SQL Database-anslutningen des
 > Om du kopierar data med hjälp av Azure Data Factory integration runtime konfigurerar du en [azure SQL Server-brandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänsterna kan komma åt servern.
 > Om du kopierar data med hjälp av en lokal integration runtime konfigurerar du Azure SQL Server-brandväggen så att rätt IP-intervall tillåts. Detta intervall inkluderar datorns IP-adress som används för att ansluta till Azure SQL Database.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -586,29 +586,29 @@ När data kopieras från eller till Azure SQL Database, används följande mappn
 | bit |Boolesk |
 | char |String, Char[] |
 | datum |DateTime |
-| Datum/tid |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
-| decimaltal |decimaltal |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| image |Byte[] |
+| Flyttal |Double |
+| mallar |Byte[] |
 | int |Int32 |
-| money |decimaltal |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |decimaltal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Enkel |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaltal |
+| smallmoney |Decimal |
 | sql_variant |Objekt |
 | text |String, Char[] |
 | time |TimeSpan |
 | tidsstämpel |Byte[] |
-| tinyint |Byte |
+| tinyint |Mottagna byte |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |

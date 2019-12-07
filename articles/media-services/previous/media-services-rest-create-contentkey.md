@@ -1,6 +1,6 @@
 ---
-title: Skapa nycklar med REST | Microsoft Docs
-description: Lär dig hur du skapar nycklar som ger säker åtkomst till resurser.
+title: Skapa innehålls nycklar med REST | Microsoft Docs
+description: Den här artikeln visar hur du skapar innehålls nycklar som ger säker åtkomst till till gångar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 84fd4f0971c56d8cf2cdf138ba8ac8ea1a6e07eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9927de3ab3fb68cea17095d7255fd8a68f66c9a8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711534"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901475"
 ---
-# <a name="create-content-keys-with-rest"></a>Skapa nycklar med REST
+# <a name="create-content-keys-with-rest"></a>Skapa innehålls nycklar med REST
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
-Media Services kan du leverera krypterade tillgångar. En **ContentKey** ger säker åtkomst till din **tillgången**s. 
+Med Media Services kan du leverera krypterade till gångar. En **ContentKey** ger säker åtkomst till din **till gångs**användare. 
 
-När du skapar en ny tillgång (till exempel innan du [ladda upp filer](media-services-rest-upload-files.md)), kan du ange följande alternativ för kryptering: **StorageEncrypted**, **CommonEncryptionProtected**, eller **EnvelopeEncryptionProtected**. 
+När du skapar en ny till gång (till exempel innan du [överför filer](media-services-rest-upload-files.md)) kan du ange följande krypterings alternativ: **StorageEncrypted**, **CommonEncryptionProtected**eller **EnvelopeEncryptionProtected**. 
 
-När du levererar tillgångar till dina klienter kan du [konfigurera för tillgångar ska vara dynamiskt krypterad](media-services-rest-configure-asset-delivery-policy.md) med någon av följande två krypteringar: **DynamicEnvelopeEncryption** eller **DynamicCommonEncryption**.
+När du levererar till gångar till dina klienter kan du [Konfigurera för att till gångar dynamiskt ska krypteras](media-services-rest-configure-asset-delivery-policy.md) med något av följande två krypteringar: **DynamicEnvelopeEncryption** eller **DynamicCommonEncryption**.
 
-Krypterade tillgångar måste associeras med **ContentKey**s. Den här artikeln beskriver hur du skapar en innehållsnyckel.
+Krypterade till gångar måste kopplas till **ContentKey**s. Den här artikeln beskriver hur du skapar en innehålls nyckel.
 
-Nedan följer allmänna steg för att generera nycklar som du associerar med resurser som du vill ska vara krypterad. 
+Följande är allmänna steg för att skapa innehålls nycklar som du associerar med till gångar som du vill ska krypteras. 
 
-1. Generera slumpmässigt en 16-bytes AES-nyckel (för vanliga och kuvert kryptering) eller en 32-byte AES-nyckel (för lagringskryptering). 
+1. Generera en 16-byte AES-nyckel (för common-och kuvert kryptering) eller en 32-byte AES-nyckel (för lagrings kryptering). 
    
-    Det här är innehållsnyckeln för tillgången, vilket innebär att alla filer som hör till det tillgången behovet att använda samma innehållsnyckeln under dekrypteringen. 
-2. Anropa den [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metoder för att få rätt X.509-certifikat som ska användas för att kryptera innehållsnyckeln.
-3. Kryptera innehållsnyckeln med den offentliga nyckeln för X.509-certifikat. 
+    Det här är innehålls nyckeln för din till gång, vilket innebär att alla filer som är kopplade till till gången måste använda samma innehålls nyckel under dekrypteringen. 
+2. Anropa metoderna [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) för att hämta rätt X. 509-certifikat som måste användas för att kryptera din innehålls nyckel.
+3. Kryptera din innehålls nyckel med den offentliga nyckeln för X. 509-certifikatet. 
    
-   Media Services .NET SDK använder RSA med OAEP när du gör krypteringen.  Du kan se ett exempel i den [EncryptSymmetricKeyData funktionen](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Skapa ett kontrollsummevärde (baserat på algoritmen PlayReady AES kontrollsumma) beräknas med hjälp av nyckelidentifierare och innehållsnyckeln. Mer information finns i avsnittet ”PlayReady AES-nyckel kontrollsumma Algorithm” i dokumentet PlayReady-objektet finns [här](https://www.microsoft.com/playready/documents/).
+   Media Services .NET SDK använder RSA med OAEP när krypteringen utförs.  Du kan se ett exempel i [funktionen EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Skapa ett värde för kontroll Summa (baserat på algoritmen PlayReady AES Key-kontrollsumma) som beräknas med nyckel identifieraren och innehålls nyckeln. Mer information finns i avsnittet "algoritmen för kontroll summa för PlayReady AES" i objektet PlayReady-huvudobjekt som finns [här](https://www.microsoft.com/playready/documents/).
    
-   I följande exempel för .NET beräknar kontrollsumma med hjälp av GUID-del av Nyckelidentifieraren och rensa innehållsnyckeln.
+   I följande .NET-exempel beräknas kontroll summan med hjälp av GUID-delen av nyckel identifieraren och rensa innehålls nyckeln.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -66,21 +66,21 @@ Nedan följer allmänna steg för att generera nycklar som du associerar med res
              Array.Copy(array, array2, 8);
              return Convert.ToBase64String(array2);
          }
-5. Skapa innehållsnyckel med den **EncryptedContentKey** (omvandlat till base64-kodad sträng), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, och **kontrollsumma** värden som du har fått i föregående steg.
-6. Associera den **ContentKey** entitet med din **tillgången** entiteten via $links igen.
+5. Skapa innehålls nyckeln med **EncryptedContentKey** (konverterad till Base64-kodad sträng), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**och **kontroll Summa** som du har tagit emot i föregående steg.
+6. Associera entiteten **ContentKey** med din **till gångs** enhet genom $Links åtgärden.
 
-Den här artikeln visar hur du skapar en AES-nyckel, kryptera nyckeln och beräkna kontrollsumman inte. 
+Den här artikeln visar inte hur du genererar en AES-nyckel, krypterar nyckeln och beräknar kontroll summan. 
 
 > [!NOTE]
 > 
-> Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+> När du använder entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Ansluta till Media Services
+## <a name="connect-to-media-services"></a>Anslut till Medietjänster
 
-Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="retrieve-the-protectionkeyid"></a>Hämta ProtectionKeyId
-I följande exempel visar hur du hämtar ProtectionKeyId, en certifikatets tumavtryck för certifikatet måste du använda när du krypterar innehållsnyckeln. Utför det här steget för att se till att du redan har rätt certifikat på din dator.
+I följande exempel visas hur du hämtar ProtectionKeyId, ett tumavtryck för certifikatet, för det certifikat som du måste använda när du krypterar din innehålls nyckel. Gör det här steget för att kontrol lera att du redan har rätt certifikat på din dator.
 
 Begäran:
 
@@ -112,7 +112,7 @@ Svar:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
 ## <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Hämta ProtectionKey för ProtectionKeyId
-I följande exempel visar hur du hämtar X.509-certifikatet med hjälp av ProtectionKeyId du fick i föregående steg.
+I följande exempel visas hur du hämtar X. 509-certifikatet med hjälp av ProtectionKeyId som du fick i föregående steg.
 
 Begäran:
 
@@ -148,9 +148,9 @@ Svar:
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
 ## <a name="create-the-contentkey"></a>Skapa ContentKey
-När du har hämtats X.509-certifikat och används den offentliga nyckeln för att kryptera innehållsnyckeln, skapar du en **ContentKey** entitets- och Ställ in dess egenskap värden i enlighet med detta.
+När du har hämtat X. 509-certifikatet och använt dess offentliga nyckel för att kryptera din innehålls nyckel, skapar du en **ContentKey** -entitet och anger dess egenskaps värden.
 
-En av de värden som du måste anges när du skapar du innehållet nyckeln är typen. Välj något av följande värden:
+Ett av värdena som du måste ange när du skapar innehålls nyckeln är typen. Välj något av följande värden:
 
     public enum ContentKeyType
     {
@@ -177,7 +177,7 @@ En av de värden som du måste anges när du skapar du innehållet nyckeln är t
     }
 
 
-I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** för lagringskryptering (”1”) och **ProtectionKeyType** inställd på ”0” som indikerar att protection-nyckel-ID är tumavtrycket för X.509-certifikatet.  
+I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** som är inställd för lagrings kryptering ("1") och **ProtectionKeyType** har angetts till "0" för att INDIKERA att skydds nyckelns ID är X. 509-certifikatets tumavtryck.  
 
 Förfrågan
 
@@ -227,8 +227,8 @@ Svar:
     "ProtectionKeyType":0,
     "Checksum":"calculated checksum"}
 
-## <a name="associate-the-contentkey-with-an-asset"></a>Associera ContentKey med en tillgång
-När du har skapat ContentKey, associera den med din tillgången med hjälp av $links-åtgärd som du ser i följande exempel:
+## <a name="associate-the-contentkey-with-an-asset"></a>Koppla ContentKey till en till gång
+När du har skapat ContentKey associerar du den med din till gång genom att använda $links åtgärden, som du ser i följande exempel:
 
 Begäran:
 

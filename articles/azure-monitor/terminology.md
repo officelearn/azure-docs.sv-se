@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5324c17cdf2593d8e1022e6ddbf52b4e24ee64e8
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 01d4c8b3b803c5fce4fe24a5c96e649212fc4dca
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597809"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894354"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor namngivnings-och terminologi ändringar
 Betydande ändringar har gjorts i Azure Monitor nyligen, med olika tjänster som sammanställs för att förenkla övervakningen av Azure-kunder. I den här artikeln beskrivs nya namn-och terminologi ändringar i Azure Monitor-dokumentationen.
 
 ## <a name="october-2019---diagnostic-log-to-resource-log"></a>Oktober 2019 – diagnostisk logg till resurs loggen
-Diagnostikloggar ändrades till "resurs loggar" för att bättre matcha vad som faktiskt samlas in. Termen "diagnostikinställningar" förblir desamma.  
+"Diagnostikloggar" ändrades till "resurs loggar" för att bättre matcha vad som faktiskt samlas in. Termen "diagnostikinställningar" förblir desamma.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Februari 2019-Log Analytics terminologi
 Efter konsolideringen av olika tjänster under Azure Monitor tar vi nästa steg genom att ändra terminologin i vår dokumentation för att bättre beskriva Azure Monitor tjänsten och dess olika komponenter. 

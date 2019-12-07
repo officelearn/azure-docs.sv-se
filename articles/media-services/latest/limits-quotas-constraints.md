@@ -1,6 +1,6 @@
 ---
 title: Kvoter och begränsningar i Azure Media Services v3 | Microsoft Docs
-description: I det här avsnittet beskrivs kvoter och begränsningar i Azure Media Services v3
+description: I det här avsnittet beskrivs kvoter och begränsningar i Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 2a530d6a1a447ccde448259623da6faeaa6a4d72
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5a4f7e31cb17f47e8796ab99c1f8a089339903df
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598366"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888435"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kvoter och begränsningar i Azure Media Services v3
 
@@ -30,7 +30,7 @@ I den här artikeln beskrivs kvoter och begränsningar i Azure Media Services v3
 | JobOutputs per jobb | 20 (fast) |
 | TransformOutputs i en transformering | 20 (fast) |
 | Filer per JobInput|10 (fast)|
-| Filstorlek| I vissa fall finns det en gräns för maximal fil storlek som stöds för bearbetning i Media Services. <sup>81.1</sup> |
+| Filstorlek| I vissa fall finns det en gräns för maximal fil storlek som stöds för bearbetning i Media Services. <sup>(1)</sup> |
 | Jobb per Media Services konto | 500 000 <sup>(2)</sup> (fast)|
 | Livehändelser per Media Services-konto |5|
 | Media Services konton i en enda prenumeration | 25 (fast) |

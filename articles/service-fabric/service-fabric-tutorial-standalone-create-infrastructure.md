@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 048051a612793cbe82f82fbde482ed470ad3758c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 12/06/2019
 ms.locfileid: "73177838"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: Skapa en AWS-infrastruktur som är värd för ett Service Fabric-kluster
@@ -82,7 +82,7 @@ Service Fabric kräver att ett antal portar är öppna mellan värdarna i klustr
 
 För att undvika att portarna öppnas för alla, kan du i stället öppna dem enbart för värdarna i samma säkerhetsgrupp. Anteckna säkerhetsgruppens ID. I detta exempel är det **sg-c4fb1eba**.  Välj sedan **Redigera**.
 
-Lägg sedan till fyra regler i säkerhetsgruppen för tjänstens beroenden, och därefter tre i för själva Service Fabric. Den första regeln är att tillåta ICMP-trafik för grundläggande anslutningskontroller. De andra reglerna öppnar de portar som krävs för att aktivera fjär register.
+Lägg sedan till fyra regler i säkerhetsgruppen för tjänstens beroenden, och därefter tre i för själva Service Fabric. Den första regeln är att tillåta ICMP-trafik för grundläggande anslutningskontroller. De andra reglerna öppnar de portar som krävs för att aktivera SMB och Remote Registry.
 
 För den första regeln väljer du **Lägg till regel** och sedan **Alla ICMP – IPv4** i listrutan. Välj inmatningsrutan bredvid den anpassade och ange ditt säkerhetsgrupps-ID enligt ovan.
 
@@ -118,18 +118,30 @@ Om du vill kontrollera att den grundläggande anslutningen fungerar, använder d
 ping 172.31.20.163
 ```
 
-Om dina utdata ser ut så här `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` upprepade fyra gånger, fungerar anslutningen mellan instanserna.  
+Om dina utdata ser ut så här `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` upprepade fyra gånger, fungerar anslutningen mellan instanserna.  Nu ska du kontrollera att din SMB-delning fungerar med följande kommando:
+
+```
+net use * \\172.31.20.163\c$
+```
+
+`Drive Z: is now connected to \\172.31.20.163\c$.` ska returneras som utdata.
 
 ## <a name="prep-instances-for-service-fabric"></a>Förbereda instanserna för Service Fabric
 
-Om du har skapat detta från grunden, behöver du utföra några fler steg.  Du måste alltså verifiera att fjärrregistret kördes och öppna de nödvändiga portarna.
+Om du har skapat detta från grunden, behöver du utföra några fler steg.  Du måste kontrollera att fjärregistret kördes, aktivera SMB och öppna portarna som krävs för SMB och fjärregistret.
 
 För att göra det enklare bäddade du in allt detta när du startade instanserna med ditt användardataskript.
+
+Detta är det PowerShell-kommando som du använde för att aktivera SMB:
+
+```powershell
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+```
 
 Om du vill öppna portarna i brandväggen använder du följande PowerShell-kommando:
 
 ```powershell
-New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
 ```
 
 ## <a name="next-steps"></a>Nästa steg

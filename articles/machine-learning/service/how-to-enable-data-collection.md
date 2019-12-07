@@ -1,7 +1,7 @@
 ---
 title: Samla in data på dina produktions modeller
 titleSuffix: Azure Machine Learning
-description: Lär dig mer om att samla in Azure Machine Learning indatamodellen data i Azure Blob storage.
+description: Lär dig hur du samlar in Azure Machine Learning indata för modell data i Azure Blob Storage.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,39 +11,42 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18b92fe090895c3aa08c3c931dfa8bd12db0f2d3
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 10a150a64a058a4bf346f07e2ef298c974641256
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406457"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901307"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> Detta SDK tas snart ur bruk. Detta SDK är fortfarande lämpligt för utvecklare som övervakar data i modeller, men de flesta utvecklare bör använda den förenklade [data övervakningen med Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+> Azure Machine Learning övervaknings-SDK kommer snart att dras tillbaka. SDK är fortfarande lämpligt för utvecklare som övervakar data drift i modeller. Men de flesta utvecklare bör använda den förenklade [data övervakningen med Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
 
-I den här artikeln får du lära dig hur du samlar in indata från Azure Machine Learning som du har distribuerat till Azure Kubernetes-kluster (AKS) i Azure Blob Storage. 
+Den här artikeln visar hur du samlar in indata från Azure Machine Learning. Det visar också hur du distribuerar indata till ett AKS-kluster (Azure Kubernetes service) och lagrar utdata i Azure Blob Storage.
 
-När du har aktiverat, hjälper den här informationen som samlas in dig att:
-* [Övervaka data](how-to-monitor-data-drift.md) drift som produktions data går in i din modell
+När samlingen har Aktiver ATS hjälper de data som du samlar in dig att:
 
-* Fatta bättre beslut om när du ska omtrimma eller optimera din modell
+* [Övervaka data](how-to-monitor-data-drift.md) drift som produktions data går in i din modell.
 
-* Träna din modell med data som samlas in
+* Fatta bättre beslut om när du ska träna eller optimera din modell.
 
-## <a name="what-is-collected-and-where-does-it-go"></a>Det här samlas och där går det?
+* Träna modellen med insamlade data.
+
+## <a name="what-is-collected-and-where-it-goes"></a>Det som samlas in och där det går
 
 Följande data kan samlas in:
-* Information om modell **indata** från webb tjänster som distribueras i Azure Kubernetes-kluster (AKS) (röst, bilder och video samlas **inte** in) 
+
+* Modellera indata från webb tjänster som distribuerats i ett AKS-kluster. Röst ljud, bilder och video samlas *inte* in.
   
-* Modell förutsägelser med hjälp av produktions data
+* Modeller förutsägelser med indata för produktion.
 
-> [!Note]
-> Aggregering eller före beräkningar på dessa data är inte en del av tjänsten just nu.   
+>[!NOTE]
+> Föragg regering och för beräkningar av dessa data ingår inte för närvarande i insamlings tjänsten.
 
-Utdata hämtar sparas i en Azure-Blob. Eftersom data läggs till en Azure Blob, kan du sedan välja ditt favorit verktyg för att köra analysen. 
+Utdata sparas i Blob Storage. Eftersom data har lagts till i Blob Storage kan du välja ditt favorit verktyg för att köra analysen.
 
 Sökvägen till utdata i blob följande följande syntax:
 
@@ -52,35 +55,36 @@ Sökvägen till utdata i blob följande följande syntax:
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
->[!Note]
-> I tidigare versioner av SDK: n innan `0.1.0a16` `designation` argumentet `identifier`. Om din kod har utvecklats med en tidigare version måste du uppdatera detta.
+>[!NOTE]
+> I versioner av Azure Machine Learning SDK för python tidigare än version 0.1.0 A16 heter argumentet `designation` `identifier`. Om du har utvecklat din kod med en tidigare version måste du uppdatera den.
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 
-- En Azure Machine Learning arbets yta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python installerat. Lär dig hur du får dessa krav med hjälp av [hur du konfigurerar ett utvecklings miljö](how-to-configure-environment.md) dokument
+- En AzureMachine Learning-arbetsyta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python måste vara installerad. Information om hur du installerar dem finns i [så här konfigurerar du en utvecklings miljö](how-to-configure-environment.md).
 
-- En tränad modell för maskininlärning som ska distribueras till Azure Kubernetes Service (AKS). Om du inte har något kan du läsa själv studie kursen [träna bild klassificerings modell](tutorial-train-models-with-aml.md)
+- Du behöver en utbildad maskin inlärnings modell för att kunna distribueras till AKS. Om du inte har någon modell kan du läsa själv studie kursen [träna image klassificerings modell](tutorial-train-models-with-aml.md) .
 
-- Ett Azure Kubernetes Service-kluster. Information om hur du skapar och distribuerar till en finns i avsnittet [så här distribuerar du och var](how-to-deploy-and-where.md) dokumentet
+- Du behöver ett AKS-kluster. Information om hur du skapar en och distribuerar till den finns i [distribuera och var](how-to-deploy-and-where.md).
 
-- [Konfigurera din miljö](how-to-configure-environment.md) och installera övervaknings- [SDK: n](https://aka.ms/aml-monitoring-sdk)
+- [Konfigurera din miljö](how-to-configure-environment.md) och installera [Azure Machine Learning övervaknings-SDK: n](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Aktivera datainsamling
-Data insamling kan aktive ras oavsett vilken modell som distribueras via Azure Machine Learning eller andra verktyg. 
 
-För att göra det, måste du:
+Du kan aktivera data insamling oavsett vilken modell du distribuerar via Azure Machine Learning eller andra verktyg.
 
-1. Öppna bedömnings filen
+Om du vill aktivera data insamling måste du:
 
-1. Lägg till [följande kod](https://aka.ms/aml-monitoring-sdk) högst upp i filen:
+1. Öppna bedömningsfil.
+
+1. Lägg till den [efter kod](https://aka.ms/aml-monitoring-sdk) överst i filen:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
    ```
 
-2. Deklarera dina variabler för data insamling i din `init()` funktion:
+1. Deklarera dina variabler för insamling av data i din `init` funktionen:
 
     ```python
     global inputs_dc, prediction_dc
@@ -88,11 +92,11 @@ För att göra det, måste du:
     prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* är en valfri parameter, du behöver inte konfigurera den om din modell inte kräver det. Att ha en correlationId hjälper dig för enklare mappning med andra data. (Exempel: LoanNumber, CustomerId, osv.)
+    *CorrelationId* är en valfri parameter. Du behöver inte använda den om din modell inte kräver det. Med hjälp av *correlationId* kan du enklare mappa med andra data, till exempel *LoanNumber* eller *CustomerId*.
     
-    *Identifieraren* används senare för att skapa mappstrukturen i din BLOB. den kan användas för att dela upp "rå" data och "bearbetade"
+    Parametern *Identifier* används senare för att skapa mappstrukturen i blobben. Du kan använda den för att särskilja rå data från bearbetade data.
 
-3.  Lägg till följande rader med kod i `run(input_df)`-funktionen:
+1. Lägg till följande rader med kod till den `run(input_df)` funktionen:
 
     ```python
     data = np.array(data)
@@ -101,132 +105,137 @@ För att göra det, måste du:
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-4. Data insamling anges **inte** automatiskt till **Sant** när du distribuerar en tjänst i AKS, så du måste uppdatera konfigurations filen, till exempel: 
+1. Data insamling anges *inte* automatiskt till **Sant** när du distribuerar en tjänst i AKS. Uppdatera konfigurations filen, som i följande exempel:
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
     ```
-    AppInsights för tjänstövervakning av kan också aktiveras genom att ändra den här konfigurationen:
+
+    Du kan också aktivera Application Insights för service övervakning genom att ändra den här konfigurationen:
+
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
-    ``` 
+    ```
 
-5. Information om hur du skapar en ny avbildning och distribuerar tjänsten finns i [så här distribuerar och var](how-to-deploy-and-where.md) dokumentet
+1. Information om hur du skapar en ny avbildning och distribuerar Machine Learning-modellen finns i [distribuera och var](how-to-deploy-and-where.md).
 
+Om du redan har en tjänst med beroenden som är installerade i miljö filen och bedömnings filen aktiverar du data insamling genom att följa dessa steg:
 
-Om du redan har en tjänst med beroenden som är installerade i **miljö filen** och **bedömnings filen**aktiverar du data insamling genom att:
+1. Gå till [Azure Machine Learning](https://ml.azure.com).
 
-1. Gå till [Azure Machine Learning Studio](https://ml.azure.com)
+1. Öppna din arbetsyta.
 
-1. Öppna din arbets yta
+1. Välj **distributioner** > **Välj tjänst** > **Redigera**.
 
-1. Gå till **distributioner** -> **Välj tjänst** -> **Redigera**
+   ![Redigera tjänsten](media/how-to-enable-data-collection/EditService.PNG)
 
-   ![Redigera tjänst](media/how-to-enable-data-collection/EditService.PNG)
+1. I **Avancerade inställningar**väljer du **Aktivera modell data insamling**.
 
-1. I **Avancerade inställningar**väljer du **Aktivera modell data insamling**
+    [![Välj data insamling](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
-    [![kontrol lera data insamling](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
+   Du kan också välja **Aktivera AppInsights-diagnostik** för att spåra hälso tillståndet för din tjänst.
 
-   I det här fönstret kan du också välja "Aktivera Appinsights diagnostik" för att spåra hälso tillståndet för din tjänst
-
-1. Välj **Uppdatera** för att tillämpa ändringen
-
+1. Välj **Uppdatera** för att tillämpa ändringarna.
 
 ## <a name="disable-data-collection"></a>Inaktivera datainsamling
-Du kan stoppa insamling av data som helst. Använd python-kod eller Azure Machine Learning Studio för att inaktivera data insamling.
 
-+ Alternativ 1 – Inaktivera i Azure Machine Learning Studio: 
-  1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com)
+Du kan när som helst sluta samla in data. Använd python-kod eller Azure Machine Learning för att inaktivera data insamling.
 
-  1. Öppna din arbets yta
+### <a name="option-1---disable-data-collection-in-azure-machine-learning"></a>Alternativ 1 – inaktivera data insamling i Azure Machine Learning
 
-  1. Gå till **distributioner** -> **Välj tjänst** -> **Redigera**
+1. Logga in på [Azure Machine Learning](https://ml.azure.com).
 
-     [![redigerings alternativ](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+1. Öppna din arbetsyta.
 
-  1. I **Avancerade inställningar**avmarkerar du **Aktivera modell data insamling**
+1. Välj **distributioner** > **Välj tjänst** > **Redigera**.
 
-     [![avmarkera data insamling](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+   [![Välj alternativet Redigera](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-  1. Välj **Uppdatera** för att tillämpa ändringen
+1. I **Avancerade inställningar**avmarkerar du **Aktivera modell data insamling**.
 
-  Du kan också komma åt de här inställningarna i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
+    [![rensa kryss rutan data insamling](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
-+ Alternativ 2 – använda Python för att inaktivera datainsamling:
+1. Välj **uppdatering** tillämpa ändringen.
+
+Du kan också komma åt de här inställningarna i din arbets yta i [Azure Machine Learning](https://ml.azure.com).
+
+### <a name="option-2---use-python-to-disable-data-collection"></a>Alternativ 2 – Använd python för att inaktivera data insamling
 
   ```python 
   ## replace <service_name> with the name of the web service
   <service_name>.update(collect_model_data=False)
   ```
 
-## <a name="validate-your-data-and-analyze-it"></a>Validera dina data och analysera dem
-Du kan välja alla verktyg du föredrar att analysera data som samlats in i din Azure-Blob.
+## <a name="validate-and-analyze-your-data"></a>Validera och analysera dina data
 
-Att snabbt komma åt data från din blob:
+Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen.
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com)
+### <a name="quickly-access-your-blob-data"></a>Kom snabbt åt dina BLOB-data
 
-1. Öppna din arbets yta
-1. Klicka på **lagring**
+1. Logga in på [Azure Machine Learning](https://ml.azure.com).
 
-    [![lagring](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+1. Öppna din arbetsyta.
 
-1. Följ väg till utdata i blobben med följande syntax:
+1. Välj **Lagring**.
 
-```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
-# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
-```
+    [![väljer lagrings alternativet](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
+1. Följ sökvägen till blobens utgående data med följande syntax:
 
-### <a name="analyzing-model-data-through-power-bi"></a>Analysera modelldata via Power BI
+   ```
+   /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
+   # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
+   ```
 
-1. Ladda ned och öppna [Power BI Desktop](https://www.powerbi.com)
+### <a name="analyze-model-data-using-power-bi"></a>Analysera modell data med Power BI
 
-1. Välj **Hämta data** och klicka på [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources)
+1. Ladda ned och öppna [Power BI Desktop](https://www.powerbi.com).
 
-    [![PBI BLOB-installation](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
+1. Välj **Hämta data** och välj [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
+    [![Power BI BLOB-installation](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. Lägg till namnet på ditt lagringskonto och ange lagringskontots åtkomstnyckel. Du hittar den här informationen i blobens **inställningar** > > åtkomst nycklar
+1. Lägg till namnet på ditt lagringskonto och ange lagringskontots åtkomstnyckel. Du kan hitta den här informationen genom att välja **inställningar** > **åtkomst nycklar** i blobben.
 
-1. Välj behållaren **modeldata** och klicka på **Redigera**
+1. Välj **modellen data** behållare och välj **Redigera**.
 
-    [![PBI-navigatören](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+    [![Power BI Navigator](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. Klicka på under ”Name”-kolumnen i frågeredigeraren och lägga till ditt Storage-konto 1. Modellen sökväg i filtret. Obs: Om du vill att bara söka i filer från ett visst år eller månad, bara Expandera filter-sökväg. Titta exempelvis bara på mars-data:/modeldata/subscriptionId >/ResourceGroupName >/workspacename >/webservicename >/ModelName >/modelversion >/Designation >/Year >/3
+1. I Frågeredigeraren klickar du under kolumnen **namn** och lägger till ditt lagrings konto.
 
-1. Filtrera data som är relevanta för dig baserat på **namn**. Om du har lagrat **förutsägelser** och **indata**måste du skapa en fråga för varje
+1. Ange din modell Sök väg i filtret. Om du bara vill titta på filer från ett speciellt år eller månad expanderar du bara filter Sök vägen. Använd till exempel följande filter Sök väg om du vill visa enbart mars data:
 
-1. Klicka på dubbelpil undan **innehålls** kolumnen för att kombinera filerna
+   /modeldata/\<subscriptionId >/\<ResourceGroupName >/\<workspacename >/\<webservicename >/\<ModelName >/\<modelversion >/\<beteckning >/\<år >/3
 
-    [![PBI-innehåll](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+1. Filtrera data som är relevanta för dig baserat på **namn** värden. Om du har lagrat förutsägelser och indata måste du skapa en fråga för var och en.
 
-1. Klicka på OK så inläsnings data laddas
+1. Välj de nedåtriktade dubbla pilarna bredvid kolumn rubriken **innehåll** för att kombinera filerna.
 
-    [![pbiCombine](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
+    [![Power BI innehåll](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
-1. Nu kan du klicka på **Stäng och tillämpa**
+1. Välj **OK**. Data inläsningar.
 
-1.  Om du har lagt till indata och förutsägelser kommer dina tabeller automatiskt att korreleras med **RequestId**
+    [![Power BI kombinera filer](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
-1. Börja skapa dina anpassade rapporter på dina modell data
+1. Välj **Stäng och Använd**.
 
+1. Om du har lagt till indata och förutsägelser sorteras dina tabeller automatiskt efter **RequestId** -värden.
 
-### <a name="analyzing-model-data-using-databricks"></a>Analysera modelldata med Databricks
+1. Börja skapa anpassade rapporter på dina modelldata.
 
-1. Skapa en [Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+### <a name="analyze-model-data-using-azure-databricks"></a>Analysera modell data med Azure Databricks
 
-1. Gå till din Databricks-arbetsyta
+1. Skapa en [Azure Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
-1. I din databricks-arbetsyta väljer du **överför data**
+1. Gå till din Databricks-arbetsyta.
 
-    [![DB-överföring](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+1. I arbets ytan Databricks väljer du **Ladda upp data**.
 
-1. Skapa en ny tabell och välj **andra data källor** – > Azure Blob Storage-> skapa tabell i antecknings boken
+    [![att välja alternativet Databricks upload data](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-    [![DB-tabell](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+1. Välj **Skapa ny tabell** och välj **andra data källor** > **Azure Blob Storage** > **Skapa tabell i antecknings boken**.
+
+    [skapande av ![Databricks-tabell](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
 1. Uppdatera platsen för dina data. Här är ett exempel:
 
@@ -234,13 +243,7 @@ Att snabbt komma åt data från din blob:
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
     file_type = "csv"
     ```
- 
-    [![med DBSetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
-1. Följ stegen i mallen för att visa och analysera dina data
+    [![Databricks-installation](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
-## <a name="example-notebook"></a>Exempel-anteckningsbok
-
-Antecknings boken [How-to-use-azureml/Deployment/Enable-data-Collection-for-Models-in-AKS/Enable-data-Collection-for-Models-in-AKS. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) visar begreppen i den här artikeln.  
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+1. Följ stegen i mallen för att visa och analysera dina data.

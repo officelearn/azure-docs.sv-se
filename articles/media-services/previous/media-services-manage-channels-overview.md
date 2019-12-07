@@ -1,6 +1,6 @@
 ---
 title: Översikt över direkt uppspelning med Azure Media Services | Microsoft Docs
-description: Det här avsnittet ger en översikt över direkt uppspelning med Azure Media Services.
+description: Den här artikeln ger en översikt över direkt uppspelning med Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5ab4a6b96df964497e20b2b93c59febb0e24393c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8b58e9d2eae1fbe5b0f4086f772bea3bf46399c3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035899"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895944"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Översikt över direkt uppspelning med Media Services
 
@@ -55,13 +55,13 @@ I Azure Media Services hanterar **kanaler**, **program** och **strömningsslutpu
 
 En **kanal** representerar en pipeline för bearbetning av liveuppspelningsinnehåll. En kanal kan ta emot en live-indataström på följande sätt:
 
-* En lokal livekodare skickar **RTMP** eller **Smooth Streaming** med flera bithastigheter (fragmenterad MP4) till den kanal som är konfigurerad för **direkt** leverans. Den **direkta** leveransen är när de infogade strömmarna passerar genom **kanalerna** utan vidare bearbetning. Du kan använda följande Live-kodare som utdata Smooth Streaming med flera bit hastigheter: MediaExcel, Ateme, Föreställ dig kommunikation, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: Adobe Flash Media Live Encoder (FMLE), Wirecast, Haivision, Teradek och TriCaster Encoder.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
+* En lokal livekodare skickar **RTMP** eller **Smooth Streaming** med flera bithastigheter (fragmenterad MP4) till den kanal som är konfigurerad för **direkt** leverans. Den **direkta** leveransen är när de infogade strömmarna passerar genom **kanalerna** utan vidare bearbetning. Du kan använda följande Live-kodare som utvärderar multi-bitrs Smooth Streaming: MediaExcel, Ateme, Föreställing Communications, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: Adobe Flash Media Live Encoder (FMLE), Wirecast, Haivision, Teradek och TriCaster Encoder.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
 
   > [!NOTE]
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/media-services/).
   > 
   > 
-* En lokal Live-kodare skickar en data ström med en bit hastighet till den kanal som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Följande Live-kodare med RTMP-utdata är kända för att fungera med kanaler av den här typen: Wirecast för multistream, FMLE. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
+* En lokal Live-kodare skickar en data ström med en bit hastighet till den kanal som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Följande Live-kodare med RTMP-utdata är kända för att fungera med kanaler av den här typen: Wirecast för teleströms, FMLE. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
 Från och med Media Services 2,10-versionen när du skapar en kanal, kan du ange i vilket sätt du vill att din kanal ska ta emot indataströmmen och om du vill att kanalen ska kunna använda direktsänd kodning av data strömmen. Du kan välja mellan två alternativ:
 
@@ -78,7 +78,7 @@ Följande tabell innehåller en guide för att jämföra de två kanal typer som
 | Högsta upplösning, antal lager |1080p, 8 lager, 60 + fps |720p, 6 lager, 30 fps |
 | Protokoll för indataport |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Pris |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video" |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) |
-| Maximal kör tid |DYGNET RUNT |8 timmar |
+| Maximal kör tid |Dygnet runt |8 timmar |
 | Stöd för att infoga mellanliggande |Nej |Ja |
 | Stöd för AD-signalering |Nej |Ja |
 | Pass-through CEA 608/708-textning |Ja |Ja |
@@ -92,7 +92,7 @@ I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i
 
 ![Live-arbetsflöde](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
-Mer information finns i [Arbeta med kanaler som tar emot liveström i flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
+Mer information finns i [Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services
 
@@ -112,9 +112,9 @@ Du kan hämta inmatnings-URL: en och URL: en för för hands versionen när du s
 
 Varje Media Services konto kan innehålla flera kanaler, flera program och flera strömnings slut punkter. Beroende på bandbredds-och säkerhets behoven kan StreamingEndpoint-tjänster vara dedikerade till en eller flera kanaler. Alla StreamingEndpoint kan hämta från vilken kanal som helst.
 
-När du skapar en kanal kan du ange tillåtna IP-adresser i något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
+När du skapar en kanal kan du ange tillåtna IP-adresser i något av följande format: IpV4-adress med 4 nummer, CIDR-adressintervall.
 
-### <a name="program"></a>Programmet
+### <a name="program"></a>Program
 Ett [program](https://docs.microsoft.com/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en Live-dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
 Du kan ange hur många timmar du vill behålla det inspelade innehållet för programmet genom att ange egenskapen **ArchiveWindowLength** . Det här värdet kan anges från minst 5 minuter till högst 25 timmar.
 
@@ -152,7 +152,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 | --- | --- | --- |
 | Startar |Startar |Nej (övergångsläge) |
 | Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |JA |
-| Stoppar |Stoppar |Nej (övergångsläge) |
+| Stoppas |Stoppas |Nej (övergångsläge) |
 | Stoppad |Stoppad |Nej |
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning

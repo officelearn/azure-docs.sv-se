@@ -1,61 +1,61 @@
 ---
 title: Mata in historiska telemetridata
-description: Beskriver hur du hämtar historiska telemetridata för inmatningar
+description: I den här artikeln beskrivs hur du matar in historiska telemetridata.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0ab2ba2c49dd0d0f946358c8f52a6daaf7428dd1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d2ac3b0f531b6384643d91fac1cf50a0ea719969
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851425"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900342"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
 I den här artikeln beskrivs hur du matar in historiska sensor data i Azure FarmBeats.
 
-Att mata in historiska data från Sakernas Internet (IoT) för resurser som enheter och sensorer är ett vanligt scenario i FarmBeats. Du skapar metadata för enheter och sensorer och matar sedan in historiska data till FarmBeats i kanoniskt format.
+Att mata in historiska data från Sakernas Internet-resurser (IoT) som enheter och sensorer är ett vanligt scenario i FarmBeats. Du skapar metadata för enheter och sensorer och matar sedan in historiska data till FarmBeats i kanoniskt format.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och samlat in historiska data från IoT.
-Du måste också aktivera partner åtkomst som anges i stegen nedan.
+Du måste också aktivera partner åtkomst som anges i följande steg.
 
 ## <a name="enable-partner-access"></a>Aktivera partner åtkomst
 
-Du måste aktivera partner integrering till din Azure FarmBeats-instans. Det här steget skapar en klient som har åtkomst till din Azure-FarmBeats som din enhets partner och innehåller följande värden som krävs i följande steg.
+Du måste aktivera partner integrering till din Azure FarmBeats-instans. Det här steget skapar en klient som har åtkomst till din Azure FarmBeats-instans som din enhets partner och ger dig följande värden som krävs i följande steg:
 
-- API-slutpunkt – det här är data hubbens URL, till exempel https://\<Datahub >. azurewebsites. net
+- API-slut punkt: Detta är Datahub-URL, till exempel https://\<Datahub >. azurewebsites. net.
 - Klient-ID:t
 - Klientorganisations-ID
 - Klienthemlighet
 - EventHub-anslutningssträng
 
-Generera följande genom att följa stegen nedan:
+Följ de här stegen.
 
 >[!NOTE]
 > Du måste vara administratör för att utföra följande steg.
 
-1. Hämta det här [skriptet](https://aka.ms/farmbeatspartnerscript) och extrahera det i på den lokala enheten. Du hittar två filer i ZIP-filen.
-2. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Cloud Shell (det här alternativet finns i det övre högra fältet i portalen)  
+1. Hämta det här [skriptet](https://aka.ms/farmbeatspartnerscript)och extrahera det på din lokala enhet. Två filer finns inuti zip-filen.
+2. Logga in i [Azure-portalen](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen. 
 
-    ![Taktslag i projekt grupp](./media/for-tutorials/navigation-bar-1.png)
+    ![Azure Portal verktygsfält](./media/for-tutorials/navigation-bar-1.png)
 
-3. Se till att miljön är inställd på **PowerShell**.
+3. Kontrol lera att miljön är inställd på **PowerShell**.
 
-    ![Taktslag i projekt grupp](./media/for-tutorials/power-shell-new-1.png)
+    ![PowerShell-inställning](./media/for-tutorials/power-shell-new-1.png)
 
-4. Ladda upp de två filerna som du laddade ned (från steg 1 ovan) i din Cloud Shell.  
+4. Ladda upp de två filerna som du laddade ned från steg 1 i Cloud Shell-instansen. 
 
-    ![Taktslag i projekt grupp](./media/for-tutorials/power-shell-two-1.png)
+    ![Knappen Ladda upp i verktygsfältet](./media/for-tutorials/power-shell-two-1.png)
 
-5. Gå till den katalog där filerna laddades upp
+5. Gå till den katalog där filerna överfördes.
 
    >[!NOTE]
-   > Som standard laddas filen upp till arbets katalogen/Home/username/.
-6. Kör skriptet med hjälp av kommandot:  
+   > Som standard laddas filerna upp till hem katalogen/hem/användar namn.
+6. Kör skriptet med det här kommandot: 
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -63,79 +63,79 @@ Generera följande genom att följa stegen nedan:
 
 7. Följ anvisningarna på skärmen för att slutföra proceduren.
 
-## <a name="create-devicesensor-metadata"></a>Skapa metadata för enhet/sensor
+## <a name="create-device-or-sensor-metadata"></a>Skapa metadata för enhet eller sensor
 
- Nu när du har de autentiseringsuppgifter som krävs kan du definiera enheten och sensorer genom att skapa metadata med FarmBeats-API: er.
+ Nu när du har de autentiseringsuppgifter som krävs kan du definiera enheten och sensorer. Det gör du genom att skapa metadata med FarmBeats-API: er.
 
- FarmBeats-datahubben har följande API: er som möjliggör skapande och hantering av enhet/sensor-metadata.   
+ FarmBeats Datahub har följande API: er som möjliggör skapande och hantering av enhets-eller sensor-metadata. 
 
-- /**DeviceModel** -enhets modell motsvarar enhetens metadata, till exempel tillverkare, typ av enhet, antingen gateway eller nod.  
-- /**enhet** – enheten motsvarar en fysisk enhet som finns i Server gruppen.  
-- /**SensorModel** -sensor modell motsvarar metadata för sensorn, till exempel tillverkare, typ av sensor, antingen analog eller digital, sensor mått, till exempel omgivnings temperatur eller tryck.
-- /**sensor** -sensor motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.  
+- /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod. 
+- /**enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen. 
+- /**SensorModel**: SensorModel motsvarar sensorns metadata, t. ex. tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
+- /**sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.  
 
 
-|        Enhetsmodell   |  Förslag   |
+|        DeviceModel   |  Förslag   |
 | ------- | -------             |
 |     Typ (nod, Gateway)        |          1 stjärna      |
 |          Tillverkare            |         2 stjärnor     |
-|  ProductCode                    |  Enhetens produkt kod eller modell namn/nummer. Till exempel EnviroMonitor # 6800.  |
-|            Portar          |     Port namn och typ (digital/analog)
-|     Namn                 |  Namn för att identifiera resursen. Till exempel modell namn/produkt namn.
-      Beskrivning     | Ange en meningsfull beskrivning av modellen
-|    Egenskaper          |    Ytterligare egenskaper från tillverkaren   |
+|  ProductCode                    |  Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800.  |
+|            Portar          |     Port namn och-typ, som är digital eller analog.
+|     Namn                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
+      Beskrivning     | Ange en meningsfull beskrivning av modellen.
+|    Egenskaper          |    Ytterligare egenskaper från tillverkaren.   |
 |    **Enhet**             |                      |
-|   DeviceModelId     |     ID för associerad enhets modell  |
-|  HardwareId          | Unikt ID för enheten, till exempel MAC-adress osv.
-|  ReportingInterval        |   Rapport intervall i sekunder
-|  Plats            |  Enhets-latitud (-90 till + 90)/Longitude (-180 till 180)/Elevation (i meter)   
-|ParentDeviceId       |    ID för den överordnade enhet som enheten är ansluten till. Till exempel en nod som är ansluten till en gateway. En nod kommer att ha parentDeviceId som gateway.  |
-|    Namn            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierat, ska samma användardefinierade namn spridas till FarmBeats.|
-|     Beskrivning       |      Ange en meningsfull beskrivning  |
-|     Egenskaper    |  Ytterligare egenskaper från tillverkaren
-|     **Sensor modell**        |          |
-|       Typ (analog, digital)          |      typ av sensor, vare sig analog eller digital       |
-|          Tillverkare            |       sensorns tillverkare     |
-|     ProductCode| Produkt kod eller modell namn/nummer. Till exempel RS-CO2-N01. |
-|       SensorMeasures > namn       | Sensor måttets namn. Endast gemener stöds. Ange djupet för mått från olika djup. Till exempel soil_moisture_15cm. Det här namnet måste vara konsekvent med telemetri-data  |
-|          SensorMeasures > datatype       |Datatyp för telemetri. För närvarande stöds Double|
-|    sensorMeasures > typ    |Typ av mått för sensorer för telemetri. Följande är systemdefinierade typer: AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.|
-|        SensorMeasures > enhet              | Enhet för data för sensor telemetri. Följande är systemdefinierade enheter: nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, kvicksilver, PSI, MilliMeter, CentiMeter, meter, tum, fötter, mil, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, examen, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, procent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, liter, MilliLiter, sekunder, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour för att lägga till mer, se/ ExtendedType-API.|
-|    SensorMeasures > aggregationType    |  Värdena kan vara ingen, genomsnitt, högsta, lägsta eller StandardDeviation  |
-|          Namn            | Namn för att identifiera resursen. Till exempel modell namn/produkt namn.  |
-|    Beskrivning        | Ange en meningsfull beskrivning av modellen  |
-|   Egenskaper       |  Ytterligare egenskaper från tillverkaren  |
+|   DeviceModelId     |     ID för associerad enhets modell.  |
+|  HardwareId          | Unikt ID för enheten, till exempel MAC-adressen.
+|  ReportingInterval        |   Rapport intervall i sekunder.
+|  Plats            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).   
+|ParentDeviceId       |    ID för den överordnade enhet som enheten är ansluten till. Till exempel en nod som är ansluten till en gateway. En nod har parentDeviceId som gateway.  |
+|    Namn            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
+|     Beskrivning       |      Ange en meningsfull beskrivning. |
+|     Egenskaper    |  Ytterligare egenskaper från tillverkaren.
+|     **SensorModel**        |          |
+|       Typ (analog, digital)          |      Typen av sensor, vare sig det är analogt eller digitalt.       |
+|          Tillverkare            |       Sensorns tillverkare.     |
+|     ProductCode| Produkt kod eller modell namn eller nummer. Till exempel RS-CO2-N01. |
+|       SensorMeasures > namn       | Sensor måttets namn. Endast gemener stöds. Ange djupet för mått från olika djup. Till exempel soil_moisture_15cm. Det här namnet måste vara konsekvent med telemetri-data.  |
+|          SensorMeasures > datatype       |Datatyp för telemetri. För närvarande stöds Double.|
+|    sensorMeasures > typ    |Typ av mått för sensorer för telemetri. Systemdefinierade typer är AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.|
+|        SensorMeasures > enhet              | Enhet för data för sensor telemetri. De systemdefinierade enheterna är nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, kvicksilver, PSI, MilliMeter, CentiMeter, meter, tum, fot, mil, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, examen, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, procent,,,,, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour för att lägga till mer finns i/ExtendedType-API: et.|
+|    SensorMeasures > AggregationType    |  Värdena kan vara ingen, genomsnitt, högsta, lägsta eller StandardDeviation.  |
+|          Namn            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
+|    Beskrivning        | Ange en meningsfull beskrivning av modellen.  |
+|   Egenskaper       |  Ytterligare egenskaper från tillverkaren.  |
 |    **Mäta**      |          |
-| HardwareId          |   Unikt ID för sensorn som angetts per tillverkare |
-|  SensorModelId     |    ID för associerad sensor modell   |
-| location          |  Sensor latitud (-90 till + 90)/Longitude (-180 till 180)/Elevation (i meter)|
-|   Port > namn        |  Namn och typ för den port som sensorn är ansluten till på enheten. Detta måste vara samma namn som det definieras i enhets modellen. |
-|    DeviceID  |    ID för den enhet som sensorn är ansluten till     |
-| Namn            |   Namn för att identifiera resursen. Till exempel sensor namn/produkt namn och modell nummer/produkt kod.|
-|    Beskrivning      | Ange en meningsfull beskrivning |
-|    Egenskaper        |Ytterligare egenskaper från tillverkaren |
+| HardwareId          |   Unikt ID för sensorn som anges av tillverkaren. |
+|  SensorModelId     |    ID för associerad sensor modell.   |
+| Plats          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
+|   Port > namn        |  Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som det definieras i enhets modellen. |
+|    DeviceID  |    ID för den enhet som sensorn är ansluten till.     |
+| Namn            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
+|    Beskrivning      | Ange en meningsfull beskrivning. |
+|    Egenskaper        |Ytterligare egenskaper från tillverkaren. |
 
 Mer information om objekt finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
-**API-begäran för att skapa metadata**
+### <a name="api-request-to-create-metadata"></a>API-begäran för att skapa metadata
 
-Om du vill göra en API-begäran kombinerar du HTTP-metoden (POST), URL: en till API-tjänsten, URI: n till en resurs att fråga, skickar data för att skapa eller ta bort en begäran och lägger till en eller flera HTTP-begärandehuvuden. URL: en till API-tjänsten är API-slutpunkten, d.v.s. data hubbens URL (https://\<yourdatahub >. azurewebsites. net)  
+Om du vill göra en API-begäran kombinerar du HTTP-metoden (POST), URL: en till API-tjänsten och URI: n till en resurs att fråga, skicka data till, skapa eller ta bort en begäran. Sedan lägger du till en eller flera huvuden för HTTP-begäran. URL-adressen till API-tjänsten är API-slutpunkten, det vill säga Datahub-URL: en (https://\<yourdatahub >. azurewebsites. net).  
 
-**Autentisering**:
+### <a name="authentication"></a>Autentisering
 
-FarmBeats-datahubben använder Bearer-autentisering, som behöver följande autentiseringsuppgifter som vi skapade i avsnittet ovan.
+FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter som genererades i föregående avsnitt:
 
 - Klientorganisations-ID
 - Klienthemlighet
-- Klient-ID:t  
+- Klient-ID:t
 
-Med hjälp av ovanstående autentiseringsuppgifter kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i rubrik avsnittet enligt följande:
+Med dessa autentiseringsuppgifter kan anroparen begära en åtkomsttoken. Token måste skickas i efterföljande API-begäranden i avsnittet rubrik enligt följande:
 
 ```
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
-Nedan visas ett exempel på en python-kod som ger åtkomsttoken, som kan användas för efterföljande API-anrop till FarmBeats: 
+Följande exempel på python-kod ger åtkomst-token som kan användas för efterföljande API-anrop till FarmBeats: 
 
 ```python
 import azure 
@@ -157,17 +157,17 @@ access_token = token_response.get('accessToken') 
 ```
 
 
-**Rubriker för http-begäran**:
+**Rubriker för HTTP-begäran**
 
-Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats-data hubben:
+Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub:
 
-- Innehålls typ: Application/JSON
-- Auktorisering: innehavare < åtkomst-token >
-- Acceptera: Application/JSON
+- **Innehålls typ**: Application/JSON
+- **Auktorisering**: innehavare < åtkomst-token >
+- **Acceptera**: Application/JSON
 
-**Ange nytto last för att skapa metadata**:
+### <a name="input-payload-to-create-metadata"></a>Ange nytto last för att skapa metadata
 
-**DeviceModel**
+DeviceModel
 
 
 ```json
@@ -269,7 +269,7 @@ Mäta
   }
 }
 ```
-Nedanstående exempel förfrågan är att skapa en enhet (detta har en indataport som nytto last med begär ande texten).  
+Följande exempel förfrågan skapar en enhet. Den här begäran har indataports-JSON som nytto last med begär ande texten. 
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -280,21 +280,21 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 ```
 
 > [!NOTE]
-> API: erna returnerar unika ID: n för varje instans som skapats. Du måste behålla ID: na för att skicka motsvarande telemetri meddelanden.
+> API: erna returnerar unika ID: n för varje instans som skapats. Du måste behålla ID: na för att skicka motsvarande telemetri-meddelanden.
 
-**Skicka telemetri**
+### <a name="send-telemetry"></a>Skicka telemetri
 
-Nu när du har skapat enheterna och sensorer i FarmBeats kan du skicka de associerade telemetri-meddelandena.  
+Nu när du har skapat enheterna och sensorer i FarmBeats kan du skicka de associerade telemetri-meddelandena.
 
-**Skapa telemetri-klient**
+### <a name="create-a-telemetry-client"></a>Skapa en telemetri-klient
 
-Du måste skicka telemetri till Azure Event Hub för bearbetning. Azure EventHub är en tjänst som gör det möjligt att använda real tids data (telemetri) från anslutna enheter och program. Om du vill skicka telemetridata till FarmBeats måste du skapa en klient som skickar meddelanden till en Event Hub i FarmBeats. Mer information om hur du skickar telemetri finns i [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Du måste skicka Telemetrin till Azure-Event Hubs för bearbetning. Azure Event Hubs är en tjänst som gör att du kan mata in real tids data (telemetri) från anslutna enheter och program. Om du vill skicka telemetridata till FarmBeats skapar du en klient som skickar meddelanden till en Event Hub i FarmBeats. Mer information om hur du skickar telemetri finns i [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
-**Skicka telemetri-meddelande som klienten**
+### <a name="send-a-telemetry-message-as-the-client"></a>Skicka ett meddelande om telemetri som klienten
 
-När du har upprättat en anslutning som en EventHub-klient kan du skicka meddelanden till EventHub som en JSON.  
+När du har upprättat en anslutning som en Event Hubs-klient kan du skicka meddelanden till Event Hub som JSON. 
 
-Här är ett exempel på en python-kod som skickar telemetri som en klient till en angiven Event Hub:
+Här är exempel på python-kod som skickar telemetri som en klient till en angiven Event Hub:
 
 ```python
 import azure
@@ -313,7 +313,7 @@ write_client.stop()
 
 ```
 
-Konvertera det historiska sensor data formatet till ett kanoniskt format som Azure-FarmBeats förstår. Det kanoniska meddelande formatet är som följer:  
+Konvertera det historiska sensor data formatet till ett kanoniskt format som Azure-FarmBeats förstår. Det kanoniska meddelande formatet är följande: 
 
 ```json
 {
@@ -338,9 +338,9 @@ Konvertera det historiska sensor data formatet till ett kanoniskt format som Azu
 }
 ```
 
-När du har lagt till motsvarande enheter och sensorer hämtar du DeviceID och sensorid i telemetri-meddelandet, enligt beskrivningen i föregående avsnitt
+När du har lagt till motsvarande enheter och sensorer måste du hämta enhets-ID och sensor-ID i telemetri-meddelandet, enligt beskrivningen i föregående avsnitt.
 
-Exempel på telemetri:
+Här är ett exempel på ett telemetri-meddelande:
 
 
  ```json
@@ -382,4 +382,4 @@ Exempel på telemetri:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om REST API-baserad integrerings information finns [REST API](references-for-farmbeats.md#rest-api).
+Mer information om REST API-baserad integrations information finns i [REST API](references-for-farmbeats.md#rest-api).

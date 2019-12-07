@@ -1,5 +1,5 @@
 ---
-title: Mass kopiering från en databas med hjälp av en kontroll tabell med Azure Data Factory
+title: Mass kopiering från en databas med hjälp av en kontroll tabell
 description: Lär dig hur du använder en lösnings mall för att kopiera Mass data från en databas med hjälp av en extern kontroll tabell för att lagra en partitions lista med käll tabeller med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.openlocfilehash: b651721e9b833c02e4789c79ff5ad0b49ce31343
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f50a6067eb38e920c32079c140785f397ee6698
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684273"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896260"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Mass kopiering från en databas med en kontroll tabell
 
@@ -44,7 +44,7 @@ Mallen definierar fem parametrar:
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
-1. Skapa en kontroll tabell i SQL Server eller Azure SQL Database för att lagra käll databasens partition lista för Mass kopiering. I följande exempel finns det fem partitioner i käll databasen. Tre partitioner är för *datasource_table*och två är för *project_table*. Kolumnen *LastModifytime* används för att partitionera data i Table *datasource_table* från käll databasen. Frågan som används för att läsa den första partitionen är Select * from datasource_table där LastModifytime > = ' ' 2015-01-01 00:00:00 ' ' och LastModifytime < = ' ' 2015-12-31 23:59:59.999 ' '. Du kan använda en liknande fråga för att läsa data från andra partitioner.
+1. Skapa en kontroll tabell i SQL Server eller Azure SQL Database för att lagra käll databasens partition lista för Mass kopiering. I följande exempel finns det fem partitioner i käll databasen. Det finns tre partitioner för *datasource_table*och två för *project_table*. Kolumnen *LastModifytime* används för att partitionera data i tabell *datasource_table* från käll databasen. Frågan som används för att läsa den första partitionen är Select * from datasource_table WHERE LastModifytime > = ' ' 2015-01-01 00:00:00 ' ' och LastModifytime < = ' ' 2015-12-31 23:59:59.999 ' '. Du kan använda en liknande fråga för att läsa data från andra partitioner.
 
      ```sql
             Create table ControlTableForTemplate

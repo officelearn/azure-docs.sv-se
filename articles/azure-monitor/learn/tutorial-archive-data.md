@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304707"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893356"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
@@ -38,9 +38,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../../storage/common/storage-quickstart-create-account.md).
 
@@ -70,7 +70,7 @@ Nu flödar övervakningsdata från prenumerationen till lagringskontot.
 
 ## <a name="route-resource-data-to-the-storage-account"></a>Dirigera resursdata till lagringskontot
 
-Nu konfigurerar vi resursnivådata (resursmått och diagnostikloggar) så att de dirigeras till lagringskontot genom att skapa **resursdiagnostikinställningar**.
+Nu ska vi konfigurera resurs nivå data (resurs mått och resurs loggar) som ska dirigeras till lagrings kontot genom att ställa in **diagnostiska inställningar**.
 
 1. Klicka på knappen **Övervaka** i vänster navigeringslista. Klicka sedan på **Diagnostikinställningar**. Här ser du en lista över alla resurser i prenumerationen som producerar övervakningsdata via Azure Monitor. Om du inte har några resurser i listan kan du [skapa en logikapp](../../logic-apps/quickstart-create-first-logic-app-workflow.md) innan du fortsätter, så att du har en resurs som du kan konfigurera en diagnostikinställning på.
 
@@ -86,7 +86,7 @@ Nu konfigurerar vi resursnivådata (resursmått och diagnostikloggar) så att de
 
    ![Avsnittet diagnostikinställningar](media/tutorial-archive-data/diagnostic-settings-home.png)
 
-4. Klicka på knappen **Konfigurera** under **Arkivera till ett lagringskonto** och välj det lagringskonto du skapade i föregående avsnitt. Klicka på **OK**.
+4. Klicka på knappen **Konfigurera** under **Arkivera till ett lagringskonto** och välj det lagringskonto du skapade i föregående avsnitt. Klicka på **OK**
 
    ![Diagnostikinställningar för lagringskonto](media/tutorial-archive-data/diagnostic-settings-storage.png)
 
@@ -162,7 +162,7 @@ Om du har följt föregående steg har data börjat flöda till lagringskontot.
 
 5. Navigera till filen PT1H.json genom att klicka på containrarna för resurs-ID, datum och tid. Klicka på filen PT1H.json och på **Hämta**. Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minutvärdet (m=00) är alltid 00, eftersom logghändelser delas upp i enskilda blobar per timme.
 
-   Du kan nu visa JSON-händelsen som lagrats i lagringskontot. Formatet för blobarna för resursdiagnostikloggar är:
+   Du kan nu visa JSON-händelsen som lagrats i lagringskontot. För resurs resurs loggar är formatet för Blobbarna:
 
    insights-logs-{namn på loggkategori}/resourceId=/{resurs-ID}/y={fyrsiffrigt årtal}/m={månad med två siffror}/d={dag med två siffror}/h={24-timmarsklocka med två siffror}/m=00/PT1H.json
 

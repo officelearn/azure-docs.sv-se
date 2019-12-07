@@ -1,22 +1,21 @@
 ---
-title: 'PowerShell-skript: kopiera data från en lokal plats till Azure med hjälp av Data Factory '
+title: Kopiera data från en lokal plats till Azure med PowerShell
 description: Det här PowerShell-skriptet kopierar data från en lokal SQL Server-databas till en annan Azure-Blob Storage.
 services: data-factory
-author: linda33wj
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: d7f8d67291c0b6b2a384331c014fdd5cd247ceae
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: linda33wj
+manager: shwang
+ms.date: 10/31/2017
+ms.openlocfilehash: f75c4316383120e198ab57501e31c0c42a8917f2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684342"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890852"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Använd PowerShell för att skapa en Data Factory-pipeline för att kopiera data från en lokal plats till Azure
 
@@ -26,7 +25,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline i Azure Data Factor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - **SQL Server**. Du använder en lokal SQL Server databas som **käll** data lager i det här exemplet.
 - **Azure Storage-konto**. Du använder Azure Blob Storage som data lager för **destination/mottagare** i det här exemplet. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).

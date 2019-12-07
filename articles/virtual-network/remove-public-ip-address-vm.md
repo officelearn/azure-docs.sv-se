@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: kumud
-ms.openlocfilehash: beb2655b0796adbe289b0af104dead2d15e584db
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1c27af30f97ea967d170b2cccaefb2e95f8fedaf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852164"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900748"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Koppla bort en offentlig IP-adress från en virtuell Azure-dator 
 
@@ -51,7 +51,7 @@ Installera [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netwo
     --name ipconfigmyVM \
     --resource-group myResourceGroup \
     --nic-name myVMVMNic \
-    --remove PublicIpAdress
+    --remove PublicIpAddress
    ```
 
    Om du inte känner till namnet på ett nätverks gränssnitt som är kopplat till den virtuella datorn använder du kommandot [AZ VM NIC List](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) för att visa dem. Följande kommando visar till exempel namnen på de nätverks gränssnitt som är kopplade till en virtuell dator med namnet *myVM* i en resurs grupp med namnet *myResourceGroup*:
@@ -68,11 +68,18 @@ Installera [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netwo
 
      I det tidigare exemplet är *myVMVMNic* namnet på nätverks gränssnittet.
 
-   - Om du inte känner till namnet på en IP-konfiguration för ett nätverks gränssnitt använder du kommandot [AZ Network NIC IP-config List](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) för att hämta dem. Följande kommando visar till exempel namnen på IP-konfigurationerna för ett nätverks gränssnitt med namnet *myVMVMNic* i en resurs grupp med namnet *myResourceGroup*:
+   - Om du inte känner till namnet på en IP-konfiguration för ett nätverks gränssnitt använder du kommandot [AZ Network NIC IP-config List](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) för att hämta dem. Följande kommando visar till exempel namnen på offentliga IP-konfigurationer för ett nätverks gränssnitt med namnet *myVMVMNic* i en resurs grupp med namnet *myResourceGroup*:
 
      ```azurecli-interactive
      az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
      ```
+
+   - Om du inte känner till namnet på en offentlig IP-konfiguration för ett nätverks gränssnitt använder du kommandot [AZ Network NIC IP-config show](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-show) för att hämta dem. Följande kommando visar till exempel namnen på offentliga IP-konfigurationer för ett nätverks gränssnitt med namnet *myVMVMNic* i en resurs grupp med namnet *myResourceGroup*:
+
+     ```azurecli-interactive
+     az network nic ip-config show --name ipconfigmyVM --nic-name myVMVMNic --resource-group myResourceGroup --query publicIPAddress.id
+     ```
+
 
 ## <a name="powershell"></a>PowerShell
 
@@ -106,13 +113,13 @@ Installera [PowerShell](/powershell/azure/install-az-ps)eller Använd Azure Clou
 
      ```azurepowershell-interactive
      $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-     $nic.IPConfigurations
+     $nic.IPConfigurations.id
      ```
 
      Utdata innehåller en eller flera rader som liknar exemplet nedan. I exempel resultatet är *ipconfigmyVM* namnet på en IP-konfiguration.
   
      ```
-     Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM"
      ```
 
 ## <a name="next-steps"></a>Nästa steg

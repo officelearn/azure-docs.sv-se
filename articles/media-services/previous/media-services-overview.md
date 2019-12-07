@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Media Services | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure Media Services
+description: Microsoft Azure Media Services är en utökningsbar molnbaserad plattform som gör det möjligt för utvecklare att skapa skalbara program för mediahantering och leverans. Den här artikeln ger en översikt över Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7f0a071012685ee192d4f866396a5953d0a4508c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d339fd16b1eef8df367bdcb375a1cb3dc71ddde2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937255"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895883"
 ---
 # <a name="azure-media-services-overview"></a>Översikt över Azure Media Services 
 
-> [!div class="op_single_selector" title1="Välj versionen av Media Services som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Media Services som du använder:"]
 > * [Version 3](../latest/media-services-overview.md)
 > * [Version 2](media-services-overview.md)
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services (AMS) är en utökningsbar molnbaserad plattform som gör att utvecklare kan skapa skalbara program för mediehantering och medieleverans. Media Services baseras på REST API:er som gör det möjligt att på ett säkert sätt överföra, lagra, koda och paketera video- eller ljudinnehåll för att strömma både på begäran och live till olika klienter (till exempel TV, datorer och mobila enheter).
 
 Du kan bygga arbetsflöden för slutpunkt till slutpunkt bara med Media Services. Du kan också välja att använda komponenter från tredje part för vissa delar av arbetsflödet. Koda till exempel med hjälp av en kodare från tredje part. Därefter kan du överföra, skydda, paketera och leverera med Media Services. Du kan välja att strömma ditt innehåll live eller leverera innehåll på begäran. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * (Valfritt) Konfigurera utvecklingsmiljön. Välj .NET eller REST API för din utvecklingsmiljö. Mer information finns i [Ställa in miljön](media-services-dotnet-how-to-use.md).
 
@@ -53,12 +53,12 @@ Bygg Media Services-lösningar genom att använda:
     * Azure Media Services SDK för .NET
     
         * [NuGet-paket](https://www.nuget.org/packages/windowsazure.mediaservices/)
-        * [Källkoden för Github](https://github.com/Azure/azure-sdk-for-media-services)
+        * [GitHub käll kod](https://github.com/Azure/azure-sdk-for-media-services)
     * [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java),
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Azure Media Services för Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (detta är en icke-Microsoft-version av en Node.js SDK. Den underhålls av ett community och har för närvarande inte en 100-procentig täckning av AMS API:er).
 * Befintliga verktyg:
-    * [Azure Portal](https://portal.azure.com/)
+    * [Azure-portalen](https://portal.azure.com/)
     * [Azure-Media Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) är ett Winforms/C#-program för Windows)
 
 > [!NOTE]
@@ -67,9 +67,9 @@ Bygg Media Services-lösningar genom att använda:
 
 ## <a name="code-samples"></a>Kodexempel
 
-Det finns fler kodexempel i galleriet **Azure Code Samples** (Azure-kodexempel): [Azure Media Services-kodexempel](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Du hittar flera exempel i galleriet med **kodexempel för Azure**: [kodexempel för Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 
 Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 

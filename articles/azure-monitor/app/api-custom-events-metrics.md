@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 5f138314fd536d0264f8d40e1ac78da954c19e74
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030700"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893390"
 ---
-# <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API för anpassade händelser och mått
+# <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
 Infoga några rader kod i ditt program för att ta reda på vad användarna gör med den, eller för att diagnostisera problem. Du kan skicka telemetri från enheter och skrivbordsappar, webb klienter och webb servrar. Använd API för [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) Core-telemetri för att skicka anpassade händelser och mått och dina egna versioner av standard telemetri. Detta API är samma API som standard Application Insights data insamlare använder.
 
@@ -30,7 +30,7 @@ Huvud-API: t är enhetligt för alla plattformar, förutom några varianter som 
 | [`TrackMetric`](#trackmetric) |Prestanda mätningar, till exempel Kölängd-längder som inte är relaterade till vissa händelser. |
 | [`TrackException`](#trackexception) |Loggnings undantag för diagnostik. Spåra var de sker i förhållande till andra händelser och undersök stack spår. |
 | [`TrackRequest`](#trackrequest) |Loggning av frekvens och varaktighet för server begär Anden för prestanda analys. |
-| [`TrackTrace`](#tracktrace) |Diagnostikloggar. Du kan också fånga loggar från tredje part. |
+| [`TrackTrace`](#tracktrace) |Logg meddelanden för resurs Diagnostic. Du kan också fånga loggar från tredje part. |
 | [`TrackDependency`](#trackdependency) |Loggning av varaktighet och frekvens för anrop till externa komponenter som din app är beroende av. |
 
 Du kan [bifoga egenskaper och mått](#properties) till de flesta av dessa telemetri samtal.
@@ -1197,7 +1197,7 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 
 * *Vilka undantag kan Track_ ()-anropen Throw?*
 
-    Ingen. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
+    Inget. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
 * *Finns det ett REST API för att hämta data från portalen?*
 
     Ja, [API för data åtkomst](https://dev.applicationinsights.io/). Andra sätt att extrahera data är [att exportera från Analytics till Power BI](../../azure-monitor/app/export-power-bi.md ) och [löpande export](../../azure-monitor/app/export-telemetry.md).

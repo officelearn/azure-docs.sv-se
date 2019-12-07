@@ -1,24 +1,23 @@
 ---
-title: Uttrycks funktioner i funktionen för att mappa data flöde i Azure Data Factory
+title: Uttrycks funktioner i data flödet för mappning
 description: Lär dig mer om uttrycks funktioner i data flöde för data mappning.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: dc742fc625604e71909f49c7453a9215dce71e35
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f384c440dab06660c95f635dde02ced5b3e54d94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596969"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896318"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning 
 
-
-
-## <a name="expression-functions"></a>Uttrycks funktioner
+## <a name="expression-functions"></a>Uttrycksfunktioner
 
 I Data Factory använder du uttrycks språket i funktionen mappa data flöde för att konfigurera data transformationer.
 
@@ -956,7 +955,7 @@ Multiplicerar siffer paret. Samma som *-operatorn
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-Funktionen NTile delar upp raderna för varje partition i `n` buckets från 1 till högst `n`. Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: storleken på en vanlig Bucket kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).
+Funktionen NTile delar upp raderna för varje partition i `n` buckets mellan 1 och högst `n`. Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: storleken på en vanlig Bucket kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).
 
 * ``nTile()``
 
@@ -1067,7 +1066,7 @@ Ackumulerar element i en matris. Minska förväntar sig en referens till ett ack
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extrahera en matchande del sträng för ett angivet regex-mönster. Den sista parametern identifierar matchnings gruppen och standardvärdet är 1 om den utelämnas. Använd <regex> (citat tecken) för att matcha en sträng utan undantag
+Extrahera en matchande del sträng för ett angivet regex-mönster. Den sista parametern identifierar matchnings gruppen och standardvärdet är 1 om den utelämnas. Använd<regex>(citat tecken) för att matcha en sträng utan undantag
 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``
 
@@ -1076,7 +1075,7 @@ Extrahera en matchande del sträng för ett angivet regex-mönster. Den sista pa
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Kontrollerar om strängen matchar det aktuella regex-mönstret. Använd <regex> (citat tecken) för att matcha en sträng utan undantag
+Kontrollerar om strängen matchar det aktuella regex-mönstret. Använd<regex>(citat tecken) för att matcha en sträng utan undantag
 
 * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``
 
@@ -1085,7 +1084,7 @@ Kontrollerar om strängen matchar det aktuella regex-mönstret. Använd <regex> 
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Ersätt alla förekomster av ett regex-mönster med en annan under sträng i den aktuella strängen Använd <regex> (citat tecken) för att matcha en sträng utan undantag
+Ersätt alla förekomster av ett regex-mönster med en annan under sträng i den aktuella strängen Använd<regex>(citat tecken) för att matcha en sträng utan undantag
 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``
 
@@ -1143,7 +1142,7 @@ Kontrollerar om strängen matchar angivet regex-mönster
 ___
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-Avrundar ett tal till en valfri skala och ett valfritt avrundnings läge. Om skalan utelämnas används värdet 0 som standard.  Om läget utelämnas, är det standard ROUND_HALF_UP (5). Värdena för avrundning inkluderar 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY
+Avrundar ett tal till en valfri skala och ett valfritt avrundnings läge. Om skalan utelämnas används värdet 0 som standard.  Om läget utelämnas används standardvärdet ROUND_HALF_UP (5). Värdena för avrundning inkluderar 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY
 
 * ``round(100.123) -> 100.0``
 

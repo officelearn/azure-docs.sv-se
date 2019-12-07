@@ -1,5 +1,5 @@
 ---
-title: Transformera data med hjälp av Databricks i Azure Data Factory
+title: Transformera data med hjälp av Databricks
 description: Lär dig hur du använder en lösnings mall för att transformera data med hjälp av en Databricks Notebook i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b39e354d503910d20141ce19c625eb79b4a7353
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684248"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891005"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformera data med hjälp av Databricks i Azure Data Factory
 
@@ -33,7 +33,7 @@ För att den här mallen ska vara enkel, skapar mallen ingen schemalagd utlösar
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 1.  Skapa ett **Blob Storage-konto** och en behållare med namnet `sinkdata` som ska användas som **mottagare**. Anteckna **lagrings kontots namn**, **behållar namn**och **åtkomst nyckel**, eftersom de refereras senare i mallen.
 
@@ -101,7 +101,7 @@ För att den här mallen ska vara enkel, skapar mallen ingen schemalagd utlösar
 
 2.  Skapa **data uppsättningar**
 
-    1.  Skapa **' sourceAvailability_Dataset '** för att kontrol lera om käll data är tillgängliga
+    1.  Skapa **sourceAvailability_Dataset** för att kontrol lera om käll data är tillgängliga
 
     ![9](media/solution-template-Databricks-notebook/Databricks-tutorial-image09.png)
 
@@ -111,15 +111,15 @@ För att den här mallen ska vara enkel, skapar mallen ingen schemalagd utlösar
 
     1.  **Data uppsättning för mottagare** – för kopiering till Sink/destinations plats
 
-        1.  Länkad tjänst – Välj ' sinkBlob_LS ' som skapats i 1. b
+        1.  Länkad tjänst – Välj sinkBlob_LS som skapats i 1. b
 
-        2.  Fil Sök väg-' sinkdata/staged_sink '
+        2.  Fil Sök väg: sinkdata/staged_sink
 
         ![11](media/solution-template-Databricks-notebook/Databricks-tutorial-image11.png)
 
 ## <a name="create-activities"></a>Skapa aktiviteter
 
-1.  Skapa en lookup-aktivitets**tillgänglighets flagga**för att göra en käll tillgänglighets kontroll (lookup eller getMetaData kan användas). Välj ' sourceAvailability_Dataset ' som skapats i 2. a.
+1.  Skapa en lookup-aktivitets**tillgänglighets flagga**för att göra en käll tillgänglighets kontroll (lookup eller getMetaData kan användas). Välj sourceAvailability_Dataset som skapats i 2. a.
 
     ![12](media/solution-template-Databricks-notebook/Databricks-tutorial-image12.png)
 

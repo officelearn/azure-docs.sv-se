@@ -1,22 +1,23 @@
 ---
-title: Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser – Azure Storage
-description: Azure blob-och Queue Storage-stöd för att auktorisera åtkomst till resurser med Azure Active Directory och hanterade identiteter för Azure-resurser. Du kan använda hanterade identiteter för Azure-resurser för att ge åtkomst till blobbar och köer från program som körs på virtuella Azure-datorer, Function-appar, skal uppsättningar för virtuella datorer och andra.
+title: Ge åtkomst till data med en hanterad identitet
+titleSuffix: Azure Storage
+description: Lär dig hur du använder hanterade identiteter för Azure-resurser för att ge åtkomst till blob-och Queue-data från program som körs på virtuella Azure-datorer, Function-appar, virtuella dator skalnings uppsättningar och andra.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c0b07cc001f65ff369f87954779634b8b49ba4ec
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806599"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892059"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
+# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser
 
 Azure blob-och Queue Storage-stöd Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan ge åtkomst till blob-och Queue-data med hjälp av Azure AD-autentiseringsuppgifter från program som körs i virtuella Azure-datorer, Function-appar, skalnings uppsättningar för virtuella datorer och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.  
 

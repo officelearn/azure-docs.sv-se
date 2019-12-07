@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665346"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892608"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -102,17 +102,19 @@ I flera container-databaser för HANA är standard konfigurationen SYSTEMDB + 1 
 Om du skyddar SAP HANA 1,0-databaser och vill uppgradera till 2,0 utför du stegen som beskrivs nedan:
 
 - [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med Behåll data för den gamla SDC-databasen.
+- Genomför uppgraderingen. Efter slut för ande är HANA nu MDC med en system databas och klient organisations databas (er)
 - Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) med rätt information om (sid och MDC).
-- Omregistrera tillägg (säkerhets kopiering > Visa information – > väljer den relevanta Azure-> Omregistrera).
+- Omregistrera tillägget för samma dator i Azure Portal (Backup-> Visa information – > väljer du den aktuella Azure VM-> Omregistrera).
 - Klicka på identifiera om databaser för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 2 med rätt information (SYSTEMDB och klient organisations databasen, inte SDC).
-- Skydda dessa nya databaser.
+- Konfigurera säkerhets kopiering för dessa nya databaser.
 
 ## <a name="upgrading-without-an-sid-change"></a>Uppgradera utan en SID-ändring
 
 Uppgraderingar av OS eller SAP HANA som inte orsakar en SID ändring kan hanteras enligt beskrivningen nedan:
 
 - [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med Behåll data för databasen
-- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) igen
+- Genomför uppgraderingen.
+- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana)igen. Vi har vanligt vis sett uppgraderings processen som tar bort de nödvändiga rollerna. Genom att köra skriptet för för registrering kan du kontrol lera alla nödvändiga roller.
 - [Återuppta skyddet](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) av databasen igen
 
 ## <a name="next-steps"></a>Nästa steg

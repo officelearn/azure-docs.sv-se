@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195005"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893985"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -45,7 +45,7 @@ När du använder MARS-agenten för att säkerhetskopiera data tar agenten en ö
 --- | ---
 Storlek |  Det lediga utrymmet i cache-mappen bör vara minst 5 till 10 procent av den totala storleken på dina säkerhets kopierings data.
 Plats | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
-Mapp | Cache-mappen ska vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
+Mapp | Cache-mappen ska inte vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
 Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn (`net stop bengine`) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
 
 ## <a name="networking-and-access-support"></a>Nätverks-och åtkomst stöd
@@ -72,7 +72,7 @@ Och till följande IP-adresser:
 **Funktion** | **Detaljer**
 --- | ---
 Bandbredds kontroll | Stöds. I MARS-agenten använder du **ändra egenskaper** för att justera bandbredden.
-Nätverks begränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
+Nätverksbegränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
 
 ## <a name="support-for-direct-backups"></a>Stöd för direkta säkerhets kopieringar
 
@@ -118,15 +118,15 @@ Windows 7| 1 700 GB
 
 **Typ** | **Support**
 --- | ---
-Krypterade| Stöds.
+Krypterad| Stöds.
 Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerad och sparse |Stöds.
 Hårda länkar| Stöds ej. Hoppades.
-Referens punkt| Stöds ej. Hoppades.
+Referenspunkt| Stöds ej. Hoppades.
 Krypterad och sparse |Stöds ej. Hoppades.
 Komprimerad ström| Stöds ej. Hoppades.
-Sparse-dataström| Stöds ej. Hoppades.
+Utspridd ström| Stöds ej. Hoppades.
 OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c8337d18b5c6b484e45e6cefaec98e2684155a02
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641493"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900425"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -78,12 +78,12 @@ Tillsammans med den här egenskapen stöder attribut-mappningar även följande 
   - **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Matcha användare i käll-och mål systemen
-Azure AD Provisioning-tjänsten kan distribueras i båda Bygg (användarna avslutas inte i mål systemet) och brownfield (användare finns redan i mål systemet) scenarier. För att stödja båda scenarierna använder etablerings tjänsten begreppet eller de matchande attributen. Med matchande attribut (n) kan du bestämma hur en användare ska identifieras unikt i källan och matcha användaren i målet. Som en del av planeringen av distributionen identifierar du det attribut som kan användas för att unikt identifiera en användare i käll-och mål systemen. Saker att Observera:
+Azure AD Provisioning-tjänsten kan distribueras i båda scenarierna med "Bygg" (där användare inte avslutas i mål systemet) och "brownfield"-scenarier (där användare redan finns i mål systemet). För att stödja båda scenarierna använder etablerings tjänsten begreppet matchande attribut. Med matchande attribut kan du avgöra hur du unikt identifierar en användare i källan och matchar användaren i målet. Som en del av planeringen av distributionen identifierar du det attribut som kan användas för att unikt identifiera en användare i käll-och mål systemen. Saker att Observera:
 
 - **Matchande attribut ska vara unika:** Kunder använder ofta attribut som userPrincipalName, mail eller objekt-ID som matchande attribut.
-- **Du kan använda flera attribut som matchande attribut:** Du kan definiera flera attribut som ska utvärderas vid matchning av användare och i vilken ordning de utvärderas (definieras som matchnings prioritet i användar gränssnittet). Om du till exempel definierar tre attribut som matchande attribut, och en användare är unikt matchade efter utvärdering av de två första attributen, kommer tjänsten inte att evaluat det tredje attributet. Tjänsten utvärderar matchande attribut i den angivna ordningen och slutar att utvärdera när en matchning hittas.  
+- **Du kan använda flera attribut som matchande attribut:** Du kan definiera flera attribut som ska utvärderas vid matchning av användare och i vilken ordning de utvärderas (definieras som matchnings prioritet i användar gränssnittet). Om du till exempel definierar tre attribut som matchande attribut, och en användare är unikt matchade efter utvärdering av de två första attributen, kommer tjänsten inte att utvärdera det tredje attributet. Tjänsten utvärderar matchande attribut i den angivna ordningen och slutar att utvärdera när en matchning hittas.  
 - **Värdet i källan och målet behöver inte matcha exakt:** Värdet i målet kan vara en enkel funktion av värdet i källan. Det kan därför ha ett emailAddress-attribut i källan och userPrincipalName i målet, och matcha med en funktion av attributet emailAddress som ersätter vissa tecken med ett konstant värde.  
-- **Matchning baserat på en kombination av attribut stöds inte:** De flesta program har inte stöd för frågor som baseras på två egenskaper och therfore det går inte att matcha baserat på en kombination av attribut. Det går att utvärdera enskilda egenskaper på efter en annan.
+- **Matchning baserat på en kombination av attribut stöds inte:** De flesta program har inte stöd för frågor som baseras på två egenskaper. Därför är det inte möjligt att matcha baserat på en kombination av attribut. Det går att utvärdera enskilda egenskaper på efter en annan.
 - **Alla användare måste ha ett värde för minst ett matchande attribut:** Om du definierar ett matchande attribut måste alla användare ha ett värde för det attributet i käll systemet. Om du till exempel definierar userPrincipalName som matchande attribut, måste alla användare ha ett userPrincipalName. Om du definierar flera matchande attribut (t. ex. extensionAttribute1 och mail) måste inte alla användare ha samma matchande attribut. En användare kan ha en extensionAttribute1 men inte e-post medan en annan användare kan ha e-post men inte extensionAttribute1. 
 - **Mål programmet måste ha stöd för filtrering av matchande attribut:** Programutvecklare tillåter filtrering av en delmängd av attribut i deras användar-eller grupp-API. För program i galleriet ser vi till att standardattributets mappning är för ett attribut som mål programmets API stöder filtrering på. När du ändrar standardvärdet för det matchande attributet för mål programmet kontrollerar du API-dokumentationen från tredje part för att se till att attributet kan filtreras.  
 
@@ -134,7 +134,61 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
 - **API-uttryck** – Använd inte, om det inte instrueras att göra det i dokumentationen för en speciell etablerings anslutning (till exempel Workday).
 - **Refererat objektattribut** – om det är ett attribut för referens typ kan du välja tabell och attribut i mål programmet som innehåller värdet som är kopplat till attributet. Om du till exempel har ett attribut med namnet "avdelning" vars lagrade värde refererar till ett objekt i en separat "avdelnings tabell" väljer du "Departments.Name". Referens tabellerna och de primära ID-fälten som stöds för ett angivet program är förkonfigurerade och kan för närvarande inte redige ras med hjälp av Azure Portal, men det går att redigera med hjälp av [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Om du vill lägga till ett nytt attribut bläddrar du till slutet av listan över attribut som stöds, fyller i fälten ovan med de angivna indatana och väljer **Lägg till attribut**. Välj **Spara** när du är färdig med att lägga till attribut. Sedan måste du läsa in fliken **etablering** för de nya attributen så att de blir tillgängliga i redigeraren för attribut-mappning.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Etablering av ett anpassat tilläggs-attribut för ett SCIM-kompatibelt program
+SCIM RFC definierar en kärn användare och ett grupp schema, samtidigt som tilläggen till schemat kan uppfylla ditt programs behov. Så här lägger du till ett anpassat attribut i ett SCIM-program:
+   1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com), Välj **företags program**, Välj ditt program och välj sedan **etablering**.
+   2. Under **mappningar**väljer du det objekt (användare eller grupp) som du vill lägga till ett anpassat attribut för.
+   3. Längst ned på sidan väljer du **Visa avancerade alternativ**.
+   4. Välj * * Redigera attributlistan för *programmet*.
+   5. Längst ned i listan attribut anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut**.
+
+För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. Du kan anpassa "CustomExtensionName" och "CustomAttribute" enligt programmets krav, till exempel: urn: IETF: params: scim: schemas: tillägg: 2.0: CustomExtensionName: CustomAttribute
+
+Dessa anvisningar gäller endast för SCIM-aktiverade program. Program som ServiceNow och Salesforce är inte integrerade med Azure AD med hjälp av SCIM, och därför behövs inte det här särskilda namn området när du lägger till ett anpassat attribut.
+
+Anpassade attribut kan inte vara referens attribut eller flervärdesattribut. Anpassade attribut för multi-Value-tillägg stöds för närvarande endast för program i galleriet.  
+ 
+**Exempel på representation av en användare med ett attribut för tillägg:**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "CustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Etablering av en roll för en SCIM-app
 Använd stegen nedan för att etablera roller för en användare till ditt program. Observera att beskrivningen nedan är speciell för anpassade SCIM-program. För Galleri program som Salesforce och ServiceNow använder du fördefinierade roll mappningar. Punkterna nedan beskriver hur du transformerar attributet AppRoleAssignments till formatet som programmet förväntar sig.
 
@@ -176,7 +230,7 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
   - **När du ska använda:** Använd AppRoleAssignmentsComplex-uttrycket för att etablera flera roller för en användare. 
   - **Så här konfigurerar du:** Redigera listan över attribut som stöds enligt beskrivningen ovan för att inkludera ett nytt attribut för roller: 
   
-    ![Lägg till roller](./media/customize-application-attributes/add-roles.png)<br>
+    ![Lägga till roller](./media/customize-application-attributes/add-roles.png)<br>
 
     Använd sedan AppRoleAssignmentsComplex-uttrycket för att mappa till attributet anpassad roll som visas på bilden nedan:
 
@@ -222,9 +276,9 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
 ## <a name="provisioning-a-multi-value-attribute"></a>Etablering av ett flervärdesattribut
 Vissa attribut, till exempel phoneNumbers och e-postmeddelanden, är flervärdesattribut där du kan behöva ange olika typer av telefonnummer eller e-postmeddelanden. Använd uttrycket nedan för attribut med flera värden. Det gör att du kan ange attributtypen och mappningen till motsvarande Azure AD-användarattribut för värdet. 
 
-* phoneNumbers [typ EQ "Work"]. värde
-* phoneNumbers [Type EQ "Mobile"]. värde
-* phoneNumbers [Type EQ "fax"]. värde
+* phoneNumbers [typ eq ”arbete pågår”] .value
+* phoneNumbers [typ eq ”mobil”] .value
+* phoneNumbers [typ eq ”fax”] .value
 
    ```json
    "phoneNumbers": [
@@ -263,8 +317,8 @@ Om du väljer det här alternativet tvingas en omsynkronisering av alla använda
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Automatisera användar etablering/avetablering för SaaS-appar](user-provisioning.md)
+- [Automatisera användaren etablering/avetablering för SaaS-appar](user-provisioning.md)
 - [Skriva uttryck för attribut-mappningar](functions-for-customizing-application-data.md)
-- [Omfångs filter för användar etablering](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Omfångsfilter för etableringen av användare](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
-- [Lista över självstudier om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
+- [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)

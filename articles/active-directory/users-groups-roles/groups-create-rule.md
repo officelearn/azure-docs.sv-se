@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027245"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900935"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrol lera status
 
@@ -47,10 +47,10 @@ Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemska
 ## <a name="to-create-a-group-membership-rule"></a>Så här skapar du en grupp medlemskaps regel
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, Intune-administratör eller användar administratör i klienten.
-1. Välj **grupper**.
+1. Sök efter och välj **grupper**.
 1. Välj **alla grupper**och välj sedan **ny grupp**.
 
-   ![Välj kommandot för att lägga till en ny grupp](./media/groups-create-rule/new-group-creation.png)
+   ![Välj kommandot för att lägga till en ny grupp](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. På sidan **grupp** anger du ett namn och en beskrivning för den nya gruppen. Välj en **medlemskaps typ** för antingen användare eller enheter och välj sedan **Lägg till dynamisk fråga**. Regel verktyget stöder upp till fem uttryck. Om du vill lägga till fler än fem uttryck måste du använda text rutan.
 
@@ -88,13 +88,13 @@ Följande status meddelanden kan visas för **medlemskapets senast uppdaterade**
 - **Pågår**: uppdateringar pågår just nu.
 - **Okänd**: det går inte att hämta den senaste uppdaterings tiden. Gruppen kan vara ny.
 
-Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en avisering överst på **sidan Översikt** för gruppen. Om inga väntande dynamiska medlemskaps uppdateringar kan bearbetas för alla grupper i klient organisationen för mer än 24 timmar, visas en avisering överst i **alla grupper**.
+Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en avisering överst på **sidan Översikt** för gruppen. Om inga väntande dynamiska medlemskaps uppdateringar kan bearbetas för alla grupper i klienten i mer än 24 timmar visas en avisering överst i **alla grupper**.
 
 ![bearbetar aviseringar om fel meddelande](./media/groups-create-rule/processing-error.png)
 
 De här artiklarna innehåller ytterligare information om grupper i Azure Active Directory.
 
-- [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

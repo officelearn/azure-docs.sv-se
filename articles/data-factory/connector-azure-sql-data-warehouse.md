@@ -1,5 +1,5 @@
 ---
-title: Kopiera och transformera data i Azure SQL Data Warehouse med Azure Data Factory
+title: Kopiera och transformera data i Azure SQL Data Warehouse
 description: Lär dig hur du kopierar data till och från Azure SQL Data Warehouse och hur du omvandlar data i Azure SQL Data Warehouse genom att använda Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 4d08a388e98283ff7bf05e938d7b8c48b7065074
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1bd6d4d594bc7988d2dceaae533202f2a41379f1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076769"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891046"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure SQL Data Warehouse med Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -45,7 +45,7 @@ För kopierings aktiviteten stöder den här Azure SQL Data Warehouse-anslutning
 > Om du kopierar data med hjälp av Azure Data Factory Integration Runtime kan du konfigurera en [Azure SQL-serverbrandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänster har åtkomst till servern.
 > Om du kopierar data med hjälp av en lokal integration runtime kan du konfigurera Azure SQL server-brandväggen så att rätt IP-adressintervall. Det här intervallet inkluderar den datorns IP-adress som används för att ansluta till Azure SQL Database.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 > [!TIP]
 > För att uppnå bästa prestanda kan du använda PolyBase för att läsa in data i Azure SQL Data Warehouse. Den [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) -avsnittet innehåller information om. En genomgång med ett användningsfall finns i [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](load-azure-sql-data-warehouse.md).
@@ -606,25 +606,25 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | bit                                   | Boolesk                        |
 | char                                  | String, Char[]                 |
 | datum                                  | DateTime                       |
-| Datum/tid                              | DateTime                       |
+| Datetime                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | DateTimeOffset                        | DateTimeOffset                 |
-| decimaltal                               | decimaltal                        |
+| Decimal                               | Decimal                        |
 | FILESTREAM attribute (varbinary(max)) | Byte[]                         |
-| Float                                 | Double                         |
-| image                                 | Byte[]                         |
+| Flyttal                                 | Double                         |
+| mallar                                 | Byte[]                         |
 | int                                   | Int32                          |
-| money                                 | decimaltal                        |
+| money                                 | Decimal                        |
 | nchar                                 | String, Char[]                 |
-| numeric                               | decimaltal                        |
+| numeric                               | Decimal                        |
 | nvarchar                              | String, Char[]                 |
 | real                                  | Enkel                         |
 | rowversion                            | Byte[]                         |
 | smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |
-| smallmoney                            | decimaltal                        |
+| smallmoney                            | Decimal                        |
 | time                                  | TimeSpan                       |
-| tinyint                               | Byte                           |
+| tinyint                               | Mottagna byte                           |
 | uniqueidentifier                      | GUID                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |

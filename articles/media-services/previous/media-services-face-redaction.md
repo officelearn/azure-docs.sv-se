@@ -1,6 +1,6 @@
 ---
 title: Bortredigering-ansikten med Azure-medieanalys | Microsoft Docs
-description: Det här avsnittet visar hur du kan redigera med Azure Media Analytics.
+description: Azure Media Redactor är en Azure-medieanalys medie processor som erbjuder skalbara ansikts bortredigering i molnet. Den här artikeln visar hur du kan redigera med Azure Media Analytics.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016020"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900305"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Bortredigering-ansikten med Azure-medieanalys 
 ## <a name="overview"></a>Översikt
@@ -34,7 +34,7 @@ Förutom ett helt automatiskt läge, finns det ett två-pass-arbetsflöde, som g
 ### <a name="combined-mode"></a>Kombinerat läge
 Detta skapar en förredigerad MP4 automatiskt utan manuella indatatyper.
 
-| Skede | Filnamn | Anteckningar |
+| Mellanlagra | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MOV-eller MP4-format |
 | Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' kombinerat '}} |
@@ -49,12 +49,12 @@ Detta skapar en förredigerad MP4 automatiskt utan manuella indatatyper.
 ### <a name="analyze-mode"></a>Analysera läge
 Det **analyserande** passet i det två-pass-arbets flödet tar en video indata och skapar en JSON-fil med ansikts platser och jpg-bilder av varje identifierad yta.
 
-| Skede | Filnamn | Anteckningar |
+| Mellanlagra | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format |
 | Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' analysera '}} |
 | Mata ut till gång |foo_annotations.json |Antecknings data för ansikts platser i JSON-format. Detta kan redige ras av användaren för att ändra de oskarpa avgränsnings rutorna. Se exemplet nedan. |
-| Mata ut till gång |foo_thumb% 0 6 d. jpg [foo_thumb000001. jpg, foo_thumb000002. jpg] |En beskurna jpg för varje identifierad ansikte, där talet anger labelId för ansikte |
+| Mata ut till gång |foo_thumb %0 6 d. jpg [foo_thumb000001. jpg, foo_thumb000002. jpg] |En beskurna jpg för varje identifierad ansikte, där talet anger labelId för ansikte |
 
 #### <a name="output-example"></a>Exempel på utdata:
 
@@ -114,7 +114,7 @@ Detta inkluderar en lista med ID: n som är suddig, den ursprungliga videon och 
 
 Den ursprungliga videon ingår inte i resultatet från analys steget. Videon måste överföras till indata till gången för uppgiften bortredigering och väljs som primär fil.
 
-| Skede | Filnamn | Anteckningar |
+| Mellanlagra | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format. Samma video som i steg 1. |
 | Inmatad till gång |foo_annotations.json |anteckningarnas metadatafil från fas ett, med valfria ändringar. |
@@ -127,7 +127,7 @@ Detta är resultatet från en IDList med ett ID valt.
 
 [Visa den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-Exempel på foo_IDList. txt
+Exempel foo_IDList. txt
  
      1
      2
@@ -135,7 +135,7 @@ Exempel på foo_IDList. txt
 
 ## <a name="blur-types"></a>Suddiga typer
 
-I det **kombinerade** eller **bortredigering** -läget finns det fem olika suddiga lägen som du kan välja mellan via JSON-inkonfigurationen: **Låg**,med, **hög**, **Box**och **svart**. Som standard används med.
+I det **kombinerade** eller **bortredigering** -läget finns det fem olika suddiga lägen som du kan välja mellan via JSON-inkonfigurationen: **låg**, **mellan,** **hög**, **ruta**och **svart**. Som standard **används** med.
 
 Du kan hitta exempel på suddiga typer nedan.
 
@@ -370,7 +370,7 @@ namespace FaceRedaction
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Relaterade länkar
+## <a name="related-links"></a>Tillhörande länkar
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

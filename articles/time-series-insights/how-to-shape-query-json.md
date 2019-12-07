@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007006"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894913"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Form-JSON för att maximera prestanda för frågor 
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller rikt linjer för hur du formar JSON för att maxim
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 Tänk på hur du skickar händelser till Time Series Insights. Det vill säga att du alltid:
 
@@ -165,7 +165,7 @@ Exempel på JSON-nytto last:
 
 * Referens data tabell som innehåller nyckel egenskaperna **deviceId** och **serien. tagId**:
 
-   | deviceId | series.tagId | messageId | deviceLocation | typ | processor |
+   | deviceId | series.tagId | messageId | deviceLocation | typ | enhet |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi |
@@ -174,7 +174,7 @@ Exempel på JSON-nytto last:
 
 * Time Series Insights händelse tabell efter förenkling:
 
-   | deviceId | series.tagId | messageId | deviceLocation | typ | processor | tidsstämpel | serie. Value |
+   | deviceId | series.tagId | messageId | deviceLocation | typ | enhet | tidsstämpel | serie. Value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34.7 |

@@ -9,30 +9,30 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488728"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894614"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudie: extrahera sammanhangsbaserade relaterade data från en uttryck
 
-I den här självstudien hittar du relaterade datadelar baserat på kontext. Exempel kan vara en ursprungsplats och målplatser för en transport från en stad till en annan. Båda datadelarna kan krävas, och de är relaterade till varandra.  
+I den här självstudien hittar du relaterade datadelar baserat på kontext. Exempel kan vara en ursprungsplats och målplatser för en transport från en stad till en annan. Båda datadelarna kan krävas, och de är relaterade till varandra.
 
-En roll kan användas med en fördefinierad eller anpassad entitetstyp och används i båda exemplen yttranden och Patterns. 
+En roll kan användas med en fördefinierad eller anpassad entitetstyp och används i båda exemplen yttranden och Patterns.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
 > [!div class="checklist"]
 > * Skapa ny app
-> * Lägga till avsikt 
+> * Lägga till avsikt
 > * Hämta information om ursprung och mål med hjälp av roller
-> * Träna
+> * Lär in
 > * Publicera
 > * Hämta intentor och entitets roller från slut punkten
 
@@ -57,9 +57,9 @@ En roll ska användas när enhets data ska extraheras:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Välj **Create new intent** (Skapa ny avsikt). 
+1. Välj **Create new intent** (Skapa ny avsikt).
 
-1. Ange `MoveEmployeeToCity` i popup-dialogrutan och välj sedan **Done** (Klar). 
+1. Ange `MoveEmployeeToCity` i popup-dialogrutan och välj sedan **Done** (Klar).
 
     ![Skärmbild på dialogrutan Create new intent (Skapa ny avsikt)](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -85,28 +85,28 @@ Den fördefinierade entiteten geographyV2, extraherar plats information, inklusi
 
 1. Välj **entiteter** från den vänstra navigeringen.
 
-1. Välj **Lägg till fördefinierad entitet**och välj sedan `geo` i Sök fältet för att filtrera de förinställda entiteterna. 
+1. Välj **Lägg till fördefinierad entitet**och välj sedan `geo` i Sök fältet för att filtrera de förinställda entiteterna.
 
     ![Lägg till geographyV2-fördefinierad entitet i appen](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Markera kryss rutan och välj **färdig**.
-1. I listan **entiteter** väljer du **geographyV2** för att öppna den nya entiteten. 
-1. Lägg till två roller, `Origin`och `Destination`. 
+1. I listan **entiteter** väljer du **geographyV2** för att öppna den nya entiteten.
+1. Lägg till två roller, `Origin`och `Destination`.
 
     ![Lägg till roller i fördefinierad entitet](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Välj **avsikter** från navigeringen till vänster och välj sedan **MoveEmployeeToCity** avsikt. Lägg märke till att Orts namnen är märkta med den fördefinierade entiteten **geographyV2**.
 1. Välj ursprungs platsen i den första uttryck i listan. En nedrullningsbar meny visas. Välj **geographyV2** i listan och följ sedan menyn över för att välja **ursprung**.
-1. Använd-metoden från föregående steg för att markera alla roller för platser i alla yttranden. 
+1. Använd-metoden från föregående steg för att markera alla roller för platser i alla yttranden.
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen 
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att ändringar av avsikten kan testas
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras mot den tränade modellen från slutpunkten
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras på den tränade modellen från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
@@ -152,9 +152,9 @@ Den fördefinierade entiteten geographyV2, extraherar plats information, inklusi
       ]
     }
     ```
-    
+
     Rätt avsikt är förväntad och entiteter-matrisen har både ursprungs-och mål rollerna i motsvarande **entitets** -egenskap.
-    
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -173,5 +173,5 @@ Den fördefinierade entiteten geographyV2, extraherar plats information, inklusi
 
 I den här självstudien skapades en ny avsikt, och exempelyttranden lades till för sammanhangsmässigt inlärda data för ursprungs- och målplatser. När appen har tränats och publicerats kan ett klientprogram använda den informationen för att skapa en flyttningsbiljett med relevant information.
 
-> [!div class="nextstepaction"] 
-> [Lär dig hur du lägger till en sammansatt entitet](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [Lär dig hur du lägger till en sammansatt entitet](luis-tutorial-composite-entity.md)

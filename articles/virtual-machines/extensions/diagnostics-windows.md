@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 09aaa998bf011561bd73ad87eda6a2e211ffaa72
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 61b94e95c5292b4013409deed6565a90890b66d1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158937"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892642"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator som kör Windows
 
@@ -40,7 +40,7 @@ Om du vill aktivera diagnostik-tillägget på en befintlig virtuell dator som ha
 
 *$diagnosticsconfig _path* är sökvägen till filen som innehåller diagnostik-konfigurationen i XML, enligt beskrivningen i [exemplet](#sample-diagnostics-configuration) nedan.  
 
-Om konfigurations filen för diagnostik anger ett **StorageAccount** -element med ett lagrings konto namn, ställer in skriptet för *set-AzVMDiagnosticsExtension* automatiskt tillägget för diagnostik för att skicka diagnostikdata till lagrings platsen redovisning. För att detta ska fungera måste lagrings kontot finnas i samma prenumeration som den virtuella datorn.
+Om diagnostikens konfigurations fil anger ett **StorageAccount** -element med ett lagrings konto namn, anger *set-AzVMDiagnosticsExtension* -skriptet automatiskt det diagnostiska tillägget för att skicka diagnostikdata till det lagrings kontot. För att detta ska fungera måste lagrings kontot finnas i samma prenumeration som den virtuella datorn.
 
 Om ingen **StorageAccount** har angetts i diagnostik-konfigurationen måste du skicka in *StorageAccountName* -parametern till cmdleten. Om parametern *StorageAccountName* anges använder cmdlet: en alltid det lagrings konto som anges i parametern och inte den som anges i konfigurations filen för diagnostik.
 
@@ -64,9 +64,9 @@ Cmdlet: en [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershe
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Aktivera diagnostik-tillägget om du använder den klassiska distributions modellen
 Du kan använda cmdleten [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) för att aktivera ett diagnostiskt tillägg på en virtuell dator som du skapar via den klassiska distributions modellen. I följande exempel visas hur du skapar en ny virtuell dator via den klassiska distributions modellen med diagnostik-tillägget aktiverat.
 
-    $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
+    $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
-    $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
 Om du vill aktivera diagnostik-tillägget på en befintlig virtuell dator som har skapats via den klassiska distributions modellen använder du först cmdleten [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) för att hämta VM-konfigurationen. Uppdatera sedan VM-konfigurationen så att den inkluderar tillägget för diagnostik med hjälp av cmdleten [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) . Använd slutligen den uppdaterade konfigurationen på den virtuella datorn med hjälp av [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
@@ -82,8 +82,8 @@ Konfigurationen måste uppdateras för att inkludera följande:
 
 * Attributet *resourceID* för **mått** elementet måste uppdateras med resurs-ID: t för den virtuella datorn.
   
-  * Resurs-ID: t kan skapas med följande mönster: "/Subscriptions/{*prenumerations-ID för prenumerationen med den virtuella datorn*}/resourceGroups/{*resourcegroup namn för den virtuella datorn*}/providers/Microsoft.Compute/virtualMachines/{ *Namnet på den virtuella datorn*} ".
-  * Om prenumerations-ID: t för prenumerationen där den virtuella datorn körs till exempel är **11111111-1111-1111-1111-111111111111**är resurs grupps namnet för resurs gruppen **MyResourceGroup**och det virtuella dator namnet är **MyWindowsVM**. värdet för *resourceID* skulle vara:
+  * Resurs-ID: t kan skapas med följande mönster: "/Subscriptions/{*prenumerations-ID för prenumerationen med den virtuella datorn*}/resourceGroups/{*resourcegroup namn för den virtuella datorn*}/providers/Microsoft.Compute/virtualMachines/{*det virtuella dator namnet*}".
+  * Om prenumerations-ID: t för prenumerationen där den virtuella datorn körs till exempel är **11111111-1111-1111-1111-111111111111**är resurs grupps namnet för resurs gruppen **MyResourceGroup**och namnet på den virtuella datorn är **MyWindowsVM**. värdet för *resourceID* skulle då vara:
     
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >

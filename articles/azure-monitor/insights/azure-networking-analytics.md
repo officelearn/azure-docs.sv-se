@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899138"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893322"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Lösningar för övervakning av Azure-nätverk i Azure Monitor
 
@@ -45,7 +45,7 @@ Använda lösningarna:
 
 Du kan aktivera diagnostik och motsvarande lösning för antingen en eller båda av Application Gateway-och nätverks säkerhets grupper.
 
-Om du inte aktiverar diagnostikloggning för en viss resurs typ, men installerar lösningen, är instrument panels bladet för den resursen tomma och visar ett fel meddelande.
+Om du inte aktiverar diagnostisk resurs loggning för en viss resurs typ, men installerar lösningen, är instrument panels bladet för den resursen tomma och visar ett fel meddelande.
 
 > [!NOTE]
 > I januari 2017 ändrades det stödda sättet att skicka loggar från programgatewayer och nätverks säkerhets grupper till en Log Analytics-arbetsyta. Om du ser lösningen för **Azure Networking Analytics (inaktuell)** kan du läsa mer i [Migrera från den gamla lösningen för nätverks analys](#migrating-from-the-old-networking-analytics-solution) för steg som du måste följa.
@@ -100,7 +100,7 @@ Använd följande instruktioner för att installera och konfigurera Azure Applic
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>Aktivera Azure-Nätverksdiagnostik med PowerShell
 
-Följande PowerShell-skript innehåller ett exempel på hur du aktiverar diagnostisk loggning för programgatewayer.
+Följande PowerShell-skript innehåller ett exempel på hur du aktiverar resurs loggning för Application Gateway.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -141,7 +141,7 @@ På någon av logg Sök sidorna kan du Visa resultat efter tid, detaljerade resu
 > Nätverks säkerhets gruppens analys lösning flyttas till community-support eftersom dess funktioner har ersatts av [trafikanalys](../../network-watcher/traffic-analytics.md).
 > - Lösningen är nu tillgänglig i [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) och kommer snart inte längre vara tillgänglig på Azure Marketplace.
 > - För befintliga kunder som redan har lagt till lösningen i sin arbets yta kommer den att fortsätta fungera utan ändringar.
-> - Microsoft fortsätter att stödja sändning av NSG-diagnostikloggar till arbets ytan med hjälp av diagnostikinställningar.
+> - Microsoft fortsätter att stödja sändning av NSG-resurs loggar till arbets ytan med hjälp av diagnostikinställningar.
 
 Följande loggar stöds för nätverks säkerhets grupper:
 
@@ -171,7 +171,7 @@ Använd följande instruktioner för att installera och konfigurera Azure Networ
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>Aktivera Azure-Nätverksdiagnostik med PowerShell
 
-Följande PowerShell-skript innehåller ett exempel på hur du aktiverar diagnostisk loggning för nätverks säkerhets grupper
+Följande PowerShell-skript innehåller ett exempel på hur du aktiverar resurs loggning för nätverks säkerhets grupper
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -217,7 +217,7 @@ Använda de uppdaterade lösningarna:
      | --- | --- |
      | NetworkApplicationgateways &#124; där OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; där resourcetype = = "APPLICATIONGATEWAYS" och OperationName = = "ApplicationGatewayAccess" |
      | NetworkApplicationgateways &#124; där OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; där resourcetype = = "APPLICATIONGATEWAYS" och OperationName = = "ApplicationGatewayPerformance" |
-     | NetworkSecuritygroups | AzureDiagnostics &#124; där resourcetype = = "NETWORKSECURITYGROUPS" |
+     | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + För alla fält som har suffixet \_s, \_d eller \_g i namnet, ändrar du det första symbolen till gemener
    + För fält som har suffixet \_o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen.

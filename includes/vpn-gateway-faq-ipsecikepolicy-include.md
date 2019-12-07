@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075417"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74903026"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
 Anpassad IPsec/IKE-princip stöds på alla Azure SKU: er förutom Basic SKU.
@@ -110,7 +110,7 @@ IKEv1-anslutningar kan skapas på alla Routningsbaserad VPN-typer SKU: er, föru
 Ja. Överföring mellan IKEv1-och IKEv2-anslutningar stöds.
 
 ### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Kan jag använda IKEv1 plats-till-plats-anslutningar på Basic SKU: er av Routningsbaserad VPN-typ?
-Nej. Alla Routningsbaserad VPN SKU: er förutom grundläggande SKU: er för routing-baserad VPN-typ stöder IKEv1-anslutningar för plats-till-plats.
+Nej. Bas-SKU: n stöder inte detta.
 
 ### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Kan jag ändra typ av anslutnings protokoll när anslutningen har skapats (IKEv1 till IKEv2 och vice versa)?
 Nej. När anslutningen har skapats går det inte att ändra IKEv1/IKEv2-protokoll. Du måste ta bort och återskapa en ny anslutning med önskad protokoll typ.

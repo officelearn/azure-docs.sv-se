@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azures plattforms loggar | Microsoft Docs
-description: Översikt över diagnostikloggar i Azure som ger omfattande, frekventa data om driften av en Azure-resurs.
+description: Översikt över loggar i Azure Monitor som ger omfattande, frekventa data om driften av en Azure-resurs.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1602b9beb5e667caf1688901c7ae4e67e5f5839
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 480c028f11de9a7c44168b217ad3553d721d01e1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262575"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894554"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Översikt över Azures plattforms loggar
 Plattforms loggar ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. De genereras automatiskt även om du behöver konfigurera vissa plattforms loggar som ska vidarebefordras till en eller flera mål som ska behållas. Den här artikeln innehåller en översikt över plattforms loggar, inklusive vilken information de ger och hur du kan konfigurera dem för insamling och analys.
@@ -21,14 +21,14 @@ Plattforms loggar ger detaljerad diagnostik och gransknings information för Azu
 ## <a name="types-of-platform-logs"></a>Typer av plattforms loggar
 I följande tabell visas de olika plattforms loggar som är tillgängliga på olika lager i Azure.
 
-| Lager | Logs | Beskrivning |
+| Lager | Loggar | Beskrivning |
 |:---|:---|:---|
 | Azure-resurser | [Resurs loggar](resource-logs-overview.md) | Ge insikter om åtgärder som utförts i en Azure-resurs ( *data planet*), till exempel för att få en hemlighet från en Key Vault eller göra en begäran till en databas. Innehållet i resurs loggar varierar beroende på Azure-tjänsten och resurs typen.<br>*Resurs loggar kallades tidigare för diagnostikloggar.*  |
 | Azure-prenumeration | [Aktivitetslogg](activity-logs-overview.md) | Ger inblick i åtgärderna för varje Azure-resurs i prenumerationen från utsidan (*hanterings planet*) utöver uppdateringar av service Health händelser. Det finns en enda aktivitets logg för varje Azure-prenumeration.   |
-| Azure-klient | [Azure Active Directory loggar](../../active-directory/reports-monitoring/overview-reports.md)  | Innehåller historiken för inloggnings aktivitet och gransknings spårning av ändringar som gjorts i Azure Active Directory för en viss klient.   |
+| Azure-klientorganisation | [Azure Active Directory loggar](../../active-directory/reports-monitoring/overview-reports.md)  | Innehåller historiken för inloggnings aktivitet och gransknings spårning av ändringar som gjorts i Azure Active Directory för en viss klient.   |
 
 
-![Översikt över plattforms loggar](media/platform-logs-overview/logs-overview.png)
+![Översikt över plattformsloggar](media/platform-logs-overview/logs-overview.png)
 
 ## <a name="viewing-platform-logs"></a>Visa plattforms loggar
 Du kan visa [aktivitets loggen](activity-log-view.md) och [Azure Active Directory loggar](../../active-directory/reports-monitoring/overview-reports.md) i Azure Portal. Du måste skicka resurs loggar till ett [mål](#destinations) om du vill visa dem.
@@ -37,11 +37,11 @@ Du kan visa [aktivitets loggen](activity-log-view.md) och [Azure Active Director
 ## <a name="destinations"></a>Mål
 Du kan skicka plattforms loggar till en eller flera av målen i följande tabell, beroende på dina övervaknings krav. 
 
-| Destination | Scenario | Referenser |
+| Mål | Scenario | Referenser |
 |:---|:---|:---|:---|
 | Log Analytics-arbetsyta | Analysera loggarna med andra övervaknings data och utnyttja Azure Monitor funktioner som logg frågor och aviseringar. | [Resurs loggar](resource-logs-collect-storage.md)<br>[Aktivitetslogg](activity-log-collect.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure-lagring | Arkivera loggarna för granskning, statisk analys eller säkerhets kopiering. |[Resurs loggar](archive-diagnostic-logs.md)<br>[Aktivitetslogg](activity-log-export.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Händelsehub | Strömma loggarna till loggnings-och telemetri system från tredje part.  |[Resurs loggar](resource-logs-stream-event-hubs.md)<br>[Aktivitetslogg](activity-log-export.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+| Azure Storage | Arkivera loggarna för granskning, statisk analys eller säkerhets kopiering. |[Resurs loggar](archive-diagnostic-logs.md)<br>[Aktivitetslogg](activity-log-export.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Händelsehubb | Strömma loggarna till loggnings-och telemetri system från tredje part.  |[Resurs loggar](resource-logs-stream-event-hubs.md)<br>[Aktivitetslogg](activity-log-export.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
 ## <a name="diagnostic-settings-and-log-profiles"></a>Diagnostikinställningar och logg profiler

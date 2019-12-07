@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 31eefbad8e8d7cb626d87d53690388d09b85257e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: e035c1ff4c8e16fbf40883b54e3153eab9729040
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122647"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894286"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänsten med Apache Kafka på HDInsight
 
@@ -24,7 +24,7 @@ Lär dig hur du använder Azure Kubernetes service (AKS) med [Apache Kafka](http
 > [!NOTE]  
 > Det här dokumentet fokuserar på de steg som krävs för att aktivera Azure Kubernetes-tjänsten för att kommunicera med Kafka på HDInsight. Själva exemplet är bara en grundläggande Kafka-klient för att demonstrera att konfigurationen fungerar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * En Azure-prenumeration
@@ -35,7 +35,7 @@ Det här dokumentet förutsätter att du är van att skapa och använda följand
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-Det här dokumentet förutsätter också att du har gick genom [självstudien för Azure Kubernetes-tjänsten](../../aks/tutorial-kubernetes-prepare-app.md). Den här artikeln skapar en behållar tjänst, skapar ett Kubernetes-kluster, ett behållar `kubectl` register och konfigurerar verktyget.
+Det här dokumentet förutsätter också att du har gick genom [självstudien för Azure Kubernetes-tjänsten](../../aks/tutorial-kubernetes-prepare-app.md). Den här artikeln skapar en behållar tjänst, skapar ett Kubernetes-kluster, ett behållar register och konfigurerar `kubectl`-verktyget.
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -57,52 +57,56 @@ Om du inte redan har ett AKS-kluster kan du använda något av följande dokumen
 * [Distribuera ett Azure Kubernetes service (AKS)-kluster – Portal](../../aks/kubernetes-walkthrough-portal.md)
 * [Distribuera ett Azure Kubernetes service (AKS)-kluster – CLI](../../aks/kubernetes-walkthrough.md)
 
-> [!NOTE]  
-> AKS skapar ett virtuellt nätverk under installationen. Det här nätverket är peer-kopplat till det som skapats för HDInsight i nästa avsnitt.
+> [!IMPORTANT]  
+> AKS skapar ett virtuellt nätverk under installationen i en **ytterligare** resurs grupp. Den ytterligare resurs gruppen följer namngivnings konventionen för **MC_resourceGroup_AKSclusterName_location**.  
+> Det här nätverket är peer-kopplat till det som skapats för HDInsight i nästa avsnitt.
 
 ## <a name="configure-virtual-network-peering"></a>Konfigurera peering för virtuellt nätverk
 
-1. Välj __resurs grupper__från [Azure Portal](https://portal.azure.com)och leta sedan upp resurs gruppen som innehåller det virtuella nätverket för ditt AKS-kluster. Resurs gruppens namn är `MC_<resourcegroup>_<akscluster>_<location>`. Posterna `resourcegroup` och`akscluster` är namnet på den resurs grupp som du skapade klustret i, och namnet på klustret. `location` Är platsen som klustret skapades i.
+### <a name="identify-preliminary-information"></a>Identifiera preliminär information
 
-2. I resurs gruppen väljer du den __virtuella nätverks__ resursen.
+1. Leta upp den ytterligare **resurs grupp** som innehåller det virtuella nätverket för ditt AKS-kluster från [Azure Portal](https://portal.azure.com).
 
-3. Välj __adress utrymme__. Observera adress utrymmet i listan.
+2. Välj den __virtuella nätverks__ resursen i resurs gruppen. Spara namnet för senare användning.
 
-4. Om du vill skapa ett virtuellt nätverk för HDInsight väljer du __+ skapa en resurs, ett__ __nätverk__och sedan __virtuellt nätverk__.
+3. Under **Inställningar**väljer du __adress utrymme__. Observera adress utrymmet i listan.
 
-    > [!IMPORTANT]  
-    > När du anger värden för det nya virtuella nätverket måste du använda ett adress utrymme som inte överlappar det som används av AKS-kluster nätverket.
+### <a name="create-virtual-network"></a>Skapa det virtuella nätverket
 
-    Använd samma __plats__ för det virtuella nätverk som du använde för AKS-klustret.
+1. Om du vill skapa ett virtuellt nätverk för HDInsight navigerar du till __+ skapa en resurs__ > __nätverk__ > __virtuella nätverk__.
 
-    Vänta tills det virtuella nätverket har skapats innan du går vidare till nästa steg.
+1. Skapa nätverket med följande rikt linjer för vissa egenskaper:
 
-5. Om du vill konfigurera peering mellan HDInsight-nätverket och AKS-klustret väljer du det virtuella nätverket och väljer sedan __peering__. Välj __+ Lägg till__ och Använd följande värden för att fylla i formuläret:
+    |Egenskap | Värde |
+    |---|---|
+    |Adressutrymme|Du måste använda ett adress utrymme som inte överlappar det som används av AKS-kluster nätverket.|
+    |Plats|Använd samma __plats__ för det virtuella nätverk som du använde för AKS-klustret.|
 
-   * __Namn på__: Ange ett unikt namn för peering-konfigurationen.
-   * __Virtuellt nätverk__: Använd det här fältet för att välja det virtuella nätverket för **AKS-klustret**.
+1. Vänta tills det virtuella nätverket har skapats innan du går vidare till nästa steg.
 
-     Lämna alla andra fält i standardvärdet och välj sedan __OK__ för att konfigurera peer koppling.
+### <a name="configure-peering"></a>Konfigurera peering
 
-6. Om du vill konfigurera peering mellan AKS-kluster nätverket och HDInsight-nätverket väljer du det __virtuella nätverk för AKS-kluster__och väljer sedan __peering__. Välj __+ Lägg till__ och Använd följande värden för att fylla i formuläret:
+1. Om du vill konfigurera peering mellan HDInsight-nätverket och AKS-klustret väljer du det virtuella nätverket och väljer sedan __peering__.
 
-   * __Namn på__: Ange ett unikt namn för peering-konfigurationen.
-   * __Virtuellt nätverk__: Använd det här fältet för att välja det virtuella nätverket för __HDInsight-klustret__.
+1. Välj __+ Lägg till__ och Använd följande värden för att fylla i formuläret:
 
-     Lämna alla andra fält i standardvärdet och välj sedan __OK__ för att konfigurera peer koppling.
+    |Egenskap |Värde |
+    |---|---|
+    |Peering-namnet från \<den här VN-> till fjärrnätverket|Ange ett unikt namn för peering-konfigurationen.|
+    |Virtuellt nätverk|Välj det virtuella nätverket för **AKS-klustret**.|
+    |Peering-namnet från \<AKS VN > för att \<denna VN >|Ange ett unikt namn.|
 
-## <a name="install-apache-kafka-on-hdinsight"></a>Installera Apache Kafka på HDInsight
+    Lämna alla andra fält i standardvärdet och välj sedan __OK__ för att konfigurera peer koppling.
+
+## <a name="create-apache-kafka-cluster-on-hdinsight"></a>Skapa Apache Kafka kluster i HDInsight
 
 När du skapar Kafka i HDInsight-klustret måste du ansluta det virtuella nätverket som skapades tidigare för HDInsight. Mer information om hur du skapar ett Kafka-kluster finns i [skapa ett kluster](apache-kafka-get-started.md) dokument för Apache Kafka.
-
-> [!IMPORTANT]  
-> När du skapar klustret måste du använda de __avancerade inställningarna__ för att ansluta till det virtuella nätverk som du skapade för HDInsight.
 
 ## <a name="configure-apache-kafka-ip-advertising"></a>Konfigurera Apache Kafka IP-annonsering
 
 Använd följande steg för att konfigurera Kafka för att annonsera IP-adresser i stället för domän namn:
 
-1. Använd en webbläsare och gå till https://CLUSTERNAME.azurehdinsight.net. Ersätt __kluster__ namn med namnet på Kafka i HDInsight-klustret.
+1. Via en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`. Ersätt kluster namn med namnet på Kafka i HDInsight-klustret.
 
     När du uppmanas använder du HTTPS-användarnamnet och lösen ordet för klustret. Ambari webb gränssnitt för klustret visas.
 
@@ -114,7 +118,7 @@ Använd följande steg för att konfigurera Kafka för att annonsera IP-adresser
 
     ![Konfiguration av Apache Ambari Services](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
-4. Du hittar __Kafka-kuvert-__ konfigurationen genom att `kafka-env` ange i fältet __filter__ längst upp till höger.
+4. Du hittar __Kafka-kuvert-__ konfigurationen genom att ange `kafka-env` i fältet __filter__ längst upp till höger.
 
     ![Kafka-konfiguration, för Kafka-miljö](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
 
@@ -128,9 +132,9 @@ Använd följande steg för att konfigurera Kafka för att annonsera IP-adresser
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger `listeners` du i fältet __filter__ längst upp till höger.
+6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger du `listeners` i fältet __filter__ längst upp till höger.
 
-7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listeners__ till `PLAINTEXT://0.0.0.0:9092`.
+7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listener__ till `PLAINTEXT://0.0.0.0:9092`.
 
 8. Använd knappen __Spara__ om du vill spara konfigurations ändringarna. Ange ett textmeddelande som beskriver ändringarna. Välj __OK__ när ändringarna har sparats.
 
@@ -154,21 +158,21 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
 
 2. Ladda ned exempel programmet från [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test).
 
-3. `index.js` Redigera filen och ändra följande rader:
+3. Redigera `index.js`-filen och ändra följande rader:
 
     * `var topic = 'mytopic'`: Ersätt `mytopic` med namnet på Kafka-ämnet som används av det här programmet.
     * `var brokerHost = '176.16.0.13:9092`: Ersätt `176.16.0.13` med den interna IP-adressen för en av Service Broker-värdarna för klustret.
 
         För att hitta den interna IP-adressen för Service Broker-värdarna (workernodes) i klustret, se [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) Document. Välj IP-adressen för en av posterna där domän namnet börjar med `wn`.
 
-4. Från en kommando rad i `src` katalogen installerar du beroenden och använder Docker för att bygga en avbildning för distribution:
+4. Från en kommando rad i `src`-katalogen installerar du beroenden och använder Docker för att bygga en avbildning för distribution:
 
     ```bash
     docker build -t kafka-aks-test .
     ```
 
     > [!NOTE]  
-    > Paket som krävs av det här programmet kontrol leras i lagrings platsen, så du behöver inte `npm` använda verktyget för att installera dem.
+    > Paket som krävs av det här programmet kontrol leras i lagrings platsen, så du behöver inte använda verktyget `npm` för att installera dem.
 
 5. Logga in på din Azure Container Registry (ACR) och leta upp namnet på namnet:
 
@@ -180,7 +184,7 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
     > [!NOTE]  
     > Om du inte känner till Azure Container Registry namn eller inte är bekant med att använda Azure CLI för att arbeta med Azure Kubernetes-tjänsten kan du läsa mer i [AKS-självstudierna](../../aks/tutorial-kubernetes-prepare-app.md).
 
-6. Tagga den lokala `kafka-aks-test` avbildningen med namnet i din ACR. Lägg `:v1` också till i slutet för att ange avbildnings versionen:
+6. Tagga den lokala `kafka-aks-test`-avbildningen med namnet av din ACR. Lägg också till `:v1` i slutet för att ange avbildnings versionen:
 
     ```bash
     docker tag kafka-aks-test <acrLoginServer>/kafka-aks-test:v1
@@ -194,7 +198,7 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
 
     Den här åtgärden tar flera minuter att slutföra.
 
-8. Redigera manifest filen Kubernetes ()`kafka-aks-test.yaml`och Ersätt `microsoft` med ACR namnet-namnet som hämtades i steg 4.
+8. Redigera manifest filen Kubernetes (`kafka-aks-test.yaml`) och ersätt `microsoft` med namnet-namnet ACR som hämtades i steg 4.
 
 9. Använd följande kommando för att distribuera program inställningarna från manifestet:
 
@@ -202,7 +206,7 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
     kubectl create -f kafka-aks-test.yaml
     ```
 
-10. Använd följande kommando för att se för `EXTERNAL-IP` programmet:
+10. Använd följande kommando för att se om programmets `EXTERNAL-IP`:
 
     ```bash
     kubectl get service kafka-aks-test --watch

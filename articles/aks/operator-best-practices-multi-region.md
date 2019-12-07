@@ -7,12 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
-ms.openlocfilehash: 5a0a7e59e71e51a109af0f89cbb7ba580b2b97e6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 21c1380862638ef671b31f0fdec42009d217aca7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967193"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893220"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)
 
@@ -29,13 +30,13 @@ Den här artikeln fokuserar på hur du planerar för verksamhets kontinuitet och
 
 ## <a name="plan-for-multiregion-deployment"></a>Planera för distribution i flera regioner
 
-**Bästa praxis**: När du distribuerar flera AKS-kluster väljer du regioner där AKS är tillgängligt och använder kopplade regioner.
+**Bästa praxis**: när du distribuerar flera AKS-kluster väljer du regioner där AKS är tillgängligt och använder kopplade regioner.
 
 Ett AKS-kluster distribueras till en enda region. Om du vill skydda systemet från regions fel kan du distribuera programmet till flera AKS-kluster i olika regioner. När du planerar var du ska distribuera ditt AKS-kluster bör du tänka på följande:
 
-* [**Tillgänglighet för AKS-regionen**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Välj regioner som är nära dina användare. AKS utökas kontinuerligt till nya regioner.
-* [**Azure-kopplade regioner**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): För ditt geografiska område väljer du två regioner som är kopplade till varandra. Kopplade regioner koordinerar plattforms uppdateringar och prioriterar återställnings ansträngningar vid behov.
-* **Tjänst tillgänglighet**: Bestäm om dina kopplade regioner ska vara varm/frekvent, varm/varm eller varm/kall. Vill du köra båda regionerna samtidigt, och en region är *redo* att börja betjäna trafik? Eller vill du att en region ska ha tid att bli redo att betjäna trafiken?
+* [**AKS region tillgänglighet**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Välj regioner som är nära dina användare. AKS utökas kontinuerligt till nya regioner.
+* [**Azure-kopplade regioner**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Välj två regioner i det geografiska område som är kopplade till varandra. Kopplade regioner koordinerar plattforms uppdateringar och prioriterar återställnings ansträngningar vid behov.
+* **Tjänst tillgänglighet**: Bestäm om dina kopplade regioner ska vara frekvent/frekvent, varm/varm eller varm/kall. Vill du köra båda regionerna samtidigt, och en region är *redo* att börja betjäna trafik? Eller vill du att en region ska ha tid att bli redo att betjäna trafiken?
 
 AKS regions tillgänglighet och kopplade regioner är ett gemensamt övervägande. Distribuera dina AKS-kluster i kopplade regioner som är utformade för att hantera Disaster Recovery för regioner tillsammans. Till exempel är AKS tillgängligt i USA, östra och västra USA. Dessa regioner är kopplade till varandra. Välj dessa två regioner när du skapar en AKS BC/DR-strategi.
 
@@ -61,9 +62,15 @@ Information om hur du konfigurerar slut punkter och routning finns i [Konfigurer
 
 Traffic Manager använder DNS (skikt 3) för att forma trafik. [Azure frontend-tjänsten](https://docs.microsoft.com/azure/frontdoor/front-door-overview) tillhandahåller ett alternativ för att dirigera http/https (Layer 7). Ytterligare funktioner i Azures frontend-tjänst omfattar SSL-avslutning, anpassad domän, brand vägg för webb program, URL-omskrivning och tillhörighet mellan sessioner. Granska behoven hos din program trafik för att förstå vilken lösning som passar bäst.
 
+### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnect-regioner med global peering för virtuella nätverk
+
+Om klustren måste kommunicera med varandra kan du ansluta båda virtuella nätverken till varandra via [peering för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Den här tekniken sammankopplar virtuella nätverk till varandra med hög bandbredd i Microsofts stamnät nätverk, även i olika geografiska regioner.
+
+En förutsättning för att peer-koppla virtuella nätverk där AKS-kluster körs är att använda standard Load Balancer i ditt AKS-kluster, så att Kubernetes-tjänsterna kan uppnås i det virtuella nätverkets peering.
+
 ## <a name="enable-geo-replication-for-container-images"></a>Aktivera geo-replikering för behållar avbildningar
 
-**Bästa praxis**: Lagra behållar avbildningarna i Azure Container Registry och geo-replikera registret till varje AKS region.
+**Bästa praxis**: lagra behållar avbildningarna i Azure Container Registry och geo-replikera registret till varje AKS region.
 
 Om du vill distribuera och köra dina program i AKS behöver du ett sätt att lagra och hämta behållar avbildningarna. Container Registry integreras med AKS så att det säkert kan lagra behållar avbildningar eller Helm-diagram. Container Registry stöder geo-replikering med flera huvud servrar för att automatiskt replikera dina avbildningar till Azure-regioner runtom i världen. 
 
@@ -73,15 +80,15 @@ Om du vill förbättra prestanda och tillgänglighet använder Container Registr
 
 När du använder Container Registry geo-replikering för att hämta avbildningar från samma region, är resultaten:
 
-* **Snabbare**: Du hämtar bilder från höghastighets nätverks anslutningar med låg latens inom samma Azure-region.
-* **Mer Reliable**: Om en region inte är tillgänglig hämtar ditt AKS-kluster avbildningarna från ett tillgängligt behållar register.
-* **Billigare**: Det finns ingen utgående nätverks belastning mellan data Center.
+* **Snabbare**: du hämtar bilder från höghastighets nätverks anslutningar med låg fördröjning inom samma Azure-region.
+* **Mer tillförlitligt**: om en region inte är tillgänglig hämtar ditt AKS-kluster avbildningarna från ett tillgängligt behållar register.
+* **Billigare**: det finns ingen utgående nätverks belastning mellan data Center.
 
 Geo-replikering är en funktion i de register för *Premium* SKU-behållare. Information om hur du konfigurerar geo-replikering finns [container Registry geo-replikering](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
 
 ## <a name="remove-service-state-from-inside-containers"></a>Ta bort tjänst tillstånd från behållare i behållare
 
-**Bästa praxis**: Om möjligt ska du inte lagra tjänst tillstånd i behållaren. Använd i stället en Azure-plattform som en tjänst (PaaS) som stöder replikering i flera regioner.
+**Bästa praxis**: där det är möjligt bör du inte lagra tjänst tillstånd i behållaren. Använd i stället en Azure-plattform som en tjänst (PaaS) som stöder replikering i flera regioner.
 
 *Tjänst tillstånd* syftar på InMemory-eller disk data som en tjänst behöver för att fungera. Status omfattar de data strukturer och medlemsvariabler som tjänsten läser och skriver. Beroende på hur tjänsten är konstruerad kan tillstånd även innehålla filer eller andra resurser som lagras på disken. Till exempel kan tillstånd innehålla de filer som en databas använder för att lagra data och transaktions loggar.
 
@@ -96,7 +103,7 @@ Information om hur du skapar bärbara program finns i följande rikt linjer:
 
 ## <a name="create-a-storage-migration-plan"></a>Skapa en plan för lagringsmigrering
 
-**Bästa praxis**: Om du använder Azure Storage förbereder du och testar hur du migrerar lagringen från den primära regionen till säkerhets kopierings regionen.
+**Bästa praxis**: om du använder Azure Storage förbereder du och testar hur du migrerar lagringen från den primära regionen till säkerhets kopierings regionen.
 
 Dina program kan använda Azure Storage för sina data. Eftersom dina program sprids över flera AKS-kluster i olika regioner måste du hålla lagringen synkroniserad. Här följer två vanliga sätt att replikera lagring:
 

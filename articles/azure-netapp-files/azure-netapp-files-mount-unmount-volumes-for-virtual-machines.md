@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/05/2019
 ms.author: b-juche
-ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7f1e9500a9268e0fba054f7065e858cd801aca7b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173589"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894104"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
@@ -41,6 +41,12 @@ Du kan montera eller demontera en volym för virtuella Windows-eller Linux-dator
     * `$ANFIP` är IP-adressen för den Azure NetApp Files volym som finns på volym egenskaper-bladet.
     * `$FILEPATH` är Azure NetApp Files volymens export Sök väg.
     * `$MOUNTPOINT` är katalogen som skapats på Linux-värden som används för att montera NFS-exporten.
+
+4. Om du vill montera volymen till Windows med NFS:
+
+    a. Montera volymen på en virtuell UNIX-eller Linux-dator först.  
+    b. Kör ett `chmod 777`-eller `chmod 775` kommando mot volymen.  
+    c. Montera volymen via NFS-klienten i Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 

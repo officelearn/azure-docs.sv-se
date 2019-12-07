@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 6616bd8172e9bc049a6e0e2c687390197de2f391
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 707f4eca440c0e8461420ff0bbc5e67f8e5ad69d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767321"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888520"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa Server konfigurations parametrar med hjälp av Azure CLI
 Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure Database for MariaDB-server med hjälp av Azure CLI, kommando rads verktyget för Azure. En del av motor konfigurationerna exponeras på server nivå och kan ändras.
@@ -55,9 +55,9 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 
 Den här koden återställer den **långsamma\_frågan\_logg** konfigurationen till standardvärdet **.** 
 
-## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tids zons parametern
+## <a name="working-with-the-time-zone-parameter"></a>Arbeta med parametern tidszon
 
-### <a name="populating-the-time-zone-tables"></a>Fylla i tids zons tabellerna
+### <a name="populating-the-time-zone-tables"></a>Fylla i tabellerna tidszon
 
 Du kan fylla i tids zons tabellerna på servern genom att anropa den `az_load_timezone` lagrade proceduren från ett verktyg som kommando raden för MariaDB eller MariaDB Workbench.
 
@@ -68,13 +68,16 @@ Du kan fylla i tids zons tabellerna på servern genom att anropa den `az_load_ti
 CALL mysql.az_load_timezone();
 ```
 
-Kör följande kommando för att visa tillgängliga tids zons värden:
+> [!IMPORTANT]
+> Du bör starta om servern för att se till att tids zons tabellerna är korrekt ifyllda. Om du vill starta om servern använder du [Azure Portal](howto-restart-server-portal.md) eller [CLI](howto-restart-server-cli.md).
+
+Om du vill visa tillgängliga tidszon värden, kör du följande kommando:
 
 ```sql
 SELECT name FROM mysql.time_zone_name;
 ```
 
-### <a name="setting-the-global-level-time-zone"></a>Ange tidszon på global nivå
+### <a name="setting-the-global-level-time-zone"></a>Tidszonen global nivå
 
 Du kan ange tids zonen för global nivå med hjälp av kommandot [AZ MariaDB Server Configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) .
 
@@ -84,9 +87,9 @@ Följande kommando uppdaterar **tiden\_zon** serverns konfigurations parameter f
 az mariadb server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
 ```
 
-### <a name="setting-the-session-level-time-zone"></a>Ange tids zonen för sessionen
+### <a name="setting-the-session-level-time-zone"></a>Tidszonen session nivå
 
-Tids zonen för tids zonen kan anges genom att köra kommandot `SET time_zone` från ett verktyg som MariaDB-kommando rad eller MariaDB Workbench. I exemplet nedan ställs tids zonen till i **USA/Stilla havs** området.  
+Tids zonen för tids zonen kan anges genom att köra kommandot `SET time_zone` från ett verktyg som MariaDB-kommando rad eller MariaDB Workbench. Exemplet nedan anger tidszonen till den **USA / Stillahavsområdet** tidszon.  
 
 ```sql
 SET time_zone = 'US/Pacific';

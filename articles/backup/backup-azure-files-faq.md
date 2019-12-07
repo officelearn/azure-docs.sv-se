@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173113"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892584"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -70,6 +70,18 @@ Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsvers
 - US Gov, Arizona (UGA)
 - US Gov, Texas (UGT)
 - US Gov, Virginia (UGV)
+- Australien, centrala (ACL)
+- Indien, väst (INW)
+- Södra Afrika, norra (SAN)
+- Förenade Arabemiraten Nord (UAN)
+- Frankrike, centrala (FRC)
+- Tyskland, norra (GN)                       
+- Tyskland, västra centrala (GWC)
+- Södra Afrika (såg)
+- Förenade Arabemiraten Central (UAC)
+- NVI (Norge, öst)     
+- NWW (Norge, västra)
+- SZN (Schweiz, norra)
 
 Skriv till [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) om du behöver använda den i ett visst område som inte anges ovan.
 

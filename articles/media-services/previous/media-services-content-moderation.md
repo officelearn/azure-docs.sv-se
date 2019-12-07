@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Media Content Moderator för att identifiera möjliga vuxet eller olämpligt innehåll | Microsoft Docs
-description: Videomoderering hjälper dig att identifiera potentiellt vuxet eller olämpligt innehåll i videor.
+title: Använd Azure Media Content Moderator för att identifiera eventuell vuxen och vågat innehåll | Microsoft Docs
+description: Azure Media Content Moderator Media-processorn hjälper till att identifiera potentiellt vuxna och vågat innehåll i videor.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -14,81 +14,81 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465685"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896004"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Använda Azure Media Content Moderator för att identifiera möjliga vuxet eller olämpligt innehåll 
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Använd Azure Media Content Moderator för att identifiera eventuell vuxen och vågat innehåll 
 
 ## <a name="overview"></a>Översikt
-Den **Azure Media Content Moderator** mediebearbetare (MP) kan du använda datorstödd moderering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet.
+Med **Azure Media Content moderator** Media-processorn (MP) kan du använda dator redigering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet.
 
-Den **Azure Media Content Moderator** MP förhandsvisas just nu.
+**Azure Media Content moderator** MP är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **Azure Media Content Moderator** och visar hur du använder det med Media Services SDK för .NET.
+Den här artikeln innehåller information om **Azure Media Content moderator** och visar hur du använder det med Media Services SDK för .net.
 
 ## <a name="content-moderator-input-files"></a>Content Moderator indatafiler
-Videofiler. För närvarande stöds följande format: MP4 MOV och WMV.
+Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.
 
 ## <a name="content-moderator-output-files"></a>Content Moderator utdatafiler
-Kontrollerad utdata i JSON-format innehåller upptäcks automatiskt skärmbilder och nyckelbildrutor. Nyckelrutorna returneras med tillförsikt poäng för möjliga vuxet eller olämpligt innehåll. De innehåller också en boolesk flagga som anger om en granskning rekommenderas. Granska rekommendation flaggan tilldelas värden baserat på de interna tröskelvärdena för vuxet och vågat innehåll poäng.
+De kontrollerade utdata i JSON-formatet innehåller automatiskt identifierade bilder och nyckel rutor. Nyckel rutorna returneras med förtroende poäng för möjlig vuxen eller vågat innehåll. De innehåller också en boolesk flagga som anger om en granskning rekommenderas. Flaggan för gransknings rekommendationen tilldelas värden baserat på de interna tröskelvärdena för vuxna och vågat resultat.
 
 ## <a name="elements-of-the-output-json-file"></a>Element i JSON-filen för utdata
 
-Jobbet producerar en JSON-utdata-fil som innehåller metadata om identifierade skärmbilder och nyckelrutor och om de innehålla vuxet eller olämpligt innehåll.
+Jobbet skapar en JSON-utdatafil som innehåller metadata om identifierade bilder och nyckel rutor och om de innehåller vuxen eller vågat innehåll.
 
-Utdata JSON innehåller följande element:
+Utdata-JSON innehåller följande element:
 
-### <a name="root-json-elements"></a>Rot JSON-element
+### <a name="root-json-elements"></a>JSON-element för rot
 
 | Element | Beskrivning |
 | --- | --- |
 | version |Versionen av Content Moderator. |
-| tidsskalan |”Ticken” per sekund av videon. |
-| offset |Tidsförskjutningen för tidsstämplar. I version 1.0 av Video-API: er, kommer det här värdet alltid vara 0. Det här värdet kan ändras i framtiden. |
-| ramhastighet |Bildrutor per sekund i videon. |
-| Bredd |Bredden på utdata video ramen i bildpunkter.|
-| Höjd |Höjden på utdata video ramen i bildpunkter.|
-| totalDuration |Varaktigheten för indata video i ”ticken”. |
-| [fragment](#fragments-json-elements) |Metadata är segmentvis upp i olika segment som kallas fragment. Varje fragment är en bild som upptäcks automatiskt med en start, varaktighet, antalet och händelse(r). |
+| timescale |"Tickar" per sekund för videon. |
+| redovisningsmotkonto |Tidsförskjutningen för tidsstämplar. I version 1,0 av video-API: er, är det här värdet alltid 0. Det här värdet kan ändras i framtiden. |
+| ram |Bildrutor per sekund i videon. |
+| bredd |Bredden på video rutan för utdata i bild punkter.|
+| höjd |Höjden på video rutan för utdata i bild punkter.|
+| TotalDuration |Varaktigheten för inmatad video i "ticker". |
+| [fragment](#fragments-json-elements) |Metadata delas upp i olika segment som kallas fragment. Varje fragment är en automatiskt identifierad bild med start, varaktighet, intervall nummer och händelse (r). |
 
-### <a name="fragments-json-elements"></a>Fragment JSON-element
-
-|Element|Beskrivning|
-|---|---|
-| start |Starttiden för den första händelsen i ”ticken”. |
-| Varaktighet |Längden på ett fragment, i ”ticken”. |
-| interval |Intervallet för varje händelsepost i avsnittet i ”ticken”. |
-| [händelser](#events-json-elements) |Varje händelse representerar ett klipp och varje klippet innehåller nyckelrutor upptäckt och spåras inom den varaktigheten. Det är en matris med händelser. Den yttre matrisen representerar ett visst tidsintervall. Den inre matrisen består av 0 eller fler händelser som inträffade vid den tidpunkten.|
-
-### <a name="events-json-elements"></a>Händelser som JSON-element
+### <a name="fragments-json-elements"></a>Fragmenterar JSON-element
 
 |Element|Beskrivning|
 |---|---|
-| reviewRecommended | `true` eller `false` beroende på om den **adultScore** eller **racyScore** överskrider de interna tröskelvärdena. |
-| adultScore | Förtroendepoäng för möjliga vuxet innehåll på en skala från 0,00 0,99. |
-| racyScore | Förtroendepoäng för möjliga olämpligt innehåll på en skala från 0,00 0,99. |
-| index | index för ramen på en skala från den första bildrutan index till den senaste ramens index. |
-| timestamp | Platsen för ramens i ”ticken”. |
-| shotIndex | Index för överordnat som. |
+| start |Start tiden för den första händelsen i "ticks". |
+| duration |Längden på fragmentet i "tickas". |
+| interval |Intervallet för varje händelse post i fragmentet, i "ticker". |
+| [planering](#events-json-elements) |Varje händelse representerar ett klipp och varje klipp innehåller nyckel rutor som har identifierats och spårats inom den tids perioden. Det är en matris med händelser. Den yttre matrisen representerar ett visst tidsintervall. Den inre matrisen består av 0 eller fler händelser som inträffade vid den tidpunkten.|
+
+### <a name="events-json-elements"></a>Händelser JSON-element
+
+|Element|Beskrivning|
+|---|---|
+| reviewRecommended | `true` eller `false` beroende på om **adultScore** eller **racyScore** överskrider de interna tröskelvärdena. |
+| adultScore | Tillförlitlighets poängen för potentiellt vuxen innehåll, på en skala på 0,00 till 0,99. |
+| racyScore | Tillförlitlighets poängen för möjligt vågat-innehåll, på en skala på 0,00 till 0,99. |
+| index | index för ramen i en skala från det första ram indexet till det sista ram indexet. |
+| tidsstämpel | Placeringen av ramen i "ticker". |
+| shotIndex | Index för den överordnade bilden. |
 
 
-## <a name="content-moderation-quickstart-and-sample-output"></a>Innehåll Moderering Snabbstart och exempel utdata
+## <a name="content-moderation-quickstart-and-sample-output"></a>Snabb start för innehålls redigering och exempel på utdata
 
-### <a name="task-configuration-preset"></a>Uppgiftskonfiguration (förinställning)
-När du skapar en uppgift med **Azure Media Content Moderator**, måste du ange en förinställning för konfigurationen. Följande configuration förinställningen är bara för innehållsmoderering.
+### <a name="task-configuration-preset"></a>Uppgifts konfiguration (förval)
+När du skapar en aktivitet med **Azure Media Content moderator**måste du ange en konfigurations för inställning. Följande konfigurations för inställning är bara för innehålls moderator.
 
     {
       "version":"2.0"
     }
 
-### <a name="net-code-sample"></a>.NET-kodexempel
+### <a name="net-code-sample"></a>Exempel på .NET-kod
 
-Följande kodexempel för .NET använder Media Services .NET SDK för att köra ett jobb för Content Moderator. Det tar en media services tillgången som indata som innehåller videon för att vara kontrollerad.
-Se den [Content Moderator video Snabbstart](../../cognitive-services/Content-Moderator/video-moderation-api.md) för den fullständiga källkoden och Visual Studio-projektet.
+I följande .NET-kod exempel används Media Services .NET SDK för att köra ett Content Moderator jobb. Det tar en medie tjänst till gång som indata som innehåller videon som ska förvaras.
+Se [snabb start för Content moderator video](../../cognitive-services/Content-Moderator/video-moderation-api.md) för den fullständiga käll koden och Visual Studio-projektet.
 
 
 ```csharp
@@ -223,17 +223,17 @@ The following example of a Content Moderator JSON output was truncated.
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
+## <a name="related-links"></a>Tillhörande länkar
+[Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Content Moderator [video moderering och granska lösningen](../../cognitive-services/Content-Moderator/video-moderation-human-review.md).
+Lär dig mer om att Content Moderator [videokontrollanten och se](../../cognitive-services/Content-Moderator/video-moderation-human-review.md)hur du går igenom lösningen.
 
-Hämta den fullständiga källkoden och Visual Studio-projekt från den [videomoderering snabbstarten](../../cognitive-services/Content-Moderator/video-moderation-api.md). 
+Hämta den fullständiga käll koden och Visual Studio-projektet från [videoinspelnings snabb](../../cognitive-services/Content-Moderator/video-moderation-api.md)starten. 
 
-Lär dig hur du skapar [videon går igenom](../../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) från din kontrollerad utdata, och [måttlig avskrifter](../../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md) i .NET.
+Lär dig hur du genererar [video granskningar](../../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) från dina kontrollerade utdata och [måttliga avskrifter](../../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md) i .net.
 
-Kolla in de detaljerade .NET [moderering och granska självstudievideo](../../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md). 
+Kolla in den detaljerade [självstudien om .net-videoinspelning och granskning](../../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md). 

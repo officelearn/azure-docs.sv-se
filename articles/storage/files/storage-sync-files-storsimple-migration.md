@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 description: StorSimple är en livs cykel produkt och Azure File Sync den lösning som ska migreras till. Lär dig mer om migrations konceptet och kontakta AzureFiles@microsoft.com för att få hjälp med anpassad migrering.
-ms.openlocfilehash: edad4d1c6be2c39dbf8150b6ab8979ae3924fb53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1cc88080522a62085d9a515223512ef25c20a9e4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666668"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895083"
 ---
 # <a name="storsimple-migration-to-azure-file-sync"></a>StorSimple migrering till Azure File Sync
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs begreppet hur en migrering börjar.
 Det är absolut nödvändigt att Observera att kunder som behöver migreras från StorSimple och på Azure File Sync inte behöver gå vidare på egen hand.
 
 > [!IMPORTANT]
-> Microsoft strävar efter att hjälpa kunder i sin migrering. E-AzureFiles@microsoft.com för en anpassad migrations plan samt hjälp vid migreringen.
+> Microsoft strävar efter att hjälpa kunder i sin migrering. E-postAzureFiles@microsoft. com för en anpassad migreringsjobb samt hjälp vid migreringen.
 
 ## <a name="migration-approach"></a>Metod för migrering
 Migreringen till Azure File Sync börjar i molnet med minimal påverkan på lokala och begränsade stillestånds tider.
@@ -67,7 +67,7 @@ Dessutom kan en Azure-filresurs synkronisera till flera olika servrar, om du beh
 Bekanta dig med Azure Files och Azure File Sync. Det är viktigt att förstå Azure File Sync terminologi och distributions mönster för en lyckad migrering. Mer detaljerad information finns i varje steg i den här översikts artikeln. Se till att kontakta Microsoft för att få en anpassad hjälp vid planering och körning av migreringen.
 
 > [!IMPORTANT]
-> Microsoft strävar efter att hjälpa kunder i sin migrering. E-AzureFiles@microsoft.com för en anpassad migrations plan samt hjälp vid migreringen.
+> Microsoft strävar efter att hjälpa kunder i sin migrering. E-postAzureFiles@microsoft. com för en anpassad migreringsjobb samt hjälp vid migreringen.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 Azure File Sync, som mål tjänst, har två grundläggande dokument som vi rekommenderar att du läser, om du är nybörjare på Azure File Sync.

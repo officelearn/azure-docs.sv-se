@@ -1,6 +1,6 @@
 ---
 title: Design av ett innehålls skydds system med flera DRM med åtkomst kontroll-Azure Media Services | Microsoft Docs
-description: Läs mer om licensiering av Microsoft Smooth Streaming-klienten porta Kit.
+description: Den här artikeln innehåller en detaljerad beskrivning av hur du utformar ett innehålls skydds system med flera DRM med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310335"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896178"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Designen av ett system med multi-DRM innehållsskydd med åtkomstkontroll 
 
@@ -27,7 +27,7 @@ Utforma och skapa en Digital Rights Management (DRM)-undersystem för en over-th
 
 Riktade läsare för det här dokumentet är tekniker som arbetar i DRM delsystem av OTT eller strömning flera/skärmar onlinelösningar eller läsare som är intresserade av DRM-undersystem. Antas att läsaren känner till minst en av DRM-tekniker på marknaden, till exempel PlayReady, Widevine, FairPlay eller Adobe åtkomst.
 
-I den här diskussionen inkluderar multi-DRM de tre DRM: er som stöds av Azure Media Services: Common Encryption (CENC) för PlayReady och Widevine, FairPlay samt AES-128 rensa nyckel kryptering. En större trend i online strömning och OTT-branschen är att använda interna DRM: er på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
+I den här diskussionen av multi-DRM vi tar de 3 DRM: er som stöds av Azure Media Services: gemensam kryptering (CENC) för PlayReady och Widevine, FairPlay samt AES-128 Rensa nyckelkryptering. En större trend i online strömning och OTT-branschen är att använda interna DRM: er på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
 
 Fördelarna med att använda interna multi-DRM för innehållsskydd är att den:
 
@@ -116,11 +116,11 @@ Varför är detta viktigt?
 
 Om du använder ett offentligt moln för licensleverans har permanent eller ickebeständig licenser en direkt inverkan på licenskostnaden för leverans. Följande två olika design-fall fungerar för att illustrera:
 
-* Månatlig prenumeration: Använd en beständiga licens och 1-till-många-mappning för innehålls nyckel till till gång. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
+* Månatlig prenumeration: använda en beständig licens och en 1-till-många innehåll nyckeln till tillgången mappning. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = 1
 
-* Månatlig prenumeration: Använd en ej beständiga licens och 1-till-1-mappning mellan innehålls nyckel och till gång. I det här fallet:
+* Månatlig prenumeration: använda en ickebeständig licens och 1-till-1-mappning mellan innehållsnyckeln och tillgången. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = [antal filmer sett] x [antalet sessioner]
 
@@ -245,7 +245,7 @@ Använd följande felsökningsinformation om du behöver hjälp med problem med 
 
 * Bevilja gruppmedlemskap anspråk privilegier. Kontrollera att följande finns i Azure AD program-manifestfilen: 
 
-    "groupMembershipClaims": "Alla" (Standardvärdet är null)
+    ”groupMembershipClaims”: ”alla” (standardvärdet är null)
 
 * Ange rätt TokenType när du skapar begränsning av krav.
 
@@ -286,15 +286,15 @@ Du kan kontakta någon av författarna till ett konto eller har lagts till för 
 
 De följande skärmbilderna visar olika inloggningssidorna används av olika domänkonton:
 
-**Anpassat Azure AD-klient domän konto**: Den anpassade inloggnings sidan för den anpassade Azure AD-klient domänen.
+**Anpassad Azure AD-klient domänkonto**: den anpassade inloggningssidan av anpassade Azure AD-klient domän.
 
 ![Domänkonto för anpassat Azure AD-klient en](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
-**Microsoft-domän konto med smartkort**: Inloggnings sidan som har anpassats av Microsoft Corporate med tvåfaktorautentisering.
+**Microsoft domänkonto med smartkort**: inloggningssidan genom Microsoft företagets IT med tvåfaktorsautentisering.
 
 ![Anpassat Azure AD-klient domänkonto två](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Microsoft-konto**: Inloggnings sidan för Microsoft-konto för konsumenter.
+**Microsoft-konto**: inloggningssidan för Microsoft-konto för konsumenter.
 
 ![Anpassat Azure AD-klient domänkonto tre](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 

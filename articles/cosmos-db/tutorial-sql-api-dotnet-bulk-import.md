@@ -1,20 +1,20 @@
 ---
-title: Optimera data flödet vid Mass import av data till Azure Cosmos DB SQL API-konto
-description: Lär dig hur du skapar ett .NET-konsol program som optimerar det allokerade data flöde (RU/s) som krävs för att importera data till Azure Cosmos DB.
+title: Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
+description: Lär dig hur du importerar eller matar in data till Azure Cosmos DB genom att skapa ett .NET-konsol program som optimerar allokerade data flöde (RU/s) som krävs för att importera data
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606207"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896281"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Optimera data flödet vid Mass import av data till Azure Cosmos DB SQL API-konto
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
 
 Den här självstudien visar hur du skapar ett .NET-konsol program som optimerar det allokerade data flöde (RU/s) som krävs för att importera data till Azure Cosmos DB. I den här artikeln ska du läsa data från en exempel data källa och importera den till en Azure Cosmos-behållare.
 I den här självstudien används [version 3.0 +](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) av Azure Cosmos dB .NET SDK, som kan vara avsedd för .NET Framework eller .net Core.
@@ -27,7 +27,7 @@ Den här självstudiekursen omfattar:
 > * Ansluta till ett Azure Cosmos-konto med Mass stöd aktiverat
 > * Utföra en data import via samtidiga skapande åtgärder
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
@@ -81,7 +81,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com/).
+1.  Logga in på [Azure-portalen](https://portal.azure.com/).
 1.  Navigera till ditt Azure Cosmos-konto.
 1.  Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto.
 

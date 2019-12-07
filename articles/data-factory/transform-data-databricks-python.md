@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Databricks python – Azure
+title: Transformera data med Databricks python
 description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks python.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 47654e8183dab120376f94df63d7664ead5dd580
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1acc484b8843fc1fe1acae5759a24f923396e003
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683945"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893951"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformera data genom att köra en python-aktivitet i Azure Databricks
 
@@ -65,12 +65,12 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 |Egenskap|Beskrivning|Krävs|
 |---|---|---|
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
-|description|Text som beskriver vad aktiviteten gör.|Nej|
+|beskrivning|Text som beskriver vad aktiviteten gör.|Nej|
 |typ|Aktivitets typen är DatabricksSparkPython för Databricks python-aktivitet.|Ja|
 |linkedServiceName|Namnet på den länkade Databricks-tjänst som python-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute Linked services](compute-linked-services.md) .|Ja|
 |pythonFile|URI för python-filen som ska köras. Endast DBFS-sökvägar stöds.|Ja|
 |parameters|Kommando rads parametrar som ska skickas till python-filen. Detta är en sträng mat ris.|Nej|
-|biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Nej|
+|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Nej|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för databricks-aktiviteter
 

@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Spark-aktivitet i Azure Data Factory
+title: Transformera data med Spark-aktivitet
 description: Lär dig hur du omvandlar data genom att köra Spark-program från en Azure Data Factory-pipeline med hjälp av Spark-aktiviteten.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 5f3bb88d3a2e43abe1776a4b46e4ab35490db8ec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 27dea39a1ebd2be56c86e4327218c62c5378002d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683749"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893764"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med Spark-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -61,10 +61,10 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 | Egenskap              | Beskrivning                              | Krävs |
 | --------------------- | ---------------------------------------- | -------- |
 | namn                  | Namnet på aktiviteten i pipelinen.    | Ja      |
-| description           | Text som beskriver vad aktiviteten gör.  | Nej       |
+| beskrivning           | Text som beskriver vad aktiviteten gör.  | Nej       |
 | typ                  | För Spark-aktivitet är aktivitets typen HDInsightSpark. | Ja      |
 | linkedServiceName     | Namnet på den länkade HDInsight Spark-tjänsten som Spark-programmet körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
-| sparkJobLinkedService | Den länkade tjänsten Azure Storage som innehåller Spark-jobbets fil, beroenden och loggar.  Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en Azure Storage länkad tjänst. | Nej       |
+| SparkJobLinkedService | Den länkade tjänsten Azure Storage som innehåller Spark-jobbets fil, beroenden och loggar.  Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en Azure Storage länkad tjänst. | Nej       |
 | rootPath              | Azure Blob-behållaren och-mappen som innehåller Spark-filen. Fil namnet är Skift läges känsligt. Se avsnittet mappstruktur (nästa avsnitt) för information om den här mappens struktur. | Ja      |
 | entryFilePath         | Relativ sökväg till rotmappen för Spark-koden/-paketet. Post filen måste vara antingen en python-fil eller en. jar-fil. | Ja      |
 | className             | Programmets Java/Spark-huvud klass      | Nej       |

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services-felkoder | Microsoft Docs
-description: Avsnittet ger en översikt över Azure Media Services-felkoder.
+title: Azure Media Services felkoder | Microsoft Docs
+description: Du kan få HTTP-felkoder från tjänsten beroende på problem som token för autentisering som går ut till åtgärder som inte stöds i Media Services. Den här artikeln ger en översikt över Azure Media Services v2 API-felkoder.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,110 +14,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217241"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887096"
 ---
-# <a name="azure-media-services-error-codes"></a>Azure Media Services-felkoder
-När du använder Microsoft Azure Media Services får du HTTP-felkoder från tjänsten beroende på problem, till exempel autentiseringstoken upphör att gälla för åtgärder som inte stöds i Media Services. Följande är en lista över **HTTP-felkoder** som kan returneras av Media Services och möjliga orsaker för dessa.  
+# <a name="azure-media-services-error-codes"></a>Azure Media Services felkoder
+När du använder Microsoft Azure Media Services kan du få HTTP-felkoder från tjänsten, beroende på problem som token för autentisering som går ut till åtgärder som inte stöds i Media Services. Följande är en lista över **http-felkoder** som kan returneras av Media Services och möjliga orsaker till dem.  
 
-## <a name="400-bad-request"></a>400 Felaktig förfrågan
-Begäran innehåller ogiltig information och avvisas på grund av något av följande orsaker:
+## <a name="400-bad-request"></a>400 Felaktig begäran
+Begäran innehåller ogiltig information och avvisas på grund av en av följande orsaker:
 
-* En API-version som inte stöds har angetts. Den senaste versionen finns [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
-* API-versionen av Media Services har inte angetts. Information om hur du anger den API-versionen finns i [Media Services Operations REST API-referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+* En API-version som inte stöds har angetts. Den senaste versionen finns i [installations programmet för Media Services REST API utveckling](media-services-rest-how-to-use.md).
+* API-versionen för Media Services har inte angetts. Information om hur du anger API-versionen finns [Media Services åtgärder REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
-  > Om du använder .NET eller Java-SDK: er för att ansluta till Media Services har API-version angetts för dig när du försöker och utföra någon åtgärd mot Media Services.
+  > Om du använder .NET eller Java SDK: er för att ansluta till Media Services, anges API-versionen åt dig när du försöker och utför en åtgärd mot Media Services.
   > 
   > 
-* En odefinierad egenskap har angetts. Egenskapsnamnet är i felmeddelandet. Endast de egenskaper som är medlemmar i en specifik entitet kan anges. Se [Azure Media Services REST API-referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) en lista över entiteter och deras egenskaper.
-* Ett ogiltigt egenskapsvärde har angetts. Egenskapsnamnet är i felmeddelandet. Se föregående länk för giltiga egenskapstyper och deras värden.
-* Ett egenskapsvärde saknas och måste anges.
-* En del av Webbadressen som angetts innehåller ett felaktigt värde.
+* En odefinierad egenskap har angetts. Egenskaps namnet visas i fel meddelandet. Endast de egenskaper som är medlemmar i en viss entitet kan anges. Se [Azure Media Services REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) för en lista över entiteter och deras egenskaper.
+* Ett ogiltigt egenskaps värde har angetts. Egenskaps namnet visas i fel meddelandet. Se föregående länk för giltiga egenskaps typer och deras värden.
+* Ett egenskaps värde saknas och måste anges.
+* En del av den angivna URL: en innehåller ett felaktigt värde.
 * Ett försök gjordes att uppdatera en WriteOnce-egenskap.
-* Ett försök gjordes att skapa ett jobb som har en Indatatillgången med en primär AssetFile som angavs inte eller kunde inte fastställas.
-* Ett försök gjordes att uppdatera en SAS-lokaliserare. SAS-lokaliserare kan bara skapas eller tas bort. Positionerare för direktuppspelning kan uppdateras. Mer information finns i [positionerare](https://docs.microsoft.com/rest/api/media/operations/locator).
-* En åtgärd som inte stöds eller fråga skickades in.
+* Ett försök gjordes att skapa ett jobb som har en inmatad till gång med en primär AssetFile som inte har angetts eller som inte kunde fastställas.
+* Ett försök gjordes att uppdatera en SAS-lokaliserare. SAS-positionerare kan bara skapas eller tas bort. Du kan uppdatera strömmande positionerare. Mer information finns i [positionerare](https://docs.microsoft.com/rest/api/media/operations/locator).
+* En åtgärd som inte stöds eller fråga skickades.
 
-## <a name="401-unauthorized"></a>401 Ej behörig
-Begäran kunde inte autentiseras (innan den kan auktoriseras) på grund av något av följande orsaker:
+## <a name="401-unauthorized"></a>401 obehörig
+Det gick inte att autentisera begäran (innan den kan auktoriseras) på grund av en av följande orsaker:
 
-* Autentiseringshuvud saknas.
-* Dålig autentisering huvudets värde.
+* Authentication-huvud saknas.
+* Felaktigt värde för Authentication-huvud.
   * Token har upphört att gälla. 
-  * Token som innehåller en ogiltig signatur.
+  * Token innehåller en ogiltig signatur.
 
-## <a name="403-forbidden"></a>403 Åtkomst nekas
-Förfrågan tillåts inte på grund av något av följande orsaker:
+## <a name="403-forbidden"></a>403 förbud
+Begäran tillåts inte på grund av en av följande orsaker:
 
-* Media Services-kontot kan inte hittas eller har tagits bort.
-* Media Services-kontot är inaktiverat och typ av begäran är inte HTTP GET. Tjänståtgärder returnerar ett 403 svar.
-* Autentiseringstoken innehåller inte användarens autentiseringsuppgifter information: AccountName och/eller prenumerations-ID. Du hittar den här informationen i Användargränssnittet för Media Services-tillägget för Media Services-kontot i Azure-hanteringsportalen.
-* Resursen är inte tillgänglig.
+* Det går inte att hitta Media Services kontot eller så har det tagits bort.
+* Media Servicess kontot är inaktiverat och typen av begäran är inte HTTP GET. Tjänst åtgärder returnerar också ett 403-svar.
+* Autentiseringstoken innehåller inte användarens autentiseringsinformation: AccountName och/eller SubscriptionId. Du hittar den här informationen i Media Services UI-tillägget för ditt Media Services-konto i Azure-Hanteringsportal.
+* Det går inte att komma åt resursen.
   
-  * Ett försök gjordes att använda en MediaProcessor som inte är tillgängligt för Media Services-kontot.
-  * Ett försök gjordes att uppdatera en jobbmall som definieras av Media Services.
-  * Ett försök gjordes att skriva över vissa andra Media Services-kontots lokaliserare.
-  * Ett försök gjordes att skriva över vissa andra Media Services-kontots ContentKey.
-* Det gick inte att skapa resursen på grund av en tjänstkvot nåddes för Media Services-kontot. Läs mer på i beaktande [kvoter och begränsningar](media-services-quotas-and-limitations.md).
+  * Ett försök gjordes att använda en MediaProcessor som inte är tillgänglig för ditt Media Services-konto.
+  * Ett försök gjordes att uppdatera en JobTemplate som definierats av Media Services.
+  * Det gjordes ett försök att skriva över någon annan Media Servicess kontots positionerare.
+  * Det gjordes ett försök att skriva över en annan Media Services kontots ContentKey.
+* Det gick inte att skapa resursen på grund av en tjänst kvot som nåtts för det Media Services kontot. Mer information om tjänst kvoter finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
 
 ## <a name="404-not-found"></a>404 Hittades inte
-Begäran är inte tillåten på en resurs på grund av något av följande orsaker:
+Begäran tillåts inte för en resurs på grund av en av följande orsaker:
 
 * Ett försök gjordes att uppdatera en entitet som inte finns.
 * Ett försök gjordes att ta bort en entitet som inte finns.
-* Ett försök gjordes att skapa en entitet som länkar till en enhet som inte finns.
+* Ett försök gjordes att skapa en entitet som länkar till en entitet som inte finns.
 * Ett försök gjordes att hämta en entitet som inte finns.
-* Ett försök gjordes att ange ett lagringskonto som inte är associerad med Media Services-kontot.  
+* Ett försök gjordes att ange ett lagrings konto som inte är kopplat till Media Services kontot.  
 
 ## <a name="409-conflict"></a>409 konflikt
-Förfrågan tillåts inte på grund av något av följande orsaker:
+Begäran tillåts inte på grund av en av följande orsaker:
 
-* Mer än en AssetFile har det angivna namnet i tillgången.
-* Ett försök gjordes att skapa en andra primära AssetFile i tillgången.
-* Ett försök gjordes att skapa en ContentKey med det angivna ID: T används redan.
-* Ett försök gjordes att skapa en lokaliserare med det angivna ID: T används redan.
-* Mer än en IngestManifestFile har det angivna namnet i IngestManifest.
-* Ett försök gjordes att länka en andra lagringskryptering ContentKey till storage-krypterad tillgången.
-* Ett försök gjordes att länka samma ContentKey till tillgången.
-* Ett försök gjordes att skapa en positionerare till en tillgång vars lagringsbehållare saknas eller är inte längre kopplad till tillgången.
-* Ett försök gjordes att skapa en positionerare till en tillgång som redan har 5 positionerare används. (Azure Storage framtvingar högst fem principer för delad åtkomst på en lagringsbehållare.)
-* Länka storage-konto för en tillgång till en IngestManifestAsset är inte detsamma som det lagringskonto som används av överordnat IngestManifest.  
+* Fler än ett AssetFile har det angivna namnet inom till gången.
+* Ett försök gjordes att skapa en andra primär AssetFile inom till gången.
+* Ett försök gjordes att skapa en ContentKey med angivet ID som redan används.
+* Ett försök gjordes att skapa en positionerare med angivet ID som redan används.
+* Fler än ett IngestManifestFile har det angivna namnet i IngestManifest.
+* Ett försök gjordes att länka en andra lagrings krypterings ContentKey till den lagrings krypterade till gången.
+* Ett försök gjordes att länka samma ContentKey till till gången.
+* Ett försök gjordes att skapa en positionerare till en till gång vars lagrings behållare saknas eller inte längre är kopplad till till gången.
+* Ett försök gjordes att skapa en positionerare till en till gång som redan har 5 lokaliserare som används. (Azure Storage tillämpar gränsen för fem principer för delad åtkomst på en lagrings behållare.)
+* Länkning av lagrings konto för en till gång till en IngestManifestAsset är inte samma som det lagrings konto som används av den överordnade IngestManifest.  
 
 ## <a name="500-internal-server-error"></a>500 Internt serverfel
-Under bearbetning av begäran påträffar Media Services ett fel som förhindrar att bearbetningen inte kan fortsätta. Detta kan bero på något av följande:
+Under bearbetningen av begäran upptäcker Media Services fel som förhindrar bearbetningen från att fortsätta. Detta kan bero på något av följande:
 
-* Det går inte att skapa en tillgång eller jobbet eftersom kvotinformation för Media Services-konto-tjänsten är otillgänglig.
-* Det går inte att skapa en tillgång eller IngestManifest blobblagringsbehållare eftersom kontots lagringskontoinformation är otillgänglig.
-* Ett oväntat fel.
+* Det går inte att skapa en till gång eller ett jobb eftersom Media Services kontots tjänst kvot information är tillfälligt otillgänglig.
+* Det går inte att skapa en till gång eller IngestManifest Blob Storage-behållare eftersom kontots lagrings konto information inte är tillgänglig för tillfället.
+* Andra oväntade fel.
 
 ## <a name="503-service-unavailable"></a>503 Tjänsten är inte tillgänglig
-Servern är för närvarande inte att ta emot begäranden. Det här felet kan orsakas av hög begäranden till tjänsten. Media Services begränsning mekanism begränsar resursanvändningen för program som gör överdrivna för tjänsten.
+Servern kan för närvarande inte ta emot begär Anden. Det här felet kan orsakas av för många begär anden till tjänsten. Media Services begränsnings metoden begränsar resursanvändningen för program som gör överdriven begäran till tjänsten.
 
 > [!NOTE]
-> Kontrollera felmeddelandet och felkodsträngen för att få mer detaljerad information om orsaken som du fick 503-felet. Det här felet betyder alltid inte begränsning.
+> Kontrol lera fel meddelandet och fel kod strängen för att få mer detaljerad information om orsaken till att du fick 503-felet. Detta fel innebär inte alltid begränsning.
 > 
 > 
 
-Möjliga statusbeskrivningar är:
+Beskrivningar av möjliga status är:
 
-* ”Servern är upptagen. Tidigare körningar av den här typen av begäran tog mer än {0} sekunder ”.
-* ”Servern är upptagen. Mer än {0} begäranden per sekund kan strypas ”.
-* ”Servern är upptagen. Mer än {0} begäranden inom {1} sekunder kan vara begränsad ”.
+* "Servern är upptagen. Tidigare körningar av den här typen av begäran tog mer än {0} sekunder. "
+* "Servern är upptagen. Fler än {0} begär Anden per sekund kan begränsas. "
+* "Servern är upptagen. Fler än {0} begär Anden inom {1} sekunder kan begränsas. "
 
-För att hantera det här felet, bör du använda exponentiell backoff-logik. Det innebär att med hjälp av progressivt längre väntar mellan försöken för efterföljande felsvar.  Mer information finns i [hantering av Programblocket tillfälliga](https://msdn.microsoft.com/library/hh680905.aspx).
+För att hantera det här felet rekommenderar vi att du använder exponentiella omprövnings logik. Det innebär att användningen av progressivt väntar mellan upprepade försök för efterföljande fel svar.  Mer information finns i [program block för tillfälligt fel hantering](https://msdn.microsoft.com/library/hh680905.aspx).
 
 > [!NOTE]
-> Om du använder [Azure Media Services SDK för .net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), logik för omprövning för 503-felet har implementerats av SDK.  
+> Om du använder [Azure Media Services SDK för .net](https://github.com/Azure/azure-sdk-for-media-services/tree/master)har omprövnings logiken för 503-felet implementerats av SDK: n.  
 > 
 > 
 
 ## <a name="see-also"></a>Se även
-[Media Services Management felkoder](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Fel koder för Media Services hantering](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

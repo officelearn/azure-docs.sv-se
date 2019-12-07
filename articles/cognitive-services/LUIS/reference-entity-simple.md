@@ -10,30 +10,30 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671505"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894764"
 ---
-# <a name="simple-entity"></a>Enkel entitet 
+# <a name="simple-entity"></a>Enkel entitet
 
-En enkel entitet är en generisk entitet som beskriver ett enda koncept och som har lärts från den dator som har lärts. Eftersom enkla entiteter vanligt vis är namn, till exempel företags namn, produkt namn eller andra kategorier av namn, lägger du till en [fras lista](luis-concept-feature.md) när du använder en enkel entitet för att öka signalen av de namn som används. 
+En enkel entitet är en generisk entitet som beskriver ett enda koncept och som har lärts från den dator som har lärts. Eftersom enkla entiteter vanligt vis är namn, till exempel företags namn, produkt namn eller andra kategorier av namn, lägger du till en [fras lista](luis-concept-feature.md) när du använder en enkel entitet för att öka signalen av de namn som används.
 
 **Entiteten passar bra när:**
 
-* Data formateras inte konsekvent, utan anger samma sak. 
+* Data formateras inte konsekvent, utan anger samma sak.
 
-![enkel entitet](./media/luis-concept-entities/simple-entity.png)
+![enkel enhet](./media/luis-concept-entities/simple-entity.png)
 
-## <a name="example-json"></a>Exempel-JSON
+## <a name="example-json"></a>Exempel på JSON
 
 `Bob Jones wants 3 meatball pho`
 
-I föregående uttryck är `Bob Jones` märkta som en enkel `Customer` entitet.
+I den föregående uttryck `Bob Jones` är märkt som en enkel `Customer` entitet.
 
-Data som returneras från slut punkten innehåller enhets namnet, den identifierade texten från uttryck, platsen för den identifierade texten och poängen:
+De data som returneras från slutpunkten innehåller entitetsnamnet, identifierade texten från uttryck, platsen för den identifierade texten och poängen:
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
@@ -86,12 +86,13 @@ This is the JSON if `verbose=true` is set in the query string:
 }
 ```
 
-* * * 
+* * *
 
-|Data objekt|Entitetsnamn|Värde|
+|Dataobjekt|Entitetsnamn|Värde|
 |--|--|--|
-|Enkel entitet|`Customer`|`bob jones`|
+|Enkel enhet|`Customer`|`bob jones`|
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](luis-quickstart-primary-and-secondary-data.md)extraherar du data från en uttryck med hjälp av den **enkla entiteten**. Om du vill öka extraherings precisionen lägger du till en [fras lista](luis-concept-feature.md) med termer som är speciella för den enkla entiteten.
+> [!div class="nextstepaction"]
+> [Lär dig mönstermatchningssyntax](reference-pattern-syntax.md)

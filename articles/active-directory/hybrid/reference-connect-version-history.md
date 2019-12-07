@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73944215"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891787"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: versions historik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -27,7 +27,7 @@ Den här artikeln är utformad för att hjälpa dig att hålla koll på de versi
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Avsnitt |  Detaljer
+Ämne |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
 Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
@@ -70,7 +70,7 @@ Under vissa omständigheter återaktiverade inte servrar som har uppgraderats au
 
 
 ### <a name="release-status"></a>Versions status
-9/25/2019: tas bort från manuell nedladdning tills incident undersökningen har slutförts.
+9/25/2019: endast tillgängligt för automatisk uppgradering.
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 - Nya fel söknings verktyg hjälper till med fel sökning av scenarier där "användaren inte synkroniserar", "grupp som inte synkroniserar" eller "grupp medlem inte synkroniserar".
@@ -472,14 +472,14 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 Typ     | Namn                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
-Tillåt    | Företags administratörer             | Fullständig behörighet         | Det här objektet  |
-Tillåt    | Domän administratörer                 | Fullständig behörighet         | Det här objektet  |
+Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
+Tillåt    | Domänadministratörer                 | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Administratörer                | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagets domänkontrollanter | Lista innehåll        | Det här objektet  |
-Tillåt    | Företagets domänkontrollanter | Läsa alla egenskaper  | Det här objektet  |
+Tillåt    | Företagets domänkontrollanter | Läs alla egenskaper  | Det här objektet  |
 Tillåt    | Företagets domänkontrollanter | Läs behörigheter     | Det här objektet  |
 Tillåt    | Autentiserade användare           | Lista innehåll        | Det här objektet  |
-Tillåt    | Autentiserade användare           | Läsa alla egenskaper  | Det här objektet  |
+Tillåt    | Autentiserade användare           | Läs alla egenskaper  | Det här objektet  |
 Tillåt    | Autentiserade användare           | Läs behörigheter     | Det här objektet  |
 
 För att dra in inställningarna för AD DS-kontot kan du köra [det här PowerShell-skriptet](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell-skriptet tilldelar de behörigheter som anges ovan till AD DS-kontot.
@@ -814,7 +814,7 @@ CBool(
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
     |CertKeyAlgorithmParams|CertHashString|Var|
-    |||With|
+    |||Med|
 
 * Följande schema ändringar har införts så att kunderna kan skapa anpassade regler för att flöda sAMAccountName, domainNetBios och domainFQDN för grupp objekt, samt distinguishedName för användar objekt:
 

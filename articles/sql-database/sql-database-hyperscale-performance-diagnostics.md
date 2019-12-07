@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811152"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901231"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL-storskalig prestanda vid fel sökning av diagnostik
 
@@ -44,13 +44,14 @@ Beräknings replikerna cachelagrar inte en fullständig kopia av databasen lokal
  
 När en läsning utfärdas för en beräknings replik, och om data inte finns i bufferten eller lokalt RBPEX cache, utfärdas ett getPage-funktions anrop (pageId, LSN) och sidan hämtas från motsvarande sid Server. Läsningar från sid servrar är fjärrläsningar och är därför långsammare än att läsa från den lokala RBPEX. Vid fel sökning av IO-relaterade prestanda problem måste vi kunna se hur många IOs som gjorts via relativt långsamma fjärrside Server-läsningar.
 
-Flera DMV: er och utökade händelser har kolumner och fält som anger antalet fjärrläsningar från en sid server som kan jämföras med det totala antalet läsningar. 
+Flera DMV: er och utökade händelser har kolumner och fält som anger antalet fjärrläsningar från en sid server som kan jämföras med det totala antalet läsningar. Query Store fångar även fjärrläsningar som en del av statistik för frågans körnings tid.
 
-- Kolumner för att rapportera sid Server läsningar är tillgängliga i DMV: er för körning, till exempel:
-    - [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
-    - [sys. dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
-    - [sys. dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
+- Kolumner för att rapportera sid Server läsningar är tillgängliga i DMV: er och katalogvyer, till exempel:
+    - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
+    - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
+    - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
     - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys. query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - Sid Server läsningar läggs till i följande utökade händelser:
     - sql_statement_completed
     - sp_statement_completed
@@ -59,7 +60,7 @@ Flera DMV: er och utökade händelser har kolumner och fält som anger antalet f
     - scan_stopped
     - query_store_begin_persist_runtime_stat
     - fråga – store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads läggs till i Query plan-XML för faktiska planer. Till exempel:
+- ActualPageServerReads/ActualPageServerReadAheads läggs till i Query plan-XML för faktiska planer. Exempel:
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 

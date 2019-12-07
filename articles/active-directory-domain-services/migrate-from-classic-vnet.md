@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674910"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893067"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>För hands version – migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager
 
@@ -116,7 +116,7 @@ Azure AD DS använder vanligt vis de två första tillgängliga IP-adresserna i 
 
 Migreringsprocessen innebär att domän kontrol Lanterna är offline under en viss tids period. Det går inte att komma åt domän kontrol Lanterna när Azure AD DS migreras till distributions modellen för Resource Manager och det virtuella nätverket. I genomsnitt är nedtid cirka 1 till 3 timmar. Den här tids perioden är från när domän kontrol Lanterna kopplas från till den tidpunkt då den första domänkontrollanten kommer tillbaka online. Detta genomsnitt omfattar inte den tid det tar för den andra domänkontrollanten att replikeras, eller hur lång tid det tar att migrera ytterligare resurser till distributions modellen för Resource Manager.
 
-### <a name="account-lockout"></a>Konto utelåsning
+### <a name="account-lockout"></a>Kontoutelåsning
 
 Azure AD DS-hanterade domäner som körs på klassiska virtuella nätverk har inga AD-utelåsnings principer på plats. Om de virtuella datorerna exponeras för Internet kan angriparna använda metoder för att använda lösen ord för att dela med sig av sitt sätt i konton. Det finns ingen konto utelåsnings princip för att stoppa dessa försök. För Azure AD DS-hanterade domäner som använder distributions modellen för Resource Manager och virtuella nätverk skyddar AD-konto utelåsnings principerna mot dessa angrepp vid lösen ords spridning.
 
@@ -293,7 +293,7 @@ Vid behov kan du uppdatera den detaljerade lösen ords principen så att den är
 1. Använd ett nätverks spår på den virtuella datorn för att hitta källan till angrepp och blockera dessa IP-adresser för att kunna försöka logga in.
 1. Om det uppstår minimala problem med utelåsning bör du uppdatera den detaljerade lösen ords principen så restriktivt som det behövs.
 
-#### <a name="creating-a-network-security-group"></a>Skapa en nätverks säkerhets grupp
+#### <a name="creating-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
 Azure AD DS behöver en nätverks säkerhets grupp för att skydda de portar som behövs för den hanterade domänen och blockera all annan inkommande trafik. Den här nätverks säkerhets gruppen fungerar som ett extra skydds lager för att låsa åtkomsten till den hanterade domänen och skapas inte automatiskt. Granska följande steg för att skapa nätverks säkerhets gruppen och öppna de portar som krävs:
 
@@ -306,12 +306,13 @@ Azure AD DS behöver en nätverks säkerhets grupp för att skydda de portar som
 
 Om det uppstår ett fel när du kör PowerShell-cmdleten för att förbereda migrering i steg 2 eller för migreringen i steg 3 kan den hanterade Azure AD DS-domänen återställa till den ursprungliga konfigurationen. Det ursprungliga klassiska virtuella nätverket krävs för att återställa den här återställningen. Observera att IP-adresserna kanske fortfarande ändras efter återställningen.
 
-Kör cmdleten `Migrate-Aadds` med parametern *-abort* . Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän som förbereds i ett tidigare avsnitt, t. ex. *contoso.com*:
+Kör cmdleten `Migrate-Aadds` med parametern *-abort* . Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän som förbereds i ett tidigare avsnitt, till exempel *contoso.com*och det klassiska virtuella nätverks namnet, till exempel *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.com `
+    -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```
 
@@ -360,4 +361,4 @@ Med din Azure AD DS-hanterade domän migrerad till distributions modellen för R
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
 
 <!-- EXTERNAL LINKS -->
-[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

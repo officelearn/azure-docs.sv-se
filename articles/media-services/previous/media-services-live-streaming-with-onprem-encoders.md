@@ -1,6 +1,6 @@
 ---
 title: Strömma live med lokala kodare som skapar strömmar med flera bit hastigheter – Azure | Microsoft Docs
-description: 'I det här avsnittet beskrivs hur du konfigurerar en kanal som tar emot en Live-bit ström från en lokal kodare. Data strömmen kan sedan levereras till klientens uppspelnings program via en eller flera slut punkter för direkt uppspelning med något av följande anpassningsbara strömnings protokoll: HLS, Smooth Streaming, streck.'
+description: I det här avsnittet beskrivs hur du konfigurerar en kanal som tar emot en Live-bit ström från en lokal kodare.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69015487"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887109"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeta med kanaler som tar emot Live-dataströmmar med flera bit hastigheter från lokala kodare
 
@@ -40,7 +40,7 @@ I Azure Media Services representerar en *kanal* en pipeline för bearbetning av 
 Från och med Media Services 2,10-versionen när du skapar en kanal kan du ange hur du vill att din kanal ska ta emot indataströmmen. Du kan också ange om du vill att kanalen ska utföra direktsänd kodning av data strömmen. Du kan välja mellan två alternativ:
 
 * **Släpp igenom**: Ange det här värdet om du planerar att använda en lokal Live-kodare som har en data ström med flera bit hastigheter (direkt uppspelning) som utdata. I det här fallet skickas den inkommande strömmen till utdata utan kodning. Detta är beteendet för en kanal före 2,10-versionen. Den här artikeln innehåller information om hur du arbetar med kanaler av den här typen.
-* **Live encoding**: Välj det här värdet om du planerar att använda Media Services för att koda Live-dataströmmen med en bit hastighet till en data ström med flera bit hastigheter. Om du lämnar en Live encoding- kanal i ett körnings tillstånd debiteras fakturerings avgifter. Vi rekommenderar att du omedelbart stoppar dina kanaler som körs när din Live-streaming-händelse är klar för att undvika extra Tim debiteringar. Media Services levererar data strömmen till kunder som begär det.
+* **Live encoding**: Välj det här värdet om du planerar att använda Media Services för att koda Live-dataströmmen med en bit hastighet till en data ström med flera bit hastigheter. Om du lämnar en Live encoding-kanal i ett **körnings** tillstånd debiteras fakturerings avgifter. Vi rekommenderar att du omedelbart stoppar dina kanaler som körs när din Live-streaming-händelse är klar för att undvika extra Tim debiteringar. Media Services levererar data strömmen till kunder som begär det.
 
 > [!NOTE]
 > Den här artikeln beskriver attribut för kanaler som inte är aktiverade för att utföra direktsänd kodning. Information om hur du arbetar med kanaler som är aktiverade för att utföra direktsänd kodning finns i [direkt uppspelning med Azure Media Services för att skapa data strömmar med flera bit](media-services-manage-live-encoder-enabled-channels.md)hastigheter.
@@ -88,8 +88,8 @@ Följande steg beskriver de uppgifter som ingår i att skapa vanliga program fö
 #### <a id="ingest_protocols"></a>Hämta strömnings protokoll
 Media Services har stöd för att mata in direktsänd feeds med hjälp av fragmenterade MP4-och multi-bit mängd med flera bit hastigheter som direkt uppspelnings protokoll. När RTMP inmatnings protokollet väljs, skapas två inmatnings slut punkter för kanalen:
 
-* **Primär URL**: Anger den fullständigt kvalificerade URL: en för kanalens primära RTMP-inmatnings slut punkt.
-* **Sekundär URL** (valfritt): Anger den fullständigt kvalificerade URL: en för kanalens sekundära RTMP-inmatnings slut punkt.
+* **Primär URL**: anger den fullständigt kvalificerade URL: en för kanalens primära RTMP-inmatnings slut punkt.
+* **Sekundär URL** (valfritt): anger den fullständigt kvalificerade URL: en för kanalens sekundära RTMP-inmatnings slut punkt.
 
 Använd den sekundära URL: en om du vill förbättra din inmatnings Ströms tålighet och fel tolerans (samt kodarens redundans och fel tolerans), särskilt i följande scenarier:
 
@@ -115,7 +115,7 @@ Du kan hämta inmatnings-URL: er när du skapar kanalen. För att du ska kunna h
 Du kan välja att mata in en fragmenterad MP4 (Smooth Streaming) Live Stream via en SSL-anslutning. För att mata in via SSL, se till att uppdatera inmatnings-URL: en till HTTPS. För närvarande kan du inte mata in RTMP över SSL.
 
 #### <a id="keyframe_interval"></a>Intervall för nyckel intervall
-När du använder en lokal Live-kodare för att generera data strömmar med flera bit hastigheter anger längden på bild gruppen (GOP) som används av den externa kodaren. När kanalen har tagit emot den inkommande strömmen kan du leverera din Live Stream till klient uppspelnings program i något av följande format: Smooth Streaming, dynamisk adaptiv strömning via HTTP (streck) och HTTP Live Streaming (HLS). När du använder Live streaming packas HLS alltid dynamiskt. Som standard beräknar Media Services automatiskt förpacknings kvoten för HLS-segment (fragment per segment) baserat på det nyckel intervall som tas emot från Live-kodaren.
+När du använder en lokal Live-kodare för att generera data strömmar med flera bit hastigheter anger längden på bild gruppen (GOP) som används av den externa kodaren. När kanalen har tagit emot den inkommande data strömmen kan du leverera din Live Stream till klient uppspelnings program i något av följande format: Smooth Streaming, dynamisk anpassad direkt uppspelning via HTTP (streck) och HTTP Live Streaming (HLS). När du använder Live streaming packas HLS alltid dynamiskt. Som standard beräknar Media Services automatiskt förpacknings kvoten för HLS-segment (fragment per segment) baserat på det nyckel intervall som tas emot från Live-kodaren.
 
 Följande tabell visar hur segmentets varaktighet beräknas:
 
@@ -140,11 +140,11 @@ Du kan definiera de IP-adresser som tillåts att publicera video till den här k
 
 Om inga IP-adresser har angetts och det inte finns någon regel definition, tillåts ingen IP-adress. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
-### <a name="channel-preview"></a>Förhandsgranskning av kanal
+### <a name="channel-preview"></a>Kanal för hands version
 #### <a name="preview-urls"></a>Förhandsgranska URL: er
 Kanaler tillhandahåller en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
 
-Du kan hämta URL: en för för hands versionen när du skapar kanalen. För att du ska kunna hämta URL: en behöver kanalen inte vara i körnings läge. När kanalen börjar mata in data kan du förhandsgranska data strömmen.
+Du kan hämta URL: en för för hands versionen när du skapar kanalen. För att du ska kunna hämta URL: en behöver kanalen inte vara i **körnings** läge. När kanalen börjar mata in data kan du förhandsgranska data strömmen.
 
 För närvarande kan för hands versions strömmen endast levereras i formatet för fragmenterad MP4 (Smooth Streaming), oavsett vilken Indatatyp som angetts. Du kan använda [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) Player för att testa den smidiga data strömmen. Du kan också använda en spelare som finns i Azure Portal för att visa din data ström.
 
@@ -176,18 +176,18 @@ Om du vill ta bort arkiverat innehåll, stoppa och ta bort programmet och ta sed
 ## <a id="states"></a>Kanal tillstånd och fakturering
 Möjliga värden för det aktuella läget för en kanal är:
 
-* **Stoppades**: Det här är starttillståndet för kanalen när den har skapats. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
-* **Startar**: Kanalen startas. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar återgår kanalen till **stoppat** tillstånd.
-* **Körning**: Kanalen kan bearbeta Live-strömmar.
-* **Stoppar**: Kanalen stoppas. Inga uppdateringar eller strömning tillåts i det här tillståndet.
-* **Tar bort**: Kanalen tas bort. Inga uppdateringar eller strömning tillåts i det här tillståndet.
+* **Stoppad**: det här är den ursprungliga statusen för kanalen när den har skapats. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
+* **Startar**: kanalen startas. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar återgår kanalen till **stoppat** tillstånd.
+* **Körs**: kanalen kan bearbeta Live-strömmar.
+* **Stoppar**: kanalen stoppas. Inga uppdateringar eller strömning tillåts i det här tillståndet.
+* **Tar bort**: kanalen tas bort. Inga uppdateringar eller strömning tillåts i det här tillståndet.
 
 Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
 
 | Kanaltillstånd | Portalgränssnittsindikatorer | Fakturerad? |
 | --- | --- | --- |
 | **Leds** |**Leds** |Nej (övergångsläge) |
-| **Körs** |**Redo** (inga program som körs)<p><p>eller<p>**Strömma** (minst ett program som körs) |Ja |
+| **Körs** |**Redo** (inga program som körs)<p><p>eller<p>**Strömning** (minst ett program som körs) |Ja |
 | **Stoppas** |**Stoppas** |Nej (övergångsläge) |
 | **Stoppats** |**Stoppats** |Nej |
 
@@ -197,8 +197,8 @@ Följande tabell visar vilka standarder som stöds för dold textning och annons
 | Standard | Anteckningar |
 | --- | --- |
 | CEA-708 och EIA-608 (708/608) |CEA-708 och EIA-608 är stängda – bild texter standarder för USA och Kanada.<p><p>För närvarande stöds inte textning för tillfället om den har överförts i den kodade indataströmmen. Du måste använda en Live Media-kodare som kan infoga 608-eller 708-textning i den kodade data strömmen som skickas till Media Services. Media Services levererar innehållet med infogade under texter till dina användare. |
-| TTML inuti. ISMT (Smooth Streaming text spår) |Media Services dynamisk paketering gör det möjligt för klienter att strömma innehåll i något av följande format: BINDESTRECK, HLS eller Smooth Streaming. Men om du matar in fragmenterad MP4 (Smooth Streaming) med under texter inuti. ISMT (Smooth Streaming text spår) kan du endast leverera data strömmen till Smooth Streaming klienter. |
-| SCTE-35 |SCTE – 35 är ett digitalt signal system som används för att stacka annonserings infogning. Underordnade mottagare använder signalen för att använda signalen för att använda en splice-annons till strömmen för den tilldelade tiden. SCTE-35 måste skickas som ett sparse-spår i indataströmmen.<p><p>För närvarande är det enda data Ströms format som stöds som bär AD-signaler fragmenterad MP4 (Smooth Streaming). Det enda utdataformat som stöds Smooth Streaming också. |
+| TTML inuti. ISMT (Smooth Streaming text spår) |Med Media Services dynamisk paketering kan klienter strömma innehåll i något av följande format: bindestreck, HLS eller Smooth Streaming. Men om du matar in fragmenterad MP4 (Smooth Streaming) med under texter inuti. ISMT (Smooth Streaming text spår) kan du endast leverera data strömmen till Smooth Streaming klienter. |
+| SCTE – 35 |SCTE – 35 är ett digitalt signal system som används för att stacka annonserings infogning. Underordnade mottagare använder signalen för att använda signalen för att använda en splice-annons till strömmen för den tilldelade tiden. SCTE-35 måste skickas som ett sparse-spår i indataströmmen.<p><p>För närvarande är det enda data Ströms format som stöds som bär AD-signaler fragmenterad MP4 (Smooth Streaming). Det enda utdataformat som stöds Smooth Streaming också. |
 
 ## <a id="considerations"></a>Angående
 När du använder en lokal Live-kodare för att skicka en data ström med flera bit hastigheter till en kanal gäller följande begränsningar:
@@ -213,7 +213,7 @@ När du använder en lokal Live-kodare för att skicka en data ström med flera 
 
 Här följer andra överväganden om hur du arbetar med kanaler och relaterade komponenter:
 
-* Varje gång du konfigurerar om Live-kodaren anropar du återställnings metoden i kanalen. Innan du återställer kanalen måste du stoppa programmet. Starta om programmet när du har återställt kanalen.
+* Varje gång du konfigurerar om Live-kodaren anropar du **återställnings** metoden i kanalen. Innan du återställer kanalen måste du stoppa programmet. Starta om programmet när du har återställt kanalen.
 
   > [!NOTE]
   > När du startar om programmet måste du associera det med en ny till gång och skapa en ny positionerare. 

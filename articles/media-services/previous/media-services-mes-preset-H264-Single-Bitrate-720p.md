@@ -1,6 +1,6 @@
 ---
-title: H264, enkel bithastighet, 720p Media Encoder Standard förinställda – Azure | Microsoft Docs
-description: Avsnittet ger en översikt över den **H264, enkel bithastighet, 720p** uppgiften förinställd.
+title: H264, enkel bit hastighet 720p Media Encoder Standard för inställning – Azure | Microsoft Docs
+description: Den här artikeln ger en översikt Media Encoder Standard över uppgifts för inställningen "H264, enkel bit hastighet".
 author: Juliako
 manager: femila
 editor: ''
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d43b78b83ca1dcb60dc6afb17424354975681494
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e48f0c614ba7a7b4199e6ddf0050de0ae7db063f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129614"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886837"
 ---
 # <a name="h264-single-bitrate-720p"></a>H264, enkel bithastighet, 720p
-`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard`-kodaren finns i [aktivitets för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Det här avsnittet beskrivs de `H264 Single Bitrate 720p` förinställda i XML- och JSON-format.  
+ I det här avsnittet visas `H264 Single Bitrate 720p` för inställning i XML-och JSON-format.  
   
- Den här förinställda ger en enda MP4-filen med en bithastighet 4500 kbit/s och stereo AAC-ljud. Detaljerad information om profilen med flera bithastigheter, sampling hastighet och så vidare på detta förinställda ska undersöka XML eller JSON som definieras nedan. Förklaringar av vad varje element i dessa förinställningar innebär och de giltiga värdena för varje element finns i den [Media Encoder Standard schemat](media-services-mes-schema.md) avsnittet.  
+ Den här för inställningen skapar en enda MP4-fil med en bit hastighet på 4500 kbit/s och stereo AAC-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element i de här för inställningarna innebär och giltiga värden för varje element finns i avsnittet [Media Encoder Standard schema](media-services-mes-schema.md) .  
   
  XML  
   

@@ -1,6 +1,6 @@
 ---
-title: Hur du kontrollerar jobbförloppet med hjälp av REST API | Microsoft Docs
-description: Lär dig hur du följa jobbförloppet.
+title: Så här kontrollerar du jobb förloppet med REST API | Microsoft Docs
+description: Den här artikeln visar hur du kontrollerar jobb förloppet med hjälp av Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 378a90b712af031f9d89758939afb993cee5aafd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec72b7e7bf4c2b859e8ceecf617c90a4853cb517
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869475"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901488"
 ---
-# <a name="how-to-check-job-progress"></a>Så här: Kontrollera jobbförlopp
+# <a name="how-to-check-job-progress"></a>Gör så här: kontrol lera jobb förloppet
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. Du kan ta reda på status för jobbet med hjälp av egenskapen för jobbets tillstånd. Läs mer på egenskapen State [jobbet Entitetsegenskaper](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+När du kör jobb krävs ofta ett sätt att spåra jobbets förlopp. Du kan ta reda på jobbets status genom att använda jobbets egenskap State. Mer information om egenskapen state finns i egenskaper för [jobb enheter](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
-## <a name="connect-to-media-services"></a>Ansluta till Media Services
+## <a name="connect-to-media-services"></a>Anslut till Medietjänster
 
-Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="check-job-progress"></a>Kontrollera jobbförlopp
 
@@ -70,4 +70,4 @@ Svar:
 
 ## <a name="see-also"></a>Se också
 
-[Media Services operations REST API-översikt](media-services-rest-how-to-use.md)
+[Översikt över Media Services åtgärder REST API](media-services-rest-how-to-use.md)

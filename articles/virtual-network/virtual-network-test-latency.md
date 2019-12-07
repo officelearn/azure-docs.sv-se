@@ -1,5 +1,5 @@
 ---
-title: Testa Azure Virtual Machines nätverks fördröjning i ett Azure-Virtual Network | Microsoft Docs
+title: Testa nätverks fördröjning i Azure Virtual Machine i ett virtuellt Azure-nätverk | Microsoft Docs
 description: Lär dig hur du testar nätverks fördröjningen mellan virtuella Azure-datorer i ett virtuellt nätverk
 services: virtual-network
 documentationcenter: na
@@ -14,118 +14,123 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 760a181b4459db28d3a6eee5022cc0f984c4bee0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588283"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896366"
 ---
-# <a name="testing-network-latency"></a>Testa nätverks fördröjning
+# <a name="test-vm-network-latency"></a>Testa svarstid för VM-nätverk
 
-Att mäta nätverks fördröjningen med ett verktyg som är utformat för aktiviteten ger de mest exakta resultaten. Allmänt tillgängliga verktyg som SockPerf (för Linux) och latte (för Windows) är exempel på verktyg som kan isolera och mäta nätverks svars tider och utesluta andra typer av svars tider, t. ex. program svars tid. Dessa verktyg fokuserar på den typ av nätverks trafik som påverkar program prestanda, nämligen TCP och UDP. Andra vanliga anslutnings verktyg, t. ex. ping, kan ibland användas för att mäta latens, men dessa resultat kanske inte är representativa för nätverks trafik som används i verkliga arbets belastningar. Det beror på att de flesta av dessa verktyg använder ICMP-protokollet, som kan behandlas på ett annat sätt än program trafik, och resultatet kanske inte gäller för arbets belastningar som använder TCP och UDP. För korrekt testning av nätverks fördröjning av protokoll som används av de flesta program, ger SockPerf (för Linux) och latte (för Windows) de mest relevanta resultaten. Det här dokumentet omfattar båda dessa verktyg.
+För att uppnå de mest exakta resultaten kan du mäta din nätverks fördröjning för din virtuella Azure-dator (VM) med ett verktyg som har utformats för uppgiften. Offentligt tillgängliga verktyg som SockPerf (för Linux) och latte. exe (för Windows) kan isolera och mäta nätverks fördröjningar och utesluta andra typer av svars tider, till exempel program svars tid. Dessa verktyg fokuserar på den typ av nätverks trafik som påverkar program prestanda (dvs. Transmission Control Protocol [TCP] och UDP]-trafik (User Datagram Protocol)). 
+
+Andra vanliga anslutnings verktyg, till exempel ping, kan mäta svars tider, men deras resultat kanske inte representerar nätverks trafiken som används i verkliga arbets belastningar. Det beror på att de flesta av dessa verktyg använder Internet Control Message Protocol (ICMP), som kan behandlas annorlunda än program trafik och vars resultat inte kan tillämpas på arbets belastningar som använder TCP och UDP. 
+
+För korrekt testning av nätverks fördröjning av de protokoll som används av de flesta program, SockPerf (för Linux) och latte. exe (för Windows) ger de mest relevanta resultaten. I den här artikeln beskrivs båda dessa verktyg.
 
 ## <a name="overview"></a>Översikt
 
-Med hjälp av två virtuella datorer, en som avsändare och en som mottagare, skapas en tvåvägs kommunikations kanal för att skicka och ta emot paket i båda riktningarna för att mäta tur och retur-tiden.
+Genom att använda två virtuella datorer, en som avsändare och en som mottagare, skapar du en tvåvägs kommunikations kanal. Med den här metoden kan du skicka och ta emot paket i båda riktningarna och mäta tur och retur-tiden.
 
-Dessa steg kan användas för att mäta nätverks fördröjningen mellan två Virtual Machines (VM) eller till och med mellan två fysiska datorer. Tids fördröjnings mått kan vara användbara i följande scenarier:
+Du kan använda den här metoden för att mäta nätverks fördröjningen mellan två virtuella datorer eller till och med mellan två fysiska datorer. Tids fördröjnings mått kan vara användbara i följande scenarier:
 
-- Upprätta ett riktmärke för nätverks fördröjning mellan de distribuerade virtuella datorerna
+- Upprätta ett riktmärke för nätverks fördröjning mellan de distribuerade virtuella datorerna.
 - Jämför effekterna av ändringar i nätverks fördröjningen efter att relaterade ändringar har gjorts i:
-  - OS-eller nätverks stack-programvara, inklusive konfigurations ändringar
-  - Distributions metod för virtuella datorer, till exempel distribution till en zon eller PPG
-  - VM-egenskaper, t. ex. accelererat nätverk eller storleks ändringar
-  - Virtuellt nätverk, t. ex. routning eller filtrering av ändringar
+  - Operativ system (OS) eller program vara för nätverks stack, inklusive konfigurations ändringar.
+  - En distributions metod för virtuella datorer, t. ex. distribution till en tillgänglighets zon eller närhets placerings grupp (PPG).
+  - Egenskaper för virtuell dator, till exempel accelererat nätverk eller storleks ändringar.
+  - Ett virtuellt nätverk, t. ex. routning eller filtrering av ändringar.
 
 ### <a name="tools-for-testing"></a>Verktyg för testning
-För att mäta svars tiden har vi två olika alternativ, ett för Windows-baserade system och ett för Linux-baserade system
+Du kan mäta svars tiden med två olika verktygs alternativ:
 
-För Windows: latte. exe (Windows) [https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* För Windows-baserade system: [latte. exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* För Linux-baserade system: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
-För Linux: SockPerf (Linux) [https://github.com/mellanox/sockperf](https://github.com/mellanox/sockperf)
+Genom att använda dessa verktyg kan du se till att endast leverans tider för TCP-eller UDP-nyttolasten mäts och inte ICMP (ping) eller andra paket typer som inte används av program och inte påverkar deras prestanda.
 
-Med dessa verktyg kan du se till att endast leverans tider för TCP-eller UDP-nyttolasten mäts och inte ICMP (ping) eller andra paket typer som inte används av program och inte påverkar deras prestanda.
+### <a name="tips-for-creating-an-optimal-vm-configuration"></a>Tips för att skapa en optimal VM-konfiguration
 
-### <a name="tips-for-an-optimal-vm-configuration"></a>Tips för en optimal VM-konfiguration:
-
-- Använd den senaste versionen av Windows eller Linux
-- Aktivera accelererat nätverk för bästa resultat
-- Distribuera virtuella datorer med [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)
-- Större virtuella datorer utför vanligt vis bättre än mindre virtuella datorer
+Tänk på följande rekommendationer när du skapar din VM-konfiguration:
+- Använd den senaste versionen av Windows eller Linux.
+- Aktivera accelererat nätverk för bästa möjliga resultat.
+- Distribuera virtuella datorer med en [placerings grupp för Azure närhet](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+- Större virtuella datorer utför vanligt vis bättre än mindre virtuella datorer.
 
 ### <a name="tips-for-analysis"></a>Tips för analys
 
-- Upprätta en bas linje tidigt så snart distributionen, konfigurationen och Optimeringarna har slutförts
-- Jämför alltid nya resultat med en bas linje eller på annat sätt från ett test till ett annat med kontrollerade ändringar
-- Upprepa tester när ändringar observeras eller planeras
+Tänk på följande rekommendationer när du analyserar test resultaten:
+
+- Upprätta en bas linje tidigt så snart distributionen, konfigurationen och Optimeringarna har slutförts.
+- Jämför alltid nya resultat till en bas linje eller, i annat fall, från ett test till ett annat med kontrollerade ändringar.
+- Upprepa tester när ändringar observeras eller planeras.
 
 
-## <a name="testing-vms-running-windows"></a>Testa virtuella datorer som kör Windows
+## <a name="test-vms-that-are-running-windows"></a>Testa virtuella datorer som kör Windows
 
-## <a name="get-latteexe-onto-the-vms"></a>Hämta latte. exe på de virtuella datorerna
+### <a name="get-latteexe-onto-the-vms"></a>Hämta latte. exe på de virtuella datorerna
 
-Ladda ned den senaste versionen: [https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Ladda ned den [senaste versionen av latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
 
-Överväg att lägga till latte. exe i en separat mapp, t. ex. c:\Tools
+Överväg att lägga till latte. exe i en separat mapp, till exempel *c:\Tools*.
 
-## <a name="allow-latteexe-through-the-windows-firewall"></a>Tillåt latte. exe via Windows-brandväggen
+### <a name="allow-latteexe-through-windows-defender-firewall"></a>Tillåt latte. exe via Windows Defender-brandväggen
 
-På mottagaren skapar du en Tillåt-regel i Windows-brandväggen så att latte. exe-trafiken kan komma. Det är enklast att tillåta hela latte. exe-programmet efter namn i stället för att tillåta vissa TCP-portar inkommande.
+På *mottagaren*skapar du en Tillåt-regel på Windows Defender-brandväggen så att latte. exe-trafiken kan komma. Det är enklast att tillåta hela latte. exe-programmet efter namn i stället för att tillåta vissa TCP-portar inkommande.
 
-Tillåt latte. exe via Windows-brandväggen så här:
-
-netsh advfirewall Firewall Add Rule program =\<sökväg\>\\latte. exe Name =&quot;latte&quot; Protocol = any dir = in Action = Allow Enable = Ja Profile = ANY
-
-
-Om du till exempel har kopierat latte. exe till mappen &quot;c:\\tools&quot;, är detta kommandot:
+Tillåt latte. exe via Windows Defender-brandväggen genom att köra följande kommando:
 
 ```cmd
-netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
+netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
-## <a name="running-latency-tests"></a>Kör latens-tester
+Om du till exempel har kopierat latte. exe till mappen *c:\Tools* , är detta kommandot:
 
-Starta latte. exe på mottagaren (kör från CMD, inte från PowerShell):
+`netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-latte – en IP-adress för &lt;mottagare&gt;:&lt;port&gt;-i &lt;iterationer&gt;
+### <a name="run-latency-tests"></a>Kör svars tids test
 
-Cirka 65 k-iterationer är tillräckligt långt för att returnera representativa resultat.
+* På *mottagaren*startar du latte. exe (kör den från cmd-fönstret, inte från PowerShell):
 
-Alla tillgängliga port nummer är fina.
+    ```cmd
+    latte -a <Receiver IP address>:<port> -i <iterations>
+    ```
 
-Om den virtuella datorn har en IP-adress för 10.0.0.4 skulle den se ut så här:
+    Cirka 65 000 iterationer är tillräckligt långt för att returnera representativa resultat.
 
-```cmd
-latte -a 10.0.0.4:5005 -i 65100
-```
+    Alla tillgängliga port nummer är fina.
 
-Starta latte. exe på avsändaren (kör från CMD, inte från PowerShell):
+    Om den virtuella datorn har en IP-adress för 10.0.0.4 skulle kommandot se ut så här:
 
-latte-c-a \<mottagare IP-adress\>:\<port\>-i \<iterationer\>
+    `latte -a 10.0.0.4:5005 -i 65100`
 
+* På *avsändaren*startar du latte. exe (kör den från cmd-fönstret, inte från PowerShell):
 
-Det resulterande kommandot är detsamma som på mottagaren, förutom vid tillägg av &quot;-c&quot; för att indikera att detta är &quot;klient&quot; eller avsändare:
+    ```cmd
+    latte -c -a <Receiver IP address>:<port> -i <iterations>
+    ```
 
-```cmd
-latte -c -a 10.0.0.4:5005 -i 65100
-```
+    Det resulterande kommandot är detsamma som på mottagaren, förutom vid tillägg av&nbsp; *-c* för att indikera att detta är *klienten*eller *avsändaren*:
 
-Vänta på resultaten. Beroende på hur långt isär de virtuella datorerna är, kan det ta några minuter att slutföra. Överväg att börja med färre iterationer för att testa framgång innan du kör längre tester.
+    `latte -c -a 10.0.0.4:5005 -i 65100`
 
+Vänta på resultaten. Beroende på hur långt isär de virtuella datorerna är, kan det ta några minuter innan testet slutförs. Överväg att börja med färre iterationer för att testa framgång innan du kör längre tester.
 
+## <a name="test-vms-that-are-running-linux"></a>Testa virtuella datorer som kör Linux
 
-## <a name="testing-vms-running-linux"></a>Testa virtuella datorer som kör Linux
-
-Använd SockPerf. Den är tillgänglig från [https://github.com/mellanox/sockperf](https://github.com/mellanox/sockperf)
+Använd [SockPerf](https://github.com/mellanox/sockperf)om du vill testa virtuella datorer som kör Linux.
 
 ### <a name="install-sockperf-on-the-vms"></a>Installera SockPerf på de virtuella datorerna
 
-Kör de här kommandona på de virtuella Linux-datorerna (både sändare och mottagare) för att förbereda SockPerf på dina virtuella datorer. Det finns kommandon för det större distributioner.
+På virtuella Linux-datorer, både *sändare* och *mottagare*, kör du följande kommandon för att förbereda SockPerf på de virtuella datorerna. Det finns kommandon för det större distributioner.
 
-#### <a name="for-rhel--centos-follow-these-steps"></a>Följ dessa steg för RHEL/CentOS:
+#### <a name="for-red-hat-enterprise-linux-rhelcentos"></a>För Red Hat Enterprise Linux (RHEL)/CentOS
+
+Kör följande kommandon:
+
 ```bash
-#CentOS / RHEL - Install GIT and other helpful tools
+#RHEL/CentOS - Install Git and other helpful tools
     sudo yum install gcc -y -q
     sudo yum install git -y -q
     sudo yum install gcc-c++ -y
@@ -134,9 +139,12 @@ Kör de här kommandona på de virtuella Linux-datorerna (både sändare och mot
     sudo yum install -y autoconf
 ```
 
-#### <a name="for-ubuntu-follow-these-steps"></a>För Ubuntu följer du de här stegen:
+#### <a name="for-ubuntu"></a>För Ubuntu
+
+Kör följande kommandon:
+
 ```bash
-#Ubuntu - Install GIT and other helpful tools
+#Ubuntu - Install Git and other helpful tools
     sudo apt-get install build-essential -y
     sudo apt-get install git -y -q
     sudo apt-get install -y autotools-dev
@@ -144,11 +152,14 @@ Kör de här kommandona på de virtuella Linux-datorerna (både sändare och mot
     sudo apt-get install -y autoconf
 ```
 
-#### <a name="for-all-distros-copy-compile-and-install-sockperf-according-to-the-following-steps"></a>För alla distributioner, kopiera, kompilera och installera SockPerf enligt följande steg:
+#### <a name="for-all-distros"></a>För alla distributioner
+
+Kopiera, kompilera och installera SockPerf enligt följande steg:
+
 ```bash
 #Bash - all distros
 
-#From bash command line (assumes git is installed)
+#From bash command line (assumes Git is installed)
 git clone https://github.com/mellanox/sockperf
 cd sockperf/
 ./autogen.sh
@@ -165,28 +176,31 @@ sudo make install
 
 När SockPerf-installationen är klar är de virtuella datorerna redo att köra svars tids testen. 
 
-Starta först SockPerf på mottagaren.
+Starta först SockPerf på *mottagaren*.
 
 Alla tillgängliga port nummer är fina. I det här exemplet använder vi port 12345:
+
 ```bash
 #Server/Receiver - assumes server's IP is 10.0.0.4:
 sudo sockperf sr --tcp -i 10.0.0.4 -p 12345
 ```
-Nu när servern lyssnar kan klienten börja skicka paket till servern på den port där den lyssnar, 12345 i det här fallet.
 
-Cirka 100 sekunder är tillräckligt lång för att returnera representativa resultat som visas i följande exempel:
+Nu när servern lyssnar kan klienten börja skicka paket till servern på den port där den lyssnar (i det här fallet 12345).
+
+Cirka 100 sekunder är tillräckligt lång för att returnera representativa resultat, som du ser i följande exempel:
+
 ```bash
 #Client/Sender - assumes server's IP is 10.0.0.4:
 sockperf ping-pong -i 10.0.0.4 --tcp -m 350 -t 101 -p 12345  --full-rtt
 ```
 
-Vänta på resultaten. Beroende på hur långt isär de virtuella datorerna är, varierar antalet iterationer. Överväg att börja med kortare tester på ungefär 5 sekunder för att testa framgång innan du kör längre tester.
+Vänta på resultaten. Beroende på hur långt isär de virtuella datorerna är, varierar antalet iterationer. Om du vill testa framgång innan du kör längre tester bör du överväga att starta med kortare tester på cirka 5 sekunder.
 
-I det här SockPerf-exemplet används 350 byte-meddelande storlek eftersom det är ett typiskt genomsnitts storleks paket. Meddelande storleken kan justeras högre eller lägre för att få resultat som bättre representerar arbets belastningen som körs på de virtuella datorerna.
+I det här SockPerf-exemplet används en meddelande storlek på 350 byte, vilket är vanligt för ett genomsnittligt paket. Du kan justera storleken högre eller lägre för att uppnå resultat som bättre visar arbets belastningen som körs på dina virtuella datorer.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Förbättra svars tiden med [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)
-* Lär dig mer om hur du [optimerar nätverk för virtuella datorer](../virtual-network/virtual-network-optimize-network-bandwidth.md) för ditt scenario.
-* Läs om hur [bandbredd allokeras till virtuella datorer](../virtual-network/virtual-machine-network-throughput.md)
-* Lär dig mer med [Azure Virtual Network vanliga frågor och svar](../virtual-network/virtual-networks-faq.md)
+* Förbättra svars tiden med en grupp för en [Azure närhets placering](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+* Lär dig hur du [optimerar nätverk för virtuella datorer](../virtual-network/virtual-network-optimize-network-bandwidth.md) för ditt scenario.
+* Läs om [hur bandbredd allokeras till virtuella datorer](../virtual-network/virtual-machine-network-throughput.md).
+* Mer information finns i [vanliga frågor och svar om Azure Virtual Network](../virtual-network/virtual-networks-faq.md).

@@ -4,15 +4,15 @@ description: Övervaka system och anpassade .NET/.NET Core-EventCounters i Appli
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cithomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72677158"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889132"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
 
@@ -28,7 +28,7 @@ Application Insights stöder insamlings `EventCounters` med dess `EventCounterCo
 
 För appar som körs i .NET Core 3,0 samlas följande räknare in automatiskt av SDK: n. Namnet på räknarna kommer att ha formatet "kategori | Counter ".
 
-|Kategori | Medelvärde|
+|Kategori | Räknare|
 |---------------|-------|
 |`System.Runtime` | `cpu-usage` |
 |`System.Runtime` | `working-set` |

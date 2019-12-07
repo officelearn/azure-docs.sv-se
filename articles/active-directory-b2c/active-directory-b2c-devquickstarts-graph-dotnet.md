@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74119983"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900019"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD-Graph API
 
@@ -363,6 +363,5 @@ Genom att använda `B2CGraphClient`har du ett tjänst program som kan hantera B2
 När du införlivar den här funktionen i ditt eget program ska du komma ihåg några viktiga punkter för B2C-program:
 
 * Ge programmet de behörigheter som krävs för klienten.
-* För tillfället måste du använda ADAL (inte MSAL) för att hämta åtkomsttoken. (Du kan också skicka protokoll meddelanden direkt, utan att använda ett bibliotek.)
 * Använd `api-version=1.6`när du anropar Graph API.
 * När du skapar och uppdaterar konsument användare krävs några egenskaper, enligt beskrivningen ovan.

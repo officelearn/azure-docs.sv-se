@@ -1,5 +1,5 @@
 ---
-title: Transformera data med hjälp av den lagrade procedur aktiviteten i Azure Data Factory
+title: Transformera data med hjälp av aktiviteten lagrad procedur
 description: Förklarar hur du använder SQL Server lagrade procedur aktiviteter för att anropa en lagrad procedur i ett Azure SQL Database/informations lager från en Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 5ebb2b9cdcbef59e07476dbebd289bb4402ca5fa
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 59bfdc5d2d57b2c05a2c7676d83d8771142ca285
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683715"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893781"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformera data med hjälp av aktiviteten SQL Server lagrad procedur i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -36,7 +36,7 @@ Du kan använda den lagrade procedur aktiviteten för att anropa en lagrad proce
 > [!IMPORTANT]
 > När du kopierar data till Azure SQL Database eller SQL Server kan du konfigurera **SqlSink** i kopierings aktiviteten så att en lagrad procedur anropas med hjälp av egenskapen **sqlWriterStoredProcedureName** . Mer information om egenskapen finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md). Det går inte att anropa en lagrad procedur medan data kopieras till en Azure SQL Data Warehouse med hjälp av en kopierings aktivitet. Men du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i en SQL Data Warehouse. 
 >
-> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av **sqlReaderStoredProcedureName** immaterialrätt. Mer information finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md) [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md) [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -68,7 +68,7 @@ Följande tabell beskriver de här JSON-egenskaperna:
 | Egenskap                  | Beskrivning                              | Krävs |
 | ------------------------- | ---------------------------------------- | -------- |
 | namn                      | Namn på aktiviteten                     | Ja      |
-| description               | Text som beskriver vad aktiviteten används för | Nej       |
+| beskrivning               | Text som beskriver vad aktiviteten används för | Nej       |
 | typ                      | För lagrad procedur aktivitet är aktivitets typen **SqlServerStoredProcedure** | Ja      |
 | linkedServiceName         | Referens till **Azure SQL Database** eller **Azure SQL Data Warehouse** eller **SQL Server** registreras som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | storedProcedureName       | Ange namnet på den lagrade proceduren som ska anropas. | Ja      |
@@ -77,7 +77,7 @@ Följande tabell beskriver de här JSON-egenskaperna:
 ## <a name="parameter-data-type-mapping"></a>Parameter data typs mappning
 Den datatyp som du anger för parametern är den Azure Data Factorys typ som mappar till data typen i data källan som du använder. Du kan hitta data typs mappningar för data källan i kopplings avsnittet. Några exempel är
 
-| Data Källa          | Data typs mappning |
+| Datakälla          | Data typs mappning |
 | ---------------------|-------------------|
 | Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 

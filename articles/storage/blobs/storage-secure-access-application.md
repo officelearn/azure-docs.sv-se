@@ -1,26 +1,27 @@
 ---
-title: Skydda åtkomsten till ett programs data i molnet med Azure Storage | Microsoft Docs
+title: Säker åtkomst till program data
+titleSuffix: Azure Storage
 description: Skydda ditt programs data i molnet med SAS-token, kryptering och HTTPS.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986685"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892438"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Skydda åtkomsten till ett programs data i molnet
+# <a name="secure-access-to-application-data"></a>Säker åtkomst till program data
 
 Den här självstudiekursen är den tredje delen i en serie. Du lär dig hur du skyddar åtkomsten till lagringskontot. 
 
-I den tredje delen i serien får du lära dig hur du:
+I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
 > * Använder SAS-token för att komma åt miniatyrbilder
@@ -29,9 +30,9 @@ I den tredje delen i serien får du lära dig hur du:
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage) tillhandahåller en robust tjänst för att lagra filer för program. I den här självstudien går vi igenom [föregående avsnitt][previous-tutorial] och visar hur du skyddar åtkomsten till ditt lagrings konto från ett webb program. När du är klar är bilderna krypterade och i webbappen används säkra SAS-token för att få åtkomst till miniatyrbilderna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien måste du ha slutfört den tidigare Storage-kursen: [Automatisera storleks ändring av överförda bilder med hjälp av event Grid][previous-tutorial]. 
+För att slutföra den här kursen måste du ha slutfört den tidigare lagrings kursen: [Automatisera storleken på överförda bilder med hjälp av event Grid][previous-tutorial].
 
 ## <a name="set-container-public-access"></a>Ange offentlig åtkomst till containrar
 
@@ -128,7 +129,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 Följande klasser, egenskaper och metoder används i den föregående aktiviteten:
 
-|Klass  |properties| Metoder  |
+|Klass  |Egenskaper| Metoder  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |

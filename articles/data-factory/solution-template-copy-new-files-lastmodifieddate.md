@@ -1,5 +1,5 @@
 ---
-title: Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
+title: Kopiera nya och ändrade filer efter LastModifiedDate
 description: Lär dig hur du använder en lösnings mall för att kopiera nya och ändrade filer genom att LastModifiedDate med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ca752fb75b8e151de925d3b5604a7e7182d82e92
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684227"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896299"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
 
@@ -33,8 +33,8 @@ Mallen innehåller en aktivitet:
 
 Mallen definierar fyra parametrar:
 -  *FolderPath_Source* är sökvägen till mappen där du kan läsa filerna från käll arkivet. Du måste ersätta standardvärdet med din egen mappsökväg.
--  *FolderPath_Destination* är sökvägen till mappen där du vill kopiera filer till mål lagret. Du måste ersätta standardvärdet med din egen mappsökväg.
--  *LastModified_From* används för att välja de filer vars LastModifiedDate-attribut är efter eller lika med det här datetime-värdet.  För att kunna välja endast nya filer, som inte har kopierats senaste gången, kan det här datetime-värdet vara den tid då pipelinen utlöstes senast. Du kan ersätta standardvärdet "2019-02-01T00:00:00Z" till din förväntade LastModifiedDate i UTC-tidszonen. 
+-  *FolderPath_Destination* är mappsökvägen dit du vill kopiera filer till mål lagret. Du måste ersätta standardvärdet med din egen mappsökväg.
+-  *LastModified_From* används för att markera de filer vars LastModifiedDate-attribut är efter eller lika med detta datetime-värde.  För att kunna välja endast nya filer, som inte har kopierats senaste gången, kan det här datetime-värdet vara den tid då pipelinen utlöstes senast. Du kan ersätta standardvärdet "2019-02-01T00:00:00Z" till din förväntade LastModifiedDate i UTC-tidszonen. 
 -  *LastModified_To* används för att markera de filer vars LastModifiedDate-attribut är före detta datetime-värde. För att kunna välja endast nya filer, som inte har kopierats senast, kan det här datetime-värdet vara aktuell tid.  Du kan ersätta standardvärdet "2019-02-01T00:00:00Z" till din förväntade LastModifiedDate i UTC-tidszonen. 
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
@@ -60,7 +60,7 @@ Mallen definierar fyra parametrar:
     ![Visa pipelinen](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Välj **Felsök**, Skriv värdet för **parametrarna** och välj **Slutför**.  I bilden nedan anger vi parametrarna som följer.
-   - **FolderPath_Source** =  **/Source/**
+   - **FolderPath_Source** =  **/source/**
    - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
@@ -83,7 +83,7 @@ Mallen definierar fyra parametrar:
 
 10. Välj **rullande-fönstret** för utlösnings typen, ange **var 15: e minut** som upprepning (du kan ändra till valfri intervall tid) och välj sedan **Nästa**.
 
-    ![Skapa utlösare](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
+    ![Skapa utlösaren](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Skriv värdet för **utlösarens körnings parametrar** enligt följande och välj **Slutför**.
     - **FolderPath_Source** =  **/Source/** .  Du kan ersätta med din mapp i käll data lagret.

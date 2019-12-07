@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b00e699eb49d88e41dff18d6c86024c9b0537e50
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e8a3397cd8229a84103fdcbb116bf61648a6ba22
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872323"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895553"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Åtgärder för Azure Resource Manager Resource Provider
 
@@ -5534,14 +5534,14 @@ Resurs leverantörs åtgärderna utvecklas alltid. Använd [Get-AzProviderOperat
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Visa känslighets etiketter för en specifik databas |
 > | Åtgärd | Microsoft. SQL/managedInstances/databaser/recommendedSensitivityLabels/Write | Rekommenderade känslighets etiketter för batch-uppdatering |
 > | Åtgärd | Microsoft. SQL/managedInstances/databaser/restoreDetails/Read | Returnerar information om återställningen av hanterade databaser medan återställningen pågår. |
-> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/read | Hämta ett hanterat databas schema. |
-> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Hämta en hanterad databas-kolumn |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/read | Hämta ett hanterat databas schema. (endast schema) |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Hämta en hanterad databas-kolumn (endast schema) |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Ta bort känslighets etiketten för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Inaktivera känslighets rekommendationer för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Aktivera känslighets rekommendationer för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Hämta känslighets etiketten för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Skapa eller uppdatera känslighets etiketten för en specifik kolumn |
-> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Hämta en hanterad databas tabell |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Hämta en hanterad databas tabell (endast schema) |
 > | Åtgärd | Microsoft. SQL/managedInstances/databaser/securityAlertPolicies/Read | Hämta en lista över principer för hot identifiering för hanterade databaser som kon figurer ATS för en angiven server |
 > | Åtgärd | Microsoft. SQL/managedInstances/databaser/securityAlertPolicies/Write | Ändra principen för databas hot identifiering för en specifik hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/securityEvents/read | Hämtar säkerhets händelser för hanterade databaser |
@@ -5680,14 +5680,14 @@ Resurs leverantörs åtgärderna utvecklas alltid. Använd [Get-AzProviderOperat
 > | Åtgärd | Microsoft.Sql/servers/databases/restorePoints/delete | Tar bort en återställnings punkt för databasen. |
 > | Åtgärd | Microsoft.Sql/servers/databases/restorePoints/read | Returnerar återställnings punkter för databasen. |
 > | Åtgärd | Microsoft. SQL/Servers/databaser/återuppta/åtgärd | Återuppta Azure SQL Data Warehouse-databas |
-> | Åtgärd | Microsoft.Sql/servers/databases/schemas/read | Hämta ett databas schema. |
-> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Hämta en databas kolumn. |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/read | Hämta ett databas schema (endast schema). |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Hämta en databas kolumn (endast schema). |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Ta bort känslighets etiketten för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Inaktivera känslighets rekommendationer för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Aktivera känslighets rekommendationer för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Hämta känslighets etiketten för en specifik kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Skapa eller uppdatera känslighets etiketten för en specifik kolumn |
-> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/read | Hämta en databas tabell. |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/read | Hämta en databas tabell (endast schema). |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | Hämta lista över index rekommendationer för en databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | Använd index rekommendation |
 > | Åtgärd | Microsoft. SQL/Servers/databaser/securityAlertPolicies/Read | Hämta en lista över de principer för databas hot identifiering som kon figurer ATS för en angiven server |

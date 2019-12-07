@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 2f5fcf4d9106bf37bcc81388e48afe689f4ef4d6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261084"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896047"
 ---
 # <a name="diagnostic-logs-schemas"></a>Scheman för diagnostikloggar
 
@@ -34,14 +34,14 @@ Detaljerad beskrivning av schemat på den högsta nivån av diagnostiska loggar 
 
 ## <a name="key-delivery-log-schema"></a>Logg schema för nyckel leverans
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 
 De här egenskaperna är speciella för logg schema för nyckel leverans.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |keyId|ID för den begärda nyckeln.|
-|keyType|Kan vara något av följande värden: "Rensa" (ingen kryptering), "FairPlay", "PlayReady" eller "Widevine".|
+|KeyType|Kan vara något av följande värden: "Clear" (ingen kryptering), "FairPlay", "PlayReady" eller "Widevine".|
 |policyName|Principens Azure Resource Manager namn.|
 |tokenType|Tokentyp.|
 |statusMessage|Status meddelandet.|

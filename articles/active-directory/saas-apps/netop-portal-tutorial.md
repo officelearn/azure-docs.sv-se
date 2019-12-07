@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med NetOp-portalen | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med NetOp-portalen | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netop Portal.
 services: active-directory
 documentationCenter: na
@@ -13,103 +13,84 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 10/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 955acdfb31bcdaa85f81eac39487992c75f71788
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 715e9b4f3baace39cfe8bebe011ae284fc4c6b2b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160326"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893271"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Självstudie: Azure Active Directory integrering med NetOp-portalen
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med NetOp-portalen
 
-I den här självstudien lär du dig att integrera Netop Portal med Azure Active Directory (AD Azure).
-Integreringen av Netop Portal med Azure AD medför följande fördelar:
+I den här självstudien får du lära dig att integrera NetOp-portalen med Azure Active Directory (Azure AD). När du integrerar NetOp-portalen med Azure AD kan du:
 
-* Du kan i Azure AD styra vem som har åtkomst till Netop Portal.
-* Du kan göra så att dina användare automatiskt loggas in på Netop Portal (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till NetOp-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till NetOp-portalen med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att konfigurera Azure AD-integrering med Netop Portal behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Netop Portal-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* NetOp för enkel inloggning (SSO) i Portal.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Netop Portal har stöd för **IDP**-initierad enkel inloggning
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-netop-portal-from-the-gallery"></a>Lägga till Netop Portal från galleriet
 
 För att konfigurera integreringen av Netop Portal i Azure AD behöver du lägga till Netop Portal från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Netop Portal från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **NetOp Portal** i sökrutan.
+1. Välj **NetOp-portalen** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-netop-portal"></a>Konfigurera och testa enkel inloggning med Azure AD för NetOp-portalen
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Konfigurera och testa Azure AD SSO med NetOp-portalen med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i NetOp-portalen.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+Om du vill konfigurera och testa Azure AD SSO med NetOp-portalen slutför du följande Bygg stenar:
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera NetOp-portalen SSO](#configure-netop-portal-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa NetOp-portalen testa användare](#create-netop-portal-test-user)** – för att få en motsvarighet till B. Simon på NetOp-portalen som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-    ![Knappen Nytt program](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-4. I sökrutan skriver du **Netop Portal**, väljer **Netop Portal** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-     ![Netop Portal i resultatlistan](common/search-new-app.png)
+1. I [Azure Portal](https://portal.azure.com/)på sidan **NetOp Portal** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Netop Portal baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Netop Portal upprättas.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **spara** .
 
-För att kunna konfigurera och testa enkel inloggning i Azure AD med Netop Portal slutför du följande byggstenar:
-
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Netop Portal](#configure-netop-portal-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Netop Portal-testanvändare](#create-netop-portal-test-user)** – för att ha en motsvarighet för Britta Simon i Netop Portal som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera enkel inloggning i Azure AD med Netop Portal:
-
-1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Netop Portal** och väljer **Enkel inloggning**.
-
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
-
-    ![Information om enkel inloggning med Netop Portal-domän och URL:er](common/preintegrated.png)
-
-5. Netop Portal-programmet förväntar sig SAML-försäkringarna i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i din konfiguration av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
+1. NetOp-portalen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. I följande skärmbild visas listan över standardattribut.
 
     ![mallar](common/edit-attribute.png)
 
-6. Utöver ovanstående förväntar sig Netop Portal-programmet att några fler attribut skickas tillbaka i SAML-svaren. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+1. Utöver ovan förväntar sig NetOp-portalen att fler attribut skickas tillbaka i SAML-svar, som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
     | Namn |  Källattribut|
     | ---------------| --------- |
@@ -121,98 +102,53 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Netop
     | nameidentifier | user.userprincipalname |
     | | |
 
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![mallar](common/new-save-attribute.png)
-
-    ![mallar](common/new-attribute-details.png)
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-
-    c. I text rutan **namnrymd** skriver du https:\//Secure.NetOp.com.
-
-    d. Välj Källa som **Attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    f. Klicka på **Ok**
-
-    g. Klicka på **Save** (Spara).
-
-7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-8. I avsnittet **Konfigurera Netop Portal** kopierar du lämpliga URL:er efter behov.
+1. I avsnittet **Konfigurera NetOp-portalen** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-netop-portal-single-sign-on"></a>Konfigurera enkel inloggning för Netop Portal
-
-Om du vill konfigurera enkel inloggning på **NetOp Portal** sida måste du ladda ned den hämtade **XML-koden för federationsmetadata** och inloggnings-URL: en från Azure Portal. Följ anvisningarna i steg 3 i dokumentationen [här](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) för att konfigurera NetOp-portalen för Azure AD-autentisering.
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Netop Portal.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till NetOp-portalen.
 
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Netop Portal**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I programlistan väljer du **Netop Portal**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. I programlistan väljer du **Netop Portal**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken för Netop Portal i programlistan](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+## <a name="configure-netop-portal-sso"></a>Konfigurera NetOp-portalen SSO
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+Om du vill konfigurera enkel inloggning på **NetOp Portal** sida måste du ladda ned den hämtade **XML-koden för federationsmetadata** och inloggnings-URL: en från Azure Portal. Följ anvisningarna i steg 3 i dokumentationen [här](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) för att konfigurera NetOp-portalen för Azure AD-autentisering.
 
 ### <a name="create-netop-portal-test-user"></a>Skapa Netop Portal-testanvändare
 
 I det här avsnittet skapar du en användare med namnet Britta Simon i Netop Portal. Ta hjälp av [supportteamet för Netop Portal](mailto:casemanager@netop.com) för att lägga till användarna i Netop Portal-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -220,8 +156,11 @@ När du klickar på Netop Portal-panelen i åtkomstpanelen bör du automatiskt l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova NetOp-portalen med Azure AD](https://aad.portal.azure.com/)
+

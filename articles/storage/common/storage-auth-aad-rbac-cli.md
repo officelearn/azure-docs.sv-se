@@ -1,22 +1,23 @@
 ---
-title: Använd Azure CLI för att hantera Azure ADs åtkomst rättigheter till blob-och Queue-data med RBAC-Azure Storage
-description: Använd Azure CLI för att tilldela åtkomst till behållare och köer med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
+title: Använd Azure CLI för att tilldela en RBAC-roll för data åtkomst
+titleSuffix: Azure Storage
+description: Lär dig hur du använder Azure CLI för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: abe35f3193e2d7ff9a949ca7cd330cb58da2b78c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673196"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891976"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC med hjälp av Azure CLI
+# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Använd Azure CLI för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data
 
 Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att få åtkomst till BLOB-eller Queue data.
 
@@ -28,7 +29,7 @@ Den här artikeln beskriver hur du använder Azure CLI för att Visa inbyggda RB
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Bestäm resurs omfång 
+## <a name="determine-resource-scope"></a>Bestäm resurs omfång
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 

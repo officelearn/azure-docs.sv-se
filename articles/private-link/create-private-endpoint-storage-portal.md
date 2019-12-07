@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851170"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899812"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Anslut privat till ett lagrings konto med hjälp av Azures privata slut punkt
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
@@ -132,7 +132,7 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
     | Undernät | Välj *undernät*. |
     | **PRIVAT DNS-INTEGRERING**|  |
     | Integrera med privat DNS-zon  | Låt standardinställningen vara **Ja**. |
-    | Privat DNS-zon  | Lämna standardvärdet * * (New) privatelink.blob.core.windows.net * *. |
+    | Privat DNS-zon  | Lämna standard **-privatelink.blob.Core.Windows.net (ny)** . |
     |||
 7. Välj **OK**. 
 8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
@@ -151,7 +151,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den nedladdade RDP *-filen.
+1. Öppna den *nedladdade RDP* -filen.
 
     1. Välj **Anslut** om du uppmanas att göra det.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144479"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894589"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -142,7 +142,7 @@ Mikrofokus **drifts brygga** övervakar automatiskt alla hybrid IT-resurser – 
 
 Läs mer
 - [Översikt över OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Ladda ner](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Ladda ned](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) – SiteScope är en komponent i Operations Bridge Suite.
 
 
@@ -255,7 +255,7 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 - [Läs mer om Azure Monitor](../../azure-monitor/overview.md)
 - [Få åtkomst till mått med hjälp av REST API](rest-api-walkthrough.md)
 - [Strömma aktivitets loggen till en tjänst som inte kommer från Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Strömma diagnostikloggar till en tjänst som inte kommer från Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Strömma resurs loggar till en tjänst som inte kommer från Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

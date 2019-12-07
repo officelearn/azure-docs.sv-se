@@ -1,24 +1,25 @@
 ---
-title: Använd Azure Portal för att hantera åtkomst rättigheter för Azure AD till blob-och Queue-data med RBAC-Azure Storage | Microsoft Docs
-description: Använd rollbaserad åtkomst kontroll (RBAC) från Azure Portal för att tilldela åtkomst till behållare och köer till säkerhets objekt. Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
+title: Använd Azure Portal för att tilldela en RBAC-roll för data åtkomst
+titleSuffix: Azure Storage
+description: Lär dig hur du använder Azure Portal för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b11b2c42087b8724c7d90b87bc33965eb7270dc6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421991"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891960"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC i Azure Portal
+# <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Använd Azure Portal för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data
 
-Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att få åtkomst till BLOB-eller Queue data. 
+Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att få åtkomst till BLOB-eller Queue data.
 
 När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -83,7 +84,7 @@ Om användarna behöver kunna komma åt blobbar i Azure Portal, tilldelar du dem
 
 Följ dessa steg om du vill tilldela rollen **läsare** så att en användare kan komma åt blobbar från Azure Portal. I det här exemplet är tilldelningen begränsad till lagrings kontot:
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt lagrings konto.
+1. Navigera till ditt lagringskonto på [Azure-portalen](https://portal.azure.com).
 1. Välj **åtkomst kontroll (IAM)** om du vill visa inställningarna för åtkomst kontroll för lagrings kontot. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
 1. I fönstret **Lägg till roll tilldelning** väljer du rollen **läsare** . 
 1. I fältet **tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller tjänstens huvud namn**.

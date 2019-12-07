@@ -3,18 +3,18 @@ title: Utöka Azure-IoT Central med anpassade regler och meddelanden | Microsoft
 description: Som en lösnings utvecklare konfigurerar du ett IoT Central program för att skicka e-postaviseringar när en enhet slutar skicka telemetri. Den här lösningen använder Azure Stream Analytics, Azure Functions och SendGrid.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 56ff01af6466e90ff4b69cd37c1638265c59b873
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bdaa08e8c3b104c7269c1fb4169779d98b4e0880
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895870"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895731"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid-preview-features"></a>Utöka Azure IoT Central med anpassade regler med Stream Analytics, Azure Functions och SendGrid (för hands versions funktioner)
 
@@ -30,7 +30,7 @@ I den här instruktions guiden får du lära dig att:
 * Skapa en Stream Analytics-fråga som identifierar när en enhet har slutat skicka data.
 * Skicka ett e-postmeddelande med hjälp av Azure Functions-och SendGrid-tjänsterna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
@@ -42,7 +42,7 @@ Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Applicatio
 
 | Inställning | Värde |
 | ------- | ----- |
-| Betalnings plan | Betala per användning |
+| Betalnings plan | Användningsbaserad betalning |
 | Programmall | In-Store Analytics – villkors övervakning |
 | Programnamn | Acceptera standardvärdet eller Välj ditt eget namn |
 | URL | Acceptera standardvärdet eller Välj ditt eget unika URL-prefix |
@@ -68,10 +68,10 @@ Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.
 | Prisnivå | Basic |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
-| Plats | Östra USA |
-| Genomflödesenheter | 1 |
+| Plats | USA, östra |
+| Dataflödesenheter | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics jobb
+### <a name="stream-analytics-job"></a>Stream Analytics-jobb
 
 Använd [Azure Portal för att skapa ett Stream Analytics jobb](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) med följande inställningar:
 
@@ -80,9 +80,9 @@ Använd [Azure Portal för att skapa ett Stream Analytics jobb](https://portal.a
 | Namn    | Välj ditt jobb namn |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
-| Plats | Östra USA |
+| Plats | USA, östra |
 | Värdmiljö | I molnet |
-| Strömningsenheter | 3 |
+| Enheter för strömning | 3 |
 
 ### <a name="function-app"></a>Funktionsapp
 
@@ -93,11 +93,11 @@ Använd [Azure Portal för att skapa en Function-app](https://portal.azure.com/#
 | Appnamn    | Välj namnet på din Function-app |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
-| Operativsystem | Windows |
-| Värd plan | Förbrukningsplan |
-| Plats | Östra USA |
-| Körnings stack | .NET |
-| Storage | Skapa ny |
+| OS | Windows |
+| Värdplan | Förbrukningsplan |
+| Plats | USA, östra |
+| Körningsstack | .NET |
+| Lagring | Skapa ny |
 
 ### <a name="sendgrid-account"></a>SendGrid-konto
 

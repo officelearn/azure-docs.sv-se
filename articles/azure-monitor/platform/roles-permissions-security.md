@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305170"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894542"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roller, behörigheter och säkerhet i Azure Monitor
 
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 Övervaknings data – särskilt loggfiler – kan innehålla känslig information, till exempel IP-adresser eller användar namn. Övervakning av data från Azure levereras i tre grundläggande former:
 
 1. Aktivitets loggen som beskriver alla kontroll Plans åtgärder i din Azure-prenumeration.
-2. Diagnostikloggar, som är loggar som genereras av en resurs.
+2. resurs loggar, vilka loggar som genereras av en resurs.
 3. Mått, som genereras av resurser.
 
 Alla tre dessa data typer kan lagras i ett lagrings konto eller strömmas till Händelsehubben, som båda är allmänna Azure-resurser. Eftersom dessa är generella resurser, skapa, ta bort och komma åt dem är en privilegie rad åtgärd som är reserverad för en administratör. Vi rekommenderar att du använder följande metoder för att övervaka relaterade resurser för att förhindra missbruk:
@@ -182,7 +182,7 @@ Azure Monitor behöver åtkomst till dina Azure-resurser för att tillhandahåll
 ### <a name="secured-storage-accounts"></a>Skyddade lagrings konton 
 
 Övervaknings data skrivs ofta till ett lagrings konto. Du kanske vill se till att data som kopieras till ett lagrings konto inte kan nås av obehöriga användare. För ytterligare säkerhet kan du låsa nätverks åtkomsten för att bara tillåta att dina auktoriserade resurser och betrodda Microsoft-tjänster har åtkomst till ett lagrings konto genom att begränsa ett lagrings konto så att det använder valda nätverk.
-![Azure Storage inställningar dialog](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor betraktas som en av dessa "betrodda Microsoft-tjänster" om du tillåter att betrodda Microsoft-tjänster får åtkomst till din skyddade lagring, kommer Azure monitor att ha åtkomst till ditt skyddade lagrings konto. genom att aktivera skrivning Azure Monitor diagnostikloggar, aktivitets logg och mått till ditt lagrings konto under dessa skyddade villkor. Detta aktiverar även Log Analytics att läsa loggar från säker lagring.   
+![Azure Storage inställningar dialog](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor betraktas som en av dessa "betrodda Microsoft-tjänster" om du tillåter att betrodda Microsoft-tjänster får åtkomst till din skyddade lagring, kommer Azure monitor att ha åtkomst till ditt skyddade lagrings konto. Om du aktiverar skrivning Azure Monitor resurs loggar, aktivitets logg och mått till ditt lagrings konto under dessa skyddade villkor. Detta aktiverar även Log Analytics att läsa loggar från säker lagring.   
 
 
 Mer information finns i [nätverks säkerhet och Azure Storage](../../storage/common/storage-network-security.md)

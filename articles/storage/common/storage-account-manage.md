@@ -1,18 +1,19 @@
 ---
-title: Hantera inställningar för lagrings konton i Azure Portal-Azure Storage | Microsoft Docs
+title: Hantera inställningar för lagrings kontot i Azure Portal
+titleSuffix: Azure Storage
 description: Lär dig hur du hanterar inställningar för lagrings konton i Azure Portal, inklusive hur du konfigurerar inställningar för åtkomst kontroll, återskapar konto åtkomst nycklar, ändrar åtkomst nivå eller ändrar den typ av replikering som används av kontot. Lär dig också hur du tar bort ett lagrings konto i portalen.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/06/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93d3bf3d17348a0f5ad62118fcb9c9a0c6f2f656
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749015"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892387"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Hantera inställningar för lagrings kontot i Azure Portal
 
@@ -49,7 +50,7 @@ När du skapar ett lagrings konto genererar Azure åtkomst nycklar för 2 512-bi
 Microsoft rekommenderar att du återskapar dina åtkomst nycklar regelbundet så att du kan skydda ditt lagrings konto. Två åtkomst nycklar tilldelas så att du kan rotera dina nycklar. När du roterar dina nycklar ser du till att ditt program behåller åtkomsten till Azure Storage under hela processen. 
 
 > [!WARNING]
-> Återskapande av åtkomst nycklar kan påverka alla program eller Azure-tjänster som är beroende av lagrings konto nyckeln. Alla klienter som använder konto nyckeln för att komma åt lagrings kontot måste uppdateras för att använda den nya nyckeln, inklusive Media Services, moln, skriv bords-och mobil program och grafiska användar gränssnitts program för Azure Storage, till exempel [Azure Storage Explorer ](https://azure.microsoft.com/features/storage-explorer/).
+> Återskapande av åtkomst nycklar kan påverka alla program eller Azure-tjänster som är beroende av lagrings konto nyckeln. Alla klienter som använder konto nyckeln för att komma åt lagrings kontot måste uppdateras för att använda den nya nyckeln, inklusive Media Services, moln, skriv bords-och mobil program och grafiska användar gränssnitts program för Azure Storage, till exempel [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 Följ den här processen för att rotera dina lagrings konto nycklar:
 

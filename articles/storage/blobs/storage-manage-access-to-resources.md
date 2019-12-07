@@ -1,29 +1,30 @@
 ---
-title: Aktivera offentlig Läs behörighet för behållare och blobbar i Azure Blob Storage | Microsoft Docs
+title: Hantera offentlig Läs behörighet för behållare och blobbar
+titleSuffix: Azure Storage
 description: Lär dig hur du gör behållare och blobbar tillgängliga för anonym åtkomst och hur du kommer åt dem program mässigt.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 09/19/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: d0e3121fe773a9725eb7cfd9e8b14d0ed86f3fbb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673303"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892490"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Hantera anonym läsåtkomst till containrar och blob-objekt
 
-Du kan aktivera Anonym, offentlig Läs behörighet till en behållare och dess blobbar i Azure Blob Storage. Genom att göra det kan du bevilja skrivskyddad åtkomst till dessa resurser utan att dela din konto nyckel och utan att behöva en signatur för delad åtkomst (SAS).
+Du kan aktivera anonym, offentlig läsåtkomst till en container och dess blobar i Azure Blob Storage. Genom att göra det kan du bevilja skrivskyddad åtkomst till dessa resurser utan att dela din kontonyckel och utan att kräva en signatur för delad åtkomst (SAS).
 
 Offentlig Läs behörighet är bäst för scenarier där du vill att vissa blobbar alltid ska vara tillgängliga för anonym Läs åtkomst. Om du vill ha mer detaljerad kontroll kan du skapa en signatur för delad åtkomst. Med signaturer för delad åtkomst kan du ge begränsad åtkomst med olika behörigheter för en viss tids period. Mer information om hur du skapar signaturer för delad åtkomst finns [i använda signaturer för delad åtkomst (SAS) i Azure Storage](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Ge anonyma användare behörigheter till behållare och blobbar
 
-Som standard kan en behållare och alla blobbar i den endast nås av en användare som har fått rätt behörighet. Om du vill ge anonyma användare Läs åtkomst till en behållare och dess blobbar kan du ange behållarens offentliga åtkomst nivå. När du beviljar offentlig åtkomst till en behållare kan anonyma användare läsa blobbar i en offentligt tillgänglig behållare utan att auktorisera begäran.
+Som standard kan en container och alla blobar i den endast nås av användare som har fått rätt behörighet. Om du vill ge anonyma användare läsåtkomst till en container och dess blobar kan du ange containerns nivå för offentlig åtkomst. När du beviljar offentlig åtkomst till en behållare kan anonyma användare läsa blobbar i en offentligt tillgänglig behållare utan att auktorisera begäran.
 
 Du kan konfigurera en behållare med följande behörigheter:
 
@@ -138,4 +139,4 @@ public static void DownloadBlobAnonymously()
 
 - [Auktorisera åtkomst till Azure Storage](../common/storage-auth.md)
 - [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md)
-- [BLOB service-REST API](/rest/api/storageservices/blob-service-rest-api)
+- [Blob-tjänstens REST-API](/rest/api/storageservices/blob-service-rest-api)

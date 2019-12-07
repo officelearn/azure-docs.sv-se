@@ -1,6 +1,6 @@
 ---
 title: Exempel på Azure CLI-skript – Publicera en tillgång | Microsoft Docs
-description: Använd Azure CLI-skriptet för att publicera en tillgång.
+description: Den här artikeln visar hur du använder Azure CLI-skriptet för att publicera en till gång.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: ced55a41ce5be31dfa036894188f385ae60f8962
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 44cf234fd8419164f7dd7f8320952a5c6c0842e0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204162"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896124"
 ---
 # <a name="cli-example-publish-an-asset"></a>CLI-exempel: Publicera en tillgång
 
 Azure CLI-skriptet i den här artikeln visar hur du skapar en strömningspositionerare och får tillbaka strömnings-URL:er. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Krav 
 
 [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 

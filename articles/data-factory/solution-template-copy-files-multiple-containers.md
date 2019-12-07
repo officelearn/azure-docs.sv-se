@@ -1,5 +1,5 @@
 ---
-title: Kopiera filer från flera behållare med hjälp av Azure Data Factory
+title: Kopiera filer från flera containrar
 description: Lär dig hur du använder en lösnings mall för att kopiera filer från flera behållare med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: 004a623f0dfe251da9d452b53c2541e53339d965
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fffe356225fc813b027bf1d6e29b3afe19b7fb01
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684259"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890801"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiera filer från flera behållare med Azure Data Factory
 

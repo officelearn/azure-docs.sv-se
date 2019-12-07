@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: 9e198d3ea24383a532c5fbc3bfdcb1d1d7e49a92
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c8c71fa3798b7c56550b742a8b19c83336bb6ddf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689041"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889149"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
@@ -27,7 +27,7 @@ Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in 
 ## <a name="getting-started"></a>Komma igång
 
 * [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md) på [Azure Portal](https://portal.azure.com). För program typ väljer du **Allmänt**.
-* Kopiera instrumenteringsnyckeln. Leta upp nyckeln i den **grundläggande** List rutan för den nya resurs som du skapade. 
+* Kopiera instrumenteringsnyckeln. Leta upp nyckeln i den **grundläggande** List rutan för den nya resurs som du skapade.
 * Installera det senaste [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) -paketet.
 * Ange Instrumentation-nyckeln i koden innan du spårar eventuell telemetri (eller anger APPINSIGHTS_INSTRUMENTATIONKEY miljövariabel). Därefter bör du kunna spåra telemetri manuellt och se det på Azure Portal
 
@@ -39,6 +39,10 @@ var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
+> [!NOTE]
+> Telemetri skickas inte direkt. Telemetri-objekt grupperas och skickas av ApplicationInsights SDK. I-konsol program, som avslutas direkt efter att `Track()` metoder, kan telemetri inte skickas om inte `Flush()` och `Sleep` görs innan appen avslutas som i [exemplet](#full-example) nedan.
+
+
 * Installera den senaste versionen av [Microsoft. ApplicationInsights. DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) -paketet – det spårar automatiskt http, SQL eller andra externa beroende anrop.
 
 Du kan initiera och konfigurera Application Insights från koden eller med `ApplicationInsights.config` filen. Kontrol lera att initieringen sker så tidigt som möjligt. 
@@ -47,6 +51,7 @@ Du kan initiera och konfigurera Application Insights från koden eller med `Appl
 > Instruktioner som hänvisar till **ApplicationInsights. config** gäller endast appar som är riktade till .NET Framework och som inte gäller för .net Core-program.
 
 ### <a name="using-config-file"></a>Använda konfigurations filen
+
 Som standard letar Application Insights SDK efter `ApplicationInsights.config` fil i arbets katalogen när `TelemetryConfiguration` skapas
 
 ```csharp

@@ -4,12 +4,12 @@ description: Lär dig mer om behållar grupper i Azure Container Instances, en s
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706317"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896583"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållar grupper i Azure Container Instances
 
@@ -68,7 +68,9 @@ Mer information finns i egenskapen [ResourceRequirements][resource-requirements]
 
 ## <a name="networking"></a>Nätverk
 
-Behållar grupper delar en IP-adress och en port namn rymd på den IP-adressen. Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett port namn område, stöds port mappning inte. Behållare i en grupp kan komma åt varandra via localhost på de portar som de har exponerat, även om dessa portar inte exponeras externt på gruppens IP-adress.
+Behållar grupper kan dela en extern IP-adress och en port namn rymd på den IP-adressen. Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett port namn område, stöds port mappning inte. 
+
+I en behållar grupp kan container-instanser kontakta varandra via localhost på vilken port som helst, även om dessa portar inte visas externt på gruppens IP-adress eller från behållaren.
 
 Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][virtual-network] (för hands version) för att tillåta att behållare kommunicerar säkert med andra resurser i det virtuella nätverket.
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 4289c592644d7570ff0dd9ce6aed0cd77f51f25e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 804cc7b2b0b51312ed756723fff5150b02f324cc
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838325"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892812"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en modell med ett varumärke med Video Indexer-API
 
@@ -39,7 +39,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
+|**Namn**|**Typ**|**Obligatoriskt**|**Beskrivning**|
 |---|---|---|---|
 |location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|
@@ -101,7 +101,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
+|**Namn**|**Typ**|**Obligatoriskt**|**Beskrivning**|
 |---|---|---|---|
 |location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|
@@ -130,7 +130,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
+|**Namn**|**Typ**|**Obligatoriskt**|**Beskrivning**|
 |---|---|---|---|
 |location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|
@@ -180,7 +180,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
+|**Namn**|**Typ**|**Obligatoriskt**|**Beskrivning**|
 |---|---|---|---|
 |location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|
@@ -243,7 +243,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
+|**Namn**|**Typ**|**Obligatoriskt**|**Beskrivning**|
 |---|---|---|---|
 |location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|
@@ -303,7 +303,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
+|**Namn**|**Typ**|**Obligatoriskt**|**Beskrivning**|
 |---|---|---|---|
 |location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|
@@ -340,7 +340,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
+|**Namn**|**Typ**|**Obligatoriskt**|**Beskrivning**|
 |---|---|---|---|
 |location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|

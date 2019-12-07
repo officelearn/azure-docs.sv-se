@@ -3,12 +3,12 @@ title: YAML-referens för container grupp
 description: Referens för YAML-filen som stöds av Azure Container Instances att konfigurera en behållar grupp
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533494"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896574"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>YAML-referens: Azure Container Instances
 
@@ -38,7 +38,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:
@@ -129,7 +129,7 @@ properties: # Properties of container group
     options: string
 ```
 
-## <a name="property-values"></a>Egenskaps värden
+## <a name="property-values"></a>Egenskapsvärden
 
 I följande tabeller beskrivs de värden som du måste ange i schemat.
 
@@ -140,7 +140,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
 |  namn | sträng | Ja | Namnet på behållar gruppen. |
-|  apiVersion | räkning | Ja | 2018-10-01 |
+|  apiVersion | Enum | Ja | 2018-10-01 |
 |  location | sträng | Nej | Resursens plats. |
 |  tags | objekt | Nej | Resurs taggarna. |
 |  identitet | objekt | Nej | Identiteten för behållar gruppen, om den är konfigurerad. - [ContainerGroupIdentity-objekt](#ContainerGroupIdentity) |
@@ -153,7 +153,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
-|  typ | räkning | Nej | Typ av identitet som används för behållar gruppen. Typen "SystemAssigned, UserAssigned" innehåller både en implicit skapad identitet och en uppsättning användare tilldelade identiteter. Typen ' none ' tar bort alla identiteter från behållar gruppen. -SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, ingen |
+|  typ | Enum | Nej | Typ av identitet som används för behållar gruppen. Typen "SystemAssigned, UserAssigned" innehåller både en implicit skapad identitet och en uppsättning användare tilldelade identiteter. Typen ' none ' tar bort alla identiteter från behållar gruppen. -SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, ingen |
 |  userAssignedIdentities | objekt | Nej | Listan över användar identiteter som är kopplade till behållar gruppen. Nyckel referenserna för användar identitets ord listan kommer att Azure Resource Manager resurs-ID: n i formatet: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName} '. |
 
 
@@ -165,9 +165,9 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  ---- | ---- | ---- | ---- |
 |  containers | matris | Ja | Behållarna i behållar gruppen. - [Container-objekt](#Container) |
 |  imageRegistryCredentials | matris | Nej | De avbildnings register uppgifter som behållar gruppen skapas från. - [ImageRegistryCredential-objekt](#ImageRegistryCredential) |
-|  restartPolicy | räkning | Nej | Starta om principen för alla behållare i behållar gruppen. - `Always` Starta alltid om `OnFailure` starta om vid ett haveri-`Never` aldrig omstart. -Always, OnFailure, Never |
+|  restartPolicy | Enum | Nej | Starta om principen för alla behållare i behållar gruppen. - `Always` Starta alltid om `OnFailure` starta om vid ett haveri-`Never` aldrig omstart. -Always, OnFailure, Never |
 |  Adresser | objekt | Nej | Typ av IP-adress för behållar gruppen. - [IpAddress-objekt](#IpAddress) |
-|  osType | räkning | Ja | Den typ av operativ system som krävs av behållarna i behållar gruppen. – Windows eller Linux |
+|  osType | Enum | Ja | Den typ av operativ system som krävs av behållarna i behållar gruppen. – Windows eller Linux |
 |  volumes | matris | Nej | Listan över volymer som kan monteras av behållare i den här behållar gruppen. - [volym objekt](#Volume) |
 |  diagnostik | objekt | Nej | Diagnostikinformation för en behållar grupp. - [ContainerGroupDiagnostics-objekt](#ContainerGroupDiagnostics) |
 |  networkProfile | objekt | Nej | Nätverks profil informationen för en behållar grupp. - [ContainerGroupNetworkProfile-objekt](#ContainerGroupNetworkProfile) |
@@ -202,7 +202,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
 |  ports | matris | Ja | Listan över portar som exponeras i behållar gruppen. - [port-objekt](#Port) |
-|  typ | räkning | Ja | Anger om IP-adressen exponeras för det offentliga Internet eller privata virtuella nätverket. – Offentligt eller privat |
+|  typ | Enum | Ja | Anger om IP-adressen exponeras för det offentliga Internet eller privata virtuella nätverket. – Offentligt eller privat |
 |  sökning | sträng | Nej | IP-adressen som exponeras för det offentliga Internet. |
 |  dnsNameLabel | sträng | Nej | DNS-namnets etikett för IP-adressen. |
 
@@ -246,7 +246,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  ---- | ---- | ---- | ---- |
 |  Namnservrar | matris | Ja | DNS-servrarna för behållar gruppen. – sträng |
 |  searchDomains | sträng | Nej | DNS-sökdomänerna för Sök efter värdnamn i behållar gruppen. |
-|  sätt | sträng | Nej | DNS-alternativen för behållar gruppen. |
+|  options | sträng | Nej | DNS-alternativen för behållar gruppen. |
 
 
 <a id="ContainerProperties" />
@@ -271,8 +271,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
-|  protokollhanterare | räkning | Nej | Det protokoll som är associerat med porten. -TCP eller UDP |
-|  port | heltal | Ja | Port numret. |
+|  protocol | Enum | Nej | Det protokoll som är associerat med porten. -TCP eller UDP |
+|  port | heltal | Ja | portnumret. |
 
 
 <a id="AzureFileVolume" />
@@ -282,7 +282,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
 |  Resurs | sträng | Ja | Namnet på Azure-filresursen som ska monteras som en volym. |
-|  ReadOnly | boolesk | Nej | Flaggan som anger om Azure-fildelningen som är monterad som en volym är skrivskyddad. |
+|  readOnly | boolesk | Nej | Flaggan som anger om Azure-fildelningen som är monterad som en volym är skrivskyddad. |
 |  storageAccountName | sträng | Ja | Namnet på det lagrings konto som innehåller Azure-filresursen. |
 |  storageAccountKey | sträng | Nej | Lagrings kontots åtkomst nyckel som används för åtkomst till Azure-filresursen. |
 
@@ -293,8 +293,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
-|  katalogen | sträng | Nej | Mål katalog namn. Får inte innehålla eller börja med "..".  Om "." anges blir volym katalogen git-lagringsplatsen.  Annars kommer volymen att innehålla git-lagringsplatsen i under katalogen med det angivna namnet. |
-|  lagrings platsen | sträng | Ja | URL för databas |
+|  katalog | sträng | Nej | Mål katalog namn. Får inte innehålla eller börja med "..".  Om "." anges blir volym katalogen git-lagringsplatsen.  Annars kommer volymen att innehålla git-lagringsplatsen i under katalogen med det angivna namnet. |
+|  repository | sträng | Ja | URL för databas |
 |  revision | sträng | Nej | Genomför hash för den angivna revisionen. |
 
 
@@ -306,7 +306,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  ---- | ---- | ---- | ---- |
 |  workspaceId | sträng | Ja | Arbetsyte-ID för Log Analytics |
 |  workspaceKey | sträng | Ja | Arbets ytans nyckel för Log Analytics |
-|  logType | räkning | Nej | Den logg typ som ska användas. -ContainerInsights eller ContainerInstanceLogs |
+|  logType | Enum | Nej | Den logg typ som ska användas. -ContainerInsights eller ContainerInstanceLogs |
 |  metadata | objekt | Nej | Metadata för Log Analytics. |
 
 
@@ -316,7 +316,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
-|  protokollhanterare | räkning | Nej | Det protokoll som är associerat med porten. -TCP eller UDP |
+|  protocol | Enum | Nej | Det protokoll som är associerat med porten. -TCP eller UDP |
 |  port | heltal | Ja | Port numret som visas i behållar gruppen. |
 
 
@@ -337,8 +337,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
-|  autentiseringsbegäran | objekt | Ja | Resurs begär Anden för den här behållar instansen. - [ResourceRequests-objekt](#ResourceRequests) |
-|  sten | objekt | Nej | Resurs gränserna för den här behållar instansen. - [ResourceLimits-objekt](#ResourceLimits) |
+|  Begäranden | objekt | Ja | Resurs begär Anden för den här behållar instansen. - [ResourceRequests-objekt](#ResourceRequests) |
+|  gränser | objekt | Nej | Resurs gränserna för den här behållar instansen. - [ResourceLimits-objekt](#ResourceLimits) |
 
 
 <a id="VolumeMount" />
@@ -349,7 +349,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  ---- | ---- | ---- | ---- |
 |  namn | sträng | Ja | Namnet på volym monteringen. |
 |  mountPath | sträng | Ja | Sökvägen i behållaren där volymen ska monteras. Får inte innehålla kolon (:). |
-|  ReadOnly | boolesk | Nej | Flaggan indikerar om volym monteringen är skrivskyddad. |
+|  readOnly | boolesk | Nej | Flaggan indikerar om volym monteringen är skrivskyddad. |
 
 
 <a id="ContainerProbe" />
@@ -404,9 +404,9 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
-|  sökväg | sträng | Nej | Sökvägen till avsökningen. |
+|  Sökväg | sträng | Nej | Sökvägen till avsökningen. |
 |  port | heltal | Ja | Port numret som ska avsökas. |
-|  schema | räkning | Nej | Schemat. -http eller https |
+|  schema | Enum | Nej | Schemat. -http eller https |
 
 
 <a id="GpuResource" />
@@ -416,7 +416,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Namn | Typ | Krävs | Värde |
 |  ---- | ---- | ---- | ---- |
 |  count | heltal | Ja | Antalet GPU-resurser. |
-|  sku | räkning | Ja | SKU: n för GPU-resursen. -K80, P100, V100 |
+|  sku | Enum | Ja | SKU: n för GPU-resursen. -K80, P100, V100 |
 
 
 ## <a name="next-steps"></a>Nästa steg

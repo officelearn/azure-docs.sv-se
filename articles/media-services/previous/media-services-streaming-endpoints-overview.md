@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Media Services strömnings slut punkt | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure Media Services slut punkter för direkt uppspelning.
+description: Den här artikeln ger en översikt över Azure Media Services slut punkter för direkt uppspelning.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ac9c9a73e52c678c8a6d9b1e1779d9ec75cab2c8
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016453"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885644"
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över slut punkter för direkt uppspelning  
 
@@ -33,24 +33,24 @@ Azure Media Services lade till följande egenskaper i entiteten för strömnings
 När du skapar ett Azure Media Services konto skapas en standard slut punkt för standard strömning för dig i **stoppat** läge. Det går inte att ta bort standard slut punkten för direkt uppspelning. Beroende på Azure CDN tillgänglighet i mål regionen innehåller som standard den nyskapade standard slut punkten för direkt uppspelning även "StandardVerizon" CDN Provider integration. 
                 
 > [!NOTE]
-> Azure CDN integration kan inaktive ras innan du startar slut punkten för direkt uppspelning. URL: en och direkt uppspelnings-URL: en är oförändrad oavsett om du aktiverar CDN eller inte. `hostname`
+> Azure CDN integration kan inaktive ras innan du startar slut punkten för direkt uppspelning. `hostname` och strömnings-URL: en är oförändrade oavsett om du aktiverar CDN eller inte.
 
 Det här avsnittet ger en översikt över de viktigaste funktionerna som tillhandahålls av slut punkter för direkt uppspelning.
 
 ## <a name="naming-conventions"></a>Namngivningskonventioner
 
-För standard slut punkten:`{AccountName}.streaming.mediaservices.windows.net`
+För standard slut punkten: `{AccountName}.streaming.mediaservices.windows.net`
 
-För ytterligare slut punkter:`{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
+För ytterligare slut punkter: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Strömmande typer och versioner
 
 ### <a name="standardpremium-types-version-20"></a>Standard/Premium-typer (version 2,0)
 
-Från och med januari 2017-versionen av Media Services har du två typer av direkt uppspelning: **Standard** (för hands version) och **Premium**. Dessa typer är en del av slut punkts versionen "2,0" för strömningen.
+Från och med januari 2017-versionen av Media Services har du två typer av direkt uppspelning: **standard** (för hands version) och **Premium**. Dessa typer är en del av slut punkts versionen "2,0" för strömningen.
 
 
-|type|Beskrivning|
+|Typ|Beskrivning|
 |--------|--------|  
 |**Standard**|Standard slut punkten för direkt uppspelning är en **standard** typ, kan ändras till Premium-typen genom att justera strömnings enheter.|
 |**Premium** |Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll. Du flyttar till en **Premium** -typ genom att justera strömnings enheter.<br/>Dedikerade strömnings slut punkter Live i isolerade miljöer och konkurrerar inte om resurser.|
@@ -75,12 +75,12 @@ Om din **version "1,0"** för strömnings slut punkten har > = 1 Premium streami
 
 ### <a name="versions"></a>Versioner
 
-|type|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|
+|Typ|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klassisk|1.0|0|Ej tillämpligt|Lediga|
-|Standard slut punkt för direkt uppspelning (förhands granskning)|2.0|0|Ja|Betalad|
-|Premium-enheter för direktuppspelning|1.0|>0|Ja|Betalad|
-|Premium-enheter för direktuppspelning|2.0|>0|Ja|Betalad|
+|Klassisk|1.0|0|Ej tillämpligt|Kostnadsfri|
+|Standard slut punkt för direkt uppspelning (förhands granskning)|2.0|0|Ja|Avgiftsbelagt|
+|Premium-enheter för direktuppspelning|1.0|> 0|Ja|Avgiftsbelagt|
+|Premium-enheter för direktuppspelning|2.0|> 0|Ja|Avgiftsbelagt|
 
 ### <a name="features"></a>Funktioner
 
@@ -102,7 +102,7 @@ Information om SLA finns i [prissättning och service avtal](https://azure.micro
 
 ## <a name="migration-between-types"></a>Migrering mellan typer
 
-Från | Till | Action
+Från | Till | Åtgärd
 ---|---|---
 Klassisk|Standard|Du måste välja
 Klassisk|Premium| Skala (ytterligare enheter för strömning)

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007052"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900264"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insightss miljö
 
@@ -38,7 +38,7 @@ Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds 
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse käll nyckeln saknar en nödvändig behörighet
 
-* För en IoT-hubb i Azure IoT Hub måste du ange den nyckel som har behörighet för **tjänst anslutning** . Någon av **iothubowner** -eller **-tjänst** principerna fungerar eftersom de båda har behörigheter för **tjänst anslutning** .
+* För en IoT-hubb i Azure IoT Hub måste du ange den nyckel som har behörighet för **tjänst anslutning** . Välj antingen **iothubowner** -eller **service** principer eftersom båda har behörigheter för **tjänst anslutning** .
 
    [![IoT Hub service Connect-behörigheter](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
@@ -50,13 +50,17 @@ Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds 
 
 När du registrerar en IoT-hubb eller en händelsehubben är det viktigt att ange den konsument grupp som du vill använda för att läsa data. Det *går inte att dela*den här konsument gruppen. Om konsument gruppen delas, kommer den underliggande IoT-hubben eller händelsehubben att automatiskt koppla bort en av läsarna. Ange en unik konsument grupp för Time Series Insights att läsa från.
 
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Orsak D: miljön har precis etablerats
+
+Data visas i Time Series Insights Explorer inom några minuter efter det att miljön och dess data först har skapats.
+
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problem: vissa data visas, men data saknas
 
 När data endast visas delvis och data verkar vara i ett släp, bör du överväga flera möjligheter.
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>Orsak A: din miljö begränsas
 
-Begränsning är ett vanligt problem när miljöer är etablerade när du har skapat en händelse källa som innehåller data. Azure IoT Hub-och Azure Events-hubbar lagrar data i upp till sju dagar. Time Series Insights startar alltid med den äldsta händelsen i händelse källan (först in, först ut eller *FIFO*).
+[Begränsning](time-series-insights-environment-mitigate-latency.md) är ett vanligt problem när miljöer är etablerade när du har skapat en händelse källa som innehåller data. Azure IoT Hub-och Azure Events-hubbar lagrar data i upp till sju dagar. Time Series Insights startar alltid med den äldsta händelsen i händelse källan (först in, först ut eller *FIFO*).
 
 Om du till exempel har 5 000 000 händelser i en händelse källa när du ansluter till en enhet Time Series Insights miljö i S1, Time Series Insights läser cirka 1 000 000 händelser per dag. Det kan se ut som Time Series Insights har fem dagars latens. Men vad som händer är att miljön begränsas.
 

@@ -1,6 +1,6 @@
 ---
 title: Standard kodare format och codec-Azure
-description: Det här avsnittet ger en översikt över standardkodares format och codec-filer.
+description: Den här artikeln innehåller en lista över de vanligaste import-och export fil formaten som du kan använda med StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 195bbb70ac5062c6bbf6034e6a6e9abac018c62f
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677961"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888078"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Standardformat för kodare och codec
 
@@ -27,19 +27,19 @@ Den här artikeln innehåller en lista över de vanligaste import-och export fil
 
 ## <a name="input-containerfile-formats"></a>Indatafil/fil format
 
-| Fil format (fil namns tillägg) | Stöds |
+| Filformat (filnamnstillägg) | Stöds |
 | --- | --- |
-| FLV (med H. 264-och AAC-codec) (. FLV) |Ja |
-| MXF (. MXF) |Ja |
-| GXF (. GXF) |Ja |
-| MPEG2-PS, MPEG2-TS, 3GP (. TS,. PS,. 3GP,. 3GPP,. mpg) |Ja |
-| Windows Media video-/ASF (. WMV,. asf) |Ja |
-| AVI (okomprimerad 8bit/10bit) (. avi) |Ja |
+| FLV (med H.264- och AAC-codec) (.flv) |Ja |
+| MXF    (.mxf) |Ja |
+| GXF    (.gxf) |Ja |
+| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Ja |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Ja |
+| AVI (okomprimerad 8-bitars/10-bitars) (.avi) |Ja |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Ja |
-| [Microsoft Digital Video inspelning (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (. DVR-MS) |Ja |
+| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Ja |
 | Matroska/WebM (.mkv) |Ja |
-| WAVE/WAV (. wav) |Ja |
-| QuickTime (. mov) |Ja |
+| WAVE/WAV (.wav) |Ja |
+| QuickTime (.mov) |Ja |
 
 ### <a name="audio-formats-in-input-containers"></a>Ljud format i indata-behållare
 
@@ -49,43 +49,43 @@ Standard-kodare stöder följande ljud format i indatafiler:
 
 eller
 
-* MXF-, GXF-och QuickTime-filer där ljudet överförs som separata PCM-spår, men kanal mappningen (till stereo eller 5,1) kan härledas från filens metadata
+* MXF-, GXF- och QuickTime-filer där ljudet är separata PCM-spår, men kanalmappningen (till stereo eller 5.1) kan härledas från filens metadata
 
 ## <a name="input-video-codecs"></a>Codec för inspelning av video
 | Codec för inspelning av video | Stöds |
 | --- | --- |
-| AVC 8-bitar/10-bit, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |
+| AVC 8-/10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |
 | Avid DNxHD (i MXF) |Ja |
 | DVCPro/DVCProHD (in MXF) |Ja |
 | Digital video (DV) (i AVI-filer) |Ja |
 | JPEG 2000 |Ja |
-| MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Upp till 422-profil |
+| MPEG-2 (upp till 422-profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Upp till 422-profil |
 | MPEG-1 |Ja |
 | VC-1/WMV9 |Ja |
 | Canopus HQ/HQX |Nej |
 | MPEG-4, del 2 |Ja |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Ja |
-| YUV420 okomprimerad eller mezzaninfil |Ja |
+| YUV420, okomprimerad eller mezzanin |Ja |
 | Apple ProRes 422 |Ja |
 | Apple ProRes 422 LT |Ja |
-| Apple ProRes 422-HQ |Ja |
-| Apple ProRes-proxy |Ja |
+| Apple ProRes 422 HQ |Ja |
+| Apple ProRes Proxy |Ja |
 | Apple ProRes 4444 |Ja |
-| Apple ProRes 4444-XQ |Ja |
+| Apple ProRes 4444 XQ |Ja |
 | HEVC/H. 265| Huvud profil|
 
 ## <a name="input-audio-codecs"></a>Inmatade ljud-codec
-| Inmatade ljud-codec | Stöds |
+| Codec för indataljud | Stöds |
 | --- | --- |
-| AAC (AAC-LC, AAC-HE och AAC-HEv2; upp till 5,1) |Ja |
+| AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |
 | MPEG Layer 2 |Ja |
 | MP3 (MPEG-1 Audio Layer 3) |Ja |
-| Windows Media-ljud |Ja |
+| Windows Media Audio |Ja |
 | WAV/PCM |Ja |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Ja |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Ja |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Ja |
-| AMR (adaptiv Multi-Rate) |Ja |
+| AMR (Adaptive Multi-Rate) |Ja |
 | AES (SMPTE 331M och 302M, AES3-2003) |Nej |
 | Dolby® E |Nej |
 | Dolby® Digital (AC3) |Nej |

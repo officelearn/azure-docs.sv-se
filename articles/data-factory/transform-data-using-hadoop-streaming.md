@@ -1,5 +1,5 @@
 ---
-title: Transformera data med hjälp av Hadoop streaming-aktivitet i Azure Data Factory
+title: Transformera data med Hadoop streaming-aktivitet
 description: Förklarar hur du använder Hadoop streaming-aktivitet i Azure Data Factory för att transformera data genom att köra Hadoop streaming-program i ett Hadoop-kluster.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6977f7a6ad7fd79a51083bf2ef71c539e04837e5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 01237218e30859015b1c8f0a5adeebd8b9bdf7eb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683782"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893798"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med hjälp av Hadoop streaming-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -71,19 +71,19 @@ Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure D
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | namn              | Namn på aktiviteten                     | Ja      |
-| description       | Text som beskriver vad aktiviteten används för | Nej       |
+| beskrivning       | Text som beskriver vad aktiviteten används för | Nej       |
 | typ              | För Hadoop streaming-aktivitet är aktivitets typen HDInsightStreaming | Ja      |
 | linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | mappning            | Anger namnet på den körbara filen för mapper | Ja      |
 | minskning           | Anger namnet på den programbegränsande körbara filen | Ja      |
 | kombinations          | Anger namnet på den kombinerade program filen | Nej       |
 | fileLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra mapparna Mapper, kombinerare och minska program som ska köras. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
-| FilePath          | Ange en matris med sökvägen till mapparna Mapper, kombinerare och Minskare som lagras i Azure Storage som refereras av fileLinkedService. Sökvägen är skiftlägeskänslig. | Ja      |
+| filePath          | Ange en matris med sökvägen till mapparna Mapper, kombinerare och Minskare som lagras i Azure Storage som refereras av fileLinkedService. Sökvägen är skiftlägeskänslig. | Ja      |
 | indata             | Anger WASB-sökvägen till indatafilen för mapper. | Ja      |
 | utdata            | Anger WASB-sökvägen till utdatafilen för minsknings filen. | Ja      |
 | getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
 | ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
-| definierar           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       | 
+| defines           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       | 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar som förklarar hur du omformar data på andra sätt: 

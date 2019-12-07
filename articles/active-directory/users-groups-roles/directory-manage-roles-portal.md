@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ac62a4f318690a1e8156d619c82e9b936973159
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027888"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900914"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visa och tilldela administratörs roller i Azure Active Directory
 
@@ -26,11 +26,11 @@ Nu kan du se och hantera alla medlemmar i administratörs rollerna i Azure Activ
 
 ## <a name="view-all-roles"></a>Visa alla roller
 
-I Azure Active Directory väljer du **roller och administratörer** för att se en lista över alla tillgängliga roller. 
+Sök efter och välj **Azure Active Directory**. Välj **roller och administratörer** om du vill se en lista över alla tillgängliga roller.
 
 Öppna den detaljerade beskrivningen av rollen genom att klicka på ellipsen till höger om varje rad.
 
-![lista över roller i Azure AD Portal](./media/directory-manage-roles-portal/role-list.png)
+![lista över roller i Azure AD Portal](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## <a name="view-my-roles"></a>Visa mina roller
 

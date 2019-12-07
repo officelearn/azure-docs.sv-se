@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: b91e235824085977f1570e664b43d028a905407b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869807"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896238"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Åtkomst Azure Cosmos DB från virtuella nätverk (VNet)
 
@@ -42,9 +42,9 @@ När tjänstens slut punkt för Azure Cosmos DB har Aktiver ATS på ett undernä
 
 ### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Krävs ytterligare RBAC-behörigheter för Azure Cosmos-konton med VNET-tjänstens slut punkter?
 
-När du har lagt till tjänst slut punkterna för VNET i ett Azure Cosmos-konto måste du ha åtkomst till `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` åtgärden för alla virtuella nätverk som kon figurer ATS på ditt Azure Cosmos-konto för att göra ändringar i konto inställningarna. Den här åtgärden krävs eftersom verifierings processen validerar för åtgärder som motsvarar databasen och virtuella nätverks resurser innan du utvärderar några egenskaper.
+När du har lagt till tjänst slut punkterna för VNet i ett Azure Cosmos-konto måste du ha åtkomst till `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` åtgärden för alla virtuella nätverk som kon figurer ATS på ditt Azure Cosmos-konto för att göra ändringar i konto inställningarna. Den här behörigheten krävs eftersom verifierings processen validerar åtkomst till resurser (till exempel databas och virtuella nätverks resurser) innan du utvärderar några egenskaper.
  
-Auktoriseringen verifierar för åtgärder även om användaren inte anger VNET-ACL: er med Azure CLI. För närvarande har Azure Cosmos-kontots kontroll plan stöd för att ange det fullständiga läget för Azure Cosmos-kontot. En av parametrarna för kontroll planets anrop är `virtualNetworkRules`. Om den här parametern inte anges gör Azure CLI ett Hämta databas anrop för att hämta `virtualNetworkRules` och använder det här värdet i uppdaterings anropet.
+Auktoriseringen verifierar behörighet för åtgärden VNet-resurs även om användaren inte anger de virtuella nätverkets ACL: er med Azure CLI. För närvarande har Azure Cosmos-kontots kontroll plan stöd för att ange det fullständiga läget för Azure Cosmos-kontot. En av parametrarna för kontroll planets anrop är `virtualNetworkRules`. Om den här parametern inte anges gör Azure CLI ett Hämta databas anrop för att hämta `virtualNetworkRules` och använder det här värdet i uppdaterings anropet.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>Har de peer-virtuella nätverken också åtkomst till Azure Cosmos-kontot? 
 Endast virtuella nätverk och deras undernät som har lagts till i Azure Cosmos-kontot har åtkomst. Deras peer-virtuella nätverk kan inte komma åt kontot förrän under näten i peer-kopplat virtuella nätverk har lagts till i kontot.

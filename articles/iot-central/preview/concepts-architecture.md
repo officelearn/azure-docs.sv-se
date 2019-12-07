@@ -3,17 +3,17 @@ title: Arkitektur koncept i Azure IoT Central | Microsoft Docs
 description: Den här artikeln beskriver viktiga begrepp som rör arkitekturen i Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 66792d9d0a8b1cd72ef8f22481016a35f37a1597
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9004e74d1b42a2b50ef57da58d9a79497e17f1ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013836"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895768"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central Architecture (för hands versions funktioner)
 
@@ -119,7 +119,7 @@ Azure IoT Central lagrar program data i molnet. Program data som lagras innehål
 
 Azure IoT Central använder ett tids serie lager för Mät data som skickas från dina enheter. Tids serie data från enheter som används av Analytics-tjänsten.
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analyser
 
 Analytics-tjänsten ansvarar för att skapa anpassade rapporterings data som visas i programmet. En operatör kan [Anpassa den analys](howto-create-analytics.md) som visas i programmet. Analytics-tjänsten bygger på [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) och bearbetar Mät data som skickas från dina enheter.
 
@@ -142,7 +142,7 @@ I en IoT Central för hands version av program enhet:
 
 Ett program kan ha en eller flera simulerade och riktiga enheter som baseras på varje enhets mall.
 
-## <a name="data-export"></a>Data export
+## <a name="data-export"></a>Dataexport
 
 I ett Azure IoT Central-program kan du [kontinuerligt exportera dina data](howto-export-data.md) till dina egna Azure Event Hubs-och Azure Service Bus-instanser. Du kan också regelbundet exportera dina data till ditt Azure Blob Storage-konto. IoT Central kan exportera mått, enheter och mallar för enheter.
 

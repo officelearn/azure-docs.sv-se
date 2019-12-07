@@ -1,6 +1,6 @@
 ---
-title: En experimentell förinställning för innehåll-medvetna encoding – Azure | Microsoft Docs
-description: Den här artikeln beskriver innehåll-medvetna kodning i Azure Media Services
+title: En experimentell för inställning för innehålls medveten kodning – Azure | Microsoft Docs
+description: Den här artikeln beskriver innehålls medveten kodning i Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,46 +12,46 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: ddb7bfd2437af806c8db75068c50545e69867ea0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151005"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896140"
 ---
-# <a name="experimental-preset-for-content-aware-encoding"></a>Experimentella förinställning för innehåll-medvetna encoding
+# <a name="experimental-preset-for-content-aware-encoding"></a>Experimentell för inställning för innehålls medveten kodning
 
-För att förbereda innehåll för leverans av [strömning med anpassad bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video måste kodas på flera bithastigheter (högt till lågt). För att säkerställa att rätt försämring av kvaliteten, som bithastigheten sjunker så är lösning av videon. Detta resulterar i en s.k. kodning ladder – en tabell med upplösningar och bithastigheter för utdata; Se Media Services [inbyggda förinställningar för kodning](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+För att förbereda innehåll för leverans av [direkt uppspelning med anpassningsbar bit hastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)måste video kodas med flera bit hastigheter (hög till låg). För att säkerställa en korrekt försämring av kvalitet, eftersom bit hastigheten sänks så är videons upplösning. Detta resulterar i en så kallad kodnings steg – en tabell över lösningar och bit hastigheter. Se Media Services [inbyggda kodnings för inställningar](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 ## <a name="overview"></a>Översikt
 
-Intresserad av mer än en metod för en förinställning-anpassas-alla-videor ökat när Netflix publicerat sina [blogg](https://medium.com/netflix-techblog/per-title-encode-optimization-7e99442b62a2) i December 2015. Sedan dess har redan flera lösningar för innehåll-medvetna encoding har publicerats i marketplace; Se [i den här artikeln](https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/Buyers-Guide-to-Per-Title-Encoding-130676.aspx) en översikt. Tanken är att känna till innehåll – anpassa eller finjustera kodning ladder på ett enskilda videon. Med varje upplösning som är finns det en bithastighet utanför vilka en ökning i kvalitet är inte perceptive – kodaren fungerar på det här värdet för optimal bithastighet. Nästa nivå i optimering är att välja den upplösning baserat på innehållet – till exempel en video med en PowerPoint-presentation åtnjuter inte kommer nedan 720p. Fortsätter, kan vilken kodare som ha uppgiften för att optimera inställningarna för varje skott i videon. Netflix beskrivs [ett sådant tillvägagångssätt](https://medium.com/netflix-techblog/optimized-shot-based-encodes-now-streaming-4b9464204830) under 2018.
+Intresse av att flytta bortom en metod med en för inställning som passar alla videor ökar när Netflix publicerade sin [blogg](https://medium.com/netflix-techblog/per-title-encode-optimization-7e99442b62a2) i december 2015. Sedan dess har flera lösningar för innehålls medveten kodning lanserats på Marketplace. i [den här artikeln](https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/Buyers-Guide-to-Per-Title-Encoding-130676.aspx) finns en översikt. Idén är att vara medveten om innehållet – för att anpassa eller justera kodnings steg för att få en viss Videos komplexitet. Vid varje lösning är det en bit hastighet utöver vilken eventuell ökning av kvalitet inte är Perceptive – kodaren fungerar med detta värde för optimal bit hastighet. Nästa optimerings nivå är att välja lösningarna baserat på innehållet, till exempel om en video i en PowerPoint-presentation inte drar nytta av under 720p. Om du går vidare kan kodaren utföra åtgärder för att optimera inställningarna för varje bild i videon. Netflix beskrivs [i](https://medium.com/netflix-techblog/optimized-shot-based-encodes-now-streaming-4b9464204830) 2018.
 
-I början av 2017 släppte Microsoft den [Adaptiv direktuppspelning](autogen-bitrate-ladder.md) förinställda att åtgärda problemet med variationer i kvalitet och källvideorna upplösning. Våra kunder hade en varierande blandning av innehåll, vissa vid 1080p, andra vid 720p och några i SD och lägre upplösningar. Dessutom var inte alla källinnehållet högkvalitativa mezzanines från film eller TV studios. Den Adaptiv direktuppspelning förinställda adresser dessa problem genom att se till att bithastighetsstege aldrig överskrider lösningen eller genomsnittlig bithastigheten av inkommande mezzanine.
+Tidigt i 2017 lanserade [Microsoft den förvalda för hands](autogen-bitrate-ladder.md) versionen för att lösa problemet med variabiliteten i käll videoklippets kvalitet och upplösning. Våra kunder hade en varierande blandning av innehåll, vissa på 1080p, andra vid 720p och några få vid SD och lägre upplösning. Dessutom var inte allt käll innehåll mezzanines av hög kvalitet från film-eller TV-Studios. För hands inställningen för anpassad direkt uppspelning åtgärdar problemen genom att se till att bit hastighets stegen aldrig överskrider upplösningen eller den genomsnittliga bit hastigheten för indata-mezzaninfil.
 
-Experimentella innehåll-medvetna förinställningen för kodningen utökar den mekanismen genom att införliva anpassad logik som gör att kodaren söker optimala bithastighet värdet för en viss lösning, men utan omfattande databaserad analys. Resultatet är att den här nya förinställningen skapar utdata som har lägre bithastighet än förinställningen Adaptiv direktuppspelning, men med högre kvalitet. Se i följande exempel-diagram som visar en jämförelse med hjälp av kvalitet mätvärden som [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) och [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). Källan har skapats genom att sammanfoga korta klipp av hög komplexiteten skärmbilder från filmer och TV-program, avsedd att vara påfrestande kodaren. Per definition, den här förinställda ger resultat som varierar från innehåll för – innebär det också att för vissa innehåll, det inte kanske betydande minskning av bithastighet eller förbättringar i kvalitet.
+Den experimentella kodnings för inställningen utökar den mekanismen, genom att inkludera anpassad logik som gör det möjligt för kodaren att söka efter optimalt bit hastighets värde för en specifik lösning, men utan att kräva omfattande beräknings analys. Netto resultatet är att den här nya för hands inställningen genererar utdata som har lägre bit hastighet än för hands inställningen för adaptiv strömning, men med en högre kvalitet. Se följande exempel diagram som visar jämförelsen med kvalitets mått som [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) och [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). Källan skapades genom sammanfogning av korta klipp med höga komplexitets dum par från filmer och TV-program som är avsedda att stressa kodaren. Enligt definition ger den här inställningen resultat som varierar från innehåll till innehåll – det innebär också att för visst innehåll, kan det hända att det inte finns någon betydande minskning av bit hastigheten eller förbättring av kvaliteten.
 
-![Pris-förvrängningar (RD)-kurva med PSNR](media/cae-experimental/msrv1.png)
+![Hastighets förvrängnings kurva (RD) med PSNR](media/cae-experimental/msrv1.png)
 
-**Bild 1: Pris-förvrängningar (RD) kurva med PSNR mått för hög komplexiteten källa**
+**Bild 1: hastighets förvrängning (RD) kurva med PSNR mått för hög komplexitets källa**
 
-![Pris-förvrängningar (RD)-kurva med VMAF](media/cae-experimental/msrv2.png)
+![Hastighets förvrängnings kurva (RD) med VMAF](media/cae-experimental/msrv2.png)
 
-**Bild 2: Pris-förvrängningar (RD) kurva med VMAF mått för hög komplexiteten källa**
+**Bild 2: hastighets förvrängning (RD) kurva med VMAF mått för hög komplexitets källa**
 
-Förinställningen för närvarande är anpassad för hög komplexitet, hög kvalitet källvideorna (filmer, TV-program). Arbete pågår efter behov till lågt komplexiteten innehåll (till exempel PowerPoint-presentationer), samt sämre kvalitet videor. Denna inställning använder även samma uppsättning lösningar som Adaptiv direktuppspelning förinställning. Microsoft arbetar på metoder för att välja en mindre uppsättning lösningar baserat på innehållet. Följande är resultatet för en annan kategori av källinnehållet, där kodaren gick att fastställa att inmatning av dålig kvalitet (många komprimering artefakter på grund av låg bithastigheten). Observera att med den experimentella förinställd, kodaren bestämde sig att skapa en utdata-lager – på en låg bithastighet så att de flesta klienter kommer att kunna spela upp dataströmmen utan fördröjs.
+För hands inställningen är för närvarande justerad för hög komplexitet, bild video med hög kvalitet (filmer, TV-program). Arbetet pågår för att anpassa till låg komplexitets innehåll (t. ex. PowerPoint-presentationer) och även dåliga kvalitets videor. Den här inställningen använder också samma uppsättning lösningar som för hands inställningen för anpassad direkt uppspelning. Microsoft arbetar med metoder för att välja en minimal uppsättning lösningar baserat på innehållet. Som följer är resultatet för en annan kategori av käll innehåll, där kodaren kunde fastställa att indatamängden hade låg kvalitet (många komprimerings artefakter på grund av den låga bit hastigheten). Observera att med den experimentella för inställningen, beslutade kodaren att endast skapa ett utmatnings lager – till en låg bit hastighet, så att de flesta klienter kan spela upp strömmen utan att stoppas.
 
 ![RD-kurva med PSNR](media/cae-experimental/msrv3.png)
 
-**Bild 3: RD-kurva med PSNR för låg kvalitet inmatningen (vid 1080p)**
+**Bild 3: RD-kurva som använder PSNR för låg kvalitets kvalitet (vid 1080p)**
 
 ![RD-kurva med VMAF](media/cae-experimental/msrv4.png)
 
-**Bild 4: RD-kurva med VMAF för låg kvalitet inmatningen (vid 1080p)**
+**Bild 4: RD-kurva som använder VMAF för låg kvalitets kvalitet (på 1080p)**
 
-## <a name="use-the-experimental-preset"></a>Använda experimentella förinställd
+## <a name="use-the-experimental-preset"></a>Använd experimentell för inställning
 
-Du kan skapa transformeringar som använder denna förinställning på följande sätt. Om du använder en självstudiekurs [som detta](stream-files-tutorial-with-api.md), kan du uppdatera koden på följande sätt:
+Du kan skapa transformeringar som använder den här för inställningen enligt följande. Om du använder en självstudie som [detta](stream-files-tutorial-with-api.md)kan du uppdatera koden på följande sätt:
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -70,8 +70,8 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Prefixet ”experimentella” används här för att signalera att de underliggande algoritmerna är fortfarande under utveckling. Det kan och kommer att ändringar över tid för att den logik som används för att generera bithastighet stegar, med målet att Konvergera på en algoritm som är robust och anpassas till en mängd olika indata villkor. Kodning jobb med hjälp av den här förinställda kommer ändå att debiteras baserat på utmatningsminuter och utdatatillgången kan levereras från våra slutpunkter för direktuppspelning i protokoll, till exempel DASH och HLS.
+> Prefixet "experimentell" används här för att signalera att de underliggande algoritmerna fortfarande utvecklas. Det kan och kommer att förändras över tid till den logik som används för att skapa bit hastighets steg, med målet att konvergera på en algoritm som är robust och anpassas till en mängd olika ingångs villkor. Kodning av jobb med hjälp av den här för inställningen faktureras fortfarande utifrån utmatnings minuter och utmatnings till gången kan levereras från våra slut punkter för direkt uppspelning i protokoll som bindestreck och HLS.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om det här nya alternativet för att optimera dina videor, erbjuder vi dig att testa den. Du kan skicka feedback via länkarna i slutet av den här artikeln eller engagera oss mer direkt på <amsved@microsoft.com>.
+Nu när du har lärt dig om detta nya alternativ för att optimera dina videor, bjuder vi in dig för att prova. Du kan skicka feedback till oss med hjälp av länkarna i slutet av den här artikeln eller engagera oss direkt på <amsved@microsoft.com>.

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419760"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899865"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Snabb start: skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -39,9 +39,9 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
-    | Name | Ange *MyVirtualNetwork*. |
+    | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
@@ -58,7 +58,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -71,7 +71,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -85,11 +85,11 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Subnet | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
@@ -107,7 +107,7 @@ I det här avsnittet ska du skapa en SQL Database-Server i Azure.
 
 1. I **skapa SQL Database – grunderna**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **Databas information** | |
     | Prenumeration | Välj din prenumeration. |
@@ -118,11 +118,11 @@ I det här avsnittet ska du skapa en SQL Database-Server i Azure.
 5. I **Server**väljer du **Skapa ny**. 
 6. I **ny server**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | inloggning för serveradministratör| Ange ett administratörs namn som du väljer. |
-    | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Plats | Välj en Azure-region där du vill att din SQL Server ska finnas. |
     
 7. Välj **OK**. 
@@ -138,34 +138,34 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
 2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
 1. I **skapa en privat slut punkt (för hands version) – grundläggande**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **Projekt information** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **INSTANSINFORMATION** |  |
-    | Name | Ange * myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
+    | Namn | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **WestCentralUS**.|
     |||
 5. Välj **Nästa: resurs**.
 6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
     | Prenumeration| Välj din prenumeration. |
     | Resurstyp | Välj **Microsoft. SQL/Servers**. |
-    | Resource |Välj *Server*|
+    | Resurs |Välj *Server*|
     |Mål under resurs |Välj *sqlServer*|
     |||
 7. Välj **Nästa: konfiguration**.
 8. I **skapa en privat slut punkt (för hands version) – konfiguration**, anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     |**NÄTVERK**| |
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
-    | Subnet | Välj *undernät*. |
+    | Undernät | Välj *undernät*. |
     |**PRIVAT DNS-INTEGRERING**||
     |Integrera med privat DNS-zon |Välj **Ja**. |
     |Privat DNS zon |Välj *(ny) privatelink. Database. Windows. net* |
@@ -177,7 +177,7 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av fjärr skrivbord (RDP)
 
 
-När du har skapat **myVm*ansluter du till den från Internet på följande sätt: 
+När du har skapat **myVm**ansluter du till den från Internet på följande sätt: 
 
 1. Skriv *myVm*i portalens Sök fält.
 
@@ -185,7 +185,7 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
 
 1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den nedladdade RDP *-filen.
+1. Öppna den *nedladdade RDP* -filen.
 
     1. Välj **Anslut** om du uppmanas att göra det.
 
@@ -219,13 +219,13 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
 
 4. I **Anslut till Server**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Servertyp| Välj **Databasmotor**.|
     | servernamn| Välj *myserver.Database.Windows.net* |
     | Användarnamn | Ange användar namn som username@servername som anges när SQL-servern skapas. |
-    |lösenordsinställning |Ange ett lösen ord som du angav när du skapade SQL-servern. |
-    |Kom ihåg lösen ord|Välj **Ja**.|
+    |Lösenord |Ange ett lösen ord som du angav när du skapade SQL-servern. |
+    |Kom ihåg lösenordet|Välj **Ja**.|
     |||
 1. Välj **Anslut**.
 2. Bläddra bland databaser från menyn till vänster.

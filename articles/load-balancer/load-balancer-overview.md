@@ -12,44 +12,26 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c95744e58ce08943765755145645ed45a2ccdb1f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423905"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894454"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
-Med Azure Load Balancer kan du skala dina program och skapa hög tillgänglighet för dina tjänster. Load Balancer har stöd för inkommande och utgående scenarier, du får korta svarstider och snabba dataflöden, och du kan skala upp till miljontals flöden för alla typer av TCP- och UDP-tillämpningar.
+*Belastnings utjämning* syftar på en effektiv distribution av belastningen eller inkommande nätverks trafik i en grupp av Server dels resurser eller servrar. Azure erbjuder en [mängd olika alternativ för belastnings utjämning](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) som du kan välja bland utifrån dina behov. Det här dokumentet täcker Azure Load Balancer.
 
-Load Balancer distribuerar nya inkommande flöden som anländer till Load Balancer klient delen till backend-instanser, enligt angivna regler och hälso avsökningar.
+Azure Load Balancer arbetar i lager fyra av OSI-modellen (Open Systems Interconnection). Det är den enda kontakt punkten för-klienter. Load Balancer distribuerar nya inkommande flöden som anländer till Load Balancer klient delen till backend-instanser, enligt angivna inläsnings Utjämnings-regler och hälso avsökningar. Server dels instanserna kan vara Azure Virtual Machines eller instanser i en skalnings uppsättning för virtuella datorer (VMSS). 
 
-En offentlig Load Balancer kan tillhandahålla utgående anslutningar för virtuella datorer i det virtuella nätverket genom att översätta sina privata IP-adresser till offentliga IP-adresser.
+Med Azure Load Balancer kan du skala dina program och skapa höga tillgänglig-tjänster. Load Balancer stöder både inkommande och utgående scenarier, ger låg latens och högt data flöde och skalar upp till miljon tals flöden för alla TCP-och UDP-program.
 
-Azure Load Balancer finns på två pris nivåer eller SKU: *er*: Basic och standard. Det finns skillnader i skala, funktioner och priser. Alla scenarion som är möjliga med grundläggande Load Balancer kan också skapas med Standard Load Balancer, även om metoderna skiljer sig något. När du lär dig mer om Load Balancer kan du bekanta dig med grunderna och de olika SKU-skillnaderna.
+En **[offentlig Load Balancer](#publicloadbalancer)** kan tillhandahålla utgående anslutningar för virtuella datorer i det virtuella nätverket genom att översätta sina privata IP-adresser till offentliga IP-adresser. Offentliga belastnings utjämning används för att belastningsutjämna Internet trafik till dina virtuella datorer.
 
-## <a name="why-use-load-balancer"></a>Varför använda Load Balancer?
-
-Du kan använda Azure Load Balancer till:
-
-* Belastningsutjämna inkommande Internet trafik till dina virtuella datorer. Den här konfigurationen kallas för en [offentlig Load Balancer](#publicloadbalancer).
-* Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk. Du kan även nå en Load Balancer-klientdel från ett lokalt nätverk i ett hybridscenario. Båda dessa scenarier använder en konfiguration som kallas [intern Load Balancer](#internalloadbalancer).
-* Vidarebefordra trafik till en viss port på specifika virtuella datorer med inkommande NAT-regler (Network Address Translation – nätverksadressöversättning).
-* Ange [utgående anslutningsmöjlighet](load-balancer-outbound-connections.md) för virtuella datorer i ditt virtuella nätverket med hjälp av en offentlig lastbalanserare.
-
->[!NOTE]
-> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du letar efter Transport Layer Security (TLS) protokoll avslutning ("SSL-avlastning") eller per HTTP/HTTPS-begäran, program lager bearbetning, se [Vad är Azure Application Gateway?](../application-gateway/overview.md) Om du letar efter global belastnings utjämning för DNS, se [Vad är Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Dina scenarier från slut punkt till slut punkt kan dra nytta av att kombinera dessa lösningar.
->
-> En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
-
-## <a name="what-are-load-balancer-resources"></a>Vad är lastbalanseringsresurser?
-
-Load Balancer-resurser är objekt som anger hur Azure ska program mera infrastruktur för flera innehavare för att uppnå det scenario som du vill skapa. Det finns ingen direkt relation mellan Load Balancer resurser och faktisk infrastruktur. När du skapar en lastbalanserare skapas ingen instans och det finns alltid tillgänglig kapacitet.
-
-En Load Balancer resurs kan vara antingen en offentlig Load Balancer eller en intern Load Balancer. Load Balancer resursens funktioner definieras av en klient del, en regel, en hälso avsökning och en server dels definition. Du placerar virtuella datorer i backend-poolen genom att ange Server delens pool från den virtuella datorn.
+Ett **[internt (eller privat) Load Balancer](#internalloadbalancer)** kan användas för scenarier där endast privata IP-adresser behövs på klient sidan. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. Du kan även nå en Load Balancer-klientdel från ett lokalt nätverk i ett hybridscenario.
 
 ## <a name="fundamental-load-balancer-features"></a>Grundläggande lastbalanseringsfunktioner
 
@@ -124,7 +106,7 @@ Det bästa sättet är att ange SKU: er explicit. För tillfället hålls de än
 
 Mer information finns i [gränser för belastnings utjämning](https://aka.ms/lblimits). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 
 ### <a name = "publicloadbalancer"></a>Offentlig lastbalanserare
 
@@ -158,7 +140,7 @@ En intern lastbalanserare möjliggör följande typer av belastningsutjämning:
 
 *Bild: balansera program på flera nivåer med både offentliga och interna Load Balancer*
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Standard Load Balancer-användning debiteras.
 
@@ -195,4 +177,4 @@ Information om Standard Load Balancer SLA finns i [SLA för Load Balancer](https
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [skapa en grundläggande Load Balancer](quickstart-create-basic-load-balancer-portal.md) för att komma igång med att använda en Load Balancer: skapa en, skapa virtuella datorer med ett anpassat IIS-tillägg installerat och belastningsutjämna webbappen mellan de virtuella datorerna.
+Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer: skapa en, skapa virtuella datorer med ett anpassat IIS-tillägg installerat och belastningsutjämna webbappen mellan de virtuella datorerna.

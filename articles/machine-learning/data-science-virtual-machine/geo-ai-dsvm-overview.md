@@ -1,5 +1,5 @@
 ---
-title: Vad är geo artificiell intelligens
+title: Vad är geo artificiell Intelligence-DSVM
 titleSuffix: Azure Data Science Virtual Machine
 description: Geo artificiell intelligens-Data Science Virtual Machine ger ArcGIS Pro för att arbeta med geografiska data samt python-, R-och data vetenskaps verktyg för att arbeta med ML och AI.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 3d17006b9d35f0abbcc0e9c60f38ab693c1d088d
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195596"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899904"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Vad är Data Science Virtual Machine för geo-artificiell intelligens?
 

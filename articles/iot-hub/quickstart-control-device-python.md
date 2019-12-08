@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 13652b287da94adff5bdf2235900734e5908c56f
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b36e5d88c67a4aabf530aa8d945c17870e9c126b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516653"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892659"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb (Python)
 
@@ -28,6 +28,10 @@ Snabbstarten använder två färdiga Python-program:
 * Ett simulerat enhetsprogram som svarar på direkta metoder anropas från ett serverdelsprogram. För att kunna ta emot direkta metodanrop ansluter det här programmet till en enhetsspecifik slutpunkt på din IoT-hubb.
 
 * Ett serverdelsprogram som anropar de dirEkta metoderna på den simulerade enheten. För att kunna anropa en direkt metod på en enhet ansluter det här programmet till en serverdelsslutpunkt på din IoT-hubb.
+
+> [!IMPORTANT]
+> I den här artikeln använder Server dels programmet python v1-tjänst klienten och enhets programmet använder enhets klienten python v2. Klienten v1-tjänsten finns i den [v1-föråldrade grenen](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated) för Azure IoT python SDK GitHub-lagringsplatsen. PIP-paketet för v1-tjänstens klient, *Azure-iothub-service-client*har strikt, plattformsspecifik krav, inklusive den version av python som är installerad på din utvecklings dator. Dessa krav anges i avsnittet **krav** .
+>
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,6 +46,14 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Ladda ned Python-exempelprojektet från https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip, om du inte redan har gjort det, och extrahera ZIP-arkivet.
+
+**För Windows**måste följande krav vara uppfyllda för att installera V1-IoT Hub tjänst klientens pip-paket:
+
+* Se till att [python version **3.6. x** ](https://www.python.org/downloads/) är installerad.
+
+* Kontrol lera att du har [Microsoft Visual C++ Redistributable för Visual Studio](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installerat.
+
+**För plattformar som inte är Windows-plattformar**, se [paket distributions tabellen för python-paket](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md#python-pip-package-distribution-table) i v1 SDK-dokumentationen. Kontrol lera att den python 3. x-version som angetts för din plattform och alla tillhör ande krav är installerade på din utvecklings dator. Att installera python 3. x i stället för 2,7 möjliggör asynkrona åtgärder i v2-enhets klienten, som också används i den här snabb starten.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -109,7 +121,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 1. Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
 1. Kör det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
@@ -151,6 +163,10 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
     När du har kört serverdelsprogrammet visas ett meddelande i det konsolfönster som kör den simulerade enheten och hastigheten med vilken den skickar meddelandeändringar:
 
     ![Ändring i den simulerade klienten](./media/quickstart-control-device-python/SimulatedDevice-2.png)
+
+    > [!NOTE]
+    > Om du får ett fel vid importen av *iothub_service_client*kontrollerar du att du har installerat den exakta versionen av python och andra associerade artefakter som har angetts för din plattform i [krav](#prerequisites). Om du fortfarande får ett fel när du har kontrollerat kraven kan du behöva skapa tjänst klienten för din plattform. Information om hur du skapar SDK för din plattform finns i [installations anvisningarna för devbox](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) i v1 SDK-dokumentationen.
+    >
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

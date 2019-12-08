@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 09/23/2019
-ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/05/2019
+ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133094"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900438"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
@@ -24,18 +24,8 @@ För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel 
 
 När du har anslutit dina data källor väljer du från ett galleri med arbets böcker som skapats av experten som är baserade på dina data. Dessa arbets böcker kan enkelt anpassas efter dina behov.
 
->[!NOTE] 
-> [Priserna för Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) baseras på mängden data som matas in i den associerade Azure Monitor Log Analytics-arbetsytan. En del av följande data kopplingar debiteras inte för inmatningen men det skulle finnas vissa kostnader som är kopplade till när du genererar någon typ av avisering med hjälp av inmatade data som lagras i Log Analytics arbets ytan och som kommer att debiteras enligt [Azure Monitor Log Analytics-priser](https://azure.microsoft.com/pricing/details/monitor/). 
-  > - Azure-aktivitet (aktivitets loggar för Azure-åtgärder)
-  > - Azure Active Directory Identity Protection (för klienter med AAD P2-licenser)
-  > - Azure Information Protection
-  > - Azure Advanced Threat Protection (aviseringar)
-  > - Azure Security Center (aviseringar)
-  > - Microsoft Cloud App Security (endast aviseringar)
-  > - Microsoft Defender Avancerat skydd (övervaknings agent aviseringar)
-  > - Office 365 (Exchange-och SharePoint-loggar)
->
-> Azure AD/Office365 gransknings loggar är inte kostnads fria och erbjuds som en Premium nivå så att data inmatningen priss ätts per GB. 
+>[!IMPORTANT] 
+> Information om de kostnader som uppstår när du använder Azure Sentinel finns i [priser för Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
   
 
 ## <a name="global-prerequisites"></a>Globala krav
@@ -44,7 +34,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 - Log Analytics arbets yta. Lär dig hur du [skapar en arbets yta för Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Mer information om Log Analytics-arbetsytor finns i [utforma distributioner av Azure Monitors loggar](../azure-monitor/platform/design-logs-deployment.md).
 
--  Om du vill aktivera Azure Sentinel måste du ha deltagar behörighet till den prenumeration där Azure Sentinel-arbetsytan finns. 
+- Om du vill aktivera Azure Sentinel måste du ha deltagar behörighet till den prenumeration där Azure Sentinel-arbetsytan finns. 
 - Om du vill använda Azure Sentinel behöver du antingen deltagar-eller läsar behörighet för resurs gruppen som arbets ytan tillhör.
 - Ytterligare behörigheter kan krävas för att ansluta till vissa data källor.
 - Azure Sentinel är en betald tjänst. Pris information finns i [om Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
@@ -59,7 +49,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 1. Klicka på **+ Lägg till**.
 1. Välj den arbets yta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbets yta, men data isoleras till en enda arbets yta.
 
-   ![Sök](./media/quickstart-onboard/choose-workspace.png)
+   ![söka](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.

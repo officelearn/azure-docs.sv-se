@@ -10,19 +10,22 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/06/2019
-ms.openlocfilehash: 47c0ecb5674f821d3034fb5f165df08f176c2e93
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/06/2019
+ms.openlocfilehash: a124c33f15318f1b9b22a750a1de15601823afa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646946"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890699"
 ---
 # <a name="quickstart-create-an-instance-of-azure-database-migration-service-in-hybrid-mode-using-the-azure-portal-preview"></a>Snabb start: skapa en instans av Azure Database Migration Service i hybrid läge med hjälp av Azure Portal (för hands version)
 
 Azure Database Migration Service hybrid läge hanterar migrering av databasen med hjälp av en migrering som finns lokalt med en instans av Azure Database Migration Service som körs i molnet. Hybrid läge är särskilt användbart för scenarier där det inte finns någon plats-till-plats-anslutning mellan det lokala nätverket och Azure, eller om det finns begränsad plats-till-plats-anslutningens bandbredd.
 
 I den här snabb starten använder du Azure Portal för att skapa en instans av Azure Database Migration Service i hybrid läge. Därefter laddar du ned, installerar och konfigurerar hybrid Worker i ditt lokala nätverk. Under för hands versionen kan du använda Azure Database Migration Service hybrid läge för att migrera data från en lokal instans av SQL Server till Azure SQL Database.
+
+> [!IMPORTANT]
+> Den Azure Database Migration Service hybrid installations programmet kräver .NET 4.7.2 eller senare. Du hittar de senaste versionerna av .NET på sidan [hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -111,6 +114,9 @@ Du måste skapa ett Azure App registrerings-ID som den lokala hybrid Worker kan 
 
 3. Extrahera ZIP-filen på den server som ska vara värd för Azure Database Migration Service hybrid Worker.
 
+    > [!IMPORTANT]
+    > Den Azure Database Migration Service hybrid installations programmet kräver .NET 4.7.2 eller senare. Du hittar de senaste versionerna av .NET på sidan [hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
+
 4. I mappen installera, leta upp och öppna filen **dmsSettings. JSON** , ange **ApplicationId** och **resourceId**och spara sedan filen.
 
     ![Azure Database Migration Service hybrid Worker-inställningar](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
@@ -125,7 +131,7 @@ Du måste skapa ett Azure App registrerings-ID som den lokala hybrid Worker kan 
 
     ![Azure Database Migration Service hybrid Worker-certifikat](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. I Azure Portal går du till app-ID: t under **Hantera**, väljer **certifikat & hemligheter**och väljer sedan **Ladda upp certifikat** för att välja det offentliga certifikat som du nyss skapade.
+6. I Azure Portal navigerar du till app-ID: t under **Hantera**, väljer **certifikat & hemligheter**och väljer sedan **Ladda upp certifikat** för att välja det offentliga certifikat som du skapade.
 
     ![Azure Database Migration Service hybrid Worker Certificate upload](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 

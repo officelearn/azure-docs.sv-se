@@ -1,25 +1,26 @@
 ---
-title: 'Snabbstart: Skapa en blob i objektlagring med hjälp av Azure Storage Explorer'
-description: I den här snabbstarten får du lära dig hur du skapar en container och en blob med Azure Storage Explore. Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container. Du får också lära dig hur du skapar en ögonblicksbild av en blob, hanterar åtkomstprinciper för containrar och skapar en signatur för delad åtkomst.
+title: Snabb start – skapa en blob med Azure Storage Explorer
+titleSuffix: Azure Storage
+description: I den här snabb starten får du lära dig hur du använder Azure Storage Explorer för att skapa en behållare och en BLOB, ladda ned bloben till den lokala datorn och Visa alla blobar i behållaren.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f19152b5b8bc569fa07109b6135fa85b9b55bff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640521"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892472"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Snabbstart: Skapa en blob i objektlagring med hjälp av Azure Storage Explorer
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Snabb start: använda Azure Storage Explorer för att skapa en BLOB
 
 I den här snabbstarten får du lära dig hur du skapar en container och en blob med [Azure Storage Explore](https://azure.microsoft.com/features/storage-explorer/). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container. Du får också lära dig hur du skapar en ögonblicksbild av en blob, hanterar åtkomstprinciper för containrar och skapar en signatur för delad åtkomst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -29,13 +30,13 @@ För den här snabbstarten krävs att du installerar Azure Storage Explorer. Inf
 
 Första gången programmet startas visas fönstret **Microsoft Azure Storage Explorer – anslut**. I Storage Explorer finns flera olika sätt att ansluta till lagringskonton. I följande tabell visas vilka olika sätt du kan ansluta på:
 
-|Uppgift|Syfte|
+|Aktivitet|Syfte|
 |---|---|
 |Lägga till ett Azure-konto | Omdirigerar dig till din organisations inloggnings sida för att autentisera dig för Azure. |
 |Använda en anslutningssträng eller en signatur-URI för delad åtkomst | Kan användas för direkt åtkomst till en container eller ett lagringskonto med en SAS-token eller en delad anslutningssträng. |
 |Använda lagringskontots namn och nyckel| Använd lagringskontonamnet och nyckeln för ditt lagringskonto för att ansluta till Azure Storage.|
 
-Välj **Lägg till ett Azure-konto** och klicka på **Logga in...** . Följ anvisningarna på skärmen för att logga in på ditt Azure-konto.
+Välj **Lägg till ett Azure-konto** och klicka på **Logga in..** . Logga in på ditt Azure-konto genom att följa anvisningarna på skärmen.
 
 ![Fönstret Microsoft Azure Storage Explorer – anslut](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -83,13 +84,13 @@ I Azure Storage Explorer kan du ta och hantera [ögonblicksbilder](storage-blob-
 
 ## <a name="manage-access-policies"></a>Hantera åtkomstprinciper
 
-I Storage Explorer kan du hantera principer för åtkomst till containrar i dess användargränssnitt. Det finns två typer av säkra åtkomst-principer (SAS): servicenivå och kontonivå. SAS på kontonivå riktar sig till lagringskontot och kan användas på flera tjänster och resurser. SAS på servicenivå definieras på en resurs under en viss tjänst. Generera en SAS på servicenivå genom att högerklicka på en container och välja **Manage Access Policies...** (Hantera åtkomstprinciper). Generera en SAS på kontonivå genom att högerklicka på lagringskontot.
+I Storage Explorer kan du hantera principer för åtkomst till containrar i dess användargränssnitt. Det finns två typer av säkra åtkomst-principer (SAS): servicenivå och kontonivå. SAS på kontonivå riktar sig till lagringskontot och kan användas på flera tjänster och resurser. SAS på servicenivå definieras på en resurs under en viss tjänst. Om du vill generera en säkerhets Association på service nivå högerklickar du på en behållare och väljer **Hantera åtkomst principer...** . Om du vill generera en SAS på konto nivå högerklickar du på lagrings kontot.
 
 Välj **Add** (Lägg till) om du vill lägga till en ny åtkomstprincip och definiera behörigheter för den principen. Välj **Save** (Spara) när du är klar och vill spara åtkomstprincipen. Den här principen är nu tillgänglig för användning när du konfigurerar en signatur för delad åtkomst.
 
 ## <a name="work-with-shared-access-signatures"></a>Arbete med signaturer för delad åtkomst
 
-Signaturer för delad åtkomst (SAS) kan hämtas via Storage Explorer. Högerklicka på ett lagringskonto, en container eller en blob och välj **Get Shared Access Signature...** (Hämta signatur för delad åtkomst). Välj start- och förfallotid samt behörigheter för SAS-URL och välj **Create** (Skapa). En fullständig URL med både frågesträngen och frågesträngen fristående tillhandahålls och kan kopieras från nästa skärm.
+Signaturer för delad åtkomst (SAS) kan hämtas via Storage Explorer. Högerklicka på ett lagrings konto, en behållare eller en blob och välj **Hämta signatur för delad åtkomst...** . Välj start-och förfallo tid och behörigheter för SAS-URL: en och välj **skapa**. En fullständig URL med både frågesträngen och frågesträngen fristående tillhandahålls och kan kopieras från nästa skärm.
 
 ![Microsoft Azure Storage Explorer – lista med blobar i en container](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 

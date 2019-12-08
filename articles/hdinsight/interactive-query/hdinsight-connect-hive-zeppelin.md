@@ -1,20 +1,19 @@
 ---
 title: 'Snabb start: Apache Hive i Azure HDInsight med Apache Zeppelin'
 description: I den här snabb starten får du lära dig hur du använder Apache Zeppelin för att köra Apache Hive-frågor.
-keywords: HDInsight, Hadoop, Hive, interaktiv fråga, LLAP
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 36d9e9b34deb4bc6cd5f599cfe2d09a12f680730
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/03/2019
+ms.openlocfilehash: 915aca0e95fce05f74477b526de047c829c7f512
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494296"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890407"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Snabb start: köra Apache Hive frågor i Azure HDInsight med Apache Zeppelin
 
@@ -22,7 +21,7 @@ I den här snabb starten får du lära dig hur du använder Apache Zeppelin för
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 An-HDInsight interaktiv fråga-kluster. Se [skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) för att skapa ett HDInsight-kluster.  Se till att välja kluster typen **interaktiv fråga** .
 
@@ -71,9 +70,47 @@ An-HDInsight interaktiv fråga-kluster. Se [skapa kluster](../hadoop/apache-hado
 
     Genom att jämföra med den traditionella registrerings data filen måste frågeresultaten gå snabbare.
 
+### <a name="additional-examples"></a>Ytterligare exempel
+
+1. Skapa en tabell. Kör koden nedan i Zeppelin Notebook:
+
+    ```hql
+    %jdbc(hive)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
+    ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE;
+    ```
+
+1. Läs in data i den nya tabellen. Kör koden nedan i Zeppelin Notebook:
+
+    ```hql
+    %jdbc(hive)
+    LOAD DATA
+    INPATH 'wasbs:///example/data/sample.log'
+    INTO TABLE log4jLogs;
+    ```
+
+1. Infoga en enskild post. Kör koden nedan i Zeppelin Notebook:
+
+    ```hql
+    %jdbc(hive)
+    INSERT INTO TABLE log4jLogs2
+    VALUES ('A', 'B', 'C', 'D', 'E', 'F', 'G');
+    ```
+
+Granska [Hive språk hand bok](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) för ytterligare syntax.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger mer än avgifterna för lagring, är det ekonomiskt klokt att ta bort kluster när de inte används.
 
 Om du vill ta bort ett kluster läser du [ta bort ett HDInsight-kluster med hjälp av webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
 

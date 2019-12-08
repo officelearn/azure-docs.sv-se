@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407001"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901006"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
@@ -98,7 +98,7 @@ Som standard söker guiden igenom datakällan för att hitta unika identifierare
 
 ### <a name="step-4---configure-indexer"></a>Steg 4 – Konfigurera indexeraren
 
-Klicka på **Indexnamn**Namn >  i guiden **Importera data** och skriv in ett namn på indexeraren.
+Klicka på **Indexnamn** > **Namn** i guiden **Importera data** och skriv in ett namn på indexeraren.
 
 Det här objektet definierar en körbar process. Du kan lägga till det i ett återkommande schema, men för tillfället använder du standardalternativet för att köra indexeraren en gång direkt.
 
@@ -260,7 +260,7 @@ Du har också läst hur du hittar index, indexerare och datakällor i portalen. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort samtliga resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
@@ -268,7 +268,7 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Portalen är användbar för inledande utforskning och små uppgifter, och du kan granska API: erna tidigt på så att du förstår koncepten och arbets flödet på en djupare nivå:
+Använd en portal guide för att skapa en färdig webb program som körs i en webbläsare. Du kan prova den här guiden på det lilla index som du nyss skapade, eller använda en av de inbyggda exempel data uppsättningarna för en rikare Sök upplevelse.
 
 > [!div class="nextstepaction"]
-> [Skapa ett index med .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Skapa en Sök-app i portalen](search-create-app-portal.md)

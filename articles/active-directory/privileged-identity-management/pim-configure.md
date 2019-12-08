@@ -14,12 +14,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f45a7bc870874319a8238c7c8c50bf7a37998
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023029"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899961"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -46,7 +46,7 @@ Privileged Identity Management tillhandahåller tidsbaserad och godkännande-bas
 
 När du har konfigurerat Privileged Identity Management visas alternativ för **aktiviteter**, **hantering**och **aktivitet** på den vänstra navigerings menyn. Som administratör kan du välja mellan att hantera **Azure AD-roller** och **Azure-resurs**-roller. När du väljer vilken typ av roll du vill hantera visas en liknande uppsättning med alternativ för den rolltypen.
 
-![Skärm bild av Privileged Identity Management i Azure Portal](./media/pim-configure/pim-overview.png)
+![Skärm bild av Privileged Identity Management i Azure Portal](./media/pim-configure/pim-quickstart.png)
 
 ## <a name="who-can-do-what"></a>Vem kan göra vad?
 
@@ -89,10 +89,10 @@ För att bättre förstå Privileged Identity Management och dess dokumentation 
 | aktivera |  | Processen med att utföra en eller flera åtgärder för att använda en roll som en användare är berättigad för. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare. |
 | tilldelad | Status | En användare som har en aktiv rolltilldelning. |
 | aktiverad | Status | En användare som har en berättigad rolltilldelning, utförde åtgärderna för att aktivera rollen och nu är aktiv.  När användaren är aktiverad kan han/hon använda rollen under en förinställd tidsperiod innan aktivering krävs igen. |
-| permanent berättigad | Varaktighet | En rolltilldelning där en användare alltid är berättigad att aktivera rollen. |
-| permanent aktiv | Varaktighet | En rolltilldelning där en användare alltid kan använda rollen utan att utföra några åtgärder. |
-| berättigad med upphörande | Varaktighet | En rolltilldelning där en användare är berättigad att aktivera rollen inom angivna startdatum och slutdatum. |
-| aktiv med upphörande | Varaktighet | En rolltilldelning där en användare kan använda rollen utan att utföra några åtgärder inom angivna startdatum och slutdatum. |
+| permanent berättigad | Längd | En rolltilldelning där en användare alltid är berättigad att aktivera rollen. |
+| permanent aktiv | Längd | En rolltilldelning där en användare alltid kan använda rollen utan att utföra några åtgärder. |
+| berättigad med upphörande | Längd | En rolltilldelning där en användare är berättigad att aktivera rollen inom angivna startdatum och slutdatum. |
+| aktiv med upphörande | Längd | En rolltilldelning där en användare kan använda rollen utan att utföra några åtgärder inom angivna startdatum och slutdatum. |
 | just-in-time-åtkomst (JIT) |  | En modell i vilken användarna får tillfällig behörighet att utföra privilegierade uppgifter, vilket hindrar skadliga eller obehöriga användare från att få åtkomst när behörigheterna har gått ut. Åtkomst beviljas endast när användare behöver den. |
 | princip om minsta behörighetsåtkomst |  | En rekommenderad säkerhetsrutin där varje användare endast har fått de minsta privilegier som krävs för att utföra uppgifterna som de har behörighet att utföra. Den här metoden minimerar antalet globala administratörer och använder i stället specifika administratörsroller för vissa scenarier. |
 

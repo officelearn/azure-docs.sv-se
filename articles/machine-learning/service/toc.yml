@@ -152,7 +152,7 @@
     - name: Arbeta med data
       items:
         - name: Hämta data från ett datalager
-          displayName: 'blob, get, fileshare, access storage'
+          displayName: 'blob, get, fileshare, access storage, mount, download'
           href: how-to-access-data.md
         - name: Lägga till och registrera datauppsättningar
           displayName: 'data, dataset'

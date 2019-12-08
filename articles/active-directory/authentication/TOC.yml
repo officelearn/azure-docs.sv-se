@@ -43,8 +43,6 @@
       items:
         - name: Så här fungerar MFA
           href: concept-mfa-howitworks.md
-        - name: Aktivera MFA
-          href: concept-mfa-get-started.md
         - name: Licensiera dina användare
           href: concept-mfa-licensing.md
         - name: Hantera en autentiseringsleverantör

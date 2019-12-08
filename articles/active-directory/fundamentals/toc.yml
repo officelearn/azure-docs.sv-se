@@ -17,6 +17,14 @@
   items:
     - name: Identitetssäker poäng
       href: identity-secure-score.md
+    - name: Säkerhet
+      items:
+        - name: Aktivera MFA
+          href: concept-fundamentals-mfa-get-started.md
+        - name: Standardinställningar för säkerhet
+          href: concept-fundamentals-security-defaults.md
+        - name: Blockera äldre autentisering
+          href: concept-fundamentals-block-legacy-authentication.md
     - name: Grupper och åtkomsthantering
       href: active-directory-manage-groups.md
     - name: Gruppbaserad licensiering

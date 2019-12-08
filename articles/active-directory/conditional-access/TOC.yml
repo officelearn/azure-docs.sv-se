@@ -17,8 +17,6 @@
   items:
     - name: Vanliga principer för villkorlig åtkomst
       href: concept-conditional-access-policy-common.md
-    - name: Standardinställningar för säkerhet
-      href: concept-conditional-access-security-defaults.md
     - name: Komponenter för princip för villkorsstyrd åtkomst
       href: concept-conditional-access-policies.md
     - name: Villkor

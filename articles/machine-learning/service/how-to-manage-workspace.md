@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: c7ff51c18d4ec41c706518631071e8feb3bafe59
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615195"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912462"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbe
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
 
@@ -42,9 +42,9 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 
    Fält|Beskrivning 
    ---|---
-   Namn på arbets yta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra.  
+   Namn på arbetsyta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra.  
    Prenumeration |Ange den prenumeration som du vill använda.
-   Resursgrupp | Använd en befintlig resurs grupp i din prenumeration eller ange ett namn för att skapa en ny resurs grupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. 
+   Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. 
    Plats | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
    Arbetsyte version | Välj **Basic** eller **Enterprise**.  Den här arbets ytans utgåva avgör vilka funktioner du kommer att ha åtkomst till och prissättning på. Läs mer om [erbjudanden för Basic och Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
@@ -73,15 +73,15 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 
 Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition för att dra nytta av de förbättrade funktionerna i dessa miljöer och förbättrade säkerhetsfunktioner.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Välj den arbets yta som du vill uppgradera.
 
-1. Välj **Uppgradera** antingen överst eller i uppgraderings meddelandet.
+1. Välj **Läs mer** längst upp till höger på sidan.
 
-    ![Uppgradera en arbets yta](media/how-to-manage-workspace/upgrade.png)
+   [![uppgradera en arbets yta](media/how-to-manage-workspace/upgrade.png)](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. Välj **Bekräfta uppdatering**.
+1. Välj **uppgradering** i fönstret som visas.
 
 
 > [!IMPORTANT]
@@ -95,13 +95,13 @@ Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition fö
 
    ![Sök efter Azure Machine Learning arbets yta](media/how-to-manage-workspace/find-workspaces.png)
 
-1. Titta igenom listan med arbets ytor som har hittats. Du kan filtrera baserat på prenumeration, resurs grupper och platser.  
+1. Titta igenom listan över arbetsytor hittades. Du kan filtrera baserat på prenumerationen, resursgrupper och platser.  
 
 1. Välj en arbets yta för att visa dess egenskaper.
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
-Använd knappen Ta bort högst upp i arbets ytan som du vill ta bort.
+Använd knappen Ta bort överst på arbetsytan som du vill ta bort.
 
   ![Knappen Ta bort](media/how-to-manage-workspace/delete-workspace.png)
 
@@ -115,4 +115,4 @@ Använd knappen Ta bort högst upp i arbets ytan som du vill ta bort.
 I den fullständiga självstudien får du lära dig hur du använder en arbets yta för att skapa, träna och distribuera modeller med Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Självstudie: träna modeller](tutorial-train-models-with-aml.md)
+> [Självstudie: Träna modeller](tutorial-train-models-with-aml.md)

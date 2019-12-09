@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/6/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 633465e9123d679b1aa0e7f7ad048b17c18f2acb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771044"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931066"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync agent
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -23,7 +23,7 @@ Den här artikeln innehåller viktig information om versioner av Azure File Sync
 ## <a name="supported-versions"></a>Versioner som stöds
 Följande versioner av Azure File Sync-agenten stöds:
 
-| Gränser | Agentversionsnummer | Utgivningsdatum | Status |
+| Milstolpe | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
 | V9-version – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 december 2019 | Support – flyg |
 | V8-version – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 oktober 2019 | Stöds |
@@ -50,7 +50,7 @@ Följande viktig information gäller version 9.0.0.0 av Azure File Sync agent (l
 ### <a name="improvements-and-issues-that-are-fixed"></a>Förbättringar och problem som åtgärdas
 
 - Support för självbetjänings återställning
-    - Användarna kan nu återställa sina filer med hjälp av funktionen för tidigare versioner. Innan v9-versionen stöds inte den tidigare versions funktionen på volymer där moln skiktning är aktiverat. Den här funktionen måste vara aktive rad för varje volym separat, på vilken en slut punkt med aktive rad moln nivå finns. Mer information finns i  
+    - Användarna kan nu återställa sina filer med hjälp av funktionen för tidigare versioner. Innan v9-versionen stöds inte den tidigare versions funktionen på volymer där moln skiktning är aktiverat. Den här funktionen måste vara aktive rad för varje volym separat, på vilken en slut punkt med aktive rad moln nivå finns. Mer information finns i .  
 [Återställning via självbetjäning genom tidigare versioner och VSS (tjänsten Volume Shadow Copy)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Stöd för större fil resurs storlekar 
@@ -77,7 +77,8 @@ Följande viktig information gäller version 9.0.0.0 av Azure File Sync agent (l
     - Minskat återställnings problem. Åter kallelse storleken justeras nu automatiskt baserat på nätverks bandbredden. 
     - Förbättrad nedladdnings prestanda när du lägger till en ny server i en Sync-grupp. 
     - Mindre filer synkroniseras inte på grund av begränsnings konflikter. 
-
+    - Filerna går inte att flytta till nivån eller återkallas i vissa fall, om Server slut punkten är en volym monterings punkt.
+    
 ### <a name="evaluation-tool"></a>Utvärderings verktyg
 Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) i planerings guiden. 
 

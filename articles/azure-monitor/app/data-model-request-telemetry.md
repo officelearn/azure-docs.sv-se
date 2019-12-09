@@ -1,5 +1,5 @@
 ---
-title: Azure Application insikter telemetri data modell-begäran om telemetri | Microsoft Docs
+title: Data modell för telemetri om begär Anden – Azure Application insikter
 description: Application Insights data modell för telemetri för begäran
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: b253a95a39f118efe82e36ac7261a4d6c62a99d6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677336"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928839"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Begär telemetri: Application Insights data modell
 
@@ -61,7 +61,7 @@ Maxlängd: 1024 tecken
 
 Indikering för lyckat eller misslyckat anrop. Det här fältet är obligatoriskt. Om du inte uttryckligen anger `false`-en begäran anses vara lyckad. Ange det här värdet om du vill `false` om åtgärden avbröts av undantag eller returnerade fel resultat kod.
 
-Application Insights definiera en begäran som lyckad när svars koden är mindre än `400` eller lika med `401` för webb programmen. Det finns dock fall då den här standard mappningen inte matchar programmets semantik. Svars koden `404` kan indikera "inga poster", som kan vara en del av ett vanligt flöde. Det kan också indikera en bruten länk. För brutna länkar kan du till och med implementera mer avancerad logik. Du kan bara markera brutna länkar som ett avbrott när dessa länkar finns på samma plats genom att analysera URL-referenten. Eller markera dem som felaktiga vid åtkomst från företagets mobil program. På samma sätt `301` och `302` indikerar att det inte går att komma åt från klienten som inte stöder omdirigering.
+Application Insights definiera en begäran som lyckad när svars koden är mindre än `400` eller lika med `401`för webb programmen. Det finns dock fall då den här standard mappningen inte matchar programmets semantik. Svars koden `404` kan indikera "inga poster", som kan vara en del av ett vanligt flöde. Det kan också indikera en bruten länk. För brutna länkar kan du till och med implementera mer avancerad logik. Du kan bara markera brutna länkar som ett avbrott när dessa länkar finns på samma plats genom att analysera URL-referenten. Eller markera dem som felaktiga vid åtkomst från företagets mobil program. På samma sätt `301` och `302` indikerar att det inte går att komma åt från klienten som inte stöder omdirigering.
 
 Delvis accepterade innehålls `206` kan tyda på ett problem med en övergripande begäran. Application Insights slut punkten tar till exempel emot en batch med telemetri-objekt som en enskild begäran. Den returnerar `206` när vissa objekt i gruppen inte bearbetades korrekt. Öknings takten för `206` anger ett problem som behöver undersökas. Liknande logik gäller för `207` multi-status där det är sämsta separata svars koder.
 

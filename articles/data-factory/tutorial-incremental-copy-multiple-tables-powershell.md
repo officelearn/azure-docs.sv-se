@@ -1,27 +1,28 @@
 ---
-title: 'Kopiera flera tabeller stegvis med Azure Data Factory '
+title: Kopiera flera tabeller stegvis med PowerShell
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
 services: data-factory
-documentationcenter: ''
+ms.author: yexu
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.author: yexu
-ms.openlocfilehash: b841acf45c20320fada895f20dfc4065837d5add
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 46e0815ea341b732e20ebe7ffa9af355e1f35e87
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683400"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926480"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
+
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbereda käll- och måldatalager.
@@ -62,7 +63,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
 
@@ -360,7 +361,7 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
     ```
 
 ### <a name="create-the-sql-database-linked-service"></a>Skapa länkad SQL-databastjänst
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;servername&gt;, &lt;databas namn&gt;, &lt;användar namn&gt;och &lt;lösen ord&gt; med namnet på SQL Server-databasen, namnet på din databas, användar namn och lösen ord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;servername&gt;, &lt;databas namn&gt;, &lt;användar namn&gt;och &lt;lösen ord&gt; med namnet på SQL Server-databasen, namnet på din databas, ditt användar namn och lösen ord innan du sparar filen. 
 
     ```json
     {  
@@ -794,7 +795,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Alla tjänster**, sök med nyckelordet *Datafabriker* och välj **Datafabriker**. 
 
@@ -955,7 +956,7 @@ project_table   2017-10-01 00:00:00.000
 Observera att vattenstämpelvärdena för båda tabellerna har uppdaterats.
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudien har du fått: 
 
 > [!div class="checklist"]
 > * Förbereda käll- och måldatalager.

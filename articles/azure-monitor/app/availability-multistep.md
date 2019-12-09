@@ -1,5 +1,5 @@
 ---
-title: Övervaka webb programmet med webbtester med flera steg och Azure Application Insights | Microsoft Docs
+title: Övervaka med webbtester med flera steg – Azure Application insikter
 description: Konfigurera webb program med flera steg för att övervaka dina webb program med Azure Application insikter
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817387"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928956"
 ---
 # <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
 
@@ -27,7 +27,7 @@ Du kan övervaka en inspelad sekvens av webb adresser och interaktioner med en w
 * Visual Studio 2017 Enterprise eller senare.
 * Webb prestanda och belastnings test verktyg i Visual Studio.
 
-För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Installer**  > **enskilda komponenter**  > **fel sökning och testning**  > **webb prestanda-och belastnings test verktyg**.
+För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Installer** > **enskilda komponenter** > **fel sökning och testning** > **webb prestanda-och belastnings test verktyg**.
 
 ![Skärm bild av Visual Studio Installer-gränssnittet med enskilda komponenter som marker ATS med en kryss ruta bredvid objektet för webb prestanda och belastnings test verktyg](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -43,7 +43,7 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 
 ## <a name="upload-the-web-test"></a>Ladda upp webb testet
 
-1. I Application Insights portal i rutan tillgänglighet väljer du **skapa test**  > **test typ**  > **webb test för flera steg**.
+1. I Application Insights portal i rutan tillgänglighet väljer du **skapa test** > **test typ** > **webb test för flera steg**.
 
 2. Ange test platser, frekvens och aviserings parametrar.
 
@@ -68,7 +68,7 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
-|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskel och antalet test platser är **tröskelvärde för aviserings plats**  = **antalet test platser-2, med minst fem test platser.**|
+|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskel och antalet test platser är **tröskelvärde för aviserings plats** = **antalet test platser-2, med minst fem test platser.**|
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -113,7 +113,7 @@ I samtliga fall bör du skapa ett konto i ditt program som endast används för 
 | Målgrupps-URI | Målgrupps-URI för SAML-token.  Detta är URI: n för Access Control Service (ACS) – inklusive ACS-namnrymd och värd namn. |
 | Certifikat lösen ord | Lösen ordet för klient certifikatet som ger åtkomst till den inbäddade privata nyckeln. |
 | Klient certifikat  | Klient certifikatets värde med privat nyckel i Base64-kodat format. |
-| Namn identifierare | Namn identifieraren för token |
+| Namn-ID | Namn identifieraren för token |
 | Inte efter | TimeSpan som token ska vara giltigt för.  Standardvärdet är 5 minuter. |
 | Inte före | TimeSpan för vilket en token som skapades tidigare är giltig (för att adressera tids skevar).  Standardvärdet är (negativt) 5 minuter. |
 | Mål kontext parameter namn | Kontext parametern som tar emot den genererade kontrollen. |

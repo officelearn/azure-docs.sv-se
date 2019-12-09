@@ -1,24 +1,25 @@
 ---
-title: Kopiera data från SQL Server till Blob Storage med hjälp av Azure Data Factory
+title: Kopiera data från SQL Server till Blob Storage med hjälp av PowerShell
 description: Lär dig hur du kopierar data från ett lokalt datalager till Azure-molnet med hjälp av en lokal Integration Runtime i Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: craigg
+ms.author: abnarain
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.author: abnarain
-ms.openlocfilehash: d2f59e7e8e86100a2a667634c0e99e6c1d5976da
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683503"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922961"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudie: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
+
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet. 
 
 > [!NOTE]
@@ -35,7 +36,7 @@ I den här självstudien får du göra följande:
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -72,7 +73,7 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
     ```
 
 
-### <a name="azure-storage-account"></a>Azure Storage-konto
+### <a name="azure-storage-account"></a>Azure-lagringskonto
 I den här självstudien använder du ett allmänt Azure Storage-konto (Azure Blob Storage för att vara exakt) som datalager för destination/mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
@@ -634,7 +635,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     }
     ```
 
-    Här är utdata från exempelkörningen:
+    Här är utdata för exempelkörningen:
 
     ```JSON
     ResourceGroupName    : <resourceGroupName>
@@ -662,7 +663,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     ($result | Where-Object {$_.ActivityName -eq "CopySqlServerToAzureBlobActivity"}).Output.ToString()
     ```
 
-    Här är utdata från exempelkörningen:
+    Här är utdata för exempelkörningen:
 
     ```json
     {  

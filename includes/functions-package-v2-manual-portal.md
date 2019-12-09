@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 10/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e99a1b6482c8b1383040e6bd1447c16c236c9f1a
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 04b5b8621cdd74addaa481a24efee22746c96240
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659912"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925624"
 ---
-I följande tabell innehåller information om hur du lägger till stöd för den här bindningen i varje utvecklingsmiljö.
+Följande tabell visar hur du lägger till stöd för den här bindningen i varje utvecklings miljö.
 
-| Utvecklingsmiljö               | Du lägger till stöd i <br>Functions 2.x  |
+| Utvecklingsmiljö               | För att lägga till stöd |
 |----------------------|----------------|
-|Lokal utveckling – C#-klassbibliotek       | [Installera paketet](../articles/azure-functions/functions-bindings-register.md#vs) |
-|Lokal utveckling - C# skript, JavaScript,F# |[Registrera tillägget](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |
-|Portal-utveckling| [Registrera tillägget](../articles/azure-functions/install-update-binding-extensions-manual.md)  |
+|Lokalt utvecklings C# klass bibliotek       | [Installera paketet](../articles/azure-functions/functions-bindings-register.md#vs) |
+|Lokal utveckling – C# skript, Java Script,F# |[Registrera tillägget](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |
+|Portal utveckling| [Registrera tillägget](../articles/azure-functions/install-update-binding-extensions-manual.md)  |
 
-Läs hur du uppdaterar befintliga bindningen tillägg i portalen utan att behöva publicera ditt funktionsappsprojekt i [uppdatera dina tillägg](../articles/azure-functions/install-update-binding-extensions-manual.md).
+Information om hur du uppdaterar befintliga bindnings tillägg i portalen utan att behöva publicera om ditt app-projekt finns i [Uppdatera dina tillägg](../articles/azure-functions/install-update-binding-extensions-manual.md).

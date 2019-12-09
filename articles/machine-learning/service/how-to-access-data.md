@@ -11,27 +11,27 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2e86c06cca26da2776459f3c20bf921a02ed89b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ee6ab1ada540f4f664e6782a1fffc63cc7df95e4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894714"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928585"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du enkelt kan komma åt dina data i Azure Storage-tjänster via Azure Machine Learning data lager. Data lager används för att lagra anslutnings information, t. ex. prenumerations-ID och token-auktorisering. Med hjälp av data lager kan du komma åt lagringen utan att behöva hårdkoda anslutnings information i dina skript. Du kan skapa data lager från dessa [Azure Storage-lösningar](#matrix). För lagrings lösningar som inte stöds, rekommenderar vi att du flyttar dina data till våra Azure Storage-lösningar som stöds för att spara data vid maskin inlärning. [Lär dig hur du flyttar dina data](#move). 
+I den här artikeln får du lära dig hur du enkelt kan komma åt dina data i Azure Storage-tjänster via Azure Machine Learning data lager. Data lager används för att lagra anslutnings information, t. ex. prenumerations-ID och token-auktorisering. Med hjälp av data lager kan du komma åt lagringen utan att behöva hårdkoda anslutnings information i dina skript. Du kan skapa data lager från dessa [Azure Storage-lösningar](#matrix). Vi rekommenderar att du flyttar dina data till våra Azure Storage-lösningar som stöds för lagrings lösningar som inte stöds och för att spara data Utgångs kostnader under Machine Learning-experiment. [Lär dig hur du flyttar dina data](#move). 
 
 Den här instruktionen visar exempel på följande uppgifter:
-* [Registrera data lager](#access)
-* [Hämta data lager från arbets ytan](#get)
-* [Ladda upp och ladda ned data med data lager](#up-and-down)
-* [Få åtkomst till data under utbildning](#train)
-* [Flytta data till Azure](#move)
+* Registrera data lager
+* Hämta data lager från arbets ytan
+* Ladda upp och ladda ned data med data lager
+* Få åtkomst till data under utbildning
+* Flytta data till en Azure Storage-tjänst
 
 ## <a name="prerequisites"></a>Krav
-
+Du behöver
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 - Ett Azure Storage-konto med en [Azure Blob-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) eller [Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
@@ -58,7 +58,13 @@ När du registrerar en Azure Storage-lösning som ett data lager skapar du autom
 
 Alla register metoder finns i [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) -klassen och har formatet register_azure_ *.
 
-Den information du behöver för att fylla i metoden register () finns via [Azure Portal](https://portal.azure.com). Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. Sidan **Översikt** innehåller information, till exempel konto namn och behållare eller fil resurs namn. För autentiseringsinformation, som konto nyckel eller SAS-token, navigerar du till **konto nycklar** i fönstret **Inställningar** till vänster. 
+Den information du behöver för att fylla i metoden register () finns i [Azure Machine Learning Studio](https://ml.azure.com) och de här stegen
+
+1. Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. 
+2. Sidan **Översikt** innehåller information, till exempel konto namn och behållare eller fil resurs namn. 
+3. För autentiseringsinformation, som konto nyckel eller SAS-token, navigerar du till **konto nycklar** i fönstret **Inställningar** till vänster. 
+
+>OVIKTIG Om ditt lagrings konto finns i ett VNET stöds endast skapande av Azure Blob-datalager. Ange parametern `grant_workspace_access` att `True` för att ge din arbets yta åtkomst till ditt lagrings konto.
 
 I följande exempel visas hur du registrerar en Azure Blob-behållare eller en Azure-filresurs som ett data lager.
 
@@ -74,7 +80,6 @@ I följande exempel visas hur du registrerar en Azure Blob-behållare eller en A
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
-    Om ditt lagrings konto finns i ett VNET stöds endast skapande av Azure Blob-datalager. Ange parametern `grant_workspace_access` att `True` för att ge din arbets yta åtkomst till ditt lagrings konto.
 
 + Använd [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)för ett **fil resurs data lager i Azure**. 
 
@@ -104,7 +109,7 @@ Skapa ett nytt data lager med några steg i Azure Machine Learning Studio.
   
 Den information du behöver för att fylla i formuläret finns via [Azure Portal](https://portal.azure.com). Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. Sidan **Översikt** innehåller information, till exempel konto namn och behållare eller fil resurs namn. För autentiseringsscheman, som konto nyckel eller SAS-token, navigerar du till **konto nycklar** i fönstret **Inställningar** till vänster.
 
-Följande exempel visar hur formuläret skulle se ut för att skapa ett Azure Blob-datalager. 
+Följande exempel visar hur formuläret ser ut för generering av Azure Blob-datalager. 
     
  ![Nytt data lager](media/how-to-access-data/new-datastore-form.png)
 
@@ -128,7 +133,7 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-När du skapar en arbets yta registreras en Azure Blob-behållare och en Azure-filresurs till arbets ytan med namnet `workspaceblobstore` respektive `workspacefilestore`. De lagrar anslutnings informationen för BLOB-behållaren och fil resursen som är etablerad i det lagrings konto som är kopplat till arbets ytan. `workspaceblobstore` anges som standard data lager.
+När du skapar en arbets yta registreras en Azure Blob-behållare och en Azure-filresurs automatiskt till arbets ytan med namnet `workspaceblobstore` respektive `workspacefilestore`. Dessa lagrar anslutnings informationen för BLOB-behållaren och fil resursen som är etablerad i det lagrings konto som är kopplat till arbets ytan. `workspaceblobstore` anges som standard data lager.
 
 Hämta den arbetsytan standard datalager:
 
@@ -189,7 +194,7 @@ I följande tabell visas de metoder som talar om för beräknings målet hur dat
 
 Tvåvägsupprättade|Metod|Beskrivning|
 ----|-----|--------
-Montera| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Används för att montera data lagret på Compute-målet.
+Montera| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Används för att montera data lagret på Compute-målet. När den är monterad görs alla filer i ditt data lager tillgängliga för ditt beräknings mål.
 Ladda ned|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Använd för att ladda ned innehållet i ditt data lager till den plats som anges av `path_on_compute`. <br><br> Den här nedladdningen sker före körningen.
 Ladda upp|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Använd för att ladda upp en fil från den plats som anges av `path_on_compute` till ditt data lager. <br><br> Överföringen sker efter din körning.
 
@@ -207,13 +212,14 @@ datastore.path('./bar').as_download()
 
 ### <a name="examples"></a>Exempel 
 
-Följande kod exempel är speciella för [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen för åtkomst till data under träning. 
+Följande kod exempel är speciella för [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen för åtkomst till data under träning.
 
 `script_params` är en ord lista som innehåller parametrar till entry_script. Använd den för att skicka in ett data lager och beskriva hur data görs tillgängliga på beräknings målet. Läs mer i vår [självstudier](tutorial-train-models-with-aml.md)från slut punkt till slut punkt.
 
 ```Python
 from azureml.train.estimator import Estimator
 
+# notice '/' is in front, this indicates the absolute path
 script_params = {
     '--data_dir': datastore.path('/bar').as_mount()
 }

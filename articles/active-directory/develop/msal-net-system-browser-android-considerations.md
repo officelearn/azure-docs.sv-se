@@ -1,29 +1,25 @@
 ---
-title: Xamarin Android system Browser-överväganden (Microsoft Authentication Library för .NET)
+title: Xamarin Android system Browser-överväganden (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om att tänka på när du använder system webbläsare på Xamarin Android när du använder Microsoft Authentication Library för .NET (MSAL.NET).
+description: Lär dig mer om att tänka på när du använder system webbläsare på Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150358"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915471"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Xamarin Android system Browser-överväganden med MSAL.NET
 
@@ -33,13 +29,13 @@ Från och med MSAL.NET 2.4.0-Preview har MSAL.NET stöd för andra webbläsare �
 
 Vi rekommenderar att du använder webbläsare som stöder anpassade flikar, till exempel följande:
 
-| Webbläsare med stöd för anpassade flikar | Paket namn |
+| Webbläsare med stöd för anpassade flikar | Paketnamn |
 |------| ------- |
-|Chrome | com. Android. Chrome|
-|Microsoft Edge | com. Microsoft. emmx|
-|Firefox | org. mozilla. Firefox|
-|Ecosia | com. ecosia. Android|
-|Kiwiodlare | com. kiwibrowser. browser|
+|Chrome | com.android.chrome|
+|Microsoft Edge | com.microsoft.emmx|
+|Firefox | org.mozilla.firefox|
+|Ecosia | com.ecosia.android|
+|Kiwi | com.kiwibrowser.browser|
 |Brave | com. Brave. browser|
 
 Förutom webbläsare med stöd för anpassade flikar, baserat på våra tester, fungerar även några webbläsare som inte stöder anpassade flikar för autentisering: Opera, Opera Mini, inwebbläsare och Maxthon. Mer information hittar du [i tabell för test resultat](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
@@ -60,10 +56,10 @@ I följande tabell visas de enheter och webbläsare som har testats.
 | ------------- |:-------------:|:-----:|
 | Huawei/ett + | Chrome-&ast; | Pass|
 | Huawei/ett + | Kant&ast; | Pass|
-| Huawei/ett + | Firefox-&ast; | Pass|
+| Huawei/ett + | Firefox&ast; | Pass|
 | Huawei/ett + | Brave&ast; | Pass|
 | En och | Ecosia&ast; | Pass|
-| En och | Kiwiodlare&ast; | Pass|
+| En och | Kiwi&ast; | Pass|
 | Huawei/ett + | Opera | Pass|
 | Huawei | OperaMini | Pass|
 | Huawei/ett + | Inwebbläsare | Pass|

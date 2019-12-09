@@ -1,22 +1,21 @@
 ---
-title: Azure Data Factory mappa data flöde ny gren omvandling
+title: Mappa data Flow union-transformering
 description: Azure Data Factory mappa data flöde ny gren omvandling
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 4832cd2036f615d1e90d5e7a21c1a9832c2fa837
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: adba1eb61676dbebcb356490b14b279ebe69c644
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387137"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930154"
 ---
-# <a name="mapping-data-flow-union-transformation"></a>Mappa data Flow union-transformering
-
-
+# <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Transformering av Azure Data Factory mappning av data Flow union
 
 Union kombinerar flera data strömmar till en, med SQL-unionen av dessa strömmar som nya utdata från Union-omvandlingen. Alla scheman från varje indataströmmen kommer att kombineras i ditt data flöde, utan att ha en kopplings nyckel.
 

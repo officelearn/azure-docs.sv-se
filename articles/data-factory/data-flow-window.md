@@ -1,18 +1,19 @@
 ---
-title: Transformering av Azure Data Factory mappning av data flödes fönster
+title: Transformering av data flödes fönster
 description: Transformering av Azure Data Factory mappning av data flödes fönster
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: 222f97afd4346b9e4980e41303aeb683f431cd68
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fa34def67d91332a00bf0ee92b365957a47f9616
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387081"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931485"
 ---
 # <a name="azure-data-factory-window-transformation"></a>Transformering av Azure Data Factory fönster
 
@@ -42,7 +43,7 @@ Skjutreglaget fönster har två värden att ange: värdena före den aktuella ra
 ## <a name="window-columns"></a>Fönster kolumner
 Använd slutligen uttrycks verktyget för att definiera de agg regeringar som du vill använda med data Fönstren som rang, COUNT, MIN, MAX, tätare rang, LEAD, fördröjning osv.
 
-![Fönster alternativ](media/data-flow/windows7.png "Windows 7")
+![Fönster alternativ](media/data-flow/windows7.png "windows 7")
 
 En fullständig lista över agg regerings-och analys funktioner som du kan använda i uttrycks språket för ADF-dataflödet via uttrycks verktyget finns här: https://aka.ms/dataflowexpressions.
 

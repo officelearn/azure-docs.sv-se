@@ -4,27 +4,26 @@ description: Lär dig hur du kopierar data från Cassandra till mottagar data la
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9068874704233b3bbb5f38345648bc3455433768
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 41547787a3b7add1baa05a41d6785d1cd926165d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681093"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929595"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Aktuell version](connector-cassandra.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en Cassandra-databas. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en Cassandra-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -33,7 +32,7 @@ Den här Cassandra-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Cassandra-databasen till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från Cassandra-databasen till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Mer specifikt stöder denna Cassandra-anslutning:
 
@@ -43,7 +42,7 @@ Mer specifikt stöder denna Cassandra-anslutning:
 >[!NOTE]
 >För att aktiviteter som körs på egen värd Integration Runtime, stöds Cassandra 3. x sedan IR version 3,7 och senare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -55,7 +54,7 @@ Integration Runtime innehåller en inbyggd Cassandra-drivrutin, och du behöver 
 
 I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Cassandra-anslutaren.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Följande egenskaper stöds för den länkade tjänsten Cassandra:
 
@@ -66,8 +65,8 @@ Följande egenskaper stöds för den länkade tjänsten Cassandra:
 | port |TCP-porten som Cassandra-servern använder för att lyssna efter klient anslutningar. |Nej (standard är 9042) |
 | authenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Ja |
 | användarnamn |Ange användar namn för användar kontot. |Ja, om authenticationType har angetts till Basic. |
-| lösenord |Ange lösen ordet för användar kontot. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja, om authenticationType har angetts till Basic. |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
+| lösenord |Ange lösen ordet för användar kontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja, om authenticationType har angetts till Basic. |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
 >Det finns inte stöd för anslutning till Cassandra med SSL.
@@ -96,9 +95,9 @@ Följande egenskaper stöds för den länkade tjänsten Cassandra:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra DataSet.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra DataSet.
 
 Om du vill kopiera data från Cassandra anger du egenskapen type för data uppsättningen till **CassandraTable**. Följande egenskaper stöds:
 
@@ -131,16 +130,16 @@ Om du vill kopiera data från Cassandra anger du egenskapen type för data upps�
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra-källan.
 
 ### <a name="cassandra-as-source"></a>Cassandra som källa
 
-Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktiviteten till **CassandraSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktiviteten till **CassandraSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **CassandraSource** | Ja |
-| query |Använd den anpassade frågan för att läsa data. SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om "tableName" och "tecken utrymme" i data uppsättningen har angetts). |
+| DocumentDB |Använd den anpassade frågan för att läsa data. SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om "tableName" och "tecken utrymme" i data uppsättningen har angetts). |
 | consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Tillåtna värden är: **ett**, **två**, **tre**, **kvorum**, **alla**, **LOCAL_QUORUM**, **EACH_QUORUM**och **LOCAL_ONE**. |Nej (standard är `ONE`) |
 
 **Exempel:**
@@ -177,21 +176,21 @@ Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktivi
 
 ## <a name="data-type-mapping-for-cassandra"></a>Data typs mappning för Cassandra
 
-När du kopierar data från Cassandra används följande mappningar från Cassandra data typer för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig mer om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren.
+När du kopierar data från Cassandra används följande mappningar från Cassandra data typer för att Azure Data Factory interimistiska data typer. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
-| Data typen Cassandra | Data fabrikens interimistiska datatyp |
+| Data typen Cassandra | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | ASCII |Sträng |
 | BIGINT |Int64 |
-| BLOB |Byte [] |
-| BOOLESKT |Boolesk |
+| BLOB |Byte[] |
+| BOOLEAN |Boolesk |
 | DECIMAL |Decimal |
-| Dubbelklicka |Dubbelklicka |
-| FLYTA |Enkel |
+| DOUBLE |Double |
+| FLOAT |Enkel |
 | INET |Sträng |
 | INT |Int32 |
-| INFORMATION |Sträng |
-| TIDSSTÄMPEL |DateTime |
+| TEXT |Sträng |
+| TIMESTAMP |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Sträng |
@@ -218,7 +217,7 @@ Virtuella tabeller refererar till datan i den verkliga tabellen, vilket gör att
 
 Till exempel är följande "ExampleTable" en Cassandra-databas tabell som innehåller en heltals primär nyckel kolumn med namnet "pk_int", en text kolumn med namnet värde, en List kolumn, en kart kolumn och en Set-kolumn (med namnet "StringSet").
 
-| pk_int | Värde | Visa lista | Karta | StringSet |
+| pk_int | Värde | Lista | Karta | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"exempel värde 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"exempel värde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -234,9 +233,9 @@ Den första virtuella tabellen är bas tabellen med namnet "ExampleTable" som vi
 
 Bas tabellen innehåller samma data som den ursprungliga databas tabellen förutom samlingarna, som utelämnas från den här tabellen och expanderas i andra virtuella tabeller.
 
-I följande tabeller visas de virtuella tabeller som normaliserar data från kolumnerna List, Map och StringSet. Kolumnerna med namn som slutar med "_index" eller "_key" visar positionen för data i den ursprungliga listan eller kartan. Kolumnerna med namn som slutar med "_value" innehåller de expanderade data från samlingen.
+I följande tabeller visas de virtuella tabeller som normaliserar data från kolumnerna List, Map och StringSet. Kolumnerna med namn som slutar med "_index" eller "_key" visar positionen för data i den ursprungliga listan eller kartan. Kolumnerna med namn som slutar med "_value" innehåller utökade data från samlingen.
 
-**Tabell "ExampleTable_vt_List":**
+**Tabell ExampleTable_vt_List:**
 
 | pk_int | List_index | List_value |
 | --- | --- | --- |
@@ -248,7 +247,7 @@ I följande tabeller visas de virtuella tabeller som normaliserar data från kol
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Tabell "ExampleTable_vt_Map":**
+**Tabell ExampleTable_vt_Map:**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
@@ -256,7 +255,7 @@ I följande tabeller visas de virtuella tabeller som normaliserar data från kol
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-**Tabell "ExampleTable_vt_StringSet":**
+**Tabell ExampleTable_vt_StringSet:**
 
 | pk_int | StringSet_value |
 | --- | --- |
@@ -271,4 +270,4 @@ I följande tabeller visas de virtuella tabeller som normaliserar data från kol
 Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

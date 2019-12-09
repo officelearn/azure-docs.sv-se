@@ -1,29 +1,25 @@
 ---
-title: Cachelagring av token i Microsoft Authentication Library för .NET
+title: MSAL.NET (token cache serializing) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om serialisering och kundens serialisering av token-cachen med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cae1a755b9f79ce2fd5084653f7b3c177f29832
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 399c7e03930379ebf2abad0a9cfd777e3635cb66
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802726"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915533"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Cachelagring av token i MSAL.NET
 När en [token har hämtats](msal-acquire-cache-tokens.md)cachelagras den av Microsoft Authentication Library (MSAL).  Program koden bör försöka hämta en token från cachen innan du hämtar en token med en annan metod.  I den här artikeln beskrivs standard och anpassad serialisering för token cache i MSAL.NET.
@@ -285,5 +281,5 @@ I följande exempel visas serialisering av cachelagring av token.
 
 | Exempel | Plattform | Beskrivning|
 | ------ | -------- | ----------- |
-|[Active Directory – dotNet-Desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET-program (WPF) anropar Microsoft Graph-API: et. ![Topologi](media/msal-net-token-cache-serialization/topology.png)|
-|[Active Directory – dotNet-v1-till-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Skriv bord (konsol) | En uppsättning Visual Studio-lösningar som illustrerar migreringen av Azure AD v 1.0-program (med ADAL.NET) till Azure AD v 2.0-program, även kallat konvergerade program (med MSAL.NET), i synnerhet [token cache-migrering](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|
+|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET-program (WPF) anropar Microsoft Graph-API: et. ![Topologi](media/msal-net-token-cache-serialization/topology.png)|
+|[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Skriv bord (konsol) | En uppsättning Visual Studio-lösningar som illustrerar migreringen av Azure AD v 1.0-program (med ADAL.NET) till Azure AD v 2.0-program, även kallat konvergerade program (med MSAL.NET), i synnerhet [token cache-migrering](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

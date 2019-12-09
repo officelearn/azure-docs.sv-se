@@ -4,21 +4,20 @@ description: Lär dig hur du flyttar data från en lokal DB2-databas med hjälp 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0d066e66e4b9600eb5734ef2f3c6031dbc44f17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666604"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931789"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med Azure Data Factory kopierings aktivitet
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -33,7 +32,7 @@ Den här artikeln beskriver hur du kan använda kopierings aktivitet i Azure Dat
 
 Data Factory stöder för närvarande endast flytt av data från en DB2-databas till ett [mottagar data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Det finns inte stöd för att flytta data från andra data lager till en DB2-databas.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Data Factory stöder anslutning till en lokal DB2-databas med hjälp av [Data Management Gateway](data-factory-data-management-gateway.md). Stegvisa instruktioner för hur du konfigurerar Gateway-datapipeline för att flytta dina data finns i artikeln [Flytta data från en lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) .
 
 En gateway krävs även om DB2 finns på den virtuella Azure IaaS-datorn. Du kan installera gatewayen på samma virtuella IaaS-dator som data lagret. Om gatewayen kan ansluta till databasen kan du installera gatewayen på en annan virtuell dator.
@@ -82,15 +81,15 @@ I följande tabell visas de JSON-egenskaper som är speciella för en DB2-länka
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
-| **servernamn** |Namnet på DB2-servern. |Ja |
+| **server** |Namnet på DB2-servern. |Ja |
 | **database** |Namnet på DB2-databasen. |Ja |
 | **schema** |Namnet på schemat i DB2-databasen. Den här egenskapen är Skift läges känslig. |Nej |
 | **authenticationType** |Den typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| **användar** |Namnet på användar kontot om du använder Basic-eller Windows-autentisering. |Nej |
-| **ords** |Lösen ordet för användar kontot. |Nej |
+| **användarnamn** |Namnet på användar kontot om du använder Basic-eller Windows-autentisering. |Nej |
+| **Lösenord** |Lösen ordet för användar kontot. |Nej |
 | **gatewayName** |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En lista över de avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt, till exempel **struktur**, **tillgänglighet**och **principen** för en data uppsättnings-JSON, liknar alla typer av data uppsättningar (Azure SQL, Azure Blob Storage, Azure Table Storage och så vidare).
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för en data uppsättning av typen **RelationalTable**, som innehåller DB2-datauppsättningen, har följande egenskap:
@@ -99,14 +98,14 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i DB2-databas instansen som den länkade tjänsten refererar till. Den här egenskapen är Skift läges känslig. |Nej (om egenskapen **fråga** för en kopierings aktivitet av typen **RelationalSource** har angetts) |
 
-## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En lista över de avsnitt och egenskaper som är tillgängliga för att definiera kopierings aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Kopierings aktivitets egenskaperna, till exempel **namn**, **Beskrivning**, **indata** -tabell, **utdata** -tabell och **policy**, är tillgängliga för alla typer av aktiviteter. De egenskaper som är tillgängliga i **typeProperties** -avsnittet av aktiviteten varierar för varje aktivitets typ. För kopierings aktiviteten varierar egenskaperna beroende på typerna av data källor och mottagare.
 
 För kopierings aktiviteten, när källan är av typen **RelationalSource** (som innehåller DB2), är följande egenskaper tillgängliga i avsnittet **typeProperties** :
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **frågeterm** |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om egenskapen **TableName** för en data uppsättning anges) |
+| **query** |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om egenskapen **TableName** för en data uppsättning anges) |
 
 > [!NOTE]
 > Schema-och tabell namn är Skift läges känsliga. I frågeuttrycket omger du egenskaps namnen med hjälp av "" (dubbla citat tecken).
@@ -312,42 +311,42 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | Integer |Int32 |
 | BigInt |Int64 |
 | Real |Enkel |
-| Dubbelklicka |Dubbelklicka |
-| Flyta |Dubbelklicka |
+| Double |Double |
+| Flyttal |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| nummer |Decimal |
-| Date |DateTime |
-| Tid |Intervall |
+| numeriskt |Decimal |
+| Datum |DateTime |
+| Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| fil |Byte [] |
-| hängande |Sträng |
+| Xml |Byte[] |
+| char |Sträng |
 | VarChar |Sträng |
 | LongVarChar |Sträng |
 | DB2DynArray |Sträng |
-| binär |Byte [] |
-| VarBinary |Byte [] |
-| LongVarBinary |Byte [] |
-| Infoga |Sträng |
+| Binary |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
+| Graphic |Sträng |
 | VarGraphic |Sträng |
 | LongVarGraphic |Sträng |
 | CLOB |Sträng |
-| Blob |Byte [] |
+| Blob |Byte[] |
 | DbClob |Sträng |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
 | Real |Enkel |
-| Dubbelklicka |Dubbelklicka |
-| Flyta |Dubbelklicka |
+| Double |Double |
+| Flyttal |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| nummer |Decimal |
-| Date |DateTime |
-| Tid |Intervall |
+| numeriskt |Decimal |
+| Datum |DateTime |
+| Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| fil |Byte [] |
-| hängande |Sträng |
+| Xml |Byte[] |
+| char |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
 Information om hur du mappar kolumner i käll data uppsättningen till kolumner i mottagar data uppsättningen finns i avsnittet [mappa data uppsättnings kolumner i Azure Data Factory](data-factory-map-columns.md).

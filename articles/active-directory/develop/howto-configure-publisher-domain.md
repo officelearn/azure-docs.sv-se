@@ -3,27 +3,23 @@ title: Konfigurera ett programs utgivares domän
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du konfigurerar ett programs utgivares domän så att användare vet var deras information skickas.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 032fca669a617c938473b0d0c27a754faa60b528
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013066"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917853"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Gör så här: Konfigurera ett programs utgivares domän
 
@@ -39,7 +35,7 @@ I följande tabell sammanfattas standard beteendet för utgivar domänens värde
 
 | Domäner som verifieras av klienter | Standardvärdet för Publisher-domän |
 |-------------------------|----------------------------|
-| ha | ha |
+| null | null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | -*. onmicrosoft.com<br/>– domain1.com<br/>-domain2.com (primär) | domain2.com |
 

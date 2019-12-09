@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0be50ef43774be6082a4ede330f65296094552de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786851"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926457"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -53,7 +53,7 @@ Använd följande kommando för att köra ett prestandatest.
 
 |    |     |
 |--------|-----------|
-| **Uttryck** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exempel** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 Det här kommandot kör prestanda mätning genom att överföra test data till ett angivet mål. Test data genereras i minnet, överförs till målet och tas sedan bort från målet när testet har slutförts. Du kan ange hur många filer som ska genereras och vilken storlek du vill att de ska vara med hjälp av valfria kommando parametrar.
@@ -99,7 +99,7 @@ AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för
 
 Loggarna innehåller status för ett haveri (`UPLOADFAILED`, `COPYFAILED`och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
 
-Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE$\.azcopy` i Windows eller `$HOME$\.azcopy` Directory på Mac och Linux, men du kan ändra platsen om du vill.
+Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE%\.azcopy` i Windows eller `$HOME$\.azcopy` Directory på Mac och Linux, men du kan ändra platsen om du vill.
 
 > [!IMPORTANT]
 > När du skickar en begäran till Microsoft Support (eller fel sökning av problemet som berör tredje part) delar du den avvisade versionen av kommandot som du vill köra. Detta säkerställer att SAS inte delas av misstag med vem. Du kan hitta den avvisade versionen i början av logg filen.
@@ -151,7 +151,7 @@ När du återupptar ett jobb tittar AzCopy på jobb Plans filen. Plan filen visa
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Ändra placeringen av plan-och loggfilerna
 
-Som standard finns plan-och loggfiler i `%USERPROFILE$\.azcopy`-katalogen i Windows eller i `$HOME$\.azcopy`-katalogen på Mac och Linux. Du kan ändra den här platsen.
+Som standard finns plan-och loggfiler i `%USERPROFILE%\.azcopy`-katalogen i Windows eller i `$HOME$\.azcopy`-katalogen på Mac och Linux. Du kan ändra den här platsen.
 
 ### <a name="change-the-location-of-plan-files"></a>Ändra placeringen av plan filer
 

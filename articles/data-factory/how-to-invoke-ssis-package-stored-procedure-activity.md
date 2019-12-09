@@ -4,7 +4,7 @@ description: Den här artikeln beskriver hur du kör ett SQL Server Integration 
 services: data-factory
 documentationcenter: ''
 author: swinarko
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
@@ -13,17 +13,17 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 3bfef0d787d8289055ab80e2ac30408dd7a13fb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f45c317e64f63fe6192f4e32507876841f4322de
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673749"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932101"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med den lagrade procedur aktiviteten i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SSIS-paket i en Azure Data Factory pipeline med hjälp av en lagrad procedur aktivitet. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 Genom gången i den här artikeln används en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL Database Hanterad instans.
@@ -37,7 +37,7 @@ I det här avsnittet ska du använda Data Factory användar gränssnitt för att
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Det första steget är att skapa en data fabrik med hjälp av Azure Portal. 
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. Navigera till [Azure-portalen](https://portal.azure.com). 
 3. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
@@ -69,7 +69,7 @@ Det första steget är att skapa en data fabrik med hjälp av Azure Portal.
 10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en lagrad procedur aktivitet
-I det här steget använder du Data Factory gränssnittet för att skapa en pipeline. Du lägger till en lagrad procedur aktivitet i pipelinen och konfigurerar den att köra SSIS-paketet med hjälp av den lagrade proceduren sp_executesql. 
+I det här steget använder du Data Factory gränssnittet för att skapa en pipeline. Du lägger till en lagrad procedur aktivitet i pipelinen och konfigurerar den att köra SSIS-paketet med hjälp av den sp_executesql lagrade proceduren. 
 
 1. På sidan kom igång klickar du på **skapa pipeline**: 
 
@@ -101,7 +101,7 @@ I det här steget använder du Data Factory gränssnittet för att skapa en pipe
     5. Ange **sträng**för parameterns **typ** . 
     6. Ange följande SQL-fråga för parameterns **värde** :
 
-        I SQL-frågan anger du rätt värden för parametrarna **mappnamn**, **project_name**och **package_name** . 
+        I SQL-frågan anger du rätt värden för parametrarna **folder_name**, **project_name**och **package_name** . 
 
         ```sql
         DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END
@@ -224,7 +224,7 @@ Skapa en länkad tjänst för att länka Azure SQL-databasen som är värd för 
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en lagrad procedur aktivitet 
-I det här steget skapar du en pipeline med en lagrad procedur aktivitet. Aktiviteten anropar den lagrade proceduren sp_executesql för att köra ditt SSIS-paket. 
+I det här steget skapar du en pipeline med en lagrad procedur aktivitet. Aktiviteten anropar den sp_executesql lagrade proceduren för att köra ditt SSIS-paket. 
 
 1. Skapa en JSON-fil med namnet **RunSSISPackagePipeline. JSON** i mappen **C:\ADF\RunSSISPackage** med följande innehåll:
 

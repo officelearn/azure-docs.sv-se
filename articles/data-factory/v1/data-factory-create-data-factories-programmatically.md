@@ -9,15 +9,14 @@ manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: cabeb6314c16aa5bc37f1139954f8829a37af5bb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682766"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931320"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
@@ -29,12 +28,12 @@ Du kan skapa, övervaka och hantera Azure-datafabriker via programmering med Dat
 > [!NOTE]
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Läs [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) för omfattande dokumentation om .net api för Data Factory. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012, 2013 eller 2015
-* Hämta och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
+* Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
@@ -100,7 +99,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 * Klient-ID:t
-* Prenumerations-ID:t
+* Prenumerations-ID
 * Program-ID:t
 * Lösenord (anges i det första kommandot)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803741"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919349"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -292,16 +292,16 @@ Om äldre autentisering ofta används i din miljö bör du planera att migrera �
 
 ### <a name="consent-grants"></a>Medgivande bidrag
 
-Vid en olaglig godkännande attack skapar angriparen ett Azure AD-registrerat program som begär åtkomst till data, till exempel kontakt information, e-post eller dokument. Användare kan beviljas medgivande till skadliga program via phishing-attacker eller indirekt genom att inte vara försiktiga vid landning på skadliga webbplatser.
+Vid en olaglig godkännande attack skapar angriparen ett Azure AD-registrerat program som begär åtkomst till data, till exempel kontakt information, e-post eller dokument. Användare kan beviljas medgivande till skadliga program via nätfiske-attacker vid landning på skadliga webbplatser.
 
-Nedan visas de behörigheter som du kanske vill granska för Microsofts moln tjänster:
+Nedan visas en lista över appar med behörigheter som du kanske vill granska för Microsofts moln tjänster:
 
-- Program med appar eller delegerade \*. ReadWrite-behörigheter
-- Program med delegerade behörigheter kan läsa, skicka eller hantera e-post för användarens räkning
-- Program som beviljas med följande behörigheter:
+- Appar med appar eller delegerade \*. ReadWrite-behörigheter
+- Appar med delegerade behörigheter kan läsa, skicka eller hantera e-post för användarens räkning
+- Appar som beviljas med följande behörigheter:
 
 | Resurs | Behörighet |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | EA. AccessAsUser. all |
 | | EWS. AccessAsUser. all |
 | | E-post. Read |
@@ -309,11 +309,19 @@ Nedan visas de behörigheter som du kanske vill granska för Microsofts moln tj�
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-För att undvika det här scenariot bör du läsa om att [identifiera och åtgärda illegala medgivande i Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) för att identifiera och åtgärda alla program med illegala bidrag eller program som har fler bidrag än vad som behövs. Schemalägg regelbunden granskning av app-behörigheter och ta bort dem när de inte behövs. eller ta bort självbetjäningen helt och hållet och upprätta styrnings procedurer.
+- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Exempel:
+
+|Resurs | Behörighet |
+| :- | :- |
+| Azure AD-diagram | Directory. AccessAsUser. all |
+| Microsoft Graph | Directory. AccessAsUser. all |
+| Azure REST API | user_impersonation |
+
+För att undvika det här scenariot bör du läsa om att [identifiera och åtgärda illegala medgivande i Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) för att identifiera och åtgärda alla program med illegala bidrag eller program som har fler bidrag än vad som behövs. Ta sedan bort självbetjäningen [helt och hållet](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) och [upprätta styrnings procedurer](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Slutligen kan du schemalägga regelbundna granskningar av app-behörigheter och ta bort dem när de inte behövs.
 
 #### <a name="consent-grants-recommended-reading"></a>Medgivande ger Rekommenderad läsning
 
-- [Graph API behörighets omfattningar för Azure Active Directory (AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Microsoft Graph-behörigheter](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Användar-och grupp inställningar
 

@@ -2,19 +2,19 @@
 title: Fil format som stöds i Azure Data Factory
 description: Det här avsnittet beskriver filformat och komprimering koder som stöds av filbaserade anslutningar i Azure Data Factory.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 4a81cc9887610036007b92e43b8bd44f0a8b7740
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 48121dabfa4fc56e2f797f715cb3fce3e3be9578
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075541"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928681"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -40,9 +40,9 @@ Om du vill läsa från en textfil eller skriva till en textfil, anger den `type`
 | quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
 | nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Nej |
 | encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
-| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (standard)</b> |Nej |
+| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Sant<br/><b>False (standard)</b> |Nej |
 | skipLineCount |Anger hur många **icke-tomma** rader att hoppa över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Nej |
-| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>False |Nej |
+| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>Falskt |Nej |
 
 ### <a name="textformat-example"></a>TextFormat-exempel
 
@@ -435,7 +435,7 @@ För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserial
 - **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera JVM. dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och ange system miljö variabeln JAVA_HOME.
 
 >[!TIP]
->Om du kopierar data till/från Parquet-format med hjälp av självbetjäning Integration Runtime och träffa fel som säger "ett fel uppstod vid anrop till Java, meddelande: **Java. lang. OutOfMemoryError: Java heap-utrymme**" kan du lägga till en miljö variabel `_JAVA_OPTIONS` i en dator som är värd för IR med egen värd för att justera den minsta/högsta heap-storleken för JVM för att ge en sådan kopia och sedan köra pipelinen igen.
+>Om du kopierar data till/från Parquet-format med hjälp av självbetjäning Integration Runtime och träffa fel som säger "ett fel uppstod när du anropar Java, meddelande: **Java. lang. OutOfMemoryError: Java-heap-utrymme**", kan du lägga till en miljö variabel `_JAVA_OPTIONS` på datorn som är värd för den egna IR-enheten för att justera den minsta/högsta heap-storleken för JVM för att ge
 
 ![Ange JVM heap-storlek för IR med egen värd](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -445,26 +445,26 @@ Exempel: ange variabel `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g`. Flaggan `X
 
 | Data factory tillfälliga datatyp | Parquet primitiv typ | Parquet ursprungliga typen (deserialisera) | Parquet ursprungliga typen (serialisera) |
 |:--- |:--- |:--- |:--- |
-| Boolesk | Boolesk | Saknas | Saknas |
+| Boolesk | Boolesk | Gäller inte | Gäller inte |
 | SByte | Int32 | Int8 | Int8 |
-| Byte | Int32 | UInt8 | Int16 |
+| Mottagna byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/binära | UInt64 | decimaltal |
-| Enkel | Float | Saknas | Saknas |
-| Double | Double | Saknas | Saknas |
-| decimaltal | Binär | decimaltal | decimaltal |
-| Sträng | Binär | Utf8 | Utf8 |
-| DateTime | Int96 | Saknas | Saknas |
-| TimeSpan | Int96 | Saknas | Saknas |
-| DateTimeOffset | Int96 | Saknas | Saknas |
-| ByteArray | Binär | Saknas | Saknas |
-| GUID | Binär | Utf8 | Utf8 |
-| char | Binär | Utf8 | Utf8 |
-| CharArray | Stöds inte | Saknas | Saknas |
+| UInt64 | Int64/binära | UInt64 | Decimal |
+| Enkel | Flyttal | Gäller inte | Gäller inte |
+| Double | Double | Gäller inte | Gäller inte |
+| Decimal | Binary | Decimal | Decimal |
+| Sträng | Binary | Utf8 | Utf8 |
+| DateTime | Int96 | Gäller inte | Gäller inte |
+| TimeSpan | Int96 | Gäller inte | Gäller inte |
+| DateTimeOffset | Int96 | Gäller inte | Gäller inte |
+| ByteArray | Binary | Gäller inte | Gäller inte |
+| GUID | Binary | Utf8 | Utf8 |
+| char | Binary | Utf8 | Utf8 |
+| CharArray | Stöds inte | Gäller inte | Gäller inte |
 
 ## <a name="orc-format"></a>ORC-format
 
@@ -499,22 +499,22 @@ För kopiering som körs på egen värd-IR med ORC-filserialisering/deserialiser
 | Data factory tillfälliga datatyp | ORC-typer |
 |:--- |:--- |
 | Boolesk | Boolesk |
-| SByte | Byte |
-| Byte | Kort |
+| SByte | Mottagna byte |
+| Mottagna byte | Kort |
 | Int16 | Kort |
 | UInt16 | Int |
 | Int32 | Int |
 | UInt32 | Lång |
 | Int64 | Lång |
 | UInt64 | Sträng |
-| Enkel | Float |
+| Enkel | Flyttal |
 | Double | Double |
-| decimaltal | decimaltal |
+| Decimal | Decimal |
 | Sträng | Sträng |
 | DateTime | Tidsstämpel |
 | DateTimeOffset | Tidsstämpel |
 | TimeSpan | Tidsstämpel |
-| ByteArray | Binär |
+| ByteArray | Binary |
 | GUID | Sträng |
 | char | Char(1) |
 

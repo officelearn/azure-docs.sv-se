@@ -1,28 +1,25 @@
 ---
-title: Lär dig hur program kan samverka med Azure AD B2C med hjälp av Microsoft Authentication Library
+title: Använda MSAL med Azure Active Directory B2CLearn | Azure
+titleSuffix: Microsoft identity platform
 description: 'Microsoft Authentication Library (MSAL) gör det möjligt för program att samverka med Azure AD B2C och hämta token för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från andra eller ditt eget webb-API.'
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eea0fd03b1df49e912a867b0c667ff0fd28c08a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: f080c14cd0aa20bd312b4be8d9eacd8d901b7cef
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097623"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917037"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Använd Microsoft Authentication Library för att samverka med Azure Active Directory B2C
 
@@ -32,7 +29,7 @@ Med Azure AD B2C kan du också skapa och anpassa användar gränssnittet för di
 
 Den här självstudien visar hur du använder MSAL för att samverka med Azure AD B2C.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har skapat din egen [Azure AD B2C-klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)skapar du en nu. Du kan också använda en befintlig Azure AD B2C klient.
 
@@ -40,11 +37,11 @@ Om du inte redan har skapat din egen [Azure AD B2C-klient](https://docs.microsof
 
 Följande steg visar hur ett program med en enda sida kan använda Azure AD B2C för att registrera dig, logga in och anropa ett skyddat webb-API.
 
-### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 
 För att implementera autentisering måste du först registrera ditt program. Se [Registrera ditt program](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c) för detaljerade anvisningar.
 
-### <a name="step-2-download-the-sample-application"></a>Steg 2: Hämta exempelprogrammet
+### <a name="step-2-download-the-sample-application"></a>Steg 2: Ladda ned exempel programmet
 
 Hämta exemplet som en zip-fil eller klona den från GitHub:
 
@@ -84,18 +81,18 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Namnet på [användar flödet](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) i den här självstudien är **B2C_1_signupsignin1**. Om du använder ett annat användar flödes namn anger du värdet för **auktoritet** till det namnet.
 
-### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>Steg 4: Konfigurera ditt program att använda`b2clogin.com`
+### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>Steg 4: konfigurera programmet så att det använder `b2clogin.com`
 
-Du kan använda `b2clogin.com` i stället för `login.microsoftonline.com` en omdirigerings-URL. Du gör det i Azure AD B2C-programmet när du konfigurerar en identitets leverantör för registrering och inloggning.
+Du kan använda `b2clogin.com` i stället för `login.microsoftonline.com` som en omdirigerings-URL. Du gör det i Azure AD B2C-programmet när du konfigurerar en identitets leverantör för registrering och inloggning.
 
-Användningen av `b2clogin.com` i kontexten för `https://your-tenant-name.b2clogin.com/your-tenant-guid` har följande effekter:
+Användning av `b2clogin.com` i `https://your-tenant-name.b2clogin.com/your-tenant-guid`s kontext har följande effekter:
 
 - Microsoft-tjänster förbrukar mindre utrymme i cookie-huvudet.
-- URL: erna innehåller inte längre en referens till Microsoft. Till exempel refererar ditt Azure AD B2C program antagligen till `login.microsoftonline.com`.
+- URL: erna innehåller inte längre en referens till Microsoft. Azure AD B2C-programmet refererar till exempel förmodligen till `login.microsoftonline.com`.
 
- Om du `b2clogin.com`vill använda måste du uppdatera konfigurationen av ditt program.  
+ Om du vill använda `b2clogin.com`måste du uppdatera konfigurationen av ditt program.  
 
-- Ange egenskapen **validateAuthority** till `false`, så att omdirigeringar med `b2clogin.com` kan ske.
+- Ange egenskapen **validateAuthority** till `false`, så att omdirigeringar med `b2clogin.com` kan inträffa.
 
 I följande exempel visas hur du kan ställa in egenskapen:
 
@@ -116,7 +113,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 ```
 
 > [!NOTE]
-> Ditt Azure AD B2C program refererar förmodligen till `login.microsoftonline.com` på flera platser, till exempel användar flödes referenser och token-slutpunkter. Se till att behörighets slut punkten, token Endpoint och utfärdaren har uppdaterats för `your-tenant-name.b2clogin.com`användning.
+> Ditt Azure AD B2C program refererar förmodligen till `login.microsoftonline.com` på flera platser, till exempel användar flödes referenser och token-slutpunkter. Se till att din behörighets slut punkt, token-slutpunkt och utfärdare har uppdaterats för att använda `your-tenant-name.b2clogin.com`.
 
 Följ [det här MSAL-JavaScript-exemplet](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#single-page-application-built-on-msaljs-with-azure-ad-b2c) om hur du använder MSAL Preview för Java Script (MSAL. js). Exemplet hämtar en åtkomsttoken och anropar ett API som skyddas av Azure AD B2C.
 
@@ -125,4 +122,4 @@ Följ [det här MSAL-JavaScript-exemplet](https://github.com/Azure-Samples/activ
 Läs mer om:
 
 - [Anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
-- [Anpassning av användar gränssnitt](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-overview)
+- [Anpassning av användargränssnittet](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-overview)

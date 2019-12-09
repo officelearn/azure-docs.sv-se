@@ -4,21 +4,20 @@ description: Lär dig hur du flyttar data till/från Azure Table Storage med Azu
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 83f3a34a9b902b3a0e3b3ded34e36c8cbf50ed89
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683079"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918738"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabellen med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -39,7 +38,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager: 
 
@@ -51,12 +50,12 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Table Storage: 
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Det finns två typer av länkade tjänster som du kan använda för att länka en Azure Blob-lagring till en Azure-datafabrik. De är: **AzureStorage** länkade tjänst-och **AzureStorageSas** -länkade tjänster. Den länkade tjänsten Azure Storage tillhandahåller data fabriken med global åtkomst till Azure Storage. Den länkade tjänsten Azure Storage SAS (Shared Access Signature) tillhandahåller data fabriken med begränsad/tidsbunden åtkomst till Azure Storage. Det finns inga andra skillnader mellan dessa två länkade tjänster. Välj den länkade tjänst som passar dina behov. I följande avsnitt finns mer information om dessa två länkade tjänster.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
 Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **AzureTable** har följande egenskaper.
@@ -65,7 +64,7 @@ Avsnittet typeProperties är olika för varje typ av data uppsättning och inneh
 | --- | --- | --- |
 | tableName |Namnet på den tabell i Azure Table Database-instansen som den länkade tjänsten refererar till. |Ja. När ett tableName anges utan azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från den tabell som uppfyller frågan till målet. |
 
-### <a name="schema-by-data-factory"></a>Schema efter Data Factory
+### <a name="schema-by-data-factory"></a>Schemat av Data Factory
 För schema fria data lager, till exempel Azure Table, härleds schemat på något av följande sätt i Data Factory-tjänsten:
 
 1. Om du anger data strukturen med hjälp av **struktur** egenskapen i data uppsättnings definitionen, följer Data Factory-tjänsten den här strukturen som schema. I det här fallet anges ett null-värde för det om en rad inte innehåller något värde för en kolumn.
@@ -83,7 +82,7 @@ Vilka egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Använd den anpassade frågan för att läsa data. |Sträng för Azure Table-fråga. Se exemplen i nästa avsnitt. |Nej. När ett tableName anges utan azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från den tabell som uppfyller frågan till målet. |
-| azureTableSourceIgnoreTableNotFound |Ange om förtäring av undantag för tabell saknas. |VÄRDET<br/>! |Nej |
+| azureTableSourceIgnoreTableNotFound |Ange om förtäring av undantag för tabell saknas. |TRUE<br/>FALSE |Nej |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery-exempel
 Om Azure Table-kolumnen är av sträng typ:
@@ -105,9 +104,9 @@ Om Azure Table-kolumnen är av typen datetime:
 | azureTableDefaultPartitionKeyValue |Standardvärdet för partitionerings nyckel som kan användas av mottagaren. |Ett sträng värde. |Nej |
 | azureTablePartitionKeyName |Ange namnet på den kolumn vars värden används som partitionsnyckel. Om inget anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumn namn. |Nej |
 | azureTableRowKeyName |Ange namnet på den kolumn vars kolumn värden används som rad nyckel. Om inget anges ska du använda ett GUID för varje rad. |Ett kolumn namn. |Nej |
-| azureTableInsertType |Det läge där data ska infogas i Azure-tabellen.<br/><br/>Den här egenskapen anger om befintliga rader i utdatatabellen med matchande partition och rad nycklar har ersatts eller slås samman. <br/><br/>Information om hur de här inställningarna (sammanfoga och ersätt) fungerar finns i avsnittet [Infoga eller sammanfoga entiteter](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller ersätta entiteter](https://msdn.microsoft.com/library/azure/hh452242.aspx) . <br/><br> Den här inställningen gäller på radnivå, inte på tabell nivå, och inget av alternativen tar bort rader i den utgående tabellen som inte finns i indata. |Sammanfoga (standard)<br/>bytt |Nej |
+| azureTableInsertType |Det läge där data ska infogas i Azure-tabellen.<br/><br/>Den här egenskapen anger om befintliga rader i utdatatabellen med matchande partition och rad nycklar har ersatts eller slås samman. <br/><br/>Information om hur de här inställningarna (sammanfoga och ersätt) fungerar finns i avsnittet [Infoga eller sammanfoga entiteter](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller ersätta entiteter](https://msdn.microsoft.com/library/azure/hh452242.aspx) . <br/><br> Den här inställningen gäller på radnivå, inte på tabell nivå, och inget av alternativen tar bort rader i den utgående tabellen som inte finns i indata. |Sammanfoga (standard)<br/>ersätta |Nej |
 | writeBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts. |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts |intervall<br/><br/>Exempel: "00:20:00" (20 minuter) |Nej (standard-timeout-värdet för Storage-klienten är 90 SEK) |
+| writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts |TimeSpan<br/><br/>Exempel: "00:20:00" (20 minuter) |Nej (standard-timeout-värdet för Storage-klienten är 90 SEK) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 Mappa en käll kolumn till en mål kolumn med hjälp av JSON-egenskapen Translator innan du kan använda mål kolumnen som azureTablePartitionKeyName.
@@ -477,11 +476,11 @@ När du flyttar data till & från Azure-tabellen används följande [mappningar 
 
 | OData-datatyp | .NET-typ | Information |
 | --- | --- | --- |
-| EDM. Binary |byte [] |En matris med byte upp till 64 KB. |
+| Edm.Binary |byte |En matris med byte upp till 64 KB. |
 | Edm.Boolean |bool |Ett booleskt värde. |
-| EDM. DateTime |DateTime |Ett 64-bitars värde uttryckt som UTC (Coordinated Universal Time). Det DateTime-intervall som stöds börjar från 12:00 midnatt, 1 januari 1601 A.D. (C.E.), UTC. Intervallet slutar den 31 december 9999. |
+| Edm.DateTime |DateTime |Ett 64-bitars värde uttryckt som UTC (Coordinated Universal Time). Det DateTime-intervall som stöds börjar från 12:00 midnatt, 1 januari 1601 A.D. (C.E.), UTC. Intervallet slutar den 31 december 9999. |
 | Edm.Double |double |Ett 64-bitars flytt ALS värde. |
-| EDM. GUID |GUID |En 128-bitars globalt unik identifierare. |
+| Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |Ett 32-bitars heltal. |
 | Edm.Int64 |Int64 |Ett 64-bitars heltal. |
 | Edm.String |Sträng |Ett UTF-16-kodat värde. Sträng värden kan vara upp till 64 KB. |
@@ -535,11 +534,11 @@ Med typ mappningen från en Azure Table OData-typ till .NET-typ definierar du ta
 
 **Azure Table-schema:**
 
-| Kolumn namn | Typ |
+| Kolumnnamn | Typ |
 | --- | --- |
 | userid |Edm.Int64 |
 | namn |Edm.String |
-| lastlogindate |EDM. DateTime |
+| lastlogindate |Edm.DateTime |
 
 Definiera sedan Azure Table-datauppsättningen på följande sätt. Du behöver inte ange "struktur"-avsnittet med typ informationen eftersom typ informationen redan har angetts i det underliggande data lagret.
 

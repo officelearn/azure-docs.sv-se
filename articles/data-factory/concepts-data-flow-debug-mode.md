@@ -1,22 +1,21 @@
 ---
-title: Azure Data Factory mappning av data flödets fel söknings läge
+title: Mappa fel söknings läge för data flöde
 description: Starta en interaktiv felsökningssession när du skapar data flöden
-author: kromerm
 ms.author: makromer
+author: kromerm
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: c65ed14abb86b3b434e46fbe857487b06e217aad
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387377"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928367"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
-
-
 
 ## <a name="overview"></a>Översikt
 
@@ -48,11 +47,11 @@ Om du har parametrar i ditt data flöde eller någon av dess refererade data upp
 
 ![Parametrar för fel söknings inställningar](media/data-flow/debug-settings2.png "Parametrar för fel söknings inställningar")
 
-## <a name="data-preview"></a>Data för hands version
+## <a name="data-preview"></a>Förhandsgranskning
 
 Vid fel sökning på visas fliken Data förhands granskning på den nedre panelen. Utan fel söknings läge på visar data flödet bara aktuella metadata i och ut ur var och en av dina omvandlingar på fliken Granska. Data förhands granskningen kommer bara att fråga antalet rader som du har angett som gräns i fel söknings inställningarna. Klicka på **Uppdatera** för att hämta data förhands granskningen.
 
-![Data för hands version](media/data-flow/datapreview.png "Data för hands version")
+![Data för hands version](media/data-flow/datapreview.png "Förhandsgranskning")
 
 > [!NOTE]
 > Fil källor begränsar bara de rader som visas, inte raderna som läses. För mycket stora data mängder rekommenderar vi att du tar en liten del av filen och använder den för testning. Du kan välja en temporär fil i fel söknings inställningar för varje källa som är en fil data uppsättnings typ.

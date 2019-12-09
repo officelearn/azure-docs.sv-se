@@ -4,25 +4,26 @@ description: Den här självstudien innehåller stegvisa instruktioner för att 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 96b1e5a9633ee141fd4aa369468a8866d87f27f2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 93f674cf080ccbc94b9dbdc6ee9a66eb091c3542
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683647"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926596"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 
 I de här självstudierna skapar du en datafabrikpipeline som kopierar Azure Blob Storage till Azure SQL Database. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -36,13 +37,13 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln om att [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Visual Studio** 2015 eller 2017. I den här genomgången används Visual Studio 2017.
 * **Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)** .
-* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Notera följande värden som du använder i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
+* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Observera följande värden som du kommer att använda i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
@@ -79,7 +80,7 @@ Förbered nu Azure-blob och Azure SQL Database för den här självstudien genom
 
     1. Klicka på hubben **Fler tjänster** till vänster och klicka på **SQL-servrar**.
     2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
-    3. På sidan **Brandväggsinställningar** klickar du på **På** för **Tillåt åtkomst till Azure-tjänster**.
+    3. På sidan **Brandväggsinställningar** väljer du **På** för **Tillåt åtkomst till Azure-tjänster**.
 
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
@@ -228,7 +229,7 @@ I det här avsnittet skapar du två datauppsättningar: en för källan och en f
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Skapa en datauppsättning för Azure Blob-källan
 
-Lägg till följande kod till **Main**-metoden som skapar en **Azure-blobdatauppsättning**. Mer information om vilka egenskaper som stöds finns i avsnittet om [egenskaper för Azure-blobdatauppsättningar](connector-azure-blob-storage.md#dataset-properties).
+Lägg till följande kod i **Main**-metoden som skapar en **Azure-blobdatauppsättning**. Mer information om vilka egenskaper som stöds finns i avsnittet om [egenskaper för Azure-blobdatauppsättningar](connector-azure-blob-storage.md#dataset-properties).
 
 Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna Blob-datauppsättning refererar till den Azure Storage-länkade tjänst som du skapar i föregående steg. Den beskriver:
 

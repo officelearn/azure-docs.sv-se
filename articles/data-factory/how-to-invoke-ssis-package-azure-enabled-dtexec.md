@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/21/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673561"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931709"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Köra SQL Server Integration Services-paket med Azure-aktiverat Dtexec-verktyget
 Den här artikeln beskriver kommando tolks verktyget för Azure-aktiverad Dtexec (AzureDTExec). Den används för att köra SQL Server Integration Services-paket (SSIS) på Azure-SSIS Integration Runtime (IR) i Azure Data Factory.
@@ -30,7 +29,7 @@ AzureDTExec kör paketen som kör SSIS-paket aktiviteter i Data Factory pipeline
 
 AzureDTExec kan konfigureras via SSMS för att använda ett Azure Active Directory-program (Azure AD) som genererar pipelines i din data fabrik. Den kan också konfigureras för att komma åt fil system, fil resurser eller Azure Files där du lagrar dina paket. Baserat på de värden som du anger för sina anrops alternativ genererar AzureDTExec och kör en unik Data Factory pipeline med en aktivitet för att köra SSIS-paket. Att anropa AzureDTExec med samma värden för dess alternativ kör om den befintliga pipelinen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Om du vill använda AzureDTExec hämtar och installerar du den senaste versionen av SSMS, som är version 18,3 eller senare. Ladda ned den från [den här webbplatsen](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## <a name="configure-the-azuredtexec-utility"></a>Konfigurera AzureDTExec-verktyget

@@ -1,27 +1,26 @@
 ---
-title: Kopiera data från Spark med Azure Data Factory
-description: Lär dig hur du kopierar data från Spark till mottagar data lager med stöd för en kopierings aktivitet i en Azure Data Factory pipeline.
+title: Kopiera data från Spark
+description: Lär dig hur du kopierar data från Spark till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: c155f72d2c95f47b450207ae4b6a8d9a79f61030
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 63e352ce47c5934171594ae87ee307603fff4c35
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680166"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931016"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiera data från Spark med Azure Data Factory 
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Spark. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Spark. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -30,11 +29,11 @@ Den här Spark-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Spark till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från Spark till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -42,29 +41,29 @@ Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning,
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Spark-anslutaren.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Spark-anslutningsappen.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för Spark-länkade tjänster:
+Följande egenskaper har stöd för länkad Spark-tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen måste anges till: **Spark** | Ja |
-| värd | IP-adressen eller värd namnet för Spark-servern  | Ja |
-| port | TCP-porten som Spark-servern använder för att lyssna efter klient anslutningar. Om du ansluter till Azure HDInsights anger du port som 443. | Ja |
-| serverType | Typen av Spark-Server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
-| thriftTransportProtocol | Transport protokollet som ska användas i Thrift-skiktet. <br/>Tillåtna värden är: **Binary**, **sasl**, **http** | Nej |
-| authenticationType | Autentiseringsmetoden som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **Anonym**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
-| användarnamn | Det användar namn som du använder för att få åtkomst till Spark-servern.  | Nej |
-| lösenord | Lösen ordet som motsvarar användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| httpPath | Den partiella URL som motsvarar Spark-servern.  | Nej |
-| enableSsl | Anger om anslutningarna till servern krypteras med hjälp av SSL. Standardvärdet är false.  | Nej |
-| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via SSL. Den här egenskapen kan bara anges när du använder SSL på egen värd-IR. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Nej |
-| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |
-| allowHostNameCNMismatch | Anger om ett CA-utfärdat SSL-certifikat namn ska matcha värd namnet för servern vid anslutning via SSL. Standardvärdet är false.  | Nej |
-| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Nej |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
+| typ | Type-egenskapen måste anges till: **Spark** | Ja |
+| värd | IP-adressen eller värdnamnet namnet på Spark-server  | Ja |
+| port | TCP-porten som Spark-servern använder för att lyssna efter klientanslutningar. Ange porten som 443 om du ansluter till Azure HDInsights. | Ja |
+| serverType | Typ av Spark-server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
+| thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, **HTTP** | Nej |
+| authenticationType | Den autentiseringsmetod som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| användarnamn | Användarnamnet som används för att få åtkomst till Spark-Server.  | Nej |
+| lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| httpPath | Partiell URL som motsvarar Spark-server.  | Nej |
+| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
+| trustedCertPath | Den fullständiga sökvägen till filen .pem som innehåller certifikat från betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på lokal IR. Standardvärdet är filen cacerts.pem installerad med i IR.  | Nej |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är FALSKT.  | Nej |
+| allowHostNameCNMismatch | Anger om en CA-utfärdade SSL-certifikatnamnet att matcha värdnamnet för servern när du ansluter via SSL. Standardvärdet är FALSKT.  | Nej |
+| allowSelfSignedServerCert | Anger om du vill tillåta självsignerade certifikat från servern. Standardvärdet är FALSKT.  | Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -87,18 +86,18 @@ Följande egenskaper stöds för Spark-länkade tjänster:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Spark DataSet.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Spark-datauppsättningen.
 
-Om du vill kopiera data från Spark anger du egenskapen type för data uppsättningen till **SparkObject**. Följande egenskaper stöds:
+Kopiera data från Spark genom att ange typegenskapen på datauppsättningen till **SparkObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SparkObject** | Ja |
-| Schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
-| partitionstabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
-| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om "fråga" i aktivitets källan har angetts) |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **SparkObject** | Ja |
+| schema | Schemats namn. |Nej (om ”query” i aktivitetskälla har angetts)  |
+| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
+| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -119,16 +118,16 @@ Om du vill kopiera data från Spark anger du egenskapen type för data uppsättn
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Spark-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Spark-källa.
 
 ### <a name="spark-as-source"></a>Spark som källa
 
-Om du vill kopiera data från Spark anger du käll typen i kopierings aktiviteten till **SparkSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+För att kopiera data från Spark, ange typ av datakälla i kopieringsaktiviteten till **SparkSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SparkSource** | Ja |
-| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SparkSource** | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -167,4 +166,4 @@ Om du vill kopiera data från Spark anger du käll typen i kopierings aktivitete
 Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

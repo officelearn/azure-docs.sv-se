@@ -1,18 +1,19 @@
 ---
-title: Använda JSON i data flödet för att mappa i Azure Data Factory
+title: JSON i data flöde för mappning
 description: Azure Data Factory mappnings data flöde har inbyggda funktioner för att hantera JSON-dokument med hierarkier
 author: kromerm
 ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
-ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 153c7a1003c68526c960644bebcc4800e92edc3c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387345"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928331"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mappa JSON-hantering för data flöde
 
@@ -161,7 +162,7 @@ Välj **enkelt citat** tecken om omvända snedstreck används för att undanta t
 
 En funktion med högre ordning är en funktion som tar i en eller flera funktioner som ett argument. Nedan visas en lista över funktioner med högre ordning som stöds i mappa data flöden som aktiverar mat ris åtgärder.
 
-### <a name="filter"></a>Synkroniseringsfilter
+### <a name="filter"></a>filter
 Filtrerar element utanför matrisen som inte uppfyller det angivna predikatet. Filter förväntar sig en referens till ett element i predikatet-funktionen som #item.
 
 #### <a name="examples"></a>Exempel
@@ -189,7 +190,7 @@ reduce(['1', '2', '3', '4'], '0', #acc + #item, #result) => '01234'
 reduce([1, 2, 3, 4], 0, #acc + #item, #result + 15) => 25
 ```
 
-### <a name="sort"></a>Ordning
+### <a name="sort"></a>sortera
 Sorterar matrisen med den angivna predikatet-funktionen. Sortering förväntar sig en referens till två på varandra följande element i uttrycks funktionen som #item1 och #item2.
 
 #### <a name="examples"></a>Exempel
@@ -201,7 +202,7 @@ sort(['a3', 'b2', 'c1'],
         iif(#item1 >= #item2, 1, -1)) => ['a3', 'b2', 'c1']
 ```
 
-### <a name="contains"></a>ingår
+### <a name="contains"></a>contains
 Returnerar true om något element i den angivna matrisen utvärderas som sant i angivet predikat. Contains förväntar sig en referens till ett element i predikatet-funktionen som #item.
 
 #### <a name="examples"></a>Exempel

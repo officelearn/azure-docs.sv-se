@@ -2,24 +2,22 @@
 title: Data verktyg för att kopiera nya och uppdaterade filer stegvis
 description: Skapa en Azure-datafabrik och Använd sedan Kopiera data-verktyget för att stegvis läsa in nya filer baserat på LastModifiedDate.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 5c20196bd243d025d58f7cc08e015e1e0038e178
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ff3ade800b2a3474a68a34dc77d0c9b009e8822
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217791"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923147"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer stegvis baserat på LastModifiedDate med hjälp av verktyget Kopiera data
 
@@ -35,7 +33,7 @@ I den här självstudien ska du utföra följande uppgifter:
 > [!div class="checklist"]
 > * Skapa en datafabrik.
 > * Använd verktyget Kopiera data för att skapa en pipeline.
-> * Övervaka pipelinen och aktivitetskörningar.
+> * Övervaka pipelinen och aktivitetskörningarna.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -70,7 +68,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     * Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
 
 5. Under **version**väljer du **v2**.
 6. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Data lag ren (till exempel Azure Storage och SQL Database) och beräkningarna (till exempel Azure HDInsight) som din Data Factory använder kan finnas på andra platser och regioner.
@@ -168,7 +166,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     ![Uppdatera listan och välj Visa aktivitets körningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
 
-11. Det finns bara en aktivitet (kopierings aktiviteten) i pipelinen, så att du bara ser en post. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. 
+11. Det finns bara en aktivitet (kopierings aktiviteten) i pipelinen, så att du bara ser en post. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). 
 
     ![Kopierings aktiviteten är i pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
     

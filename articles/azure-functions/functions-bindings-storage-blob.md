@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b2782ce39bbc2ca86c63b178535fc6b67b9dadfe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65775a9c7a6d66a088eccdfdb22ce7d6b01829d2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231045"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925410"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob Storage-bindningar för Azure Functions
 
@@ -27,15 +27,15 @@ Den här artikeln förklarar hur du arbetar med Azure Blob Storage-bindningar i 
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Blob Storage-bindningarna finns i [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2. x. Käll koden för paketet finns i [Azure-WebJobs-SDK GitHub-](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) lagringsplatsen.
+Blob Storage-bindningarna finns i [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
-Blob Storage-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK GitHub-](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) lagringsplatsen.
+Blob Storage-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-paketet, version 3. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -89,7 +89,7 @@ Mer information om attributet `BlobTrigger` finns i [trigger-attributes](#trigge
 
 I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och kod som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [containern](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i den *function.json* fil:
 
 ```json
 {
@@ -136,7 +136,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 
 I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` containern.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -170,7 +170,7 @@ module.exports = function(context) {
 
 I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och [python-kod](functions-reference-python.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [containern](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -207,7 +207,7 @@ def main(myblob: func.InputStream):
 
 I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och [Java-kod](functions-reference-java.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `myblob` containern.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -294,10 +294,10 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande
 
 Lagrings kontot som ska användas fastställs i följande ordning:
 
-* `BlobTrigger` attributets `Connection` egenskap.
-* Attributet `StorageAccount` som används för samma parameter som attributet `BlobTrigger`.
-* Det `StorageAccount` attribut som används för funktionen.
-* Det `StorageAccount` attribut som används för klassen.
+* Den `BlobTrigger` attributets `Connection` egenskapen.
+* Den `StorageAccount` attribut som används i samma parameter som den `BlobTrigger` attribut.
+* Den `StorageAccount` attribut som används i funktionen.
+* Den `StorageAccount` attribut som tillämpas på klassen.
 * Standard lagrings kontot för app-inställningen ("AzureWebJobsStorage").
 
 # <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
@@ -320,15 +320,15 @@ Attribut stöds inte av python.
 
 ## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `BlobTrigger`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `BlobTrigger` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i [användnings](#trigger---usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden. |
+|**typ** | Ej tillämpligt | Måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | Ej tillämpligt | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i [användnings](#trigger---usage) avsnittet. |
+|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar blobben i funktions koden. |
 |**path** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) som ska övervakas.  Kan vara ett [BLOB Name-mönster](#trigger---blob-name-patterns). |
-|**anslutningen** | **Anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara för ett allmänt lagrings konto, inte ett [Blob Storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**anslutning** | **Anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara för ett allmänt lagrings konto, inte ett [Blob Storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -529,7 +529,7 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
 Här är C#-skriptkoden:
 
@@ -578,7 +578,7 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
 Här är JavaScript-kod:
 
@@ -628,7 +628,7 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
 Här är python-koden:
 
@@ -733,7 +733,7 @@ public static void Run(
 }
 ```
 
-Du kan använda attributet `StorageAccount` för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i avsnittet om [Utlösar-attribut](#trigger---attributes).
+Du kan använda attributet `StorageAccount` för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i [utlösare - attribut](#trigger---attributes).
 
 # <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
 
@@ -755,16 +755,16 @@ Attributet `@BlobInput` ger dig åtkomst till den blob som utlöste funktionen. 
 
 ## <a name="input---configuration"></a>Indata - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Blob`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Blob` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till `blob`. |
-|**riktning** | Saknas | Måste anges till `in`. Undantag anges i [användnings](#input---usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden.|
+|**typ** | Ej tillämpligt | Måste anges till `blob`. |
+|**riktning** | Ej tillämpligt | Måste anges till `in`. Undantag anges i [användnings](#input---usage) avsnittet. |
+|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar blobben i funktions koden.|
 |**path** |**BlobPath** | Sökvägen till blobben. |
-|**anslutningen** |**Anslutning**| Namnet på en app-inställning som innehåller den [lagrings anslutnings sträng](../storage/common/storage-configure-connection-string.md) som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara avsedd för ett allmänt lagrings konto, inte ett [enbart BLOB-lagrings konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|Saknas | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
+|**anslutning** |**Anslutning**| Namnet på en app-inställning som innehåller den [lagrings anslutnings sträng](../storage/common/storage-configure-connection-string.md) som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara avsedd för ett allmänt lagrings konto, inte ett [enbart BLOB-lagrings konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|Ej tillämpligt | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -885,7 +885,7 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#output---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
 Här är C#-skriptkoden:
 
@@ -934,7 +934,7 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#output---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
 Här är JavaScript-kod:
 
@@ -984,7 +984,7 @@ I *Function. JSON* -filen används `queueTrigger` metadata-egenskapen för att a
 }
 ```
 
-I [konfigurations](#output---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
 Här är python-koden:
 
@@ -1118,20 +1118,20 @@ Attributet `@BlobOutput` ger dig åtkomst till den blob som utlöste funktionen.
 
 Ett fullständigt exempel finns i [output-exemplet](#output---example).
 
-Du kan använda attributet `StorageAccount` för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i avsnittet om [Utlösar-attribut](#trigger---attributes).
+Du kan använda attributet `StorageAccount` för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i [utlösare - attribut](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Blob`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Blob` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till `blob`. |
-|**riktning** | Saknas | Måste anges till `out` för en utgående bindning. Undantag anges i [användnings](#output---usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden.  Ange till `$return` för att referera till funktionens retur värde.|
+|**typ** | Ej tillämpligt | Måste anges till `blob`. |
+|**riktning** | Ej tillämpligt | Måste anges till `out` för en utgående bindning. Undantag anges i [användnings](#output---usage) avsnittet. |
+|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar blobben i funktions koden.  Ange till `$return` för att referera till funktionens retur värde.|
 |**path** |**BlobPath** | Sökvägen till BLOB-behållaren. |
-|**anslutningen** |**Anslutning**| Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara avsedd för ett allmänt lagrings konto, inte ett [enbart BLOB-lagrings konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|Saknas | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
+|**anslutning** |**Anslutning**| Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.<br><br>Anslutnings strängen måste vara avsedd för ett allmänt lagrings konto, inte ett [enbart BLOB-lagrings konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|Ej tillämpligt | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1174,7 +1174,7 @@ Attributet `@BlobOutput` ger dig åtkomst till den blob som utlöste funktionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+* [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]

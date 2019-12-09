@@ -2,29 +2,29 @@
 title: ORC-format i Azure Data Factory
 description: I det här avsnittet beskrivs hur du hanterar ORC-format i Azure Data Factory.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: a5125b53d960ddead063435666de5b26ce0bc291
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f83e9bbcdfffdd9b19786012295ff5643116551
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674767"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927375"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>ORC-format i Azure Data Factory
 
 Följ den här artikeln när du vill **parsa Orc-filerna eller skriva data i Orc-format**. 
 
-ORC-formatet stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
+ORC-formatet stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure-File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av ORC-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ORC-datauppsättningen.
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
@@ -62,7 +62,7 @@ Observera följande punkter:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av ORC-källan och Sink.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ORC-källan och Sink.
 
 ### <a name="orc-as-source"></a>ORC som källa
 
@@ -93,7 +93,7 @@ För kopiering som körs på egen värd-IR med ORC-filserialisering/deserialiser
 - **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera JVM. dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och ange system miljö variabeln JAVA_HOME.
 
 > [!TIP]
-> Om du kopierar data till/från ORC-format med hjälp av självbetjäning Integration Runtime och träffa fel som säger "ett fel uppstod vid anrop till Java, meddelande: **Java. lang. OutOfMemoryError: Java heap-utrymme**" kan du lägga till en miljö variabel `_JAVA_OPTIONS` på datorn som är värd för den egen värdbaserade IR-filen för att justera den minsta/högsta heap-storleken för JVM för att ge den kopian och sedan köra pipelinen igen.
+> Om du kopierar data till/från ORC-format med hjälp av självbetjäning Integration Runtime och träffa fel som säger "ett fel uppstod när du anropar Java, meddelande: **Java. lang. OutOfMemoryError: Java-heap-utrymme**", kan du lägga till en miljö variabel `_JAVA_OPTIONS` på datorn som är värd för den egna IR-enheten för att justera den minsta/högsta heap-storleken för JVM för att ge
 
 ![Ange JVM heap-storlek för IR med egen värd](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -101,6 +101,6 @@ Exempel: ange variabel `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g`. Flaggan `X
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)

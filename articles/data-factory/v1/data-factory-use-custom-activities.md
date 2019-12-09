@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 robots: noindex
-ms.openlocfilehash: 8826dd51766ee0d1059ab73046e7e078f27a8e03
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 32ab81d618cb0a6ee40814b644ad934008ee7719
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703326"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927961"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -71,7 +70,7 @@ För självstudien skapar du ett Azure Batch-konto med en pool med virtuella dat
    5. Klicka på **OK** för att skapa poolen.
    6. Anteckna **ID** för poolen.
 
-### <a name="high-level-steps"></a>Steg på hög nivå
+### <a name="high-level-steps"></a>Övergripande steg
 Här följer två viktiga steg som du utför som en del av den här genom gången:
 
 1. Skapa en anpassad aktivitet som innehåller enkel data omvandling/bearbetnings logik.
@@ -413,7 +412,7 @@ Här är de steg du utför i det här avsnittet:
 4. Skapa en **pipeline** som använder den anpassade aktiviteten.
 
 > [!NOTE]
-> Skapa **filen. txt** och ladda upp den till en BLOB-behållare om du inte redan har gjort det. Se anvisningarna i föregående avsnitt.
+> Skapa den **fil.txt** och överföra den till en blob-behållare, om du inte redan gjort det. Se anvisningarna i föregående avsnitt.
 
 ### <a name="step-1-create-the-data-factory"></a>Steg 1: skapa data fabriken
 1. När du har loggat in på Azure Portal utför du följande steg:
@@ -550,11 +549,11 @@ I det här steget skapar du data uppsättningar som representerar indata och utd
 
    | Sektor | Starttid | Utdatafil |
    |:--- |:--- |:--- |
-   | 1 |2016-11-16T00:00:00 |2016-11-16 -00. txt |
-   | 2 |2016-11-16T01:00:00 |2016-11-16 01. txt |
-   | 3 |2016-11-16T02:00:00 |2016-11-16 -02. txt |
-   | 4 |2016-11-16T03:00:00 |2016-11-16 -03. txt |
-   | 5 |2016-11-16T04:00:00 |2016-11-16 -04. txt |
+   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
+   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
+   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
+   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
     Kom ihåg att alla filer i en mapp är en del av en sektor med de start tider som anges ovan. När den här sektorn bearbetas genomsöker den anpassade aktiviteten igenom varje fil och skapar en rad i utdatafilen med antalet förekomster av Sök termen ("Microsoft"). Om det finns tre filer i indata-mappen finns det tre rader i utdatafilen för varje timme-sektor: 2016-11-16 -00. txt, 2016-11-16:01:00:00. txt osv.
 3. Klicka på **distribuera** i kommando fältet för att distribuera **OutputDataset**.

@@ -3,12 +3,12 @@ title: Ta bort taggar och manifest
 description: Använd ett rensnings kommando om du vill ta bort flera taggar och manifest från ett Azure Container Registry baserat på ålder och ett tag filter och eventuellt schemalägga rensnings åtgärder.
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 65169927f7a1cffa88a2d909217e636417f695cc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456478"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923115"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Rensa avbildningar automatiskt från ett Azure Container Registry
 
@@ -33,11 +33,10 @@ Kommandot `acr purge` container tar bort bilder efter tagg i en lagrings plats s
 > [!NOTE]
 > `acr purge` tar inte bort en bildtagg eller lagrings plats där attributet `write-enabled` är inställt på `false`. Mer information finns i [låsa en behållar avbildning i ett Azure Container Registry](container-registry-image-lock.md).
 
-`acr purge` är utformad för att köras som ett container-kommando i en [ACR-uppgift](container-registry-tasks-overview.md), så att den autentiseras automatiskt med det register där aktiviteten körs. 
+`acr purge` är utformad för att köras som ett container-kommando i en [ACR-uppgift](container-registry-tasks-overview.md), så att den autentiseras automatiskt med registret där aktiviteten körs och utför åtgärder där. I exemplen i den här artikeln används kommando [Ali aset](container-registry-tasks-reference-yaml.md#aliases) `acr purge` kommando i stället för ett fullständigt kvalificerat behållar avbildnings kommando.
 
 Ange minst följande när du kör `acr purge`:
 
-* `--registry` – Azure Container Registry där du kör kommandot. 
 * `--filter` – en lagrings plats och ett *reguljärt uttryck* för att filtrera Taggar i lagrings platsen. Exempel: `--filter "hello-world:.*"` matchar alla Taggar i `hello-world`-lagringsplatsen och `--filter "hello-world:^1.*"` matchar taggar som börjar med `1`. Skicka flera `--filter` parametrar för att rensa flera databaser.
 * `--ago` – en [varaktighets sträng](https://golang.org/pkg/time/) i go-format för att ange en varaktighet utöver vilken avbildningar tas bort. Varaktigheten består av en sekvens med ett eller flera decimal tal, var och en med ett enhets suffix. Giltiga tidsenheter är "d" för dagar, "h" för timmar och "m" för minuter. `--ago 2d3h6m` väljer till exempel alla filtrerade bilder senast ändrad över 2 dagar, 3 timmar och 6 minuter sedan och `--ago 1.5h` väljer bilder som senast ändrades för 1,5 timmar sedan.
 
@@ -54,12 +53,10 @@ Kör `acr purge --help`för ytterligare parametrar.
 
 I följande exempel används kommandot [AZ ACR Run][az-acr-run] för att köra kommandot `acr purge` på begäran. Det här exemplet tar bort alla bildtaggar och manifest i `hello-world`-lagringsplatsen i *registret* som ändrades för mer än 1 dag sedan. Container kommandot skickas med en miljö variabel. Aktiviteten körs utan någon käll kontext.
 
-I det här och följande exempel anges registret där `acr purge` kommandot körs med hjälp av `$Registry` alias, som anger det register som kör uppgiften.
-
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --untagged --ago 1d"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --untagged --ago 1d"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -73,8 +70,8 @@ I följande exempel används kommandot [AZ ACR Task Create][az-acr-task-create] 
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 7d"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --ago 7d"
 
 az acr task create --name purgeTask \
   --cmd "$PURGE_CMD" \
@@ -93,8 +90,8 @@ Följande på begäran-aktivitet anger till exempel en tids gräns på 3600 seku
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 1d --untagged"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --ago 1d --untagged"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -115,13 +112,12 @@ I följande exempel väljer filtret i varje databas alla Taggar. Parametern `--a
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} \
+PURGE_CMD="acr purge \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged --dry-run"
 
 az acr run \
-  --cmd  "$PURGE_CMD" \
+  --cmd "$PURGE_CMD" \
   --registry myregistry \
   /dev/null
 ```
@@ -156,8 +152,7 @@ När du har verifierat den torra körningen skapar du en schemalagd aktivitet so
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} \
+PURGE_CMD="acr purge \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged"
 

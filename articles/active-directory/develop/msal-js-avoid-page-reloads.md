@@ -1,29 +1,25 @@
 ---
-title: Undvik att hämta sidor (Microsoft Authentication Library för Java Script)
+title: Undvik sid omladdningar (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du undviker hämtning av sidor vid hämtning och förnyelse av tokens i bakgrunden med Microsoft Authentication Library för Java Script (MSAL. js).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29edafdc27a3835653f82ec36d576a4871e66155
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 04d1ef1f76b1b1a807f48f7c79e41ada68b561fc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803099"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916443"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Undvik hämtning av sidor vid hämtning och förnyelse av tokens tyst med MSAL. js
 Microsoft Authentication Library för Java Script (MSAL. js) använder dolda `iframe`-element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i Tokenbegäran (som standard är appens rot sida). Eftersom svaret är en 302 resulterar det i HTML-koden som motsvarar `redirect_uri` som läses in i `iframe`. Vanligt vis är appens `redirect_uri` rot sidan och detta gör att den kan läsas in på nytt.

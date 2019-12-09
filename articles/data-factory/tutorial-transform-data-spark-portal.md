@@ -5,23 +5,22 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: b0df6264eb38cbbacd5f624b634eea5f742adbc7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 34c2a27d047888d1e763a0a99461e7eb4b9fb203
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683320"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925099"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure-portalen till att skapa Azure Data Factory-pipeline. Pipelinen transformerar data med en Spark-aktivitet och en länkad Azure HDInsight-tjänst på begäran. 
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 
@@ -31,7 +30,7 @@ I de här självstudierna går du igenom följande steg:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -83,7 +82,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Välj **Nytt** på den vänstra menyn, välj **Data och analys** och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
@@ -110,7 +109,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. När datafabriken har skapats visas sidan **Datafabrik**. Välj ikonen **Författare och övervakare** för att starta programmet Data Factory UI på en separat flik.
 
-    ![Startsidan för datafabriken med panelen Författare och övervakare](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
+    ![Startsidan för datafabriken med panelen ”Författare och övervakare”](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 Du skapar två länkade tjänster i det här avsnittet: 
@@ -205,7 +204,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    ![knappen Publicera alla](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**. 
 
 ![knapparna Utlös och Utlös nu](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
@@ -216,7 +215,7 @@ Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**.
    
 1. Klicka på **Uppdatera** då och då så att du ser pipelinekörningens status. 
 
-   ![Flik för att övervaka pipelinekörningar med knapp för att uppdatera](./media/tutorial-transform-data-spark-portal/monitor-tab.png)
+   ![Flik för att övervaka pipelinekörningar med knappen ”Uppdatera”](./media/tutorial-transform-data-spark-portal/monitor-tab.png)
 
 1. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningarna väljer på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Åtgärd**.
 
@@ -231,7 +230,7 @@ Verifiera att utdatafilen har skapats i mappen spark/otuputfiles/wordcount för 
 
 ![Plats för utdatafilen](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Till exempel: 
+Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Exempel: 
 
 ```
 (u'This', 1)

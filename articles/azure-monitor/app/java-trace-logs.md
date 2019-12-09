@@ -1,5 +1,5 @@
 ---
-title: Utforska Java trace-loggar i Azure Application Insights | Microsoft Docs
+title: Utforska Java trace-loggar i Azure Application Insights
 description: Sök Log4J-eller logback-spårningar i Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f552ccdbc67df93913c698e5d763dbb62b48a4ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784603"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927231"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java trace-loggar i Application Insights
 Om du använder logback eller Log4J (v 1.2 eller v 2.0) för spårning kan du låta spårnings loggarna skickas automatiskt till Application Insights där du kan utforska och söka efter dem.
@@ -132,9 +132,9 @@ Följ rikt linjerna för att installera Application Insights Java SDK manuellt, 
 
 | Loggar | Ladda ned | Bibliotek |
 | --- | --- | --- |
-| Logback |[Logback tilläggsprogram-jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-Logging-logback |
-| Log4J v 2.0 |[Log4J v2-tilläggsprogram](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-Logging-log4j2 |
-| Log4j v 1.2 |[Log4J v 1.2 tillfogar jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-Logging-log4j1_2 |
+| Logback |[Logback tilläggsprogram-jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v 2.0 |[Log4J v2-tilläggsprogram](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v 1.2 |[Log4J v 1.2 tillfogar jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
 ### <a name="add-the-appender-to-your-logging-framework"></a>Lägg till tillägget i loggnings ramverket

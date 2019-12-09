@@ -1,18 +1,19 @@
 ---
-title: Schema avvikelse i mappnings data flödet | Azure Data Factory
+title: Schema avvikelse i mappnings data flödet
 description: Bygg elastiska data flöden i Azure Data Factory med schema avvikelse
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/12/2019
-ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9daf7973a2e48f866a8d0b93a682851d31dc3af7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553693"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928542"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schema avvikelse i mappnings data flödet
 
@@ -52,7 +53,7 @@ Om schema avvikelse är aktiverat kontrollerar du att skjutreglaget för **autom
 
 När ditt data flöde har förfallna kolumner, kan du komma åt dem i dina omvandlingar med följande metoder:
 
-* Använd `byPosition`-och `byName`-uttryck för att explicit referera till en kolumn efter namn eller positions nummer.
+* Använd `byPosition` och `byName` uttryck för att explicit referera till en kolumn efter namn eller positions nummer.
 * Lägg till ett kolumn mönster i en härledd kolumn eller aggregerad omvandling så att den matchar valfri kombination av namn, ström, position eller typ
 * Lägg till regelbaserade mappningar i en urvals-eller Sink-omvandling för att matcha nedsänkta kolumner till kolumnalias i kolumner via ett mönster
 

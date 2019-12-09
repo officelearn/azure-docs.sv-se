@@ -1,27 +1,26 @@
 ---
 title: Kopiera data från JIRA med hjälp av Azure Data Factory
-description: Lär dig hur du kopierar data från JIRA till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
+description: Lär dig hur du kopierar data från Jira till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 277af8c0683897737fd5194aba68cd7be79d7dd7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 04509ac2ca229ee6175ca7be827eabb0caf0bc70
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680740"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929243"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Kopiera data från JIRA med hjälp av Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Jira. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Jira. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -30,30 +29,30 @@ Den här JIRA-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från JIRA till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från Jira till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för JIRA-anslutaren.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Jira-anslutningen.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för den länkade tjänsten JIRA:
+Följande egenskaper har stöd för Jira länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **JIRA** | Ja |
-| värd | IP-adressen eller värd namnet för JIRA-tjänsten. (till exempel jira.example.com)  | Ja |
-| port | TCP-porten som JIRA-servern använder för att lyssna efter klient anslutningar. Standardvärdet är 443 om du ansluter via HTTPS eller 8080 om du ansluter via HTTP.  | Nej |
-| användarnamn | Det användar namn som du använder för att komma åt JIRA-tjänsten.  | Ja |
-| lösenord | Lösen ordet som motsvarar det användar namn som du angav i fältet användar namn. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är true.  | Nej |
-| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via SSL. Standardvärdet är true.  | Nej |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via SSL. Standardvärdet är true.  | Nej |
+| typ | Type-egenskapen måste anges till: **Jira** | Ja |
+| värd | IP-adressen eller värdnamnet namnet på Jira-tjänsten. (till exempel jira.example.com)  | Ja |
+| port | TCP-porten som Jira-servern använder för att lyssna efter klientanslutningar. Standardvärdet är 443 om ansluter via HTTPS eller 8080 om ansluter via HTTP.  | Nej |
+| användarnamn | Användarnamnet som används för att komma åt Jira Service.  | Ja |
+| lösenord | Lösenordet för det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
+| useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
+| usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 
 **Exempel:**
 
@@ -75,16 +74,16 @@ Följande egenskaper stöds för den länkade tjänsten JIRA:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av JIRA DataSet.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Jira-datauppsättningen.
 
-Om du vill kopiera data från JIRA anger du egenskapen type för data uppsättningen till **JiraObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Jira, ange typegenskapen på datauppsättningen till **JiraObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **JiraObject** | Ja |
-| tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **JiraObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -105,16 +104,16 @@ Om du vill kopiera data från JIRA anger du egenskapen type för data uppsättni
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av JIRA-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Jira källa.
 
 ### <a name="jirasource-as-source"></a>JiraSource som källa
 
-Om du vill kopiera data från JIRA anger du käll typen i kopierings aktiviteten till **JiraSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Jira, ange typ av datakälla i kopieringsaktiviteten till **JiraSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **JiraSource** | Ja |
-| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **JiraSource** | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -153,4 +152,4 @@ Om du vill kopiera data från JIRA anger du käll typen i kopierings aktiviteten
 Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

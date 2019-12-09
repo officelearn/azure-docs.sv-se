@@ -1,22 +1,21 @@
 ---
-title: 'PowerShell-skript: Läs in data stegvis med hjälp av Azure Data Factory '
+title: Läs in data stegvis med PowerShell
 description: Det här PowerShell-skriptet visar hur du använder Azure Data Factory för att kopiera data stegvis från en Azure SQL Database till en Azure-Blob Storage..
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
-editor: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
+ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.author: jingwang
-ms.openlocfilehash: ef7b00172f0371e09d6462ed357744166b5fb08a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9f1a18155a0be4bc19e723ca04cf6770166a25af
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684327"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913376"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell-skript – Läs in data stegvis med hjälp av Azure Data Factory
 Det här exemplet på PowerShell-skriptet läser bara in nya eller uppdaterade poster från ett käll data lager till ett data lager för mottagare efter den första fullständiga kopian av data från källan till mottagaren.  

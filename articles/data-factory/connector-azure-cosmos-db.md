@@ -1,23 +1,22 @@
 ---
-title: Kopiera och transformera data i Azure Cosmos DB (SQL API) med Data Factory
+title: Kopiera och transformera data i Azure Cosmos DB (SQL API)
 description: Lär dig hur du kopierar data till och från Azure Cosmos DB (SQL API) och hur du omvandlar data i Azure Cosmos DB (SQL API) med hjälp av Data Factory.
 services: data-factory, cosmosdb
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/13/2019
-ms.author: jingwang
-ms.openlocfilehash: 5e9db7c63e1493e1de5593262515040f071186e8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bf24c12e8f1e5b7ee5c529ebffa6c15dd8acbcfc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076802"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913406"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Cosmos DB (SQL API) med Azure Data Factory
 
@@ -49,7 +48,7 @@ Data Factory kan integreras med den [Azure Cosmos DB bulk executor biblioteket](
 > [!TIP]
 > Den [datamigrering video](https://youtu.be/5-SRNiC_qOU) vägleder dig genom stegen för att kopiera data från Azure Blob storage till Azure Cosmos DB. Videon beskriver också prestandajustering överväganden för att föra in data till Azure Cosmos DB i allmänhet.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

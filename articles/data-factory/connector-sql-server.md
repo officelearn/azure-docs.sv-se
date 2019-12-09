@@ -1,25 +1,26 @@
 ---
-title: Kopiera data till och från SQL Server med Azure Data Factory
+title: Kopiera data till och från SQL Server
 description: Lär dig mer om hur du flyttar data till och från SQL Server databas som finns lokalt eller i en virtuell Azure-dator med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 24a9450b63ba4ed68c9c68e5054e6b02ecf7e0d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8fa4f3b7dfbebb65b1ae60791027eb5fd31a24fb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075579"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931041"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
+
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Aktuell version](connector-sql-server.md)
@@ -52,7 +53,7 @@ Mer specifikt stöder den här SQL Server-anslutningen:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,7 +67,7 @@ Följande egenskaper stöds för den länkade tjänsten SQL Server:
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **SQLServer**. | Ja |
 | connectionString |Ange **ConnectionString** -information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Se följande exempel.<br/>Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory. Du kan också ange ett lösen ord i Azure Key Vault. Om det är SQL-autentisering, hämtar du `password`-konfigurationen från anslutnings strängen. Mer information finns i JSON-exemplet som följer tabellen och [lagrar autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| Användarnamn |Ange ett användar namn om du använder Windows-autentisering. Ett exempel är **domainname\\username**. |Nej |
+| userName |Ange ett användar namn om du använder Windows-autentisering. Ett exempel är **domainname\\username**. |Nej |
 | lösenord |Ange ett lösen ord för det användar konto som du har angett som användar namn. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory. Eller så kan du [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
 | connectVia | [Integrerings körningen](concepts-integration-runtime.md) används för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure integration Runtime. |Nej |
 
@@ -505,24 +506,24 @@ När du kopierar data från och till SQL Server, används följande mappningar f
 | bit |Boolesk |
 | char |String, Char[] |
 | datum |DateTime |
-| Datum/tid |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
-| decimaltal |decimaltal |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| image |Byte[] |
+| Flyttal |Double |
+| mallar |Byte[] |
 | int |Int32 |
-| money |decimaltal |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |decimaltal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Enkel |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaltal |
+| smallmoney |Decimal |
 | sql_variant |Objekt |
 | text |String, Char[] |
 | time |TimeSpan |
@@ -548,7 +549,7 @@ Om du vill veta mer om egenskaperna kontrollerar du [getMetaData-aktivitet](cont
 
 1. Konfigurera SQL Server-instansen så att den accepterar fjärr anslutningar. Starta **SQL Server Management Studio**, högerklicka på **Server**och välj **Egenskaper**. Välj **anslutningar** i listan och markera kryss rutan **Tillåt fjärr anslutningar till den här servern** .
 
-    ![Aktivera fjärr anslutningar](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
+    ![Aktivera fjärranslutningar](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
     Detaljerade anvisningar finns i [Konfigurera konfigurations alternativet för fjärråtkomstservern](https://msdn.microsoft.com/library/ms191464.aspx).
 

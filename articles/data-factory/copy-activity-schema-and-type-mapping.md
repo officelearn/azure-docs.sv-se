@@ -4,26 +4,25 @@ description: Lär dig mer om hur kopierings aktivitet i Azure Data Factory mappa
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: ed0823930b819661baf384d51478547cb2e0eccf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2c637346aae72a238963607f6f5d23910684265c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678147"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921999"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktivitet
 
 I den här artikeln beskrivs hur Azure Data Factory kopierings aktivitet använder schema mappning och data typs mappning från källdata för att visa data när data kopian körs.
 
-## <a name="schema-mapping"></a>Schema mappning
+## <a name="schema-mapping"></a>Schemamappning
 
 Kolumn mappning gäller när du kopierar data från källa till mottagare. Som standard **konverteras aktivitets data till Sink efter kolumn namn**. Du kan ange [explicit mappning](#explicit-mapping) för att anpassa kolumn mappningen utifrån dina behov. Mer specifikt, kopierings aktivitet:
 
@@ -92,10 +91,10 @@ Följande egenskaper stöds under `translator` -> `mappings`->-objekt med `sourc
 | -------- | ------------------------------------------------------------ | -------- |
 | namn     | Namnet på källan eller kolumnen Sink.                           | Ja      |
 | numret  | Kolumn index. Börja med 1. <br>Använd och krävs när du använder avgränsad text utan rubrik rad. | Nej       |
-| sökväg     | Uttryck för JSON-sökvägar för varje fält som ska extraheras eller mappas. Ansök om hierarkiska data, t. ex. MongoDB/REST.<br>För fält under rotobjektet börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet. | Nej       |
+| Sökväg     | Uttryck för JSON-sökvägar för varje fält som ska extraheras eller mappas. Ansök om hierarkiska data, t. ex. MongoDB/REST.<br>För fält under rotobjektet börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet. | Nej       |
 | typ     | Data Factory data typen datatyp för kolumnen källa eller mottagare. | Nej       |
-| substrat  | Kultur för kolumnen källa eller mottagare. <br>Använd när typen är `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej       |
-| formatering   | Format strängen som ska användas när typen är `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Nej       |
+| culture  | Kultur för kolumnen källa eller mottagare. <br>Använd när typen är `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej       |
+| format   | Format strängen som ska användas när typen är `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Nej       |
 
 Följande egenskaper stöds under `translator` -> `mappings` utöver objekt med `source` och `sink`:
 
@@ -204,7 +203,7 @@ Du kan ange kopierings aktivitet – > `translator` -> `schemaMapping` för att 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets översättaren måste anges till: **TabularTranslator** | Ja |
-| schemaMapping | En samling nyckel/värde-par som representerar mappnings relationen **från käll sidan till mottagar sidan**.<br/>- **nyckel:** representerar källa. För **tabell källa**anger du kolumn namnet som definierats i data uppsättnings strukturen. för **hierarkisk källa**anger du JSON-sökvägar för varje fält som ska extraheras och mappas.<br>- **värde:** representerar mottagare. För **tabell mottagare**anger du kolumn namnet enligt definitionen i data uppsättnings strukturen. för **hierarkisk mottagare**anger du JSON-sökvägar för varje fält som ska extraheras och mappas. <br>Om det finns hierarkiska data för fält under rot objekt börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet.  | Ja |
+| schemaMapping | En samling nyckel/värde-par som representerar mappnings relationen **från käll sidan till mottagar sidan**.<br/>- **Key:** representerar källan. För **tabell källa**anger du kolumn namnet som definierats i data uppsättnings strukturen. för **hierarkisk källa**anger du JSON-sökvägar för varje fält som ska extraheras och mappas.<br>- **Value:** representerar mottagare. För **tabell mottagare**anger du kolumn namnet enligt definitionen i data uppsättnings strukturen. för **hierarkisk mottagare**anger du JSON-sökvägar för varje fält som ska extraheras och mappas. <br>Om det finns hierarkiska data för fält under rot objekt börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet.  | Ja |
 | collectionReference | Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. Den här egenskapen stöds endast när hierarkiska data är källa. | Nej |
 
 **Exempel: kopiera från MongoDB till Oracle:**
@@ -272,7 +271,7 @@ Konfigurera schema mappnings regeln som följande JSON-exempel för kopierings a
 }
 ```
 
-## <a name="data-type-mapping"></a>Data typs mappning
+## <a name="data-type-mapping"></a>Datatypmappning
 
 Kopierings aktiviteten utför käll typer för att avbilda typ mappningar med följande 2-steg-metod:
 
@@ -285,12 +284,12 @@ Du hittar mappningen mellan typ och typ i avsnittet "data typs mappning" i varje
 
 Data Factory stöder följande Interimistiska data typer: du kan ange värden nedan när du konfigurerar typ information i [data uppsättnings struktur](concepts-datasets-linked-services.md#dataset-structure-or-schema) konfiguration:
 
-* Byte []
+* Byte[]
 * Boolesk
 * Datetime
 * DateTimeOffset
 * Decimal
-* Dubbelklicka
+* Double
 * GUID
 * Int16
 * Int32
@@ -300,6 +299,6 @@ Data Factory stöder följande Interimistiska data typer: du kan ange värden ne
 * Tidsintervall
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra artiklar om kopierings aktiviteter:
+Se de andra artiklarna i Kopieringsaktiviteten:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över Kopieringsaktivitet](copy-activity-overview.md)

@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/15/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: d36900a1ce05eaf022637a6ef6b866fe0d190b17
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 77019d6a99e41bb5fb9233aa95836bd4bc8dd877
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672740"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926876"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 När du använder SQL Server Integration Services (SSIS) i Azure Data Factory bör du ansluta Azure-SSIS integration Runtime (IR) till ett virtuellt Azure-nätverk i följande scenarier: 
@@ -47,7 +46,7 @@ Kom ihåg följande viktiga punkter när du ansluter till din Azure-SSIS IR till
 - Om ett Azure Resource Manager virtuella nätverk redan är anslutet till ditt lokala nätverk på en annan plats än Azure-SSIS IR kan du först skapa ett [Azure Resource Manager virtuellt nätverk](../virtual-network/quick-create-portal.md##create-a-virtual-network) för din Azure-SSIS IR att ansluta till. Konfigurera sedan en virtuell nätverks anslutning Azure Resource Manager-till-Azure Resource Manager. 
 
 ## <a name="access-to-azure-services"></a>Åtkomst till Azure-tjänster
-Om dina SSIS-paket har åtkomst till Azure-tjänsteresurser som stöds med [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md) och du vill skydda resurserna till Azure-SSIS IR, kan du ansluta din Azure-SSIS IR till det virtuella nätverkets undernät som kon figurer ATS med Virtual Network tjänst slut punkter. Under tiden lägger du till en virtuell nätverks regel till Azure-tjänstens resurser för att tillåta åtkomst från samma undernät.
+Om SSIS-paketen har åtkomst till Azure-tjänstens [slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) och du vill skydda resurserna till Azure-SSIS IR kan du ansluta till Azure-SSIS IR till det virtuella nätverkets undernät som kon figurer ATS med tjänst slut punkter för virtuella nätverk. Under tiden lägger du till en virtuell nätverks regel till Azure-tjänstens resurser för att tillåta åtkomst från samma undernät.
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>Vara värd för SSIS-katalogen i SQL Database
 Om du är värd för SSIS-katalogen i Azure SQL Database med tjänst slut punkter för virtuella nätverk, se till att du ansluter Azure-SSIS IR till samma virtuella nätverk och undernät.
@@ -158,7 +157,7 @@ Kontrol lera att du inte har resurs låset på den resurs grupp eller prenumerat
 
 Kontrol lera att du inte har någon Azure-princip som förhindrar att följande resurser skapas under den resurs grupp eller prenumeration som det virtuella nätverket tillhör: 
    -   Microsoft. Network/belastningsutjämnare 
-   -   Microsoft. Network/NetworkSecurityGroups 
+   -   Microsoft.Network/NetworkSecurityGroups 
    -   Microsoft. Network/PublicIPAddresses 
 
 ### <a name="faq"></a>ASSURANCE
@@ -187,7 +186,7 @@ Använd portalen för att konfigurera ett Azure Resource Manager virtuellt nätv
 
 1. Starta Microsoft Edge eller Google Chrome. För närvarande stöder endast dessa webbläsare Data Factory användar gränssnitt. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 1. Välj **fler tjänster**. Filtrera och välj **virtuella nätverk**. 
 
@@ -216,7 +215,7 @@ Använd portalen för att konfigurera ett klassiskt virtuellt nätverk innan du 
 
 1. Starta Microsoft Edge eller Google Chrome. För närvarande stöder endast dessa webbläsare Data Factory användar gränssnitt. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 1. Välj **fler tjänster**. Filtrera och välj **virtuella nätverk (klassisk)** . 
 
@@ -238,7 +237,7 @@ Använd portalen för att konfigurera ett klassiskt virtuellt nätverk innan du 
 
     ![Knapparna "åtkomst kontroll" och "Lägg till"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Välj **Lägg till roll tilldelning**.
+    b. Välj **Lägg till rolltilldelning**.
 
     c. På sidan **Lägg till roll tilldelning** för **roll**väljer du **klassisk virtuell dator deltagare**. I rutan **Välj** klistrar du in **ddbf3205-c6bd-46ae-8127-60eb93363864**och väljer sedan **Microsoft Azure Batch** i listan med Sök resultat. 
 

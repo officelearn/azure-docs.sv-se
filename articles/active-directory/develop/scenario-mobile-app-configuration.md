@@ -1,5 +1,5 @@
 ---
-title: 'Mobilapp som anropar webb-API: er (kod konfiguration) – Microsoft Identity Platform | Azure'
+title: 'Konfigurera mobilappar som anropar webb-API: er – Microsoft Identity Platform | Azure'
 description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (appens kod konfiguration)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d0550dd92b786ec540bae6ae6da7322d4fb629
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175492"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919961"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Mobilapp som anropar webb-API: er – kod konfiguration
 

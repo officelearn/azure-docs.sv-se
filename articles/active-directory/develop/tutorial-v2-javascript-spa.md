@@ -1,6 +1,5 @@
 ---
-title: Guidad installation för Azure AD v 2.0 Java Script (SPA) med enkel sida
-titleSuffix: Microsoft identity platform
+title: Program guide för Microsoft Identity Platform Java Script, enkel sida | Azure
 description: Hur Java Script SPA-program kan anropa ett API som kräver åtkomsttoken från Azure Active Directory v 2.0-slutpunkt
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802524"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919401"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
@@ -67,7 +66,7 @@ I den här guiden används följande bibliotek:
 >
 > Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfigurations steget](#register-your-application).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * För att kunna köra den här självstudien behöver du en lokal webb server, till exempel [Node. js](https://nodejs.org/en/download/), [.net Core](https://www.microsoft.com/net/core)eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -268,7 +267,7 @@ Det SPA-skydd som genereras av den här guiden anropar `acquireTokenSilent` och/
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen vill du inte be användarna att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Så *acquireTokenSilent* bör användas mest av tiden för att hämta tokens. Det finns dock situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Efter den första inloggningen vill du inte be användarna att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Så *acquireTokenSilent* bör användas mest av tiden för att hämta tokens. Det finns dock situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 
 - Användare måste ange sina autentiseringsuppgifter på grund av att lösen ordet har upphört att gälla.
 - Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.
@@ -327,7 +326,7 @@ Lägg till följande kod i `index.html`-filen inom `<script></script>`-taggarna:
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du kontot längst upp till höger och anger sedan din portal-session till den Azure AD-klient som du vill använda.
 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
@@ -379,7 +378,7 @@ Lägg till följande kod i `index.html`-filen inom `<script></script>`-taggarna:
     };
     ```
 
-    Där:
+    Var:
     - *\<Enter_the_Application_Id_here >* är **program-ID: t (Client)** för det program som du har registrerat.
     - *\<Enter_the_Tenant_info_here >* har angetts till något av följande alternativ:
        - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).

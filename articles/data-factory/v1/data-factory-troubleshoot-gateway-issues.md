@@ -3,21 +3,20 @@ title: Felsöka Data Management Gateway problem
 description: Innehåller tips för att felsöka problem som rör Data Management Gateway.
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 34930061189c11c9cea9c2cd0feb2ede9aade74d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b8aee32869202a8cc24a27dec85c93ffd294c6b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682325"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931604"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om fel sökning av problem med att använda Data Management Gateway.
@@ -36,7 +35,7 @@ Du ser det här fel meddelandet när du installerar och registrerar en gateway, 
 #### <a name="cause"></a>Orsak
 Den dator som du försöker installera gatewayen på har inte kunnat hämta den senaste Gateway-installationsmappen från Download Center på grund av ett nätverks problem.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Kontrol lera inställningarna för din brand Väggs proxyserver för att se om inställningarna blockerar nätverks anslutningen från datorn till [Download Center](https://download.microsoft.com/)och uppdatera inställningarna efter behov.
 
 Du kan också hämta installations filen för den senaste gatewayen från [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) på andra datorer som har åtkomst till Download Center. Du kan sedan kopiera installations filen till gateway-värddatorn och köra den manuellt för att installera och uppdatera gatewayen.
@@ -49,7 +48,7 @@ Du ser det här felet när du försöker installera en gateway genom att klicka 
 #### <a name="cause"></a>Orsak
 Det finns redan en gateway installerad på datorn.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Avinstallera den befintliga gatewayen på datorn och klicka på länken **installera direkt på datorn** igen.
 
 ### <a name="3-problem"></a>3. problem
@@ -64,7 +63,7 @@ Du kan se det här meddelandet av någon av följande orsaker:
 * Gateway-nyckeln har ogiltig förklarats.
 * Gateway-nyckeln har återskapats från portalen.  
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Kontrol lera om du använder rätt Gateway-nyckel från portalen. Om det behövs återskapar du en nyckel och använder nyckeln för att registrera gatewayen.
 
 ### <a name="4-problem"></a>4. problem
@@ -79,7 +78,7 @@ Du kan se följande fel meddelande när du registrerar en gateway.
 #### <a name="cause"></a>Orsak
 Innehållet eller formatet på den inmatade Gateway-nyckeln är felaktigt. En av orsakerna kan vara att du bara har kopierat en del av nyckeln från portalen eller att du använder en ogiltig nyckel.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Skapa en gateway-nyckel i portalen och Använd kopierings knappen för att kopiera hela nyckeln. Klistra sedan in den i det här fönstret för att registrera gatewayen.
 
 ### <a name="5-problem"></a>5. problem
@@ -92,7 +91,7 @@ Du kan se följande fel meddelande när du registrerar en gateway.
 #### <a name="cause"></a>Orsak
 Gateway-nyckeln har återskapats eller också har gatewayen tagits bort i Azure Portal. Det kan också inträffa om Data Management Gateway-installationen inte är senaste.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Kontrol lera om Data Management Gateway installationen är den senaste versionen kan du hitta den senaste versionen på Microsoft [Download Center](https://go.microsoft.com/fwlink/p/?LinkId=271260).
 
 Om installationen är aktuell/senaste och gateway fortfarande finns på portalen, återskapar du Gateway-nyckeln i Azure Portal och använder kopierings knappen för att kopiera hela nyckeln och sedan klistra in den i det här fönstret för att registrera gatewayen. Annars kan du återskapa gatewayen och börja om.
@@ -107,7 +106,7 @@ Du kan se följande fel meddelande när du registrerar en gateway.
 #### <a name="cause"></a>Orsak
 Det här felet kan inträffa på grund av att gatewayen har tagits bort eller att den associerade Gateway-nyckeln har återskapats.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Om gatewayen har tagits bort skapar du gatewayen på nytt från portalen, klickar på **Registrera**, kopierar nyckeln från portalen, klistrar in den och försöker registrera gatewayen.
 
 Om gatewayen fortfarande finns men dess nyckel har återskapats använder du den nya nyckeln för att registrera gatewayen. Om du inte har nyckeln kan du återskapa nyckeln igen från portalen.
@@ -124,7 +123,7 @@ Gatewayen har registrerats på andra datorer tidigare. Under den inledande regis
 
 När du återställer gatewayen på en annan värddator, begär registrerings guiden att det här certifikatet ska dekryptera autentiseringsuppgifterna som tidigare har krypterats med det här certifikatet.  Utan det här certifikatet kan autentiseringsuppgifterna inte dekrypteras av den nya gatewayen och efterföljande kopierings aktivitets körningar som är associerade med den nya gatewayen kommer att Miss kopie ras.  
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Om du har exporterat certifikatet för autentiseringsuppgifter från den ursprungliga gateway-datorn med hjälp av knappen **Exportera** på fliken **inställningar** i Data Management Gateway Configuration Manager använder du certifikatet här.
 
 Du kan inte hoppa över det här steget när du återställer en gateway. Om certifikatet saknas måste du ta bort gatewayen från portalen och återskapa en ny Gateway.  Uppdatera dessutom alla länkade tjänster som är relaterade till gatewayen genom att ange sina autentiseringsuppgifter igen.
@@ -137,7 +136,7 @@ Du kan se följande fel meddelande.
 #### <a name="cause"></a>Orsak
 Det här felet inträffar när din gateway finns i en miljö som kräver en HTTP-proxy för att få åtkomst till Internet resurser, eller om proxyns lösen ord för proxyservern ändras, men inte uppdateras i enlighet med din gateway.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Följ anvisningarna i avsnittet om proxy server-överväganden i den här artikeln och konfigurera proxyinställningar med Data Management Gateway Configuration Manager.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Gatewayen är online med begränsade funktioner
@@ -152,7 +151,7 @@ Du ser statusen för gatewayen som online med begränsade funktioner av någon a
 
 Om gatewayen är online med begränsad funktionalitet kanske du inte kan använda Data Factory kopierings guiden för att skapa datapipelines för att kopiera data till eller från lokala data lager. Som en lösning kan du använda Data Factory Editor i portalen, Visual Studio eller Azure PowerShell.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Lösning för det här problemet (online med begränsade funktioner) baseras på om gatewayen inte kan ansluta till moln tjänsten eller det andra sättet. Följande avsnitt innehåller de här lösningarna.
 
 ### <a name="2-problem"></a>2. problem
@@ -165,7 +164,7 @@ Följande fel visas.
 #### <a name="cause"></a>Orsak
 Gatewayen kan inte ansluta till moln tjänsten via Service Bus.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Följ dessa steg om du vill hämta gatewayen online igen:
 
 1. Tillåt utgående regler för IP-adress på gateway-datorn och företags brand väggen. Du kan hitta IP-adresser från Windows-händelseloggen (ID = = 401): ett försök gjordes att få åtkomst till en socket på ett sätt som är förbjudet av åtkomst behörigheterna XX. XX. XX. XX: 9350.
@@ -180,7 +179,7 @@ Följande fel visas.
 #### <a name="cause"></a>Orsak
 Ett tillfälligt fel i nätverks anslutningen.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Följ dessa steg om du vill hämta gatewayen online igen:
 
 1. Vänta ett par minuter så återställs anslutningen automatiskt när felet är borta.
@@ -201,7 +200,7 @@ SSL-certifikatet kan ha gått förlorat på gateway-datorn. Gateway-datorn kan i
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Följ dessa steg för att lösa problemet:
 
 1. Starta Data Management Gateway Configuration Manager.
@@ -222,7 +221,7 @@ Du kan märka följande "UserErrorFailedToConnectToSqlserver"-problem när du ha
 #### <a name="cause"></a>Orsak
 Detta kan inträffa av olika orsaker och minskningen varierar.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 Tillåt utgående TCP-anslutningar via port TCP/1433 på den Data Management Gateway klient sidan innan du ansluter till en SQL-databas.
 
 Om mål databasen är en Azure SQL-databas kontrollerar du även SQL Server brand Väggs inställningar för Azure.

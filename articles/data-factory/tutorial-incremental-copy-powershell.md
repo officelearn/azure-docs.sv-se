@@ -1,27 +1,28 @@
 ---
-title: 'Kopiera en tabell stegvis med Azure Data Factory '
+title: Kopiera en tabell stegvis med PowerShell
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.author: yexu
-ms.openlocfilehash: bb1ddbddfb2e06f394ac2f57b10e18893879b51b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d6b41f06f9e5d64532b5684e6bc40d017a8c4434
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683344"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925210"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av PowerShell
+
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -56,7 +57,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -724,7 +725,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudien har du fått: 
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln. 

@@ -1,5 +1,6 @@
 ---
-title: 'Skriv bords app som anropar webb-API: er (hämtar en token för appen) – Microsoft Identity Platform'
+title: 'Hämta token för skrivbordsappar som anropar webb-API: er | Azure'
+titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (hämtar en token för appen |)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce79a2dcbb0d79d84019c350eb4693160c8f7d50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175461"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920234"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Skriv bords app som anropar webb-API: er – hämta en token
 
@@ -260,7 +261,7 @@ Värden för `end Url` är alltid `redirectUri`. För att avlyssna `end Url` kan
 
 För att kunna använda `.WithCustomWebUI`måste du:
 
-  1. Implementera `ICustomWebUi`-gränssnittet (se [här](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). Du behöver huvudsakligen implementera en metod `AcquireAuthorizationCodeAsync` att acceptera URL: en för auktoriseringskod (beräknad av MSAL.NET), vilket gör att användaren kan gå igenom interaktionen med identitets leverantören och sedan återställa den URL som identitets leverantören skulle ha kallas för din implementering (inklusive auktoriseringskod). Om du har problem bör din implementering resultera i ett `MsalExtensionException` undantag för att samar beta med MSAL.
+  1. Implementera `ICustomWebUi`-gränssnittet (se [här](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). Du behöver huvudsakligen implementera en metod `AcquireAuthorizationCodeAsync` att acceptera URL: en för auktoriseringskod (beräknad av MSAL.NET), vilket gör att användaren kan gå igenom interaktionen med identitets leverantören och sedan återgå till den URL som identitets leverantören skulle ha anropat din implementering tillbaka (inklusive auktoriseringskod). Om du har problem bör din implementering resultera i ett `MsalExtensionException` undantag för att samar beta med MSAL.
   2. I ditt `AcquireTokenInteractive`-anrop kan du använda `.WithCustomUI()` modifierare som skickar instansen av ditt anpassade webb gränssnitt
 
      ```CSharp
@@ -428,7 +429,7 @@ Om du vill logga in en domän användare på en domän eller en Azure AD-anslute
 
 Mer information om medgivande finns i [behörigheter för Microsoft Identity Platform och medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
-### <a name="how-to-use-it"></a>Använda den
+### <a name="how-to-use-it"></a>Hur du använder den
 
 # <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
@@ -1108,7 +1109,7 @@ Klasser och gränssnitt som ingår i cachelagring av token cache är följande t
 
 Strategierna skiljer sig beroende på om du skriver en cachelagring för token-cache för ett offentligt klient program (skriv bord) eller ett konfidentiellt klient program (webbapp/webb-API, daemon-app).
 
-Eftersom MSAL v2. x har du flera alternativ, beroende på om du vill serialisera cacheminnet till MSAL.NET-formatet (Unified format cache som är gemensamt med MSAL, men också på flera plattformar), eller om du även vill stödja det [äldre](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) token-cachen serialisering av ADAL v3.
+Eftersom MSAL v2. x har du flera alternativ, beroende på om du bara vill serialisera cachen till MSAL.NET-formatet (Unified format cache som är gemensamt med MSAL, men även på olika plattformar), eller om du även vill stödja den [äldre](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) token cache-serialiseringen av ADAL v3.
 
 Anpassningen av cachelagring av token för att dela SSO-läget mellan ADAL.NET 3. x, ADAL.NET 5. x och MSAL.NET förklaras i följande exempel: [Active Directory-dotNet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 

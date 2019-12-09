@@ -4,19 +4,20 @@ description: Den här självstudien innehåller stegvisa instruktioner för att 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ba348cdd478b1d66d7b7286ba0a54adfd98137e2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a42d796010368ec24cc6cfde8a704c4b7608963d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683615"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926629"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till en SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -34,7 +35,7 @@ I den här självstudien får du göra följande:
 > * Utlös pipelinen enligt ett schema.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du kan använda Blob Storage som *källa* för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md).
 * **Azure SQL Database**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en SQL-databas kan du läsa om hur du skapar en i [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md).
@@ -70,12 +71,12 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Ge Azure-tjänsterna åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är **PÅ** för din SQL Server så att datafabriken kan skriva data till din SQL Server. Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > Översikt > Ange server brand vägg > inställningen **Tillåt åtkomst till Azure-tjänster** är **på**.
+1. Ge Azure-tjänster åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är **PÅ** för din SQL Server så att datafabriken kan skriva data till din SQL Server. Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > Översikt > Ange server brand vägg > inställningen **Tillåt åtkomst till Azure-tjänster** är **på**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken. 
+I det här steget skapar du en datafabrik och startar sedan användargränssnittet för datafabriken för att skapa en pipeline i datafabriken. 
 
-1. Öppna **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Öppna **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: 
   
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -92,7 +93,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
+    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
 6. Under **Version** väljer du **V2**.
 7. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL-databas) och beräkningarna (t.ex. Azure HDInsight) som används i datafabriken kan finnas i andra regioner.
 8. Välj **Skapa**. 
@@ -197,7 +198,7 @@ I det här steget utlöser du manuellt pipelinen du publicerade i föregående s
 
     ![Övervaka pipelinekörningar](./media/tutorial-copy-data-portal/monitor-pipeline.png)
 
-1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). I det här exemplet finns det bara en aktivitet, så du ser bara en post i listan. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Välj **pipeline-körningar** överst för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
+1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). I det här exemplet finns det bara en aktivitet, så du ser bara en post i listan. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Välj **pipeline-körningar** överst för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
 
     ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-portal/view-activity-runs.png)
 

@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891787"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922299"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: versions historik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -38,9 +38,23 @@ Ladda ned| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=
 Medan vi går igenom den här processen visas versions numret för versionen med ett "X" på den lägre versions nummer positionen, som i "1.3. X. 0" – Detta anger att viktig information i det här dokumentet är giltig för alla versioner som börjar med "1,3.". Så snart som vi har slutfört versions processen uppdateras versions numret till den senast utgivna versionen och versions statusen uppdateras till "lanseras för hämtning och automatisk uppgradering".
 Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](how-to-connect-install-automatic-upgrade.md)
 
+## <a name="14380"></a>1.4.38.0
+### <a name="release-status"></a>Versions status
+12/6/2019: version för hämtning. Inte tillgängligt via automatisk uppgradering.
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
+- Vi uppdaterade lösen ordets hash-synkronisering för Azure AD Domain Services till rätt konto för utfyllnad i Kerberos-hashar.  Detta ger en prestanda förbättring under Lösenordssynkronisering från AAD till Azure AD Domain Services.
+- Vi har lagt till stöd för tillförlitliga sessioner mellan Authentication agent och Service Bus.
+- I den här versionen upprätthålls TLS 1,2 för kommunikation mellan Autentiseringstjänsten och moln tjänster.
+- Vi har lagt till en DNS-cache för WebSocket-anslutningar mellan Authentication agent och moln tjänster.
+- Vi har lagt till möjligheten att rikta en speciell agent från molnet för att testa anslutningen till agenten.
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+- Version 1.4.18.0 hade ett fel där PowerShell-cmdleten för DSSO använde inloggnings uppgifterna för Windows i stället för de administratörsautentiseringsuppgifter som angavs vid körning av PS. På grund av att det inte var möjligt att aktivera DSSO i flera skogar via AADConnect-användargränssnittet. 
+- En korrigering gjordes för att aktivera DSSO samtidigt i alla skogar via AADConnect-användargränssnittet
+
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>Versions status
-11/08/2019: har släppts för hämtning. Inte tillgängligt för automatisk uppgradering
+11/08/2019: har släppts för hämtning. Inte tillgängligt via automatisk uppgradering.
 
 >[!IMPORTANT]
 >På grund av en intern schema ändring i den här versionen av Azure AD Connect, om du hanterar konfigurations inställningar för ADFS-förtroende med MSOnline PowerShell, måste du uppdatera MSOnline PowerShell-modulen till version 1.1.183.57 eller högre
@@ -809,7 +823,7 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|certThumbprint|CertExtensionOids|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|

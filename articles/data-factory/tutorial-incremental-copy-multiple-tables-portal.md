@@ -1,27 +1,28 @@
 ---
-title: 'Kopiera flera tabeller stegvis med Azure Data Factory '
+title: Kopiera flera tabeller stegvis med Azure Portal
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
 services: data-factory
-documentationcenter: ''
+ms.author: yexu
 author: dearandyxu
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.author: yexu
-ms.openlocfilehash: 3129a0629c4de69e6e3d65f2f74da97e8d39a467
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e3ccc5a48251af181983624f0c8d0eed68c241da
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683410"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926549"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
+
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbereda käll- och måldatalager.
@@ -64,7 +65,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
 
@@ -229,7 +230,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -252,7 +253,7 @@ END
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
-10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
+10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Skapa Integration Runtime med lokal installation
 När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett Azure-datalager ska du installera en lokal Integration Runtime (IR) i din lokala miljö. Lokalt installerad IR flyttar data mellan ditt privata nätverk och Azure. 
@@ -363,9 +364,9 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
 1. I fönstret **ny data uppsättning** väljer du **Azure SQL Database**och klickar på **Fortsätt**. 
 
 1. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **WatermarkDataset** som **namn**.
-1. Växla till fliken **Anslutning** och gör följande: 
+1. Välj fliken **Anslutning** och gör följande: 
 
-    1. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+    1. Välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
     1. Välj **[dbo].[watermarktable]** för **Tabell**.
 
     ![Vattenmärkesdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
@@ -667,7 +668,7 @@ project_table   2017-10-01 00:00:00.000
 Observera att vattenstämpelvärdena för båda tabellerna har uppdaterats.
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudien har du fått: 
 
 > [!div class="checklist"]
 > * Förbereda käll- och måldatalager.

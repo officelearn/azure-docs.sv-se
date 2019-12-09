@@ -8,17 +8,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/15/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 14871aa790bd94dbd23dea30c8a229eac7945c75
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 2cec7fdae1d3a2a336decc11347ef9bd1039ce7f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683560"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926552"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Etablera Azure-SSIS integration runtime i Azure Data Factory
 
@@ -37,7 +38,7 @@ I den här självstudien gör du följande:
 > * Skapa en datafabrik.
 > * Etablering av en Azure-SSIS-integreringskörning.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -142,7 +143,7 @@ När data fabriken har skapats öppnar du dess översikts sida i Azure Portal. V
 
    h. För **tjänst nivån katalog databas**väljer du tjänst nivå för din databas server som värd för SSISDB. Välj nivån Basic, standard eller Premium eller Välj ett namn för elastisk pool.
 
-   i. Välj **test anslutning**. Om testet lyckas väljer du **Nästa**. 
+   i. Välj **Testanslutning**. Om testet lyckas väljer du **Nästa**. 
 
 1. Utför följande steg på sidan **Avancerade inställningar** . 
 

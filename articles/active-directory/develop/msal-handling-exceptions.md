@@ -3,10 +3,8 @@ title: Fel och undantag (MSAL)
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du hanterar fel och undantag, villkorlig åtkomst och anspråk på anspråk i MSAL-program.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: twhitney
-ms.reviewer: saeeda
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 753296596982279a14ff2775b0e129048dbe8369
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482066"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916782"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Hantera undantag och fel i MSAL
 
@@ -80,7 +78,7 @@ MSAL exponerar ett `Classification`-fält som du kan läsa för att ge en bättr
 | UserPasswordExpired | Användarens lösen ord har upphört att gälla. | Anropa AcquireTokenInteractively () så att användaren kan återställa sina lösen ord. |
 | PromptNeverFailed| Interaktiv autentisering anropades med parameter tolken = aldrig, tvinga MSAL att förlita sig på webbläsarens cookies och inte att visa webbläsaren. Detta har misslyckats. | Anropa AcquireTokenInteractively () utan prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK har inte tillräckligt med information för att hämta en token från cachen. Detta kan bero på att det inte finns några token i cachen eller om det inte gick att hitta något konto. Fel meddelandet innehåller mer information.  | Anropa AcquireTokenInteractively (). |
-| Inga    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
+| Inget    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
 
 ## <a name="net-code-example"></a>Exempel på .NET-kod
 

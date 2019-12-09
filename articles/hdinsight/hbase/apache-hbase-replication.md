@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/06/2019
+ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468422"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931494"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks
 
@@ -38,7 +38,7 @@ Följande är HBase-användnings fall för replikering för två virtuella nätv
 
 Du kan replikera kluster genom att använda skript [Åtgärds](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du börjar den här artikeln måste du ha en Azure-prenumeration. Se [Hämta en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Konfigurera miljöer
@@ -76,7 +76,7 @@ Några hårdkodade värden i mallen:
 | Namn på undernät (Gateway) | GatewaySubnet (kan inte ändras) |
 | Prefix för undernät (Gateway) | 10.1.255.0/27 |
 | Gateway-namn | vnet1gw |
-| Typ av Gateway | Vpn |
+| Gateway-typ | Vpn |
 | Gateway VPN-typ | Routningsbaserad |
 | Gateway-SKU | Basic |
 | Gateway-IP | vnet1gwip |
@@ -93,7 +93,7 @@ Några hårdkodade värden i mallen:
 | Namn på undernät (Gateway) | GatewaySubnet (kan inte ändras) |
 | Prefix för undernät (Gateway) | 10.2.255.0/27 |
 | Gateway-namn | vnet2gw |
-| Typ av Gateway | Vpn |
+| Gateway-typ | Vpn |
 | Gateway VPN-typ | Routningsbaserad |
 | Gateway-SKU | Basic |
 | Gateway-IP | vnet1gwip |
@@ -296,6 +296,8 @@ Följande steg beskriver hur du anropar skript åtgärds skriptet från Azure Po
     
       > [!NOTE]
       > Använd hostname i stället för FQDN för både käll-och mål klustrets DNS-namn.
+      >
+      > I den här genom gången förutsätts HN1 som aktiva huvudnoden. Kontrol lera klustret för att identifiera den aktiva Head-noden.
 
 6. Välj **Skapa**. Det kan ta en stund att köra skriptet, särskilt när du använder argumentet **-COPYDATA** .
 
@@ -315,7 +317,7 @@ Valfria argument:
 |-Su,--src-Ambari-User | Anger administratörs användar namnet för Ambari i HBase-klustret. Standardvärdet är **admin**. |
 |-du,--DST-Ambari-User | Anger administratörs användar namnet för Ambari på mål HBase-klustret. Standardvärdet är **admin**. |
 |-t,--tabell-lista | Anger de tabeller som ska replikeras. Exempel:--Table-List = "TABLE1; tabell2; TABLE3". Om du inte anger tabeller replikeras alla befintliga HBase-tabeller.|
-|-m,--Machine | Anger den head-nod där skript åtgärden körs. Värdet är antingen **hn0** eller **HN1** och bör väljas baserat på vilket är den aktiva Head-noden. Använd det här alternativet när du kör skriptet $0 som en skript åtgärd från HDInsight-portalen eller Azure PowerShell.|
+|-m,--Machine | Anger den head-nod där skript åtgärden körs. Värdet ska väljas baserat på vilket är den aktiva Head-noden. Använd det här alternativet när du kör skriptet $0 som en skript åtgärd från HDInsight-portalen eller Azure PowerShell.|
 |-CP,-COPYDATA | Aktiverar migrering av befintliga data i tabeller där replikering är aktiverat. |
 |-RPM,-replikera-Phoenix-meta | Aktiverar replikering i Phoenix system-tabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix-tabeller på replik kluster innan du använder det här skriptet. |
 |-h,--hjälp | Visar användnings information. |
@@ -363,7 +365,7 @@ Avsnittet `print_usage()` i [skriptet](https://github.com/Azure/hbase-utils/blob
 - **Kopiera vissa tabeller (TEST1, TEST2 och test3) för alla rader som redige ras tills nu (aktuell tidstämpel)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  eller
+  Eller
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 

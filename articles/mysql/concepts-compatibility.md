@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 83c1463beec47ed3535811de822348cc7706f757
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: bb8477165afcaafe6d03ccb3fe7764124aa166c6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765349"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928659"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-drivrutiner och hanterings verktyg som är kompatibla med Azure Database for MySQL
 I den här artikeln beskrivs de driv rutiner och hanterings verktyg som är kompatibla med Azure Database for MySQL.
@@ -21,16 +21,16 @@ Azure Database for MySQL använder världens mest populära community-version av
 
 | **Programmeringsspråk** | **Drivrutinsspecifika** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Anteckningar** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
-| PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5,5, 5,6, 7. x | 5,3 | För PHP 7,0-anslutning med SSL MySQLi lägger du till MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT i anslutnings strängen. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> SUB set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` alternativ till false.|
+| PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | För PHP 7,0-anslutning med SSL MySQLi lägger du till MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT i anslutnings strängen. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> SUB set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` alternativ till false.|
 | .NET | Asynkron MySQL-koppling för .NET | https://github.com/mysql-net/MySqlConnector <br> [Installations paket från NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0,27 och efter | 0.26.5 och före | |
 | .NET | MySQL-anslutning/NET | https://github.com/mysql/mysql-connector-net | 8,0, 7,0, 6,10 |  | Ett kodnings fel kan orsaka att anslutningar Miss lyckas på vissa icke-UTF8-Windows-system. |
-| Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Installations paket från NPM:<br> Köra `npm install mysql` från NPM | 2,15 | 2.14.1 och före | |
+| Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Installations paket från NPM:<br> Köra `npm install mysql` från NPM | 2.15 | 2.14.1 och före | |
 | Node.js | Node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
-| Go | Go MySQL-drivrutin | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1,2 och före | Använd `allowNativePasswords=true` i anslutnings strängen för version 1,3. Version 1,4 innehåller en korrigering och `allowNativePasswords=true` inte längre krävs. |
+| Go | Go MySQL-drivrutin | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1,2 och före | Använd `allowNativePasswords=true` i anslutnings strängen för version 1,3. Version 1,4 innehåller en korrigering och `allowNativePasswords=true` inte längre krävs. |
 | Python | MySQL Connector/python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2,0, 2,1, 2,2, Använd 8.0.16 + med MySQL 8,0  | 1.2.2 och före | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3 + | 0.9.0 – 0.9.2 (regression i web2py) | |
-| Java | MariaDB-anslutning/J | https://downloads.mariadb.org/connector-java/ | 2,1, 2,0, 1,6 | 1.5.5 och före | | 
-| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.20 +, Använd 8.0.17 + med MySQL 8,0 | 5.1.9 och under | |
+| Java | MariaDB-anslutning/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 och före | | 
+| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.21 +, Använd 8.0.17 + med MySQL 8,0 | 5.1.20 och under | |
 | C | MySQL Connector/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | MySQL Connector/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | MySQL Connector/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 och under | | 

@@ -3,34 +3,30 @@ title: Migrera till MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om skillnaderna mellan Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) och hur du migrerar till MSAL.NET.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5059acea753b4b8b7db80bfc79b4bb9718e0484e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 38f28f153eff11e2b4d705b874609a95a9def8d4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175576"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915678"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrera program till MSAL.NET
 
 Både Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram till nu har de flesta utvecklare arbetat med Azure AD för utvecklare Platform (v 1.0) för att autentisera Azure AD-identiteter (arbets-och skol konton) genom att begära token med Azure AD Authentication Library (ADAL). Använda MSAL:
 
 - Du kan autentisera en bredare uppsättning av Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton, och sociala och lokala konton via Azure AD B2C) när du använder Microsoft Identity Platform-slutpunkten.
-- användarna får bästa möjliga upplevelse med enkel inloggning.
+- Användarna får bästa möjliga upplevelse med enkel inloggning.
 - ditt program kan möjliggöra stegvist godkännande och stöd för villkorlig åtkomst är enklare
 - du får nytta av innovationen.
 
@@ -123,7 +119,7 @@ Alla bidrag stöds ännu inte i MSAL.NET och v 2.0-slutpunkten. Följande är en
 
 Här följer de bidrag som stöds i ADAL.NET och MSAL.NET för Station ära och mobila program
 
-Ömsesidigt | ADAL.NET | MSAL.NET
+Bevilja | ADAL.NET | MSAL.NET
 ----- |----- | -----
 Interaktiv | [Interaktiv autentisering](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Förvärva token interaktivt i MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Integrerad Windows-autentisering | [Integrerad autentisering i Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Integrerad Windows-autentisering](msal-authentication-flows.md#integrated-windows-authentication)
@@ -134,7 +130,7 @@ Enhets kod flöde | [Enhets profil för enheter utan webbläsare](https://github
 
 Här är de bidrag som stöds i ADAL.NET och MSAL.NET för webb program, webb-API: er och daemon-program:
 
-Typ av app | Ömsesidigt | ADAL.NET | MSAL.NET
+Typ av app | Bevilja | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Webbapp, webb-API, daemon | Klientautentiseringsuppgifter | [Klientens autentiseringsuppgifter flödar i ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Klientens autentiseringsuppgifter flöden i MSAL.net](msal-authentication-flows.md#client-credentials))
 Webb-API | På uppdrag av | [Tjänst-till-tjänst-anrop för användarens räkning med ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [På uppdrag av i MSAL.NET](msal-authentication-flows.md#on-behalf-of)

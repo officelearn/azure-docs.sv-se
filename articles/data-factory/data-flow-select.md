@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory mappa data flöde Välj omvandling
+title: Mappa data flöde Välj omvandling
 description: Azure Data Factory mappa data flöde Välj omvandling
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387204"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930232"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mappa data flöde Välj omvandling
 
@@ -41,7 +42,7 @@ Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data
 > [!NOTE]
 > Om du vill rensa mappnings reglerna trycker du på knappen **Återställ** .
 
-## <a name="mapping"></a>Mellan
+## <a name="mapping"></a>Mappning
 Som standard mappar Select-omvandlingen alla kolumner automatiskt, vilket kommer att gå igenom alla inkommande kolumner till samma namn i utdata. Namnet på den utgående strömmen som anges i Välj inställningar definierar ett nytt aliasnamn för data strömmen. Om du behåller Välj uppsättningen för automatisk mappning, kan du ge alias för hela data strömmen med alla kolumner samma.
 
 ![Välj omvandlings regler](media/data-flow/rule2.png "Regel baserad mappning")

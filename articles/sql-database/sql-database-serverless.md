@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: d1f3bf6cb1467d0bb4906ff2409e72828b22cd20
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807025"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931959"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database Serverless
 
@@ -185,18 +185,22 @@ Se [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure 
 
 I följande exempel skapas en ny databas i Server lös beräknings nivån.  I det här exemplet anges det minsta virtuella kärnor, Max virtuella kärnor och den här paus fördröjningen.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-New-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -ComputeModel Serverless `
-  -Edition GeneralPurpose `
-  -ComputeGeneration Gen5 `
-  -MinVcore 0.5 `
-  -MaxVcore 2 `
-  -AutoPauseDelayInMinutes 720
+New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
+  -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
+  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Använd Transact-SQL (T-SQL)
 
@@ -215,22 +219,26 @@ Mer information finns i [skapa databas](/sql/t-sql/statements/create-database-tr
 
 I följande exempel flyttas en databas från den allokerade beräknings nivån till Server lös beräknings nivån. I det här exemplet anges det minsta virtuella kärnor, Max virtuella kärnor och den här paus fördröjningen.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Set-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -Edition GeneralPurpose `
-  -ComputeModel Serverless `
-  -ComputeGeneration Gen5 `
-  -MinVcore 1 `
-  -MaxVcore 4 `
-  -AutoPauseDelayInMinutes 1440
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
+  -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
+  --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Använd Transact-SQL (T-SQL)
 
-I följande exempel flyttas en databas från den allokerade beräknings nivån till Server lös beräknings nivån. 
+I följande exempel flyttas en databas från den allokerade beräknings nivån till Server lös beräknings nivån.
 
 ```sql
 ALTER DATABASE testdb 
@@ -245,23 +253,15 @@ En server lös databas kan flyttas till en allokerad beräknings nivå på samma
 
 ## <a name="modifying-serverless-configuration"></a>Ändra konfiguration utan Server
 
-### <a name="maximum-vcores"></a>Högsta antal virtuella kärnor
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-#### <a name="use-powershell"></a>Använd PowerShell
+Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumenten `MaxVcore`, `MinVcore`och `AutoPauseDelayInMinutes`.
 
-Att ändra Max virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumentet `MaxVcore`.
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="minimum-vcores"></a>Lägsta antal virtuella kärnor
+Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med kommandot [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) i Azure CLI med hjälp av argumenten `capacity`, `min-capacity`och `auto-pause-delay`.
 
-#### <a name="use-powershell"></a>Använd PowerShell
-
-Att ändra den minsta virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumentet `MinVcore`.
-
-### <a name="autopause-delay"></a>Pausa fördröjning
-
-#### <a name="use-powershell"></a>Använd PowerShell
-
-Ändring av paus fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumentet `AutoPauseDelayInMinutes`.
+* * *
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -298,13 +298,20 @@ I Azure Portal visas databasens status i fönstret Översikt på servern som inn
 
 Använd följande PowerShell-kommando för att fråga efter paus och återuppta status för en databas:
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Get-AzSqlDatabase `
-  -ResourceGroupName $resourcegroupname `
-  -ServerName $servername `
-  -DatabaseName $databasename `
+Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
+```
+
+* * *
 
 ## <a name="resource-limits"></a>Resursbegränsningar
 

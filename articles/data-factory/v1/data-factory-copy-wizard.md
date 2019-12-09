@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e5603405ad5594b06674aaf6cbb2c4d23b754c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b872cc30ae66e83274f189138dad6d609e3f536
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682776"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927056"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopiera eller flytta data enkelt med Azure Data Factory kopiera guiden
 > [!NOTE]
@@ -52,7 +51,7 @@ Schemat för indata kan inte matcha schemat för utdata i vissa fall. I det här
 
 Kopierings guiden mappar automatiskt kolumner i käll schemat till kolumner i mål schemat. Du kan åsidosätta mappningarna genom att använda List rutorna (eller) och ange om en kolumn måste hoppas över när data kopieras.   
 
-![Schema mappning](./media/data-factory-copy-wizard/schema-mapping.png)
+![Schemamappning](./media/data-factory-copy-wizard/schema-mapping.png)
 
 ## <a name="filtering-data"></a>Filtrera data
 Med guiden kan du filtrera källdata och bara välja de data som behöver kopieras till data lagret för mål/mottagare. Filtrering minskar mängden data som ska kopieras till Sink-datalagret och ökar därför data flödet för kopierings åtgärden. Det är ett flexibelt sätt att filtrera data i en Relations databas med hjälp av SQL-frågespråket (eller) i en Azure Blob-mapp med hjälp av [Data Factory Functions och variabler](data-factory-functions-variables.md).   

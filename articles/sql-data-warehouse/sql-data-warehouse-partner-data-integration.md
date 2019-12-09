@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8dd111017076e4a1a6a93ac7d53c253a85a09376
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d71c4ee7c5d982708c8a3b0a79b453d7196ad02d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890101"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923616"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse data integrerings partner
 Om du vill skapa din lösning för informations lager väljer du bland flera branschledande verktyg. I den här artikeln beskrivs Microsoft partner företag med officiella lösningar för data integrering som stöder Azure SQL Data Warehouse.
@@ -37,7 +37,7 @@ Om du vill skapa din lösning för informations lager väljer du bland flera bra
 | ![SnapLogic][6] |**SnapLogic**<br>SnapLogic-plattformen gör det möjligt för kunder att snabbt överföra data till och från Microsoft Azure SQL Data Warehouse. Det ger möjlighet att integrera hundratals program, tjänster och IoT-scenarier i en lösning.|[Produkt sida][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][16] |**StreamSets**<br>StreamSets tillhandahåller en data integrerings plattform för DataOps. Det operationalizes den fullständiga design-Deploy-driver-livs cykeln för att integrera data i Azure SQL Data Warehouse. Du kan inte bara snabbt mata in och integrera data till och från lagret, via strömnings-, batch-eller data överförings metoder för data insamling, men även säkerställa kontinuerliga åtgärder med Smart datapipelines som tillhandahåller synlighet för data flödet från slut punkt till slut punkt och återhämtning.|[Produkt sida][streamsets_website]|
 | ![Talend][12] |**Talend-moln**<br>Talend Cloud är en plattform för data integrering i företag för att ansluta, komma åt och transformera data i molnet eller lokalt. Det är ett iPaaS-erbjudande (Platform-as-a-Service) som ger bred anslutning, inbyggd data kvalitet och inbyggt stöd för de senaste stor data-och moln teknikerna. |[Produkt sida][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![TimeXtender][13] |**TimeXtender**<br>TimeXtender för identifierings hubb hjälper företag att bygga en modern datafastighet genom att tillhandahålla en integrerad data hanterings plattform som påskyndar tiden till data insikter med upp till 10 gånger. Gå bortom vardaglig extrahering, transformering och inläsning (ETL) eller extrahera, Läs in och transformera (ELT) genom att tillhandahålla automatisering och funktioner för data åtkomst, data modellering och efterlevnad på en enda plattform. Discovery Hub ger en sammanhängande data infrastruktur för skalnings analys i molnet, så att du kan ansluta och integrera olika datasilor, katalog-, modell-, flytt-och dokument data för analys och AI. | [Produkt sida][timextender_website] |
+| ![TimeXtender][13] |**TimeXtender**<br>TimeXtender för identifierings hubb hjälper företag att bygga en modern datafastighet genom att tillhandahålla en integrerad data hanterings plattform som påskyndar tiden till data insikter med upp till 10 gånger. Gå bortom vardaglig extrahering, transformering och inläsning (ETL) eller extrahera, Läs in och transformera (ELT) genom att tillhandahålla automatisering och funktioner för data åtkomst, data modellering och efterlevnad på en enda plattform. Discovery Hub ger en sammanhängande data infrastruktur för skalnings analys i molnet, så att du kan ansluta och integrera olika datasilor, katalog-, modell-, flytt-och dokument data för analys och AI. | [Produkt sida][timextender_website]<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
 | ![Trifacta][14] |**Trifacta Wrangler**<br> Trifacta hjälper individer och organisationer att utforska och ansluta ihop olika data för analys. Trifacta Wrangler är utformat för att hantera data datatransformering arbets belastningar som behöver stöd för data i skala och ett stort antal slutanvändare.|[Produkt sida][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
 | ![WhereScape][15] |**Wherescape RED**<br> WhereScape RED är en IDE som ger team med automatiserings verktyg för att effektivisera ETL-arbetsflöden. IDE ger bästa praxis och optimerad inbyggd kod för populära data mål. Använd WhereScape RED för att minska tiden för att utveckla, distribuera och driva din data infrastruktur.|[Produkt sida][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 

@@ -4,21 +4,20 @@ description: 'Lär dig mer om data förflyttning i Data Factory pipelines: datam
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f7771c55bfdc837921fb731b29e88c970b5d283
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682655"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931921"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av kopierings aktivitet
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -29,9 +28,9 @@ ms.locfileid: "73682655"
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [kopierings aktivitet i v2](../copy-activity-overview.md).
 
 ## <a name="overview"></a>Översikt
-I Azure Data Factory kan du använda kopierings aktivitet för att kopiera data mellan lokala och molnbaserade data lager. När data har kopierats kan de transformeras och analyseras ytterligare. Du kan också använda kopierings aktivitet för att publicera omvandlings-och analys resultat för Business Intelligence (BI) och program förbrukning.
+I Azure Data Factory kan du använda kopierings aktivitet för att kopiera data mellan lokala och molnbaserade data lager. När data kopieras kan den ytterligare omvandlas och analyseras. Du kan också använda Kopieringsaktivitet för att publicera omvandling och analysresultat för business intelligence (BI) och förbrukning av programmet.
 
-![Roll för kopierings aktivitet](media/data-factory-data-movement-activities/copy-activity.png)
+![Rollen för Kopieringsaktivitet](media/data-factory-data-movement-activities/copy-activity.png)
 
 Kopierings aktiviteten drivs av en säker, tillförlitlig, skalbar och [globalt tillgänglig tjänst](#global). Den här artikeln innehåller information om data förflyttning i Data Factory och kopierings aktivitet.
 
@@ -43,10 +42,10 @@ Först ska vi se hur datamigrering sker mellan två moln data lager och mellan e
 >
 
 ### <a name="copy-data-between-two-cloud-data-stores"></a>Kopiera data mellan två moln data lager
-När både käll-och mottagar data lager finns i molnet går kopierings aktiviteten igenom följande steg för att kopiera data från källan till mottagaren. Tjänsten som ger befogenhet att kopiera aktivitet:
+När både käll-och mottagar data lager finns i molnet går kopierings aktiviteten igenom följande steg för att kopiera data från källan till mottagaren. Den tjänst som används av Kopieringsaktiviteten:
 
 1. Läser data från käll data lagret.
-2. Utför serialisering/deserialisering, komprimering/expandering, kolumn mappning och typ konvertering. De här åtgärderna baseras på konfigurationerna av indata-DataSet, utdata-datauppsättning och kopierings aktivitet.
+2. Utför serialisering/deserialisering, komprimering/expandering, kolumn mappning och typ konvertering. Dessa åtgärder baserat på konfigurationerna för datauppsättningen för indata, utdata datauppsättningen och Kopieringsaktivitet sker.
 3. Skriver data till mål data lagret.
 
 Tjänsten väljer automatiskt den optimala regionen för att utföra data flytten. Den här regionen är vanligt vis den som ligger närmast data lagret för mottagaren.
@@ -64,7 +63,7 @@ Se [Flytta data mellan lokala och molnbaserade data lager](data-factory-move-dat
 
 Du kan också flytta data från/till data lager som stöds och som finns i Azure IaaS Virtual Machines (VM) med hjälp av Data Management Gateway. I det här fallet kan du installera Data Management Gateway på samma virtuella dator som själva data lagret, eller på en separat virtuell dator som har åtkomst till data lagret.
 
-## <a name="supported-data-stores-and-formats"></a>Data lager och format som stöds
+## <a name="supported-data-stores-and-formats"></a>Datalager som stöds och format
 Kopieringsaktiviteten i Data Factory kopierar data från källans datalager till mottagarens datalager. Data Factory har stöd för följande datalager. Data kan skrivas från valfri källa till valfri mottagare. Klicka på ett datalager om du vill veta hur du kopierar data till och från det datalagret.
 
 > [!NOTE] 
@@ -78,47 +77,47 @@ Kopieringsaktiviteten i Data Factory kopierar data från källans datalager till
 ### <a name="supported-file-formats"></a>Filformat som stöds
 Du kan använda kopierings aktiviteten för att **Kopiera filer som är** mellan två filbaserade data lager. du kan hoppa över [avsnittet format](data-factory-create-datasets.md) i både indata och utdata-datauppsättnings definitioner. Data kopieras effektivt utan serialisering/deserialisering.
 
-Kopierings aktiviteten läser också från och skriver till filer i angivna format: **text, JSON, Avro, Orc och Parquet**, och komprimerings **-codec gzip, deflate, BZip2 och ZipDeflate** stöds. Se [fil-och komprimerings format som stöds](data-factory-supported-file-and-compression-formats.md) med information.
+Kopierings aktiviteten läser också från och skriver till filer i angivna format: **text, JSON, Avro, Orc och Parquet**, och komprimerings **-codec gzip, deflate, BZip2 och ZipDeflate** stöds. Se [stöds format och komprimering](data-factory-supported-file-and-compression-formats.md) med information.
 
-Du kan till exempel göra följande kopierings aktiviteter:
+Du kan exempelvis göra följande kopieringsaktiviteter:
 
-* Kopiera data i lokala SQL Server och skriva till Azure Data Lake Store i ORC-format.
-* Kopiera filer i text format (CSV) från det lokala fil systemet och skriv till Azure blob i Avro-format.
-* Kopiera zippade filer från det lokala fil systemet och expandera sedan land till Azure Data Lake Store.
-* Kopiera data i formatet GZip-komprimerad text (CSV) från Azure blob och skriv till Azure SQL Database.
+* Kopiera data i en lokal SQL Server och skriva till Azure Data Lake Store i ORC-format.
+* Kopiera filer i textformat (CSV) från den lokala filsystem och skriva till Azure Blob i Avro-format.
+* Kopiera komprimerade filer från den lokala filsystem och expandera sedan mark till Azure Data Lake Store.
+* Kopiera data i GZip-komprimerade textfiler (CSV)-format från Azure Blob och skriva till Azure SQL Database.
 
 ## <a name="global"></a>Globalt tillgänglig data förflyttning
-Azure Data Factory är endast tillgängligt i regionerna västra USA, östra USA och norra Europa. Tjänsten som har behörighet att kopiera aktiviteter är dock tillgänglig globalt i följande regioner och geografiska områden. Den globalt tillgängliga topologin garanterar effektiv data förflyttning som vanligt vis förhindrar hopp över flera regioner. Se [tjänster efter region](https://azure.microsoft.com/regions/#services) för att få till gång till Data Factory och data förflyttning i en region.
+Azure Data Factory är endast tillgängligt i regionerna västra USA, östra USA och norra Europa. Tjänsten som har behörighet att kopiera aktiviteter är dock tillgänglig globalt i följande regioner och geografiska områden. Globalt tillgänglig topologin säkerställer effektiv dataförflyttning som vanligtvis undviker interregionala hopp. Se [tjänster efter region](https://azure.microsoft.com/regions/#services) för tillgänglighet för Data Factory och dataförflyttning i en region.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Kopiera data mellan moln data lager
 När både käll-och mottagar data lager finns i molnet använder Data Factory en tjänst distribution i den region som ligger närmast mottagaren i samma geografiska område för att flytta data. Se tabellen nedan för mappning:
 
 | Geografi för mål data lager | Region för mål data lagret | Region som används för data förflyttning |
 |:--- |:--- |:--- |
-| USA | Östra USA | Östra USA |
+| USA | USA, östra | USA, östra |
 | &nbsp; | USA, östra 2 | USA, östra 2 |
-| &nbsp; | Centrala USA | Centrala USA |
-| &nbsp; | Norra centrala USA | Norra centrala USA |
-| &nbsp; | Södra centrala USA | Södra centrala USA |
-| &nbsp; | Västra centrala USA | Västra centrala USA |
-| &nbsp; | Västra USA | Västra USA |
-| &nbsp; | Västra USA 2 | Västra USA 2 |
-| Kanada | Östra Kanada | Centrala Kanada |
-| &nbsp; | Centrala Kanada | Centrala Kanada |
-| Brasilien | Södra Brasilien | Södra Brasilien |
-| Europa | Norra Europa | Norra Europa |
-| &nbsp; | Västra Europa | Västra Europa |
+| &nbsp; | USA, centrala | USA, centrala |
+| &nbsp; | USA, norra centrala | USA, norra centrala |
+| &nbsp; | USA, södra centrala | USA, södra centrala |
+| &nbsp; | USA, västra centrala | USA, västra centrala |
+| &nbsp; | USA, västra | USA, västra |
+| &nbsp; | USA, västra 2 | USA, västra 2 |
+| Kanada | Kanada, östra | Kanada, centrala |
+| &nbsp; | Kanada, centrala | Kanada, centrala |
+| Brasilien | Brasilien, södra | Brasilien, södra |
+| Europa | Europa, norra | Europa, norra |
+| &nbsp; | Europa, västra | Europa, västra |
 | Storbritannien | Storbritannien, västra | Storbritannien, södra |
 | &nbsp; | Storbritannien, södra | Storbritannien, södra |
-| Asien och stillahavsområdet | Sydostasien | Sydostasien |
-| &nbsp; | Östasien | Sydostasien |
-| Australien | Östra Australien | Östra Australien |
-| &nbsp; | Sydöstra Australien | Sydöstra Australien |
+| Asien och stillahavsområdet | Asien, sydöstra | Asien, sydöstra |
+| &nbsp; | Asien, östra | Asien, sydöstra |
+| Australien | Australien, östra | Australien, östra |
+| &nbsp; | Australien, sydöstra | Australien, sydöstra |
 | Indien | Indien, centrala | Indien, centrala |
 | &nbsp; | Indien, västra | Indien, centrala |
-| &nbsp; | Södra Indien | Indien, centrala |
-| Japan | Östra Japan | Östra Japan |
-| &nbsp; | Västra Japan | Östra Japan |
+| &nbsp; | Indien, södra | Indien, centrala |
+| Japan | Japan, östra | Japan, östra |
+| &nbsp; | Japan, västra | Japan, östra |
 | Korea | Sydkorea, centrala | Sydkorea, centrala |
 | &nbsp; | Sydkorea, södra | Sydkorea, centrala |
 
@@ -192,10 +191,10 @@ Schemat som definieras i data uppsättningen för utdata avgör när aktiviteten
 Du kan ange fler än en indata-datauppsättning för kopiering av aktivitet. De används för att verifiera beroenden innan aktiviteten körs. Men endast data från den första data uppsättningen kopieras till mål data uppsättningen. Mer information finns i [schemaläggning och körning](data-factory-scheduling-and-execution.md).  
 
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
-Se [prestanda-och justerings guiden för kopierings aktivitet](data-factory-copy-activity-performance.md), som beskriver viktiga faktorer som påverkar prestandan för data flytten (kopierings aktiviteten) i Azure Data Factory. Den visar även observerade prestanda under intern testning och diskuterar olika sätt att optimera prestanda för kopierings aktiviteten.
+Se den [Kopieringsaktiviteten prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md), som beskriver viktiga faktorer som påverkar prestandan för dataflytt (Kopieringsaktivitet) i Azure Data Factory. Den visar en lista över de observerade prestandan under interna tester och beskriver olika sätt att optimera prestandan för Kopieringsaktiviteten.
 
 ## <a name="fault-tolerance"></a>Feltolerans
-Som standard slutar kopierings aktiviteten att kopiera data och returnera fel när de stöter på inkompatibla data mellan källa och mottagare. även om du uttryckligen kan konfigurera för att hoppa över och logga de inkompatibla raderna och bara kopiera dessa kompatibla data så att kopieringen är klar. Mer information finns i [fel toleransen för kopierings aktiviteten](data-factory-copy-activity-fault-tolerance.md) .
+Som standard slutar kopierings aktiviteten att kopiera data och returnera fel när de stöter på inkompatibla data mellan källa och mottagare. även om du uttryckligen kan konfigurera för att hoppa över och logga de inkompatibla raderna och bara kopiera dessa kompatibla data så att kopieringen är klar. Se den [Kopieringsaktiviteten feltolerans](data-factory-copy-activity-fault-tolerance.md) på mer information.
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 Se [säkerhets aspekter](data-factory-data-movement-security-considerations.md), som beskriver säkerhets infrastruktur som tjänster för data flyttning i Azure Data Factory använda för att skydda dina data.

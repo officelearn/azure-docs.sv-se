@@ -4,7 +4,7 @@ description: Den här artikeln beskriver hur du anropar ett SQL Server Integrati
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f0a63db95d0948951ec98159af381e0a04ac91ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d9d0ef37c247107a902b1083e77541711f18e7b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666404"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927917"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av en lagrad procedur aktivitet i Azure Data Factory
 I den här artikeln beskrivs hur du anropar ett SSIS-paket från en Azure Data Factory pipeline med hjälp av en lagrad procedur aktivitet. 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs hur du anropar ett SSIS-paket från en Azure Data F
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [anropa SSIS-paket med lagrad procedur aktivitet i](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 Genom gången i den här artikeln används en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL Database Hanterad instans.
@@ -133,7 +133,7 @@ Den här data uppsättningen är en dummy-datauppsättning som driver schemat f�
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en lagrad procedur aktivitet 
-I det här steget skapar du en pipeline med en lagrad procedur aktivitet. Aktiviteten anropar den lagrade proceduren sp_executesql för att köra ditt SSIS-paket. 
+I det här steget skapar du en pipeline med en lagrad procedur aktivitet. Aktiviteten anropar den sp_executesql lagrade proceduren för att köra ditt SSIS-paket. 
 
 1. Skapa en JSON-fil med namnet min **pipeline. JSON** i mappen **C:\ADF\RunSSISPackage** med följande innehåll:
 

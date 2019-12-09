@@ -1,22 +1,22 @@
 ---
-title: Skapa en integration runtime med egen värd i Azure Data Factory
+title: Skapa en lokal Integration Runtime
 description: Lär dig hur du skapar en integration runtime med egen värd i Azure Data Factory, vilket gör att data fabriker kan komma åt data lager i ett privat nätverk.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+manager: anandsub
+ms.custom: seo-lt-2019
+ms.date: 06/18/2019
+ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672300"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928514"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en integration runtime med egen värd
 
@@ -72,7 +72,7 @@ Använd följande steg för att skapa en IR med egen värd med hjälp av Azure D
 
     1. Kopiera och klistra in nyckeln Authentication. Välj **Hämta och installera integration runtime**.
 
-    1. Ladda ned integration runtime med egen värd på en lokal Windows-dator. Kör installations programmet.
+    1. Ladda ned integration runtime med egen värd på en lokal Windows-dator. Kör installationsprogrammet.
 
     1. Klistra in den nyckel som du sparade tidigare på sidan **registrera integration Runtime (lokal installation)** och välj **Registrera**.
     
@@ -112,7 +112,7 @@ Här följer information om programmets parametrar och egenskaper:
 | **Nyckel** "`<AuthenticationKey>`"                                 | Skriv över eller uppdatera föregående autentiseringsnyckel. Var försiktig med den här åtgärden. Din tidigare IR-nod med egen värd kan gå offline om nyckeln är en ny integrerings körning. | Nej       |
 | **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Skapa en säkerhets kopierings fil för den aktuella noden. Säkerhets kopian innehåller nodens nyckel och autentiseringsuppgifter för data lagring. | Nej       |
 | **ImportBackupFile** "`<filePath>`" "`<password>`"              | Återställ noden från en säkerhets kopia.                          | Nej       |
-| **Börja**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Nej       |
+| **Starta om**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Nej       |
 | **Börja**                                                       | Starta värd tjänsten för integration runtime med egen värd.     | Nej       |
 | **Stanna**                                                        | Stoppa värd tjänsten för integration runtime med egen värd.        | Nej       |
 | **StartUpgradeService**                                         | Starta uppgraderings tjänsten för integration runtime med egen värd.       | Nej       |
@@ -170,7 +170,7 @@ Här följer en översikt över de data flödes steg som krävs för att kopiera
     - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Paket (x64)
     - Java Runtime (JRE) version 8 från en JRE-Provider, till exempel [anta openjdk](https://adoptopenjdk.net/). Kontrol lera att variabeln `JAVA_HOME`s miljö har angetts.
 
-## <a name="installation-best-practices"></a>Metod tips för installation
+## <a name="installation-best-practices"></a>Metodtips för installation
 
 Du kan installera integration runtime med egen värd genom att ladda ned ett MSI-installationspaketet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Se artikeln [Flytta data mellan lokalt och i molnet](tutorial-hybrid-copy-powershell.md) för stegvisa instruktioner.
 
@@ -355,7 +355,7 @@ Värd tjänsten för integration runtime startas om automatiskt när du har spar
 När du har registrerat en integration runtime med egen värd, om du vill visa eller uppdatera proxyinställningar, använder du Microsoft Integration Runtime Configuration Manager.
 
 1. Öppna **Microsoft Integration Runtime Configuration Manager**.
-1. Välj fliken **Inställningar** .
+1. Välj fliken **Inställningar**.
 1. Under **http-proxy**väljer du länken **ändra** för att öppna dialog rutan **ange http-proxy** .
 1. Välj **Nästa**. Sedan visas en varning som ber om din tillåtelse att spara proxyinställningarna och starta om värd tjänsten för integration Runtime.
 

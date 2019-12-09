@@ -1,28 +1,25 @@
 ---
-title: Använd Microsoft Authentication Library (MSAL) i nationella moln – Microsoft Identity Platform
+title: Använda MSAL i en nationell molnbaserad app | Azure
+titleSuffix: Microsoft identity platform
 description: 'Microsoft Authentication Library (MSAL) gör det möjligt för programutvecklare att förvärva tokens för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, partner webb-API: er eller ditt eget webb-API. MSAL stöder flera program arkitekturer och plattformar.'
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481867"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916041"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
 
@@ -38,7 +35,7 @@ Med det globala molnet distribueras Azure Active Directory (Azure AD) i följand
 
 Den här guiden visar hur du loggar in på arbets-och skol konton, hämtar en åtkomsttoken och anropar Microsoft Graph API i [Azure Government moln](https://azure.microsoft.com/global-infrastructure/government/) miljö.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du uppfyller dessa krav.
 
@@ -72,7 +69,7 @@ Följande självstudier visar hur du skapar en .NET Core 2,2 MVC-webbapp. Appen 
 
 Så här aktiverar du ditt MSAL. js-program för suveräna moln:
 
-### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 
 1. Logga in på [Azure-portalen](https://portal.azure.us/).
     

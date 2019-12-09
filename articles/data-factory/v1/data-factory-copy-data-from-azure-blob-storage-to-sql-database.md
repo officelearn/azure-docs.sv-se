@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5a254979e345ae07bef5c8e79006bd0aaa0bf7df
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0255787ac90e63aff02ea65912ffa37c8ecc09fa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682801"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929739"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudie: kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
@@ -63,7 +62,7 @@ Du behöver konto namnet och konto nyckeln för ditt Azure Storage-konto för at
 5. Klicka på knappen **Kopiera** (bild) bredvid text rutan **lagrings konto namn** och spara/klistra in den någonstans (till exempel: i en textfil).
 6. Upprepa föregående steg för att kopiera eller anteckna **KEY1**.
 
-    ![Lagrings åtkomst nyckel](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    ![Lagringsåtkomstnyckel](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Stäng alla blad genom att klicka på **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Samla in SQL Server, databas, användar namn

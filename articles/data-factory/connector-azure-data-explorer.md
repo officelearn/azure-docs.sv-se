@@ -1,24 +1,23 @@
 ---
-title: Kopiera data till eller från Azure Datautforskaren med Azure Data Factory
+title: Kopiera data till eller från Azure Datautforskaren
 description: Lär dig hur du kopierar data till eller från Azure Datautforskaren med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: orspodek
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/26/2019
-ms.author: orspodek
-ms.openlocfilehash: 0ffec2639d9dfbf3a82a3c24248d65a53e114745
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4cc315b91b5dbedcb22091149ca37061ff956efa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547148"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913434"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Datautforskaren med Azure Data Factory
 
@@ -54,14 +53,14 @@ Med Azure Datautforskaren-anslutningen kan du göra följande:
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Datautforskaren Connector.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Azure Datautforskaren-anslutningen använder autentisering av tjänstens huvud namn. Följ de här stegen för att hämta ett huvud namn för tjänsten och bevilja behörigheter:
 
 1. Registrera en program enhet i Azure Active Directory genom att följa stegen i [Registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
     - Program-ID:t
-    - Program nyckel
+    - Programnyckel
     - Klient-ID:t
 
 2. Ge tjänstens huvud namn rätt behörigheter i Azure Datautforskaren. Mer detaljerad information om roller och behörigheter och om att hantera behörigheter finns i [Hantera behörigheter för Azure datautforskaren Database](../data-explorer/manage-database-permissions.md) . I allmänhet måste du:
@@ -79,7 +78,7 @@ Följande egenskaper stöds för den länkade Azure Datautforskaren-tjänsten:
 | typ | Egenskapen **Type** måste anges till **AzureDataExplorer**. | Ja |
 | slutpunkt | Slut punkts-URL för Azure Datautforskaren-klustret, med formatet `https://<clusterName>.<regionName>.kusto.windows.net`. | Ja |
 | databas | Namn på databasen. | Ja |
-| innehav | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Detta kallas "auktoritets-ID" i [Kusto anslutnings sträng](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta den genom att hovra med mus pekaren i det övre högra hörnet av Azure Portal. | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Detta kallas "auktoritets-ID" i [Kusto anslutnings sträng](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta den genom att hovra med mus pekaren i det övre högra hörnet av Azure Portal. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. Detta kallas "AAD-programklient-ID" i [Kusto anslutnings sträng](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Ja |
 | servicePrincipalKey | Ange programmets nyckel. Detta kallas "AAD program Key" i Kusto- [anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till säkra data som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
@@ -104,7 +103,7 @@ Följande egenskaper stöds för den länkade Azure Datautforskaren-tjänsten:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns [i data uppsättningar i Azure Data Factory](concepts-datasets-linked-services.md). I det här avsnittet visas egenskaper som stöds av Azure Datautforskaren-datauppsättningen.
 
@@ -115,7 +114,7 @@ Följande egenskaper stöds:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **AzureDataExplorerTable**. | Ja |
-| partitionstabell | Namnet på den tabell som den länkade tjänsten refererar till. | Ja för mottagare; Nej för källa |
+| table | Namnet på den tabell som den länkade tjänsten refererar till. | Ja för mottagare; Nej för källa |
 
 **Exempel på data uppsättnings egenskaper:**
 
@@ -142,7 +141,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="azure-data-explorer-as-source"></a>Azure Datautforskaren som källa
 
-Om du vill kopiera data från Azure Datautforskaren anger du egenskapen **Type** i kopierings aktivitetens källa till **AzureDataExplorerSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Azure Datautforskaren anger du egenskapen **Type** i kopierings aktivitetens källa till **AzureDataExplorerSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -189,7 +188,7 @@ Om du vill kopiera data från Azure Datautforskaren anger du egenskapen **Type**
 
 ### <a name="azure-data-explorer-as-sink"></a>Azure Datautforskaren som mottagare
 
-Om du vill kopiera data till Azure Datautforskaren anger du egenskapen type i kopierings aktiviteten Sink till **AzureDataExplorerSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
+Om du vill kopiera data till Azure Datautforskaren anger du egenskapen type i kopierings aktiviteten Sink till **AzureDataExplorerSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

@@ -4,19 +4,19 @@ description: Använd Azure Data Factory för att kopiera data från Office 365
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0c938caef81063409d3c8d6632cd7e8df99f1ea1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 896265311a67b74ccf9d0226a2969284ee491c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672626"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931423"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läs in data från Office 365 med hjälp av Azure Data Factory
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
 
 2. På sidan **ny data fabrik** anger du värden för de fält som visas i följande bild:
       
-   ![Sidan Ny datafabrik](./media/load-office-365-data/new-azure-data-factory.png)
+   ![Sida för ny datafabrik](./media/load-office-365-data/new-azure-data-factory.png)
  
     * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name *LoadFromOffice365Demo* är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_ **LoadFromOffice365Demo**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
@@ -43,7 +43,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
    
    ![Datafabrikens startsida](./media/load-office-365-data/data-factory-home-page.png)
 
-5. Välj panelen **författare & Monitor** för att starta programmet för data integrering på en separat flik.
+5. Välj panelen **Författare och övervakare** för att starta dataintegreringsprogrammet på en separat flik.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
@@ -128,7 +128,7 @@ Om du vill se aktivitets körningar som är associerade med pipeline-körningen 
 
 ![Övervaka aktivitet](./media/load-office-365-data/activity-status.png) 
 
-Om det här är första gången du begär data för den här kontexten (en kombination av vilken data tabell som ska nås, vilket mål konto som läses in i och vilka användar identiteter som gör data åtkomst förfrågan) visas kopierings aktiviteten status som **pågående**och endast när du klickar på länken "information" under åtgärder visas statusen som **RequesetingConsent**.  En medlem i gruppen för godkännande av data åtkomst måste godkänna begäran i Privileged Access Management innan data extraheringen kan fortsätta.
+Om det här är första gången du begär data för den här kontexten (en kombination av vilken data tabell som ska nås, vilket mål konto som läses in i och vilken användar identitet som gör data åtkomst förfrågan) visas status för kopierings aktiviteten som **pågående**och endast när du klickar på länken "information" under åtgärder visas statusen som **RequesetingConsent**.  En medlem i gruppen för godkännande av data åtkomst måste godkänna begäran i Privileged Access Management innan data extraheringen kan fortsätta.
 
 _Status som begärt godkännande:_ 
 information om körning av ![aktivitet – begär medgivande](./media/load-office-365-data/activity-details-request-consent.png) 

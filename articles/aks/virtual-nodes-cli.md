@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: d3651c63b206c37b1f41ecab7f69e24fc94ddffd
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 43ea197c4dc774a4e011cd9fb2b3adcf94866d90
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263868"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926091"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -253,7 +253,7 @@ Kör programmet med kommandot [kubectl Apply][kubectl-apply] .
 kubectl apply -f virtual-node.yaml
 ```
 
-Använd kommandot [kubectl get poddar][kubectl-get] med argumentet `-o wide` för att mata ut en lista över poddar och den schemalagda noden. Observera att `aci-helloworld`-pod har schemalagts på noden `virtual-node-aci-linux`.
+Använd kommandot [kubectl get poddar][kubectl-get] med argumentet `-o wide` för att mata ut en lista över poddar och den schemalagda noden. Observera att `aci-helloworld` Pod har schemalagts på noden `virtual-node-aci-linux`.
 
 ```
 $ kubectl get pods -o wide
@@ -265,14 +265,14 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Pod tilldelas en intern IP-adress från Azure Virtual Network-undernätet delegerad för användning med virtuella noder.
 
 > [!NOTE]
-> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar som schemalagts på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
+> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar som schemalagts på virtuella noder inte starta och rapportera fel `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Testa den virtuella noden Pod
 
 Om du vill testa Pod som körs på den virtuella noden bläddrar du till demonstrations programmet med en webb klient. När Pod tilldelas en intern IP-adress kan du snabbt testa den här anslutningen från en annan Pod i AKS-klustret. Skapa en test-Pod och koppla en terminalsession till den:
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
 ```
 
 Installera `curl` i pod med `apt-get`:
@@ -281,7 +281,7 @@ Installera `curl` i pod med `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Nu kan du komma åt adressen till din POD med hjälp av `curl`, till exempel *http://10.241.0.4* . Ange din egna interna IP-adress som visas i föregående `kubectl get pods`-kommando:
+Nu kan du komma åt adressen till din POD med hjälp av `curl`, till exempel *http://10.241.0.4* . Ange din egna interna IP-adress som visas i föregående `kubectl get pods` kommando:
 
 ```console
 curl -L http://10.241.0.4
@@ -299,7 +299,7 @@ $ curl -L 10.241.0.4
 [...]
 ```
 
-Stäng sessionen till test-Pod med `exit`. När sessionen är slut tas Pod bort.
+Stäng terminalfönstret för test Pod med `exit`. När sessionen är slut tas Pod bort.
 
 ## <a name="remove-virtual-nodes"></a>Ta bort virtuella noder
 

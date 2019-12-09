@@ -1,18 +1,19 @@
 ---
-title: Sammanställd transformering i Azure Data Factory mappnings data flöde
+title: Sammanställd transformering i mappnings data flödet
 description: Lär dig hur du sammanställer data i skala i Azure Data Factory med den sammanställda omvandlingen för data flöde.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 74b96bf2cac0de7c57e496c637f2e3ef549eb61f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676915"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930460"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd transformering i mappnings data flödet 
 
@@ -45,7 +46,7 @@ Sammanställda transformeringar liknar SQL-aggregerade urvals frågor. Kolumner 
 * Använd en mängd funktion som `last()` eller `first()` för att inkludera den ytterligare kolumnen.
 * Återanslut kolumnerna till utdataström med hjälp av [själv kopplings mönstret](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
-## <a name="data-flow-script"></a>Skript för data flöde
+## <a name="data-flow-script"></a>Dataflödesskript
 
 ### <a name="syntax"></a>Syntax
 

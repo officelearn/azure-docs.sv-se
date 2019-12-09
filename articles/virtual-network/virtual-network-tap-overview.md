@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 99cd9fc1da009660023a246c5210e7f54bdebcfd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177419"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931345"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
@@ -52,7 +52,7 @@ Med hjälp av Azure Virtual Network-TRYCKNINGen (Terminal Access Point) kan du k
 - [RSA netvittne®-plattform](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
-Följande bild visar hur det virtuella nätverket trycker på Works. Du kan lägga till en tryck konfiguration i ett [nätverks gränssnitt](virtual-network-network-interface.md) som är kopplat till en virtuell dator som distribueras i det virtuella nätverket. Målet är en IP-adress för virtuellt nätverk i samma virtuella nätverk som det övervakade nätverks gränssnittet eller ett [peer](virtual-network-peering-overview.md) -kopplat virtuellt nätverk. Insamlings lösningen för Virtual Network-tryckning kan distribueras bakom en [intern Azure-belastningsutjämnare](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#concepts) för hög tillgänglighet. Information om hur du utvärderar distributions alternativ för enskilda lösningar finns i [partner lösningar](#virtual-network-tap-partner-solutions).
+Följande bild visar hur det virtuella nätverket trycker på Works. Du kan lägga till en tryck konfiguration i ett [nätverks gränssnitt](virtual-network-network-interface.md) som är kopplat till en virtuell dator som distribueras i det virtuella nätverket. Målet är en IP-adress för virtuellt nätverk i samma virtuella nätverk som det övervakade nätverks gränssnittet eller ett [peer](virtual-network-peering-overview.md) -kopplat virtuellt nätverk. Insamlings lösningen för Virtual Network-tryckning kan distribueras bakom en intern Azure-belastningsutjämnare för hög tillgänglighet. Information om hur du utvärderar distributions alternativ för enskilda lösningar finns i [partner lösningar](#virtual-network-tap-partner-solutions).
 
 ![Hur det virtuella nätverket trycker på Works](./media/virtual-network-tap/architecture.png)
 

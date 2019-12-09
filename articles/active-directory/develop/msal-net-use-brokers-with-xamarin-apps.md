@@ -1,28 +1,24 @@
 ---
-title: Använda Microsoft Authenticator eller Microsoft Intune Företagsportal på Xamarin iOS-och Android-program
+title: Brokered-autentisering på Xamarin, iOS & Android | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du migrerar Xamarin iOS-program som kan använda Microsoft Authenticator från Azure AD Authentication Library för .NET (ADAL.NET) till Microsoft Authentication Library för .NET (MSAL.NET)
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2ae0d79076a0137b3756721675267d89990bf5a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: a26f73354b99160275649855f7a2a616249ce05c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554044"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921835"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Använda Microsoft Authenticator eller Microsoft Intune Företagsportal på Xamarin-program
 
@@ -81,7 +77,7 @@ Det gör du genom att göra två saker.
 1. I `AppDelegate.cs`anger du `App.RootViewController` till en ny `UIViewController()`. Den här tilldelningen ser till att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. På AcquireTokenInteractive-anropet använder du `.WithParentActivityOrWindow(App.RootViewController)` och skickar i referensen till objekt fönstret som du kommer att använda.
 
-**Exempel:**
+**Till exempel:**
 
 Följande gäller i `App.cs`:
 ```CSharp
@@ -106,7 +102,7 @@ MSAL.NET använder URL: er för att anropa Service Broker och returnerar sedan S
 
 `$"msauth.(BundleId)"`
 
-**Exempel:**
+**Till exempel:**
 
 `msauth.com.yourcompany.xforms`
 
@@ -146,7 +142,7 @@ Om du använder Service Broker läggs ett extra krav på omdirigerings-URI: n. O
 ```CSharp
 $"msauth.{BundleId}://auth"
 ```
-**Exempel:**
+**Till exempel:**
 ```CSharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```

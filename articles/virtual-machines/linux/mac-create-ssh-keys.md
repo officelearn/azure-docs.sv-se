@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: cb3bb6a91c25298535cfba1107b85f200031a7d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035918"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929993"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure
 
@@ -38,10 +38,10 @@ Ytterligare sätt att skapa och använda SSH-nycklar på en Windows-dator finns 
 
 Använd `ssh-keygen`-kommandot för att generera offentliga och privata SSH-nyckelfiler. Som standard skapas de här filerna i katalogen ~/.ssh. Du kan ange en annan plats och ett valfritt lösen ord (lösen*fras*) för att få åtkomst till den privata nyckel filen. Om det finns ett SSH-nyckelpar med samma namn på den aktuella platsen, skrivs filerna över.
 
-Följande kommando skapar ett SSH-nyckelpar med RSA-kryptering och en bit-längd på 2048:
+Följande kommando skapar ett SSH-nyckelpar med RSA-kryptering och en bit-längd på 4096:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 Om du använder [Azure CLI](/cli/azure) för att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm#az-vm-create) kan du välja att generera offentliga och privata nyckel filer för SSH med alternativet `--generate-ssh-keys`. De viktigaste filerna lagras i katalogen ~/.ssh, om inget annat anges med alternativet `--ssh-dest-key-path`. Alternativet `--generate-ssh-keys` kommer inte att skriva över befintliga nyckelfiler, i stället returnerar ett fel. I följande kommando ersätter du *VMName* och *RGname* med dina egna värden:

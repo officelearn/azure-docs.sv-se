@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490800"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927826"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Snabb start: ett personligt klient bibliotek för .NET
 
@@ -28,7 +28,7 @@ Kom igång med personanpassa klient biblioteket för .NET. Följ de här stegen 
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Package (NuGet) | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -96,7 +96,7 @@ Build succeeded.
 I program katalogen installerar du ett installations program för personanpassa klient bibliotek för .NET med följande kommando:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0
+dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0-preview
 ```
 
 Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
@@ -111,7 +111,7 @@ Om du vill skicka en belöning till Personanpassan skapar du en [RewardRequest](
 
 Att fastställa belöningen i den här snabb starten är trivial. I ett produktions system kan du bestämma vad som påverkar [belönings poängen](concept-rewards.md) och hur mycket som kan vara en komplicerad process som du kan välja att ändra med tiden. Det här design beslutet bör vara ett av de viktigaste besluten i din personanpassa arkitektur. 
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du utför följande uppgifter med personanpassa klient biblioteket för .NET:
 
@@ -137,9 +137,15 @@ Skapa sedan en metod för att returnera en personanpassa klient. Parametern till
 
 [!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
 
-## <a name="get-content-choices-represented-as-actions"></a>Hämta innehålls val som visas som åtgärder
+## <a name="get-food-items-as-rankable-actions"></a>Hämta mat objekt som ranknings bara åtgärder
 
-Åtgärder representerar de innehålls val som du vill att en Personanpassare ska rangordna. Lägg till följande metoder i program-klassen för att få en användares indata från kommando raden för tid på dag och aktuell kost preferens.
+Åtgärder representerar de innehålls val som du vill att en Personanpassare ska rangordna. Lägg till följande metoder i program-klassen för att representera den uppsättning åtgärder som ska rangordnas.
+
+[!code-csharp[Food items as actions](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createAction)]
+
+## <a name="get-user-preferences-for-context"></a>Hämta användar inställningar för kontext
+
+Lägg till följande metoder i program-klassen för att få en användares indata från kommando raden för tid på dag och aktuell kost preferens. Dessa kommer att användas som sammanhang vid rangordning av åtgärder.
 
 [!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTimeOfDay)]
 
@@ -153,91 +159,16 @@ Båda metoderna använder metoden `GetKey` för att läsa användarens val från
 
 Inlärnings-loopen för inlärning är en cykel av rang-och belönings samtal. I den här snabb starten, som varje rang anrop, för att anpassa innehållet, följs av ett belönings samtal för att berätta för personanpassa hur väl tjänsten rangordnade innehållet. 
 
-Följande kod i metoden `main` i program slinga genom en cykel som ber användaren om sina inställningar på kommando raden, vilket skickar informationen till en person som ska rangordnas, och presentera det rankade valet för kunden att välja bland listan , och sedan skicka en belöning till personligare signalering hur väl tjänsten gjorde en rangordning av valet.
+Följande kod i metoden `main` i program slinga genom en cykel som frågar användaren om sina inställningar på kommando raden, skickar informationen till en person som ska rangordnas, presenterar det rankade valet för kunden att välja bland listan, och sedan skicka en belöning till en personlig signalering av hur väl tjänsten gjorde en rangordning av valet.
 
-```csharp
-static void Main(string[] args)
-{
-    int iteration = 1;
-    bool runLoop = true;
+[!code-csharp[Learning loop](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)]
 
-    // Get the actions list to choose from personalizer with their features.
-    IList<RankableAction> actions = GetActions();
+Lägg till följande metoder, som [hämtar innehålls valen](#get-food-items-as-rankable-actions), innan du kör kod filen:
 
-    // Initialize Personalizer client.
-    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
-
-    do
-    {
-        Console.WriteLine("\nIteration: " + iteration++);
-
-        // <rank>
-        // Get context information from the user.
-        string timeOfDayFeature = GetUsersTimeOfDay();
-        string tasteFeature = GetUsersTastePreference();
-
-        // Create current context from user specified data.
-        IList<object> currentContext = new List<object>() {
-            new { time = timeOfDayFeature },
-            new { taste = tasteFeature }
-        };
-
-        // Exclude an action for personalizer ranking. This action will be held at its current position.
-        // This simulates a business rule to force the action "juice" to be ignored in the ranking.
-        // As juice is excluded, the return of the API will always be with a probability of 0.
-        IList<string> excludeActions = new List<string> { "juice" };
-
-        // Generate an ID to associate with the request.
-        string eventId = Guid.NewGuid().ToString();
-
-        // Rank the actions
-        var request = new RankRequest(actions, currentContext, excludeActions, eventId);
-        RankResponse response = client.Rank(request);
-        // </rank>
-
-        Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
-
-        // <reward>
-        float reward = 0.0f;
-        string answer = GetKey();
-
-        if (answer == "Y")
-        {
-            reward = 1;
-            Console.WriteLine("\nGreat! Enjoy your food.");
-        }
-        else if (answer == "N")
-        {
-            reward = 0;
-            Console.WriteLine("\nYou didn't like the recommended food choice.");
-        }
-        else
-        {
-            Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
-        }
-
-        Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
-        foreach (var rankedResponse in response.Ranking)
-        {
-            Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
-        }
-
-        // Send the reward for the action based on user response.
-        client.Reward(response.EventId, new RewardRequest(reward));
-        // </reward>
-
-        Console.WriteLine("\nPress q to break, any other key to continue:");
-        runLoop = !(GetKey() == "Q");
-
-    } while (runLoop);
-}
-```
-
-Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choices-represented-as-actions), innan du kör kod filen:
-
-* GetUsersTimeOfDay
-* GetUsersTastePreference
-* GetKey
+* `GetActions`
+* `GetUsersTimeOfDay`
+* `GetUsersTastePreference`
+* `GetKey`
 
 ## <a name="request-a-rank"></a>Begär en rang
 
@@ -271,7 +202,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -281,5 +212,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
-* [Felsökning](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md) (Felsökning)
 

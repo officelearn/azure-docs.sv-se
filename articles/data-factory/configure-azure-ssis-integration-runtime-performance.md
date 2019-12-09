@@ -9,13 +9,13 @@ ms.workload: data-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
-manager: craigg
-ms.openlocfilehash: 518da092f690108111ca4456eaca66e4f3153c54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 15aac35a7ebc505e76ddfd0c538c4fddb7b2d9ff
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681443"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930548"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för hög prestanda
 
@@ -115,10 +115,10 @@ Om du har många paket att köra och du bryr dig om det totala data flödet, anv
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Om du redan använder en kraftfull arbetsnode för att köra paket kan du öka det totala data flödet för integrerings körningen genom att öka **AzureSSISMaxParallelExecutionsPerNode** . 1-4 parallella körningar per nod stöds för Standard_D1_v2-noder. För alla andra typer av noder stöds 1 – Max (2 x antal kärnor, 8) parallella körningar per nod. Om du vill ha **AzureSSISMaxParallelExecutionsPerNode** utöver det högsta värde som stöds, kan du öppna ett support ärende och vi kan öka Max värdet för dig och efter att du behöver använda Azure PowerShell för att uppdatera **AzureSSISMaxParallelExecutionsPerNode** .
+Om du redan använder en kraftfull arbetsnode för att köra paket kan du öka det totala data flödet för integrerings körningen genom att öka **AzureSSISMaxParallelExecutionsPerNode** . 1-4 parallella körningar per nod stöds för Standard_D1_v2 noder. För alla andra typer av noder stöds 1 – Max (2 x antal kärnor, 8) parallella körningar per nod. Om du vill ha **AzureSSISMaxParallelExecutionsPerNode** utöver det högsta värde som stöds, kan du öppna ett support ärende och vi kan öka Max värdet för dig och efter att du behöver använda Azure PowerShell för att uppdatera **AzureSSISMaxParallelExecutionsPerNode**.
 Du kan uppskatta lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna storlekar för virtuella datorer](../virtual-machines/windows/sizes-general.md).
 
-| Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
+| Storlek             | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 2 / 2 x 500                         | 2/750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 4 / 4 x 500                         | 2/1 500                                       |

@@ -4,21 +4,20 @@ description: Lär dig hur du flyttar data från Amazon-RedShift med hjälp av Az
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 707061f523e5e991c851abfe7960a9aa66fb2066
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3c9e10df9f2be2a07bc7b7af0e01905d5b278d35
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683266"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924869"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon RedShift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -35,7 +34,7 @@ Data Factory stöder för närvarande endast flytt av data från Amazon-RedShift
 > [!TIP]
 > För att uppnå bästa möjliga prestanda vid kopiering av stora mängder data från Amazon RedShift bör du överväga att använda det inbyggda RedShift **Unload** -kommandot via Amazon Simple Storage Service (Amazon S3). Mer information finns i [använda Unload för att kopiera data från Amazon RedShift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * Om du flyttar data till ett lokalt data lager installerar du [Data Management Gateway](data-factory-data-management-gateway.md) på en lokal dator. Bevilja åtkomst för en gateway till Amazon RedShift-klustret med hjälp av den lokala datorns IP-adress. Instruktioner finns i [bevilja åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Information om hur du flyttar data till ett Azure-datalager finns i [Compute IP-adress och SQL-intervall som används av Microsoft Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -56,20 +55,20 @@ När du använder guiden Kopiera skapas JSON-definitioner för dessa Data Factor
 
 I följande avsnitt beskrivs de JSON-egenskaper som används för att definiera Data Factory entiteter för Amazon-RedShift.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Följande tabell innehåller beskrivningar av de JSON-element som är speciella för en Amazon RedShift-länkad tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
-| **servernamn** |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
+| **server** |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
 | **lastning** |Numret på den TCP-port som Amazon RedShift-servern använder för att lyssna efter klient anslutningar. |Nej (standard är 5439) |
 | **database** |Namnet på Amazon RedShift-databasen. |Ja |
-| **användar** |Namnet på den användare som har åtkomst till databasen. |Ja |
-| **ords** |Lösen ordet för användar kontot. |Ja |
+| **användarnamn** |Namnet på den användare som har åtkomst till databasen. |Ja |
+| **Lösenord** |Lösen ordet för användar kontot. |Ja |
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 En lista över de avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitten **struktur**, **tillgänglighet**och **princip** liknar varandra för alla typer av data uppsättningar. Exempel på data uppsättnings typer är Azure SQL, Azure Blob Storage och Azure Table Storage.
 
@@ -79,7 +78,7 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i Amazon RedShift-databasen som den länkade tjänsten refererar till. |Nej (om egenskapen **fråga** för en kopierings aktivitet av typen **RelationalSource** har angetts) |
 
-## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 En lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaperna **namn**, **Beskrivning**, **indata** , tabell, **utdata** och **princip** är tillgängliga för alla typer av aktiviteter. De egenskaper som är tillgängliga i avsnittet **typeProperties** varierar för varje aktivitets typ. För kopierings aktiviteten varierar egenskaperna beroende på typerna av data källor och mottagare.
 
@@ -87,7 +86,7 @@ För kopierings aktiviteten, när källan är av typen **AmazonRedshiftSource**,
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **frågeterm** | Använd den anpassade frågan för att läsa data. |Nej (om egenskapen **TableName** för en data uppsättning anges) |
+| **query** | Använd den anpassade frågan för att läsa data. |Nej (om egenskapen **TableName** för en data uppsättning anges) |
 | **redshiftUnloadSettings** | Innehåller egenskaps gruppen när du använder kommandot RedShift **Unload** . | Nej |
 | **s3LinkedServiceName** | Amazon S3 som används som ett interimistiskt lager. Den länkade tjänsten anges med ett Azure Data Factory namn av typen **en awsaccesskey**. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
 | **bucketName** | Anger den Amazon S3-Bucket som ska användas för att lagra interims data. Om den här egenskapen inte anges genererar kopiera aktivitet automatiskt en Bucket. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
@@ -96,7 +95,7 @@ Du kan också använda **RelationalSource** -typen, som innehåller Amazon Redsh
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **frågeterm** |Använd den anpassade frågan för att läsa data. | Nej (om egenskapen **TableName** för en data uppsättning anges) |
+| **query** |Använd den anpassade frågan för att läsa data. | Nej (om egenskapen **TableName** för en data uppsättning anges) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Använd inläsning för att kopiera data från Amazon RedShift
 
@@ -331,17 +330,17 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | Amazon RedShift-typ | .NET-typ |
 | --- | --- |
 | SMALLINT |Int16 |
-| TALET |Int32 |
+| INTEGER |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| VERKLIGEN |Enkel |
-| DUBBEL PRECISION |Dubbelklicka |
-| BOOLESKT |Sträng |
-| HÄNGANDE |Sträng |
+| REAL |Enkel |
+| DOUBLE PRECISION |Double |
+| BOOLEAN |Sträng |
+| CHAR |Sträng |
 | VARCHAR |Sträng |
 | DATE |DateTime |
-| TIDSSTÄMPEL |DateTime |
-| INFORMATION |Sträng |
+| TIMESTAMP |DateTime |
+| TEXT |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
 Information om hur du mappar kolumner i käll data uppsättningen till kolumner i mottagar data uppsättningen finns i avsnittet [mappa data uppsättnings kolumner i Azure Data Factory](data-factory-map-columns.md).

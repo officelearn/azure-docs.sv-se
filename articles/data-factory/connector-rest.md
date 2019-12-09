@@ -4,24 +4,23 @@ description: Lär dig hur du kopierar data från en moln-eller lokal REST-källa
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 1178c18b29c5e38d33e51ff0da5db683990daed3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34abb93dd54245e03baaa6efe0130d951f7565bf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546956"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927731"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt genom att använda Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en REST-slutpunkt. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en REST-slutpunkt. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
 Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.md) och [webb tabell anslutningen](connector-web-table.md) är:
 
@@ -31,7 +30,7 @@ Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.m
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från en REST-källa till alla mottagar data lager som stöds. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från en REST-källa till alla mottagar data lager som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Mer specifikt stöder den här generiska REST-anslutningen:
 
@@ -53,7 +52,7 @@ Mer specifikt stöder den här generiska REST-anslutningen:
 
 Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory entiteter som är speciella för REST-anslutningen.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Följande egenskaper stöds för den REST-länkade tjänsten:
 
@@ -63,7 +62,7 @@ Följande egenskaper stöds för den REST-länkade tjänsten:
 | url | Bas-URL: en för REST-tjänsten. | Ja |
 | enableServerCertificateValidation | Om SSL-certifikatet på Server sidan ska verifieras vid anslutning till slut punkten. | Nej<br /> (Standardvärdet är **Sant**) |
 | authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal** och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
 
 ### <a name="use-basic-authentication"></a>Använd grundläggande autentisering
 
@@ -71,8 +70,8 @@ Ange egenskapen **authenticationType** som **Basic**. Förutom de allmänna egen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| Användar | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
-| lösenord | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
+| lösenord | Lösenordet för användaren (den **userName** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -105,8 +104,8 @@ Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| innehav | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
+| servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
 | aadResourceId | Ange den AAD-resurs som du begär för auktorisering, t. ex. `https://management.core.windows.net`.| Ja |
 
 **Exempel**
@@ -163,11 +162,11 @@ Ange egenskapen **authenticationType** till **ManagedServiceIdentity**. Förutom
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 Det här avsnittet innehåller en lista över egenskaper som stöds av REST-datauppsättningen. 
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
 
 Följande egenskaper stöds för att kopiera data från REST:
 
@@ -197,15 +196,15 @@ Om du har angett `requestMethod`, `additionalHeaders`, `requestBody` och `pagina
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 Det här avsnittet innehåller en lista över egenskaper som REST-källan stöder.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="rest-as-source"></a>REST som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -377,10 +376,10 @@ Motsvarande käll konfiguration för REST kopierings aktivitet är särskilt `pa
 
 Du kan använda den här REST-anslutningen för att exportera REST API JSON-svaret som är till olika filbaserade butiker. För att få en sådan oberoende kopia kan du hoppa över avsnittet "struktur" (kallas även *schema*) i data uppsättning och schema mappning i kopierings aktiviteten.
 
-## <a name="schema-mapping"></a>Schema mappning
+## <a name="schema-mapping"></a>Schemamappning
 
 Information om hur du kopierar data från REST-slutpunkt till tabell mottagare finns i [schema mappning](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## <a name="next-steps"></a>Nästa steg
 
-En lista över data lager som kopierings aktiviteten stöder som källor och handfat i Azure Data Factory finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som Kopieringsaktiviteten som källor och egenskaperna i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

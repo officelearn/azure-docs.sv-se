@@ -1,29 +1,25 @@
 ---
-title: AD FS stöd i Microsoft Authentication Library för .NET
+title: AD FS stöd i MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: Läs mer om stöd för Active Directory Federation Services (AD FS) (AD FS) i Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdef6f2938f25425a8d65aa5d603bd0a71d074
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 1b5124712e4002c9a3a6740986cafc18c12dbb98
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483053"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921943"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Active Directory Federation Services (AD FS) stöd i MSAL.NET
 Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering för program som du utvecklar. Dessa program kan sedan autentisera användare direkt mot AD FS. Mer information finns [i AD FS scenarier för utvecklare](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).

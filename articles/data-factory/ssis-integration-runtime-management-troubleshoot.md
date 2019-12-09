@@ -1,23 +1,22 @@
 ---
-title: 'Felsöka SSIS Integration Runtime Management i Azure Data Factory '
+title: Felsöka SSIS Integration Runtime Management
 description: Den här artikeln innehåller fel söknings vägledning för hanterings problem med SSIS Integration Runtime (SSIS IR)
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684024"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931947"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
 
@@ -77,7 +76,7 @@ För andra problem läser du felmeddelandet om SQL-undantag och åtgärdar det p
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn ' Catalog. catalog_properties '." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan frigöra den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny Azure SQL Database-server eller en hanterad instans för IR.
+Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn" Catalog. catalog_properties "." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan frigöra den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny Azure SQL Database-server eller en hanterad instans för IR.
 
 ## <a name="custom-setup-issues"></a>Anpassade installations problem
 

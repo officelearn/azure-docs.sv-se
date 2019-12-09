@@ -1,27 +1,23 @@
 ---
-title: 'Azure AD Connect synkronisering: gör en konfigurations ändring i Azure AD Connect synkronisering | Microsoft Docs'
+title: 'Azure AD Connect synkronisering: gör en konfigurations ändring i Azure AD Connect synkronisering'
 description: Vägleder dig genom hur du gör en ändring i konfigurationen i Azure AD Connect Sync.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7600bffd8d00caa6e9b5fdda03aefe429d4788b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842585"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919077"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
 Syftet med den här artikeln är att hjälpa dig att göra ändringar i standard konfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med den här kunskapen bör du kunna göra enkla ändringar i din egen konfiguration utifrån dina egna affärs regler.
@@ -204,7 +200,7 @@ Som standard är attributet UserType inte aktiverat för synkronisering eftersom
 
 - Azure AD accepterar bara två värden för attributet UserType: **medlem** och **gäst**.
 - Om attributet UserType inte är aktiverat för synkronisering i Azure AD Connect skulle Azure AD-användare som har skapats via Directory-synkronisering ha attributet UserType inställt på **medlem**.
-- Azure AD tillåter inte att attributet UserType på befintliga Azure AD-användare ändras av Azure AD Connect. Den kan bara anges när Azure AD-användare skapas och [ändras via PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Azure AD tillåter inte att attributet UserType på befintliga Azure AD-användare ändras av Azure AD Connect. Den kan bara anges när Azure AD-användare skapas och [ändras via PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Innan du aktiverar synkronisering av UserType-attributet måste du först bestämma hur attributet härleds från lokala Active Directory. Följande är de vanligaste metoderna:
 

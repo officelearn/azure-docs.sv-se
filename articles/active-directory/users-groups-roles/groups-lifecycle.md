@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024789"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914077"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera princip för förfallo datum för Office 365-grupper
 
@@ -62,7 +62,7 @@ Följande är roller som kan konfigurera och använda förfallo datum för Offic
 
 Roll | Behörigheter
 -------- | --------
-Global administratör eller användar administratör | Kan skapa, läsa, uppdatera eller ta bort princip inställningarna för utgångs princip i Office 365-grupper<br>Kan förnya valfri Office 365-grupp
+Global administratör, grupp administratör eller användar administratör | Kan skapa, läsa, uppdatera eller ta bort princip inställningarna för utgångs princip i Office 365-grupper<br>Kan förnya valfri Office 365-grupp
 Användare | Kan förnya en Office 365-grupp som de äger<br>Kan återställa en Office 365-grupp som de äger<br>Kan läsa princip inställningarna för förfallo datum
 
 Mer information om behörigheter för att återställa en borttagen grupp finns i [återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md).
@@ -181,7 +181,7 @@ Följande cmdletar kan användas för att konfigurera principen i mer detalj. Me
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup
 - Remove-AzureADMSLifecyclePolicyGroup
-- Återställ-AzureADMSLifeCycleGroup
+- Reset-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1299ca9192481c1cc914732d47823c1d8cbd0fae
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849079"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922159"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Data Lake med Azure Datautforskaren (förhands granskning)
 
@@ -244,7 +244,7 @@ Kontrol lera att externa data finns i samma Azure-region som Azure Datautforskar
  
 ### <a name="file-size"></a>Filstorlek
  
-Optimal fil storlek är hundratals MB (upp till 1 GB) per fil. Undvik många små filer som kräver onödiga kostnader, till exempel långsammare fil uppräknings process och begränsad användning av kolumn format. Observera att antalet filer måste vara större än antalet processor kärnor i Azure Datautforskaren-klustret. 
+Optimal fil storlek är hundratals MB (upp till 1 GB) per fil. Undvik många små filer som kräver onödiga kostnader, till exempel långsammare fil uppräknings process och begränsad användning av kolumn format. Observera att antalet filer ska vara större än antalet processor kärnor i Azure Datautforskaren-klustret. 
  
 ### <a name="compression"></a>Komprimering
  

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327012"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930674"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Självstudier: Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing och C#
 
@@ -42,7 +42,7 @@ Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="construct-an-image-details-search-request"></a>Skapa en sökbegäran för avbildningsinformation
 
-Följande är `/details`-slutpunkten, vilken godkänner POST-förfrågningar med avbildningsdata i brödtexten.
+Följande är `/details`-slutpunkten, vilken godkänner POST-förfrågningar med avbildningsdata i brödtexten. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -98,7 +98,7 @@ Det här JSON-svaret kan sedan skrivas ut till konsolen.
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>Använda en avbildningsinsiktstoken i en begäran
 
-Om du vill använda `ImageInsightsToken` som returnerades med resultatet av en `POST`, så kan du lägga till den i en `GET` begäran. Till exempel:
+Om du vill använda `ImageInsightsToken` som returnerades med resultatet av en `POST`, så kan du lägga till den i en `GET` begäran. Exempel:
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
@@ -111,6 +111,6 @@ Om det finns identifierbara personer eller platser på bilden returnerar begära
 > [!div class="nextstepaction"]
 > [Visa bilder och sökalternativ i en enda enskild webbapp ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
-* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

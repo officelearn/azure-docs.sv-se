@@ -5,24 +5,23 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
-manager: craigg
-ms.openlocfilehash: 874483540b8c92bbb8a6e37101191f5c867b76f1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: a65bb119994e8bb56eecc730774535d7c0a4d8b6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684647"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928431"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integrerings körning i Azure Data Factory  
 **Integration runtime** är den beräknings infrastruktur som används av Azure Data Factory för att tillhandahålla olika funktioner för data integrering i olika nätverks miljöer. Det finns tre typer av integrerings körningar som erbjuds av Data Factory:
 
 - Azure Integration Runtime
-- Integration Runtime med egen värd
+- Lokalt installerad integrationskörning
 - Azure SSIS Integration Runtime
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -56,9 +55,9 @@ Följande tabell innehåller möjliga status värden för en Azure integration R
 | Status | Kommentarer/scenarier | 
 | ------ | ------------------ |
 | Online | Azure integration runtime är online och redo att användas. | 
-| Anslutningen | Azure integration runtime är offline på grund av ett internt fel. |
+| Offline | Azure integration runtime är offline på grund av ett internt fel. |
 
-## <a name="self-hosted-integration-runtime"></a>Integration Runtime med egen värd
+## <a name="self-hosted-integration-runtime"></a>Lokalt installerad integrationskörning
 Det här avsnittet innehåller beskrivningar av egenskaper som returneras av Get-AzDataFactoryV2IntegrationRuntime-cmdleten. 
 
 > [!NOTE] 
@@ -74,7 +73,7 @@ Följande tabell innehåller beskrivningar av övervaknings egenskaper för **va
 | Status | Status för den övergripande integrerings körningen med egen värd och varje nod. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i nästa avsnitt. | 
 | Version | Versionen av integration runtime med egen värd och varje nod. Versionen av den lokala integration runtime-versionen bestäms baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för lokal installation av integration runtime fungerar bara noderna med samma versions nummer som den logiska integrerings körningen för egen värd. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). | 
 | Tillgängligt minne | Tillgängligt minne på en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
-| PROCESSOR användning | CPU-användning för en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. |
+| CPU-användning | CPU-användning för en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. |
 | Nätverk (in/ut) | Nätverks användning av en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
 | Samtidiga jobb (som körs/begränsas) | **Körs**. Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära real tids ögonblicks bild. <br/><br/>**Begränsa**. Gränsen visar maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på datorns storlek. Du kan öka gränsen för att skala upp samtidiga jobb körningar i avancerade scenarier, när aktiviteterna är tids gräns, även om processor, minne eller nätverk används. Den här funktionen är också tillgänglig med en lokal integration runtime med egen värd. |
 | Roll | Det finns två typer av roller i en integration runtime med egen värd för flera noder – dispatcher och Worker. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-nod som används för att hämta aktiviteter/jobb från moln tjänster och skicka dem till olika arbetsnoder. Dispatcher-noden är också en arbetsnod. |
@@ -95,10 +94,10 @@ Följande tabell innehåller möjliga status värden för en egen värd för int
 | Status | Beskrivning |
 | ------ | ------------------ | 
 | Online | Noden är ansluten till Data Factory tjänsten. |
-| Anslutningen | Noden är offline. |
-| Fortsätter | Noden uppdateras automatiskt. |
+| Offline | Noden är offline. |
+| Uppgradera | Noden uppdateras automatiskt. |
 | Begränsad | På grund av ett anslutnings problem. Kan bero på HTTP-port 8050 problem, problem med Service Bus-anslutning eller problem med synkronisering av autentiseringsuppgifter. |
-| Inaktivera | Noden har en annan konfiguration än konfigurationen av andra majoritets noder. |
+| Inaktiv | Noden har en annan konfiguration än konfigurationen av andra majoritets noder. |
 
 En nod kan vara inaktiv när den inte kan ansluta till andra noder.
 
@@ -109,7 +108,7 @@ Följande tabell innehåller möjliga status värden för en lokal integration R
 | ------ | ----------- | 
 | Behöver registrering | Ingen nod har registrerats för den här integrerings körningen med egen värd. |
 | Online | Alla noder är online. |
-| Anslutningen | Ingen nod är online. |
+| Offline | Ingen nod är online. |
 | Begränsad | Alla noder i den här integration runtime med egen värd är i felfritt tillstånd. Denna status är en varning om att vissa noder kan vara nere. Den här statusen kan bero på ett problem med synkronisering av autentiseringsuppgifter på dispatcher/arbetsnoden. |
 
 Använd cmdleten **Get-AzDataFactoryV2IntegrationRuntimeMetric** för att hämta JSON-nyttolasten som innehåller de detaljerade egenskaperna för den egna värdbaserade integrerings körningen och deras värden för ögonblicks bilder under körningen av cmdleten.
@@ -187,17 +186,17 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av virtuel
 | Status | Beskrivning |
 | ------ | ----------- | 
 | Startar | Den här noden förbereds. |
-| Tillgängligt | Den här noden är redo att distribuera/köra SSIS-paket. |
-| Pappers | Den här noden repareras/startas om. |
+| Tillgänglig | Den här noden är redo att distribuera/köra SSIS-paket. |
+| Återvinning | Den här noden repareras/startas om. |
 | Inte tillgänglig | Den här noden är inte klar för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration Runtime)
 
 | Övergripande status | Beskrivning | 
 | -------------- | ----------- | 
-| Grund | Noderna i din Azure-SSIS integration Runtime har inte allokerats/för berett. | 
+| Inledande | Noderna i din Azure-SSIS integration Runtime har inte allokerats/för berett. | 
 | Startar | Noderna i Azure-SSIS integration runtime tilldelas/förbereds och faktureringen har påbörjats. |
-| Igång | Noderna i din Azure-SSIS integration Runtime har allokerats/för berett och är redo att distribuera/köra SSIS-paket. |
+| Startad | Noderna i din Azure-SSIS integration Runtime har allokerats/för berett och är redo att distribuera/köra SSIS-paket. |
 | Stoppas  | Noderna i din Azure-SSIS integration runtime släpps. |
 | Stoppad | Noderna i din Azure-SSIS integration Runtime har släppts och faktureringen har stoppats. |
 

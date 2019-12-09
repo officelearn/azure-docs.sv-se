@@ -3,27 +3,23 @@ title: Konfigurera nyckelring
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du konfigurerar nyckel ringen så att din app kan cachelagra tokens i nyckel ringen.
 services: active-directory
-documentationcenter: ''
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 8b4599549e15d6ebe4d0bd04f96c89df86b0c0cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803799"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917513"
 ---
 # <a name="configure-keychain"></a>Konfigurera nyckelring
 
@@ -35,23 +31,23 @@ Den här artikeln beskriver hur du konfigurerar app-rättigheter så att MSAL ka
 
 ### <a name="ios"></a>iOS
 
-MSAL på iOS använder sig av åtkomst gruppen `com.microsoft.adalcache` som standard. Det här är den delade åtkomst gruppen som används av både MSAL-och ADAL-SDK: er (Azure AD Authentication Library) och säkerställer den bästa funktionen för enkel inloggning mellan flera appar från samma utgivare.
+MSAL på iOS använder `com.microsoft.adalcache` åtkomst grupp som standard. Det här är den delade åtkomst gruppen som används av både MSAL-och ADAL-SDK: er (Azure AD Authentication Library) och säkerställer den bästa funktionen för enkel inloggning mellan flera appar från samma utgivare.
 
 På iOS lägger du till `com.microsoft.adalcache` nyckel rings gruppen till appens rättighet i XCode under **projekt inställningar** > **funktioner** > **nyckel rings delning**
 
 ### <a name="macos"></a>macOS
 
-MSAL på macOS använder `com.microsoft.identity.universalstorage`-åtkomst grupp som standard.
+MSAL på macOS använder `com.microsoft.identity.universalstorage` åtkomst grupp som standard.
 
-På grund av begränsningar i nyckel ringar, MSAL `access group` översätts inte direkt till åtkomst gruppens attribut för nyckel ringar (se [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på MacOS 10,14 och tidigare. Det fungerar dock på samma sätt från ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
+På grund av begränsningar för nyckel ringar av macOS, översätts MSAL-`access group` inte direkt till åtkomst gruppens attribut för nyckel ringar (se [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på MacOS 10,14 och tidigare. Det fungerar dock på samma sätt från ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
 
 På macOS 10,15 och senare (macOS Catalina) använder MSAL-attributet för nyckel ringar för att uppnå tyst SSO, på samma sätt som för iOS.
 
 ## <a name="custom-keychain-access-group"></a>Anpassad nyckel rings åtkomst grupp
 
-Om du vill använda en annan åtkomst grupp för nyckel ringar kan du skicka den anpassade gruppen när du skapar `MSALPublicClientApplicationConfig` innan du skapar `MSALPublicClientApplication`, så här:
+Om du vill använda en annan åtkomst grupp för nyckel ringar kan du skicka en anpassad grupp när du skapar `MSALPublicClientApplicationConfig` innan du skapar `MSALPublicClientApplication`, så här:
 
-Mål-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -67,9 +63,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-
-
-Införliva
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -85,25 +79,27 @@ do {
 }       
 ```
 
-
+---
 
 ## <a name="disable-keychain-sharing"></a>Inaktivera delning av nyckel ringar
 
 Om du inte vill dela SSO-tillstånd mellan flera appar eller använda någon åtkomst grupp för nyckel ringar, inaktiverar du delning av nyckel ringar genom att skicka programpaket-ID: t som din keychainGroup:
 
-Mål-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-Införliva
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
     config.cacheConfig.keychainSharingGroup = bundleIdentifier
 }
 ```
+
+---
 
 ## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Referens-34018-fel (det gick inte att ange objekt i nyckel ringen)
 

@@ -3,27 +3,23 @@ title: AD FS stöd i Microsoft Authentication Library för Java
 titleSuffix: Microsoft identity platform
 description: Läs mer om stöd för Active Directory Federation Services (AD FS) (AD FS) i Microsoft Authentication Library för Java (MSAL4j).
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-manager: henrikm
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/21/2019
 ms.author: sagonzal
-ms.reviewer: navyasri.canumalla
+ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c286ed7467560c90f9cf9594e75af06d6cdcc5d1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 665cef55965f6871a654b9baceaad3e4f5d196c7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482094"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916663"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Active Directory Federation Services (AD FS) stöd i MSAL för Java
 

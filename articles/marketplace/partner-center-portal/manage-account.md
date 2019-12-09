@@ -3,28 +3,27 @@ title: Så här hanterar du ett kommersiellt marknads plats konto i Partner Cent
 description: Lär dig hur du hanterar ett kommersiellt marknads plats konto i Partner Center.
 author: ChJenk
 manager: evansma
-ms.author: parthp
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/30/2019
-ms.openlocfilehash: 60837171e3f59312895a76f68c660228697529ad
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 12/06/2019
+ms.openlocfilehash: 7b7a3a0a87996358436df9f7ee4a266574c0b7db
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891097"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927091"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center 
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center
 
 När du har [skapat ett partner Center-konto](./create-account.md)kan du hantera ditt konto och erbjudanden med hjälp av [instrument panelen för kommersiellt marknads platser](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-I den här artikeln får du lära dig hur du hanterar ditt partner Center-konto, inklusive hur du: 
+I den här artikeln får du lära dig hur du hanterar ditt partner Center-konto, inklusive hur du:
 
 - [Åtkomst till dina konto inställningar för partner Center](#access-your-account-settings)
-- [Hitta ditt utgivar-ID, ditt säljar-ID, användar-ID och Azure AD-klienter](#account-details)
+- [Hitta ditt utgivar-ID, Symantec-ID, säljar-ID, användar-ID, MPN-ID och Azure AD-klienter](#account-details)
 - [Uppdatera kontakt information](#contact-info)
-- [Hantera finansiell information (utbetalnings konto, skatte profil, status för utbetalning)](#financial-details)
 - [Konfigurera spårnings-GUID för övervakning av kund användning](#tracking-guids)
 - [Hantera användare](#manage-users)
 - [Hantera grupper](#manage-groups)
@@ -33,18 +32,16 @@ I den här artikeln får du lära dig hur du hanterar ditt partner Center-konto,
 - [Hantera Azure AD-klienter (arbets konton)](#manage-tenants)
 - [Hantera Partner Center-avtal](#agreements)
 
-
 ## <a name="access-your-account-settings"></a>Komma åt dina konto inställningar
 
 Om du inte redan har gjort det ska du (eller din organisations administratör) komma åt [konto inställningarna](https://partner.microsoft.com/dashboard/account/management) för ditt partner Center-konto för att:
-- kontrol lera företagets konto verifierings status
-- bekräfta ditt säljar-ID, MPN-ID, utgivar-ID och kontakt information, inklusive företagets god kännare och säljar kontakt
-- Konfigurera företagets finansiella uppgifter, inklusive skatte befrielser vid behov
+- Kontrol lera företagets konto verifierings status
+- Bekräfta ditt Symantec-ID, ditt kund-ID, MPN-ID, utgivar-ID och kontakt information, inklusive företagets god kännare och säljar kontakt
 - Skapa användar konton för alla som ska använda ditt företags konto i Partner Center
 
 ### <a name="open-developer-settings"></a>Öppna inställningar för utvecklare
 
-Konto inställningarna finns i det övre högra hörnet på [instrument panelen för extern marknads](https://partner.microsoft.com/dashboard/commercial-marketplace) plats i Partner Center. Välj kugg hjuls ikonen (nära det övre högra hörnet på instrument panelen) och välj sedan **Inställningar för utvecklare**. 
+Konto inställningarna finns i det övre högra hörnet på [instrument panelen för extern marknads](https://partner.microsoft.com/dashboard/commercial-marketplace) plats i Partner Center. Välj kugg hjuls ikonen (nära det övre högra hörnet på instrument panelen) och välj sedan **Inställningar för utvecklare**.
 
 ![Menyn konto inställningar i Partner Center](./media/dashboard-developer-settings.png)
 
@@ -52,36 +49,29 @@ I **konto inställningarna**kommer du att kunna visa dina:
 - **Konto information**: konto typ och konto status
 - **Utgivar**-ID: säljar-ID, användar-ID, utgivarens ID, Azure AD-klienter osv.
 - **Kontakt information**: utgivarens visnings namn, säljarens kontakt namn, e-post, telefon och adress
-- **Finansiell information**: utbetalnings konto, skatte profil och status för utbetalning
-- **Enheter**: alla test enheter som är kopplade till ditt konto
 - **Spåra GUID**: alla spårnings-GUID som är kopplade till ditt konto
 
 ### <a name="account-details"></a>Konto information
 
-I avsnittet konto information kan du se grundläggande information, t. ex. **konto typen** (företag eller person) och kontots **verifierings status** . Under ditt konto verifierings process visar de här inställningarna varje steg som krävs, inklusive e-postverifiering, personal verifiering och verksamhets verifiering. Du kan också uppdatera e-postmeddelandet här och skicka om verifieringen om det behövs. 
+I avsnittet konto information kan du se grundläggande information, t. ex. **konto typen** (företag eller person) och kontots **verifierings status** . Under ditt konto verifierings process visar de här inställningarna varje steg som krävs, inklusive e-postverifiering, personal verifiering och verksamhets verifiering. Du kan också uppdatera e-postmeddelandet här och skicka om verifieringen om det behövs.
 
 ### <a name="publisher-ids"></a>Utgivar-ID
 
-I avsnittet Publisher-ID kan du se ditt **säljar-ID**, **MPN-ID**och **utgivar-ID**. Dessa värden tilldelas av Microsoft för att unikt identifiera ditt Developer-konto och kan inte redige ras.
+I avsnittet Publisher-ID kan du se ditt **Symantec-ID**, **ditt säljar-** ID, **användar-ID**, **MPN-ID**och **Azure AD-klienter**. Dessa värden tilldelas av Microsoft för att unikt identifiera ditt Developer-konto och kan inte redige ras.
 
 ### <a name="contact-info"></a>Kontaktuppgifter
 
-I avsnittet kontakt information ser du **visnings namnet för utgivaren**, **säljarens kontakt uppgifter** (kontakt namn, e-post, telefonnummer och adress för företags säljaren) och **företagets god kännare** (namn, e-postadress och telefonnummer till person som har behörighet att godkänna beslut för företaget). 
-
-### <a name="financial-details"></a>Finansiell information
-
-I avsnittet finansiella uppgifter kan du ange eller uppdatera din finansiella information om du publicerar betalda appar, tillägg eller tjänster. 
-
-Om du bara planerar att lista kostnads fria erbjudanden behöver du inte skapa ett utbetalnings konto eller fylla i några skatte former. Om du ändrar dig senare och bestämmer dig för att du vill sälja via Microsoft, kan du ställa in ditt utbetalnings konto och fylla i skatte former vid denna tidpunkt. 
+I avsnittet kontakt information ser du **visnings namnet för utgivaren**, **säljarens kontakt information** (kontakt namn, e-postadress, telefonnummer och adress för företags säljaren) och **företagets god kännare** (namn, e-postadress och telefonnummer till den person som har behörighet att godkänna beslut för företaget).
 
 #### <a name="payout-account"></a>Konto utbetalning
 
 Ett utbetalnings konto är Bank kontot som fortsätter skickas från din försäljning. Detta bank konto måste finnas i samma land som du registrerade ditt partner Center-konto.
 
 Om du vill konfigurera ditt utbetalnings konto måste du **associera ditt Microsoft-konto**:
-1. I **konto inställningar**går du till avsnittet **ekonomi information** och väljer **associera ditt Microsoft-konto**. 
-2. När du uppmanas till det loggar du in med ditt Microsoft-konto (MSA). Det här kontot kan inte redan vara kopplat till ett annat Partner Center-konto. 
-3. Om du vill slutföra installationen av ditt konto för utbetalning loggar du ut helt från Partner Center och loggar sedan in igen med ditt Microsoft-konto (i stället för ditt arbets konto). 
+1. Gå till [sidan för extern Marketplace-översikt](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) i Partner Center.
+2. Under avsnittet profil väljer du **associera ditt Microsoft-konto**.
+3. När du uppmanas till det loggar du in med ditt Microsoft-konto (MSA). Det här kontot kan inte redan vara kopplat till ett annat Partner Center-konto.
+4. Om du vill slutföra installationen av ditt konto för utbetalning loggar du ut helt från Partner Center och loggar sedan in igen med ditt Microsoft-konto (i stället för ditt arbets konto).
 
 Nu när ditt Microsoft-konto är associerat, för att lägga till ett utbetalnings konto, måste du:
 - **Välj en betalnings metod**: bank konto eller PayPal
@@ -144,7 +134,6 @@ Rapportering görs av partner värdet (Microsoft partner-ID) och GUID. Du kan oc
 
 Mer information finns i [vanliga frågor och svar om att spåra Azure kund användning med GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
-
 ## <a name="create-a-billing-profile"></a>Skapa en fakturerings profil
 
 Om du publicerar en [Dynamics 365 för kund engagemang & Power Apps](./create-new-customer-engagement-offer.md) eller [Dynamics 365 for Operations](./create-new-operations-offer.md) -erbjudandet måste du slutföra din **fakturerings profil**.
@@ -153,11 +142,11 @@ Fakturerings adressen är förifylld från din juridiska organisation och du kan
 
 ## <a name="multi-user-account-management"></a>Hantering av flera användar konton
 
-Partner Center utnyttjar [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) för åtkomst och hantering av flera användares konton. Organisationens Azure AD associeras automatiskt med ditt partner Center-konto som en del av registrerings processen. 
+Partner Center utnyttjar [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) för åtkomst och hantering av flera användares konton. Organisationens Azure AD associeras automatiskt med ditt partner Center-konto som en del av registrerings processen.
 
 ## <a name="manage-users"></a>Hantera användare
 
-I avsnittet **användare** i Partner Center (under **konto inställningar**) kan du använda Azure AD för att hantera användare, grupper och Azure AD-program som har åtkomst till ditt partner Center-konto. För att kunna hantera användare måste du vara inloggad med ditt [arbets konto](./company-work-accounts.md) (tillhör ande Azure AD-klient). Om du vill hantera användare inom ett annat arbets konto/klient organisation måste du logga ut och sedan logga in igen som en användare med **chefs** behörigheter för det arbets kontot/klient organisationen. 
+I avsnittet **användare** i Partner Center (under **konto inställningar**) kan du använda Azure AD för att hantera användare, grupper och Azure AD-program som har åtkomst till ditt partner Center-konto. För att kunna hantera användare måste du vara inloggad med ditt [arbets konto](./company-work-accounts.md) (tillhör ande Azure AD-klient). Om du vill hantera användare inom ett annat arbets konto/klient organisation måste du logga ut och sedan logga in igen som en användare med **chefs** behörigheter för det arbets kontot/klient organisationen.
 
 När du har loggat in med ditt arbets konto (Azure AD-klient) kan du:
 - [Lägg till eller ta bort användare](#add-or-remove-users)
@@ -167,8 +156,7 @@ När du har loggat in med ditt arbets konto (Azure AD-klient) kan du:
 - [Hantera nycklar för ett Azure AD-program](#manage-keys-for-an-azure-ad-application)
 - [Definiera användar roller och behörigheter](#define-user-roles-and-permissions)
 
-
-Tänk på att alla partner Center-användare (inklusive grupper och Azure AD-program) måste ha ett aktivt arbets konto i en [Azure AD-klient](#manage-tenants) som är kopplat till ditt partner Center-konto. 
+Tänk på att alla partner Center-användare (inklusive grupper och Azure AD-program) måste ha ett aktivt arbets konto i en [Azure AD-klient](#manage-tenants) som är kopplat till ditt partner Center-konto.
 
 ### <a name="add-or-remove-users"></a>Lägg till eller ta bort användare
 
@@ -181,9 +169,9 @@ Så här lägger du till användare till ditt partner Center-konto som redan fin
 1. Gå till **användare** (under **konto inställningar**) och välj **Lägg till användare**.
 2. Välj en eller flera användare i listan som visas. Du kan använda sökrutan för att söka efter vissa användare.
 \* Om du väljer fler än en användare som ska läggas till i ditt partner Center-konto måste du tilldela dem samma roll eller uppsättning anpassade behörigheter. Om du vill lägga till flera användare med olika roller/behörigheter upprepar du de här stegen för varje roll eller uppsättning anpassade behörigheter.
-3.  När du är färdig med att välja användare klickar du på **Lägg till markerade**.
-5.  I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för de valda användarna.
-6.  Välj **Spara**.
+3. När du är färdig med att välja användare klickar du på **Lägg till markerade**.
+4. I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för de valda användarna.
+5. Välj **Spara**.
 
 #### <a name="create-new-users"></a>Skapa nya användare
 
@@ -191,7 +179,7 @@ För att skapa helt nya användar konton måste du ha ett konto med [**globala a
 
 1. Gå till **användare** (under **konto inställningar**), Välj **Lägg till användare**och välj sedan **skapa nya användare**.
 1. Ange förnamn, efter namn och användar namn för varje ny användare. 
-1. Om du vill att den nya användaren ska ha ett globalt administratörs konto i din organisations katalog markerar du kryss rutan **gör användaren till global administratör i din Azure AD med fullständig kontroll över alla katalog resurser**. Detta ger användaren fullständig åtkomst till alla administrativa funktioner i ditt företags Azure AD. De kan lägga till och hantera användare i din organisations arbets konto (Azure AD-klient), men inte i Partner Center, om du inte beviljar kontot rätt roll/behörigheter. 
+1. Om du vill att den nya användaren ska ha ett globalt administratörs konto i din organisations katalog markerar du kryss rutan **gör användaren till global administratör i din Azure AD med fullständig kontroll över alla katalog resurser**. Detta ger användaren fullständig åtkomst till alla administrativa funktioner i ditt företags Azure AD. De kan lägga till och hantera användare i din organisations arbets konto (Azure AD-klient), men inte i Partner Center, om du inte beviljar kontot rätt roll/behörigheter.
 1. Om du har markerat kryss rutan för att **göra den här användaren till global administratör**måste du ange ett **e-postmeddelande för återställning av lösen ord** för att användaren ska kunna återställa sina lösen ord vid behov.
 1. I avsnittet **grupp medlemskap** väljer du de grupper som du vill att den nya användaren ska tillhöra.
 1. I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för användaren.
@@ -201,7 +189,7 @@ När du skapar en ny användare i Partner Center skapas även ett konto för den
 
 #### <a name="invite-new-users-by-email"></a>Bjud in nya användare via e-post
 
-Om du vill bjuda in användare som för närvarande inte är en del av ditt företags arbets konto (Azure AD-klient) via e-post måste du ha ett konto med [**globala administratörs**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörigheter. 
+Om du vill bjuda in användare som för närvarande inte är en del av ditt företags arbets konto (Azure AD-klient) via e-post måste du ha ett konto med [**globala administratörs**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörigheter.
 
 1. Gå till **användare** (under **konto inställningar**), Välj **Lägg till användare**och välj **Bjud in användare via e-post**.
 2. Ange en eller flera e-postadresser (upp till tio), avgränsade med kommatecken eller semikolon.
@@ -211,7 +199,6 @@ Om du vill bjuda in användare som för närvarande inte är en del av ditt för
 De användare som du har bjudit in får en e-postinbjudan om att ansluta till ditt partner Center-konto. Ett nytt gäst användar konto kommer att skapas i ditt arbets konto (Azure AD-klient). Varje användare måste acceptera sin inbjudan innan de kan komma åt ditt konto.
 
 Om du behöver skicka en inbjudan igen går du till sidan **användare** , söker efter inbjudan i listan med användare, väljer e-postadress (eller texten som säger att *inbjudan väntar*). Välj sedan **Skicka inbjudan igen**på sidan längst ned på sidan.
- 
 
 > [!NOTE]
 > Om din organisation använder [katalog integrering](https://go.microsoft.com/fwlink/p/?LinkID=724033) för att synkronisera den lokala katalog tjänsten med din Azure AD kan du inte skapa nya användare, grupper eller Azure AD-program i Partner Center. Du (eller en annan administratör i din lokala katalog) måste skapa dem direkt i den lokala katalogen innan du kan se och lägga till dem i Partner Center.
@@ -224,10 +211,9 @@ Om du vill ta bort en användare från ditt arbets konto (Azure AD-klient) går 
 
 Om en av dina användare behöver ändra sitt lösen ord kan de göra det själva om du har angett ett **e-postmeddelande för återställning av lösen ord** när du skapar användar kontot. Du kan också uppdatera en användares lösen ord genom att följa stegen nedan. Om du vill ändra en användares lösen ord på ditt företags arbets konto (Azure AD-klient) måste du vara inloggad på ett konto med [**globala administratörs**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörigheter. Observera att detta kommer att ändra användarens lösen ord i din Azure AD-klient, tillsammans med lösen ordet som de använder för att komma åt Partner Center.
 
-1.  Från sidan **användare** (under **konto inställningar**) väljer du namnet på det användar konto som du vill redigera.
-2.  Välj knappen **Återställ lösen ord** längst ned på sidan.
-3.  En bekräftelse sida visas med inloggnings informationen för användaren, inklusive ett tillfälligt lösen ord. Se till att skriva ut eller kopiera den här informationen och ge den till användaren, eftersom du inte kan komma åt det tillfälliga lösen ordet när du har lämnat den här sidan.
-
+1. Från sidan **användare** (under **konto inställningar**) väljer du namnet på det användar konto som du vill redigera.
+2. Välj knappen **Återställ lösen ord** längst ned på sidan.
+3. En bekräftelse sida visas med inloggnings informationen för användaren, inklusive ett tillfälligt lösen ord. Se till att skriva ut eller kopiera den här informationen och ge den till användaren, eftersom du inte kan komma åt det tillfälliga lösen ordet när du har lämnat den här sidan.
 
 ## <a name="manage-groups"></a>Hantera grupper
 
@@ -235,28 +221,28 @@ Med grupper kan du styra flera användar roller och behörigheter tillsammans.
 
 #### <a name="add-an-existing-group"></a>Lägg till en befintlig grupp
 
-Så här lägger du till en grupp som redan finns i din organisations arbets konto (Azure AD-klient) till ditt partner Center-konto: 
+Så här lägger du till en grupp som redan finns i din organisations arbets konto (Azure AD-klient) till ditt partner Center-konto:
 
-1.  Välj **Lägg till grupper**på sidan **användare** (under **konto inställningar**).
-2.  Välj en eller flera grupper i listan som visas. Du kan söka efter vissa grupper med hjälp av sökrutan.
+1. Välj **Lägg till grupper**på sidan **användare** (under **konto inställningar**).
+2. Välj en eller flera grupper i listan som visas. Du kan söka efter vissa grupper med hjälp av sökrutan.
 Om du väljer fler än en grupp som ska läggas till i ditt partner Center-konto måste du tilldela dem samma roll eller uppsättning anpassade behörigheter. Om du vill lägga till flera grupper med olika roller/behörigheter upprepar du de här stegen för varje roll eller uppsättning anpassade behörigheter.
-3.  När du är färdig med att välja grupper klickar du på **Lägg till markerade**.
-4.  I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för de valda grupperna. Alla medlemmar i gruppen kommer att ha åtkomst till ditt partner Center-konto med de behörigheter som du tillämpar på gruppen, oavsett vilka roller och behörigheter som är kopplade till sitt eget konto.
-5.  Välj **Spara**.
+3. När du är färdig med att välja grupper klickar du på **Lägg till markerade**.
+4. I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för de valda grupperna. Alla medlemmar i gruppen kommer att ha åtkomst till ditt partner Center-konto med de behörigheter som du tillämpar på gruppen, oavsett vilka roller och behörigheter som är kopplade till sitt eget konto.
+5. Välj **Spara**.
 
 När du lägger till en befintlig grupp kommer alla användare som är medlemmar i gruppen att kunna komma åt ditt partner Center-konto, med de behörigheter som är kopplade till gruppens tilldelade roll.
 
 #### <a name="add-a-new-group"></a>Lägg till en ny grupp
 
-Så här lägger du till en helt ny grupp till ditt partner Center-konto: 
+Så här lägger du till en helt ny grupp till ditt partner Center-konto:
 
-1.  Välj **Lägg till grupper**på sidan **användare** (under **konto inställningar**).
-2.  Välj **ny grupp**på nästa sida.
-3.  Ange visnings namnet för den nya gruppen.
-4.  Ange roll (er) eller anpassade behörigheter för gruppen. Alla medlemmar i gruppen kommer att ha åtkomst till ditt partner Center-konto med de behörigheter som du använder här, oavsett vilka roller/behörigheter som är kopplade till sitt eget konto.
-5.  Välj användare för den nya gruppen i listan som visas. Du kan använda sökrutan för att söka efter vissa användare.
-6.  När du är färdig med att välja användare klickar du på **Lägg till markerade** för att lägga till dem i den nya gruppen.
-7.  Välj **Spara**.
+1. Välj **Lägg till grupper**på sidan **användare** (under **konto inställningar**).
+2. Välj **ny grupp**på nästa sida.
+3. Ange visnings namnet för den nya gruppen.
+4. Ange roll (er) eller anpassade behörigheter för gruppen. Alla medlemmar i gruppen kommer att ha åtkomst till ditt partner Center-konto med de behörigheter som du använder här, oavsett vilka roller/behörigheter som är kopplade till sitt eget konto.
+5. Välj användare för den nya gruppen i listan som visas. Du kan använda sökrutan för att söka efter vissa användare.
+6. När du är färdig med att välja användare klickar du på **Lägg till markerade** för att lägga till dem i den nya gruppen.
+7. Välj **Spara**.
 
 Observera att den nya gruppen skapas i din organisations arbets konto (Azure AD-klient) också, inte bara i ditt partner Center-konto.
 
@@ -266,51 +252,50 @@ Om du vill ta bort en grupp från ditt arbets konto (Azure AD-klient) går du ti
 
 ## <a name="manage-azure-ad-applications"></a>Hantera Azure AD-program
 
-Du kan tillåta att program eller tjänster som ingår i ditt företags Azure AD får åtkomst till ditt partner Center-konto. 
+Du kan tillåta att program eller tjänster som ingår i ditt företags Azure AD får åtkomst till ditt partner Center-konto.
 
-#### <a name="add-existing-azure-ad-applications"></a>Lägg till befintliga Azure AD-program 
+#### <a name="add-existing-azure-ad-applications"></a>Lägg till befintliga Azure AD-program
 
-Så här lägger du till program som redan finns i företagets Azure Active Directory: 
+Så här lägger du till program som redan finns i företagets Azure Active Directory:
 
-1.  Från sidan **användare** (under **konto inställningar**) väljer du **Lägg till Azure AD-program**.
-2.  Välj ett eller flera Azure AD-program i listan som visas. Du kan använda sökrutan för att söka efter särskilda Azure AD-program. Om du väljer mer än ett Azure AD-program som ska läggas till i ditt partner Center-konto måste du tilldela samma roll eller uppsättning anpassade behörigheter. Om du vill lägga till flera Azure AD-program med olika roller/behörigheter upprepar du de här stegen för varje roll eller uppsättning anpassade behörigheter.
-3.  När du är färdig med att välja Azure AD-program klickar du på **Lägg till markerade**.
-5.  I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för de valda Azure AD-programmen.
-6.  Välj **Spara**.
+1. Från sidan **användare** (under **konto inställningar**) väljer du **Lägg till Azure AD-program**.
+2. Välj ett eller flera Azure AD-program i listan som visas. Du kan använda sökrutan för att söka efter särskilda Azure AD-program. Om du väljer mer än ett Azure AD-program som ska läggas till i ditt partner Center-konto måste du tilldela samma roll eller uppsättning anpassade behörigheter. Om du vill lägga till flera Azure AD-program med olika roller/behörigheter upprepar du de här stegen för varje roll eller uppsättning anpassade behörigheter.
+3. När du är färdig med att välja Azure AD-program klickar du på **Lägg till markerade**.
+4. I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för de valda Azure AD-programmen.
+5. Välj **Spara**.
 
-#### <a name="add-new-azure-ad-applications"></a>Lägg till nya Azure AD-program 
+#### <a name="add-new-azure-ad-applications"></a>Lägg till nya Azure AD-program
 
-Om du vill bevilja åtkomst till Partner Center till ett helt nytt Azure AD-programkonto kan du skapa ett i avsnittet **användare** . Observera att det här kommer att skapa ett nytt konto i ditt företags arbets konto (Azure AD-klient), inte bara i ditt partner Center-konto. Om du huvudsakligen använder Azure AD-programmet för partner Center-autentisering och inte behöver användare för att komma åt den direkt, kan du ange en giltig adress för **svars-URL:** en och **app-ID-URI: n**, förutsatt att dessa värden inte används av någon annan Azure AD-program i din katalog.
+Om du vill bevilja åtkomst till Partner Center till ett helt nytt Azure AD-programkonto kan du skapa ett i avsnittet **användare** . Observera att det här kommer att skapa ett nytt konto i ditt företags arbets konto (Azure AD-klient), inte bara i ditt partner Center-konto. Om du huvudsakligen använder Azure AD-programmet för partner Center-autentisering och inte behöver användare för att komma åt den direkt, kan du ange en giltig adress för **svars-URL:** en och **app-ID-URI: n**, förutsatt att dessa värden inte används av något annat Azure AD-program i katalogen.
 
-1.  Från sidan **användare** (under **konto inställningar**) väljer du **Lägg till Azure AD-program**.
-2.  På nästa sida väljer du **nytt Azure AD-program**.
-3.  Ange **svars-URL** för det nya Azure AD-programmet. Detta är URL: en där användarna kan logga in och använda ditt Azure AD-program (kallas ibland också appens URL eller inloggnings-URL). **Svars-URL: en** får inte vara längre än 256 tecken och måste vara unik i din katalog.
-4.  Ange **app-ID-URI** för det nya Azure AD-programmet. Detta är en logisk identifierare för Azure AD-programmet som presenteras när en begäran om enkel inloggning skickas till Azure AD. Observera att **app-ID-URI: n** måste vara unik för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om app-ID-URI: n finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
-5.  I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för Azure AD-programmet.
-6.  Välj **Spara**.
+1. Från sidan **användare** (under **konto inställningar**) väljer du **Lägg till Azure AD-program**.
+2. På nästa sida väljer du **nytt Azure AD-program**.
+3. Ange **svars-URL** för det nya Azure AD-programmet. Detta är URL: en där användarna kan logga in och använda ditt Azure AD-program (kallas ibland också appens URL eller inloggnings-URL). **Svars-URL: en** får inte vara längre än 256 tecken och måste vara unik i din katalog.
+4. Ange **app-ID-URI** för det nya Azure AD-programmet. Detta är en logisk identifierare för Azure AD-programmet som presenteras när en begäran om enkel inloggning skickas till Azure AD. Observera att **app-ID-URI: n** måste vara unik för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om app-ID-URI: n finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+5. I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för Azure AD-programmet.
+6. Välj **Spara**.
 
 När du har lagt till eller skapat ett Azure AD-program kan du gå tillbaka till avsnittet **användare** och välja program namnet för att granska inställningarna för programmet, inklusive klient-ID, klient-ID, svars-URL och app-ID-URI.
 
 #### <a name="remove-an-application"></a>Ta bort ett program
 
-Om du vill ta bort ett program från ditt arbets konto (Azure AD-klient) går du till **användare** (under **konto inställningar**), väljer det program som du vill ta bort med hjälp av kryss rutan längst till höger och väljer **ta bort** från tillgängliga åtgärder. Ett popup-fönster visas där du bekräftar att du vill ta bort de valda programmen.
+Om du vill ta bort ett program från ditt arbets konto (Azure AD-klient) går du till **användare** (under **konto inställningar**), väljer det program som du vill ta bort med hjälp av kryss rutan längst till höger och väljer sedan **ta bort** från de tillgängliga åtgärderna. Ett popup-fönster visas där du bekräftar att du vill ta bort de valda programmen.
 
 #### <a name="manage-keys-for-an-azure-ad-application"></a>Hantera nycklar för ett Azure AD-program
 
 Om ditt Azure AD-program läser och skriver data i Microsoft Azure AD behöver den en nyckel. Du kan skapa nycklar för ett Azure AD-program genom att redigera dess information i Partner Center. Du kan också ta bort nycklar som inte längre behövs.
 
-1.  Från sidan **användare** (under **konto inställningar**) väljer du namnet på Azure AD-programmet. Du ser alla aktiva nycklar för Azure AD-programmet, inklusive det datum då nyckeln skapades och när den upphör att gälla. 
+1. Från sidan **användare** (under **konto inställningar**) väljer du namnet på Azure AD-programmet. Du ser alla aktiva nycklar för Azure AD-programmet, inklusive det datum då nyckeln skapades och när den upphör att gälla. 
 2. Om du vill ta bort en nyckel som inte längre behövs väljer du **ta bort**.
-3.  Om du vill lägga till en ny nyckel väljer du **Lägg till ny nyckel**.
-4.  En skärm bild som visar **klient-ID** och **nyckel värden**visas. Se till att skriva ut eller kopiera den här informationen, eftersom du inte kan komma åt den igen när du lämnar den här sidan.
-4.  Om du vill skapa fler nycklar väljer du **Lägg till en annan nyckel**.
+3. Om du vill lägga till en ny nyckel väljer du **Lägg till ny nyckel**.
+4. En skärm bild som visar **klient-ID** och **nyckel värden**visas. Se till att skriva ut eller kopiera den här informationen, eftersom du inte kan komma åt den igen när du lämnar den här sidan.
+5. Om du vill skapa fler nycklar väljer du **Lägg till en annan nyckel**.
 
-
-## <a name="define-user-roles-and-permissions"></a>Definiera användar roller och behörigheter
+## <a name="define-user-roles-and-permissions"></a>Definiera användarroller och behörigheter
 
 Ditt företags användare kan tilldelas följande roller och behörigheter för programmet för affärs marknads platser i Partner Center:
 
-- **Cachehanteraren**
+- **Manager**
   - Kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar
   - Kan hantera användare, roller och arbets konton (klient organisationer)
 - **Developer**
@@ -320,12 +305,11 @@ Ditt företags användare kan tilldelas följande roller och behörigheter för 
 > [!NOTE]
 > För programmet för kommersiella marknads platser används inte rollerna global administratör, affärs deltagare, ekonomi bidrag och marknads deltagare. Att tilldela dessa roller till användare har ingen påverkan. Endast chefs-och utvecklare-rollerna beviljar behörigheter till användare.
 
-Mer information om hur du hanterar roller och behörigheter i andra delar av Partner Center, till exempel Azure Active Directory (AD), Cloud Solution Provider (CSP), kontroll panels leverantör (CPV), gäst användare eller Microsoft Partner Network (MPN), finns i [Tilldela användar roller och behörigheter i Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
-
+Mer information om hur du hanterar roller och behörigheter i andra delar av Partner Center, till exempel Azure Active Directory (AD), Cloud Solution Provider (CSP), kontroll panels leverantör (CPV), gäst användare eller Microsoft Partner Network (MPN) finns i [Tilldela användar roller och behörigheter i Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
 ## <a name="manage-tenants"></a>Hantera klienter
 
-En Azure Active Directory-klient (AD), som även kallas ditt "arbets konto" i den här dokumentationen, är en representation av organisationen som är konfigurerad i Azure Portal och hjälper dig att hantera en särskild instans av Microsofts moln tjänster för din interna och externa användare. Om din organisation prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Office 365, upprättades en Azure AD-klient åt dig. 
+En Azure Active Directory-klient (AD), som även kallas ditt "arbets konto" i den här dokumentationen, är en representation av organisationen som är konfigurerad i Azure Portal och hjälper dig att hantera en särskild instans av Microsofts moln tjänster för din interna och externa användare. Om din organisation prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Office 365, upprättades en Azure AD-klient åt dig.
 
 Du kan konfigurera flera klienter som ska användas med partner Center. Alla användare med rollen **chef** i Partner Center-kontot kan välja att lägga till och ta bort Azure AD-klienter från kontot.  
 
@@ -333,7 +317,7 @@ Du kan konfigurera flera klienter som ska användas med partner Center. Alla anv
 
 Koppla en annan Azure AD-klient till ditt partner Center-konto:
 
-1.  Från sidan **innehavare** (under **konto inställningar**) väljer du **associera en annan Azure AD-klient**.
+1. Från sidan **innehavare** (under **konto inställningar**) väljer du **associera en annan Azure AD-klient**.
 2. Ange dina autentiseringsuppgifter för Azure AD för den klient som du vill koppla.
 3. Granska organisations-och domän namnet för din Azure AD-klient. Slutför kopplingen genom att välja **Bekräfta**.
 
@@ -343,7 +327,7 @@ Om kopplingen lyckas är du redo att lägga till och hantera konto användare i 
 
 För att skapa en helt ny Azure AD-klient med ditt partner Center-konto:
 
-1.  Från sidan **innehavare** (under **konto inställningar**) väljer du **skapa en ny Azure AD-klient**.
+1. Från sidan **innehavare** (under **konto inställningar**) väljer du **skapa en ny Azure AD-klient**.
 2. Ange katalog informationen för din nya Azure AD:
     - **Domän namn**: det unika namn som vi använder för din Azure AD-domän, tillsammans med ". onmicrosoft.com". Om du till exempel har angett "example" är din Azure AD-domän "example.onmicrosoft.com".
     - **Kontakta e-** postadressen: en e-postadress där vi kan kontakta dig om ditt konto om det behövs.
@@ -362,13 +346,11 @@ När du tar bort en klient kommer alla användare som har lagts till i Partner C
 > [!TIP]
 > Du kan inte ta bort en klient om du är inloggad på Partner Center med ett konto i samma klient organisation. Om du vill ta bort en klient måste du logga in på Partner Center som en **hanterare** för en annan klient som är kopplad till kontot. Om det bara finns en klient som är associerad med kontot, kan klienten bara tas bort när du har loggat in med Microsoft-konto som öppnade kontot.
 
-
 ## <a name="agreements"></a>Avtal
 
-I avsnittet **avtal** i Partner Center (under **konto inställningar**) kan du se en lista över de publicerings avtal som du har auktoriserat. Dessa avtal visas enligt namn och versions nummer, inklusive datumet då det godkändes och namnet på den användare som har godkänt avtalet. 
+I avsnittet **avtal** i Partner Center (under **konto inställningar**) kan du se en lista över de publicerings avtal som du har auktoriserat. Dessa avtal visas enligt namn och versions nummer, inklusive datumet då det godkändes och namnet på den användare som har godkänt avtalet.
 
-De **åtgärder som krävs** kan visas överst på den här sidan om det finns avtals uppdateringar som kräver din uppmärksamhet. Om du vill godkänna ett uppdaterat avtal läser du först den länkade avtals versionen och väljer sedan **Godkänn avtal**. 
-
+De **åtgärder som krävs** kan visas överst på den här sidan om det finns avtals uppdateringar som kräver din uppmärksamhet. Om du vill godkänna ett uppdaterat avtal läser du först den länkade avtals versionen och väljer sedan **Godkänn avtal**.
 
 ## <a name="next-steps"></a>Nästa steg
 

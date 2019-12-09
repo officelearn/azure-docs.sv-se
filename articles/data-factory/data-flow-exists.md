@@ -1,18 +1,19 @@
 ---
-title: Exists-transformering i Azure Data Factory mappnings data flöde
+title: Exists-transformering i mappnings data flödet
 description: Sök efter befintliga rader med hjälp av exists-omvandlingen i Azure Data Factory mappa data flöde
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: efcc45dcf3565b70305323701810c49c4a720394
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676738"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930415"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Exists-transformering i mappnings data flödet
 
@@ -39,7 +40,7 @@ Om du vill skapa ett uttryck för en fri form som innehåller andra operatorer �
 
 ![Finns anpassade inställningar](media/data-flow/exists1.png "finns anpassad")
 
-## <a name="data-flow-script"></a>Skript för data flöde
+## <a name="data-flow-script"></a>Dataflödesskript
 
 ### <a name="syntax"></a>Syntax
 

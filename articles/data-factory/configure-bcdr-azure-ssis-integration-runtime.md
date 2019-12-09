@@ -2,23 +2,22 @@
 title: Konfigurera Azure-SSIS Integration Runtime för SQL Database redundans
 description: Den här artikeln beskriver hur du konfigurerar Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering och redundans för SSISDB-databasen
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 6e709a25c6c33a1fc80a110435035b1473d92681
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/14/2018
+ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681394"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928504"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering och redundans
 
@@ -72,7 +71,7 @@ När redundans inträffar måste du göra följande:
 
 I följande avsnitt beskrivs de här stegen i detalj.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
 - Kontrol lera att du har aktiverat haveri beredskap för din Azure SQL Database-Server om servern har ett avbrott på samma tid. Mer information finns i [Översikt över affärs kontinuitet med Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
@@ -105,7 +104,7 @@ Följ dessa steg för att stoppa Azure-SSIS IR, växla IR till en ny region och 
 
 När en ADF-eller Azure-SSIS IR-haverining sker i den aktuella regionen kan du göra så att din SSISDB fungerar med en ny Azure-SSIS IR i en ny region.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
 - Om du använder ett virtuellt nätverk i den aktuella regionen måste du använda ett annat virtuellt nätverk i den nya regionen för att ansluta Azure-SSIS integration Runtime. Mer information finns i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
 

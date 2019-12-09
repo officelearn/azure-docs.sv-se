@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f253aeb202671a3f90eabb1d04af95333540a239
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77915409e3c44a01e26c35c0facb2d577c331fd8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231156"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914918"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
 
@@ -28,7 +28,7 @@ Microsoft Graph-tillägget innehåller följande bindningar:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph-bindningar finns för närvarande i för hands version för Azure Functions version 2. x. De stöds inte i functions version 1. x.
+> Microsoft Graph-bindningar finns för närvarande i för hands version för Azure Functions version 2. x och högre. De stöds inte i functions version 1. x.
 
 ## <a name="packages"></a>Paket
 
@@ -69,7 +69,7 @@ Om du använder Azure Portal visas en varning under prompten för att installera
 
 
 <a name="token-input"></a>
-## <a name="auth-token"></a>Auth-token
+## <a name="auth-token"></a>Säkerhetstoken
 
 Indataporten för token för token hämtar en Azure AD-token för en specifik resurs och ger den till din kod som en sträng. Resursen kan vara valfri för vilken programmet har behörigheter. 
 
@@ -84,7 +84,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#auth-token---c-script-example)
+* [C#-skript (.csx)](#auth-token---c-script-example)
 * [JavaScript](#auth-token---javascript-example)
 
 #### <a name="auth-token---c-script-example"></a>Auth-token – C# skript exempel
@@ -203,7 +203,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du [token](h
 
 ### <a name="auth-token---configuration"></a>Auth-token – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Token`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Token` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
@@ -242,7 +242,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#excel-input---c-script-example)
+* [C#-skript (.csx)](#excel-input---c-script-example)
 * [JavaScript](#excel-input---javascript-example)
 
 #### <a name="excel-input---c-script-example"></a>Exempel på Excel C# -indatamängds skript
@@ -338,7 +338,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du [Excel](h
 
 ### <a name="excel-input---configuration"></a>Excel-indatamängd – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Excel`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Excel` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
@@ -391,7 +391,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#excel-output---c-script-example)
+* [C#-skript (.csx)](#excel-output---c-script-example)
 * [JavaScript](#excel-output---javascript-example)
 
 #### <a name="excel-output---c-script-example"></a>Excel-utdata C# – skript exempel
@@ -500,7 +500,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du [Excel](h
 
 ### <a name="excel-output---configuration"></a>Excel-utdata – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Excel`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Excel` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
@@ -550,7 +550,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#file-input---c-script-example)
+* [C#-skript (.csx)](#file-input---c-script-example)
 * [JavaScript](#file-input---javascript-example)
 
 #### <a name="file-input---c-script-example"></a>Fil indata C# -skript exempel
@@ -646,7 +646,7 @@ Använd attributet [OneDrive](https://github.com/Azure/azure-functions-microsoft
 
 ### <a name="file-input---configuration"></a>Fil indata-konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `OneDrive`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `OneDrive` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
@@ -668,8 +668,8 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 |Microsoft Graph|Läsa användarfiler|
 
 Bindningen visar följande typer av .NET-funktioner:
-- byte[]
-- Strömma
+- byte
+- Stream
 - sträng
 - Microsoft.Graph.DriveItem
 
@@ -694,7 +694,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#file-output---c-script-example)
+* [C#-skript (.csx)](#file-output---c-script-example)
 * [JavaScript](#file-output---javascript-example)
 
 #### <a name="file-output---c-script-example"></a>Fil utdata- C# skript exempel
@@ -794,7 +794,7 @@ Använd attributet [OneDrive](https://github.com/Azure/azure-functions-microsoft
 
 ### <a name="file-output---configuration"></a>Filutdata-konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `OneDrive`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `OneDrive` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
@@ -816,8 +816,8 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 |Microsoft Graph|Ha fullständig åtkomst till användarfiler|
 
 Bindningen visar följande typer av .NET-funktioner:
-- byte[]
-- Strömma
+- byte
+- Stream
 - sträng
 - Microsoft.Graph.DriveItem
 
@@ -841,7 +841,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#outlook-output---c-script-example)
+* [C#-skript (.csx)](#outlook-output---c-script-example)
 * [JavaScript](#outlook-output---javascript-example)
 
 #### <a name="outlook-output---c-script-example"></a>Exempel på Outlook C# -utdata – skript
@@ -945,7 +945,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du [Outlook]
 
 ### <a name="outlook-output---configuration"></a>Outlook-utdata-konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Outlook`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Outlook` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
@@ -985,7 +985,7 @@ Med Webhooks kan du reagera på händelser i Microsoft Graph. För att stödja W
 
 Själva bindningarna kräver inte några Azure AD-behörigheter, men du måste begära behörigheter som är relevanta för den resurs typ som du vill reagera på. En lista över vilka behörigheter som krävs för varje resurs typ finns i [prenumerations behörigheter](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
-Mer information om Webhooks finns [Arbeta med Webhooks i Microsoft Graph].
+Mer information om Webhooks finns [arbeta med webhooks i Microsoft Graph].
 
 
 
@@ -993,7 +993,7 @@ Mer information om Webhooks finns [Arbeta med Webhooks i Microsoft Graph].
 
 ## <a name="webhook-trigger"></a>Webhook-utlösare
 
-Med den Microsoft Graph webhook-utlösaren kan en funktion reagera på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en Microsoft Graph resurs typ.
+Med den Microsoft Graph webhook-utlösaren kan en funktion reagera på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en resurstyp för Microsoft Graph.
 
 Det här avsnittet innehåller följande underavsnitt:
 
@@ -1006,7 +1006,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#webhook-trigger---c-script-example)
+* [C#-skript (.csx)](#webhook-trigger---c-script-example)
 * [JavaScript](#webhook-trigger---javascript-example)
 
 #### <a name="webhook-trigger---c-script-example"></a>Webhook-utlösare – C# skript exempel
@@ -1088,14 +1088,14 @@ Använd attributet [GraphWebhookTrigger](https://github.com/Azure/azure-function
 
 ### <a name="webhook-trigger---configuration"></a>Webhook-utlösare – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `GraphWebhookTrigger`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `GraphWebhookTrigger` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
 |**typ**||Required-måste anges till `graphWebhook`.|
 |**riktning**||Required-måste anges till `trigger`.|
-|**Typer**|**Typer**|Krävs – den graf-resurs som den här funktionen ska svara på webhookar för. Kan vara något av följande värden:<ul><li><code>#Microsoft.Graph.Message</code> – ändringar som gjorts i Outlook-meddelanden.</li><li><code>#Microsoft.Graph.DriveItem</code> – ändringar som gjorts i objekt i OneDrive-roten.</li><li><code>#Microsoft.Graph.Contact</code> – ändringar som gjorts i personliga kontakter i Outlook.</li><li><code>#Microsoft.Graph.Event</code> – ändringar som gjorts i Outlooks Kalender objekt.</li></ul>|
+|**ResourceType**|**ResourceType**|Krävs – den graf-resurs som den här funktionen ska svara på webhookar för. Kan vara något av följande värden:<ul><li><code>#Microsoft.Graph.Message</code> – ändringar som gjorts i Outlook-meddelanden.</li><li><code>#Microsoft.Graph.DriveItem</code> – ändringar som gjorts i objekt i OneDrive-roten.</li><li><code>#Microsoft.Graph.Contact</code> – ändringar som gjorts i personliga kontakter i Outlook.</li><li><code>#Microsoft.Graph.Event</code> – ändringar som gjorts i Outlooks Kalender objekt.</li></ul>|
 
 > [!Note]
 > En Function-app kan bara ha en funktion som har registrerats mot ett angivet `resourceType`-värde.
@@ -1125,7 +1125,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#webhook-input---c-script-example)
+* [C#-skript (.csx)](#webhook-input---c-script-example)
 * [JavaScript](#webhook-input---javascript-example)
 
 #### <a name="webhook-input---c-script-example"></a>Webhook- C# ingångs skript exempel
@@ -1240,14 +1240,14 @@ Använd attributet [GraphWebhookSubscription](https://github.com/Azure/azure-fun
 
 ### <a name="webhook-input---configuration"></a>Webhook-indatamängd – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `GraphWebhookSubscription`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `GraphWebhookSubscription` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
 |**typ**||Required-måste anges till `graphWebhookSubscription`.|
 |**riktning**||Required-måste anges till `in`.|
-|**Synkroniseringsfilter**|**Synkroniseringsfilter**| Om värdet är `userFromRequest`, kommer bindningen bara hämta prenumerationer som ägs av den anropande användaren (endast giltig med [http-utlösare]).| 
+|**filter**|**Synkroniseringsfilter**| Om värdet är `userFromRequest`, kommer bindningen bara hämta prenumerationer som ägs av den anropande användaren (endast giltig med [http-utlösare]).| 
 
 ### <a name="webhook-input---usage"></a>Webhook-ingångs användning
 
@@ -1276,7 +1276,7 @@ Det här avsnittet innehåller följande underavsnitt:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#webhook-output---c-script-example)
+* [C#-skript (.csx)](#webhook-output---c-script-example)
 * [JavaScript](#webhook-output---javascript-example)
 
 #### <a name="webhook-output---c-script-example"></a>Webhook-utdata C# – skript exempel
@@ -1381,7 +1381,7 @@ Använd attributet [GraphWebhookSubscription](https://github.com/Azure/azure-fun
 
 ### <a name="webhook-output---configuration"></a>Webhook-utdata – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `GraphWebhookSubscription`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `GraphWebhookSubscription` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
@@ -1393,7 +1393,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |
 |**tgärd**|**Åtgärd**|Required-anger den åtgärd som bindningen ska utföra. Kan vara något av följande värden:<ul><li><code>create</code> – registrerar en ny prenumeration.</li><li><code>delete</code>-tar bort en angiven prenumeration.</li><li><code>refresh</code>-uppdaterar en angiven prenumeration så att den upphör att gälla.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|Krävs om och endast om _åtgärden_ har angetts till `create`. Anger den Microsoft Graph resurs som ska övervakas för ändringar. Se [arbeta med Webhooks i Microsoft Graph]. |
-|**Ändrings typs**|**Ändrings typs**|Krävs om och endast om _åtgärden_ har angetts till `create`. Anger typen av ändring i den prenumerations resurs som ska utlösa ett meddelande. De värden som stöds är: `created``updated``deleted`. Flera värden kan kombineras med hjälp av en kommaavgränsad lista.|
+|**changeType**|**Ändrings typs**|Krävs om och endast om _åtgärden_ har angetts till `create`. Anger typen av ändring i den prenumerations resurs som ska utlösa ett meddelande. De värden som stöds är: `created``updated``deleted`. Flera värden kan kombineras med hjälp av en kommaavgränsad lista.|
 
 ### <a name="webhook-output---usage"></a>Webhook-utdata-användning
 
@@ -1421,7 +1421,7 @@ Det här avsnittet innehåller ett exempel för var och en av dessa metoder:
 
 Se exempel språkspecifika:
 
-* [C#skript (. CSX)](#app-identity-refresh---c-script-example)
+* [C#-skript (.csx)](#app-identity-refresh---c-script-example)
 * JavaScript
 
 ### <a name="app-identity-refresh---c-script-example"></a>App Identity Refresh – C# skript exempel
@@ -1586,7 +1586,7 @@ public class UserSubscription {
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 
 [HTTP-utlösare]: functions-bindings-http-webhook.md
-[Arbeta med Webhooks i Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+[arbeta med webhooks i Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

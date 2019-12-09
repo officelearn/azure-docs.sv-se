@@ -4,19 +4,17 @@ description: Förstå hur SQL Database gransknings loggar struktureras.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b7a3c295d2edd60c70f47ea155a5d747a3bfb03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873768"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928625"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database Gransknings logg format
 
@@ -32,16 +30,16 @@ Exempel: för databas `Database1` på `Server1` följande är en möjlig giltig 
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Skrivskyddade repliker](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) Gransknings loggar lagras i samma behållare. Katalogpartitionen i behållaren har formatet `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. BLOB-filnamnet delar samma format. Gransknings loggarna för skrivskyddade repliker lagras i samma behållare.
+[Skrivskyddade repliker](sql-database-read-scale-out.md) Gransknings loggar lagras i samma behållare. Katalogpartitionen i behållaren har formatet `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. BLOB-filnamnet delar samma format. Gransknings loggarna för skrivskyddade repliker lagras i samma behållare.
 
 
 ### <a name="event-hub"></a>Event Hub
 
-Gransknings händelser skrivs till namn området och händelsehubben som definierades vid gransknings konfigurationen och samlas in i bröd texten i [Apache Avro](https://avro.apache.org/) -händelser och lagras med JSON-FORMATERING med UTF-8-kodning. Om du vill läsa gransknings loggarna kan du använda [Avro-verktyg](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) eller liknande verktyg som bearbetar det här formatet.
+Gransknings händelser skrivs till namn området och händelsehubben som definierades vid gransknings konfigurationen och samlas in i bröd texten i [Apache Avro](https://avro.apache.org/) -händelser och lagras med JSON-FORMATERING med UTF-8-kodning. Om du vill läsa gransknings loggarna kan du använda [Avro-verktyg](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) eller liknande verktyg som bearbetar det här formatet.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Gransknings händelser skrivs till Log Analytics arbets yta som definierats under gransknings konfigurationen till tabellen `AzureDiagnostics` med kategorin `SQLSecurityAuditEvents`. Mer värdefull information om Log Analytics sökspråk och-kommandon finns i [Log Analytics Sök referens](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search).
+Gransknings händelser skrivs till Log Analytics arbets yta som definierats under gransknings konfigurationen till tabellen `AzureDiagnostics` med kategorin `SQLSecurityAuditEvents`. Mer värdefull information om Log Analytics sökspråk och-kommandon finns i [Log Analytics Sök referens](../log-analytics/log-analytics-log-search.md).
 
 ## <a id="subheading-1"></a>Gransknings logg fält
 

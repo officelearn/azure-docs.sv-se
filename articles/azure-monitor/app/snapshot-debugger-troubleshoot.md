@@ -1,5 +1,5 @@
 ---
-title: Felsöka problem med Azure Application Insights Snapshot Debugger | Microsoft Docs
+title: Felsöka Azure Application insikter Snapshot Debugger
 description: Den här artikeln innehåller fel söknings steg och information för att hjälpa utvecklare som har problem med att aktivera eller använda Application Insights Snapshot Debugger.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,53 +8,53 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ec70f202a496ec368a483278994c7c5ccb24f40b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899833"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932092"
 ---
 # <a id="troubleshooting"></a>Felsöka problem med att aktivera Application Insights Snapshot Debugger eller Visa ögonblicks bilder
 Om du har aktiverat Application Insights Snapshot Debugger för ditt program, men inte ser några ögonblicks bilder för undantag, kan du använda dessa instruktioner för att felsöka. Det kan finnas många olika orsaker till att ögonblicks bilder inte genereras. Du kan köra hälso kontrollen av ögonblicks bilder för att identifiera några av de möjliga vanliga orsakerna.
 
-## <a name="use-the-snapshot-health-check"></a>Använd ögonblicks bildens hälso kontroll
-Flera vanliga problem resulterar i att den öppna fel söknings ögonblicks bilden inte visas. Om du använder en föråldrad Snapshot Collector, t. ex. nått den dagliga uppladdnings gränsen. eller så kanske ögonblicks bilden tar lång tid att ladda upp. Använd ögonblicks bildens hälso kontroll för att felsöka vanliga problem.
+## <a name="use-the-snapshot-health-check"></a>Använd ögonblicksbild-hälsokontroll
+Flera vanliga problem som kan leda till öppen Felsök ögonblicksbilden inte visas. Med hjälp av en inaktuell Snapshot Collector, till exempel nå daglig uppladdningsgräns; eller kanske ögonblicksbilden tar bara lång tid att ladda upp. Använd ögonblicksbild hälsokontrollen för att felsöka vanliga problem.
 
-Det finns en länk i undantags fönstret för den vy från slut punkt till slut punkt som tar dig till hälso kontrollen för ögonblicks bilder.
+Det finns en länk i fönstret undantag av vyn slutpunkt till slutpunkt-spårning som leder till ögonblicksbild hälsokontrollen.
 
-![Ange hälso kontroll för ögonblicks bild](./media/snapshot-debugger/enter-snapshot-health-check.png)
+![Ange ögonblicksbild-hälsokontroll](./media/snapshot-debugger/enter-snapshot-health-check.png)
 
-Det interaktiva, chat-liknande gränssnittet söker efter vanliga problem och hjälper dig att åtgärda dem.
+Interaktiv, chatt-liknande användargränssnitt söker efter vanliga problem och hjälper dig att åtgärda dem.
 
-![Hälso kontroll](./media/snapshot-debugger/healthcheck.png)
+![Hälsokontroll](./media/snapshot-debugger/healthcheck.png)
 
-Om detta inte löser problemet kan du läsa följande manuella fel söknings steg.
+Om det inte löser problemet, referera till följande manuella åtgärder för felsökning.
 
-## <a name="verify-the-instrumentation-key"></a>Verifiera Instrumentation-nyckeln
+## <a name="verify-the-instrumentation-key"></a>Kontrollera instrumenteringsnyckeln
 
-Kontrol lera att du använder rätt Instrumentation-nyckel i det publicerade programmet. Instrumentation-nyckeln läses vanligt vis från filen ApplicationInsights. config. Kontrol lera att värdet är samma som Instrumentation-nyckeln för den Application Insights resurs som du ser i portalen.
+Kontrollera att du använder rätt instrumenteringsnyckeln i ditt publicerade program. Instrumenteringsnyckeln är vanligtvis läsa från filen ApplicationInsights.config. Kontrollera att värdet är samma som instrumenteringsnyckeln för Application Insights-resursen som visas i portalen.
 
 ## <a name="preview-versions-of-net-core"></a>För hands versioner av .NET Core
-Om programmet använder en för hands version av .NET Core och Snapshot Debugger har Aktiver ATS genom [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) i portalen, kan Snapshot debugger starta. Följ anvisningarna på [aktivera Snapshot debugger för andra miljöer för](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) att först inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet med programmet, ***förutom*** att aktivera via [ Application Insightss fönster](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Om programmet använder en för hands version av .NET Core och Snapshot Debugger har Aktiver ATS genom [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) i portalen, kan Snapshot debugger starta. Följ anvisningarna på [aktivera Snapshot debugger för andra miljöer för](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) att först inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet med programmet, ***förutom*** att aktivera i [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uppgradera till den senaste versionen av NuGet-paketet
 
 Om Snapshot Debugger har Aktiver ATS via [Application Insightss fönstret i portalen](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)bör ditt program redan köra det senaste NuGet-paketet. Om Snapshot Debugger har Aktiver ATS genom att inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, använder du Visual Studios NuGet Package Manager för att kontrol lera att du använder den senaste versionen av Microsoft. ApplicationInsights. SnapshotCollector. Viktig information finns på https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
-## <a name="check-the-uploader-logs"></a>Kontrol lera avuppladdnings loggarna
+## <a name="check-the-uploader-logs"></a>Kontrollera loggarna överförare
 
-När en ögonblicks bild har skapats skapas en MiniDump-fil (. dmp) på disk. En separat överförings process skapar den Minidump-filen och laddar upp den, tillsammans med eventuella associerade PDBs, för att Application Insights Snapshot Debugger-lagring. När Minidump har laddats upp tas den bort från disken. Loggfilerna för Inhämtnings processen sparas på disken. I en App Service-miljö kan du hitta dessa loggar i `D:\Home\LogFiles`. Använd webbplatsen för hantering av kudu för App Service för att hitta loggfilerna.
+När en ögonblicksbild skapas, skapas en minidumpfil (.dmp) på disken. En separat gilgit process skapar minidump filen och överför den, tillsammans med alla associerade PDB-filer, till Application Insights Snapshot Debugger lagring. När minidump har överförts, bort den från disken. Loggfiler för att gilgit sparas på disk. I en App Service-miljö, hittar du de här loggarna i `D:\Home\LogFiles`. Använd Kudu hanteringswebbplats för App Service för att hitta dessa loggfiler.
 
-1. Öppna ditt App Service-program i Azure Portal.
-2. Klicka på **Avancerade verktyg**eller Sök efter **kudu**.
-3. Klicka på **gå**.
-4. I list rutan **fel söknings konsol** väljer du **cmd**.
-5. Klicka på **loggfiler**.
+1. Öppna App Service-programmet i Azure-portalen.
+2. Klicka på **avancerade verktyg**, eller Sök efter **Kudu**.
+3. Klicka på **Gå**.
+4. I den **Felsökningskonsolen** nedrullningsbara listrutan **CMD**.
+5. Klicka på **LogFiles**.
 
-Du bör se minst en fil med ett namn som börjar med `Uploader_` eller `SnapshotUploader_` och ett `.log`-tillägg. Klicka på lämplig ikon för att ladda ned loggfiler eller öppna dem i en webbläsare.
-Fil namnet innehåller ett unikt suffix som identifierar App Service-instansen. Om App Service-instansen finns på fler än en dator finns det separata loggfiler för varje dator. När överföraren identifierar en ny MiniDump-fil registreras den i logg filen. Här är ett exempel på en lyckad ögonblicks bild och uppladdning:
+Du bör se minst en fil med ett namn som börjar med `Uploader_` eller `SnapshotUploader_` och en `.log` tillägget. Klicka på önskad ikon för att hämta alla loggfiler eller öppna dem i en webbläsare.
+Filnamnet innehåller ett unikt suffix som identifierar App Service-instans. Om din App Service-instans finns på flera datorer, finns det separata loggfiler för varje dator. När gilgit upptäcker en ny minidumpfil, registreras den i loggfilen. Här är ett exempel på en lyckad ögonblicksbild och ladda upp:
 
 ```
 SnapshotUploader.exe Information: 0 : Received Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
@@ -82,12 +82,12 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> Exemplet ovan är från version 1.2.0 av paketet Microsoft. ApplicationInsights. SnapshotCollector NuGet. I tidigare versioner kallas överförings processen `MinidumpUploader.exe` och loggen är mindre detaljerad.
+> I exemplet ovan är från version 1.2.0 eller senare av Microsoft.ApplicationInsights.SnapshotCollector NuGet-paketet. I tidigare versioner gilgit kallas `MinidumpUploader.exe` och loggen mindre detaljerad.
 
-I föregående exempel är Instrumentation-nyckeln `c12a605e73c44346a984e00000000000`. Det här värdet ska matcha Instrumentation-nyckeln för ditt program.
-Minidump är associerad med en ögonblicks bild med ID `139e411a23934dc0b9ea08a626db16c5`. Du kan använda det här ID: t senare för att hitta den associerade undantags Telemetrin i Application Insights Analytics.
+I exemplet ovan är instrumenteringsnyckeln `c12a605e73c44346a984e00000000000`. Det här värdet måste matcha instrumenteringsnyckeln för programmet.
+Minidump är associerad med en ögonblicksbild med ID: T `139e411a23934dc0b9ea08a626db16c5`. Du kan använda detta ID senare för att hitta den associerade undantagstelemetri i Application Insights Analytics.
 
-Överförings tjänsten söker efter nya PDBs om var 15: e minut. Här är ett exempel:
+Gilgit söker efter nya PDB-filer om var 15: e minut. Här är ett exempel:
 
 ```
 SnapshotUploader.exe Information: 0 : PDB rescan requested.
@@ -100,24 +100,24 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-För program som _inte_ finns i App Service finns överförings loggarna i samma mapp som minidumpar: `%TEMP%\Dumps\<ikey>` (där `<ikey>` är Instrumentation-nyckeln).
+För program som _inte_ på App Service gilgit loggarna finns i samma mapp som minidumpar: `%TEMP%\Dumps\<ikey>` (där `<ikey>` är din instrumentationsnyckel).
 
 ## <a name="troubleshooting-cloud-services"></a>Felsöka Cloud Services
-För roller i Cloud Services kan den tillfälliga standardmappen vara för liten för att rymma MiniDump-filerna, vilket leder till förlorade ögonblicks bilder.
-Vilket utrymme som krävs beror på den totala arbets uppsättningen för ditt program och antalet samtidiga ögonblicks bilder.
-Arbets minnet för en 32-bitars ASP.NET-webbroll är vanligt vis mellan 200 MB och 500 MB.
-Tillåt för minst två samtidiga ögonblicks bilder.
-Om ditt program t. ex. använder 1 GB av den totala arbets mängden, bör du se till att det finns minst 2 GB disk utrymme för att lagra ögonblicks bilder.
-Följ dessa steg om du vill konfigurera en moln tjänst roll med en dedikerad lokal resurs för ögonblicks bilder.
+För roller i molntjänster kanske tillfälliga standardmappen för liten för att rymma minidumpfiler, vilket leder till förlorad ögonblicksbilder.
+Utrymmet som krävs är beroende av det totala arbetsminnet för ditt program och antalet samtidiga ögonblicksbilder.
+Arbetsminnet för en 32-bitars ASP.NET-webbroll är vanligtvis mellan 200 MB och 500 MB.
+Tillåt för minst två samtidiga ögonblicksbilder.
+Till exempel om programmet använder 1 GB total arbetsminne, bör du se till att det finns minst 2 GB diskutrymme för lagring av ögonblicksbilder.
+Följ dessa steg för att konfigurera din molntjänstroll med en dedikerad lokal resurs för ögonblicksbilder.
 
-1. Lägg till en ny lokal resurs i moln tjänsten genom att redigera csdef-filen (Cloud Service definition). I följande exempel definieras en resurs med namnet `SnapshotStore` med storleken 5 GB.
+1. Lägg till en ny lokal resurs till din molntjänst genom att redigera filen molntjänst tjänstedefinitionsfilen (.csdef). I följande exempel definieras en resurs med namnet `SnapshotStore` med en storlek på 5 GB.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
    </LocalResources>
    ```
 
-2. Ändra din Rolls start kod för att lägga till en miljö variabel som pekar på `SnapshotStore` lokala resursen. För arbets roller ska koden läggas till i rollens `OnStart` metod:
+2. Ändra din roll Start-koden för att lägga till en miljövariabel som pekar på den `SnapshotStore` lokal resurs. För arbetsroller finns koden ska läggas till din roll `OnStart` metoden:
    ```csharp
    public override bool OnStart()
    {
@@ -125,7 +125,7 @@ Följ dessa steg om du vill konfigurera en moln tjänst roll med en dedikerad lo
        return base.OnStart();
    }
    ```
-   För Web roles (ASP.NET) ska koden läggas till i ditt webb programs `Application_Start`-metod:
+   För Web-roller (ASP.NET), kod som ska läggas till ditt webbprogram `Application_Start` metoden:
    ```csharp
    using Microsoft.WindowsAzure.ServiceRuntime;
    using System;
@@ -143,7 +143,7 @@ Följ dessa steg om du vill konfigurera en moln tjänst roll med en dedikerad lo
    }
    ```
 
-3. Uppdatera din Rolls ApplicationInsights. config-fil för att åsidosätta den tillfälliga mapplats som används av `SnapshotCollector`
+3. Uppdatera din roll ApplicationInsights.config-filen om du vill åsidosätta den temporära mapp finns som används av `SnapshotCollector`
    ```xml
    <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
@@ -154,25 +154,25 @@ Följ dessa steg om du vill konfigurera en moln tjänst roll med en dedikerad lo
    </TelemetryProcessors>
    ```
 
-## <a name="overriding-the-shadow-copy-folder"></a>Åsidosätter mappen Shadow Copy
+## <a name="overriding-the-shadow-copy-folder"></a>Åsidosätta mappen Shadow Copy
 
-När Snapshot Collector startar görs ett försök att hitta en mapp på disken som är lämplig för att köra processen för ögonblicks bilds uppladdning. Den valda mappen kallas skugg kopia-mappen.
+När Snapshot Collector startas, försöker den hitta en mapp på disk som är lämplig för att köra processen ögonblicksbild överföring. Den valda mappen kallas Shadow Copy-mappen.
 
-Snapshot Collector söker efter några välkända platser och kontrollerar att de har behörighet att kopiera binärfiler för ögonblicks bilder. Följande miljövariabler används:
+Snapshot Collector kontrollerar några välkända platser, vilket gör att den har behörighet att kopiera ögonblicksbilden Gilgit-binärfiler. Följande miljövariabler används:
 - Fabric_Folder_App_Temp
 - LOCALAPPDATA
 - APPDATA
-- STYR
+- TEMP
 
-Om det inte går att hitta en lämplig mapp, Snapshot Collector rapportera ett fel som säger att _det inte gick att hitta en lämplig mapp för skugg kopior._
+Om det inte går att hitta en lämplig mapp, Snapshot Collector rapporterar ett fel som säger _”det gick inte att hitta en lämplig shadow copy-mapp”._
 
-Om kopieringen Miss lyckas Snapshot Collector rapporter ett `ShadowCopyFailed` fel.
+Om kopieringen misslyckas Snapshot Collector rapporterar en `ShadowCopyFailed` fel.
 
-Om det inte går att starta inladdningen kan Snapshot Collector rapportera ett `UploaderCannotStartFromShadowCopy` fel. Bröd texten i meddelandet innehåller ofta `System.UnauthorizedAccessException`. Det här felet uppstår vanligt vis på grund av att programmet körs under ett konto med minskad behörighet. Kontot har behörighet att skriva till mappen Shadow Copy, men det har inte behörighet att köra kod.
+Om överföring inte kan startas, Snapshot Collector rapporterar ett `UploaderCannotStartFromShadowCopy` fel. Brödtexten i meddelandet innehåller ofta `System.UnauthorizedAccessException`. Det här felet beror vanligtvis på att programmet körs under ett konto med minskade behörigheter. Kontot har behörighet att skriva till mappen shadow copy, men den har inte behörighet att köra kod.
 
-Eftersom dessa fel vanligt vis uppstår under starten, kommer de vanligt vis att följas av ett `ExceptionDuringConnect` fel som säger _att det inte gick att starta uppladdning._
+Eftersom dessa fel sker vanligtvis under starten, de kommer vanligtvis följas av ett `ExceptionDuringConnect` fel som säger _”Gilgit gick inte att starta”._
 
-För att undvika dessa fel kan du ange mappen Shadow Copy manuellt via `ShadowCopyFolder` konfigurations alternativet. Till exempel med hjälp av ApplicationInsights. config:
+Om du vill undvika dessa fel kan du ange shadow copy-mappen manuellt via den `ShadowCopyFolder` konfigurationsalternativet. Till exempel använder ApplicationInsights.config:
 
    ```xml
    <TelemetryProcessors>
@@ -184,7 +184,7 @@ För att undvika dessa fel kan du ange mappen Shadow Copy manuellt via `ShadowCo
    </TelemetryProcessors>
    ```
 
-Eller, om du använder appSettings. JSON med ett .NET Core-program:
+Eller, om du använder appsettings.json med en .NET Core-program:
 
    ```json
    {
@@ -197,26 +197,26 @@ Eller, om du använder appSettings. JSON med ett .NET Core-program:
    }
    ```
 
-## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Använd Application Insights Sök för att hitta undantag med ögonblicks bilder
+## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Använd Application Insights-sökning för att hitta undantag med ögonblicksbilder
 
-När en ögonblicks bild skapas taggas det Utlös ande undantaget med ett ögonblicks bild-ID. Detta ögonblicks bild-ID ingår som en anpassad egenskap när telemetri för undantag rapporteras till Application Insights. Med hjälp av **Sök** i Application Insights kan du hitta all telemetri med den anpassade egenskapen `ai.snapshot.id`.
+När en ögonblicksbild skapas, är utlösande undantaget taggade med en ögonblicksbild-ID. Detta ID för ögonblicksbild ingår som en anpassad egenskap när undantagstelemetri som som har rapporterats till Application Insights. Med hjälp av **Search** i Application Insights, hittar du all telemetri med den `ai.snapshot.id` anpassad egenskap.
 
-1. Bläddra till Application Insights resursen i Azure Portal.
+1. Bläddra till Application Insights-resursen i Azure-portalen.
 2. Klicka på **Sök**.
-3. Skriv `ai.snapshot.id` i text rutan Sök och tryck på RETUR.
+3. Typ `ai.snapshot.id` i sökrutan och tryck på RETUR.
 
-![Sök efter telemetri med ett ögonblicks bild-ID i portalen](./media/snapshot-debugger/search-snapshot-portal.png)
+![Sök efter telemetri med en ögonblicksbild-ID i portalen](./media/snapshot-debugger/search-snapshot-portal.png)
 
-Om sökningen inte returnerar några resultat rapporterades inga ögonblicks bilder till Application Insights för ditt program under det valda tidsintervallet.
+Om den här sökningen returnerar inga resultat, har inga ögonblicksbilder rapporterats till Application Insights för ditt program i det valda tidsintervallet.
 
-Om du vill söka efter ett särskilt ögonblicks bild-ID från överförings loggarna skriver du detta ID i sökrutan. Om du inte hittar telemetri för en ögonblicks bild som du vet har laddats upp följer du dessa steg:
+För att söka efter en specifik ögonblicksbild-ID från Gilgit-loggar, skriver du detta ID i sökrutan. Om du inte hittar telemetri för en ögonblicksbild som du vet har överförts, gör du följande:
 
-1. Kontrol lera att du tittar på rätt Application Insights resurs genom att kontrol lera Instrumentation-nyckeln.
+1. Kontrollera att du tittar på rätt Application Insights-resurs genom att verifiera instrumenteringsnyckeln.
 
-2. Med tidsintervallet i överförings loggen kan du justera tidsintervalls filtret för sökningen så att det tar detta tidsintervall.
+2. Med tidsstämpel från Gilgit loggen kan justera filtret tidsintervall för sökningen att täcka det tidsintervallet.
 
-Om du fortfarande inte ser ett undantag med det ögonblicks bilds-ID: t rapporterades inte Telemetrin till Application Insights. Den här situationen kan inträffa om ditt program kraschade efter det att det tog ögonblicks bilden, men innan det rapporterade telemetri. I det här fallet kontrollerar du App Service loggarna under `Diagnose and solve problems` för att se om det fanns oväntade omstarter eller ohanterade undantag.
+Om du fortfarande inte ser ett undantag med detta ögonblicksbild-ID har inte undantagstelemetri rapporterats till Application Insights. Detta kan inträffa om programmet kraschade när det tog ögonblicksbilden men innan det rapporteras undantagstelemetri som. I det här fallet finns i loggarna App Service under `Diagnose and solve problems` att se om det fanns oväntade omstarter eller ohanterade undantag.
 
-## <a name="edit-network-proxy-or-firewall-rules"></a>Redigera nätverks proxy-eller brand Väggs regler
+## <a name="edit-network-proxy-or-firewall-rules"></a>Redigera regler för proxy eller brandvägg
 
-Om ditt program ansluter till Internet via en proxy eller en brand vägg, kan du behöva redigera reglerna för att tillåta att ditt program kommunicerar med Snapshot Debugger-tjänsten. Här är [en lista över IP-adresser och portar som används av Snapshot debugger](../../azure-monitor/app/ip-addresses.md#snapshot-debugger).
+Om programmet ansluter till Internet via en proxyserver eller brandvägg, kan du behöva redigera regler så att ditt program kan kommunicera med Snapshot Debugger-tjänsten. Här är [en lista över IP-adresser och portar som används av Snapshot Debugger](../../azure-monitor/app/ip-addresses.md#snapshot-debugger).

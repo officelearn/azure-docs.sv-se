@@ -4,21 +4,20 @@ description: Konfigurera en datagateway för att flytta data mellan lokala plats
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 41d8a5d3569d0b38ff569f9ccfa28a4b2af1d959
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682718"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932010"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -81,7 +80,7 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 
 Eftersom kopierings aktiviteten körs på en speciell frekvens, följer resursanvändningen (CPU, minne) på datorn även samma mönster med hög belastnings tider. Resursutnyttjande beror också kraftigt på mängden data som flyttas. När flera kopierings jobb pågår, ser du att resursanvändningen går upp under hög belastnings tider.
 
-### <a name="installation-options"></a>Installations alternativ
+### <a name="installation-options"></a>Installationsalternativ
 Data Management Gateway kan installeras på följande sätt:
 
 * Genom att hämta ett installations paket för MSI från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). MSI kan också användas för att uppgradera befintlig data Management Gateway till den senaste versionen, med alla inställningar bevarade.
@@ -141,7 +140,7 @@ Det finns två brand väggar som du måste tänka på: **företags brand väggen
 
 På företags brand Väggs nivå måste du konfigurera följande domäner och utgående portar:
 
-| Domän namn | Portar | Beskrivning |
+| Domännamn | Portar | Beskrivning |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
 | *.core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om det kon figurer ATS)|
@@ -252,7 +251,7 @@ Om du använder en brand vägg från en tredje part kan du öppna port 8050 manu
 
 Om du väljer att inte öppna port 8050 på gateway-datorn använder du andra metoder än att använda programmet för **inställning av autentiseringsuppgifter** för att konfigurera autentiseringsuppgifter för data arkivet. Du kan till exempel använda PowerShell [-cmdleten New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) . Se Ange autentiseringsuppgifter och säkerhets avsnittet om hur data lagrings uppgifter kan anges.
 
-## <a name="update"></a>Uppdatering
+## <a name="update"></a>Uppdatera
 Som standard uppdateras data Management Gateway automatiskt när en nyare version av gatewayen är tillgänglig. Gatewayen uppdateras inte förrän alla schemalagda aktiviteter är klara. Inga ytterligare uppgifter bearbetas av gatewayen förrän uppdaterings åtgärden har slutförts. Om uppdateringen Miss lyckas återställs gatewayen till den tidigare versionen.
 
 Du ser tiden för schemalagd uppdatering på följande platser:
@@ -342,7 +341,7 @@ På sidan diagnostik kan du utföra följande åtgärder:
 Hjälp sidan visar följande information:
 
 * Kort beskrivning av gatewayen
-* Versions nummer
+* Versionsnummer
 * Länkar till direkt hjälp, sekretess policy och licens avtal.
 
 ## <a name="monitor-gateway-in-the-portal"></a>Övervaka gateway i portalen
@@ -383,9 +382,9 @@ Status  | Kommentarer/scenarier
 :------- | :------------------
 Online | Noden är ansluten till Data Factory tjänsten.
 Offline | Noden är offline.
-Fortsätter | Noden uppdateras automatiskt.
+Uppgradera | Noden uppdateras automatiskt.
 Begränsad | På grund av anslutnings problem. Kan bero på problem med HTTP-port 8050, problem med Service Bus-anslutning eller utfärdande av autentiseringsuppgifter.
-Inaktivera | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder.
+Inaktiv | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder.
 
 Följande tabell innehåller möjliga status värden för en **logisk Gateway**. Gateway-statusen beror på status för gateway-noderna.
 
@@ -479,7 +478,7 @@ Om du letar efter en API-baserad metod för kryptering av autentiseringsuppgifte
 
 Det finns en metod för att ställa in autentiseringsuppgifter med hjälp av Data Factory Editor. Om du skapar en SQL Server länkad tjänst med hjälp av redigeraren och anger autentiseringsuppgifter i klartext, krypteras autentiseringsuppgifterna med ett certifikat som Data Factorys tjänsten äger. Det använder inte det certifikat som gatewayen har kon figurer ATS för att använda. Även om den här metoden kan vara lite snabbare i vissa fall är den mindre säker. Därför rekommenderar vi att du följer den här metoden endast för utvecklings-och testnings ändamål.
 
-## <a name="powershell-cmdlets"></a>PowerShell-cmdletar
+## <a name="powershell-cmdlets"></a>PowerShell-cmdlet:ar
 I det här avsnittet beskrivs hur du skapar och registrerar en gateway med hjälp av Azure PowerShell-cmdletar.
 
 1. Starta **Azure PowerShell** i administratörs läge.

@@ -3,27 +3,24 @@ title: Skapa identitet för Azure-appen med PowerShell
 titleSuffix: Microsoft identity platform
 description: Beskriver hur du använder Azure PowerShell för att skapa en Azure Active Directory-app och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Visar hur du autentiserar appar med ett certifikat.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf52bc5a6d177c18d9ebb792d1a147d09746afd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2456d52a3863b362943547d8a0c0e478dbc572cf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803814"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917904"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
 
@@ -48,9 +45,9 @@ För att slutföra den här artikeln måste du ha tillräcklig behörighet i bå
 Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](howto-create-service-principal-portal.md#required-permissions).
 
 ## <a name="assign-the-application-to-a-role"></a>Tilldela programmet till en roll
-Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](/azure/role-based-access-control/built-in-roles).
+Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](/azure/role-based-access-control/built-in-roles).
 
-Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre omfattnings nivåer. Om du till exempel lägger till ett program till rollen *läsare* för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller. Om du vill tillåta att programmet kör åtgärder som starta om, starta och stoppa instanser väljer du *deltagar* rollen.
+Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Om du till exempel lägger till ett program till rollen *läsare* för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller. Om du vill tillåta att programmet kör åtgärder som starta om, starta och stoppa instanser väljer du *deltagar* rollen.
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa huvudnamn för tjänsten med självsignerade certifikat
 
@@ -223,7 +220,7 @@ Du kan få följande fel när du skapar ett huvudnamn för tjänsten:
 
 * **"Authentication_Unauthorized"** (Ej auktoriserad autentisering) eller **"No subscription found in the context."** (Ingen prenumeration hittades i sammanhanget). – Du ser det här felet om ditt konto inte har de [behörigheter som krävs](#required-permissions) för Azure AD för att registrera en app. Normalt visas det här felet när endast administratörs användare i Azure Active Directory kan registrera appar, och ditt konto är inte en administratör. Be administratören att antingen tilldela dig till en administratörs roll eller att låta användare registrera appar.
 
-* Ditt konto **har inte behörighet att utföra åtgärden "Microsoft. Authorization/roleAssignments/Write" över omfånget "/Subscriptions/{GUID}".** – du ser det här felet om ditt konto inte har tillräcklig behörighet för att tilldela en roll till en Autentiseringsidentitet. Be din prenumerationsadministratör att ge dig rollen som administratör för användaråtkomst.
+* Ditt konto **har inte behörighet att utföra åtgärden "Microsoft. Authorization/roleAssignments/Write" över omfånget "/Subscriptions/{GUID}".** – du ser det här felet om ditt konto inte har tillräcklig behörighet för att tilldela en roll till en identitet. Be din prenumerationsadministratör att ge dig rollen som administratör för användaråtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 

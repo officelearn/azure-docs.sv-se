@@ -7,17 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083584"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931968"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Ändra en ExpressRoute-krets med PowerShell (klassisk)
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
@@ -35,20 +35,7 @@ Den här artikeln vägleder dig igenom stegen för att kontrollera status, uppda
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Installera de senaste versionerna av Azure Service Management (SM) PowerShell-moduler och ExpressRoute-modulen. Du kan inte använda Azure CloudShell-miljön för att köra SM-moduler.
-
-1. Följ anvisningarna i artikeln [Installera Service Management Module](/powershell/azure/servicemanagement/install-azure-ps) för att installera Azure Service Management-modulen. Om du redan har installerat AZ-eller RM-modulen måste du använda-AllowClobber.
-2. Importera de installerade modulerna. När du använder följande exempel justerar du sökvägen så att den återspeglar platsen för de installerade PowerShell-modulerna.
-
-   ```powershell
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
-   ```
-3. Logga in på ditt Azure-konto genom att öppna PowerShell-konsolen med utökade rättigheter och Anslut till ditt konto. Använd följande exempel för att få hjälp med att ansluta med Service Management-modulen:
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="get-the-status-of-a-circuit"></a>Hämta status för en krets
 

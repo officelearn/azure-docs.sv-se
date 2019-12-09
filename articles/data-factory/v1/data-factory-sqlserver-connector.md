@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data till/från SQL Server databas s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 864ece28-93b5-4309-9873-b095bbe6fedd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a5afbec39a87423463bf1a65fdd99ec7a739958b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666259"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928173"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Flytta data till och från SQL Server lokalt eller på IaaS (virtuell Azure-dator) med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -56,7 +55,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -69,7 +68,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för SQL Server:
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Du skapar en länkad tjänst av typen **OnPremisesSqlServer** för att länka en lokal SQL Server databas till en data fabrik. Följande tabell innehåller en beskrivning av JSON-element som är speciella för den lokala SQL Server länkade tjänsten.
 
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för SQL Server länkade tjänsten.
@@ -77,7 +76,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type ska anges till: **OnPremisesSqlServer**. |Ja |
-| Begär |Ange connectionString-information som krävs för att ansluta till den lokala SQL Server databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
+| connectionString |Ange connectionString-information som krävs för att ansluta till den lokala SQL Server databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SQL Servers databasen. |Ja |
 | användarnamn |Ange användar namn om du använder Windows-autentisering. Exempel: **domainname\\username**. |Nej |
 | lösenord |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Nej |
@@ -124,10 +123,10 @@ Data Management Gateway kommer att personifiera det angivna användar kontot fö
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 I exemplen har du använt en data uppsättning av typen **SqlServerTable** för att representera en tabell i en SQL Server databas.
 
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (SQL Server, Azure Blob, Azure Table osv.).
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av datauppsättningen (SQL Server, Azure blob, Azure-tabellen, osv).
 
 Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **SqlServerTable** har följande egenskaper:
 
@@ -151,8 +150,8 @@ När källan i en kopierings aktivitet är av typen **SqlSource**finns följande
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. Kan referera till flera tabeller från databasen som refereras av data uppsättningen. Om det inte anges används SQL-instruktionen som körs: Välj från tabellen. |Nej |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Nej |
+| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
 
 Om **sqlReaderQuery** har angetts för SqlSource kör kopierings aktiviteten den här frågan mot SQL Server databas källan för att hämta data.
 
@@ -168,12 +167,12 @@ Om du inte anger någon av sqlReaderQuery eller sqlReaderStoredProcedureName, an
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |intervall<br/><br/> Exempel: "00:30:00" (30 minuter). |Nej |
+| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
 | sqlWriterCleanupScript |Ange fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i avsnittet [repeterbar kopiering](#repeatable-copy) . |Ett frågeuttryck. |Nej |
 | sliceIdentifierColumnName |Ange kolumn namn för kopierings aktivitet som ska fyllas med automatiskt genererad sektor identifierare, som används för att rensa data i en speciell sektor när den körs igen. Mer information finns i avsnittet [repeterbar kopiering](#repeatable-copy) . |Kolumn namnet för en kolumn med data typen Binary (32). |Nej |
 | sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur käll data ska användas i mål tabellen, t. ex. för att göra upsertar eller transformera med din egen affärs logik. <br/><br/>Observera att den lagrade proceduren **anropas per batch**. Om du vill utföra en åtgärd som bara körs en gång och inte har något att göra med källdata, t. ex. ta bort/trunkera, använder du `sqlWriterCleanupScript` egenskap. |Namnet på den lagrade proceduren. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Nej |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
 | sqlWriterTableType |Ange tabell typ namn som ska användas i den lagrade proceduren. Kopierings aktivitet gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga data som kopieras med befintliga data. |Ett namn på en tabell typ. |Nej |
 
 
@@ -544,7 +543,7 @@ Pipelinen innehåller en kopierings aktivitet som är konfigurerad för att anv�
 ## <a name="troubleshooting-connection-issues"></a>Felsöka anslutningsproblem
 1. Konfigurera SQL Server att acceptera fjärr anslutningar. Starta **SQL Server Management Studio**, högerklicka på **Server**och klicka på **Egenskaper**. Markera **anslutningar** i listan och markera **Tillåt fjärr anslutningar till servern**.
 
-    ![Aktivera fjärr anslutningar](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
+    ![Aktivera fjärranslutningar](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
     Detaljerade anvisningar finns i [Konfigurera konfigurations alternativet för fjärråtkomstservern](https://msdn.microsoft.com/library/ms191464.aspx) .
 2. Starta **Konfigurationshanteraren för SQL Server**. Expandera **SQL Server nätverks konfiguration** för den instans du vill ha och välj **protokoll för MSSQLSERVER**. Du bör se protokoll i den högra rutan. Aktivera TCP/IP genom att högerklicka på **TCP/IP** och klicka på **Aktivera**.
@@ -654,37 +653,37 @@ Mappningen är samma som SQL Server data typs mappning för ADO.NET.
 | SQL Server typ av databas motor | .NET Framework typ |
 | --- | --- |
 | bigint |Int64 |
-| binär |Byte [] |
-| bitmask |Boolesk |
-| hängande |Sträng, char [] |
+| binary |Byte[] |
+| bit |Boolesk |
+| char |String, Char[] |
 | datum |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attribut (varbinary (max)) |Byte [] |
-| Flyta |Dubbelklicka |
-| image |Byte [] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Flyttal |Double |
+| mallar |Byte[] |
 | int |Int32 |
-| mynt |Decimal |
-| nchar |Sträng, char [] |
-| ntext |Sträng, char [] |
-| nummer |Decimal |
-| nvarchar |Sträng, char [] |
-| verkligen |Enkel |
-| rowversion |Byte [] |
-| datatyp |DateTime |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Enkel |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Jobbobjektet |
-| text |Sträng, char [] |
-| time |Intervall |
-| tidsstämpel |Byte [] |
-| tinyint |Stor |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
+| tidsstämpel |Byte[] |
+| tinyint |Mottagna byte |
 | uniqueidentifier |GUID |
-| varbinary |Byte [] |
-| varchar |Sträng, char [] |
-| xml |fil |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
 Information om hur du mappar kolumner från käll data uppsättning till kolumner från mottagar data uppsättningen finns [i mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).

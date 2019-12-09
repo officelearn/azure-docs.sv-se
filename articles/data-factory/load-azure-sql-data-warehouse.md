@@ -1,22 +1,22 @@
 ---
-title: Läs in data i Azure SQL Data Warehouse med Azure Data Factory
+title: Läs in data till Azure SQL Data Warehouse
 description: Använd Azure Data Factory för att kopiera data till Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 732d5d170ee647dc0dfdbf4d09a12617c8c9bcce
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672749"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931517"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Läs in data i Azure SQL Data Warehouse med Azure Data Factory
 
@@ -36,7 +36,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 > [!NOTE]
 > Mer information finns i [Kopiera data till eller från Azure SQL Data Warehouse med Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure SQL Data Warehouse: data lagret innehåller de data som kopieras från SQL-databasen. Om du inte har ett Azure SQL Data Warehouse kan du läsa anvisningarna i [skapa en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
@@ -64,7 +64,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
    
    ![Datafabrikens startsida](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 
-   Välj panelen **författare & Monitor** för att starta programmet för data integrering på en separat flik.
+   Välj panelen **Författare och övervakare** för att starta dataintegreringsprogrammet på en separat flik.
 
 ## <a name="load-data-into-azure-sql-data-warehouse"></a>Läs in data till Azure SQL Data Warehouse
 
@@ -85,7 +85,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
     ![Välj Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Verifiera inställningarna genom att klicka på **Testa anslutning** och välj sedan **Slutför**.
+    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Klicka på **Testa anslutning** för att verifiera inställningarna och välj sedan **Slutför**.
    
     ![Konfigurera Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -107,7 +107,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
     ![Välj Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Verifiera inställningarna genom att klicka på **Testa anslutning** och välj sedan **Slutför**.
+    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Klicka på **Testa anslutning** för att verifiera inställningarna och välj sedan **Slutför**.
    
     ![Konfigurera Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
@@ -149,7 +149,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 1. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **åtgärder** finns länkar för att Visa aktivitets körnings information och köra pipelinen igen: 
 
     ![Övervaka pipelinekörningar](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
-1. Om du vill visa aktivitets körningar som är associerade med pipeline-körningen väljer du länken **Visa aktivitet kör** i kolumnen **åtgärder** . Om du vill växla tillbaka till vyn pipeline-körningar väljer du länken **pipelines** överst. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). 
+1. Om du vill visa aktivitets körningar som är associerade med pipeline-körningen väljer du länken **Visa aktivitet kör** i kolumnen **åtgärder** . Om du vill växla tillbaka till vyn pipeline-körningar väljer du länken **pipelines** överst. Om du vill uppdatera listan väljer du **Uppdatera**. 
 
     ![Övervaka aktivitetskörningar](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 

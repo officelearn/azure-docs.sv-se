@@ -1,5 +1,5 @@
 ---
-title: Köra ett SSIS-paket med aktiviteten kör SSIS-paket – Azure
+title: Köra ett SSIS-paket med aktiviteten kör SSIS-paket
 description: Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) i en Azure Data Factory-pipeline med hjälp av aktiviteten kör SSIS-paket.
 services: data-factory
 documentationcenter: ''
@@ -8,17 +8,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/14/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: ddb7cd06934c85243717dd2a34dc99bae582b6fa
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 11/14/2019
+ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122960"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926483"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) i en Azure Data Factory-pipeline med hjälp av aktiviteten kör SSIS-paket. 
@@ -57,7 +58,7 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
     När du skapar eller redigerar en länkad nyckel valvs tjänst kan du välja eller redigera ditt befintliga nyckel valv eller skapa ett nytt. Se till att bevilja Data Factory hanterad identitets åtkomst till ditt nyckel valv om du inte redan har gjort det. Du kan också ange dina hemligheter direkt i följande format: `<Key vault linked service name>/<secret name>/<secret version>`. Om ditt paket behöver 32-bitars körning för att köra, markerar du kryss rutan **32-bit runtime** .
 
-   För **paket plats**väljer du **SSISDB**, **fil system (paket)** , **fil system (projekt)** eller **inbäddat paket**. Om du väljer **SSISDB** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades med SSIS-katalogen (SSISDB) som hanteras av en Azure SQL Database-Server eller en hanterad instans, anger du det paket som ska köras som har distribuerats i SSISDB. 
+   För **paket plats**väljer du **SSISDB**, **fil system (paket)** , **fil system (projekt)** eller **inbäddat paket**. Om du väljer **SSISDB** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades med SSIS-katalogen (SSISDB) som hanteras av en Azure SQL Database-Server eller en hanterad instans, anger du det paket som har distribuerats till SSISDB. 
 
     Om din Azure-SSIS IR körs och kryss rutan **manuella poster** är avmarkerad bläddrar du och väljer dina befintliga mappar, projekt, paket eller miljöer från SSISDB. Välj **Uppdatera** för att hämta nyligen tillagda mappar, projekt, paket eller miljöer från SSISDB så att de är tillgängliga för bläddring och val. Om du vill bläddra i eller välja miljöer för dina paket körningar måste du konfigurera dina projekt i förväg för att lägga till dessa miljöer som referenser från samma mappar under SSISDB. Mer information finns i [skapa och MAPPA SSIS miljöer](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
 
@@ -69,13 +70,13 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
    ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Om du väljer **fil system (paket)** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades utan SSISDB, anger du att paketet ska köras genom att ange en Universal Naming Convention UNC-sökväg till paket filen (@no __t_1_) i rutan **paket Sök väg** .`.dtsx` Om du till exempel lagrar ditt paket i Azure Files `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`den paket Sök vägen. 
+   Om du väljer **fil system (paket)** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades utan SSISDB, anger du att paketet ska köras genom att ange en Universal Naming Convention UNC-sökväg till paket filen (`.dtsx`) i rutan **paket Sök väg** . Om du till exempel lagrar ditt paket i Azure Files `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`den paket Sök vägen. 
    
    Om du konfigurerar ditt paket i en separat fil måste du också ange en UNC-sökväg till konfigurations filen (`.dtsConfig`) i rutan **konfigurations Sök väg** . Om du till exempel lagrar konfigurationen i Azure Files, är dess konfigurations Sök väg `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
 
    ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   Om du väljer **fil system (projekt)** som paket plats anger du ditt paket som ska köras genom att ange en UNC-sökväg till projekt filen (`.ispac`) i rutan **projekt Sök väg** och en paketfil (`.dtsx`) från projektet i **paket namnet** fältet. Om du till exempel lagrar projektet i Azure Files, är dess projekt Sök väg `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
+   Om du väljer **fil system (projekt)** som paket plats anger du ditt paket som ska köras genom att ange en UNC-sökväg till projekt filen (`.ispac`) i rutan **projekt Sök väg** och en paketfil (`.dtsx`) från projektet i rutan **paket namn** . Om du till exempel lagrar projektet i Azure Files, är dess projekt Sök väg `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
    ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
@@ -99,17 +100,17 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
    
    För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
 
-1. På fliken **SSIS parametrar** för AKTIVITETEN kör SSIS-paket, om din Azure-SSIS IR körs, väljs **SSISDB** som paket plats och kryss rutan **manuella poster** på fliken **Inställningar** är avmarkerad, den befintliga SSIS parametrar i det valda projektet eller paketet från SSISDB visas så att du kan tilldela dem värden. Annars kan du ange dem en i taget för att tilldela dem värden manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. 
+1. På fliken **SSIS parametrar** för AKTIVITETEN kör SSIS-paket, om din Azure-SSIS IR körs, har **SSISDB** valts som paket plats, och kryss rutan **manuella poster** på fliken **Inställningar** är avmarkerad, de befintliga SSIS-PARAMETRARNA i det valda projektet eller paketet från SSISDB visas så att du kan tilldela dem värden. Annars kan du ange dem en i taget för att tilldela dem värden manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. 
    
-   Om du har använt skydds nivån **EncryptSensitiveWithUserKey** när du skapade paketet via SQL Server Data Tools och **fil system (paket)** eller **fil system (projekt)** har valts som paket plats måste du också ange det igen känsliga parametrar för att tilldela värden till dem i konfigurationsfiler eller på den här fliken. 
+   Om du använde **EncryptSensitiveWithUserKey** skydds nivå när du skapade paketet via SQL Server Data Tools och **fil system (paket)** eller **fil system (projekt)** har valts som paket plats, måste du också ange dina känsliga parametrar igen för att tilldela värden till dem i konfigurationsfiler eller på den här fliken. 
    
    När du tilldelar värden till parametrarna kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory-pipeline-parametrar eller variabler. Du kan också använda hemligheter som lagras i nyckel valvet som värden (se föregående).
 
    ![Ange egenskaper på fliken SSIS-parametrar](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-1. På fliken **anslutnings hanterare** för AKTIVITETEN kör SSIS-paket, om din Azure-SSIS IR körs, väljs **SSISDB** som paket plats och kryss rutan **manuella poster** på fliken **Inställningar** är avmarkerad, den befintliga anslutnings hanterare i det valda projektet eller paketet från SSISDB visas så att du kan tilldela värden till deras egenskaper. Annars kan du ange dem en i taget för att tilldela värdena till egenskaperna manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. 
+1. På fliken **anslutnings hanterare** för AKTIVITETEN kör SSIS-paket, om din Azure-SSIS IR körs, har **SSISDB** valts som paket plats och kryss rutan **manuella poster** på fliken **Inställningar** är avmarkerad, så visas befintliga anslutnings hanterare i det valda projektet eller paketet från SSISDB så att du kan tilldela värden till deras egenskaper. Annars kan du ange dem en i taget för att tilldela värdena till egenskaperna manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. 
    
-   Om du har använt skydds nivån **EncryptSensitiveWithUserKey** när du skapade paketet via SQL Server Data Tools och **fil system (paket)** eller **fil system (projekt)** har valts som paket plats måste du också ange det igen känsliga egenskaper för anslutnings hanteraren för att tilldela värden till dem i konfigurationsfiler eller på den här fliken. 
+   Om du använde **EncryptSensitiveWithUserKey** skydds nivå när du skapade paketet via SQL Server Data Tools och **fil system (paket)** eller **fil system (projekt)** har marker ATS som din paket plats, måste du också ange egenskaperna för den känsliga anslutnings hanteraren igen för att tilldela värden till dem i konfigurationsfiler eller på den här fliken. 
    
    När du tilldelar värden till egenskaperna för anslutnings hanteraren kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory pipeline-parametrar eller variabler. Du kan också använda hemligheter som lagras i nyckel valvet som värden (se föregående).
 
@@ -117,7 +118,7 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
 1. På fliken **åsidosättningar för egenskaper** för AKTIVITETEN kör SSIS-paket anger du Sök vägarna för de befintliga egenskaperna i det valda paketet ett i taget för att tilldela dem värden manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. Om du till exempel vill åsidosätta värdet för användar variabeln anger du dess sökväg i följande format: `\Package.Variables[User::<variable name>].Value`. 
    
-   Om du har använt skydds nivån **EncryptSensitiveWithUserKey** när du skapade paketet via SQL Server Data Tools och **fil system (paket)** eller **fil system (projekt)** har valts som paket plats måste du också ange det igen känsliga egenskaper för att tilldela värden till dem i konfigurationsfiler eller på den här fliken. 
+   Om du använde **EncryptSensitiveWithUserKey** skydds nivå när du skapade paketet via SQL Server Data Tools och **fil system (paket)** eller **fil system (projekt)** har marker ATS som paket plats, måste du också ange dina känsliga egenskaper igen för att tilldela värden till dem i konfigurationsfiler eller på den här fliken. 
    
    När du tilldelar värden till dina egenskaper kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory pipeline-parametrar eller variabler.
 

@@ -1,6 +1,7 @@
 ---
-title: Använd Microsoft Identity Platform för att logga in användare som använder ROPC-beviljande (Resource Owner Password Credential) | Azure
-description: Stöd webbläsare – mindre autentiseringar flödar med hjälp av autentiseringsuppgifter för resurs ägarens lösen ord.
+title: Logga in med tilldela autentiseringsuppgifter för resurs ägare | Azure
+titleSuffix: Microsoft identity platform
+description: Stöd för webbläsare-mindre autentiseringar med hjälp av ROPC-tilldelningen för resurs ägarens lösen ord.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4504a1ae60aaac790ca15c120433159c2ff78fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207771"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919332"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Microsoft Identity Platform och OAuth-autentiseringsuppgifter för resurs ägar lösen ord för OAuth 2,0
+# <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Autentiseringsuppgifter för Microsoft Identity Platform och OAuth 2,0-resurs ägar lösen ord
 
 Microsoft Identity Platform stöder [OAuth 2,0-ROPC (Resource Owner Password Credential)](https://tools.ietf.org/html/rfc6749#section-4.3)som gör att ett program kan logga in användaren genom att direkt hantera lösen ordet.  Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder MSAL (Microsoft Authentication Libraries) i stället för att [Hämta tokens och anropa säkra webb-API: er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på de [exempel appar som använder MSAL](sample-v2-code.md).
 
@@ -75,7 +76,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | Krävs | Måste anges till `password`. |
 | `username` | Krävs | Användarens e-postadress. |
 | `password` | Krävs | Användarens lösen ord. |
-| `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md)eller behörigheter som appen kräver. I ett interaktivt flöde måste administratören eller användaren samtycka till dessa omfattningar i förväg. |
+| `scope` | Rekommenderad | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md)eller behörigheter som appen kräver. I ett interaktivt flöde måste administratören eller användaren samtycka till dessa omfattningar i förväg. |
 | `client_secret`| Krävs ibland | Om din app är en offentlig klient kan `client_secret` eller `client_assertion` inte tas med.  Om appen är en konfidentiell klient måste den tas med. | 
 | `client_assertion` | Krävs ibland | En annan form av `client_secret`som genereras med hjälp av ett certifikat.  Se [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för mer information. | 
 

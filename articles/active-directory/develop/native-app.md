@@ -2,27 +2,23 @@
 title: Inbyggda appar i Azure Active Directory
 description: Beskriver vad inbyggda appar är och grunderna om protokoll flöde, registrering och token förfallo datum för den här typen av app.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e7313acd26874f29a587d1c854a5286ed06d3cad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373873"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915129"
 ---
 # <a name="native-apps"></a>Inbyggda appar
 
@@ -37,7 +33,7 @@ Inbyggda appar är program som anropar ett webb-API för en användares räkning
 Om du använder AD Authentication-biblioteken hanteras de flesta protokoll detaljer som beskrivs nedan, till exempel webbläsarens popup-fönster, cachelagring av token och hantering av uppdateringstoken.
 
 1. Med hjälp av ett popup-fönster skickar det interna programmet en begäran till behörighets slut punkten i Azure AD. Den här begäran innehåller program-ID och omdirigerings-URI för det interna programmet som visas i Azure Portal och program-ID-URI: n för webb-API: et. Om användaren inte redan har loggat in uppmanas användaren att logga in igen
-1. Azure AD autentiserar användaren. Om det är ett program för flera innehavare och det krävs att du använder programmet, måste användaren godkänna om de inte redan har gjort det. Efter att ha beviljat medgivande och vid lyckad autentisering utfärdar Azure AD ett auktoriseringskod-svar tillbaka till klient programmets omdirigerings-URI.
+1. Azure AD autentiserar användaren. Om det är ett program med flera innehavare och medgivande som krävs för att använda programmet, måste användaren tillstånd om de inte redan gjort det. Efter att ha beviljat medgivande och vid lyckad autentisering utfärdar Azure AD ett auktoriseringskod-svar tillbaka till klient programmets omdirigerings-URI.
 1. När Azure AD utfärdar ett auktoriseringskod tillbaka till omdirigerings-URI: n, stoppar klient programmet webb läsar interaktion och extraherar auktoriseringskod från svaret. Med den här auktoriseringskod skickar klient programmet en begäran till Azure ADs token-slutpunkt som innehåller auktoriseringskod, information om klient programmet (program-ID och omdirigerings-URI) och önskad resurs (program-ID-URI för webb-API).
 1. Auktoriseringskod och information om klient programmet och webb-API: n verifieras av Azure AD. Vid lyckad verifiering returnerar Azure AD två tokens: en JWT-åtkomsttoken och en JWT-uppdateringstoken. Dessutom returnerar Azure AD grundläggande information om användaren, till exempel visnings namn och klient-ID.
 1. Via HTTPS använder klient programmet den returnerade JWT-åtkomsttoken för att lägga till JWT-strängen med beteckningen "Bearer" i Authorization-huvudet för begäran till webb-API: et. Webb-API: et validerar sedan JWT-token och om verifieringen lyckas returneras den önskade resursen.

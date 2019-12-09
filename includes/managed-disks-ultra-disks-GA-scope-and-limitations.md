@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/18/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: df488c2a3033015175943f7d092beaaa41e34046
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b819264895e35c6ef4fe9dc5263444dcac17eaa2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260892"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935809"
 ---
 För närvarande har Ultra disks ytterligare begränsningar, de är följande:
 
 - Stöds i följande regioner med ett varierande antal tillgänglighets zoner per region:
     - USA, östra 2
-    - East US
-    - Västra USA 2
+    - USA, östra
+    - USA, västra 2
     - Asien, Sydostasien
-    - Norra Europa
-    - Västra Europa
+    - Europa, norra
+    - Europa, västra
     - Storbritannien, södra 
 - Kan endast användas med tillgänglighets zoner (tillgänglighets uppsättningar och enskilda VM-distributioner utanför zoner kan inte ansluta en Ultra disk)
 - Stöds endast i följande VM-serien:
@@ -32,8 +32,8 @@ För närvarande har Ultra disks ytterligare begränsningar, de är följande:
     - FSv2
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Alla VM-storlekar är inte tillgängliga i alla regioner som stöds med Ultra disks.
-- Är bara tillgängliga som data diskar och stöder endast fysisk sektor storlek för 4K  
+- Alla VM-storlekar är inte tillgängliga i alla regioner som stöds med Ultra disks
+- Är bara tillgängliga som data diskar och stöder endast fysisk sektor storlek för 4K. På grund av den virtuella 4K-sektorns storlek på Ultra disk finns det vissa program som inte är kompatibla med Ultra disks. Ett exempel skulle vara Oracle Database, vilket kräver version 12,2 eller senare för att stödja Ultra disks.  
 - Kan bara skapas som tomma diskar  
 - Har ännu inte stöd för ögonblicks bilder av diskar, VM-avbildningar, tillgänglighets uppsättningar och Azure Disk Encryption
 - Har ännu inte stöd för integrering med Azure Backup eller Azure Site Recovery

@@ -1,23 +1,22 @@
 ---
-title: Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage
+title: Migrera data från Amazon S3 till Azure Storage
 description: Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 4d4e0453105dacfbf35624a2a9acb9d5994f4dea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675750"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927482"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage 
 
@@ -93,7 +92,7 @@ Om något av kopierings jobben Miss lyckas på grund av ett tillfälligt problem
 
 ### <a name="delta-data-migration"></a>Migrering av delta data 
 
-Det vanligaste sättet att identifiera nya eller ändrade filer från AWS S3 är att använda tidspartitionerad namngivnings konvention – när dina data i AWS S3 har tidsenheten partitionerats med Time-slice-information i fil-eller mappnamnet (till exempel/YYYY/MM/DD/File.csv). din pipeline kan enkelt identifiera vilka filer/mappar som ska kopieras stegvis. 
+Det vanligaste sättet att identifiera nya eller ändrade filer från AWS S3 är att använda tidspartitionerad namngivnings konvention – när dina data i AWS S3 har tidsdelats med Time-slice-information i fil-eller mappnamnet (till exempel/YYYY/MM/DD/File.csv) kan pipelinen enkelt identifiera vilka filer/mappar som ska kopieras stegvis. 
 
 Alternativt, om dina data i AWS S3 inte är tidspartitionerade, kan ADF identifiera nya eller ändrade filer med deras LastModifiedDate.   Hur det fungerar är att ADF genomsöker alla filer från AWS S3 och bara kopierar den nya och uppdaterade filen vars senast ändrade tidstämpel är större än ett visst värde.  Tänk på att om du har ett stort antal filer i S3 kan den första fil genomsökningen ta lång tid, oavsett hur många filer som matchar filter villkoret.  I det här fallet rekommenderar vi att du först partitionerar data med samma prefix-inställning för inledande ögonblicks bild migrering, så att fil genomsökningen kan ske parallellt.  
 
@@ -138,7 +137,7 @@ Här är det uppskattade priset baserat på ovanstående antaganden:
 
 ### <a name="additional-references"></a>Ytterligare referenser 
 - [Amazon Simple Storage Service Connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+- [Azure Blob Storage-anslutningsapp](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 koppling](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Skapa och konfigurera egen värd Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)

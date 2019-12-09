@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 009da6c16d446f2b0d4d3f402c1c1ec63dde34d8
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 7b5f7c25cd1627475d8e37a539956f01ae6151ab
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018734"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914025"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure Files resurs i Azure Kubernetes service (AKS) manuellt
 
@@ -44,7 +44,7 @@ az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
 # Export the connection string as an environment variable, this is used when creating the Azure file share
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
+export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv)
 
 # Create the file share
 az storage share create -n $AKS_PERS_SHARE_NAME --connection-string $AZURE_STORAGE_CONNECTION_STRING
@@ -63,7 +63,7 @@ Anteckna namnet på lagrings kontot och nyckeln som visas i slutet av utdata fr�
 
 Kubernetes måste ha autentiseringsuppgifter för att få åtkomst till fil resursen som skapades i föregående steg. Autentiseringsuppgifterna lagras i en Kubernetes- [hemlighet][kubernetes-secret]som refereras till när du skapar en Kubernetes-pod.
 
-`kubectl create secret` Använd kommandot för att skapa hemligheten. I följande exempel skapas en delad med namnet *Azure-Secret* och fyller i *azurestorageaccountname* och *azurestorageaccountkey* från föregående steg. Om du vill använda ett befintligt Azure Storage-konto anger du kontots namn och nyckel.
+Använd kommandot `kubectl create secret` för att skapa hemligheten. I följande exempel skapas en delad med namnet *Azure-Secret* och fyller i *azurestorageaccountname* och *azurestorageaccountkey* från föregående steg. Om du vill använda ett befintligt Azure Storage-konto anger du kontots namn och nyckel.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
@@ -71,7 +71,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Montera fil resursen som en volym
 
-Om du vill montera Azure Files resursen i din POD konfigurerar du volymen i behållar specifikationen. Skapa en ny fil med `azure-files-pod.yaml` namnet med följande innehåll. Om du har ändrat namnet på fil resursen eller det hemliga namnet uppdaterar du *resurs* namn och *secretName*. Om du vill kan du `mountPath`uppdatera, vilket är sökvägen till fil resursen som är monterad i pod. För Windows Server-behållare (för närvarande i för hands version i AKS) anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
+Om du vill montera Azure Files resursen i din POD konfigurerar du volymen i behållar specifikationen. skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Om du har ändrat namnet på fil resursen eller det hemliga namnet uppdaterar du *resurs* namn och *secretName*. Om du vill kan du uppdatera `mountPath`, som är sökvägen där fil resursen är monterad i pod. För Windows Server-behållare (för närvarande i för hands version i AKS) anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
 
 ```yaml
 apiVersion: v1
@@ -100,7 +100,7 @@ spec:
       readOnly: false
 ```
 
-`kubectl` Använd kommandot för att skapa pod.
+Använd kommandot `kubectl` för att skapa pod.
 
 ```console
 kubectl apply -f azure-files-pod.yaml
@@ -133,7 +133,7 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>Monteringsalternativ
+## <a name="mount-options"></a>Monterings alternativ
 
 Standardvärdet för *fileMode* och *dirMode* är *0755* för Kubernetes version 1.9.1 och senare. Om du använder ett kluster med Kuberetes version 1.8.5 eller större och statiskt skapar permanent volym objekt måste monterings alternativ anges i *PersistentVolume* -objektet. I följande exempel anges *0777*:
 
@@ -205,7 +205,7 @@ spec:
       storage: 5Gi
 ```
 
-Använd kommandona för att skapa *PersistentVolume* och *PersistentVolumeClaim.* `kubectl`
+Använd `kubectl`-kommandon för att skapa *PersistentVolume* och *PersistentVolumeClaim*.
 
 ```console
 kubectl apply -f azurefile-mount-options-pv.yaml

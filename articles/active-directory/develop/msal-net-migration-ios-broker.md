@@ -1,28 +1,24 @@
 ---
-title: Migrera Xamarin iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET
+title: Migrera Xamarin iOS-ADAL till MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du migrerar Xamarin iOS-program som använder Microsoft Authenticator från Azure AD Authentication Library för .NET (ADAL.NET) till Microsoft Authentication Library för .NET (MSAL.NET).
-documentationcenter: dev-center-name
+description: Lär dig hur du migrerar Xamarin iOS-appar som använder Microsoft Authenticator från ADAL.NET till MSAL.NET.
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c64f9f371424eddc7295b6ec40bda1ebdaaafd5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175584"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921828"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrera iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET
 
@@ -123,7 +119,7 @@ I MSAL.NET gör du två saker för att ange objekt fönstret för iOS:
 1. I `AppDelegate.cs`anger `App.RootViewController` till en ny `UIViewController()`. Den här tilldelningen säkerställer att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. Använd `.WithParentActivityOrWindow(App.RootViewController)`på AcquireTokenInteractive-anropet och skicka i referensen till objekt fönstret som du använder.
 
-**Exempel:**
+**Till exempel:**
 
 Följande gäller i `App.cs`:
 ```CSharp

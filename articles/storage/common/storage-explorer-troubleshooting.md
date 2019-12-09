@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: e3a9b733b055469e22d3b107c0f9f49b768756c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895248"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931214"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
 
@@ -301,7 +301,7 @@ Du kan också hämta programmet som en. tar. gz-fil, men du måste installera be
 
 Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
 
-* [.NET Core 2,2-körning](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
+* [.NET Core 2,2-körning](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` eller `libgnome-keyring-dev`
 * `libgnome-keyring-common`

@@ -1,29 +1,25 @@
 ---
-title: Logga in MSAL-program (Microsoft Authentication Library)
+title: Logga in MSAL-appar | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om loggning i MSAL-program (Microsoft Authentication Library).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5960389389e4b75794a7334c0bff12ce3ac0f170
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9a71093ee05e032a5df89bb0560b6daa82e2fbf2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452475"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916153"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
 
@@ -197,7 +193,7 @@ Exempel:
     }];
 ```
 
-### <a name="personal-data"></a>Person uppgifter
+### <a name="personal-data"></a>Personliga data
 
 Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled`, tar appen ansvar för säker hantering av mycket känsliga data och följande regler.
 
@@ -219,7 +215,7 @@ Använd något av följande värden om du vill ange loggnings nivå när du logg
 |---------|---------|
 | `MSALLogLevelNothing`| Inaktivera all loggning |
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
-| `MSALLogLevelWarning` | Varna |
+| `MSALLogLevelWarning` | Varningar |
 | `MSALLogLevelInfo` |  Biblioteks start punkter, med parametrar och olika nyckel rings åtgärder |
 |`MSALLogLevelVerbose`     |  API-spårning |
 
@@ -274,7 +270,7 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-data"></a>Person uppgifter
+### <a name="personal-data"></a>Personliga data
 
 Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled`, tar appen ansvar för säker hantering av mycket känsliga data och följande regler.
 
@@ -296,7 +292,7 @@ Använd något av följande värden om du vill ange loggnings nivå när du logg
 |---------|---------|
 | `MSALLogLevelNothing`| Inaktivera all loggning |
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
-| `MSALLogLevelWarning` | Varna |
+| `MSALLogLevelWarning` | Varningar |
 | `MSALLogLevelInfo` |  Biblioteks start punkter, med parametrar och olika nyckel rings åtgärder |
 |`MSALLogLevelVerbose`     |  API-spårning |
 

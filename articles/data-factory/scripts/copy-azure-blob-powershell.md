@@ -1,22 +1,21 @@
 ---
-title: 'PowerShell-skript: kopiera data i molnet med hjälp av Azure Data Factory '
+title: Kopiera data i molnet med hjälp av PowerShell
 description: Det här PowerShell-skriptet kopierar data från en plats i ett Azure-Blob Storage till en annan plats i samma Blob Storage.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
-editor: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
+ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.author: jingwang
-ms.openlocfilehash: 7ff9bd39a6a2d9785009d0f8bd8cb4c46fc09882
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: abc372355ce1a5350d205bce72a093fbfb1622e1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684384"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929848"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Använd PowerShell för att skapa en Data Factory-pipeline för att kopiera data i molnet
 
@@ -26,7 +25,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline i Azure Data Factor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **Azure Storage-konto**. Du kan använda blob-lagringen både som **källa** och **mottagare** för datalagringen. Om du inte har något Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md). 
 * Skapa en **blobcontainer** i Blob Storage, skapa en **indatamapp** i containern och ladda upp några filer till mappen. Du kan använda verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ansluta till Azure Blob Storage, skapa en blobcontainer, ladda upp en indatafil och verifiera utdatafilen.
 

@@ -3,20 +3,19 @@ title: Spara autentiseringsuppgifter i Azure Key Vault
 description: Lär dig hur du lagrar autentiseringsuppgifter för data lager som används i ett Azure Key Vault som Azure Data Factory kan hämta automatiskt vid körning.
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 32c4b9b8e6268aa648e3414b337e8b2b908589e8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684002"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928724"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Lagra autentiseringsuppgifter i Azure Key Vault
 
@@ -24,7 +23,7 @@ Du kan lagra autentiseringsuppgifter för data lager och beräkningar i en [Azur
 
 För närvarande har alla aktivitets typer förutom anpassad aktivitet stöd för den här funktionen. För kopplings konfiguration är det specifikt att se avsnittet "egenskaper för länkad tjänst" i [varje anslutnings avsnitt](copy-activity-overview.md#supported-data-stores-and-formats) för mer information.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här funktionen använder den hanterade identiteten för Data Factory. Lär dig hur det fungerar från [hanterad identitet för Data Factory](data-factory-service-identity.md) och se till att data fabriken har en associerad.
 
@@ -44,7 +43,7 @@ Följande egenskaper stöds för Azure Key Vault länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **AzureKeyVault**. | Ja |
-| BaseUrl | Ange Azure Key Vault-URL. | Ja |
+| baseUrl | Ange Azure Key Vault-URL. | Ja |
 
 **Använda redigerings gränssnittet:**
 
@@ -79,7 +78,7 @@ Följande egenskaper stöds när du konfigurerar ett fält i en länkad tjänst 
 | typ | Egenskapen Type för fältet måste anges till: **AzureKeyVaultSecret**. | Ja |
 | secretName | Namnet på hemligheten i Azure Key Vault. | Ja |
 | secretVersion | Den hemliga versionen i Azure Key Vault.<br/>Om detta inte anges används alltid den senaste versionen av hemligheten.<br/>Om detta anges, kommer det att göras till den angivna versionen.| Nej |
-| auktoriseringsarkiv | Refererar till en Azure Key Vault länkad tjänst som du använder för att lagra autentiseringsuppgifterna. | Ja |
+| store | Refererar till en Azure Key Vault länkad tjänst som du använder för att lagra autentiseringsuppgifterna. | Ja |
 
 **Använda redigerings gränssnittet:**
 
@@ -116,4 +115,4 @@ Välj **Azure Key Vault** för hemliga fält när du skapar anslutningen till da
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

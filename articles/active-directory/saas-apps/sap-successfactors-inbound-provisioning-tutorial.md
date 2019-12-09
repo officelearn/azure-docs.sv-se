@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: 85f3c8b9bc4167350b8a56f118128b89df142611
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cc17b8158c847bff5f07d6088a99566dc499d1bf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896927"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914768"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Självstudie: konfigurera SAP-SuccessFactors för att Active Directory användar etablering (för hands version)
-Syftet med den här självstudien är att visa de steg som du behöver utföra för att importera arbetarnas data från SuccessFactors personal Central till både Active Directory och Azure Active Directory, med valfri Skriv åtgärd e-postadress till SuccessFactors.
+Syftet med den här självstudien är att visa de steg som du måste utföra för att etablera användare från SuccessFactors personal Central till Active Directory (AD) och Azure AD, med valfri Skriv åtgärd e-postadress till SuccessFactors. Den här integrationen är i offentlig för hands version och stöder hämtning av fler än [70 + användarattribut](../manage-apps/sap-successfactors-attribute-reference.md) från SuccessFactors personal Central.
+
+>[!NOTE]
+>Använd den här självstudien om de användare som du vill etablera från SuccessFactors behöver ett lokalt AD-konto och eventuellt ett Azure AD-konto. Om användarna från SuccessFactors bara behöver Azure AD-konto (endast molnbaserade användare) kan du läsa själv studie kursen om hur [du konfigurerar SAP-SuccessFactors till](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) användar etablering i Azure AD. 
+
 
 ## <a name="overview"></a>Översikt
 
@@ -69,7 +73,7 @@ I det här avsnittet beskrivs den grundläggande användar etablerings lösnings
 4. Azure AD Connect etablerings agenten använder ett tjänst konto för att lägga till/uppdatera AD-konto data.
 5. Azure AD Connect Sync-motorn kör delta-synkronisering för att hämta uppdateringar i AD.
 6. Active Directory uppdateringarna synkroniseras med Azure Active Directory.
-7. Om SuccessFactors tillbakaskrivning-anslutningen har kon figurer ATS skriver den tillbaka e-postattributet och användar namnet till SuccessFactors, baserat på det matchande attributet som används.
+7. Om [SuccessFactors tillbakaskrivning-appen](sap-successfactors-writeback-tutorial.md) har kon figurer ATS skriver den tillbaka e-postattributet till SuccessFactors baserat på det matchande attributet som används.
 
 ## <a name="planning-your-deployment"></a>Planera distributionen
 
@@ -109,6 +113,10 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
 * Rulla nedåt i samma ruta och välj **medarbetares centrala API**. Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj alternativet Redigera om du planerar att använda samma konto för SuccessFactors-scenariot för tillbakaskrivning. 
   > [!div class="mx-imgBorder"]
   > ![Läs Skriv behörighet](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+  >[!NOTE]
+  >En fullständig lista över attribut som hämtas av den här etablerings appen finns i referens för [SuccessFactors-attribut](../manage-apps/sap-successfactors-attribute-reference.md)
+
 * Klicka på **färdig**. Klicka på **Spara ändringar**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Skapa en behörighets grupp för API-användaren
@@ -294,6 +302,10 @@ I det här avsnittet ska du konfigurera hur användar data flödar från Success
 
 1. I avsnittet **mappningar för attribut** kan du definiera hur enskilda SuccessFactors-attribut ska mappas till Active Directory attribut.
 
+  >[!NOTE]
+  >En fullständig lista över SuccessFactors-attribut som stöds av programmet finns i referens för [SuccessFactors-attribut](../manage-apps/sap-successfactors-attribute-reference.md)
+
+
 1. Klicka på en befintlig attributmappning för att uppdatera den, eller klicka på **Lägg till ny mappning** längst ned på skärmen för att lägga till nya mappningar. En mappning för enskilda attribut stöder följande egenskaper:
 
       * **Mappnings typ**
@@ -347,20 +359,9 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Läs mer om SuccessFactors-attribut som stöds för inkommande etablering](../manage-apps/sap-successfactors-attribute-reference.md)
+* [Lär dig hur du konfigurerar tillbakaskrivning av e-post till SuccessFactors](sap-successfactors-writeback-tutorial.md)
 * [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan SuccessFactors och Azure Active Directory](successfactors-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 * [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../manage-apps/export-import-provisioning-configuration.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från en lokal Cassandra-databa
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4edd4d663e02601a97474c5d3a54adaa6b7fd27d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682449"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931813"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Flytta data från en lokal Cassandra-databas med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -35,7 +34,7 @@ Du kan kopiera data från ett lokalt Cassandra-data lager till alla mottagar dat
 ## <a name="supported-versions"></a>Versioner som stöds
 Cassandra-anslutningen har stöd för följande versioner av Cassandra: 2. x och 3. x. För att aktiviteter som körs på egen värd Integration Runtime, stöds Cassandra 3. x sedan IR version 3,7 och senare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 För att Azure Data Factorys tjänsten ska kunna ansluta till din lokala Cassandra-databas måste du installera en Data Management Gateway på samma dator som är värd för-databasen eller på en annan dator för att undvika att konkurrera till resurser med databasen. Data Management Gateway är en komponent som ansluter lokala data källor till moln tjänster på ett säkert och hanterat sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikel för information om data Management Gateway. Se avsnittet [Flytta data från en lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) för stegvisa instruktioner om hur du konfigurerar gatewayen en datapipeline för att flytta data.
 
 Du måste använda gatewayen för att ansluta till en Cassandra-databas även om databasen finns i molnet, till exempel på en virtuell Azure IaaS-dator. Y du kan ha en gateway på samma virtuella dator som är värd för databasen eller på en separat virtuell dator så länge gatewayen kan ansluta till databasen.
@@ -49,7 +48,7 @@ När du installerar gatewayen installeras automatiskt en Microsoft Cassandra ODB
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er.
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -61,7 +60,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för ett Cassandra-data lager:
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för Cassandra-länkade tjänster.
 
 | Egenskap | Beskrivning | Krävs |
@@ -78,7 +77,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 >[!NOTE]
 >Det finns inte stöd för anslutning till Cassandra med SSL.
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **CassandraTable** har följande egenskaper
@@ -97,8 +96,8 @@ När källan är av typen **CassandraSource**finns följande egenskaper i avsnit
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query |Använd den anpassade frågan för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om tableName och disk utrymme på data mängden har definierats). |
-| consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. |ETT, TVÅ, TRE, KVORUM, ALLA, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) . |Nej. Standardvärdet är ett. |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om tableName och disk utrymme på data mängden har definierats). |
+| consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. |ETT, TVÅ, TRE, KVORUM, ALLA, LOCAL_QUORUM, EACH_QUORUM LOCAL_ONE. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) . |Nej. Standardvärdet är ett. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON-exempel: kopiera data från Cassandra till Azure-Blob
 Det här exemplet innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Det visar hur du kopierar data från en lokal Cassandra-databas till en Azure-Blob Storage. Data kan dock kopieras till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.
@@ -264,15 +263,15 @@ Se [RelationalSource typ egenskaper](#copy-activity-properties) för listan öve
 | --- | --- |
 | ASCII |Sträng |
 | BIGINT |Int64 |
-| BLOB |Byte [] |
-| BOOLESKT |Boolesk |
+| BLOB |Byte[] |
+| BOOLEAN |Boolesk |
 | DECIMAL |Decimal |
-| Dubbelklicka |Dubbelklicka |
-| FLYTA |Enkel |
+| DOUBLE |Double |
+| FLOAT |Enkel |
 | INET |Sträng |
 | INT |Int32 |
-| INFORMATION |Sträng |
-| TIDSSTÄMPEL |DateTime |
+| TEXT |Sträng |
+| TIMESTAMP |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Sträng |
@@ -300,7 +299,7 @@ Du kan använda [guiden Kopiera](data-factory-data-movement-activities.md#create
 ### <a name="example"></a>Exempel
 Till exempel är följande "ExampleTable" en Cassandra-databas tabell som innehåller en heltals primär nyckel kolumn med namnet "pk_int", en text kolumn med namnet värde, en List kolumn, en kart kolumn och en Set-kolumn (med namnet "StringSet").
 
-| pk_int | Värde | Visa lista | Karta | StringSet |
+| pk_int | Värde | Lista | Karta | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"exempel värde 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"exempel värde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -314,9 +313,9 @@ Den första virtuella tabellen är bas tabellen med namnet "ExampleTable" som vi
 | 1 |"exempel värde 1" |
 | 3 |"exempel värde 3" |
 
-I följande tabeller visas de virtuella tabeller som normaliserar data från kolumnerna List, Map och StringSet. Kolumnerna med namn som slutar med "_index" eller "_key" visar positionen för data i den ursprungliga listan eller kartan. Kolumnerna med namn som slutar med "_value" innehåller de expanderade data från samlingen.
+I följande tabeller visas de virtuella tabeller som normaliserar data från kolumnerna List, Map och StringSet. Kolumnerna med namn som slutar med "_index" eller "_key" visar positionen för data i den ursprungliga listan eller kartan. Kolumnerna med namn som slutar med "_value" innehåller utökade data från samlingen.
 
-#### <a name="table-exampletable_vt_list"></a>Tabell "ExampleTable_vt_List":
+#### <a name="table-exampletable_vt_list"></a>Tabell ExampleTable_vt_List:
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -327,14 +326,14 @@ I följande tabeller visas de virtuella tabeller som normaliserar data från kol
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletable_vt_map"></a>Tabell "ExampleTable_vt_Map":
+#### <a name="table-exampletable_vt_map"></a>Tabell ExampleTable_vt_Map:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletable_vt_stringset"></a>Tabell "ExampleTable_vt_StringSet":
+#### <a name="table-exampletable_vt_stringset"></a>Tabell ExampleTable_vt_StringSet:
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

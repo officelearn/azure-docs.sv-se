@@ -5,18 +5,17 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 59e31f0c280687dfd2a79b3a40d8474c82b794d4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: af4f069e9021a301a77ccefa300ad86afb955fcf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681584"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927034"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Beräknings miljöer som stöds av Azure Data Factory
 I den här artikeln beskrivs olika beräknings miljöer som du kan använda för att bearbeta eller transformera data. Den innehåller också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster som länkar dessa beräknings miljöer till en Azure Data Factory.
@@ -25,8 +24,8 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 
 | Compute-miljö                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [gris](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop-direktuppspelning](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service)                   | [Anpassad](transform-data-using-dotnet-custom-activity.md)     |
+| [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
+| [Azure Batch](#azure-batch-linked-service)                   | [Anpassat](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
@@ -101,11 +100,11 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 | Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Egenskapen Type ska anges till **HDInsightOnDemand**. | Ja      |
-| clusterSize                  | Antalet arbets uppgifter/datanoder i klustret. HDInsight-klustret skapas med två head-noder och antalet arbetsnoder som du anger för den här egenskapen. Noderna har storleks Standard_D3 som har 4 kärnor, så ett kluster med fyra arbets noder tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder, plus 2\*4 = 8 kärnor för Head-noder). Se [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för mer information. | Ja      |
+| clusterSize                  | Antalet arbets uppgifter/datanoder i klustret. HDInsight-klustret skapas med två head-noder och antalet arbetsnoder som du anger för den här egenskapen. Noderna har storlek Standard_D3 med 4 kärnor, så ett kluster med en arbets nod tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder, plus 2\*4 = 8 kärnor för Head-noder). Se [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för mer information. | Ja      |
 | linkedServiceName            | Azure Storage länkad tjänst som ska användas av klustret på begäran för att lagra och bearbeta data. HDInsight-klustret skapas i samma region som det här Azure Storage kontot. Azure HDInsight har en begränsning för hur många kärnor du kan använda i varje Azure-region som stöds. Se till att du har tillräckligt många kärn kvoter i Azure-regionen för att uppfylla de nödvändiga clusterSize. Mer information finns i [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>För närvarande kan du inte skapa ett HDInsight-kluster på begäran som använder en Azure Data Lake Store som lagrings plats. Om du vill lagra resultat data från HDInsight-bearbetning i en Azure Data Lake Store använder du en kopierings aktivitet för att kopiera data från Azure-Blob Storage till Azure Data Lake Store. </p> | Ja      |
 | clusterResourceGroup         | HDInsight-klustret skapas i den här resurs gruppen. | Ja      |
 | TimeToLive                   | Den tillåtna inaktiva tiden för HDInsight-klustret på begäran. Anger hur länge HDInsight-klustret på begäran förblir aktivt efter att en aktivitets körning slutförts om det inte finns några andra aktiva jobb i klustret. Det minsta tillåtna värdet är 5 minuter (00:05:00).<br/><br/>Om en aktivitets körning till exempel tar 6 minuter och TimeToLive har angetts till 5 minuter förblir klustret aktiv i 5 minuter efter 6 minuters bearbetning av aktivitets körningen. Om en annan aktivitets körning körs med fönstret 6 minuter, bearbetas den av samma kluster.<br/><br/>Att skapa ett HDInsight-kluster på begäran är en dyr åtgärd (kan ta en stund), så Använd den här inställningen vid behov för att förbättra prestandan hos en data fabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger TimeToLive-värdet till 0, tas klustret bort så snart aktiviteten körs klart. Om du anger ett högt värde kan klustret vara inaktivt så att du kan logga in för vissa fel söknings syfte men det kan resultera i höga kostnader. Därför är det viktigt att du anger rätt värde utifrån dina behov.<br/><br/>Om värdet för egenskapen TimeToLive har angetts korrekt kan flera pipelines dela instansen av HDInsight-klustret på begäran. | Ja      |
-| clusterType                  | Typ av HDInsight-kluster som ska skapas. Tillåtna värden är "Hadoop" och "Spark". Om inget värde anges är standardvärdet Hadoop. Det går inte att skapa Enterprise Security Package aktiverat kluster på begäran, i stället använda ett [befintligt kluster/ta med din egen beräkning](#azure-hdinsight-linked-service). | Nej       |
+| ClusterType                  | Typ av HDInsight-kluster som ska skapas. Tillåtna värden är "Hadoop" och "Spark". Om inget värde anges är standardvärdet Hadoop. Det går inte att skapa Enterprise Security Package aktiverat kluster på begäran, i stället använda ett [befintligt kluster/ta med din egen beräkning](#azure-hdinsight-linked-service). | Nej       |
 | version                      | Version av HDInsight-klustret. Om det inte anges används den aktuella HDInsight-definierade standard versionen. | Nej       |
 | hostSubscriptionId           | ID för Azure-prenumerationen som används för att skapa HDInsight-kluster. Om inget anges används prenumerations-ID: t för din Azure-inloggnings kontext. | Nej       |
 | clusterNamePrefix           | Prefixet för HDI-klustrets namn, en tidstämpel läggs automatiskt till i slutet av kluster namnet| Nej       |
@@ -113,7 +112,7 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 | additionalLinkedServiceNames | Anger ytterligare lagrings konton för den länkade HDInsight-tjänsten så att tjänsten Data Factory kan registrera dem åt dig. Dessa lagrings konton måste finnas i samma region som HDInsight-klustret, som skapas i samma region som det lagrings konto som anges av linkedServiceName. | Nej       |
 | osType                       | Typ av operativ system. Tillåtna värden är: Linux och Windows (endast för HDInsight 3,3). Standardvärdet är Linux. | Nej       |
 | hcatalogLinkedServiceName    | Namnet på den länkade Azure SQL-tjänsten som pekar på HCatalog-databasen. HDInsight-klustret på begäran skapas med hjälp av Azure SQL Database som metaarkiv. | Nej       |
-| connectVia                   | Integration Runtime som ska användas för att skicka aktiviteter till den länkade HDInsight-tjänsten. För den länkade HDInsight-tjänsten på begäran stöder den bara Azure Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej       |
+| connectVia                   | Integration Runtime som ska användas för att skicka aktiviteter till den länkade HDInsight-tjänsten. För den länkade HDInsight-tjänsten på begäran stöder den bara Azure Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej       |
 | clusterUserName                   | Användar namnet för att få åtkomst till klustret. | Nej       |
 | clusterPassword                   | Lösen ordet i typ av säker sträng för att komma åt klustret. | Nej       |
 | clusterSshUserName         | Användar namnet för SSH fjärr anslutning till klustrets nod (för Linux). | Nej       |
@@ -143,7 +142,7 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 Den länkade HDInsight-tjänsten på begäran kräver en tjänstens huvud namns autentisering för att skapa HDInsight-kluster för din räkning. Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD) och tilldelar den rollen **deltagare** i prenumerationen eller resurs gruppen där HDInsight-klustret skapas. Detaljerade anvisningar finns i [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
 - Program-ID:t
-- Program nyckel 
+- Programnyckel 
 - Klient-ID:t
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
@@ -152,7 +151,7 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckel.           | Ja      |
-| **innehav**              | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja      |
+| **tenant**              | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja      |
 
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 
@@ -235,7 +234,7 @@ Du kan ange storlekarna på huvud-, data-och Zookeeper-noderna med följande ege
 #### <a name="specifying-node-sizes"></a>Ange Node-storlekar
 Se [storlekarna för Virtual Machines](../virtual-machines/linux/sizes.md) artikel för sträng värden som du måste ange för egenskaperna som nämns i föregående avsnitt. Värdena måste följa **cmdletarna &-API: er** som refereras till i artikeln. Som du kan se i artikeln har datanoden för stor (standard) storlek 7 GB minne, vilket kanske inte är tillräckligt för ditt scenario. 
 
-Om du vill skapa Standard_D4 för D4 size-Head och Worker, anger du som värde för egenskaperna HeadNodeSize och dataNodeSize. 
+Om du vill skapa värden för D4 size-Head och Worker, anger du **Standard_D4** som värde för egenskaperna HeadNodeSize och dataNodeSize. 
 
 ```json
 "headNodeSize": "Standard_D4",    
@@ -294,7 +293,7 @@ Du kan skapa en länkad Azure HDInsight-tjänst för att registrera ditt eget HD
 | lösenord          | Ange lösen ordet för användar kontot.                       | Ja      |
 | linkedServiceName | Namnet på den länkade tjänsten Azure Storage som refererar till Azure Blob Storage som används av HDInsight-klustret. <p>För närvarande kan du inte ange en Azure Data Lake Store länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till Data Lake Store, kan du komma åt data i Azure Data Lake Store från Hive/gris-skript. </p> | Ja      |
 | isEspEnabled      | Ange*True*om HDInsight-klustret är [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture) aktiverat. Standardvärdet är*false*. | Nej       |
-| connectVia        | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. <br />För Enterprise Security Package (ESP) aktiverat HDInsight-kluster använder du en lokal integration runtime, som har en detaljerad linje för klustret, eller så bör det distribueras inuti samma Virtual Network som ESP HDInsight-klustret. | Nej       |
+| connectVia        | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om den inte anges används standard Azure Integration Runtime. <br />För Enterprise Security Package (ESP) aktiverat HDInsight-kluster använder du en lokal integration runtime, som har en detaljerad linje för klustret, eller så bör det distribueras inuti samma Virtual Network som ESP HDInsight-klustret. | Nej       |
 
 > [!IMPORTANT]
 > HDInsight stöder flera Hadoop-kluster versioner som kan distribueras. Varje versions val skapar en speciell version av HDP-distributionen (Hortonworks Data Platform) och en uppsättning komponenter som ingår i distributionen. Listan över de HDInsight-versioner som stöds fortsätter att uppdateras för att tillhandahålla de senaste komponenterna och korrigeringarna för Hadoop-eko systemet. Se till att du alltid refererar till den senaste informationen om [vilka HDInsight-versioner som stöds och vilken typ av operativ system](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) som stöds. 
@@ -349,12 +348,12 @@ Se följande artiklar om du är nybörjare på Azure Batch-tjänsten:
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Egenskapen Type ska anges till **AzureBatch**. | Ja      |
-| Konto       | Namnet på Azure Batch kontot.         | Ja      |
+| kontonamn       | Namnet på Azure Batch kontot.         | Ja      |
 | accessKey         | Åtkomst nyckel för Azure Batch kontot.  | Ja      |
 | batchUri          | URL till ditt Azure Batch-konto, i formatet https://*batchaccountname. region*. batch.Azure.com. | Ja      |
 | poolName          | Namn på poolen med virtuella datorer.    | Ja      |
 | linkedServiceName | Namnet på den länkade tjänsten Azure Storage som är kopplad till den här Azure Batch länkade tjänsten. Den här länkade tjänsten används för uppsamlingsfiler som krävs för att köra aktiviteten. | Ja      |
-| connectVia        | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej       |
+| connectVia        | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej       |
 
 ## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio länkad tjänst
 Du skapar en Azure Machine Learning Studio länkad tjänst för att registrera en Machine Learning slut punkt för batch-poäng till en data fabrik.
@@ -390,8 +389,8 @@ Du skapar en Azure Machine Learning Studio länkad tjänst för att registrera e
 | updateResourceEndpoint | Uppdaterings resursens URL för en Azure Machine Learning-webbtjänstens slut punkt som används för att uppdatera den förutsägbara webb tjänsten med utbildad modell fil | Nej                                       |
 | servicePrincipalId     | Ange programmets klient-ID.     | Krävs om updateResourceEndpoint har angetts |
 | servicePrincipalKey    | Ange programmets nyckel.           | Krävs om updateResourceEndpoint har angetts |
-| innehav                 | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Krävs om updateResourceEndpoint har angetts |
-| connectVia             | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej                                       |
+| tenant                 | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Krävs om updateResourceEndpoint har angetts |
+| connectVia             | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej                                       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning länkad tjänst
 Du skapar en Azure Machine Learning länkad tjänst för att ansluta en Azure Machine Learning arbets yta till en data fabrik.
@@ -434,8 +433,8 @@ Du skapar en Azure Machine Learning länkad tjänst för att ansluta en Azure Ma
 | mlWorkspaceName        | Namn på Azure Machine Learning arbets yta | Ja  |
 | servicePrincipalId     | Ange programmets klient-ID.     | Nej |
 | servicePrincipalKey    | Ange programmets nyckel.           | Nej |
-| innehav                 | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Krävs om updateResourceEndpoint har angetts | Nej |
-| connectVia             | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej |    
+| tenant                 | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Krävs om updateResourceEndpoint har angetts | Nej |
+| connectVia             | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej |    
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics länkad tjänst
 Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka en Azure Data Lake Analytics Compute-tjänst till en Azure Data Factory. Data Lake Analytics U-SQL-aktiviteten i pipelinen refererar till den här länkade tjänsten. 
@@ -472,14 +471,14 @@ Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka en Az
 | Egenskap             | Beskrivning                              | Krävs                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | typ                 | Egenskapen Type ska anges till: **AzureDataLakeAnalytics**. | Ja                                      |
-| Konto          | Azure Data Lake Analytics konto namn.  | Ja                                      |
+| kontonamn          | Azure Data Lake Analytics konto namn.  | Ja                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics-URI.           | Nej                                       |
 | subscriptionId       | ID för Azure-prenumeration                    | Nej                                       |
 | resourceGroupName    | Azure-resursgruppsnamn                | Nej                                       |
 | servicePrincipalId   | Ange programmets klient-ID.     | Ja                                      |
 | servicePrincipalKey  | Ange programmets nyckel.           | Ja                                      |
-| innehav               | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja                                      |
-| connectVia           | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej                                       |
+| tenant               | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja                                      |
+| connectVia           | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej                                       |
 
 
 
@@ -535,12 +534,12 @@ Du kan skapa **Azure Databricks länkade tjänsten** för att registrera Databri
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | namn                 | Namnet på den länkade tjänsten               | Ja   |
 | typ                 | Egenskapen Type ska anges till: **Azure Databricks**. | Ja                                      |
-| Domänsuffix               | Ange Azure-regionen baserat på regionen för Databricks-arbetsytan. Exempel: https://eastus.azuredatabricks.net | Ja                                 |
+| domän               | Ange Azure-regionen baserat på regionen för Databricks-arbetsytan. Exempel: https://eastus.azuredatabricks.net | Ja                                 |
 | accessToken          | Åtkomsttoken krävs för att Data Factory ska kunna autentisera till Azure Databricks. Åtkomsttoken måste genereras från arbets ytan databricks. Mer detaljerade anvisningar för att hitta åtkomsttoken finns [här](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Ja                                       |
 | existingClusterId    | Kluster-ID för ett befintligt kluster att köra alla jobb på detta. Detta bör vara ett interaktivt kluster som redan skapats. Du kan behöva starta om klustret manuellt om det slutar svara. Databricks föreslå jobb som körs på nya kluster för bättre tillförlitlighet. Du hittar kluster-ID: t för ett interaktivt kluster på Databricks-arbetsytan – > kluster – > interaktivt kluster namn-> konfigurations > taggar. [Mer information](https://docs.databricks.com/user-guide/clusters/tags.html) | Nej 
 | instancePoolId    | Instans-pool-ID för en befintlig pool i databricks-arbetsytan.  | Nej  |
 | newClusterVersion    | Spark-versionen av klustret. Ett jobb kluster skapas i databricks. | Nej  |
-| newClusterNumOfWorker| Antal arbetsnoder som det här klustret ska ha. Ett kluster har en spark-drivrutin och num_workers-körningar för totalt antal num_workers + 1 Spark-noder. En sträng formaterad Int32, t. ex. "1" betyder att numOfWorker är 1 eller "1:10" betyder autoskalning från 1 till och med 10 som Max.  | Nej                |
+| newClusterNumOfWorker| Antal arbetsnoder som det här klustret ska ha. Ett kluster har en spark-drivrutin och num_workers körningar för totalt num_workers + 1 Spark-noder. En sträng formaterad Int32, t. ex. "1" betyder att numOfWorker är 1 eller "1:10" betyder autoskalning från 1 till och med 10 som Max.  | Nej                |
 | newClusterNodeType   | Det här fältet kodas med hjälp av ett enda värde och resurserna som är tillgängliga för var och en av Spark-noderna i det här klustret. Till exempel kan Spark-noderna tillhandahållas och optimeras för minnes-eller beräknings intensiva arbets belastningar. Det här fältet krävs för det nya klustret                | Nej               |
 | newClusterSparkConf  | en uppsättning valfria, användardefinierade konfigurations nyckel/värde-par för Spark-konfiguration. Användarna kan också skicka en sträng med extra JVM-alternativ till driv rutinen och körningarna via Spark. driver. extraJavaOptions och Spark. utförar. extraJavaOptions. | Nej  |
 | newClusterInitScripts| en uppsättning valfria, användardefinierade initierings skript för det nya klustret. Ange DBFS-sökvägen till init-skripten. | Nej  |
@@ -558,7 +557,7 @@ Du skapar en SQL Server länkad tjänst och använder den med den [lagrade proce
 ## <a name="azure-function-linked-service"></a>Länkad Azure Function-tjänst
 Du skapar en länkad Azure Function-tjänst och använder den med [Azure Function-aktiviteten](control-flow-azure-function-activity.md) för att köra Azure Functions i en Data Factory pipeline. Retur typen för Azure-funktionen måste vara en giltig `JObject`. (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *inte* är ett `JObject`.) Andra retur typer än `JObject` Miss lyckas och det går inte att skicka användar fel *svars innehållet är inte ett giltigt JObject*.
 
-| **Egenskap** | **Beskrivning** | **Kunna** |
+| **Egenskap** | **Beskrivning** | **Obligatoriskt** |
 | --- | --- | --- |
 | typ   | Egenskapen Type måste anges till: **AzureFunction** | ja |
 | URL till Function-app | URL för Azure-Funktionsapp. Formatet är `https://<accountname>.azurewebsites.net`. URL: en är värdet under **URL** -avsnittet när du visar Funktionsapp i Azure Portal  | ja |

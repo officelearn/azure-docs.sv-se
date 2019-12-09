@@ -1,49 +1,46 @@
 ---
-title: Återaktivera inaktiverade namnområden som Azure Access Control Service (ACS)
-description: Lär dig hur du hittar och aktivera dina Azure Access Control Service (ACS)-namnområden och begära en förlängning så att de aktiverade tills 4 februari 2019.
+title: Återaktivera inaktiverade namn områden för Azure Access Control Service (ACS)
+description: Lär dig hur du hittar och aktiverar dina Azure Access Control Service-namnområden (ACS) och begär ett tillägg för att hålla dem aktiverade fram till 4 februari 2019.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 590fc99861035ce1a5219a3cfd788159c6c2a19b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482715"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917717"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Anvisningar: Återaktivera inaktiverade Access Control Service-namnområden
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Gör så här: återaktivera inaktiverade Access Control Service namn områden
 
-November 2017 meddelade vi att Microsoft Azure Access Control Service (ACS), en tjänst i Azure Active Directory (Azure AD), tas ur bruk 7 November 2018.
+I november 2017 meddelade vi att Microsoft Azure Access Control Service (ACS), en tjänst av Azure Active Directory (Azure AD), dras tillbaka den 7 november 2018.
 
-Eftersom sedan vi har skickat e-postmeddelande till ACS-prenumerationer administratörens e-post om ACS indragningen 12 månader, 9 månaderna, sex månader tre månader, 1 månad, 2 veckor, 1 vecka, och en dag före datumet för tillbakadragandet 7 November 2018.
+Sedan dess har vi skickat e-postmeddelanden till administrations e-postmeddelandet för ACS-prenumerationen om ACS-pensionen 12 månader, 6 månader, 3 månader, 1 månad, 2 veckor, 1 vecka och 1 dag innan indragnings datumet den 7 november 2018.
 
-3 oktober 2018 meddelade vi (via e-post och [ett blogginlägg](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) ett tillägg erbjudande till kunder som det går inte att slutföra migreringen innan den 7 November 2018. Meddelandet hade också instruktioner för att begära tillägget.
+Den 3 oktober 2018 presenterade vi (via e-post och [ett blogg](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)inlägg) ett förlängnings erbjudande till kunder som inte kan slutföra migreringen före 7 november 2018. Meddelandet hade också instruktioner för att begära tillägget.
 
-## <a name="why-your-namespace-is-disabled"></a>Varför ditt namnområde är inaktiverad
+## <a name="why-your-namespace-is-disabled"></a>Varför ditt namn område är inaktiverat
 
-Om du inte har valt i för tillägget, börjar vi att inaktivera ACS-namnområden från och med 7 November 2018. Du måste har begärt anknytningen till 4 februari 2019 redan; i annat fall kommer du inte att kunna aktivera namnområden via PowerShell.
+Om du inte har valt tillägget för tillägget börjar vi med att inaktivera ACS-namnområden från 7 november 2018. Du måste ha begärt tillägget till 4 februari 2019 redan. annars kommer du inte att kunna aktivera namn områden via PowerShell.
 
 > [!NOTE]
-> Du måste vara en tjänstadministratör eller medadministratör för prenumerationen för att köra PowerShell-kommandon och begära en förlängning.
+> Du måste vara tjänst administratör eller medadministratör för prenumerationen för att köra PowerShell-kommandona och begära ett tillägg.
 
 ## <a name="find-and-enable-your-acs-namespaces"></a>Hitta och aktivera ACS-namnområden
 
-Du kan använda ACS PowerShell för att lista alla ACS-namnområden och återaktivera de som har inaktiverats.
+Du kan använda ACS PowerShell för att visa en lista över alla ACS-namnområden och återaktivera dem som har inaktiverats.
 
 1. Hämta och installera ACS PowerShell:
-    1. Gå till PowerShell-galleriet och hämta [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+    1. Gå till PowerShell-galleriet och hämta [ACS. Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
     1. Installera modulen:
 
         ```powershell
@@ -56,53 +53,53 @@ Du kan använda ACS PowerShell för att lista alla ACS-namnområden och återakt
         Get-Command -Module Acs.Namespaces
         ```
 
-        Om du behöver hjälp med ett visst kommando kör du:
+        Om du vill ha hjälp med ett speciellt kommando kör du:
 
         ```powershell
         Get-Help [Command-Name] -Full
         ```
     
         där `[Command-Name]` är namnet på ACS-kommandot.
-1. Anslut till ACS med hjälp av den **Connect AcsAccount** cmdlet. 
+1. Anslut till ACS med cmdleten **Connect-AcsAccount** . 
 
-    Du kan behöva ändra dina körningsprincipen genom att köra **Set-ExecutionPolicy** innan du kan köra kommandot.
-1. Lista över dina tillgängliga Azure-prenumerationer med hjälp av den **Get-AcsSubscription** cmdlet.
-1. Lista din ACS namnområden med hjälp av den **Get-AcsNamespace** cmdlet.
-1. Bekräfta att namnområden är inaktiverade som bekräftar att `State` är `Disabled`.
+    Du kan behöva ändra körnings principen genom att köra **set-ExecutionPolicy** innan du kan köra kommandot.
+1. Lista dina tillgängliga Azure-prenumerationer med hjälp av cmdleten **Get-AcsSubscription** .
+1. Visa en lista med ACS-namnområden med cmdleten **Get-AcsNamespace** .
+1. Bekräfta att namn områdena är inaktiverade genom att bekräfta att `State` är `Disabled`.
 
-    [![Bekräfta att namnområden är inaktiverade](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
+    [![bekräfta att namn områdena är inaktiverade](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
-    Du kan också använda `nslookup {your-namespace}.accesscontrol.windows.net` att bekräfta om domänen är fortfarande är aktiv.
+    Du kan också använda `nslookup {your-namespace}.accesscontrol.windows.net` för att bekräfta om domänen fortfarande är aktiv.
 
-1. Aktivera din ACS namespace(s) med hjälp av den **aktivera AcsNamespace** cmdlet.
+1. Aktivera ACS-namnområden med hjälp av cmdleten **Enable-AcsNamespace** .
 
-    När du har aktiverat din namespace(s) kan begära du en förlängning så att namespace(s) inte inaktiveras igen innan den 4 februari 2019. Efter detta datum kommer alla förfrågningar till ACS kommer att misslyckas.
+    När du har aktiverat dina namn rymder kan du begära ett tillägg så att namn områdena inte inaktive ras igen före den 4 februari 2019. Efter det datumet kommer alla förfrågningar till ACS att Miss förfalla.
 
-## <a name="request-an-extension"></a>Begära en förlängning
+## <a name="request-an-extension"></a>Begär ett tillägg
 
-Vi tar nya begäranden från och med den 21 januari 2019.
+Vi tar nya förlängnings begär Anden från den 21 januari 2019.
 
-Vi startar inaktiverar namnområden för kunder som har begärt tillägg till 4 februari 2019. Du kan fortfarande återaktivera namnområden via PowerShell, men namnrymder inaktiveras igen efter 48 timmar.
+Vi kommer att börja inaktivera namn områden för kunder som har begärt tillägg till 4 februari 2019. Du kan fortfarande återaktivera namn områden via PowerShell, men namn rymderna kommer att inaktive ras igen efter 48 timmar.
 
-Efter 4 mars 2019 kommer kunder inte längre att kunna aktivera alla namnområden via PowerShell.
+Efter den 4 mars 2019 kommer kunder inte längre att kunna återaktivera namn områden via PowerShell.
 
-Ytterligare tillägg kommer inte längre att godkännas automatiskt. Om du behöver mer tid för att migrera Kontakta [Azure-supporten](https://portal.azure.com/#create/Microsoft.Support) att ge en detaljerad migreringstidsplan.
+Ytterligare tillägg kommer inte längre att godkännas automatiskt. Om du behöver ytterligare tid för migreringen kan du kontakta [Azure-supporten](https://portal.azure.com/#create/Microsoft.Support) om du vill ha en detaljerad tids linje för migrering.
 
-### <a name="to-request-an-extension"></a>Att begära en förlängning
+### <a name="to-request-an-extension"></a>Begära ett tillägg
 
-1. Logga in på Azure-portalen och skapa en [ny supportbegäran](https://portal.azure.com/#create/Microsoft.Support).
-1. Fyll i formuläret för begäran av nytt stöd som du ser i följande exempel.
+1. Logga in på Azure Portal och skapa en [ny support förfrågan](https://portal.azure.com/#create/Microsoft.Support).
+1. Fyll i det nya formuläret supportbegäran som det visas i följande exempel.
 
-    | Stöd för begäran fält | Värde |
+    | Supportbegäran fält | Värde |
     |-----------------------|--------------------|
     | **Typ av problem** | `Technical` |
-    | **Prenumeration** | Ställ in till din prenumeration |
+    | **Prenumeration** | Ange till din prenumeration |
     | **Tjänst** | `All services` |
     | **Resurs** | `General question/Resource not available` |
-    | **Problemtyp** | `ACS to SAS Migration` |
+    | **Typ av problem** | `ACS to SAS Migration` |
     | **Ämne** | Beskriv problemet |
 
-   ![Visar ett exempel på en ny förfrågan om teknisk support](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Visar ett exempel på en ny begäran om teknisk support](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 
@@ -122,9 +119,9 @@ Ytterligare tillägg kommer inte längre att godkännas automatiskt. Om du behö
 
 ## <a name="help-and-support"></a>Hjälp och support
 
-- Om du stöter på problem när du har genomfört den här anvisningen, kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-- Om du har frågor eller feedback om ACS dras tillbaka, kontaktar du oss på acsfeedback@microsoft.com.
+- Kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)om du stöter på problem efter följande:
+- Om du har frågor eller feedback om indragningen av ACS-processen kan du kontakta oss på acsfeedback@microsoft.com.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska informationen om ACS dras tillbaka i [så här: Migrera från Azure Access Control Service](active-directory-acs-migration.md).
+- Granska informationen om ACS-pensionering i [så här: Migrera från Azure-Access Control Service](active-directory-acs-migration.md).

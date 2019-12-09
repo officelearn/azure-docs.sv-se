@@ -1,29 +1,25 @@
 ---
-title: Kända problem i Internet Explorer och Microsoft Edge (MSAL för Java Script)
+title: MSAL. js-problem i Internet Explorer & Microsoft Edge | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig om kända problem när du använder Microsoft Authentication Library för Java Script (MSAL. js) med Internet Explorer och Microsoft Edge-webbläsare.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b4e24a02bcce372f020833a82b685748432c39
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe9f8ff420698d5afe617973abc7874256efe260
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934829"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916391"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare med MSAL. js
 
@@ -60,7 +56,7 @@ Använd lösningarna nedan.
 #### <a name="other-workarounds"></a>Andra lösningar
 Se till att testa att ditt problem bara uppstår på den aktuella versionen av Microsoft Edge-webbläsaren och fungerar i de andra webbläsarna innan du inför dessa lösningar.  
 1. Som ett första steg för att lösa dessa problem bör du se till att program domänen, och andra platser som ingår i omdirigeringen av autentiseringsschemat läggs till som betrodda platser i webbläsarens säkerhets inställningar, så att de tillhör samma säkerhets zon.
-Det gör du genom att följa dessa steg:
+Följ de här stegen för att göra det:
     - Öppna **Internet Explorer** och klicka på **inställningarna** (kugg hjuls ikonen) i det övre högra hörnet
     - Välj **Internet alternativ**
     - Välj fliken **säkerhet**

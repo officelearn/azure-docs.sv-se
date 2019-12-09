@@ -4,20 +4,19 @@ description: Läs mer om kopierings aktiviteten i Azure Data Factory. Du kan anv
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075565"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927548"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopierings aktivitet i Azure Data Factory
 
@@ -181,7 +180,7 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | rowsCopied | Antal rader som kopierats till Sink (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
 | rowsSkipped | Antal inkompatibla rader som hoppades över. Du kan aktivera inkompatibla rader som ska hoppas över genom att ange `enableSkipIncompatibleRow` till true. | Int64-värde (ingen enhet) |
 | copyDuration | Kopierings körningens längd. | Int32-värde, i sekunder |
-| throughput | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |
+| Dataflöde | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |
 | sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int32-värde (ingen enhet) |
 | sinkPeakConnections| Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten.| Int32-värde (ingen enhet) |
 | sqlDwPolyBase | Om PolyBase används när data kopieras till SQL Data Warehouse. | Boolesk |

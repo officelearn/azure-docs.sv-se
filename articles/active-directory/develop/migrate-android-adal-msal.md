@@ -4,10 +4,8 @@ description: Lär dig hur du migrerar din Android-app för Azure Active Director
 services: active-directory
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
@@ -16,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8129de8b1c12965810bd5d9b5dfd1093e18d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0653eef585dd81d2e03585bf45b45ee9df9de292
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667891"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917259"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>ADAL till MSAL migration guide för Android
 
@@ -68,7 +66,7 @@ Du behöver inte ändra din befintliga App-registrering för att använda MSAL. 
 
 I din app-registrering i portalen visas fliken **API-behörigheter** . Detta ger en lista med de API: er och behörigheter (omfattningar) som din app är konfigurerad för att begära åtkomst till. Den visar också en lista över de omfångs namn som är associerade med varje API-behörighet.
 
-### <a name="user-consent"></a>Användar medgivande
+### <a name="user-consent"></a>Användargodkännande
 
 Med ADAL och AAD v1-slutpunkten beviljades användaren de resurser de äger vid första användningen. Med MSAL och Microsoft Identity Platform kan medgivande begäras stegvis. Ett stegvist godkännande är användbart för behörigheter som en användare kan överväga med hög behörighet eller som annars kan frågas om det inte finns en tydlig förklaring av varför behörigheten krävs. I ADAL kan de behörigheterna ha resulterat i att användaren överger inloggningen i din app.
 

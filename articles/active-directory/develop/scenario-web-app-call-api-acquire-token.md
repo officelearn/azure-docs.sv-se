@@ -1,5 +1,5 @@
 ---
-title: 'Webbapp som anropar webb-API: er (hämtar en token för appen) – Microsoft Identity Platform'
+title: 'Hämta en token i Web Apps som anropar webb-API: er – Microsoft Identity Platform | Azure'
 description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (hämtar en token för appen)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a259fbcf3fde84edccafbcd2fd6594ddb623edfd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 398b68221681f0d14dbcc20ac7c0cb603313eaee
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175325"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919471"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Webbapp som anropar webb-API: er – hämta en token för appen
 
@@ -49,7 +49,7 @@ public class HomeController : Controller
 }
 ```
 
-Tjänsten `ITokenAcquisition` injiceras av ASP.NET via beroende inmatning.
+`ITokenAcquisition`s tjänsten injiceras av ASP.NET via beroende inmatning.
 
 
 Här är en förenklad kod för åtgärden för HomeController, som hämtar en token för att anropa Microsoft Graph.
@@ -83,7 +83,7 @@ Saker liknar varandra i ASP.NET:
 
 - En styrenhets åtgärd som skyddas av ett [auktorisera]-attribut extraherar klient-ID och användar-ID för kontrollantens `ClaimsPrincipal` medlem. (ASP.NET använder `HttpContext.User`.)
 - Därifrån skapar den en MSAL.NET `IConfidentialClientApplication`.
-- Slutligen anropar den `AcquireTokenSilent`-metoden i det konfidentiella klient programmet.
+- Slutligen anropar den `AcquireTokenSilent` metoden för det konfidentiella klient programmet.
 
 Koden liknar den kod som visas för ASP.NET Core.
 

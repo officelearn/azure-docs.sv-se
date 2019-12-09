@@ -1,27 +1,28 @@
 ---
-title: 'Kopiera en tabell stegvis med Azure Data Factory '
+title: Kopiera en tabell stegvis med Azure Portal
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.author: yexu
-ms.openlocfilehash: a446574f0a6b2b18959f1a3c3e9a02a0a97e9f6b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5d82971cbd7781a298f3f3aeeba47e4be471e248
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683374"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927985"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av Azure Portal
+
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -61,7 +62,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Skapa en container med namnet adftutorial. 
 
@@ -148,7 +149,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -171,7 +172,7 @@ END
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
-10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
+10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en kopieringsaktivitet och en aktivitet för lagrad procedur i en länkad pipeline. 
@@ -197,7 +198,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     3. Välj ditt **databas namn** i list rutan. 
     4. Ange ditt **användar namn** & **lösen ord**. 
     5. Om du vill testa anslutningen till Azure SQL-databasen klickar du på **Testanslutning**.
-    6. Klicka på **Slutför**.
+    6. Klicka på **Finish**.
     7. Bekräfta att **AzureSqlDatabaseLinkedService** har valts för den **länkade tjänsten**.
        
         ![Fönster för ny länkad tjänst](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
@@ -212,7 +213,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 12. I egenskapsfönstret för den andra **sökningsaktiviteten** växlar du till fliken **Inställningar** och klickar på **New** (Nytt). Du skapar en datauppsättning för att peka på källtabellen som innehåller det nya vattenstämpelvärdet (det högsta värdet för LastModifyTime). 
 
 13. I fönstret **ny data uppsättning** väljer du **Azure SQL Database**och klickar på **Fortsätt**. 
-14. I fönstret **Ange egenskaper** anger du **SourceDataset** som **namn**. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+14. I fönstret **Ange egenskaper** anger du **SourceDataset** som **namn**. Välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
 15. Välj **[dbo].[data_source_table]** som tabell. Du kan ange en fråga för den här datauppsättningen senare under kursen. Frågan åsidosätter den tabell som du anger i det här steget.
 16. Välj **Slutför**. 
 17. Växla till pipeline-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. I egenskapsfönstret för **sökningsaktiviteten** bekräftar du att **SourceDataset** är valt för fältet **Source Dataset** (Källdatauppsättning). 
@@ -240,7 +241,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
         select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'
         ```
     
-        ![Kopieringsaktivitet – källa](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
+        ![Kopiera aktivitet – källa](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
 23. Växla till fliken **Sink** (Mottagare) och klicka på **+ Ny** för fältet för **datauppsättning för mottagare**. 
 
 24. I den här självstudien är datalager för mottagare av typen Azure Blob Storage. Välj därför **Azure Blob Storage**och klicka på **Fortsätt** i fönstret **ny data uppsättning** . 
@@ -249,7 +250,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 26. Utför följande steg i fönstret **ny länkad tjänst (Azure Blob Storage)** : 
 
     1. Ange **AzureStorageLinkedService** som **namn**. 
-    2. Välj ditt Azure-lagringskonto i **Lagringskontonamn**.
+    2. Välj ditt Azure Storage-konto i **Lagringskontonamn**.
     3. Testa anslutningen och klicka sedan på **Slutför**. 
 
 27. I fönstret **Ange egenskaper** bekräftar du att **AzureStorageLinkedService** har valts för den **länkade tjänsten**. Välj sedan **Slutför**.
@@ -280,7 +281,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 28. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Azure Data Factory-tjänsten genom att välja knappen **Publicera alla**. Vänta tills du ser ett meddelande om att publiceringen är klar. 
 
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 1. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**. 
 
 2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**. 
@@ -379,7 +380,7 @@ PersonID | Name | LastModifytime
 
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudien har du fått: 
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.

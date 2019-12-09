@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från en FTP-server med hjälp 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5a6485e93e8f617883a7dfef511709ec857b411
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682599"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927163"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Flytta data från en FTP-server med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -40,12 +39,12 @@ Om du flyttar data från en **lokal** FTP-server till ett moln data lager (till 
 
 Det är möjligt att installera gatewayen på samma lokala dator eller IaaS VM som FTP-servern. Vi rekommenderar dock att du installerar gatewayen på en separat dator eller virtuell IaaS-dator för att undvika resurs konkurrens och för bättre prestanda. När du installerar gatewayen på en annan dator ska datorn kunna komma åt FTP-servern.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från en FTP-källa genom att använda olika verktyg eller API: er.
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Data Factory kopiering**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Oavsett om du använder verktygen eller API: erna, utför följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -60,7 +59,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för FTP.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 I följande tabell beskrivs JSON-element som är begränsade till en länkad FTP-tjänst.
 
 | Egenskap | Beskrivning | Krävs | Standard |
@@ -73,8 +72,8 @@ I följande tabell beskrivs JSON-element som är begränsade till en länkad FTP
 | encryptedCredential |Ange krypterade autentiseringsuppgifter för åtkomst till FTP-servern. |Nej |&nbsp; |
 | gatewayName |Ange namnet på gatewayen i Data Management Gateway för att ansluta till en lokal FTP-server. |Nej |&nbsp; |
 | port |Ange den port som FTP-servern lyssnar på. |Nej |21 |
-| enableSsl |Ange om FTP ska användas över en SSL/TLS-kanal. |Nej |true |
-| enableServerCertificateValidation |Ange om du vill aktivera verifiering av Server-SSL-certifikat när du använder FTP över SSL/TLS-kanal. |Nej |true |
+| enableSsl |Ange om FTP ska användas över en SSL/TLS-kanal. |Nej |sant |
+| enableServerCertificateValidation |Ange om du vill aktivera verifiering av Server-SSL-certifikat när du använder FTP över SSL/TLS-kanal. |Nej |sant |
 
 >[!NOTE]
 >FTP-anslutningen har stöd för åtkomst till FTP-servern med antingen ingen kryptering eller explicit SSL/TLS-kryptering. den har inte stöd för implicit SSL/TLS-kryptering.
@@ -148,7 +147,7 @@ I följande tabell beskrivs JSON-element som är begränsade till en länkad FTP
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [skapa data uppsättningar](data-factory-create-datasets.md). Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer.
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Den innehåller information som är speciell för data uppsättnings typen. Avsnittet **typeProperties** för en data uppsättning av typen **fileshare** har följande egenskaper:
@@ -159,8 +158,8 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Den 
 | fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget **fil namn** har angetts för en data uppsättning för utdata är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt` (exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Nej |
 | fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i **folderPath**i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** är tillämpligt för en data uppsättning för en indata-fileshare. Den här egenskapen stöds inte med Hadoop Distributed File System (HDFS). |Nej |
 | partitionedBy |Används för att ange en dynamisk **folderPath** och ett **fil namn** för Time Series-data. Du kan till exempel ange en **folderPath** som är parameterstyrda för varje timme med data. |Nej |
-| formatering | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i avsnitten [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Om du vill kopiera filer som de är mellan filbaserade arkiv (binär kopia) hoppar du över avsnittet format i definitionerna för både indata och utdata. |Nej |
-| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**, och de nivåer som stöds är **optimala** och **snabbaste**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i avsnitten [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Om du vill kopiera filer som de är mellan filbaserade arkiv (binär kopia) hoppar du över avsnittet format i definitionerna för både indata och utdata. |Nej |
+| compression | Ange typ och komprimeringsnivå för data. De typer som stöds är **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**, och de nivåer som stöds är **optimala** och **snabbaste**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om du vill använda binärt överförings läge. Värdena är true för binärt läge (detta är standardvärdet) och falskt för ASCII. Den här egenskapen kan endast användas när den associerade länkade tjänst typen är av typen: FtpServer. |Nej |
 
 > [!NOTE]
@@ -206,7 +205,7 @@ När källan är av typen **FileSystemSource**i kopierings aktivitet är följan
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| rekursiva |Anger om data ska läsas rekursivt från undermapparna, eller endast från den angivna mappen. |Sant, falskt (standard) |Nej |
+| recursive |Anger om data ska läsas rekursivt från undermapparna, eller endast från den angivna mappen. |Sant, falskt (standard) |Nej |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-exempel: kopiera data från FTP-server till Azure-Blob
 Det här exemplet visar hur du kopierar data från en FTP-server till Azure Blob Storage. Data kan dock kopieras direkt till någon av de handfat som anges i de [data lager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats), genom att använda kopierings aktiviteten i Data Factory.

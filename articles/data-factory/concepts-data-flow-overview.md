@@ -1,18 +1,19 @@
 ---
-title: Mappa data flöden i Azure Data Factory
+title: Mappa dataflöden
 description: En översikt över att mappa data flöden i Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/7/2019
-ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681565"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928293"
 ---
 # <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
 
@@ -32,13 +33,13 @@ Detta tar dig till data flödes arbets ytan där du kan skapa din omvandlings lo
 
 Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen och konfigurations panelen. 
 
-![Rityta](media/data-flow/canvas1.png "Rityta")
+![Arbetsyta](media/data-flow/canvas1.png "Arbetsyta")
 
 ### <a name="graph"></a>Graph
 
 I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling.
 
-![Rityta](media/data-flow/canvas2.png "Rityta")
+![Arbetsyta](media/data-flow/canvas2.png "Arbetsyta")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Data flödes egenskaper för Azure integration runtime
 
@@ -122,15 +123,15 @@ Bygg ett uttryck som ger ett fast intervall för värden i dina partitionerade d
 
 Om du har en god förståelse för data kardinalitet kan nyckel partitionering vara en god strategi. Med nyckel partitionering skapas partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
 
-#### <a name="inspect"></a>Allmänt
+#### <a name="inspect"></a>Granska
 
 Fliken **Granska** visar metadata för den data ström som du transformerar. Du kan se kolumn antal, kolumner ändrade, tillagda kolumner, data typer, kolumn ordning och kolumn referenser. **Granska** är en skrivskyddad vy av dina metadata. Du behöver inte ha aktiverat fel söknings läge för att se metadata i rutan **Granska** .
 
-![Allmänt](media/data-flow/inspect1.png "Allmänt")
+![Allmänt](media/data-flow/inspect1.png "Granska")
 
 När du ändrar formen på dina data med omvandlingar visas flödet ändringar i metadata i rutan **Granska** . Om det inte finns ett definierat schema i din käll omvandling visas inte metadata i rutan **Granska** . Brist på metadata är vanligt i schema avvikelse scenarier.
 
-#### <a name="data-preview"></a>Data för hands version
+#### <a name="data-preview"></a>Förhandsgranskning
 
 Om fel söknings läget är på visar fliken **data förhands granskning** en interaktiv ögonblicks bild av data vid varje transformering. Mer information finns [i förhands granskning av data i fel söknings läge](concepts-data-flow-debug-mode.md#data-preview).
 

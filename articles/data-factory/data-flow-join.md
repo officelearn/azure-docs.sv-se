@@ -1,18 +1,19 @@
 ---
-title: Koppla omvandling i Azure Data Factory mappa data flöde
+title: Koppla omvandling i data flöde för mappning
 description: Kombinera data från två data källor med hjälp av kopplings omvandlingen i Azure Data Factory mappa data flöde
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/17/2019
-ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122919"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930349"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
@@ -38,7 +39,7 @@ Höger yttre koppling returnerar alla rader från den högra strömmen och match
 
 Fullständig yttre koppling matar ut alla kolumner och rader från båda sidor med NULL-värden för kolumner som inte matchar.
 
-### <a name="cross-join"></a>Kors koppling
+### <a name="cross-join"></a>Korskoppling
 
 Kors koppling matar ut den kors produkten av de två strömmarna baserat på ett villkor. Om du använder ett villkor som inte är lika anger du ett anpassat uttryck som kors kopplings villkor. Utdataströmmen är alla rader som uppfyller kopplings villkoret. Om du vill skapa en kartesiska-produkt som matar ut varje rad kombination anger du `true()` som kopplings villkor.
 

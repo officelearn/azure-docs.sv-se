@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 54c51a10f950fb5381ab29968a866772dcaec78c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842786"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918021"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -42,6 +42,10 @@ Den här artikeln visar hur du visar en lista över ett program i program galler
 - För inloggning med lösen ord kontrollerar du att ditt program stöder formulärautentisering så att lösen ords valvet kan göras för att få enkel inloggning att fungera som förväntat.
 - Du behöver ett permanent konto för testning med minst två användare registrerade.
 
+**Hur skaffar jag Azure AD för utvecklare?**
+
+Du kan få ett kostnads fritt test konto med alla Premium Azure AD-funktioner – 90 dagar kostnads fritt och kan bli utökad så länge du arbetar med utveckling: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## <a name="submit-the-request-in-the-portal"></a>Skicka begäran i portalen
 
 När du har testat att program integrationen fungerar med Azure AD skickar du din begäran om åtkomst i [program nätverks portalen](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använder du Microsoft-konto, t. ex. Outlook eller Hotmail, för att logga in.
@@ -59,6 +63,26 @@ Om följande sida visas när du har loggat in, ger du en affärs motivering för
 Vårt team granskar informationen och ger dig åtkomst. När din begäran har godkänts kan du logga in på portalen och skicka begäran genom att välja panelen för att **skicka begäran (ISV)** på Start sidan.
 
 ![Sändnings panelen för begäran (ISV) på Start Sidan](./media/howto-app-gallery-listing/homepage.png)
+
+## <a name="issues-on-logging-into-portal"></a>Problem med att logga in på portalen
+
+Om du ser det här felet när du loggar in, är det Detaljer om problemet och hur du kan åtgärda det.
+
+* Om inloggningen blockerades enligt nedan:
+
+  ![problem med att lösa program i galleriet](./media/howto-app-gallery-listing/blocked.png)
+
+**Vad händer:**
+
+Gäst användaren är federerad till en hem klient, som också är en Azure AD. Gäst användaren har hög risk. Microsoft tillåter inte att användare med hög risk får åtkomst till sina resurser. Alla användare med hög risk (anställda eller gäster/leverantörer) måste åtgärda/stänga sin risk för att få åtkomst till Microsoft-resurser. För gäst användare kommer den här användar risken från hem klienten och principen kommer från resurs klienten (Microsoft i detta fall).
+ 
+**Säkra lösningar:**
+
+* MFA-registrerade gäst användare reparerar sina egna användar risker. Detta kan göras av gäst användaren som utför en säker ändring eller återställning av lösen ord (https://aka.ms/sspr) på sin hem klient (detta behöver MFA och SSPR på hem klienten). Den skyddade lösen ords ändringen eller återställningen måste initieras på Azure AD och inte på lokal.
+
+* Gäst användare får sina administratörer att reparera sina risker. I det här fallet utför administratören en lösen ords återställning (tillfälliga lösen ords generering). Detta kräver inte identitets skydd. Gäst användarens administratör kan gå till https://aka.ms/RiskyUsers och klicka på Återställ lösen ord.
+
+* Gäst användare får sina administratörer att stänga/stänga av sin risk. Detta kräver inte identitets skydd. Administratören kan gå till https://aka.ms/RiskyUsers och klicka på "ignorera användar risk". Administratören måste dock göra en noggrannhet för att säkerställa att detta var en falsk positiv riskbedömning innan användar risken stängs. Annars sätter de ut sina och Microsofts resurser i fara genom att undertrycka en riskbedömning utan undersökning.
 
 > [!NOTE]
 > Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
@@ -79,6 +103,7 @@ Om du vill visa ett program i Azure AD App-galleriet måste du först implemente
   ![Visar ett SAML 2,0-eller WS-utfodras program i galleriet](./media/howto-app-gallery-listing/saml.png)
 
   * Om du vill lägga till ditt program i listan i galleriet med **saml 2,0** eller **WS-utfodras**väljer du **SAML 2.0/WS-utfodras** som visas.
+
   * Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>Implementera SSO med hjälp av lösen ords inloggning

@@ -6,15 +6,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/06/2019
 ms.author: charwen
-ms.custom: seodec18
-ms.openlocfilehash: 0643ce99ce4ba9328abc3f7a8c8e7061026611b9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031783"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926215"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera (klassisk)
 > [!div class="op_single_selector"]
@@ -77,6 +76,10 @@ Det finns två uppsättningar procedurer att välja mellan för att konfigurera 
     Du kanske redan har ett virtuellt nätverk på plats med en befintlig VPN-anslutning för plats till plats eller en ExpressRoute-anslutning. Artikelavsnittet [Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet](#add) visar hur du tar bort gatewayen och sedan skapar nya ExpressRoute- och VPN-anslutningar för plats till plats. Observera att när du skapar nya anslutningar måste stegen utföras i en mycket specifik ordning. Följ inte anvisningarna i andra artiklar när du skapar dina gateways och anslutningar.
   
     I den här proceduren skapar du anslutningar som kan samexistera, vilket kräver att du tar bort din gateway och sedan konfigurerar nya gateways. Detta innebär att du har stilleståndstid för anslutningar på flera platser när du tar bort och återskapar din gateway och dina anslutningar, men du behöver inte migrera några virtuella datorer eller tjänster till ett nytt virtuellt nätverk. Dina virtuella datorer och tjänster kommer fortfarande att kunna kommunicera ut via lastbalanseraren när du konfigurerar din gateway, om de är konfigurerade för att göra det.
+
+## <a name="install-powershell-cmdlets"></a>Installera PowerShell-cmdletar
+
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.

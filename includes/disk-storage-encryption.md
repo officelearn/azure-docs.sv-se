@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0659e57f5a5b223c199becf492b27c7a70cbdc63
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4532f31eb4a5ed7f2f0ad76f01fdc082421c0c2d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612181"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935829"
 ---
 Azure Managed disks krypterar automatiskt dina data som standard när de sparas i molnet. Kryptering på Server sidan skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Data i Azure Managed disks krypteras transparent med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel.   
 
@@ -73,33 +73,31 @@ Förhands granskningen har också följande begränsningar:
 - Ditt Key Vault måste vara i samma prenumeration och region som dina Kundhanterade nycklar.
 - Diskar, ögonblicks bilder och bilder som är krypterade med Kundhanterade nycklar kan inte flyttas till en annan prenumeration.
 
-### <a name="setting-up-your-azure-key-vault"></a>Konfigurera din Azure Key Vault
+### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Konfigurera din Azure Key Vault och DiskEncryptionSet
 
 1.  Skapa en instans av Azure Key Vault och krypterings nyckel.
 
     När du skapar Key Vault-instansen måste du aktivera mjuk borttagning och tömning av skydd. Mjuk borttagning garanterar att Key Vault innehåller en borttagen nyckel för en viss kvarhållningsperiod (90 dag standard). Med rensnings skyddet går det inte att ta bort en borttagen nyckel förrän kvarhållningsperioden upphörde. Dessa inställningar skyddar dig från att förlora data på grund av oavsiktlig borttagning. De här inställningarna är obligatoriska när du använder en Key Vault för att kryptera hanterade diskar.
 
     ```powershell
-    $keyVault = New-AzKeyVault -Name myKeyVaultName ` 
-    -ResourceGroupName myRGName ` 
-    -Location westcentralus ` 
-    -EnableSoftDelete ` 
-    -EnablePurgeProtection 
-     
-    $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName ` 
-    -Name myKeyName ` 
-    -Destination Software `  
+    $ResourceGroupName="yourResourceGroupName"
+    $LocationName="westcentralus"
+    $keyVaultName="yourKeyVaultName"
+    $keyName="yourKeyName"
+    $keyDestination="Software"
+    $diskEncryptionSetName="yourDiskEncryptionSetName"
+
+    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnableSoftDelete -EnablePurgeProtection
+
+    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
 1.  Skapa en instans av en DiskEncryptionSet. 
     
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName myRGName ` 
-      -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" ` 
-      -diskEncryptionSetName "myDiskEncryptionSet1" ` 
-      -keyVaultId "/subscriptions/mySubscriptionId/resourceGroups/myRGName/providers/Microsoft.KeyVault/vaults/myKeyVaultName" ` 
-      -keyVaultKeyUrl "https://myKeyVaultName.vault.azure.net/keys/myKeyName/403445136dee4a57af7068cab08f7d42" ` 
-      -region "WestCentralUS"
+    $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
+
+    $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
     ```
 
 1.  Ge DiskEncryptionSet-resursen åtkomst till nyckel valvet.
@@ -107,57 +105,70 @@ Förhands granskningen har också följande begränsningar:
     ```powershell
     $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
      
-    Set-AzKeyVaultAccessPolicy ` 
-        -VaultName $keyVault.VaultName ` 
-        -ObjectId $identity.Id ` 
-        -PermissionsToKeys wrapkey,unwrapkey,get 
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
      
-    New-AzRoleAssignment ` 
-        -ObjectId $identity.Id ` 
-        -RoleDefinitionName "Reader" ` 
-        -ResourceName $keyVault.VaultName ` 
-        -ResourceType "Microsoft.KeyVault/vaults" ` 
-        -ResourceGroupName myRGName `  
+    New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -  ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
     ```
 
-### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys-via-a-resource-manager-template"></a>Skapa en virtuell dator med en Marketplace-avbildning, kryptera operativ system och data diskar med Kundhanterade nycklar via en Resource Manager-mall
+### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Skapa en virtuell dator med en Marketplace-avbildning, kryptera operativ system och data diskar med Kundhanterade nycklar
 
-```
-$password=ConvertTo-SecureString -String "myVMPassword" `
-  -AsPlainText -Force
-New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
-  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateVMWithDisksEncryptedWithCMK.json" `
-  -virtualMachineName "myVMName" `
-  -adminPassword $password `
-  -vmSize "Standard_DS3_V2" `
-  -diskEncryptionSetId "/subscriptions/mySubscriptionId/resourceGroups/myRGName/providers/Microsoft.Compute/diskEncryptionSets/myDiskEncryptionSet1" `
-  -region "westcentralus" 
+```powershell
+$VMLocalAdminUser = "yourVMLocalAdminUserName"
+$VMLocalAdminSecurePassword = ConvertTo-SecureString <password> -AsPlainText -Force
+$LocationName = "westcentralus"
+$ResourceGroupName = "yourResourceGroupName"
+$ComputerName = "yourComputerName"
+$VMName = "yourVMName"
+$VMSize = "Standard_DS3_v2"
+$diskEncryptionSetName="yourdiskEncryptionSetName"
+    
+$NetworkName = "yourNetworkName"
+$NICName = "yourNICName"
+$SubnetName = "yourSubnetName"
+$SubnetAddressPrefix = "10.0.0.0/24"
+$VnetAddressPrefix = "10.0.0.0/16"
+    
+$SingleSubnet = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddressPrefix
+$Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGroupName -Location $LocationName -AddressPrefix $VnetAddressPrefix -Subnet $SingleSubnet
+$NIC = New-AzNetworkInterface -Name $NICName -ResourceGroupName $ResourceGroupName -Location $LocationName -SubnetId $Vnet.Subnets[0].Id
+    
+$Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
+    
+$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2012-R2-Datacenter' -Version latest
+
+$diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
+
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $($VMName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage
+
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name $($VMName +"DataDisk1") -DiskSizeInGB 128 -StorageAccountType Premium_LRS -CreateOption Empty -Lun 0 -DiskEncryptionSetId $diskEncryptionSet.Id 
+    
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine -Verbose
 ```
 
 ### <a name="create-an-empty-disk-encrypted-using-server-side-encryption-with-customer-managed-keys-and-attach-it-to-a-vm"></a>Skapa en tom disk som är krypterad med kryptering på Server sidan med Kundhanterade nycklar och koppla den till en virtuell dator
 
 ```PowerShell
-$vmName = "yourVMName"
-$rgName = "yourRGName"
+$vmName = "yourDiskName"
+$LocationName = "westcentralus"
+$ResourceGroupName = "yourResourceGroupName"
 $diskName = "yourDiskName"
 $diskSKU = "Premium_LRS"
-$diskSizeinGiB = "30"
-$diskEncryptionSetId = "/subscriptions/<subscriptionID>/resourceGroups/yourRGName/providers/Microsoft.Compute/diskEncryptionSets/<yourDiskEncryptionSetName>"
-$region = "westcentralus"
+$diskSizeinGiB = 30
 $diskLUN = 1
+$diskEncryptionSetName="yourDiskEncryptionSetName"
 
-New-AzResourceGroupDeployment -ResourceGroupName $rgName `
-  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateEmptyDataDiskEncryptedWithSSECMK.json" `
-  -diskName $diskName `
-  -diskSkuName $diskSKU `
-  -dataDiskSizeInGb $diskSizeinGiB `
-  -diskEncryptionSetId $diskEncryptionSetId `
-  -region $region 
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
-$disk = Get-AzDisk -DiskName $diskName -ResourceGroupName $rgName
-$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun 1
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $ResourceGroupName 
+
+$diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
+
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Empty -DiskSizeInGB $diskSizeinGiB -StorageAccountType $diskSKU -Lun $diskLUN -DiskEncryptionSetId $diskEncryptionSet.Id 
+
 Update-AzVM -ResourceGroupName $rgName -VM $vm
+
 ```
 
 
@@ -170,4 +181,5 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Utforska Azure Resource Manager mallar för att skapa krypterade diskar med Kundhanterade nycklar](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Vad är Azure Key Vault?](../articles/key-vault/key-vault-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Cloud Authentication-stegvis distribution | Microsoft Docs'
-description: Förklarar hur du migrerar från federerad autentisering till molnbaserad autentisering med en stegvis distribution.
+title: 'Azure AD Connect: molnbaserad autentisering via mellanlagrad distribution | Microsoft Docs'
+description: Den här artikeln förklarar hur du migrerar från federerad autentisering till molnbaserad autentisering med hjälp av en stegvis distribution.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -10,24 +10,24 @@ ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2596091324acde5c4fdc3f7c467849f90266fec9
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: f3044ebdd716eb85dc63d3a77089912d0d51d8b6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847236"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915232"
 ---
-# <a name="cloud-authentication-staged-rollout-public-preview"></a>Molnbaserad autentisering: mellanlagrad distribution (offentlig för hands version)
+# <a name="migrate-to-cloud-authentication-by-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med hjälp av stegvis distribution (förhands granskning)
 
-Med den här funktionen kan du migrera från federerad autentisering till molnbaserad autentisering med hjälp av en stegvis metod.
-
-Att flytta bort från federerad autentisering har konsekvenser. Om du till exempel har något av följande:
+Genom att använda en stegvis distributions metod kan du migrera från federerad autentisering till molnbaserad autentisering. Den här artikeln beskriver hur du gör-växeln. Innan du påbörjar den mellanlagrade distributionen bör du ta hänsyn till konsekvenserna om ett eller flera av följande villkor är uppfyllda:
     
--  en lokal MFA-Server 
--  använder smartkort för autentisering 
--  andra Federations funktioner
+-  Du använder för närvarande en lokal Multi-Factor Authentication-Server. 
+-  Du använder smartkort för autentisering. 
+-  Den aktuella servern erbjuder vissa endast Federations funktioner.
 
-Dessa funktioner bör beaktas innan du växlar till molnbaserad autentisering.  Vi rekommenderar att du läser vår guide om hur du väljer rätt autentiseringsmetod innan du provar den här funktionen. Mer information finns i [den här tabellen](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods) .
+Innan du provar den här funktionen rekommenderar vi att du läser vår guide om hur du väljer rätt autentiseringsmetod. Mer information finns i tabellen "jämförelse metoder" i [Välj rätt autentiseringsmetod för Azure Active Directory hybrid identitets lösning](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+
+En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlagrad distribution?" grafik
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE3inQJ]
 
@@ -35,212 +35,205 @@ Dessa funktioner bör beaktas innan du växlar till molnbaserad autentisering.  
 
 ## <a name="prerequisites"></a>Krav
 
--   Du har en Azure AD-klient med federerade domäner.
+-   Du har en Azure Active Directory-klient (Azure AD) med federerade domäner.
 
--   Du har valt att flytta till antingen Password hash Sync + sömlös SSO **(alternativ A)** eller genom strömning + sömlös SSO **(alternativ B).** Även om sömlös enkel inloggning är valfritt, rekommenderar vi att du aktiverar sömlös SSO för att få en tyst inloggnings upplevelse för användare som använder domänanslutna datorer inifrån företags nätverket.
+-   Du har valt att flytta till något av två alternativ:
+    - **Alternativ en** - *hash-synkronisering av lösen ord (Sync)*  + *sömlös enkel inloggning (SSO)*
+    - **Alternativ B** - *DIREKTAUTENTISERING* + *sömlös SSO*
+    
+    Även om *sömlös enkel inloggning* är valfritt, rekommenderar vi att du aktiverar det för att få en tyst inloggnings upplevelse för användare som kör domänanslutna datorer inifrån ett företags nätverk.
 
--   Du har konfigurerat alla lämpliga klient anpassnings-och villkorliga åtkomst principer som du behöver för användare som migreras till molnbaserad autentisering.
+-   Du har konfigurerat alla lämpliga principer för klient anpassning och villkorlig åtkomst som du behöver för användare som migreras till molnbaserad autentisering.
 
--   Om du planerar att använda Azure Multi-Factor Authentication rekommenderar vi att du använder [konvergerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Azure MFA](../authentication/concept-registration-mfa-sspr-combined.md) för att få användarna att registrera sina autentiseringsmetoder en gång.
+-   Om du planerar att använda Azure Multi-Factor Authentication rekommenderar vi att du använder [konvergerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) för att användarna ska kunna registrera sina autentiseringsmetoder en gång.
 
--   Om du vill använda den här funktionen måste du vara global administratör för din klient.
+-   Om du vill använda funktionen för stegvis distribution måste du vara global administratör för din klient.
 
--   Om du vill aktivera sömlös SSO på en särskild AD-skog måste du vara domän administratör.
+-   Om du vill aktivera *sömlös SSO* på en speciell Active Directory skog måste du vara domän administratör.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-De här scenarierna stöds för stegvis distribution:
+Följande scenarier stöds för stegvis distribution. Funktionen fungerar endast för:
 
-- Den här funktionen fungerar bara för användare som har etablerad till Azure AD med hjälp av Azure AD Connect och är inte tillämpligt för enbart moln användare.
+- Användare som är etablerade i Azure AD med hjälp av Azure AD Connect. Den gäller inte enbart för moln användare.
 
-- Den här funktionen fungerar bara för användarens inloggnings trafik på webbläsare och moderna autentiserings klienter. Program eller moln tjänster som använder äldre autentisering kommer tillbaka till federerade autentiserings flöden. (Exempel: Exchange Online med modern autentisering inaktive rad eller Outlook 2010, som inte stöder modern autentisering.)
+- Användarens inloggnings trafik för webbläsare och *moderna autentiserings* klienter. Program eller moln tjänster som använder äldre autentisering kommer tillbaka till federerade autentiserings flöden. Ett exempel kan vara Exchange Online med modern autentisering inaktive rad eller Outlook 2010, som inte stöder modern autentisering.
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
-De här scenarierna stöds inte för stegvis distribution:
+Följande scenarier stöds inte för stegvis distribution:
 
-- Vissa program skickar frågeparametern "domän\_tips" till Azure AD under autentisering. Dessa flöden fortsätter och användare som är aktiverade för stegvis distribution fortsätter att använda Federation för autentisering.
+- Vissa program skickar frågeparametern "domain_hint" till Azure AD under autentiseringen. Dessa flöden fortsätter och användare som är aktiverade för stegvis distribution fortsätter att använda Federation för autentisering.
 
 <!-- -->
 
-- Admin kan distribuera molnbaserad autentisering med hjälp av säkerhets grupper. (Moln säkerhets grupper rekommenderas för att undvika synkronisering av svars tider när du använder lokala AD-säkerhetsgrupper.)
+- Administratörer kan distribuera molnbaserad autentisering med hjälp av säkerhets grupper. Vi rekommenderar att du använder moln säkerhets grupper för att undvika synkronisering av svars tider när du använder lokala Active Directory säkerhets grupper. Följande villkor gäller:
 
-    - Du kan använda **max 10 grupper per funktion**. för var och en av hash-synkroniseringen för lösen ord/direktautentisering/sömlös SSO.
+    - Du kan använda max 10 grupper per funktion. Det innebär att du kan använda 10 grupper var och en för *lösen ords-hash-synkronisering*, *DIREKTAUTENTISERING*och *sömlös SSO*.
+    - Kapslade grupper *stöds inte*. Denna omfattning gäller även för den offentliga för hands versionen.
+    - Dynamiska grupper *stöds inte* för mellanlagrad distribution.
+    - Kontakt objekt inuti gruppen kommer att blockera gruppen från att läggas till.
 
-    - Kapslade grupper **stöds inte**. Detta är även omfattningen för offentlig för hands version.
+- Du måste fortfarande göra den slutliga start punkt från federerad till molnbaserad autentisering med hjälp av Azure AD Connect eller PowerShell. Den mellanlagrade distributionen växlar inte domäner från federerade till hanterade.
 
-    - Dynamiska grupper **stöds inte** för mellanlagrad distribution.
-
-    - Kontakt objekt inuti gruppen kommer att blockera det grupp formulär som läggs till.
-
-- Den slutliga start punkt från federerade till molnbaserad autentisering måste fortfarande ske med hjälp av Azure AD Connect eller PowerShell. Den här funktionen växlar inte domäner från Federer till hanterad.
-
-- När du först lägger till en säkerhets grupp för stegvis distribution är den begränsad till 200 användare för att undvika att UXen går ut. När gruppen har lagts till i UX-UX kan du lägga till fler användare direkt i gruppen efter behov.
+- När du först lägger till en säkerhets grupp för stegvis distribution är du begränsad till 200 användare för att undvika en UX-timeout. När du har lagt till gruppen kan du lägga till fler användare direkt till den, efter behov.
 
 ## <a name="get-started-with-staged-rollout"></a>Kom igång med stegvis distribution
 
-Om du vill testa PHS-inloggningen (Password hash Sync) med hjälp av mellanlagrad distribution slutför du nedanstående för arbete för att aktivera distribution av hash-synkronisering med lösen ord.
+Om du vill testa inloggningen för *lösen ords-hash-synkronisering* med hjälp av stegvis distribution följer du anvisningarna i nästa avsnitt.
 
-Mer information om de PowerShell-cmdletar som används finns i [AzureAD 2,0 Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)
+Information om vilka PowerShell-cmdletar som ska användas finns i för [hands versionen av Azure AD 2,0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>För arbete för synkronisering av lösen ords-hash
 
-1. Aktivera hash-synkronisering av lösen ord från sidan [valfria funktioner](how-to-connect-install-custom.md#optional-features) i Azure AD Connect. 
+1. Aktivera *synkronisering av lösen ord för hash* - från sidan [valfria funktioner](how-to-connect-install-custom.md#optional-features) i Azure AD Connect. 
 
    ![Skärm bild av sidan med valfria funktioner i Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
-1. Se till att en fullständig synkronisering av lösen ord för hash-synkronisering har körts igenom så att alla användares lösen ords-hashvärden har synkroniserats med Azure AD. Du kan använda PowerShell-diagnostik [här](tshoot-connect-password-hash-synchronization.md) för att kontrol lera statusen för hash-synkronisering av lösen ord.
+1. Se till att en fullständig *synkronisering av lösen ord för hash* har körts så att alla användares lösen ords-hashar har synkroniserats med Azure AD. Om du vill kontrol lera statusen för *hash-synkronisering av lösen ord*kan du använda PowerShell-diagnostik i [Felsöka lösen ords-hash-synkronisering med Azure AD Connect Sync](tshoot-connect-password-hash-synchronization.md).
 
    ![Skärm bild av fel söknings loggen AADConnect](./media/how-to-connect-staged-rollout/sr2.png)
 
-Om du vill testa PTA-inloggningen (Passing through-Authentication) med hjälp av mellanlagrad distribution slutför du följande för att aktivera PTA för stegvis distribution.
+Om du vill testa *direktautentisering* genom att använda mellanlagrad distribution aktiverar du det genom att följa anvisningarna i nästa avsnitt.
 
 ## <a name="pre-work-for-pass-through-authentication"></a>För bearbetning i förväg för direktautentisering
 
-1. Identifiera en server som kör Windows Server 2012 R2 eller senare där du vill att pass-The-Authentication agent ska köras (**Välj inte den Azure AD Connect servern**). Kontrol lera att servern är domänansluten, kan autentisera valda användare med Active Directory och kan kommunicera med Azure AD på utgående portar/URL: er (se detaljerade [krav](how-to-connect-sso-quick-start.md)).
+1. Identifiera en server som kör Windows Server 2012 R2 eller senare och där du vill att agenten för *direkt autentisering* ska köras. 
 
-1. [Hämta](https://aka.ms/getauthagent) & installera Microsoft Azure AD Connect Authentication agent på servern. 
+   Välj *inte* Azure AD Connect servern. Kontrol lera att servern är domänansluten, kan autentisera valda användare med Active Directory och kan kommunicera med Azure AD på utgående portar och URL: er. Mer information finns i avsnittet "steg 1: kontrol lera kraven" i [snabb start: Azure AD sömlös enkel inloggning](how-to-connect-sso-quick-start.md).
+
+1. [Ladda ned Azure AD Connect Authentication agent](https://aka.ms/getauthagent)och installera den på servern. 
 
 1. Om du vill aktivera [hög tillgänglighet](how-to-connect-sso-quick-start.md)installerar du ytterligare autentiseringsmetoder på andra servrar.
 
-1. Se till att du har konfigurerat [inställningarna för smart utelåsning](../authentication/howto-password-smart-lockout.md) på lämpligt sätt. Detta är att se till att användarnas lokala Active Directory-konton inte blir utelåsta av felaktiga aktörer.
+1. Kontrol lera att du har konfigurerat [inställningarna för smart utelåsning](../authentication/howto-password-smart-lockout.md) på rätt sätt. På så sätt ser du till att dina användares lokala Active Directory-konton inte blir utelåsta av felaktiga aktörer.
 
-Vi rekommenderar att du aktiverar sömlös SSO oberoende av inloggnings metoden (PHS eller PTA) som du väljer för stegvis distribution. Slutför det här arbetet för att aktivera sömlös enkel inloggning för mellanlagrad distribution.
+Vi rekommenderar att du aktiverar *sömlös SSO* oberoende av inloggnings metoden (*lösen ordets hash-synkronisering* eller *direktautentisering*) som du väljer för stegvis distribution. Om du vill aktivera *sömlös SSO*följer du anvisningarna i nästa avsnitt.
 
 ## <a name="pre-work-for-seamless-sso"></a>För hands arbete för sömlös enkel inloggning
 
-Aktivera sömlös SSO på AD-skogar med hjälp av PowerShell. Om du har mer än en AD-skog aktiverar du samma för varje skog individuellt. Sömlös SSO utlöses bara för användare som valts för mellanlagrad distribution och påverkar inte den befintliga Federations konfigurationen.
+Aktivera *sömlös SSO* - i Active Directory skogar med hjälp av PowerShell. Om du har mer än en Active Directory skog aktiverar du den för varje skog individuellt.  *Sömlös SSO* utlöses endast för användare som har valts för stegvis distribution. Den befintliga Federations konfigurationen påverkas inte.
 
-**Sammanfattning av stegen**
+Aktivera *sömlös SSO* genom att göra följande:
 
-1. Logga in på Azure AD Connect Server först.
+1. Logga in på Azure AD Connect-servern.
 
-2. Gå till mappen% ProgramFiles%\\Microsoft Azure Active Directory Connect.
+2. Gå till mappen *% ProgramFiles%\\Microsoft Azure Active Directory Connect* .
 
-3. Importera den sömlös SSO PowerShell-modulen med hjälp av följande kommando: `Import-Module .\AzureADSSO.psd1`.
+3. Importera den *sömlösa SSO* PowerShell-modulen genom att köra följande kommando: 
 
-4. Kör PowerShell som administratör. Anropa `New-AzureADSSOAuthenticationContext`i PowerShell. Det här kommandot bör ge dig en dialog ruta där du kan ange din klients globala administratörs behörigheter.
+   `Import-Module .\AzureADSSO.psd1`
 
-5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Med det här kommandot får du en lista över AD-skogar (titta på \"domäner\" listan) där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
+4. Kör PowerShell som administratör. Anropa `New-AzureADSSOAuthenticationContext`i PowerShell. Det här kommandot öppnar ett fönster där du kan ange klient organisationens autentiseringsuppgifter för global administratör.
 
-   > **Exempel:** 
-   > ![exempel på Windows PowerShell-utdata](./media/how-to-connect-staged-rollout/sr3.png)
+5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Det här kommandot visar en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
 
-6. Anropa `$creds = Get-Credential`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda AD-skogen.
+   ![Exempel på Windows PowerShell-utdata](./media/how-to-connect-staged-rollout/sr3.png)
 
-7. Anropa `Enable-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot skapar AZUREADSSOACC-datornamnet från den lokala domänkontrollanten för den här speciella Active Directorys skogen som krävs för sömlös SSO.
+6. Anropa `$creds = Get-Credential`. Ange domän administratörs behörighet för den avsedda Active Directory skogen vid prompten.
 
-8. Sömlös SSO kräver att URL: er är i zonen Intranät. Gå till snabb starten för [sömlös enkel inloggning](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) för att distribuera dessa URL: er med hjälp av grup principer.
+7. Anropa `Enable-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot skapar AZUREADSSOACC-datornamnet från den lokala domänkontrollanten för den Active Directory skog som krävs för *sömlös SSO*.
 
-9.  Du kan också hämta våra [distributions planer](https://aka.ms/SeamlessSSODPDownload) för sömlös SSO för en fullständig genom gång.
+8. *Sömlös SSO* kräver att URL: er är i zonen Intranät. Om du vill distribuera dessa URL: er med hjälp av grup principer, se [snabb start: Azure AD sömlös enkel inloggning](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature).
+
+9. För en fullständig genom gång kan du också hämta våra [distributions planer](https://aka.ms/SeamlessSSODPDownload) för *sömlös SSO*.
 
 ## <a name="enable-staged-rollout"></a>Aktivera mellanlagrad distribution
 
-Använd följande steg för att distribuera en speciell funktion (genom strömnings-och lösen ords-hash Sync/sömlös SSO) till en SELECT-uppsättning användare i en grupp:
+Om du vill distribuera en speciell funktion (*vidarekoppling*, *lösen ords-hash-synkronisering*eller *sömlös SSO*) till en Välj uppsättning användare i en grupp, följer du anvisningarna i nästa avsnitt.
 
-### <a name="enable-the-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Aktivera den mellanlagrade distributionen av en speciell funktion på din klient organisation
+### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Aktivera en stegvis distribution av en speciell funktion på din klient organisation
 
-Du kan distribuera ett av följande alternativ
+Du kan distribuera ett av följande alternativ:
 
--   Password hash Sync + sömlös SSO **(alternativ A)**
+- **Alternativ en** - *hash-synkronisering av lösen ord* + *sömlös SSO*
+- **Alternativ B** - *DIREKTAUTENTISERING* + *sömlös SSO*
+- **Inte stöd** för - *hash-synkronisering av lösen ord* + *direktautentisering* + *sömlös SSO*
 
--   Direktautentisering + sömlös SSO **(alternativ B)**
+Gör följande:
 
--   Password hash Sync + direktautentisering och sömlös SSO- **-\>** ***stöds inte***
+1. För att få åtkomst till för hands versions UX loggar du in på [Azure AD-portalen](https://aka.ms/stagedrolloutux).
 
-Utför följande steg:
+2. Välj länken **Aktivera mellanlagrad distribution för hanterad användare inloggning (för hands version)** .
 
-1. Logga in på Azure AD-portalen med hjälp av nedanstående URL för att få åtkomst till för hands versions UX.
+   Om du t. ex. vill aktivera *alternativ A*, drar du skjutreglaget för **hash-synkronisering av lösen ord** och **sömlöst enkel inloggning** till **på**, som du ser i följande avbildningar.
 
-   > <https://aka.ms/stagedrolloutux>
+   ![Sidan Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
-2. Klicka på Aktivera mellanlagrad distribution för hanterad användar inloggning (förhands granskning)
+   ![Sidan "aktivera funktioner för stegvis distribution (förhands granskning)"](./media/how-to-connect-staged-rollout/sr5.png)
 
-   *Till exempel:* (**alternativ B**) om du vill aktivera hash-synkronisering av lösen ord och sömlös SSO, drar du en bild av hash-synkroniseringen för lösen ord och sömlösa funktioner för enkel inloggning till **"på"** som visas nedan.
+3. Lägg till grupperna i funktionen för att aktivera *direktautentisering* och *sömlös SSO*. För att undvika en UX-timeout kontrollerar du att säkerhets grupperna inte innehåller fler än 200 medlemmar från början.
 
-   ![](./media/how-to-connect-staged-rollout/sr4.png)
-
-   ![](./media/how-to-connect-staged-rollout/sr5.png)
-
-3. Lägg till respektive grupper i funktionen för att aktivera direktautentisering och sömlös enkel inloggning. Kontrol lera att säkerhets grupperna inte har fler än 200 medlemmar inlednings vis för att undvika UX-timeout.
-
-   ![](./media/how-to-connect-staged-rollout/sr6.png)
+   ![Sidan "hantera grupper med lösen ords-hash Sync (förhands granskning)"](./media/how-to-connect-staged-rollout/sr6.png)
 
    >[!NOTE]
    >Medlemmarna i en grupp aktive ras automatiskt för mellanlagrad distribution. Kapslade och dynamiska grupper stöds inte för mellanlagrad distribution.
 
 ## <a name="auditing"></a>Granskning
 
-Vi har aktiverat gransknings händelser för de olika åtgärder som vi utför för stegvis distribution.
+Vi har aktiverat gransknings händelser för de olika åtgärder som vi utför för stegvis distribution:
 
-- Gransknings händelse när du aktiverar mellanlagrad distribution för lösen ords-hash-synkronisering/direktautentisering/sömlös SSO.
-
-  >[!NOTE]
-  >Gransknings händelse som loggas när **SeamlessSSO aktive ras med** StagedRollout.
-
-  ![](./media/how-to-connect-staged-rollout/sr7.png)
-
-  ![](./media/how-to-connect-staged-rollout/sr8.png)
-
-- Gransknings händelse när en grupp läggs till i Password hash Sync/direktautentisering/sömlös SSO.
+- Gransknings händelse när du aktiverar en mellanlagrad distribution för *lösen ords-hash-synkronisering*, *DIREKTAUTENTISERING*eller *sömlös SSO*.
 
   >[!NOTE]
-  >Gransknings händelse som loggas när en grupp läggs till i lösen ords-hash-synkronisering för stegvis distribution
+  >En gransknings händelse loggas när *sömlös enkel inloggning* aktive ras med hjälp av mellanlagrad distribution.
 
-  ![](./media/how-to-connect-staged-rollout/sr9.png)
+  ![Fönstret "skapa distributions princip för funktion" – fliken aktivitet](./media/how-to-connect-staged-rollout/sr7.png)
 
-  ![](./media/how-to-connect-staged-rollout/sr10.png)
+  ![Fönstret "skapa distributions princip för funktion" – fliken ändrade egenskaper](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Gransknings händelse när en användare som har lagts till i gruppen har Aktiver ATS för stegvis distribution
+- Gransknings händelse när en grupp läggs till i *hash-synkronisering av lösen ord*, *DIREKTAUTENTISERING*eller *sömlös SSO*.
 
-  ![](media/how-to-connect-staged-rollout/sr11.png)
+  >[!NOTE]
+  >En gransknings händelse loggas när en grupp läggs till i *lösen ordets hash-synkronisering* för stegvis distribution.
 
-  ![](./media/how-to-connect-staged-rollout/sr12.png)
+  ![Fönstret "Lägg till en grupp till funktions distribution" – fliken aktivitet](./media/how-to-connect-staged-rollout/sr9.png)
+
+  ![Fönstret "Lägg till en grupp till funktions distribution" – fliken ändrade egenskaper](./media/how-to-connect-staged-rollout/sr10.png)
+
+- Gransknings händelse när en användare som har lagts till i gruppen har Aktiver ATS för stegvis distribution.
+
+  ![Fönstret "Lägg till användar till funktions distribution" – fliken aktivitet](media/how-to-connect-staged-rollout/sr11.png)
+
+  ![Fönstret "Lägg till användar till funktions distribution" – fliken mål (er)](./media/how-to-connect-staged-rollout/sr12.png)
 
 ## <a name="validation"></a>Validering
 
-Så här testar du inloggning med lösen ordets hash-synkronisering eller direktautentisering (username/Password Sign-in):
+Om du vill testa inloggningen med *hash-synkronisering av lösen ord* eller *direktautentisering* (användar namn och lösen ord) gör du följande:
 
-1. Bläddra till <https://myapps.microsoft.com> i en privat webbläsarsession från extra nätet och ange UserPrincipalName (UPN) för det användar konto som har valts för mellanlagrad distribution.
+1. På extra nätet går du till [sidan appar](https://myapps.microsoft.com) i en privat webbläsarsession och anger sedan USERPRINCIPALNAME (UPN) för det användar konto som har valts för stegvis distribution.
 
-1. Om användaren har varit mål för stegvis distribution omdirigeras inte användaren till din federerade inloggnings sida. i stället uppmanas du att logga in på inloggnings sidan för Azure AD-klient.
-
-1. Kontrol lera att inloggningen visas i [rapporten inloggnings aktivitet i Azure AD](../reports-monitoring/concept-sign-ins.md) genom att filtrera med userPrincipalName..
-
-Så här testar du inloggning med sömlös SSO:
-
-1. Bläddra till <https://myapps.microsoft.com>/i en privat webbläsarsession från intranätet och ange UserPrincipalName (UPN) för det användar konto som valts för mellanlagrad distribution.
-
-1. Om användaren har varit mål för stegvis distribution av sömlös SSO visas en "försök att logga in dig..." meddelande innan det loggas tyst.
+   Användare som har varit mål för stegvis distribution omdirigeras inte till din federerade inloggnings sida. De uppmanas istället att logga in på inloggnings sidan för Azure AD-klient.
 
 1. Kontrol lera att inloggningen visas i [rapporten inloggnings aktivitet i Azure AD](../reports-monitoring/concept-sign-ins.md) genom att filtrera med userPrincipalName.
 
-Så här kontrollerar du att användar inloggnings programmen fortfarande sker på Federations leverantörer:
+Så här testar du inloggning med *sömlös SSO*:
 
-Så här kan du spåra användar inloggningar som fortfarande händer på AD FS för utvalda, distribuerade distributions användare med hjälp av [dessa instruktioner](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Kontrol lera leverantörens dokumentation om hur du kan kontrol lera detta på leverantörer från tredje part.
+1. På intranätet går du till [sidan appar](https://myapps.microsoft.com) i en privat webbläsarsession och anger sedan USERPRINCIPALNAME (UPN) för det användar konto som har valts för stegvis distribution.
 
-## <a name="roll-back"></a>Återställ
+   Användare som har varit mål för stegvis distribution av *sömlös SSO* visas med ett "försök att logga in dig..." meddelande innan de är inloggade i tyst läge.
 
-### <a name="remove-a-user-from-staged-rollout"></a>Ta bort en användare från mellanlagrad distribution
+1. Kontrol lera att inloggningen visas i [rapporten inloggnings aktivitet i Azure AD](../reports-monitoring/concept-sign-ins.md) genom att filtrera med userPrincipalName.
 
-1.  Om du tar bort användaren från gruppen inaktive ras den stegvisa distributionen för användaren.
+   Följ instruktionerna i [AD FS fel sökning: händelser och loggning](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events)för att spåra användar inloggningar som fortfarande inträffar på Active Directory Federation Services (AD FS) (AD FS) för valda distributions användare. Kontrol lera leverantörens dokumentation om hur du kan kontrol lera detta på tredjeparts Federations leverantörer.
 
-2.  Om du vill inaktivera funktionen för mellanlagrad distribution drar du tillbaka till tillståndet **"off"** för att stänga av den mellanlagrade distributionen.
+## <a name="remove-a-user-from-staged-rollout"></a>Ta bort en användare från mellanlagrad distribution
 
+Att ta bort en användare från gruppen inaktiverar stegvis distribution för den användaren. Om du vill inaktivera funktionen för stegvis distribution drar du tillbaka kontrollen till **av**.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
--   **F: kan en kund använda den här funktionen i produktionen?**
+**F: kan jag använda den här funktionen i produktionen?**
 
--   A: Ja, den här funktionen kan användas i produktions klienten, men vi rekommenderar att du först provar den här funktionen i test klienten.
+A: Ja, du kan använda den här funktionen i din produktions klient, men vi rekommenderar att du först provar i test klienten.
 
--   **F: kan den här funktionen användas för att underhålla en permanent "samtidig existens" där vissa användare använder federerad autentisering och annan molnbaserad autentisering?**
+**F: kan funktionen användas för att upprätthålla en permanent "samexistens" där vissa användare använder federerad autentisering och andra använder molnbaserad autentisering?**
 
--   A: Nej, den här funktionen är utformad för att migrera från federerad till molnbaserad autentisering i steg och sedan till sist klippa över till molnbaserad autentisering. Vi rekommenderar inte ett permanent blandat tillstånd eftersom det kan leda till oväntade autentiserings flöden.
+A: Nej, den här funktionen är utformad för att migrera från federerad till molnbaserad autentisering i steg och sedan till sist klippa över till molnbaserad autentisering. Vi rekommenderar inte att du använder ett permanent blandat läge, eftersom den här metoden kan leda till oväntade autentiserings flöden.
 
--   **F: kan vi använda PowerShell för att utföra stegvis distribution?**
+**F: kan jag använda PowerShell för att utföra stegvis distribution?**
 
--   A: Ja, se dokumentationen för att använda PowerShell för att utföra stegvis distribution [här](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+S: Ja. Information om hur du använder PowerShell för att utföra stegvis distribution finns i [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Nästa steg
-- [AzureAD 2,0-förhandsgranskning](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2,0-förhandsgranskning](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

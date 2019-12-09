@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b01370bb8c86da07549775ec1a1399e09c80f9af
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534257"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930786"
 ---
 # <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Använda Java för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)
 
@@ -32,15 +32,7 @@ Den här artikeln visar hur du använder Java för att skapa och hantera katalog
 
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
-Kom igång genom att öppna filen *Pom. XML* i text redigeraren. Lägg till följande beroende element i gruppen med beroenden.
-
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
+Kom igång genom att öppna [den här sidan](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) och hitta den senaste versionen av Java-biblioteket. Öppna sedan filen *Pom. XML* i text redigeraren. Lägg till ett beroende element som refererar till den versionen.
 
 Lägg sedan till dessa import uttryck i din kod fil.
 

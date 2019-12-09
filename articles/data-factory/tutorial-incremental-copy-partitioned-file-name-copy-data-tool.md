@@ -9,17 +9,16 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 746b5cbcc58f6c722623446227417e6c94dd0a80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217453"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928037"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Kopiera nya filer stegvis baserat på partitionerat fil namn med hjälp av Kopiera data-verktyget
 
@@ -33,7 +32,7 @@ I den här självstudien får du göra följande:
 > [!div class="checklist"]
 > * Skapa en datafabrik.
 > * Använd verktyget Kopiera data för att skapa en pipeline.
-> * Övervaka pipelinen och aktivitetskörningar.
+> * Övervaka pipelinen och aktivitetskörningarna.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -73,7 +72,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
 
 5. För **version** väljer du **V2**.
 6. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL Database) och beräkningarna (t.ex. Azure HDInsight) som används i datafabriken kan finnas på andra platser och i andra regioner.
@@ -155,7 +154,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
     
     ![Välj utdatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    c. Klicka på **Nästa**.
+    c. Klicka på **Next**.
     
     ![Välj utdatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. Sidan **Settings** (Inställningar) visas. Välj **Nästa**. 

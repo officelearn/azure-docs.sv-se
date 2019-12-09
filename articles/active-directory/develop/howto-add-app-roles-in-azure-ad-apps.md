@@ -1,5 +1,5 @@
 ---
-title: Lägg till app-roller i din Azure Active Directory-registrerade app och ta emot dem i token
+title: Lägg till app-roller och hämta dem från en token | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du lägger till app-roller i ett program som är registrerat i Azure Active Directory, tilldela användare och grupper till dessa roller och ta emot dem i `roles`-anspråk i token.
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fca807913d2753828d55c095c1a3b380340fd95
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843163"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917922"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 

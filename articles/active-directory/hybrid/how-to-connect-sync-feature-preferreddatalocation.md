@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a1d3de1b3eb5aebd89e6601f95c449851d4a1a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5a493179e6e657a1d99d7cdb808629bae7332567
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889609"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918975"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Office 365-resurser
 Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Office 365 använder du det här attributet för att ange geo-platsen för användarens Office 365-data. ( *Regions region* och *geo* används utbytbart.)
@@ -251,7 +251,7 @@ I allmänhet krävs en fullständig synkronisering. Det beror på att du har lag
 1. Starta en PowerShell-session.
 2. Återaktivera schemalagd synkronisering genom att köra den här cmdleten: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
-## <a name="step-8-verify-the-result"></a>Steg 8: verifiera resultatet
+## <a name="step-9-verify-the-result"></a>Steg 9: verifiera resultatet
 Det är nu dags att verifiera konfigurationen och aktivera den för dina användare.
 
 1. Lägg till geo till det valda attributet för en användare. Det går att hitta listan över tillgängliga geografiska områden i den här tabellen.  

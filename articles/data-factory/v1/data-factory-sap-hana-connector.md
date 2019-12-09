@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från SAP HANA med Azure Data F
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ebd1cf22bffc6a136845672cedcefa7936eeece5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682362"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928262"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Flytta data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -43,7 +42,7 @@ Om du vill aktivera anslutningen till SAP HANA-instansen installerar du följand
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt SAP HANA data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -55,7 +54,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för ett SAP HANA data lager:
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för SAP HANA länkade tjänsten.
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
@@ -67,7 +66,7 @@ lösenord | Lösenordet för användaren. | sträng | Ja
 gatewayName | Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SAP HANA-instansen. | sträng | Ja
 encryptedCredential | Krypterad Credential-sträng. | sträng | Nej
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Det finns inga typ-/regionsspecifika egenskaper som stöds för SAP HANA-datauppsättningen av typen **RelationalTable**. 
@@ -82,7 +81,7 @@ När källan i kopierings aktiviteten är av typen **RelationalSource** (som inn
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Ja |
+| DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Ja |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON-exempel: kopiera data från SAP HANA till Azure-Blob
 Följande exempel innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Det här exemplet visar hur du kopierar data från en lokal SAP HANA till en Azure-Blob Storage. Data kan dock kopieras **direkt** till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.  
@@ -284,31 +283,31 @@ När du flyttar data från SAP HANA används följande mappningar från SAP HANA
 
 SAP HANA typ | .NET-baserad typ
 ------------- | ---------------
-TINYINT | Stor
+TINYINT | Mottagna byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-VERKLIGEN | Enkel
-Dubbelklicka | Enkel
+REAL | Enkel
+DOUBLE | Enkel
 DECIMAL | Decimal
-BOOLESKT | Stor
+BOOLEAN | Mottagna byte
 VARCHAR | Sträng
 NVARCHAR | Sträng
-CLOB | Byte []
+CLOB | Byte[]
 ALPHANUM | Sträng
-BLOB | Byte []
+BLOB | Byte[]
 DATE | DateTime
-TIME | Intervall
-TIDSSTÄMPEL | DateTime
+TIME | TimeSpan
+TIMESTAMP | DateTime
 SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Kända begränsningar
 Det finns några kända begränsningar när du kopierar data från SAP HANA:
 
-- NVARCHAR-strängar trunkeras till den maximala längden på 4000 Unicode-tecken
+- NVARCHAR-strängar trunkeras till högst 4 000 Unicode-tecken
 - SMALLDECIMAL stöds inte
 - VARBINARY stöds inte
-- Giltiga datum är mellan 1899/12/30 och 9999/12/31
+- Giltiga datum är mellan 1899-12-30 och 9999-12-31
 
 ## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
 Information om hur du mappar kolumner i käll data uppsättningen till kolumner i data uppsättning för mottagare finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).

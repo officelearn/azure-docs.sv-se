@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från Salesforce med hjälp av 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 71201efeb56ffda2dfbf82ca19b3bacb773c7c3d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666152"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929272"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -35,7 +34,7 @@ Azure Data Factory stöder för närvarande endast flytt av data från Salesforc
 ## <a name="supported-versions"></a>Versioner som stöds
 Den här anslutningen har stöd för följande utgåvor av Salesforce: Developer Edition, Professional Edition, Enterprise Edition eller Unlimited Edition. Och stöder kopiering från Salesforce-produktion, Sandbox och anpassad domän.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * API-behörighet måste vara aktive rad. Se [Hur gör jag för att aktivera API-åtkomst i Salesforce enligt behörighets uppsättning?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Om du vill kopiera data från Salesforce till lokala data lager måste du ha minst Data Management Gateway 2,0 installerat i din lokala miljö.
 
@@ -52,7 +51,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från Sale
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -64,7 +63,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för Salesforce:
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller beskrivningar av JSON-element som är speciella för den länkade Salesforce-tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
@@ -75,7 +74,7 @@ Följande tabell innehåller beskrivningar av JSON-element som är speciella fö
 | lösenord |Ange ett lösen ord för användar kontot. |Ja |
 | securityToken |Ange en säkerhetstoken för användar kontot. Se [Hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställer/hämtar en säkerhetstoken. Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table och så vidare).
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för en data uppsättning av typen **RelationalTable** har följande egenskaper:
@@ -85,29 +84,29 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 | tableName |Namnet på tabellen i Salesforce. |Nej (om en **fråga** för **RelationalSource** har angetts) |
 
 > [!IMPORTANT]
-> "__C"-delen av API-namnet behövs för alla anpassade objekt.
+> En "__c"-del av API-namnet krävs för alla anpassade objekt.
 
 ![Data Factory-Salesforce-anslutning – API-namn](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och olika principer är tillgängliga för alla typer av aktiviteter.
 
-De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten, å andra sidan, varierar beroende på varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare.
+De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten, å andra sidan, varierar beroende på varje aktivitets typ. För Kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare.
 
 När källan är av typen **RelationalSource** (som innehåller Salesforce) i kopierings aktiviteten är följande egenskaper tillgängliga i avsnittet typeProperties:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller en [SOQL-fråga (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Till exempel: `select * from MyTable__c`. |Nej (om **data uppsättningens** **TableName** anges) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller en [SOQL-fråga (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Till exempel: `select * from MyTable__c`. |Nej (om **data uppsättningens** **TableName** anges) |
 
 > [!IMPORTANT]
-> "__C"-delen av API-namnet behövs för alla anpassade objekt.
+> En "__c"-del av API-namnet krävs för alla anpassade objekt.
 
 ![Data Factory-Salesforce-anslutning – API-namn](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## <a name="query-tips"></a>Tips om frågor
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Hämtar data med WHERE-satsen i kolumnen DateTime
-När du anger SOQL-eller SQL-frågan ska du tänka på DateTime-formatets skillnad. Till exempel:
+När du anger SOQL-eller SQL-frågan ska du tänka på DateTime-formatets skillnad. Exempel:
 
 * **SOQL-exempel**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL-exempel**:
@@ -121,7 +120,7 @@ Du kan hämta data från Salesforce-rapporter genom att ange Query som `{call "<
 Om du vill fråga de mjuka borttagna posterna från pappers korgen i Salesforce kan du ange **"IsDeleted = 1"** i frågan. Exempel:
 
 * Om du bara vill fråga de borttagna posterna anger du "Select * from MyTable__c **WHERE IsDeleted = 1**"
-* Om du vill fråga alla poster, inklusive befintliga och borttagna, anger du "Select * from MyTable__c **WHERE IsDeleted = 0 or IsDeleted = 1**"
+* Om du vill fråga alla poster, inklusive befintliga och borttagna, anger du "Select * from MyTable__c **WHERE IsDeleted = 0 eller IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON-exempel: kopiera data från Salesforce till Azure-Blob
 I följande exempel finns exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Salesforce till Azure Blob Storage. Data kan dock kopieras till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.
@@ -196,7 +195,7 @@ I det här exemplet används den länkade **Salesforce** -tjänsten. Se avsnitte
 Om du anger **external** till **True** informerar Data Factory tjänsten att data uppsättningen är extern i data fabriken och inte produceras av en aktivitet i data fabriken.
 
 > [!IMPORTANT]
-> "__C"-delen av API-namnet behövs för alla anpassade objekt.
+> En "__c"-del av API-namnet krävs för alla anpassade objekt.
 
 ![Data Factory-Salesforce-anslutning – API-namn](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -277,7 +276,7 @@ Se [RelationalSource typ egenskaper](#copy-activity-properties) för listan öve
 }
 ```
 > [!IMPORTANT]
-> "__C"-delen av API-namnet behövs för alla anpassade objekt.
+> En "__c"-del av API-namnet krävs för alla anpassade objekt.
 
 ![Data Factory-Salesforce-anslutning – API-namn](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -286,24 +285,24 @@ Se [RelationalSource typ egenskaper](#copy-activity-properties) för listan öve
 
 | Salesforce-typ | . NET-baserad typ |
 | --- | --- |
-| Automatisk numrering |Sträng |
-| Rute |Boolesk |
+| Auto Number |Sträng |
+| Checkbox |Boolesk |
 | Valuta |Decimal |
-| Date |DateTime |
+| Datum |DateTime |
 | Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
-| Sök relation |Sträng |
-| Listruta för flera val |Sträng |
+| Lookup Relationship |Sträng |
+| Multi-Select Picklist |Sträng |
 | Tal |Decimal |
 | Procent |Decimal |
 | Telefon |Sträng |
-| Listan |Sträng |
+| Picklist |Sträng |
 | Text |Sträng |
-| Text områden |Sträng |
-| Text områden (långt) |Sträng |
-| Text områden (Rich) |Sträng |
-| Text (krypterad) |Sträng |
+| Text Area |Sträng |
+| Text Area (Long) |Sträng |
+| Text Area (Rich) |Sträng |
+| Text (Encrypted) |Sträng |
 | URL |Sträng |
 
 > [!NOTE]

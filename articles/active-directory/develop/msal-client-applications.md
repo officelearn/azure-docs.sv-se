@@ -1,29 +1,25 @@
 ---
-title: Klient program (Microsoft Authentication Library)
+title: Offentliga och konfidentiella klient program (MSAL) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om offentliga klient program och konfidentiella klient program i Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/25/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c57d3a13f9f03fa635c6c9425e2049e2a2c885
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4ad2f271ae0eea2e393aad4eb972eff211655b02
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803210"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917105"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Offentlig klient och konfidentiella klient program
 Microsoft Authentication Library (MSAL) definierar två typer av klienter: offentliga klienter och konfidentiella klienter. De två klient typerna särskiljs genom att deras förmåga att autentisera sig på ett säkert sätt med auktoriseringsservern och upprätthålla konfidentialiteten för deras klientautentiseringsuppgifter. Azure AD Authentication Library (ADAL) använder däremot vad som kallas *autentiserings kontext* (som är en anslutning till Azure AD).
@@ -51,7 +47,7 @@ Här följer några likheter och skillnader mellan offentliga klient-och konfide
 Om du har använt ADAL kanske klient-ID: t (även kallat *program-ID* eller *app-ID*) skickas en gång när programmet byggs. Den behöver inte skickas igen när appen erhåller en token. Detta gäller både för offentliga och konfidentiella klient program. Konstruktörer för konfidentiella klient program skickas också till klientens autentiseringsuppgifter: den hemlighet de delar med identitets leverantören.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om:
+Läs om:
 - [Konfigurations alternativ för klient program](msal-client-application-configuration.md)
 - [Instansiera klient program med hjälp av MSAL.NET](msal-net-initializing-client-applications.md)
 - [Instansiera klient program med MSAL. js](msal-js-initializing-client-applications.md)

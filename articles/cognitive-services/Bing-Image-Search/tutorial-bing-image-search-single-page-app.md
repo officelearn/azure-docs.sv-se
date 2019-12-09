@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa ensidig webbapp – API för bildsökning i Bing'
+title: 'Självstudier: Skapa ensidig webbapp – API för bildsökning i Bing'
 titleSuffix: Azure cognitive services
 description: Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868261"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930702"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudie: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
 Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan. Den här självstudiekursen liknar motsvarande [självstudiekurs](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) för webbsökning i Bing.
 
@@ -31,7 +31,7 @@ I den här självstudieappen visas hur du:
 
 Den fullständiga källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/).
 * Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i GitHub-exemplets readme-fil.
@@ -40,7 +40,7 @@ Den fullständiga källkoden till det här exemplet finns på [GitHub](https://g
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Hantera och lagra användarens prenumerationsnycklar
 
-Det här programmet använder webbläsarens beständiga lagring för att lagra prenumerationsnycklar för API:et. Om ingen nyckel lagras frågar webbsidan användaren om nyckeln och lagrar den för senare användning. Om nyckeln senare avvisas av API appen tas den bort från lagringen.
+Det här programmet använder webbläsarens beständiga lagring för att lagra prenumerationsnycklar för API:et. Om ingen nyckel lagras frågar webbsidan användaren om nyckeln och lagrar den för senare användning. Om nyckeln senare avvisas av API appen tas den bort från lagringen. I det här exemplet används den globala slut punkten. Du kan också använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 
 Vi definierar funktionerna `storeValue` och `retrieveValue`, antingen med objektet `localStorage` (inte i alla webbläsare) eller en cookie.
@@ -347,7 +347,7 @@ En funktion för återgivning kan acceptera följande parametrar:
 Parametrarna `index` och `count` används för att numrera resultat, generera HTML-kod för samlingar och ordna innehåll. Mer specifikt:
 
 * Beräknar storleken på miniatyrbilderna (bredd varierar med minst 120 bildpunkter medan höjden högst får vara 90 bildpunkter).
-* Skapar HTML `<img>`-tagg för att visa miniatyrbilden.
+* Skapar HTML `<img>`-taggen för att visa miniatyrbilden.
 * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
@@ -386,7 +386,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från sådan proxy har en `Access-Control-Expose-Headers` -huvud som tillåter svarshuvuden och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som tillåter svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
@@ -409,4 +409,4 @@ Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stä
 
 ## <a name="see-also"></a>Se också
 
-* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

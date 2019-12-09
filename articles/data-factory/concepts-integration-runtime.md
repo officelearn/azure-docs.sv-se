@@ -1,23 +1,23 @@
 ---
-title: Integration Runtime i Azure Data Factory
+title: Integration runtime
 description: Mer information om Integration Runtime i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/31/2019
-ms.author: abnarain
-ms.openlocfilehash: 0b137edbfb5ca439d4ba15614225ec0973511763
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218817"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927156"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -48,12 +48,12 @@ Följande diagram visar hur olika IR-körningar kan användas i kombination för
 
 ![Olika typer av Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
-## <a name="azure-integration-runtime"></a>Azure integration runtime
+## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 En Azure Integration Runtime kan:
 
 - Köra data flöden i Azure 
 - Köra kopieringsaktivitet mellan molndatalager
-- Skickar följande Transform-aktiviteter i ett offentligt nätverk: Databricks Notebook/jar/python Activity, HDInsight Hive-aktivitet, HDInsight gris-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight streaming-aktivitet, dator Körnings aktivitet för utbildning, Machine Learning uppdatering av resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, anpassad aktivitet i .NET, webb aktivitet, söknings aktivitet och hämta metadata-aktivitet.
+- Skickar följande Transform-aktiviteter i ett offentligt nätverk: Databricks Notebook/jar/python Activity, HDInsight Hive-aktivitet, HDInsight gris-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight streaming-aktivitet, Machine Learning batch-körning, Machine Learning uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, .NET anpassad aktivitet, webb aktivitet, söknings aktivitet och hämta metadata.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-nätverksmiljö
 Azure Integration Runtime stöder anslutning till data lager och beräknings tjänster med offentliga tillgängliga slut punkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
@@ -70,7 +70,7 @@ Information om hur du skapar och konfigurerar Azure IR finns i How to create and
 > [!NOTE] 
 > Azure integration Runtime har egenskaper som är relaterade till data Flow runtime, som definierar den underliggande beräknings infrastrukturen som ska användas för att köra data flöden. 
 
-## <a name="self-hosted-integration-runtime"></a>Integration Runtime med egen värd
+## <a name="self-hosted-integration-runtime"></a>Lokalt installerad integrationskörning
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.
@@ -121,7 +121,7 @@ Om du väljer att använda **automatisk lösning Azure IR** som är standard,
 
 - För kopieringsaktivitet kommer ADF att försöka identifiera ditt mål- och källdatalager för att välja den bästa platsen, antingen i samma region om den är tillgänglig eller den närmaste inom samma geografiska område. Om det inte går att avgöra används datafabriksregionen.
 
-- För sökning/GetMetadata/ta bort aktivitet (kallas även för pipeline-aktiviteter), sändning av omvandlings aktivitet (kallas även externa aktiviteter) och redigerings åtgärder (testa anslutning, bläddra i Mapplista och tabell lista, för hands data), ADF kommer att använda IR i Data Factory-regionen.
+- För sökning/GetMetadata/ta bort aktivitet (kallas även för pipeline-aktiviteter), sändning av omvandlings aktivitet (även kallat externa aktiviteter) och redigerings åtgärder (test anslutning, bläddra i Mapplista och tabell lista, för hands data) används IR i Data Factory-regionen.
 
 - För data flödet använder ADF IR i Data Factory-regionen. 
 
@@ -143,7 +143,7 @@ Att välja rätt plats för Azure-SSIS IR är viktigt för att uppnå höga pres
 
 - Platsen för din Azure-SSIS IR behöver inte vara samma som platsen för din data fabrik, men den bör vara samma som platsen för din egen Azure SQL Database/hanterade instans server där SSISDB är värd. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
 - Om du inte har en befintlig Azure SQL Database/Hanterad instans server som värd för SSISDB, men du har lokala data källor/destinationer, bör du skapa en ny Azure SQL Database/Hanterad instans server på samma plats som ett virtuellt nätverk som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa Azure-SSIS IR med hjälp av den nya Azure SQL Database/hanterade instans servern och ansluta till det virtuella nätverket, allt på samma plats, vilket effektivt minimerar data förflyttningar mellan olika platser.
-- Om platsen för din befintliga Azure SQL Database/hanterade instans server där SSISDB finns inte är samma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk, måste du först skapa Azure-SSIS IR med en befintlig Azure SQL Database/ Hanterad instans Server och ansluta till ett annat virtuellt nätverk på samma plats och konfigurera sedan ett virtuellt nätverk till en virtuell nätverks anslutning mellan olika platser.
+- Om platsen för din befintliga Azure SQL Database/hanterade instans server där SSISDB finns inte är samma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk, måste du först skapa Azure-SSIS IR med en befintlig Azure SQL Database/Hanterad instans Server och ansluta till ett annat virtuellt nätverk på samma plats, och sedan konfigurera ett virtuellt nätverk till en virtuell nätverks anslutning mellan olika platser.
 
 I följande diagram visas platsinställningar för Data Factory och dess Integration Runtime-instanser:
 

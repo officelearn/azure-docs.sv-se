@@ -1,27 +1,28 @@
 ---
-title: 'Kopiera data stegvis med Ändringsspårning och Azure Data Factory '
-description: 'I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas. '
+title: Kopiera data stegvis med Ändringsspårning
+description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
 services: data-factory
-documentationcenter: ''
+ms.author: yexu
 author: dearandyxu
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.author: yexu
-ms.openlocfilehash: feab54128a00d587ea9b68d8db5df59bd3615ee2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de42acd9cb8ca0520db616237c23b7db9fadb77f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683476"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923016"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation 
+
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i källans Azure SQL-databas till en Azure bloblagring.  
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbereda källdatalagret
@@ -68,11 +69,11 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure PowerShell. Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 * **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln om att [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) . Skapa en container med namnet **adftutorial**. 
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) . Skapa en container med namnet **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
 1. Starta **SQL Server Management Studio** och anslut till din Azure SQL-server. 
@@ -266,7 +267,7 @@ I det här steget länkar du Azure SQL-databasen till datafabriken.
     ```
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I det här steget skapar du datamängder för att representera datakälla, datamål och plats för att lagra SYS_CHANGE_VERSION.
+I det här steget skapar du databaser för att representera datakälla, datamål. och plats för att lagra SYS_CHANGE_VERSION.
 
 ### <a name="create-a-source-dataset"></a>Skapa en källdatauppsättning
 I det här steget skapar du en datamängd för att representera källdata. 
@@ -459,7 +460,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 6. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen. 
 
     ![Aktivitetskörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
-7. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
+7. Om du vill växla tillbaka till vyn **Pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
 
 
 ### <a name="review-the-results"></a>Granska resultaten
@@ -638,7 +639,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 2. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen. 
 
     ![Aktivitetskörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
-3. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
+3. Om du vill växla tillbaka till vyn **Pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
 
 ### <a name="review-the-results"></a>Granska resultaten
 Du ser den andra filen i mappen `incchgtracking` i containern `adftutorial`. 

@@ -4,25 +4,23 @@ description: Lär dig hur du migrerar din ADAL-app (Azure Active Directory Authe
 services: active-directory
 titleSuffix: Microsoft identity platform
 author: rayluo
-manager: henrikm
-editor: twhitney
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: ''
+ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b31000c8b5e64cbd0edb2fc062f1c6e077a75f4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 72a4af690a1433f6a185ab17f06748d67927edea
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481942"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917241"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>ADAL till MSAL migration-guide för python
 
@@ -30,7 +28,7 @@ I den här artikeln beskrivs de ändringar du behöver göra för att migrera en
 
 ## <a name="difference-highlights"></a>Skillnader i fokus
 
-ADAL fungerar med Azure Active Directory v 1.0-slutpunkten. Microsoft Authentication Library (MSAL) fungerar med Microsoft Identity Platform – tidigare kallat Azure Active Directory v 2.0-slutpunkten. Microsoft Identity Platform skiljer sig från Azure Active Directory v 1.0 på så här:
+ADAL fungerar med Azure Active Directory (Azure AD) v 1.0-slutpunkten. Microsoft Authentication Library (MSAL) fungerar med Microsoft Identity Platform – tidigare kallat Azure Active Directory v 2.0-slutpunkten. Microsoft Identity Platform skiljer sig från Azure AD v 1.0 på så här:
 
 Uppfyller
   - Arbets-och skol konton (etablerade Azure AD-konton)

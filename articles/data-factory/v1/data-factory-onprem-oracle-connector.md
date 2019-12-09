@@ -4,21 +4,20 @@ description: Lär dig hur du kopierar data till eller från en lokal Oracle-data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 822713d67790906c972ad77a748ef8d52b871bc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682429"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928157"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle lokalt genom att använda Azure Data Factory
 
@@ -42,7 +41,7 @@ Du kan kopiera data från följande data lager *till en Oracle-databas*:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Data Factory stöder anslutning till lokala Oracle-källor med hjälp av Data Management Gateway. Mer information om Data Management Gateway finns i [Data Management Gateway](data-factory-data-management-gateway.md) . Stegvisa instruktioner för hur du konfigurerar gatewayen i en datapipeline för att flytta data finns i [Flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -77,13 +76,13 @@ Den här Oracle-anslutaren stöder två versioner av driv rutiner:
 
 Om du använder kopierings guiden för att redigera kopierings pipelinen, är driv rutins typen autobestämd. Microsoft-drivrutinen används som standard, om inte Gateway-versionen är tidigare än version 2,7 eller om du väljer Oracle som mottagare.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Du kan skapa en pipeline som har en kopierings aktivitet. Pipelinen flyttar data till eller från en lokal Oracle-databas med hjälp av olika verktyg eller API: er.
 
 Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera. Se [Självstudier: skapa en pipeline med hjälp av kopierings guiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda något av följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mall**, .net- **API**eller **REST API**. I [självstudien om kopierings aktiviteten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) finns stegvisa anvisningar om hur du skapar en pipeline med en kopierings aktivitet.
+Du kan också använda något av följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mall**, .net- **API**eller **REST API**. Se den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet.
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -96,7 +95,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som du använder för att definiera Data Factory entiteter.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 I följande tabell beskrivs JSON-element som är speciella för den länkade Oracle-tjänsten:
 
@@ -104,7 +103,7 @@ I följande tabell beskrivs JSON-element som är speciella för den länkade Ora
 | --- | --- | --- |
 | typ |Egenskapen **Type** måste anges till **OnPremisesOracle**. |Ja |
 | driverType | Ange vilken driv rutin som ska användas för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [version och installation som stöds](#supported-versions-and-installation) för driv rutins information. | Nej |
-| Begär | Ange den information som krävs för att ansluta till Oracle Database-instansen för egenskapen **ConnectionString** . | Ja |
+| connectionString | Ange den information som krävs för att ansluta till Oracle Database-instansen för egenskapen **ConnectionString** . | Ja |
 | gatewayName | Namnet på den gateway som används för att ansluta till den lokala Oracle-servern. |Ja |
 
 **Exempel: använda Microsoft-drivrutinen**
@@ -143,7 +142,7 @@ Mer information om tillåtna format finns i [Oracle Data Provider för .net ODP]
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [skapa data uppsättningar](data-factory-create-datasets.md).
 
@@ -155,7 +154,7 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Oracle-databasen som den länkade tjänsten refererar till. |Nej (om **oracleReaderQuery** eller **OracleSource** har angetts) |
 
-## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipeliner](data-factory-create-pipelines.md).
 
@@ -571,7 +570,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
     1. Öppna dator konfigurations filen för .NET 2,0 från mappen < system disk\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Sök efter **Oracle Data Provider för .net**. Du bör kunna hitta en post som visas i följande exempel under **system. data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Kopiera den här posten till Machine. config-filen i följande .NET 4,0-mapp: < system disk\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ändra sedan versionen till 4. xxx. x.x.
-* Installera < ODP. NET Installed path\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll i Global Assembly Cache (GAC) genom att köra **Gacutil/i [sökväg för provider]** .
+* Installera < ODP. NET Installed path\>\ 11.2.0 \ client_1 \odp.net\bin\4\Oracle.DataAccess.dll i GAC (Global Assembly Cache) genom att köra **Gacutil/i [Provider-sökväg]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Problem 2: formatering av datum/tid
 
@@ -581,7 +580,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 
 **Lösning**
 
-Du kan behöva justera frågesträngen i kopierings aktiviteten baserat på hur datum har kon figurer ATS i Oracle-databasen. Här är ett exempel (med funktionen **to_date** ):
+Du kan behöva justera frågesträngen i kopierings aktiviteten baserat på hur datum har kon figurer ATS i Oracle-databasen. Här är ett exempel (med hjälp av funktionen **to_date** ):
 
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
@@ -597,29 +596,29 @@ När du flyttar data från Oracle används följande mappningar från data typen
 
 | Oracle-datatyp | .NET Framework data typ |
 | --- | --- |
-| BFILE |Byte [] |
-| BLOB |Byte []<br/>(stöds endast på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
-| HÄNGANDE |Sträng |
+| BFILE |Byte[] |
+| BLOB |Byte[]<br/>(stöds endast på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
+| CHAR |Sträng |
 | CLOB |Sträng |
 | DATE |DateTime |
-| FLYTA |Decimal, sträng (om precision > 28) |
-| TALET |Decimal, sträng (om precision > 28) |
+| FLOAT |Decimal, String (om precision > 28) |
+| INTEGER |Decimal, String (om precision > 28) |
 | INTERVALL ÅR TILL MÅNAD |Int32 |
-| INTERVALL, DAG TILL SEKUND |Intervall |
+| INTERVALL, DAG TILL SEKUND |TimeSpan |
 | SOM |Sträng |
-| LÅNG RAW |Byte [] |
+| LONG RAW |Byte[] |
 | NCHAR |Sträng |
 | NCLOB |Sträng |
-| MÅNGA |Decimal, sträng (om precision > 28) |
+| NUMMER |Decimal, String (om precision > 28) |
 | NVARCHAR2 |Sträng |
-| OUTSPÄDD |Byte [] |
+| RAW |Byte[] |
 | ROWID |Sträng |
-| TIDSSTÄMPEL |DateTime |
-| TIDSSTÄMPEL MED LOKAL TIDSZON |DateTime |
-| TIDSSTÄMPEL MED TIDSZON |DateTime |
-| OSIGNERAT HELTAL |Tal |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
+| UNSIGNED INTEGER |Tal |
 | VARCHAR2 |Sträng |
-| FIL |Sträng |
+| XML |Sträng |
 
 > [!NOTE]
 > Data typerna **Interval år till månad** och **intervall dag till sekund** stöds inte när du använder en Microsoft-drivrutin.

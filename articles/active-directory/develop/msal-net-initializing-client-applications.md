@@ -1,29 +1,25 @@
 ---
-title: Initiera klient program (Microsoft Authentication Library för .NET)
+title: Initiera klient program för MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att initiera offentliga klient program och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8cf7b7004097ef5a4d915d8fdff60cc9606c5be
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 15c0db66fd357ba150af1901a6b50a645fd1ca88
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927083"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915850"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initiera klient program med MSAL.NET
 I den här artikeln beskrivs hur du initierar offentlig klient och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).  Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.

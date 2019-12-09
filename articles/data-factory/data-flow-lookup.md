@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory mappning av data flödes uppslags omvandling
+title: Mappa transformering av data flödes sökning
 description: Azure Data Factory mappning av data flödes uppslags omvandling
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/03/2019
-ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596592"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930322"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning av data flödes uppslags omvandling
 
@@ -27,7 +28,7 @@ Transformationen lookup utför motsvarigheten till en vänster yttre koppling. S
 
 ## <a name="match--no-match"></a>Matcha/ingen matchning
 
-Efter omvandlingen av sökningar kan du använda efterföljande omvandlingar för att granska resultaten av varje matchnings rad genom att använda Expression-funktionen `isMatch()` för att göra ytterligare val i din logik baserat på om sökningen resulterade i en rad matchning eller inte.
+Efter uppslags omvandlingen kan du använda efterföljande omvandlingar för att granska resultaten av varje matchande rad genom att använda Expression-funktionen `isMatch()` för att göra ytterligare val i din logik baserat på om sökningen resulterade i en rad matchning eller inte.
 
 ![Sök mönster](media/data-flow/lookup111.png "Sök mönster")
 
@@ -47,7 +48,7 @@ I det här fallet används den sammanställda omvandlingen ```PickFirst``` för 
 
 I Data Factory körs data flöden i uppskalade Spark-miljöer. Om din data uppsättning kan anpassas till arbets ytans minnes utrymme kan vi optimera dina uppslags prestanda.
 
-![Sändnings anslutning](media/data-flow/broadcast.png "Sändnings anslutning")
+![Sändnings anslutning](media/data-flow/broadcast.png "Sända anslutning")
 
 ### <a name="broadcast-join"></a>Sändnings anslutning
 

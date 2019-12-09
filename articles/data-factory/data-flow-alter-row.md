@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory mappa data flödets Alter Row-omvandling
+title: Mappa data flöde Alter Row-omvandling
 description: Så här uppdaterar du databas målet med Azure Data Factory mappa data flöde Alter Row Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1301b89ef1a6fb02356c6dcd4e568401eb5e9cd2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486205"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930481"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row-transformering
 
@@ -26,7 +27,7 @@ Använd transformeringen Alter Row för att ange INSERT-, DELETE-, Update-och up
 
 ## <a name="indicate-a-default-row-policy"></a>Ange en standard rads princip
 
-Skapa en Alter Row-omvandling och ange en rad princip med villkoret `true()`. Varje rad som inte uppfyller något av de tidigare definierade uttrycken kommer att markeras för den angivna rad principen. Som standard markeras varje rad som inte uppfyller ett villkors uttryck för `Insert`.
+Skapa en Alter Row-omvandling och ange en rad princip med ett villkor för `true()`. Varje rad som inte uppfyller något av de tidigare definierade uttrycken kommer att markeras för den angivna rad principen. Som standard markeras varje rad som inte uppfyller ett villkors uttryck för `Insert`.
 
 ![Ändra rad en princip](media/data-flow/alter-row4.png "Ändra rad en princip")
 

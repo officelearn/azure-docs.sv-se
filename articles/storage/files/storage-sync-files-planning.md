@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546349"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927868"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -122,14 +122,14 @@ Så här visar du resultatet i CSV:
 
 ### <a name="file-system-features"></a>Funktioner i fil systemet
 
-| Funktion | Support status | Anteckningar |
+| Funktion | Supportstatus | Anteckningar |
 |---------|----------------|-------|
-| Åtkomst kontrol listor (ACL: er) | Fullt stöd | Windows ACL: er bevaras av Azure File Sync och framtvingas av Windows Server på Server slut punkter. Windows ACL: er stöds inte (ännu) av Azure Files om filer nås direkt i molnet. |
-| Hårda länkar | Hoppades | |
-| Symboliska länkar | Hoppades | |
-| Monterings punkter | Stöds delvis | Monterings punkter kan vara roten i en server slut punkt, men de hoppas över om de finns i en server slut punkts namnrymd. |
-| Knut punkter | Hoppades | Till exempel Distributed File System DfrsrPrivate-och DFSRoots-mappar. |
-| Referenspunkter | Hoppades | |
+| Åtkomstkontrollistor (ACL) | Fullt stöd | Windows ACL: er bevaras av Azure File Sync och framtvingas av Windows Server på Server slut punkter. Windows ACL: er stöds inte (ännu) av Azure Files om filer nås direkt i molnet. |
+| Hårda länkar | Överhoppad | |
+| Symboliska länkar | Överhoppad | |
+| Monteringspunkter | Stöds delvis | Monterings punkter kan vara roten i en server slut punkt, men de hoppas över om de finns i en server slut punkts namnrymd. |
+| Knut punkter | Överhoppad | Till exempel Distributed File System DfrsrPrivate-och DFSRoots-mappar. |
+| Referenspunkter | Överhoppad | |
 | NTFS-komprimering | Fullt stöd | |
 | Sparse-filer | Fullt stöd | Synkronisering av sparse-filer (blockeras inte), men synkroniserar till molnet som en fullständig fil. Om fil innehållet ändras i molnet (eller på en annan server) är filen inte längre sparse när ändringen laddas ned. |
 | Alternativa data strömmar (ADS) | Konserverat, men inte synkroniserat | Till exempel synkroniseras inte klassificerings etiketter som skapats av fil klassificerings infrastrukturen. Befintliga klassificerings etiketter på filer på alla Server slut punkter lämnas orörda. |
@@ -145,13 +145,13 @@ Så här visar du resultatet i CSV:
 | ethumbs. db $ | Temporär fil för miniatyrer |
 | ~$\*.\* | Tillfällig Office-fil |
 | \*. tmp | Temporär fil |
-| \*. LACCDB | Lås fil för åtkomst databasen|
+| \*.laccdb | Lås fil för åtkomst databasen|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Intern Sync-fil|
 | \\system volym information | Mapp som är speciell för volym |
 | $RECYCLE. PLATS| Mapp |
 | \\SyncShareState | Mapp för synkronisering |
 
-### <a name="failover-clustering"></a>Kluster för växling vid fel
+### <a name="failover-clustering"></a>Redundansklustring
 Windows Server-redundanskluster stöds av Azure File Sync för distributions alternativet "fil server för allmän användning". Redundanskluster stöds inte på Skalbar filserver för program data (SOFS) eller på klusterdelade volymer (CSV: er).
 
 > [!Note]  
@@ -159,14 +159,14 @@ Windows Server-redundanskluster stöds av Azure File Sync för distributions alt
 
 ### <a name="data-deduplication"></a>Datadeduplicering
 **Windows server 2016 och Windows server 2019**   
-Datadeduplicering stöds på volymer med moln skiktning aktiverat på Windows Server 2016. Genom att aktivera datadeduplicering på en volym med aktive rad moln nivå kan du cachelagra fler filer lokalt utan att tillhandahålla mer lagrings utrymme. 
+Datadeduplicering stöds på volymer med moln nivåer som är aktiverade på Windows Server 2016 och Windows Server 2019. Genom att aktivera datadeduplicering på en volym med aktive rad moln nivå kan du cachelagra fler filer lokalt utan att tillhandahålla mer lagrings utrymme. 
 
 När datadeduplicering har Aktiver ATS på en volym med aktive rad moln nivå, kommer deduplicering av optimerade filer på serverns slut punkt att på samma sätt som en normal fil baserat på princip inställningarna för moln skiktet. När de deduplicerade filerna har flyttats, körs skräp insamlings jobbet för datadeduplicering automatiskt för att frigöra disk utrymme genom att ta bort onödiga segment som inte längre refereras till av andra filer på volymen.
 
 Observera att volym besparingarna gäller endast för servern. dina data i Azure-filresursen kommer inte att dedupliceras.
 
 > [!Note]  
-> Datadeduplicering och moln nivåer stöds inte för närvarande på samma volym på Server 2019 på grund av ett fel som åtgärdas i en framtida uppdatering.
+> För att stödja datadeduplicering på volymer med moln skiktning aktiverat på Windows Server 2019 måste Windows Update [KB4520062](https://support.microsoft.com/help/4520062) installeras och Azure File Sync agent version 9.0.0.0 eller senare krävs.
 
 **Windows Server 2012 R2**  
 Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym på Windows Server 2012 R2. Om datadeduplicering har Aktiver ATS på en volym måste moln nivån vara inaktive rad. 
@@ -204,10 +204,10 @@ För att Azure File Sync och DFS-R ska fungera sida vid sida:
 
 Mer information finns i [DFS Replication översikt](https://technet.microsoft.com/library/jj127250).
 
-### <a name="sysprep"></a>Funktionen
+### <a name="sysprep"></a>Sysprep
 Att använda Sysprep på en server som har installerat Azure File Sync-agenten stöds inte och kan leda till oväntade resultat. Agent installation och Server registrering bör ske när du har distribuerat Server avbildningen och slutfört Sysprep-miniinstallationsprogrammet.
 
-### <a name="windows-search"></a>Windows search
+### <a name="windows-search"></a>Windows Search
 Om moln skiktning är aktiverat på en server slut punkt hoppas filer som skiktas över och inte indexeras av Windows Search. Filer som inte är på en nivå indexeras korrekt.
 
 ### <a name="antivirus-solutions"></a>Antivirus lösningar
@@ -256,7 +256,7 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Kanada, östra | Quebec City |
 | Indien, centrala | Pune |
 | USA, centrala | Iowa |
-| Asien, östra | Hong Kong SAR |
+| Asien, östra | Hongkong SAR |
 | USA, östra | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |

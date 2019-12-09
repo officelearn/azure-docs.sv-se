@@ -3,25 +3,25 @@ title: Kopiera data från Dynamics AX
 description: Lär dig hur du kopierar data från Dynamics AX till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: 555293492a37b9c635cb11087c08d52aa4b4d8c4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2a2debf9b1cbc669d2402b1797097b97e94139fc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218628"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929482"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Kopiera data från Dynamics AX med hjälp av Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från Dynamics AX-källan. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från Dynamics AX-källan. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -30,14 +30,14 @@ Den här Dynamics AX-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Dynamics AX till alla mottagar data lager som stöds. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från Dynamics AX till alla mottagar data lager som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Mer specifikt stöder den här Dynamics AX-anslutaren kopiering av data från Dynamics AX med hjälp av **OData-protokollet** med **autentisering av tjänstens huvud namn**.
 
 >[!TIP]
 >Du kan också använda den här anslutningen för att kopiera data från **ekonomi och åtgärder i Dynamics 365**. Se Dynamics 365: s [OData-support](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) och [autentiseringsmetod](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -47,7 +47,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn:
 
-1. Registrera en program enhet i Azure Active Directory (Azure AD) genom [att följa registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
+1. Registrera en entitet för program i Azure Active Directory (Azure AD) genom att följa [registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
     - Program-ID:t
     - Programnyckel
@@ -64,10 +64,10 @@ Följande egenskaper stöds för Dynamics AX-länkad tjänst:
 | typ | Egenskapen **Type** måste anges till **DynamicsAx**. |Ja |
 | url | OData-slutpunkten för Dynamics AX (eller Dynamics 365 finans och Operations). |Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
 | aadResourceId | Ange den AAD-resurs som du begär för auktorisering. Om din Dynamics URL till exempel är `https://sampledynamics.sandbox.operations.dynamics.com/data/`, är motsvarande AAD-resurs vanligt vis `https://sampledynamics.sandbox.operations.dynamics.com`. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan välja Azure Integration Runtime eller en egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan välja Azure Integration Runtime eller en egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel**
 
@@ -99,14 +99,14 @@ Följande egenskaper stöds för Dynamics AX-länkad tjänst:
 
 Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics AX-datauppsättningen.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
 
 Om du vill kopiera data från Dynamics AX anger du egenskapen **Type** för data uppsättningen till **DynamicsAXResource**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **DynamicsAXResource**. | Ja |
-| path | Sökvägen till Dynamics AX OData-entiteten. | Ja |
+| Sökväg | Sökvägen till Dynamics AX OData-entiteten. | Ja |
 
 **Exempel**
 
@@ -131,11 +131,11 @@ Om du vill kopiera data från Dynamics AX anger du egenskapen **Type** för data
 
 Det här avsnittet innehåller en lista över egenskaper som Dynamics AX-källan stöder.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="dynamics-ax-as-source"></a>Dynamics AX som källa
 
-Om du vill kopiera data från Dynamics AX anger du **käll** typen i kopierings aktivitet till **DynamicsAXSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Dynamics AX anger du **käll** typen i kopierings aktivitet till **DynamicsAXSource**. Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -181,4 +181,4 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 ## <a name="next-steps"></a>Nästa steg
 
-En lista över data lager som kopierings aktiviteten stöder som källor och handfat i Azure Data Factory finns i [data lager och format som stöds](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som Kopieringsaktiviteten som källor och egenskaperna i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

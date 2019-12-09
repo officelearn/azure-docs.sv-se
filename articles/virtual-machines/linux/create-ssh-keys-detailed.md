@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 61f24776bb9ec9443df421dcbcf35dcc83ec2bc9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: eea078a4fb8287a4f07db478adf059eecce9ed82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036513"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929717"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en virtuell Linux-dator i Azure 
 Med ett SSH-nyckelpar (Secure Shell) kan du skapa en virtuell Linux-dator på Azure som använder SSH-nycklar som standard för autentisering, vilket eliminerar behovet av lösen ord för att logga in. Virtuella datorer som har skapats med Azure Portal, Azure CLI, Resource Manager-mallar eller andra verktyg kan innehålla din offentliga SSH-nyckel som en del av distributionen, som konfigurerar SSH-nyckel-autentisering för SSH-anslutningar. 
@@ -30,8 +30,8 @@ Ytterligare sätt att skapa och använda SSH-nycklar på en Windows-dator finns 
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
-### <a name="private-key-passphrase"></a>Lösen fras för privat nyckel
-Den privata SSH-nyckeln bör ha en mycket säker lösen fras för att skydda den. Den här lösen frasen är bara till för att komma åt den privata SSH-nyckelfilen och *är inte* användar kontots lösen ord. När du lägger till en lösen fras i SSH-nyckeln krypteras den privata nyckeln med hjälp av 128-bitars AES, så att den privata nyckeln är oanvändbar utan lösen frasen för att dekryptera den. Om en angripare stjäl din privata nyckel och nyckeln inte har någon lösen fras, skulle de kunna använda den privata nyckeln för att logga in på alla servrar som har motsvarande offentliga nyckel. Om en privat nyckel skyddas av en lösen fras kan den inte användas av angriparen, vilket ger ett extra säkerhets lager för din infrastruktur på Azure.
+### <a name="private-key-passphrase"></a>Lösenfras för privat nyckel
+Den privata SSH-nyckeln bör ha en mycket säker lösen fras för att skydda den. Den här lösen frasen är bara till för att komma åt den privata SSH-nyckelfilen och *är inte* användar kontots lösen ord. När du lägger till en lösenfras för SSH-nyckeln krypteras den privata nyckeln med 128-bitars AES, så att den inte kan användas utan lösenfrasen som krävs för att dekryptera den. Om en angripare stjäl din privata nyckel och nyckeln inte har någon lösen fras, skulle de kunna använda den privata nyckeln för att logga in på alla servrar som har motsvarande offentliga nyckel. Om en privat nyckel skyddas av en lösen fras kan den inte användas av angriparen, vilket ger ett extra säkerhets lager för din infrastruktur på Azure.
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
@@ -52,7 +52,7 @@ SSH-nycklarna sparas som standard i `~/.ssh`-katalogen.  Om du inte har någon `
 Följande `ssh-keygen`-kommando genererar 2048-bitars SSH-och privata SSH-RSA-filer som standard i katalogen `~/.ssh`. Om det finns ett SSH-nyckelpar på den aktuella platsen skrivs filerna över.
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 ### <a name="detailed-example"></a>Detaljerat exempel
@@ -60,6 +60,7 @@ I följande exempel visas ytterligare kommando alternativ för att skapa ett SSH
 
 ```bash
 ssh-keygen \
+    -m PEM \
     -t rsa \
     -b 4096 \
     -C "azureuser@myserver" \
@@ -70,6 +71,8 @@ ssh-keygen \
 **Kommandot förklarat**
 
 `ssh-keygen` = det program som används för att skapa nycklarna
+
+`-m PEM` = formatera nyckeln som PEM
 
 `-t rsa` = typ av nyckel som ska skapas, i det här fallet i RSA-format
 
@@ -84,7 +87,7 @@ ssh-keygen \
 ### <a name="example-of-ssh-keygen"></a>Exempel på ssh-keygen
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
+ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -92,19 +95,19 @@ Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.
 Your public key has been saved in /home/azureuser/.ssh/id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 azureuser@myserver
-The keys randomart image is:
-+--[ RSA 2048]----+
-|        o o. .   |
-|      E. = .o    |
-|      ..o...     |
-|     . o....     |
-|      o S =      |
-|     . + O       |
-|      + = =      |
-|       o +       |
-|        .        |
-+-----------------+
+SHA256:vFfHHrpSGQBd/oNdvNiX0sG9Vh+wROlZBktNZw9AUjA azureuser@myserver
+The key's randomart image is:
++---[RSA 4096]----+
+|        .oE=*B*+ |
+|          o+o.*++|
+|           .oo++*|
+|       .    .B+.O|
+|        S   o=BO.|
+|         . .o++o |
+|        . ... .  |
+|         ..  .   |
+|           ..    |
++----[SHA256]-----+
 ```
 
 #### <a name="saved-key-files"></a>Sparade nyckelfiler

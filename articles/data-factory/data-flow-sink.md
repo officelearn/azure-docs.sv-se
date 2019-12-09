@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en Sink-omvandling i funktionen mappa data flöde
+title: Konfigurera en Sink-omvandling i mappnings data flödet
 description: Lär dig hur du konfigurerar en Sink-omvandling i mappnings data flödet.
 author: kromerm
 ms.author: makromer
@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 828487aba651d10e5c906050dab544c097b49762
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217933"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930277"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
 
@@ -34,7 +34,7 @@ Du kan ställa in partitionerings schema från fliken **Optimize (optimera** ). 
 
 ![Alternativ på fliken optimera](media/data-flow/opt001.png "mottagar alternativ")
 
-## <a name="field-mapping"></a>Fält mappning
+## <a name="field-mapping"></a>Fältmappning
 På fliken **mappning** i din Sink-omvandling kan du mappa de inkommande kolumnerna till vänster till målen till höger. När du tar Sink-data flöden till filer skriver Data Factory alltid nya filer till en mapp. När du mappar till en databas data uppsättning väljer du åtgärds alternativ för databas tabell för att infoga, uppdatera, upsert eller ta bort.
 
 ![Fliken mappning](media/data-flow/sink2.png "Mottagare")

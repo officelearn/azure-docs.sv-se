@@ -4,21 +4,20 @@ description: Lär dig hur du använder aktiviteten hämta metadata i en Data Fac
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546934"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928567"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 
@@ -41,9 +40,9 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 ### <a name="supported-connectors"></a>Anslutningar som stöds
 
-**Fil lagring**
+**File Storage**
 
-| Koppling/metadata | itemName<br>(fil/mapp) | itemType<br>(fil/mapp) | ändra<br>Arkiv | Create<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | hierarkistruktur<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
+| Koppling/metadata | itemName<br>(fil/mapp) | itemType<br>(fil/mapp) | size<br>Arkiv | Create<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | structure<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
@@ -62,7 +61,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 **Relations databas**
 
-| Koppling/metadata | hierarkistruktur | Antal | finns |
+| Koppling/metadata | structure | Antal | finns |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
 | [Hanterad Azure SQL Database-instans](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -77,12 +76,12 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 |:--- |:--- |
 | itemName | Filens eller mappens namn. |
 | itemType | Typ av fil eller mapp. Returnerat värde är `File` eller `Folder`. |
-| ändra | Filens storlek i byte. Gäller endast för filer. |
+| size | Filens storlek i byte. Gäller endast för filer. |
 | Create | Datum/tid för filen eller mappen har skapats. |
 | lastModified | Datum och tid då filen eller mappen senast ändrades. |
 | childItems | Lista över undermappar och filer i den aktuella mappen. Gäller endast för mappar. Returnerat värde är en lista över namn och typ för varje underordnat objekt. |
 | contentMD5 | MD5 av filen. Gäller endast för filer. |
-| hierarkistruktur | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
+| structure | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
 | Antal | Antalet kolumner i filen eller Relations tabellen. |
 | finns| Om en fil, mapp eller tabell finns. Observera att om `exists` anges i fält listan Hämta metadata, kommer aktiviteten inte att kunna köras även om filen, mappen eller tabellen inte finns. I stället returneras `exists: false` i utdata. |
 

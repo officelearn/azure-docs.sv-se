@@ -1,29 +1,25 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library för .NET)
+title: Azure AD B2C (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Azure AD B2C med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0996c5635223800a981497256654b7e418bf4163
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175599"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921933"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
@@ -40,7 +36,7 @@ Den myndighet som ska använda är `https://{azureADB2CHostname}/tfp/{tenant}/{p
 
 - `azureADB2CHostname` är namnet på Azure AD B2C klienten plus värden (till exempel `{your-tenant-name}.b2clogin.com`).
 - `tenant` är det fullständiga namnet på Azure AD B2C klienten (till exempel `{your-tenant-name}.onmicrosoft.com`) eller klientens GUID, 
-- `policyName` namnet på principen eller användar flödet som ska användas (till exempel "b2c_1_susi" för registrering/inloggning).
+- `policyName` namnet på den princip eller det användar flöde som ska användas (till exempel "b2c_1_susi" för registrering/inloggning).
 
 Mer information om Azure AD B2C myndigheter finns i den här [dokumentationen](/azure/active-directory-b2c/b2clogin).
 
@@ -170,7 +166,7 @@ MSAL.Net stöder [token cache](/dotnet/api/microsoft.identity.client.tokencache?
 
 Båda dessa anspråk saknas i många av de Azure AD B2C scenarierna. 
 
-Kund effekten är att när du försöker visa fältet username får du "saknas från" token Response "som värdet? I så fall beror det på att Azure AD B2C inte returnerar ett värde i IdToken för preferred_username på grund av begränsningar med sociala konton och externa identitets leverantörer (IDP: er). Azure AD returnerar ett värde för preferred_username eftersom det vet vem användaren är, men för Azure AD B2C eftersom användaren kan logga in med ett lokalt konto, Facebook, Google, GitHub osv. det finns inget konsekvent värde för Azure AD B2C som används för preferred_username. För att avblockera MSAL från att ta bort cache-kompatibilitet med ADAL, beslutade vi att använda "saknas från token Response" i vårt slut när du hanterar Azure AD B2C-konton när IdToken returnerar inget för preferred_username. MSAL måste returnera ett värde för preferred_username för att bevara cache-kompatibiliteten mellan bibliotek.
+Kund effekten är att när du försöker visa fältet username får du "saknas från" token Response "som värdet? I så fall beror det på att Azure AD B2C inte returnerar ett värde i IdToken för preferred_username på grund av begränsningar med sociala konton och externa identitets leverantörer (IDP: er). Azure AD returnerar ett värde för preferred_username eftersom det vet vem användaren är, men för Azure AD B2C, eftersom användaren kan logga in med ett lokalt konto, Facebook, Google, GitHub osv. det finns inget konsekvent värde för Azure AD B2C som används för preferred_username. För att avblockera MSAL från att ta bort cache-kompatibilitet med ADAL, bestämde vi att du använder "saknas svar från token" i vårt slut när du hanterar Azure AD B2C-konton när IdToken returnerar inget för preferred_username. MSAL måste returnera ett värde för preferred_username för att bevara cache-kompatibiliteten mellan bibliotek.
 
 ### <a name="workarounds"></a>Lösningar
 
@@ -189,4 +185,4 @@ Mer information om hur du hämtar token interaktivt med MSAL.NET för Azure AD B
 
 | Exempel | Plattform | Beskrivning|
 |------ | -------- | -----------|
-|[Active-Directory-B2C-Xamarin-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | En enkel Xamarin Forms-app som demonstrerar hur du använder MSAL.NET för att autentisera användare via Azure AD B2C och åtkomst till ett webb-API med de resulterande tokens.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | En enkel Xamarin Forms-app som demonstrerar hur du använder MSAL.NET för att autentisera användare via Azure AD B2C och åtkomst till ett webb-API med de resulterande tokens.|

@@ -1,5 +1,6 @@
 ---
-title: Använd Microsoft Identity Platform för att logga in användare i webbläsare-enheter som är mindre | Azure
+title: Logga in användare utan webbläsare | Azure
+titleSuffix: Microsoft identity platform
 description: Bygg inbäddade och webbläsar lösa autentiserings flöden med hjälp av enhets godkännande.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c948c59a90e0db17b4704188221cfc3c3d82310
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207610"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919247"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform och OAuth 2,0-enhetens Authorization-flöde
 
@@ -64,7 +65,7 @@ scope=user.read%20openid%20profile
 | --- | --- | --- |
 | `tenant` | Krävs | Kan vara/vanliga,/consumers eller/organizations.  Det kan också vara den katalog klient som du vill begära behörighet från i GUID eller eget namn format.  |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
-| `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md) som du vill att användaren ska godkänna.  |
+| `scope` | Rekommenderad | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md) som du vill att användaren ska godkänna.  |
 
 ### <a name="device-authorization-response"></a>Svar på enhets auktorisering
 

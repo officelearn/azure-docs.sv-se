@@ -3,26 +3,22 @@ title: Skapa identitet för Azure-appen i portalen
 titleSuffix: Microsoft identity platform
 description: Beskriver hur du skapar ett nytt Azure Active Directory program och tjänstens huvud namn som kan användas med rollbaserad åtkomst kontroll i Azure Resource Manager för att hantera åtkomst till resurser.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c883dc1f9743e4318db5fe21b0e52ea92d60dc5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473870"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917870"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
 
@@ -47,9 +43,9 @@ Du har skapat ditt Azure AD-program och tjänstens huvud namn.
 
 ## <a name="assign-the-application-to-a-role"></a>Tilldela programmet till en roll
 
-Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
+Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
-Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre omfattnings nivåer. Om du till exempel lägger till ett program till rollen läsare för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller.
+Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Om du till exempel lägger till ett program till rollen läsare för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller.
 
 1. I Azure Portal väljer du den omfattnings nivå som du vill tilldela programmet till. Om du till exempel vill tilldela en roll i prenumerations omfånget söker du efter och väljer **prenumerationer**eller väljer **prenumerationer** på **Start** sidan.
 
@@ -62,12 +58,12 @@ Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resurs
    Om du inte ser den prenumeration du letar efter väljer du **globala prenumerations filter**. Kontrol lera att den prenumeration du vill använda är vald för portalen.
 
 1. Välj **Åtkomstkontroll (IAM)** .
-1. Välj **Lägg till roll tilldelning**.
+1. Välj **Lägg till rolltilldelning**.
 1. Välj den roll som du vill tilldela till programmet. Om du till exempel vill tillåta att programmet kör åtgärder som **starta om**, **Starta** och **stoppa** instanser väljer du rollen **deltagare** .  Läs mer om [tillgängliga roller](../../role-based-access-control/built-in-roles.md) som standard visas inte Azure AD-program i de tillgängliga alternativen. Du hittar ditt program genom att söka efter namnet och välja det.
 
    ![Välj den roll som ska tilldelas programmet](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Välj **Spara** för att slutföra tilldelningen av rollen. Du ser ditt program i listan över användare som har tilldelats en roll för det omfånget.
+1. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för det omfånget.
 
 Tjänstens huvud namn har kon figurer ATS. Du kan börja använda den för att köra skript eller appar. Nästa avsnitt visar hur du hämtar värden som behövs när du loggar in program mässigt.
 

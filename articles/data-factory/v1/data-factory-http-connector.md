@@ -4,20 +4,19 @@ description: Lär dig hur du flyttar data från en lokal eller moln-HTTP-källa 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4133393b7b21394ea397598a5e1651ee370f92f0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682515"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924183"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Flytta data från en HTTP-källa med hjälp av Azure Data Factory
 
@@ -39,7 +38,7 @@ Du kan använda den här HTTP-anslutningen för att hämta data från *både ett
 
 När du kopierar data från en lokal HTTP-slutpunkt måste du installera Data Management Gateway i den lokala miljön eller i en virtuell Azure-dator. Mer information om Data Management Gateway och stegvisa anvisningar om hur du konfigurerar gatewayen finns i [Flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Du kan skapa en pipeline med en kopierings aktivitet för att flytta data från en HTTP-källa med hjälp av olika verktyg eller API: er:
 
@@ -47,7 +46,7 @@ Du kan skapa en pipeline med en kopierings aktivitet för att flytta data från 
 
 - Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mall**, **.NET-API**eller **REST API**. Stegvisa instruktioner om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). För JSON-exempel som kopierar data från en HTTP-källa till Azure Blob Storage, se [JSON-exempel](#json-examples).
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 I följande tabell beskrivs JSON-element som är speciella för den länkade HTTP-tjänsten:
 
@@ -68,7 +67,7 @@ Ange **authenticationType** som **Basic**, **Digest**eller **Windows**. Förutom
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| Användar | Användar namnet som används för att få åtkomst till HTTP-slutpunkten. | Ja |
+| userName | Användar namnet som används för att få åtkomst till HTTP-slutpunkten. | Ja |
 | lösenord | Användarens lösen ord (**användar namn**). | Ja |
 
 **Exempel: använda Basic-, Digest-eller Windows-autentisering**
@@ -97,7 +96,7 @@ Om du vill använda grundläggande autentisering anger du **authenticationType**
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | embeddedCertData | Det Base64-kodade innehållet i binära data i PFX-filen. | Ange antingen **embeddedCertData** eller **certThumbprint** |
-| certThumbprint | Tumavtrycket för det certifikat som har installerats på din gateway-dators certifikat arkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
+| CertThumbprint | Tumavtrycket för det certifikat som har installerats på din gateway-dators certifikat arkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
 | lösenord | Lösen ordet som är associerat med certifikatet. | Nej |
 
 Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet på den lokala datorn ger du Läs behörighet till Gateway-tjänsten:
@@ -150,7 +149,7 @@ Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserve
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 Vissa delar av en data uppsättnings JSON-fil, till exempel struktur, tillgänglighet och princip, liknar alla typer av data uppsättningar (Azure SQL Database, Azure Blob Storage, Azure Table Storage).
 
@@ -165,8 +164,8 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsn
 | requestMethod | HTTP-metoden. Tillåtna värden är **Get** och **post**. | Nej <br />(standard är **Get**) |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | requestBody | Bröd texten för HTTP-begäran. | Nej |
-| formatering | Om du vill *Hämta data från en http-slutpunkt som-är* utan att parsa den, hoppar du över **format** inställningen. <br><br> Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet-format](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nej |
-| komprimering | Ange typ och nivå för komprimeringen för data. Typer som stöds: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds: **optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| format | Om du vill *Hämta data från en http-slutpunkt som-är* utan att parsa den, hoppar du över **format** inställningen. <br><br> Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet-format](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds: **optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 **Exempel: använda metoden GET (standard)**
 
@@ -211,7 +210,7 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsn
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
 

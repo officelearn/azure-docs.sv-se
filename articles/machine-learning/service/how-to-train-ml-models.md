@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ce1076446fb704bb64bac98c7afe53e63d3b3450
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961701"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912430"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av uppskattning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -122,6 +122,16 @@ Slutligen skicka utbildningsjobbet:
 ```Python
 run = experiment.submit(estimator)
 print(run.get_portal_url())
+```
+
+## <a name="registering-a-model"></a>Registrera en modell
+
+När du har tränat modellen kan du spara och registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md).
+
+Genom att köra följande kod registrerar du modellen på din arbets yta och gör den tillgänglig för referens med namn i fjärrstyrda beräknings kontexter eller distributions skript. Mer information och ytterligare parametrar finns i [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) i referens dokumenten.
+
+```python
+model = run.register_model(model_name='sklearn-sample')
 ```
 
 ## <a name="github-tracking-and-integration"></a>GitHub spårning och integrering

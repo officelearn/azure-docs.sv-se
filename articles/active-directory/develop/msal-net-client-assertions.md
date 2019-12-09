@@ -1,29 +1,25 @@
 ---
-title: Klient kontroll i Microsoft Authentication Library för .NET
+title: Klientens försäkrar (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Läs om stöd för signerade klienter för konfidentiella klient program i Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/18/2019
 ms.author: jmprieur
-ms.reviewer: ''
+ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ff02e4c95594f0155ab31e3c99a0eb269626d9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168125"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921911"
 ---
 # <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
 
@@ -55,9 +51,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 De anspråk som förväntas av Azure AD är:
 
-Anspråks typ | Värde | Beskrivning
+Anspråkstyp | Värde | Beskrivning
 ---------- | ---------- | ----------
-AUD | https://login.microsoftonline.com/{tenantId}/v2.0 | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, section 4.1.3]
+aud | https://login.microsoftonline.com/{tenantId}/v2.0 | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, section 4.1.3]
 exp | Tor Jun 27 2019 15:04:17 GMT + 0200 (romantik, sommar tid) | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4]
 ISS | ClientID | Anspråket "ISS" (utfärdare) identifierar det huvud konto som utfärdade JWT. Bearbetningen av detta påstående är programspecifik. Värdet "ISS" är en Skift läges känslig sträng som innehåller ett StringOrURI-värde. [RFC 7519, avsnitt 4.1.1]
 jti | (ett GUID) | Anspråket "JTI" (JWT ID) tillhandahåller en unik identifierare för JWT. Identifier-värdet måste tilldelas på ett sätt som garanterar att det är en försumbar sannolikhet att samma värde har tilldelats av misstag till ett annat data objekt. om programmet använder flera utfärdare, måste kollisioner förhindras mellan värden som skapas av olika utfärdare. JTI-anspråket kan användas för att förhindra att JWT spelas upp. Värdet "JTI" är en Skift läges känslig sträng. [RFC 7519, section 4.1.7]

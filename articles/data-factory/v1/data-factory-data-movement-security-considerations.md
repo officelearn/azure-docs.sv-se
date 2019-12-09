@@ -4,20 +4,19 @@ description: Lär dig mer om att skydda data flyttning i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f18505e02c5d65d21e93759eb5da480c20e2eb3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 467ba9f36dbcd44c5b8d87ee2f20d178d62d9732
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682624"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930819"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory-säkerhets överväganden för data förflyttning
 
@@ -37,7 +36,7 @@ Data förflyttning med Azure Data Factory har **certifierats** för:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--   [CSA-STJÄRNA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
@@ -67,7 +66,7 @@ Transparent datakryptering (TDE) i Azure SQL Data Warehouse hjälper till med at
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database stöder även transparent data kryptering (TDE), som hjälper till att skydda mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av data utan att kräva ändringar i programmet. Det här beteendet är transparent för klienten. Mer information finns i [Transparent datakryptering med Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
-#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+#### <a name="azure-data-lake-store"></a>Azure-datasjölagring
 Azure Data Lake Store tillhandahåller även kryptering för data som lagras i kontot. När den är aktive rad krypterar Data Lake Store automatiskt data innan de behålls och dekrypteras innan de kan hämtas, vilket gör det transparent för klienten som har åtkomst till data. Mer information finns [i säkerhet i Azure Data Lake Store](../../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage och Azure Table Storage
@@ -129,9 +128,9 @@ I följande tabell sammanfattas rekommendationerna för nätverks-och gateway-ko
 
 | Källa | Mål | Nätverkskonfiguration | Gateway-konfiguration |
 | ------ | ----------- | --------------------- | ------------- | 
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator (VM) i VNet | 
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator i VNet | 
-| Lokal | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (offentlig peering) | Gatewayen måste installeras lokalt | 
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator (VM) i VNet | 
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator i VNet | 
+| Lokalt | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (offentlig peering) | Gatewayen måste installeras lokalt | 
 
 I följande bilder visas användningen av Data Management Gateway för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av Express Route och IPSec VPN (med Virtual Network):
 
@@ -150,7 +149,7 @@ I ett företag körs en **företags brand vägg** på den centrala routern i org
 
 Följande tabell innehåller **utgående port** -och domän krav för **företags brand väggen**.
 
-| Domän namn | Utgående portar | Beskrivning |
+| Domännamn | Utgående portar | Beskrivning |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Krävs av gatewayen för att ansluta till data flytt tjänster i Data Factory |
 | `*.core.windows.net` | 443 | Används av gatewayen för att ansluta till Azure Storage-kontot när du använder funktionen för [mellanlagrad kopiering](data-factory-copy-activity-performance.md#staged-copy) . | 
@@ -180,7 +179,7 @@ Följande moln data lager kräver vit listning av IP-adressen för gateway-dator
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 **Fråga:** Kan gatewayen delas mellan olika data fabriker?
 **Svar:** Vi har inte stöd för den här funktionen ännu. Vi jobbar på det.

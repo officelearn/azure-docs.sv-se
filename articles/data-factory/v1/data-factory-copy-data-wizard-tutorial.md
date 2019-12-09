@@ -4,7 +4,7 @@ description: I de här självstudierna skapar du en Azure Data Factory-pipeline 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3afe58baa083ccbfe075476f9a7a8b36c30ca9c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22fcf75ace672b1481228996d6e7efe9c73013e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682825"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927267"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Med **Kopieringsguiden** för Azure Data Factory kan du snabbt skapa en pipeline
 
 Den här guiden beskriver hur du skapar en Azure-datafabrik. Starta guiden Kopiera, och utför ett antal åtgärder för att ge information om datainmatning/rörelsescenarier. När du slutför stegen i guiden skapar guiden automatiskt en pipeline med en kopieringsaktivitet som kopierar data från en Azure-blob till en Azure SQL-databas. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Slutför stegen i artikeln [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) innan du fortsätter med självstudierna.
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
@@ -81,7 +81,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
    1. Ange **CopyFromBlobToAzureSql** som **aktivitetsnamn**
    2. Ange en **beskrivning** (valfritt).
    3. Ändra **tid, startdatum** och **tid, slutdatum** så att slutdatumet är dagens datum och startdatum är fem dagar tidigare.  
-   4. Klicka på **Nästa**.  
+   4. Klicka på **Next**.  
       
       ![Verktyget Kopiera – sidan Egenskaper](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
 3. På sidan **Källans datalager** klickar du på ikonen **Azure blobblagring**. Du kan använda den här sidan till att ange källans datalager för kopieringsaktiviteten. 
@@ -117,7 +117,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
    3. Välj din Azure-**prenumeration**.  
    4. Välj **Servernamn** och **Databas**.
    5. Ange **Användarnamn** och **Lösenord**.
-   6. Klicka på **Nästa**.  
+   6. Klicka på **Next**.  
       
       ![Verktyget Kopiera - Ange Azure SQL-databas](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. På sidan **Tabellmappning** väljer du **emp** i fältet **Mål** i listrutan. Klicka på **nedåtpilen** (valfritt) för att visa schemat och för att förhandsgranska datan.

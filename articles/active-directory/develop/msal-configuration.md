@@ -1,33 +1,29 @@
 ---
-title: Förstå Android Microsoft Authentication Library (MSAL)-konfigurations filen
+title: Konfigurations fil för Android Microsoft Authentication Library | Azure
 titleSuffix: Microsoft identity platform
 description: En översikt över Android Microsoft Authentication Library (MSAL)-konfigurations filen som representerar ett programs konfiguration i Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803150"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916834"
 ---
-# <a name="android-microsoft-authentication-library-msal-configuration-file"></a>Android Microsoft Authentication Library (MSAL)-konfigurations fil
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Konfigurations fil för Android Microsoft Authentication Library
 
-MSAL levereras med en [standard konfigurations-JSON-fil](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) som du anpassar för att definiera beteendet för din offentliga klient app för sådant som standard auktoritet, vilka myndigheter du ska använda och så vidare.
+Android Microsoft Authentication Library (MSAL) levereras med en [standard konfigurations-JSON-fil](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) som du anpassar för att definiera beteendet för din offentliga klient app för t. ex. standard utfärdare, vilka myndigheter du använder, och så vidare.
 
 I den här artikeln får du hjälp att förstå de olika inställningarna i konfigurations filen och hur du anger konfigurations filen som ska användas i din MSAL-baserade app.
 
@@ -148,7 +144,7 @@ Konfigurera globala inställningar för HTTP-timeout, till exempel:
 | `connect_timeout` | int | Nej | Tid i millisekunder |
 | `read_timeout` | int | Nej | Tid i millisekunder |
 
-### <a name="logging"></a>Logging
+### <a name="logging"></a>loggning
 
 Följande globala inställningar gäller för loggning:
 

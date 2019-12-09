@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från Sybase Database med hjäl
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: b379ee10-0ff5-4974-8c87-c95f82f1c5c6
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e6d2acbb848a03d950e830458963ecc4f26dff98
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682415"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929025"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Flytta data från Sybase med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -32,7 +31,7 @@ Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Dat
 
 Du kan kopiera data från ett lokalt Sybase-datalager till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Data Factory stöder för närvarande endast flytt av data från ett Sybase-datalager till andra data lager, men inte för att flytta data från andra data lager till ett Sybase-datalager. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Data Factory tjänsten stöder anslutning till lokala Sybase-källor med hjälp av Data Management Gateway. Se [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar om du vill lära dig mer om data Management Gateway och stegvisa anvisningar för hur du konfigurerar gatewayen.
 
 Gateway krävs även om Sybase-databasen finns i en virtuell Azure IaaS-dator. Du kan installera gatewayen på samma virtuella IaaS-dator som data lagret eller på en annan virtuell dator så länge som gatewayen kan ansluta till databasen.
@@ -49,7 +48,7 @@ SAP Sybase SQL Anywhere (ASA) version 16 och senare stöds. SWEETIQ och ASE stö
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -61,7 +60,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för ett Sybase-data lager:
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för den länkade tjänsten Sybase.
 
 | Egenskap | Beskrivning | Krävs |
@@ -69,13 +68,13 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | typ |Egenskapen Type måste anges till: **OnPremisesSybase** |Ja |
 | server |Sybase-serverns namn. |Ja |
 | databas |Sybase-databasens namn. |Ja |
-| Schema |Namnet på schemat i databasen. |Nej |
+| schema |Namnet på schemat i databasen. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till Sybase-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Nej |
 | lösenord |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala Sybase-databasen. |Ja |
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
 Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **RelationalTable** (som innehåller Sybase-datauppsättningen) har följande egenskaper:
@@ -93,7 +92,7 @@ När källan är av typen **RelationalSource** (som innehåller Sybase) är föl
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 
 ## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>JSON-exempel: kopiera data från Sybase till Azure-Blob

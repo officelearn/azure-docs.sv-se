@@ -1,5 +1,5 @@
 ---
-title: Program med en sida (Hämta en token för att anropa ett API) – Microsoft Identity Platform
+title: Hämta en token i appar med en sida – Microsoft Identity Platform | Azure
 description: Lär dig hur du skapar ett program med en enda sida (Hämta en token för att anropa ett API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f1140d00671a706ce8839a73023dfad64d4663
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9723e9a58704a583c7332db11bae7da6b045a5f7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764771"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919842"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Program med en sida: Hämta en token för att anropa ett API
 

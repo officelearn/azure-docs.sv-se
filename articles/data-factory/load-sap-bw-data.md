@@ -1,22 +1,22 @@
 ---
-title: Läs in data från SAP Business Warehouse med hjälp av Azure Data Factory
+title: Läs in data från SAP Business Warehouse
 description: Använd Azure Data Factory för att kopiera data från SAP Business Warehouse (BW)
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c96ecff27a57b3277e7c8105766059b739d11af
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672652"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931456"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du använder Azure Data Factory för att kopiera dat
 > [!TIP]
 > Allmän information om hur du kopierar data från SAP BW, inklusive SAP BW öppen hubb integrering och delta extraherings flöde, finns i [Kopiera data från SAP Business Warehouse via öppna hubb med Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - **Azure Data Factory**: om du inte har något följer du stegen för att [skapa en data fabrik](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
@@ -34,7 +34,7 @@ Den här artikeln visar hur du använder Azure Data Factory för att kopiera dat
 - **Den SAP BW användaren behöver följande behörigheter**:
 
   - Auktorisering för fjärr funktions anrop (RFC) och SAP BW.
-  - Behörigheter till aktiviteten "kör" för **S_SDSAUTH** -Authorization-objektet.
+  - Behörigheter till aktiviteten "kör" för **S_SDSAUTH** Authorization-objektet.
 
 - **En [egen värd för integration Runtime (IR)](concepts-integration-runtime.md#self-hosted-integration-runtime) med SAP .net Connector 3,0**. Följ dessa installations steg:
 
@@ -46,7 +46,7 @@ Den här artikeln visar hur du använder Azure Data Factory för att kopiera dat
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>Gör en fullständig kopia från SAP BW öppna hubben
 
-Gå till din data fabrik i Azure Portal. Välj **författar & övervakare** för att öppna data Factory användar gränssnittet på en separat flik.
+Gå till datafabriken i Azure-portalen. Välj **författar & övervakare** för att öppna data Factory användar gränssnittet på en separat flik.
 
 1. På sidan **nu sätter vi igång** väljer du **Kopiera data** för att öppna kopiera datas verktyget.
 
@@ -87,7 +87,7 @@ Gå till din data fabrik i Azure Portal. Välj **författar & övervakare** för
    ![Skapa en ADLS Gen2 länkad tjänst sida](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Välj ditt Data Lake Storage Gen2-kapabla konto i list rutan **namn** .
-   2. Klicka på **Slutför** för att skapa anslutningen. Välj sedan **Nästa**.
+   2. Välj **Slutför** för att skapa anslutningen. Välj sedan **Nästa**.
 
 9. På sidan **Välj utdatafil eller mapp** anger du **copyfromopenhub** som namn på mappen utdata. Välj sedan **Nästa**.
 
@@ -101,7 +101,7 @@ Gå till din data fabrik i Azure Portal. Välj **författar & övervakare** för
 
     ![Konfigurera kopierings inställningar](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. På sidan **Sammanfattning** granskar du inställningarna. Välj sedan **Nästa**.
+12. Granska inställningarna på sidan **Sammanfattning** . Välj sedan **Nästa**.
 
 13. På sidan **distribution** väljer du **övervakare** för att övervaka pipelinen.
 
@@ -111,7 +111,7 @@ Gå till din data fabrik i Azure Portal. Välj **författar & övervakare** för
 
     ![Vyn pipeline-övervakning](media/load-sap-bw-data/pipeline-monitoring.png)
 
-15. Om du vill visa aktivitets körningar som är associerade med pipeline-körningen väljer du **Visa aktivitets körningar** i kolumnen **åtgärder** . Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Om du vill växla tillbaka till pipelinen – körs väljer du länken **pipelines** överst. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
+15. Om du vill visa aktivitets körningar som är associerade med pipeline-körningen väljer du **Visa aktivitets körningar** i kolumnen **åtgärder** . Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Om du vill växla tillbaka till pipelinen – körs väljer du länken **pipelines** överst. Om du vill uppdatera listan väljer du **Uppdatera**.
 
     ![Skärmen för aktivitets övervakning](media/load-sap-bw-data/activity-monitoring.png)
 
@@ -212,7 +212,7 @@ Om du behöver både historisk kopiering och stegvis kopiering eller endast steg
 
    Du kan öka antalet parallella SAP-arbetsprocesser för DTP:
 
-   ![Create-SAP-BW-OHD-Delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Schemalägg DTP i process kedjor.
 

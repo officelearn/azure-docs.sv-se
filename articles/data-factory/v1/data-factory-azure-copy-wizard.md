@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b2ec8e2cc09b6deb236bd83cb5cca99fead97279
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fef9059700e2bd94029c40bb819870a7174e0812
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683220"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930119"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Guiden Azure Data Factory kopiering
 > [!NOTE]
@@ -55,7 +54,7 @@ Schemat för indata kan inte matcha schemat för utdata i vissa fall. I det här
 
 Använd en nedrullningsbar listruta för att välja en kolumn från det käll schema som ska mappas till en kolumn i mål schemat. Kopierings guiden försöker förstå ditt mönster för kolumn mappning. Den använder samma mönster för resten av kolumnerna, så att du inte behöver markera varje kolumn separat för att slutföra schema mappningen. Om du vill kan du åsidosätta dessa mappningar genom att använda List rutorna för att mappa kolumnerna en i taget. Mönstret blir mer korrekt när du mappar fler kolumner. Kopierings guiden uppdaterar kontinuerligt mönstret och når i slut änden det högra mönstret för den kolumn mappning som du vill uppnå.     
 
-![Schema mappning](./media/data-factory-copy-wizard/schema-mapping.png)
+![Schemamappning](./media/data-factory-copy-wizard/schema-mapping.png)
 
 ## <a name="filtering-data"></a>Filtrera data
 Du kan filtrera källdata om du bara vill välja de data som behöver kopieras till mottagar data lagret. Filtrering minskar mängden data som ska kopieras till Sink-datalagret och ökar därför data flödet för kopierings åtgärden. Det är ett flexibelt sätt att filtrera data i en Relations databas med hjälp av SQL-frågespråket eller filer i en Azure Blob-mapp med hjälp av [Data Factory Functions och variabler](data-factory-functions-variables.md).   

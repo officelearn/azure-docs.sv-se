@@ -1,7 +1,7 @@
 ---
-title: Lär dig att tillhandahålla valfria anspråk till din Azure AD-App
+title: Tillhandahålla valfria anspråk till Azure AD-appar | Azure
 titleSuffix: Microsoft identity platform
-description: En guide för att lägga till anpassade eller ytterligare anspråk till token för SAML 2,0 och JSON Web tokens (JWT) som utfärdats av Azure Active Directory.
+description: Hur du lägger till anpassade eller ytterligare anspråk till SAML 2,0 och JWT-token (JSON Web token) som utfärdats av Azure Active Directory.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 323415c18497f19b4c8f29a303b6ec59dfda1885
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844727"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918278"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
 

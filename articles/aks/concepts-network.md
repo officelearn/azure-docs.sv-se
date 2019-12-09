@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950365"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913887"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -33,7 +33,7 @@ I Kubernetes grupperar *tjänster* logiskt poddar för att tillåta direkt åtko
 
 Azure-plattformen hjälper också till att förenkla virtuella nätverk för AKS-kluster. När du skapar en Kubernetes-belastningsutjämnare skapas och konfigureras den underliggande Azure Load Balancer-resursen. När du öppnar nätverks portar till poddar konfigureras motsvarande regler för Azure nätverks säkerhets grupper. För HTTP-programroutning kan Azure också konfigurera *extern DNS* eftersom nya ingress-vägar konfigureras.
 
-## <a name="services"></a>Tjänster
+## <a name="services"></a>Services
 
 För att förenkla nätverks konfigurationen för program arbets belastningar använder Kubernetes *tjänster* för att logiskt gruppera en uppsättning poddar tillsammans och tillhandahålla nätverks anslutning. Följande tjänst typer är tillgängliga:
 
@@ -92,12 +92,12 @@ Både Kubernetes och Azure CNI ger nätverks anslutning till dina AKS-kluster. D
     * Du måste manuellt hantera och underhålla användardefinierade vägar (UDR).
     * Högst 400 noder per kluster.
 * **Azure CNI**
-    * Poddar får fullständig virtuell nätverks anslutning och kan nås direkt från utsidan av klustret.
+    * Poddar får fullständig virtuell nätverks anslutning och kan nås direkt via deras privata IP-adress från anslutna nätverk.
     * Kräver mer IP-adressutrymme.
 
 Det finns följande skillnader mellan Kubernetes och Azure CNI:
 
-| Funktion                                                                                   | Kubernetes   | Azure CNI |
+| Kapacitet                                                                                   | Kubernetes   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Distribuera kluster i befintligt eller nytt virtuellt nätverk                                            | Stödd-UDR manuellt tillämpat | Stöds |
 | Pod – Pod-anslutning                                                                         | Stöds | Stöds |

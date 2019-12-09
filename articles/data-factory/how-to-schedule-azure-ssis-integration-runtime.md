@@ -12,13 +12,13 @@ ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 0f0ceb9d7ee428571c2d472dd9ed9442f404a090
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673805"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928858"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar du Azure-SSIS Integration Runtime enligt ett schema
 I den här artikeln beskrivs hur du schemalägger start och stopp av Azure-SSIS Integration Runtime (IR) med Azure Data Factory (ADF). Azure-SSIS IR är ADF Compute-resurs dedikerad för att köra SQL Server Integration Services-paket (SSIS). Att köra Azure-SSIS IR har en kostnad som är kopplad till den. Därför vill du normalt bara köra IR när du behöver köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF-/app (användar gränssnitt) eller Azure PowerShell för att [manuellt starta eller stoppa IR-nätverket](manage-azure-ssis-integration-runtime.md).
@@ -27,7 +27,7 @@ Alternativt kan du skapa webb aktiviteter i ADF-pipeliner för att starta/stoppa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Om du inte redan har etablerat ditt Azure-SSIS IR kan du etablera det genom att följa anvisningarna i [självstudien](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Skapa och schemalägga ADF-pipelines som startar och stoppar Azure-SSIS IR
@@ -88,7 +88,7 @@ Om du skapar en tredje utlösare som är schemalagd att köras varje dag vid mid
    
 2. I verktygs lådan **aktiviteter** expanderar du menyn **allmänt** och drar & släpper en **webb** aktivitet på pipelinens design yta. På fliken **Allmänt** i fönstret aktivitets egenskaper ändrar du aktivitets namnet till **startMyIR**. Växla till fliken **Inställningar** och utför följande åtgärder.
 
-    1. För **URL**anger du följande url för REST API som börjar Azure-SSIS IR, ersätter `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`och `{integrationRuntimeName}` med de faktiska värdena för din ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` du kan också kopiera & klistra in resurs-ID för din IR från dess Sidan övervakning i ADF UI/app för att ersätta följande del av ovanstående URL: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. För **URL**anger du följande url för REST API som börjar Azure-SSIS IR, ersätter `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`och `{integrationRuntimeName}` med de faktiska värdena för din ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` du kan också kopiera & klistra in resurs-ID: t för IR-filen från sidan övervakning i ADF UI/app för att ersätta följande del av URL: en: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![SSIS IR-resurs-ID](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -105,7 +105,7 @@ Om du skapar en tredje utlösare som är schemalagd att köras varje dag vid mid
     
     2. För **brödtext**, ange `{"message":"Stop my IR"}`. 
 
-4. Skapa en tredje pipeline, dra & släppa en **kör SSIS-paket** -aktivitet **från aktivitets** verktygs lådan till pipelinens designer-yta och konfigurera den enligt instruktionerna i [anropa ett SSIS-paket med hjälp av SSIS-paketet aktivitet i ADF](how-to-invoke-ssis-package-ssis-activity.md) -artikel.  Du kan också använda en **lagrad procedur** aktivitet i stället och konfigurera den enligt instruktionerna i [anropa ett SSIS-paket med hjälp av en lagrad procedur aktivitet i ADF](how-to-invoke-ssis-package-stored-procedure-activity.md) -artikeln.  Sedan kopplar du aktiviteten kör SSIS-paket/lagrade procedurer mellan två webb aktiviteter som startar/stoppar din IR, som liknar dessa webb aktiviteter i de första/andra pipelinen.
+4. Skapa en tredje pipeline, dra & släppa en **kör SSIS-paket** -aktivitet **från aktivitets verktygs lådan i** pipelinens designer-yta och konfigurera den enligt instruktionerna i [anropa ett SSIS-paket med aktiviteten kör SSIS-paket i ADF](how-to-invoke-ssis-package-ssis-activity.md) -artikeln.  Du kan också använda en **lagrad procedur** aktivitet i stället och konfigurera den enligt instruktionerna i [anropa ett SSIS-paket med hjälp av en lagrad procedur aktivitet i ADF](how-to-invoke-ssis-package-stored-procedure-activity.md) -artikeln.  Sedan kopplar du aktiviteten kör SSIS-paket/lagrade procedurer mellan två webb aktiviteter som startar/stoppar din IR, som liknar dessa webb aktiviteter i de första/andra pipelinen.
 
    ![ADF-webbaktivitet på begäran SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
 
@@ -114,7 +114,7 @@ Om du skapar en tredje utlösare som är schemalagd att köras varje dag vid mid
     1. För **roll**väljer du **deltagare**. 
     2. För **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn**. 
     3. För **Välj**söker du efter ditt ADF-namn och väljer det. 
-    4. Klicka på **Spara**.
+    4. Klicka på **Save** (Spara).
     
    ![ADF-hanterad identitets roll tilldelning](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 

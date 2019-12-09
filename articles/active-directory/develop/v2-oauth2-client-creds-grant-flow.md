@@ -1,5 +1,5 @@
 ---
-title: Använd Microsoft Identity Platform för att komma åt säkra resurser utan användar interaktion | Azure
+title: OAuth 2,0-klientens autentiseringsuppgifter flöde på Microsoft Identity Platform | Azure
 description: Bygg webb program med hjälp av Microsoft Identity Platform-implementeringen av autentiseringsprotokollet OAuth 2,0.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1499e931a81e31494d7ff442c8295ba03f1cf33
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ae50c7cfcb5087903edd8dadca08c38ab1775e20
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207639"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919298"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flödet
 
@@ -31,7 +31,7 @@ ms.locfileid: "74207639"
 
 Du kan använda [tilldelningen oauth 2,0-klientautentiseringsuppgifter](https://tools.ietf.org/html/rfc6749#section-4.4) som anges i RFC 6749, ibland kallat *två-ledade OAuth*, för att få åtkomst till webb värd resurser med hjälp av identiteten för ett program. Den här typen av tilldelning används ofta för server-till-Server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. Dessa typer av program kallas ofta för *daemon* eller *tjänst konton*.
 
-Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder MSAL (Microsoft Authentication Libraries) i stället för att [Hämta tokens och anropa säkra webb-API: er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på de [exempel appar som använder MSAL](sample-v2-code.md).
+Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt program. När det är möjligt rekommenderar vi att du använder MSAL (Microsoft Authentication Libraries) i stället för att [Hämta tokens och anropa säkra webb-API: er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på de [exempel appar som använder MSAL](sample-v2-code.md).
 
 OAuth 2,0-klientens autentiseringsuppgifter för beviljande av autentiseringsuppgifter tillåter en webb tjänst (konfidentiell klient) att använda sina egna autentiseringsuppgifter, i stället för att personifiera en användare, för att autentisera vid anrop till en annan webb tjänst. I det här scenariot är klienten vanligt vis en webb tjänst på mellan nivå, en daemon-tjänst eller en webbplats. För en högre säkerhets nivå tillåter Microsofts identitets plattform också att anrops tjänsten använder ett certifikat (i stället för en delad hemlighet) som autentiseringsuppgift.
 
@@ -70,7 +70,7 @@ I stället för att använda ACL: er kan du använda API: er för att visa en up
 * Läs e-post i alla post lådor
 * Läsa och skriva e-post i alla post lådor
 * Skicka e-post som valfri användare
-* Läsa katalog data
+* Läs katalogdata
 
 Om du vill ha mer information om program behörigheter går du till [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -118,7 +118,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Detta kan vara i ett GUID eller eget namn format. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med en klient använder du `common`. |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
 | `redirect_uri` | Krävs | Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad och den kan ha ytterligare Sök vägs segment. |
-| `state` | Rekommenderas | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Statusen används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
+| `state` | Rekommenderad | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Statusen används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
 
 I det här läget tvingar Azure AD att endast en klient organisations administratör kan logga in för att slutföra begäran. Administratören kommer att uppmanas att godkänna alla direkta program behörigheter som du har begärt för din app i registrerings portalen för appen.
 
@@ -277,5 +277,5 @@ Läs [dokumentations översikten över klientens autentiseringsuppgifter](https:
 
 | Exempel | Plattform |Beskrivning |
 |--------|----------|------------|
-|[Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2,1-konsol | Ett enkelt .NET Core-program som visar användare av en klient som frågar Microsoft Graph som använder appens identitet, i stället för för en användares räkning. Exemplet illustrerar också variationen med hjälp av certifikat för autentisering. |
-|[Active Directory-Dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Ett webb program som synkroniserar data från Microsoft Graph med appens identitet, i stället för för en användares räkning. |
+|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2,1-konsol | Ett enkelt .NET Core-program som visar användare av en klient som frågar Microsoft Graph som använder appens identitet, i stället för för en användares räkning. Exemplet illustrerar också variationen med hjälp av certifikat för autentisering. |
+|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Ett webb program som synkroniserar data från Microsoft Graph med appens identitet, i stället för för en användares räkning. |

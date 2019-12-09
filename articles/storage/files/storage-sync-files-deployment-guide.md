@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 593c9ea9c37cc5684e85604340f8aae3d84d9afb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4f9a2842f99c7f8b0bb9f820584fb2cd4e41a2b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546356"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927878"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -400,6 +400,10 @@ För närvarande har för-seeding-metoden några begränsningar –
 - När moln slut punkten har skapats kör Azure File Sync en process för att identifiera filerna i molnet innan du startar den första synkroniseringen. Den tid det tar att slutföra den här processen varierar beroende på de olika faktorer som nätverks hastighet, tillgänglig bandbredd och antal filer och mappar. För en grov uppskattning i för hands versionen körs identifierings processen ungefär vid 10 filer/SEK.  Även om för indirigering körs snabbt, kan den totala tiden för att få ett fullständigt operativ system vara betydligt längre när data försätts i molnet.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Återställning via självbetjäning genom tidigare versioner och VSS (tjänsten Volume Shadow Copy)
+
+> [!IMPORTANT]
+> Följande information kan bara användas med version 9 (eller senare) av agenten för synkronisering av lagring. Versioner som är lägre än 9 kommer inte att ha StorageSyncSelfService-cmdletar.
+
 Tidigare versioner är en Windows-funktion som gör att du kan använda VSS-ögonblicksbilder på Server sidan på en volym för att presentera återställas-versioner av en fil till en SMB-klient.
 Detta möjliggör ett kraftfullt scenario, som vanligt vis kallas självbetjänings återställning, direkt för informations anställda i stället för att beroende på återställningen från en IT-administratör.
 
@@ -446,10 +450,10 @@ Så här migrerar du en DFS-R-distribution till Azure File Sync:
 3. Registrera servern och skapa en server slut punkt för den första servern som ska migreras. Aktivera inte moln nivåer.
 4. Låt all data synkroniseras med din Azure-filresurs (moln slut punkt).
 5. Installera och registrera Azure File Sync-agenten på var och en av de återstående DFS-R-servrarna.
-6. Inaktivera DFS-R. 
+6. Disable DFS-R. 
 7. Skapa en server slut punkt på varje DFS-R-Server. Aktivera inte moln nivåer.
 8. Se till att synkroniseringen är klar och testa din topologi som önskad.
-9. Dra tillbaka DFS-R.
+9. Retire DFS-R.
 10. Moln nivåer kan nu aktive ras på alla Server slut punkter efter behov.
 
 Mer information finns i [Azure File Sync interop med Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).

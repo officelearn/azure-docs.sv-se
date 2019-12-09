@@ -4,20 +4,19 @@ description: Lär dig hur du lägger till fel tolerans i Azure Data Factory kopi
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 84f5cdff72abe210ac1e39234b455e506d52ba5e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ffaee75154fd5fe025bdb683c89f16799d6e86b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682956"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926155"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Lägg till fel tolerans i kopierings aktiviteten genom att hoppa över inkompatibla rader
 
@@ -72,7 +71,7 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Aktivera hoppa över inkompatibla rader under kopian eller inte. | True<br/>Falskt (standard) | Nej |
+| **enableSkipIncompatibleRow** | Aktivera hoppa över inkompatibla rader under kopian eller inte. | Sant<br/>Falskt (standard) | Nej |
 | **redirectIncompatibleRowSettings** | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Nej |
 | **linkedServiceName** | Den länkade tjänsten med Azure Storage för att lagra loggen som innehåller de överhoppade raderna. | Namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du vill använda för att lagra logg filen. | Nej |
 | **path** | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den Blob Storage-sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej |

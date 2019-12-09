@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från PostgreSQL Database med A
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6d8c63551bd6bcc7a7e00dffa6c2b6d9e0e644db
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666076"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929072"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -33,7 +32,7 @@ Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Dat
 
 Du kan kopiera data från ett lokalt PostgreSQL-data lager till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory har för närvarande stöd för att flytta data från en PostgreSQL-databas till andra data lager, men inte för att flytta data från andra data lager till en PostgreSQL-databas.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Data Factory-tjänsten stöder anslutning till lokala PostgreSQL-källor med hjälp av Data Management Gateway. Se [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar om du vill lära dig mer om data Management Gateway och stegvisa anvisningar för hur du konfigurerar gatewayen.
 
@@ -56,7 +55,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett 
   - .NET-API
   - REST-API
 
-    Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+    Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -68,7 +67,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för ett PostgreSQL-data lager:
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för PostgreSQL-länkade tjänster.
 
 | Egenskap | Beskrivning | Krävs |
@@ -76,13 +75,13 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | typ |Egenskapen Type måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-servern. |Ja |
 | databas |Namnet på PostgreSQL-databasen. |Ja |
-| Schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Nej |
+| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Nej |
 | lösenord |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer.
 
 Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **RelationalTable** (som innehåller postgresql-datauppsättningen) har följande egenskaper:
@@ -100,7 +99,7 @@ När källan är av typen **RelationalSource** (som innehåller postgresql) är 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 > [!NOTE]
 > Schema-och tabell namn är Skift läges känsliga. Omslut dem i `""` (dubbla citat tecken) i frågan.
@@ -303,44 +302,44 @@ Som vi nämnt i artikel kopierings [aktiviteterna för data förflyttning](data-
 
 När du flyttar data till PostgreSQL används följande mappningar från PostgreSQL-typ till .NET-typ.
 
-| Typ av PostgreSQL-databas | PostgresSQL-alias | .NET Framework typ |
+| Typ av PostgreSQL-databas | PostgresSQL alias | .NET Framework typ |
 | --- | --- | --- |
 | abstime | |Datetime |
-| bigint |Int8 |Int64 |
+| bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte [], sträng |
-| bit varierande [(n)] |varbit |Byte [], sträng |
+| bit [(n)] | |Byte[], String |
+| bit varierande [(n)] |varbit |Byte[], String |
 | boolesk |bool |Boolesk |
-| Fältet | |Byte [], sträng |
-| bytea | |Byte [], sträng |
+| fältet | |Byte[], String |
+| bytea | |Byte[], String |
 | Character [(n)] |char [(n)] |Sträng |
 | Character varierande [(n)] |varchar [(n)] |Sträng |
 | Cid | |Sträng |
 | CIDR | |Sträng |
-| Division | |Byte [], sträng |
+| cirkel | |Byte[], String |
 | datum | |Datetime |
-| daterange | |Sträng |
-| dubbel precision |float8 |Dubbelklicka |
-| inet | |Byte [], sträng |
+| DateRange | |Sträng |
+| dubbel precision |float8 |Double |
+| inet | |Byte[], String |
 | intarry | |Sträng |
 | int4range | |Sträng |
 | int8range | |Sträng |
 | heltal |int, int4 |Int32 |
 | intervall [fält] [(p)] | |Tidsintervall |
-| utgör | |Sträng |
-| jsonb | |Byte [] |
-| Online | |Byte [], sträng |
-| lseg | |Byte [], sträng |
-| macaddr | |Byte [], sträng |
-| mynt | |Decimal |
+| json | |Sträng |
+| jsonb | |Byte[] |
+| rad | |Byte[], String |
+| lseg | |Byte[], String |
+| macaddr | |Byte[], String |
+| money | |Decimal |
 | numeriskt [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Sträng |
 | OID | |Int32 |
-| sökväg | |Byte [], sträng |
+| Sökväg | |Byte[], String |
 | pg_lsn | |Int64 |
-| Pekaren | |Byte [], sträng |
-| Polygonlasso | |Byte [], sträng |
-| verkligen |float4 |Enkel |
+| plats | |Byte[], String |
+| Polygonlasso | |Byte[], String |
+| real |float4 |Enkel |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | nummer |serial4 |Int32 |

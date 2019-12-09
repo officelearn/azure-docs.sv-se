@@ -1,17 +1,18 @@
 ---
-title: Kartlägger prestanda-och justerings guiden för data flöde i Azure Data Factory
+title: Mappa prestanda-och justerings guide för data flöde
 description: Lär dig mer om viktiga faktorer som påverkar prestanda för att mappa data flöden i Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671576"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928539"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -72,7 +73,7 @@ Under **käll alternativ** i käll omvandlingen kan följande inställningar på
 
 Om du vill undvika rad-för-rad-bearbetning av dina data flöden ställer du in **batchstorleken** på fliken Inställningar för Azure SQL DB och Azure SQL DW-mottagare. Om batchstorleken anges, bearbetar ADF databas skrivningar i batchar baserat på den storlek som angetts.
 
-![Sjönk](media/data-flow/sink4.png "Kanalmottagare")
+![mottagare](media/data-flow/sink4.png "Kanalmottagare")
 
 ### <a name="partitioning-on-sink"></a>Partitionering på handfat
 

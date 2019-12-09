@@ -1,29 +1,25 @@
 ---
-title: Xamarin iOS-överväganden (Microsoft Authentication Library för .NET)
+title: Xamarin iOS-överväganden (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Xamarin iOS med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc4eb0084e0606251d3fbd80d08723701c6a260
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f04074dfd9055fa4791f6fdce6bcf296aae8ff61
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175612"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921474"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Xamarin iOS-/regionsspecifika överväganden med MSAL.NET
 På Xamarin iOS finns det flera saker som du måste tänka på när du använder MSAL.NET
@@ -97,7 +93,7 @@ När du använder `WithIosKeychainSecurityGroup()`-API: t lägger MSAL automatis
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Aktivera delning av token cache i iOS-program
 
-Från MSAL 2. x kan du ange en åtkomst grupp för nyckel ringar som ska användas för att bevara token-cachen över flera program. Med den här inställningen kan du dela token-cachen mellan flera program som har samma nyckel rings grupp, inklusive de som har utvecklats med [ADAL.net](https://aka.ms/adal-net), MSAL.net Xamarin. iOS-program och inbyggda iOS-program som utvecklats med [ ADAL. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) eller [MSAL. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)).
+Från MSAL 2. x kan du ange en åtkomst grupp för nyckel ringar som ska användas för att bevara token-cachen över flera program. Med den här inställningen kan du dela token-cachen mellan flera program som har samma nyckel rings grupp, inklusive de som har utvecklats med [ADAL.net](https://aka.ms/adal-net), MSAL.net Xamarin. iOS-program och inbyggda iOS-program som har utvecklats med [ADAL. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) eller [MSAL. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)).
 
 Genom att dela token-cachen kan du använda enkel inloggning mellan alla program som använder samma nyckel rings åtkomst grupp.
 

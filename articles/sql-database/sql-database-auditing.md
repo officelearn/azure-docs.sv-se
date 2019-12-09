@@ -4,19 +4,17 @@ description: Använd Azure SQL Database-granskning för att spåra databas händ
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 58a446baaf15facab3a85d4d83defdeb5e6d2ef9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851493"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928700"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -154,7 +152,7 @@ Om du väljer att skriva gransknings loggar till Händelsehubben:
 Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns det flera metoder som du kan använda för att visa loggarna:
 
 > [!NOTE] 
-> Granskning på [skrivskyddade repliker](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) aktive ras automatiskt. Mer information om hierarkin för lagrings-mappar, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](sql-database-audit-log-format.md). 
+> Granskning på [skrivskyddade repliker](sql-database-read-scale-out.md) aktive ras automatiskt. Mer information om hierarkin för lagrings-mappar, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](sql-database-audit-log-format.md). 
 
 - Gransknings loggar sammanställs i det konto som du valde under installationen. Du kan utforska gransknings loggar med hjälp av ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/). I Azure Storage sparas gransknings loggar som en samling BLOB-filer i en behållare med namnet **sqldbauditlogs**. Mer information om hierarkin för lagrings-mappar, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](https://go.microsoft.com/fwlink/?linkid=829599).
 

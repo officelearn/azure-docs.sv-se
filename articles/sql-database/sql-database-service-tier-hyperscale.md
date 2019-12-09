@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805764"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927668"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -196,25 +196,25 @@ Om du vill skapa en storskalig databas i en region som inte är listad som stöd
 
 För att begära möjlighet att skapa storskaliga databaser i regioner som inte listas:
 
-1. Gå till [bladet hjälp och support för Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+1. Välj **Hjälp + Support**på Azure Portal-menyn, eller Sök efter och välj **Hjälp + Support** från vilken sida som helst.
 
-2. Klicka på [ **ny supportbegäran**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. I [Azure hjälp och support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)väljer du [**ny supportbegäran**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Bladet hjälp och support för Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+3. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)** .
 
-3. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)**
+4. Välj den prenumeration som du vill använda för att skapa databaserna.
 
-4. Välj den prenumeration som du vill använda för att skapa databas (er)
+5. I **typ av kvot**väljer du **SQL-databas**.
 
-5. För **typ av kvot**väljer du **SQL-databas**
+    ![Bladet hjälp och support för Azure](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-6. Klicka på **Nästa: lösningar**
+6. Klicka på **Nästa: lösningar**.
 
-1. Klicka på **Ange information**
+7. Klicka på **Ange information**.
 
     ![Probleminformation](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Välj **SQL Database kvot typ**: **annan kvot förfrågan**
+8. Välj **SQL Database kvot typ**: **annan kvot förfrågan**.
 
 9. Fyll i följande mall:
 
@@ -227,11 +227,11 @@ För att begära möjlighet att skapa storskaliga databaser i regioner som inte 
     > Beräknat antal TB 
     >
 
-10. Välj **Allvarlighetsgrad C**
+10. Välj **allvarlighets grad C**.
 
 11. Välj lämplig kontakt metod och fyll i information.
 
-12. Klicka på **Spara** och **Fortsätt**
+12. Klicka på **Spara** och **Fortsätt**.
 
 ## <a name="known-limitations"></a>Kända begränsningar
 Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från och med GA.  Vi arbetar aktivt för att ta bort så många av dessa begränsningar som möjligt.
@@ -240,7 +240,7 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | :---- | :--------- |
 | I fönstret hantera säkerhets kopior för en logisk server visas inte storskaliga databaser filtreras från SQL Server  | Storskaligt har en separat metod för att hantera säkerhets kopieringar, och eftersom inställningarna för långsiktig kvarhållning och tidpunkten för kvarhållning av säkerhets kopior inte tillämpas/är ogiltiga. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering. |
 | Återställning av lagring vid olika tidpunkter | När en databas har migrerats till den storskaliga tjänst nivån, kan du återställa till en tidpunkt innan migreringen går ut.|
-| Återställning av icke-storskalig databas till Hypserscale och vice versa | Du kan inte återställa en storskalig databas till en databas som inte är storskalig, och du kan inte återställa en databas som inte är storskalig till en storskalig databas.|
+| Återställning av icke-storskalig databas till storskalig och tvärtom | Du kan inte återställa en storskalig databas till en databas som inte är storskalig, och du kan inte återställa en databas som inte är storskalig till en storskalig databas.|
 | Om en databas har en eller flera datafiler som är större än 1 TB, Miss lyckas migreringen | I vissa fall kan det vara möjligt att undvika det här problemet genom att minska de stora filerna till mindre än 1 TB. Om du migrerar en databas som används under migreringsprocessen ser du till att ingen fil får större än 1 TB. Använd följande fråga för att fastställa storleken på databasfilerna. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Hanterad instans | Azure SQL Database hanterade instansen stöds för närvarande inte med storskaliga databaser. |
 | Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database storskalig.|
@@ -251,7 +251,8 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | Databas kopia | Du kan inte använda databas kopiering ännu för att skapa en ny databas i Azure SQL-skalning. |
 | TDE/AKV-integrering | Transparent databas kryptering med hjälp av Azure Key Vault (kallas ofta för att hämta egna nycklar eller BYOK) stöds ännu inte för Azure SQL Database storskalig, men TDE med tjänst hanterade nycklar stöds fullt ut. |
 |Intelligenta databas funktioner | Med undantag för alternativet "framtvinga plan" stöds inte alla andra alternativ för automatisk justering i den storskaliga: alternativen kan verka vara aktiverade, men inga rekommendationer eller åtgärder har gjorts. |
-| Krymp databas | DBCC SHRINKDATABASE eller DBCC SHRINKFILE stöds för närvarande inte med Azure SQL-storskaliga databaser. |
+| Krymp databas | DBCC SHRINKDATABASE eller DBCC SHRINKFILE stöds för närvarande inte för storskaliga databaser. |
+| Kontroll av databas integritet | DBCC CHECKDB stöds för närvarande inte för storskaliga databaser. Mer information om data integritets hantering i Azure SQL Database finns i [data integritet i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
 
 ## <a name="next-steps"></a>Nästa steg
 

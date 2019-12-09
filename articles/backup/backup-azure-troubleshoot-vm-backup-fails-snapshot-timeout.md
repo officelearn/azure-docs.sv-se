@@ -4,12 +4,13 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 23b10bed3b741ec76167eb5a976bf5737d20b173
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.service: backup
+ms.openlocfilehash: 5e435d1169d5f148bfa2910174bf1f2835806c8b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894019"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928250"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -25,8 +26,8 @@ Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa A
 Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd eller inte installerad och förhindra att Azure Backup-tjänsten utlöser ögonblicks bilder.
 
 - **Öppna Azure Portal > inställningar för virtuella datorer > > egenskaper-bladet** > Se till att VM- **status** är **igång** och att **agent status** är **klar**. Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd startar du om agenten<br>
-  - För virtuella Windows-datorer följer du de här [stegen](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) för att starta om gäst agenten.<br>
-  - För virtuella Linux-datorer följer du de här [stegen](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) för att starta om gäst agenten.
+  - För virtuella Windows-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) för att starta om gäst agenten.<br>
+  - För virtuella Linux-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) för att starta om gäst agenten.
 
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-det gick inte att kommunicera med VM-agenten för ögonblicks bild status

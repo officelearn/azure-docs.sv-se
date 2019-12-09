@@ -1,5 +1,5 @@
 ---
-title: Profilera produktions program i Azure med Application Insights Profiler | Microsoft Docs
+title: Profilera produktions program i Azure med Application Insights Profiler
 description: Identifiera den frekventa sökvägen i din webb server kod med en lågnivå profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 64e7cc0afa4051836d38c885dff0bc0a0e0b08c6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820515"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922080"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilera produktions program i Azure med Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Aktivera Application Insights Profiler för ditt program
@@ -109,7 +109,7 @@ Programmet utför nätverks åtgärder.
 
 ### <a id="when"></a>När kolumn
 
-Kolumnen **när** är en visualisering av hur inkluderade exempel som samlas in för en nod varierar över tid. Det totala intervallet för begäran är indelat i 32 tids buckets. Inkluderade exempel för noden samlas i dessa 32-buckets. Varje Bucket visas som en stapel. Stapelns höjd representerar ett skalat värde. För noder som har marker ATS som **CPU_TIME** eller **BLOCKED_TIME**, eller om det finns en uppenbar relation för att konsumera en resurs (till exempel en processor, disk eller tråd), representerar stapeln en av resurserna i Bucket. För dessa mått är det möjligt att få ett värde som är större än 100 procent genom att förbruka flera resurser. Om du till exempel använder, i genomsnitt, två processorer under ett intervall, får du 200 procent.
+Kolumnen **när** är en visualisering av hur inkluderade exempel som samlas in för en nod varierar över tid. Det totala intervallet för begäran är indelat i 32 tids buckets. Inkluderade exempel för noden samlas i dessa 32-buckets. Varje Bucket visas som en stapel. Stapelns höjd representerar ett skalat värde. För noder som är markerade **CPU_TIME** eller **BLOCKED_TIME**, eller om det finns en uppenbar relation för att konsumera en resurs (t. ex. en processor, disk eller tråd), representerar fältet förbrukningen av en av resurserna under Bucket. För dessa mått är det möjligt att få ett värde som är större än 100 procent genom att förbruka flera resurser. Om du till exempel använder, i genomsnitt, två processorer under ett intervall, får du 200 procent.
 
 ## <a name="limitations"></a>Begränsningar
 

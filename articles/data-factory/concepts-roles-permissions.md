@@ -7,16 +7,15 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
-manager: craigg
-ms.openlocfilehash: f5b4cbc670a429a84f42be79adb00057656a5483
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 00d84a7f3b4a15c9278caac8c2715380dd330482
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681432"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930500"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
 
@@ -46,7 +45,7 @@ Medlemskap i rollen **Data Factory Contributor** låter användare göra följan
 
 Mer information om den här rollen finns i [Data Factory Contributor-rollen](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
-### <a name="resource-manager-template-deployment"></a>Distribution av Resource Manager-mall
+### <a name="resource-manager-template-deployment"></a>Resource Manager för malldistribution
 
 Rollen **Data Factory Contributor** , på resurs grupps nivå eller över, låter användare distribuera Resource Manager-mallar. Till följd av detta kan medlemmar i rollen använda Resource Manager-mallar för att distribuera både data fabriker och deras underordnade resurser, inklusive data uppsättningar, länkade tjänster, pipelines, utlösare och integrerings körningar. Medlemskap i den här rollen låter inte användaren skapa andra resurser, men.
 
@@ -57,7 +56,7 @@ Behörigheter för Azure databaser och GitHub är oberoende av Data Factory beh�
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Anpassade scenarier och anpassade roller
 
-Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Till exempel:
+Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Exempel:
 - Du kan behöva en grupp där användare bara har behörighet för en speciell data fabrik.
 - Eller så kan du behöva en grupp där användare bara kan övervaka en data fabrik (eller fabriker), men inte ändra den.
 

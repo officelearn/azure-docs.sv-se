@@ -1,18 +1,19 @@
 ---
-title: Transformera data med ett data flöde för mappning i Azure Data Factory
+title: Transformera data med ett data flöde för mappning
 description: Den här självstudien innehåller stegvisa instruktioner för hur du använder Azure Data Factory för att omvandla data med data flöde för mappning
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 886e6e659dee2a898167054c5d76bc3977f27e11
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683641"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927211"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformera data med hjälp av mappnings data flöden
 
@@ -29,7 +30,7 @@ I den här självstudien gör du följande:
 > * Testkör pipelinen.
 > * Övervaka en data flödes aktivitet
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du använder ADLS-lagring som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md).
 
@@ -56,7 +57,7 @@ I det här steget skapar du en data fabrik och öppnar Data Factory UX för att 
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
+    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md). 
 6. Under **Version** väljer du **V2**.
 7. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Data lager (till exempel Azure Storage och SQL Database) och beräkningarna (till exempel Azure HDInsight) som används av data fabriken kan finnas i andra regioner.
 8. Välj **Skapa**. 
@@ -115,26 +116,26 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
     ![Data flödes arbets yta](media/tutorial-data-flow/dataflow5.png)
 1. Namnge filter omvandlingen **FilterYears**. Klicka på uttrycks rutan bredvid **filtrera på** för att öppna uttrycks verktyget. Här anger du filtrerings villkoret. 
     
-    ![Filter](media/tutorial-data-flow/filter1.png)
+    ![Filtrera](media/tutorial-data-flow/filter1.png)
 1. Med uttrycks verktyget Data Flow kan du interaktivt skapa uttryck som ska användas i olika transformationer. Uttryck kan innehålla inbyggda funktioner, kolumner från schemat för indata och användardefinierade parametrar. Mer information om hur du skapar uttryck finns i [uttrycks verktyg för data flöde](concepts-data-flow-expression-builder.md).
     
     I den här självstudien vill du filtrera filmer för Genre-komedi som kommer ut mellan åren 1910 och 2000. Om ett år är för närvarande en sträng måste du konvertera det till ett heltal med hjälp av funktionen ```toInteger()```. Använd den större än eller lika med (> =) och mindre än eller lika med (< =) operatörer för att jämföra med de exakta värdena 1910 och 200-. Union dessa uttryck tillsammans med operatorn och (& &). Uttrycket visas som:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 
-    Om du vill ta reda på vilka filmer som är Comedies kan du använda funktionen ```rlike()``` för att hitta mönstret "komedi" i kolumn genrerna. Union rlike-uttrycket med jämförelse året för att hämta:
+    Om du vill ta reda på vilka filmer som är Comedies kan du använda funktionen ```rlike()``` för att hitta mönstret komedi i kolumn genrerna. Union rlike-uttrycket med jämförelse året för att hämta:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
 
     Om du har ett fel söknings kluster aktivt kan du verifiera din logik genom att klicka på **Uppdatera** för att se uttryckets utdata jämfört med de indata som används. Det finns mer än ett rätt svar på hur du kan utföra den här logiken med hjälp av Expression-språket för data flödet.
     
-    ![Filter](media/tutorial-data-flow/filter2.png)
+    ![Filtrera](media/tutorial-data-flow/filter2.png)
 
     Klicka på **Spara och slutför** när du är klar med ditt uttryck.
 
 1. Hämta en **data förhands granskning** för att kontrol lera att filtret fungerar korrekt.
     
-    ![Filter](media/tutorial-data-flow/filter3.png)
+    ![Filtrera](media/tutorial-data-flow/filter3.png)
 1. Nästa omvandling du lägger till är en **sammanställd** omvandling under **schema modifieraren**.
     
     ![Aggregera](media/tutorial-data-flow/agg1.png)

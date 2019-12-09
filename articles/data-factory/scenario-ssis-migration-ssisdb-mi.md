@@ -9,19 +9,18 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 6ea9134085812b99d59ad64aa2c9ec1b2ff827d9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684394"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929781"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>SSIS migrering med Azure SQL Database Hanterad instans som databasens arbets belastnings mål
 
-När du migrerar databas arbets belastningar från SQL Server lokalt till Azure SQL Database Hanterad instans bör du vara bekant med [Azure Data Migration service](https://docs.microsoft.com/azure/dms/dms-overview)(DMS) och [nätverkstopologier för Azure SQL Database hanterade instanser av migrering använda DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
+När du migrerar databas arbets belastningar från SQL Server lokalt till Azure SQL Database Hanterad instans bör du vara bekant med [Azure Data Migration service](https://docs.microsoft.com/azure/dms/dms-overview)(DMS) och [nätverkstopologier för Azure SQL Database hanterade instanser för migrering med DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
 
 Den här artikeln fokuserar på migreringen av SSIS-paket (SQL Server integration service) som lagras i SSIS Catalog (SSISDB) och SQL Server Agent jobb som schemalägger körning av SSIS-paket.
 

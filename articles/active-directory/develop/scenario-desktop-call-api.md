@@ -1,6 +1,6 @@
 ---
-title: 'Skriv bords app som anropar webb-API: er (anropar ett webb-API) – Microsoft Identity Platform'
-description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (anropar ett webb-API)'
+title: 'Anropa webb-API: er från en Skriv bords app – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8160ec489f891764b102b5ba23a687b53376f738
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ce8cf2d75257bb3d751de1c3b251a9a3326bce0a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175372"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920165"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>Skriv bords app som anropar webb-API: er – anropa ett webb-API
 

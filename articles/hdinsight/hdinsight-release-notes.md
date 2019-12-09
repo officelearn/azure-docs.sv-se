@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 54e28a9d434500915aa8cc8e07ade3592e5aa96c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d9ca8d0df3eb0186add5c40765c87a4409a5660
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185606"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926431"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -55,7 +55,7 @@ Accelererade skrivningar använder Azure Premium SSD-hanterade diskar för att f
 
 ### <a name="custom-ambari-db"></a>Anpassad Ambari-databas
 
-HDInsight erbjuder nu en ny kapacitet som gör det möjligt för kunder att använda sin egen SQL-databas för Ambari. Nu kan kunderna välja rätt SQL DB för Ambari och enkelt uppgradera den baserat på deras egna krav för företags tillväxt. Distributionen görs med en Azure Resource Manager-mall. Mer information finns i [Konfigurera HDInsight-kluster med en anpassad Ambari-databas](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+HDInsight erbjuder nu en ny kapacitet som gör det möjligt för kunder att använda sin egen SQL-databas för Ambari. Nu kan kunderna välja rätt SQL DB för Ambari och enkelt uppgradera det baserat på deras egna krav på affärs tillväxt. Distributionen görs med en Azure Resource Manager-mall. Mer information finns i [Konfigurera HDInsight-kluster med en anpassad Ambari-databas](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
 
 ### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>Virtuella datorer i F-serien är nu tillgängliga med HDInsight
 
@@ -69,7 +69,7 @@ I den här versionen erbjuds virtuella datorer i G-serien inte längre i HDInsig
 ### <a name="dv1-virtual-machine-deprecation"></a>DV1 för virtuell dator
 I den här versionen är användningen av virtuella DV1-datorer med HDInsight inaktuell. Alla kund förfrågningar för DV1 kommer att behandlas automatiskt med Dv2. Det finns ingen pris skillnad mellan DV1-och Dv2-VM: ar.
 
-## <a name="behavior-changes"></a>Beteende ändringar
+## <a name="behavior-changes"></a>Funktionalitetsförändringar
 
 ### <a name="cluster-managed-disk-size-change"></a>Storleks ändring för kluster hanterad disk
 HDInsight tillhandahåller hanterat disk utrymme med klustret. I den här versionen ändras den hanterade disk storleken för varje nod i det nya skapade klustret till 128 GB.
@@ -90,4 +90,4 @@ Virtuella datorer i A-serien kan orsaka problem med ESP-kluster på grund av rel
 HDInsight fortsätter att göra kluster tillförlitlighet och prestanda förbättringar. 
 
 ## <a name="component-version-change"></a>Komponent versions ändring
-Ingen komponent versions ändring har ändrats för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 AD HDInsight 3,6 [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Ingen komponent versions ändring har ändrats för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 och HDInsight 3,6 [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).

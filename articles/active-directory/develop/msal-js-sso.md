@@ -1,29 +1,25 @@
 ---
-title: Enkel inloggning (Microsoft Authentication Library för Java Script)
+title: Enkel inloggning (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att skapa enkla inloggnings upplevelser med Microsoft Authentication Library för Java Script (MSAL. js).
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da39b8435acdd11108a945c6bac5147dc8b6ad50
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 921c02e682c722a4e96f98fb0fc54d7fcbb82220
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150570"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916272"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Enkel inloggning med MSAL.js
 
@@ -92,7 +88,7 @@ Du kan hitta stegen för att konfigurera valfria anspråk i program manifestet [
 
 **Använda inloggnings tips**
 
-Om du inte har konfigurerat SID-anspråk eller om du behöver kringgå konto urvals frågan i interaktiva autentiseringsbegäranden, kan du göra det genom att tillhandahålla en `login_hint` i parametrarna för begäran och eventuellt en `domain_hint` som `extraQueryParameters` i MSAL. js interaktiva metoder (@no __t_3_, `loginRedirect`, `acquireTokenPopup` och `acquireTokenRedirect`). Exempel:
+Om du inte har konfigurerat SID-anspråk eller om du behöver kringgå konto urvals frågan i interaktiva autentiseringsbegäranden, kan du göra det genom att tillhandahålla en `login_hint` i parametrarna för begäran och eventuellt en `domain_hint` som `extraQueryParameters` i MSAL. js interaktiva metoder (`loginPopup`, `loginRedirect`, `acquireTokenPopup` och `acquireTokenRedirect`). Exempel:
 
 ```javascript
 var request = {
@@ -108,12 +104,12 @@ Du kan hämta värdena för login_hint och domain_hint genom att läsa de anspr�
 
 * **loginHint** ska anges till `preferred_username`-anspråk i ID-token.
 
-* **domain_hint** krävs bara för att skickas när du använder/vanliga-utfärdaren. Domän tipset bestäms av klient-ID (tid).  Om `tid`-anspråk i ID-token är `9188040d-6c67-4c5b-b112-36a304b66dad` det vara konsumenter. Annars är det organisationer.
+* **domain_hint** behöver bara skickas när du använder/vanliga-utfärdaren. Domän tipset bestäms av klient-ID (tid).  Om `tid`-anspråk i ID-token är `9188040d-6c67-4c5b-b112-36a304b66dad` det vara konsumenter. Annars är det organisationer.
 
 Läs [här](v2-oauth2-implicit-grant-flow.md) om du vill ha mer information om värdena för inloggnings tips och domän tips.
 
 > [!Note]
-> Det går inte att skicka SID-och login_hint samtidigt. Detta leder till ett felsvar.
+> Du kan inte skicka SID och login_hint på samma gång. Detta leder till ett felsvar.
 
 ## <a name="sso-without-msaljs-login"></a>SSO utan MSAL. js-inloggning
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560137"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927856"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files problem i Windows
 
@@ -97,8 +97,7 @@ Om en anslutning upprättades bör du se följande utdata:
 Azure File Sync kan omvandla din lokala Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Azure File Sync fungerar över port 443 och kan därför användas som en lösning för att komma åt Azure Files från klienter där port 445 blockeras. [Lär dig att konfigurera Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Lösning 2 – Använd VPN
-Genom att konfigurera en VPN-anslutning till ditt lagrings konto går trafiken via en säker tunnel i stället för via Internet. Följ [anvisningarna för att konfigurera VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) för att få åtkomst till Azure Files från Windows.
+Genom att konfigurera en VPN-anslutning till ditt lagrings konto går trafiken via en säker tunnel i stället för via Internet. Följ [anvisningarna för att konfigurera VPN](storage-files-configure-p2s-vpn-windows.md) för att få åtkomst till Azure Files från Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Lösning 3 – avblockera port 445 med hjälp av din Internet-administratör
 Arbeta med IT-avdelningen eller Internet leverantören för att öppna port 445 utgående till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -267,13 +266,13 @@ När en fil kopieras över nätverket dekrypteras filen på käll datorn, skicka
 Det här problemet kan uppstå om du använder krypterande filsystem (EFS). BitLocker-krypterade filer kan kopieras till Azure Files. Azure Files stöder dock inte NTFS EFS.
 
 ### <a name="workaround"></a>Lösning
-Om du vill kopiera en fil över nätverket måste du först dekryptera den. Använd någon av följande metoder:
+Om du vill kopiera en fil över nätverket måste du först dekryptera den. Använd en av följande metoder:
 
 - Använd kommandot **copy/d** . Det gör att de krypterade filerna kan sparas som dekrypterade filer vid målet.
 - Ange följande register nyckel:
   - Sökväg = HKLM\Software\Policies\Microsoft\Windows\System
   - Värdetyp = DWORD
-  - Namn = CopyFileAllowDecryptedRemoteDestination
+  - Name = CopyFileAllowDecryptedRemoteDestination
   - Värde = 1
 
 Tänk på att om du anger register nyckeln påverkar det alla kopierings åtgärder som görs till nätverks resurser.

@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2114e60b5ed684063ed100279ea19f561bd335ea
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849793"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928980"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
@@ -61,7 +61,16 @@ En fullständig lista över paket och integreringar finns i [openräkning-paket]
 
 SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor: spårning, mått och loggar. Mer information om dessa typer av telemetri finns i [Översikt över data plattformen](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Använd följande instruktioner för att skicka dessa typer av telemetri via de tre exportörerna.
 
+## <a name="telemetry-type-mappings"></a>Typ mappningar för telemetri
+
+Här är de exportörer som openräkning tillhandahåller mappat till de typer av telemetri som visas i Azure Monitor.
+
+![Skärm bild av mappning av typer av telemetri från openräkning till Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
+
 ### <a name="trace"></a>Spårning
+
+> [!NOTE]
+> `Trace` i openräkning avser [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter` skickar `requests` och `dependency` telemetri till Azure Monitor.
 
 1. Först ska vi generera vissa spårnings data lokalt. I python-inaktivitet, eller valfritt redigerings program, anger du följande kod.
 
@@ -293,7 +302,10 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
         main()
     ```
 
-4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces`.
+4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces`. 
+
+> [!NOTE]
+> `traces` i den här kontexten är inte samma som `Tracing`. `traces` avser den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler`. `Tracing` syftar på ett begrepp i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
 5. Om du vill formatera logg meddelanden kan du använda `formatters` i det inbyggda python- [loggnings-API: et](https://docs.python.org/3/library/logging.html#formatter-objects).
 

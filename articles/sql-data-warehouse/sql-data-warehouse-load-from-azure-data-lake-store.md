@@ -7,21 +7,25 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 12/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fdbf0eb849549071b4cbbb961c9e9f71fce1faf8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685689"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923631"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage till SQL Data Warehouse
-Använd PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data till SQL Data Warehouse för bästa prestanda.
+Den här guiden beskriver hur du använder PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data till SQL Data Warehouse för bästa prestanda. 
 
+> [!NOTE]  
+> Ett alternativ till att läsa in är [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för närvarande i offentlig för hands version. Om du vill ge feedback om KOPIERINGs instruktionen skickar du ett e-postmeddelande till följande distributions lista: sqldwcopypreview@service.microsoft.com.
+>
 > [!div class="checklist"]
+
 > * Skapa databas objekt som krävs för att läsa in från Data Lake Storage.
 > * Anslut till en Data Lake Storage katalog.
 > * Läs in data till Azure SQL Data Warehouse.
@@ -33,14 +37,13 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 För att kunna köra den här självstudien behöver du:
 
-* Azure Active Directory program som ska användas för tjänst-till-tjänst-autentisering. För att skapa, följ [Active Directory-autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
-
 * En Azure SQL Data Warehouse. Se [skapa och fråga och Azure SQL Data Warehouse](create-data-warehouse-portal.md).
-
-* Ett Data Lake Storage konto. Se [Kom igång med Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Ett Data Lake Storage konto. Se [Kom igång med Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). För det här lagrings kontot måste du konfigurera eller ange någon av följande autentiseringsuppgifter som ska läsas in: en lagrings konto nyckel, en Azure Directory-programanvändare eller en AAD-användare som har lämplig RBAC-roll för lagrings kontot. 
 
 ##  <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
-För att få åtkomst till ditt Data Lake Storage-konto måste du skapa en huvud nyckel för databasen för att kryptera din hemliga autentiseringsuppgifter som används i nästa steg. Sedan skapar du en databas med begränsade autentiseringsuppgifter. När du autentiserar med hjälp av tjänstens huvud namn, lagrar databasens begränsade autentiseringsuppgifter autentiseringsuppgifterna för tjänstens huvud namn som angetts i AAD. Du kan också använda lagrings konto nyckeln i databasen begränsade autentiseringsuppgifter för Gen2. 
+Du kan hoppa över det här avsnittet och fortsätta till "skapa den externa data källan" när du autentiserar med hjälp av AAD-vidarekoppling. En databas som omfattas av databasen behöver inte skapas eller anges när du använder AAD-vidarekoppling, men se till att din AAD-användare har lämplig RBAC-roll (Storage BLOB data Reader, deltagare eller ägar roll) till lagrings kontot. Mer information beskrivs [här](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260). 
+
+För att få åtkomst till ditt Data Lake Storage-konto måste du skapa en huvud nyckel för databasen för att kryptera din hemliga autentiseringsuppgifter. Du kan sedan skapa en databas med begränsade autentiseringsuppgifter för att lagra din hemliga information. När du autentiserar med hjälp av tjänstens huvud namn (Azure Directory Application User) lagrar databasens begränsade autentiseringsuppgifter de autentiseringsuppgifter för tjänstens huvud namn som angetts i AAD. Du kan också använda databasens begränsade autentiseringsuppgifter för att lagra lagrings konto nyckeln för Gen2.
 
 Om du vill ansluta till Data Lake Storage med hjälp av tjänstens huvud namn måste du **först** skapa ett Azure Active Directory program, skapa en åtkomst nyckel och ge programmet åtkomst till data Lake Storage-kontot. Instruktioner finns i [autentisera till Azure Data Lake Storage med hjälp av Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
@@ -75,7 +78,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this when authenticating using service principals:
+-- It should look something like this when authenticating using service principal:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -84,7 +87,7 @@ WITH
 ```
 
 ## <a name="create-the-external-data-source"></a>Skapa den externa data källan
-Använd det här kommandot [skapa extern data källa](/sql/t-sql/statements/create-external-data-source-transact-sql) för att lagra data platsen. 
+Använd det här kommandot [skapa extern data källa](/sql/t-sql/statements/create-external-data-source-transact-sql) för att lagra data platsen. Om du autentiserar med AAD-vidarekoppling krävs inte parametern CREDENTIAL. 
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -216,8 +219,8 @@ I den här självstudien har du skapat externa tabeller för att definiera struk
 
 Du gjorde detta:
 > [!div class="checklist"]
-> * Skapade databas objekt som krävs för att läsa in från Data Lake Storage Gen1.
-> * Ansluten till en Data Lake Storage Gen1 katalog.
+> * Skapade databas objekt som krävs för att läsa in från Data Lake Storage.
+> * Ansluten till en Data Lake Storage katalog.
 > * Inlästa data till Azure SQL Data Warehouse.
 >
 

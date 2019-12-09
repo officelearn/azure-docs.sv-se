@@ -3,19 +3,19 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464026"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928008"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
 Som tjänst leverantör kan du använda Azure- [delegerad resurs hantering](../concepts/azure-delegated-resource-management.md) för att hantera Azure-resurser för flera kunder från din egen klient i [Azure Portal](https://portal.azure.com). De flesta uppgifter och tjänster kan utföras på delegerade Azure-resurser över hanterade klienter. I den här artikeln beskrivs några av de förbättrade scenarier där Azure-delegerad resurs hantering kan vara effektiv.
 
 > [!NOTE]
-> Azure-delegerad resurs hantering kan också användas i ett företag som har flera klient organisationer för att förenkla administrationen av flera innehavare.
+> Azure-delegerad resurs hantering kan också användas [inom ett företag som har flera Azure AD-klienter för](enterprise.md) att förenkla administrationen av flera innehavare.
 
 ## <a name="understanding-customer-tenants"></a>Förstå kund klienter
 
@@ -56,7 +56,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 
 - Säkerhetskopiera och återställa kund information i kund klienter
 
-[Azure Kubernetes service (AKS)](https://docs.microsoft.com//azure/aks/):
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/):
 
 - Hantera värdbaserade Kubernetes-miljöer och distribuera och hantera program i behållare inom kund klienter
 
@@ -75,7 +75,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Kunder ser principer som skapats av tjänst leverantören tillsammans med eventuella principer som de har skapat själva
 - Kan [åtgärda deployIfNotExists eller ändra tilldelningar inom kund innehavaren](../how-to/deploy-policy-remediation.md)
 
-[Azure-resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/):
+[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
 - Innehåller nu klient-ID: t i returnerade frågeresultat, så att du kan identifiera om en prenumeration tillhör kunden eller tjänst leverantörens klient organisation
 
@@ -116,7 +116,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Få åtkomst till virtuella datorer med serie konsolen i kund klienter
 - Observera att du inte kan använda Azure Active Directory för fjärrinloggning till en virtuell dator och du kan inte integrera en virtuell dator med en Key Vault för lösen ord, hemligheter eller kryptografiska nycklar för disk kryptering
 
-[Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
 
 - Distribuera och hantera virtuella nätverk och virtuella nätverks gränssnitts kort (virtuella nätverkskort) i kund klienter
 

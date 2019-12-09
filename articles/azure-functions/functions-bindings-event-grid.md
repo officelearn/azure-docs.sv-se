@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 8820818528835df6379c894eb06c154f4120f507
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b1717b9b336d31c86db1ec38eb97c7e8814b76d7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227301"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926000"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid utlösare för Azure Functions
 
@@ -24,7 +24,7 @@ Om du vill kan du använda en HTTP-utlösare för att hantera Event Grid händel
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
 Event Grid-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 2. x. Käll koden för paketet finns i GitHub-lagringsplatsen [Azure-Functions-eventgrid-Extensions](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) .
 
@@ -41,16 +41,16 @@ Event Grid-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions. EventGrid]
 Se språkspecifika exempel för en Event Grid-utlösare:
 
 * C#
-* [C#skript (. CSX)](#c-script-example)
+* [C#-skript (.csx)](#c-script-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
 Ett exempel på en HTTP-utlösare finns i [använda HTTP-utlösare](#use-an-http-trigger-as-an-event-grid-trigger) senare i den här artikeln.
 
-### <a name="c-2x"></a>C# (2.x)
+### <a name="c-2x-and-higher"></a>C#(2. x och högre)
 
-I följande exempel visas en funktion 2. x [ C# -funktion](functions-dotnet-class-library.md) som binder till `EventGridEvent`:
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som binder till `EventGridEvent`:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -103,7 +103,7 @@ namespace Company.Function
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i den *function.json* fil:
 
 ```json
 {
@@ -118,9 +118,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-#### <a name="c-script-version-2x"></a>C#skript (version 2. x)
+#### <a name="c-script-version-2x-and-higher"></a>C#skript (version 2. x och högre)
 
-Här är funktioner 2. x C# -skript kod som binder till `EventGridEvent`:
+Här är ett exempel som binder till `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -155,7 +155,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i den *function.json* fil:
 
 ```json
 {
@@ -186,7 +186,7 @@ module.exports = function (context, eventGridEvent) {
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i den *function.json* fil:
 
 ```json
 {
@@ -326,7 +326,7 @@ För C# och F# -funktioner i Azure Functions 1. x kan du använda följande para
 * `JObject`
 * `string`
 
-För C# - F# och-funktionerna i Azure Functions 2. x har du också möjlighet att använda följande parameter typ för Event Grid-utlösaren:
+För C# och F# -funktioner i Azure Functions 2. x och högre, har du också alternativet att använda följande parameter typ för Event Grid-utlösaren:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-definierar egenskaper för fälten som är gemensamma för alla händelse typer.
 
@@ -377,7 +377,7 @@ Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händel
 
 Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-prenumeration som anger slut punkts-URL: en som anropar funktionen.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **Lägg till Event Grid prenumeration**.
 
@@ -395,7 +395,7 @@ Om du vill skapa en prenumeration med hjälp av [Azure CLI](https://docs.microso
 
 Kommandot kräver slut punkts-URL: en som anropar funktionen. I följande exempel visas det användarspecifika URL-mönstret:
 
-#### <a name="version-2x-runtime"></a>Version 2. x-körning
+#### <a name="version-2x-and-higher-runtime"></a>Version 2. x (och högre) runtime
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
@@ -407,7 +407,7 @@ System nyckeln är en auktoriseringskod som måste inkluderas i slut punkts-URL:
 
 Här är ett exempel som prenumererar på ett Blob Storage-konto (med en plats hållare för system nyckeln):
 
-#### <a name="version-2x-runtime"></a>Version 2. x-körning
+#### <a name="version-2x-and-higher-runtime"></a>Version 2. x (och högre) runtime
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -435,7 +435,7 @@ Mer information om hur du skapar en prenumeration finns i [snabb starten för Bl
 
 Du kan hämta system nyckeln med hjälp av följande API (HTTP GET):
 
-#### <a name="version-2x-runtime"></a>Version 2. x-körning
+#### <a name="version-2x-and-higher-runtime"></a>Version 2. x (och högre) runtime
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
@@ -522,7 +522,7 @@ Använd ett verktyg som [Postman](https://www.getpostman.com/) eller [sväng](ht
 * Ange ett `aeg-event-type: Notification`s huvud.
 * Klistra in RequestBin-data i begär ande texten.
 * Publicera till URL: en för din Event Grid trigger-funktion.
-  * Använd följande mönster för 2. x:
+  * För 2. x och högre använder du följande mönster:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
@@ -591,7 +591,7 @@ Ngrok-URL: en får inte särskilt hantering av Event Grid, så din funktion mås
 
 Skapa en Event Grid-prenumeration av den typ som du vill testa och ge den ngrok-slutpunkten.
 
-Använd det här slut punkts mönstret för functions 2. x:
+Använd det här slut punkts mönstret för functions 2. x och högre:
 
 ```
 https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
@@ -770,7 +770,7 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Läs mer om Event Grid](../event-grid/overview.md)

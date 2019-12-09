@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: a1de59ebb5ef0d7f5522a388aa9a2f5818495a9f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 208b5462efeb579e30550824bd7ba931db1825b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786341"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925620"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR Service-bindningar för Azure Functions
 
@@ -18,7 +18,7 @@ Den här artikeln förklarar hur du autentiserar och skickar meddelanden i real 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Paket-funktioner 2. x
+## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
 Signalerar tjänst bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet-paketet, version 1. *. Käll koden för paketet finns i GitHub-lagringsplatsen [Azure-Functions-signalrservice-Extensions](https://github.com/Azure/azure-functions-signalrservice-extension) .
 
@@ -106,7 +106,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-koden:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -236,7 +236,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-koden:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -377,7 +377,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-koden:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -507,7 +507,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-koden:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -642,7 +642,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-koden:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -705,7 +705,7 @@ public SignalRMessage sendMessage(
 
 ---
 
-### <a name="group-management"></a>Grupp hantering
+### <a name="group-management"></a>Hantering av grupper
 
 Med SignalR-tjänsten kan användare läggas till i grupper. Meddelanden kan sedan skickas till en grupp. Du kan använda `SignalR` utgående bindning för att hantera en användares grupp medlemskap.
 
@@ -1007,35 +1007,35 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `SignalRConnectionInfo`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `SignalRConnectionInfo` attribut.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ**|| Måste anges till `signalRConnectionInfo`.|
 |**riktning**|| Måste anges till `in`.|
 |**Namn**|| Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
 |**userId**|**UserId**| Valfritt: värdet på det användar-ID-anspråk som ska anges i åtkomst nyckelns token. |
-|**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
+|**connectionStringSetting**|**connectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `SignalR`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `SignalR` attribut.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ**|| Måste anges till `signalR`.|
 |**riktning**|| Måste anges till `out`.|
 |**Namn**|| Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
-|**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
+|**connectionStringSetting**|**connectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Azure Functions-utveckling och -konfiguration med Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)

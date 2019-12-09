@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5ff79dc597571f4e6ef3d7c2c20bce61c0d061ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089546"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926374"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till Azure Kubernetes service (AKS)-klusternoder för underhåll eller fel sökning
 
@@ -41,7 +41,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-Exemplet ovan tilldelar namnet på kluster resurs gruppen för *myAKSCluster* i *myResourceGroup* till *CLUSTER_RESOURCE_GROUP*. Exemplet använder sedan *CLUSTER_RESOURCE_GROUP* för att visa namnet på skalnings uppsättningen och tilldela det till *SCALE_SET_NAME*.  
+Exemplet ovan tilldelar namnet på kluster resurs gruppen för *myAKSCluster* i *myResourceGroup* till *CLUSTER_RESOURCE_GROUP*. Exemplet använder sedan *CLUSTER_RESOURCE_GROUP* för att visa namnet på skalnings uppsättningen och tilldela det till *SCALE_SET_NAME*.
 
 > [!IMPORTANT]
 > Vid detta tillfälle bör du bara uppdatera dina SSH-nycklar för dina virtuella datorers skalnings uppsättnings AKS-kluster med hjälp av Azure CLI.
@@ -100,7 +100,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-Exemplet ovan tilldelar namnet på kluster resurs gruppen för *myAKSCluster* i *myResourceGroup* till *CLUSTER_RESOURCE_GROUP*. Exemplet använder sedan *CLUSTER_RESOURCE_GROUP* för att visa namnet på den virtuella datorn. I exempel resultatet visas namnet på den virtuella datorn: 
+Exemplet ovan tilldelar namnet på kluster resurs gruppen för *myAKSCluster* i *myResourceGroup* till *CLUSTER_RESOURCE_GROUP*. Exemplet använder sedan *CLUSTER_RESOURCE_GROUP* för att visa namnet på den virtuella datorn. I exempel resultatet visas namnet på den virtuella datorn:
 
 ```
 Name                      ResourceGroup                                  Location
@@ -144,7 +144,7 @@ Om du vill skapa en SSH-anslutning till en AKS-nod kör du en hjälp-Pod i ditt 
 1. Kör en `debian` behållar avbildning och koppla en terminalsession till den. Den här behållaren kan användas för att skapa en SSH-session med en nod i AKS-klustret:
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
@@ -158,21 +158,12 @@ Om du vill skapa en SSH-anslutning till en AKS-nod kör du en hjälp-Pod i ditt 
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. Öppna ett nytt terminalfönster, inte anslutet till din behållare, Visa poddar på ditt AKS-kluster med kommandot [kubectl get poddar][kubectl-get] . Pod som skapades i föregående steg börjar med namnet *AKS-SSH*, som visas i följande exempel:
+1. Öppna ett nytt terminalfönster, inte anslutet till din behållare, kopiera din privata SSH-nyckel till hjälp-pod. Den privata nyckeln används för att skapa SSH i AKS-noden. 
 
-    ```
-    $ kubectl get pods
-    
-    NAME                       READY     STATUS    RESTARTS   AGE
-    aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
-    ```
-
-1. I ett tidigare steg lade du till din offentliga SSH-nyckel till AKS-noden som du ville felsöka. Kopiera nu din privata SSH-nyckel till hjälp-pod. Den privata nyckeln används för att skapa SSH i AKS-noden.
-
-    Ange ett eget *AKS-SSH Pod-* namn som hämtades i föregående steg. Om det behövs ändrar du *~/.ssh/id_rsa* till platsen för din privata SSH-nyckel:
+   Om det behövs ändrar du *~/.ssh/id_rsa* till platsen för din privata SSH-nyckel:
 
     ```console
-    kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+    kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
 1. Gå tillbaka till sessionen till din behållare, uppdatera behörigheterna för den kopierade `id_rsa` privata SSH-nyckeln så att den är skrivskyddad:
@@ -185,22 +176,22 @@ Om du vill skapa en SSH-anslutning till en AKS-nod kör du en hjälp-Pod i ditt 
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 

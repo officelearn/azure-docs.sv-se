@@ -1,29 +1,25 @@
 ---
-title: Webbläsare i Microsoft Authentication Library för .NET
+title: Använda webbläsare med MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802687"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921611"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Använda webbläsare i MSAL.NET
 Webbläsaren krävs för interaktiv autentisering. Som standard har MSAL.NET stöd för [system webbläsare](#system-web-browser-on-xamarinios-xamarinandroid) på Xamarin. iOS och Xamarin. Android. Men [du kan också aktivera den inbäddade webbläsaren](#enable-embedded-webviews-on-ios-and-android) beroende på dina krav (UX, behov av enkel inloggning (SSO), säkerhet) i [Xamarin. iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) och [Xamarin. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) -appar. Du kan även [välja dynamiskt](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) vilken webbläsare som ska användas baserat på förekomsten av Chrome eller en webbläsare som stöder Chrome anpassade flikar i Android. MSAL.NET stöder endast system webbläsare i .NET Core Desktop-program.
@@ -49,7 +45,7 @@ I allmänhet rekommenderar vi att du använder plattforms standarden och det är
 
 ### <a name="at-a-glance"></a>En snabbtitt
 
-| Samband        | Inbäddning | System | Standard |
+| Ramverk        | Inbäddning | System | Standard |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Ja | Ja ^ | Inbäddning |
 | .NET Core     | Nej | Ja ^ | System |
@@ -153,7 +149,7 @@ Det finns vissa visuella skillnader mellan inbäddad webbvy och systemets webbl�
 
 **Interaktiv inloggning med MSAL.NET med hjälp av den inbäddade webbvy:**
 
-![Inbäddning](media/msal-net-web-browsers/embedded-webview.png)
+![inbäddad](media/msal-net-web-browsers/embedded-webview.png)
 
 **Interaktiv inloggning med MSAL.NET med hjälp av system webbläsare:**
 
@@ -175,7 +171,7 @@ Som utvecklare som använder MSAL.NET har du flera alternativ för att visa den 
                     .ExecuteAsync();
     ```
 
-    Android
+    Android:
 
     ```csharp
     authResult = app.AcquireTokenInteractively(scopes)

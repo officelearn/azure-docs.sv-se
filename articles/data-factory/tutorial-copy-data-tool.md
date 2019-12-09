@@ -1,24 +1,26 @@
 ---
-title: Kopiera data med hjälp av Azure Kopiera data-verktyget
+title: Kopiera data från Azure Blob Storage till SQL med Kopiera data-verktyget
 description: Skapa en Azure-datafabrik och kopiera sedan data från Azure Blob Storage till en SQL-databas.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.author: jingwang
-ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683598"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926580"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL-databas med verktyget för att kopiera data
+
 > [!div class="op_single_selector" title1="Välj den version av tjänsten Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](tutorial-copy-data-tool.md)
@@ -34,7 +36,7 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure-lagringskonto**: Använd Blob Storage som datalager för _källan_. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
@@ -71,7 +73,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Ge Azure-tjänsterna åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för servern som kör SQL Database. Med den här inställningen kan Data Factory skriva data till din databasinstans. Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > Översikt > Ange server brand vägg > inställningen **Tillåt åtkomst till Azure-tjänster** är **på**.
+2. Ge Azure-tjänster åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för servern som kör SQL Database. Med den här inställningen kan Data Factory skriva data till din databasinstans. Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > Översikt > Ange server brand vägg > inställningen **Tillåt åtkomst till Azure-tjänster** är **på**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -92,7 +94,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp.
     
-    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
 
 1. För **version** väljer du **V2**.
 1. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL Database) och beräkningarna (t.ex. Azure HDInsight) som används i datafabriken kan finnas på andra platser och i andra regioner.
@@ -153,9 +155,9 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 1. Sidan **Settings** (Inställningar) visas. Välj **Nästa**.
 1. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
 1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten).
-1. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
+1. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen. Om du vill uppdatera listan väljer du **Uppdatera**.
 
-1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill gå tillbaka till vyn pipeline-körningar väljer du länken **pipeline-körningar** överst. Välj **Uppdatera** för att uppdatera vyn.
+1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Om du vill gå tillbaka till vyn pipeline-körningar väljer du länken **pipeline-körningar** överst. Välj **Uppdatera** för att uppdatera vyn.
 
     ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-tool/activity-monitoring.png)
 

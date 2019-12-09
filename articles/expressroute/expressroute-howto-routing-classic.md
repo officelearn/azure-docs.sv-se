@@ -5,18 +5,18 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083447"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931377"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Skapa och ändra peering för en ExpressRoute-krets (klassisk)
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Video - privat peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -42,40 +42,7 @@ Dessa anvisningar gäller endast för kretsar som skapats med tjänst leverantö
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Hämta de senaste PowerShell-cmdletarna
 
-Installera de senaste versionerna av Azure Service Management (SM) PowerShell-moduler och ExpressRoute-modulen. När du använder i följande exempel, Observera att versionsnumret (i det här exemplet 5.1.1) kommer att ändras när nyare versioner av cmdletarna är tillgängliga.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Mer information finns i [komma igång med Azure PowerShell cmdlets](/powershell/azure/overview) för steg-för-steg-anvisningar om hur du konfigurerar datorn att använda Azure PowerShell-moduler.
-
-### <a name="sign-in"></a>Logga in
-
-Använd följande exempel för att logga in på ditt Azure-konto:
-
-1. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Kontrollera prenumerationerna för kontot.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Om du har mer än en prenumeration väljer du den du vill använda.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Använd sedan följande cmdlet för att lägga till din Azure-prenumeration i PowerShell för den klassiska distributionsmodellen.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="azure-private-peering"></a>Azures privata peering
 
@@ -94,7 +61,7 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Returrelaterade
+   Returnera:
 
    ```powershell
    Bandwidth                        : 200
@@ -147,7 +114,7 @@ Du kan visa konfigurations information med följande cmdlet:
 Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 ```
 
-Returrelaterade
+Returnera:
 
 ```
 AdvertisedPublicPrefixes       : 
@@ -201,7 +168,7 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Returrelaterade
+   Returnera:
 
    ```powershell
    Bandwidth                        : 200
@@ -254,7 +221,7 @@ Om du vill visa konfigurations information använder du följande cmdlet:
 Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 ```
 
-Returrelaterade
+Returnera:
 
 ```powershell
 AdvertisedPublicPrefixes       : 
@@ -305,7 +272,7 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Returrelaterade
+   Returnera:
    
    ```powershell
    Bandwidth                        : 200
@@ -350,7 +317,7 @@ Du kan visa konfigurations information med följande cmdlet:
 ```powershell
 Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 ```
-Returrelaterade
+Returnera:
 
 ```powershell
 AdvertisedPublicPrefixes       : 123.0.0.0/30

@@ -5,7 +5,6 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
@@ -13,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/12/2019
-ms.openlocfilehash: cae15e38f98794a3e97ad0b06329aa2e62c2945e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fa0f61ed0e280f11e693596f80e79f2e2c110678
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217653"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932047"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Konfigurera IR med egen värd som proxy för Azure-SSIS IR i ADF
 
@@ -61,7 +60,7 @@ När du skapar nya paket som innehåller data flödes aktiviteter med OLEDB/flat
 ![Aktivera egenskapen ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 Du kan också aktivera den här egenskapen när du kör befintliga paket utan att behöva ändra dem manuellt en i taget.  Det finns två alternativ:
-- Öppna, återskapa och distribuera om projektet som innehåller de paketen med de senaste SSDT som ska köras på din Azure-SSIS IR: egenskapen kan sedan aktive ras genom att ställa in den på **Sant** för de relevanta anslutnings hanterare som visas på **anslutningen Fliken hanterare** i popup-fönstret kör paket när du kör paket från SSMS.
+- Öppna, återskapa och distribuera om projektet som innehåller de paketen med de senaste SSDT som ska köras på din Azure-SSIS IR: egenskapen kan sedan aktive ras genom att ställa in den på **True** för de relevanta anslutnings hanterare som visas på fliken **anslutnings hanterare** i popup-fönstret för kör paket när du kör paket från SSMS.
 
   ![Aktivera ConnectByProxy Egenskap2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -69,7 +68,7 @@ Du kan också aktivera den här egenskapen när du kör befintliga paket utan at
   
   ![Aktivera ConnectByProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- Omdistribuera projektet som innehåller de paket som ska köras på din SSIS IR: egenskapen kan sedan aktive ras genom att ange dess egenskaps Sök väg, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`och ange **den som en** åsidosättande egenskap på fliken **Avancerat** i popup-fönstret kör paket När du kör paket från SSMS.
+- Omdistribuera projektet som innehåller de paket som ska köras på din SSIS IR: egenskapen kan sedan aktive ras genom att ange dess egenskaps Sök väg, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`och ange **den som en** åsidosättande egenskap på fliken **Avancerat** i popup-fönstret kör paket när du kör paket från SSMS.
 
   ![Aktivera ConnectByProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
@@ -95,4 +94,4 @@ De andra mellanlagrings aktiviteterna som körs på din Azure-SSIS IR debiteras 
 - Det finns för närvarande inte stöd för att använda SSIS-parametrar/variabler i egenskaperna för ODBC/OLEDB/flata fil källor och anslutnings hanterare.
 
 ## <a name="next-steps"></a>Nästa steg
-När du har konfigurerat din egen värd-IR som en proxy för din Azure-SSIS IR, kan du distribuera och köra dina paket för att komma åt data lokalt som kör SSIS-paket aktiviteter i ADF-pipeline, se [köra SSIS-paket som EXECUTE SSIS Package-aktiviteter i ADF-pipeline ](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+När du har konfigurerat din egen värd-IR som en proxy för din Azure-SSIS IR, kan du distribuera och köra dina paket för att komma åt data lokalt som kör SSIS-paket aktiviteter i ADF-pipeline, se [kör SSIS-paket som EXECUTE SSIS Package-aktiviteter i ADF-pipeline](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

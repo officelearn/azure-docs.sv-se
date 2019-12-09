@@ -4,21 +4,20 @@ description: Den här artikeln förklarar hur du kan skala ut en gateway för da
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682702"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932017"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway – hög tillgänglighet och skalbarhet (för hands version)
 > [!NOTE]
@@ -134,7 +133,7 @@ Det här avsnittet förutsätter att du har gått igenom följande två artiklar
 Du kan uppgradera en befintlig gateway om du vill använda funktionen hög tillgänglighet och skalbarhet. Den här funktionen fungerar bara med noder som har data Management Gateway för version > = 2.12. xxxx. Du kan se vilken version av data Management Gateway som är installerad på en dator på fliken **Hjälp** i Data Management Gateway Configuration Manager. 
 
 1. Uppdatera gatewayen på den lokala datorn till den senaste versionen genom att följa genom att hämta och köra ett MSI-installationspaket från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Mer information finns i [installations](data-factory-data-management-gateway.md#installation) avsnittet.  
-2. Navigera till Azure Portal. Starta **Data Factory sidan** för din data fabrik. Klicka på panelen länkade tjänster för att starta **sidan länkade tjänster**. Välj den gateway som ska starta **Gateway-sidan**. Klicka och aktivera **förhands gransknings funktionen** som visas i följande bild: 
+2. Gå till Azure-portalen. Starta **Data Factory sidan** för din data fabrik. Klicka på panelen länkade tjänster för att starta **sidan länkade tjänster**. Välj den gateway som ska starta **Gateway-sidan**. Klicka och aktivera **förhands gransknings funktionen** som visas i följande bild: 
 
     ![Data Management Gateway – aktivera förhands gransknings funktion](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. När du har aktiverat funktionen för förhands granskning i portalen stänger du alla sidor. Öppna Gateway- **sidan** igen för att se det nya användar gränssnittet för förhands granskning.
@@ -151,7 +150,7 @@ Du kan uppgradera en befintlig gateway om du vill använda funktionen hög tillg
 
     Följ anvisningarna i föregående avsnitt för att konfigurera noden. 
 
-### <a name="installation-best-practices"></a>Metod tips för installation
+### <a name="installation-best-practices"></a>Metodtips för installation
 
 - Konfigurera energi schema på värddatorn för gatewayen så att datorn inte försätts i vilo läge. Om värddatorn försätts i vilo läge svarar inte gatewayen på data begär Anden.
 - Säkerhetskopiera certifikatet som är associerat med gatewayen.
@@ -182,7 +181,7 @@ I Azure Portal kan du Visa en ögonblicks bild av resursutnyttjande i real tid (
 
 ![Data Management Gateway-övervakning av flera noder](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-Du kan aktivera **Avancerade inställningar** på sidan **Gateway** om du vill se avancerade mått som **nätverk**(in/ut), **roll & status för autentiseringsuppgifter**, vilket är till hjälp vid fel sökning av Gateway-problem och **samtidiga jobb** (som körs/begränsas ) som kan ändras/ändras enligt detta under prestanda justeringen. Följande tabell innehåller beskrivningar av kolumner i listan **Gateway-noder** :  
+Du kan aktivera **Avancerade inställningar** på sidan **Gateway** om du vill se avancerade mått som **nätverk**(in/ut), **roll & status för autentiseringsuppgifter**, vilket är till hjälp vid fel sökning av Gateway-problem och **samtidiga jobb** (som körs/begränsas) som kan ändras/ändras enligt detta under prestanda justering. Följande tabell innehåller beskrivningar av kolumner i listan **Gateway-noder** :  
 
 Övervaknings egenskap | Beskrivning
 :------------------ | :---------- 
@@ -190,7 +189,7 @@ Namn | Namnet på den logiska gatewayen och noder som är associerade med gatewa
 Status | Status för den logiska gatewayen och gateway-noderna. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i avsnittet om [Gateway-status](#gateway-status) . 
 Version | Visar versionen för den logiska gatewayen och varje gateway-nod. Versionen av den logiska gatewayen fastställs baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för den logiska gatewayen fungerar bara noderna med samma versions nummer som den logiska gatewayen. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). 
 Tillgängligt minne | Tillgängligt minne på en gateway-nod. Det här värdet är en nära real tids ögonblicks bild. 
-PROCESSOR användning | CPU-användning för en gateway-nod. Det här värdet är en nära real tids ögonblicks bild. 
+CPU-användning | CPU-användning för en gateway-nod. Det här värdet är en nära real tids ögonblicks bild. 
 Nätverk (in/ut) | Nätverks användning för en gateway-nod. Det här värdet är en nära real tids ögonblicks bild. 
 Samtidiga jobb (som körs/begränsas) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära real tids ögonblicks bild. Gränsen visar maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på datorns storlek. Du kan öka gränsen för att skala upp samtidiga jobb körningar i avancerade scenarier, där processor/minne/nätverk används, men att aktiviteterna är tids gräns. Den här funktionen är även tillgänglig med en gateway med en nod (även om funktionen skalbarhets-och tillgänglighet inte är aktive rad). Mer information finns i avsnittet om [skalnings överväganden](#scale-considerations) . 
 Roll | Det finns två typer av roller – dispatcher och Worker. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-nod som används för att hämta aktiviteter/jobb från moln tjänster och skicka dem till olika arbetsnoder (inklusive sig själv). 
@@ -204,10 +203,10 @@ Följande tabell innehåller möjliga status värden för en **Gateway-nod**:
 Status  | Kommentarer/scenarier
 :------- | :------------------
 Online | Noden är ansluten till Data Factory tjänsten.
-Anslutningen | Noden är offline.
-Fortsätter | Noden uppdateras automatiskt.
+Offline | Noden är offline.
+Uppgradera | Noden uppdateras automatiskt.
 Begränsad | På grund av anslutnings problem. Kan bero på problem med HTTP-port 8050, problem med Service Bus-anslutning eller utfärdande av autentiseringsuppgifter. 
-Inaktivera | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
+Inaktiv | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
 
 
 Följande tabell innehåller möjliga status värden för en **logisk Gateway**. Gateway-statusen beror på status för gateway-noderna. 
@@ -216,7 +215,7 @@ Status | Kommentarer
 :----- | :-------
 Behöver registrering | Ingen nod har ännu registrerats till denna logiska Gateway
 Online | Gateway-noderna är online
-Anslutningen | Ingen nod i online-status.
+Offline | Ingen nod i online-status.
 Begränsad | Alla noder i denna gateway är inte i felfritt tillstånd. Den här statusen är en varning om att en nod kan vara nere! <br/><br/>Det kan bero på ett problem med synkronisering av autentiseringsuppgifter på dispatcher/Worker-noden. 
 
 ### <a name="pipeline-activities-monitoring"></a>Övervakning av pipelines/aktiviteter

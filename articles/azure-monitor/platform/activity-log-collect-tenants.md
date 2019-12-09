@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 02/06/2019
-ms.openlocfilehash: b11671f20a7e3e6053f90a884777b31196232a38
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: e202885c695e4d8cdadaf8640d7ed01b05b70ad9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048308"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931839"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Samla in Azure-aktivitets loggar i Azure Monitor över Azure Active Directory klienter
 
-> [!NOTE]
-> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](activity-log-collect.md).
+> [!WARNING]
+> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-subscription.md).
 
 I den här artikeln går vi igenom en metod för att samla in Azure-aktivitets loggar till en Log Analytics arbets yta i Azure Monitor med hjälp av Azure Log Analytics data insamlings anslutning för Logic Apps Använd processen i den här artikeln när du behöver skicka loggar till en arbets yta i en annan Azure Active Directory klient. Om du till exempel är en leverantör av hanterade tjänster kanske du vill samla in aktivitetsloggar från en kunds prenumeration och lagra dem i Log Analytics-arbetsytan i din egen prenumeration.
 
@@ -59,7 +59,7 @@ Nedan visas kraven för de Azure-resurser som används i det här scenariot.
 
    ![bild av dialogrutan skapa händelsehubb](media/collect-activity-logs-subscriptions/create-event-hub1.png)
 
-4. Välj prisnivå (Basic eller Standard), en Azure-prenumeration, en resursgrupp och en plats för den nya resursen.  Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
+4. Välj prisnivå (Basic eller Standard), en Azure-prenumeration, en resursgrupp och en plats för den nya resursen.  Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet ska bli klart med att etablera resurserna.
 6. Välj det namnområde som du nyss skapade från listan.
 7. Välj **Principer för delad åtkomst** och klicka sedan på **RootManageSharedAccessKey**.
 
@@ -272,13 +272,13 @@ Utdatan från händelsehubben innehåller en JSON-nyttolast med en matris med po
 >[!TIP]
 > Du kan hämta ett exempel på en nyttolast genom att klicka på **Kör** och granska dina **råutdata** från händelsehubben.  Du kan sedan använda denna utdata med **Generera schemat genom att använda en exempelnyttolast** i aktiviteten **Parsa JSON** för att skapa schemat.
 
-### <a name="add-compose-action"></a>Lägga till åtgärden Skriv
+### <a name="add-compose-action"></a>Lägg till åtgärden Skriv
 Åtgärden [Skriv](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) tar JSON-utdatan och skapar ett objekt som kan användas av Log Analytics-åtgärden.
 
 1. Klicka på **Nytt steg** > **Lägg till en åtgärd**
 2. Skriv *compose* som filter och välj sedan åtgärden **Dataåtgärder – Skriv**.
 
-    ![Lägga till åtgärden Skriv](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
+    ![Lägg till åtgärden Skriv](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
 
 3. Klicka i fältet **Indata** och välj **Brödtext** under aktiviteten **Parsa JSON**.
 

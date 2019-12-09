@@ -4,21 +4,20 @@ description: Konfigurera en datagateway för att flytta data mellan lokala plats
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682476"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931912"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -148,7 +147,7 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
    * Använd avsnittet **Testa anslutning** till en lokal data källa med hjälp av gatewayen.
    * Klicka på **Visa loggar** om du vill se data Management Gateway loggen i ett Loggbokens fönster.
    * Klicka på **skicka loggar** för att ladda upp en zip-fil med loggar av de senaste sju dagarna till Microsoft för att under lätta fel sökning av problem.
-10. På fliken **diagnostik** i avsnittet **Testa anslutning** väljer du **SQLServer** för typen av data lager. Ange namnet på databas servern, namnet på databasen, ange autentiseringstyp, Ange användar namn och lösen ord och klicka på **Test** för att testa om gatewayen kan ansluta till databasen.
+10. På fliken **diagnostik** i avsnittet **Testa anslutning** väljer du **SQLServer** för typen av data lager. Ange namnet på databas servern, namnet på databasen, ange autentiseringstyp, Ange användar namn och lösen ord och klicka på **testa** för att testa om gatewayen kan ansluta till databasen.
 11. Växla till webbläsaren och klicka på **OK** i **Azure Portal**på sidan **Konfigurera** och på sidan **ny data Gateway** .
 12. Du bör se **adftutorialgateway** under **datagateways** i trädvyn till vänster.  Om du klickar på den bör du se tillhör ande JSON.
 
@@ -409,7 +408,7 @@ I det här steget ska du använda Azure-portalen för att övervaka vad som hän
 8. valfritt Klicka på **pipeliner**, klicka på **ADFTutorialOnPremDF**och gå igenom inmatnings tabeller (**förbrukade**) eller utdata-datauppsättningar (**producerade**).
 9. Använd verktyg som [Microsoft Storage Explorer](https://storageexplorer.com/) för att kontrol lera att en BLOB/fil skapas för varje timme.
 
-   ![Azure Lagringsutforskaren](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [Data Management Gateway](data-factory-data-management-gateway.md) artikel för all information om data Management Gateway.

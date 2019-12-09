@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263918"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913495"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 Om du vill skapa ett huvud namn för tjänsten manuellt med Azure CLI använder du kommandot [AZ AD SP Create-for-RBAC][az-ad-sp-create] . I följande exempel visas förhindrar parametern `--skip-assignment` eventuella ytterligare tilldelningar från att göras:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
 ```
 
 De utdata som genereras påminner om de i följande exempel. Anteckna dina egna `appId` och `password`. De här värdena används när du skapar ett AKS-kluster i nästa avsnitt.
@@ -51,8 +51,8 @@ De utdata som genereras påminner om de i följande exempel. Anteckna dina egna 
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2019-03-04-21-35-28",
-  "name": "http://azure-cli-2019-03-04-21-35-28",
+  "displayName": "myAKSClusterServicePrincipal",
+  "name": "http://myAKSClusterServicePrincipal",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -93,7 +93,7 @@ Följande avsnitt beskriver vanliga delegeringar som du kan behöva göra.
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-Om du använder Azure Container Registry (ACR) som behållar avbildnings arkiv måste du bevilja behörighet till tjänstens huvud namn för ditt AKS-kluster för att läsa och hämta avbildningar. För närvarande är den rekommenderade konfigurationen att använda kommandot [AZ AKS Create][az-aks-create] eller [AZ AKS Update] [AZ-AKS-Update] för att integrera med ett register och tilldela lämplig roll för tjänstens huvud namn. Detaljerade anvisningar finns i [autentisera med Azure Container Registry från Azure Kubernetes-tjänsten][aks-to-acr].
+Om du använder Azure Container Registry (ACR) som behållar avbildnings arkiv måste du bevilja behörighet till tjänstens huvud namn för ditt AKS-kluster för att läsa och hämta avbildningar. För närvarande är den rekommenderade konfigurationen att använda kommandot [AZ AKS Create][az-aks-create] eller [AZ AKS Update][az-aks-update] för att integrera med ett register och tilldela lämplig roll för tjänstens huvud namn. Detaljerade anvisningar finns i [autentisera med Azure Container Registry från Azure Kubernetes-tjänsten][aks-to-acr].
 
 ### <a name="networking"></a>Nätverk
 
@@ -102,7 +102,7 @@ Du kan använda avancerade nätverk där det virtuella nätverket och undernäte
 - Skapa en [anpassad roll][rbac-custom-role] och definiera följande roll behörigheter:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft. Network/virtualNetworks/subnets/Write*
+  - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
@@ -130,7 +130,7 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 - Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (t.ex. *https://www.contoso.org/example* ). URL:en för programmet behöver inte vara en verklig slutpunkt.
 - När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
 - På virtuella datorer i agent-noden i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstens huvud namn i filen `/etc/kubernetes/azure.json`
-- När du använder kommandot [AZ AKS Create][az-aks-create] för att skapa tjänstens huvud namn automatiskt, skrivs autentiseringsuppgifterna för tjänstens huvud namn till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
+- När du använder kommandot [AZ AKS Create][az-aks-create] för att skapa tjänstens huvud namn automatiskt, skrivs autentiseringsuppgifterna för tjänstens huvud namn till filen `~/.azure/aksServicePrincipal.json` på den dator som användes för att köra kommandot.
 - När du tar bort ett AKS-kluster som skapades av [AZ AKS Create][az-aks-create]tas inte tjänstens huvud namn som skapades automatiskt bort.
     - Ta bort tjänstens huvud namn genom att fråga efter klustrets *servicePrincipalProfile. clientId* och sedan ta bort med [AZ AD App Delete][az-ad-app-delete]. Ersätt följande resursgruppsnamn och klisternamn med dina egna värden:
 
@@ -173,6 +173,7 @@ Information om hur du uppdaterar autentiseringsuppgifterna finns i [Uppdatera el
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor

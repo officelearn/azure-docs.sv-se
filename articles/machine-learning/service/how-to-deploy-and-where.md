@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bb86d551d83668a3558cf63827a64a481cf87e02
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276794"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926962"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Mer information om de begrepp som ingår i distributions arbets flödet finns i 
 
 - [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](how-to-vscode-tools.md).
 
-## <a name="connect-to-your-workspace"></a>Anslut till din arbets yta
+## <a name="connect-to-your-workspace"></a>Anslut till arbetsytan
 
 Följande kod visar hur du ansluter till en Azure Machine Learning-arbetsyta med hjälp av information som cachelagras i den lokala utvecklings miljön:
 
@@ -194,7 +194,7 @@ Skriptet innehåller två funktioner som läser in och kör modellen:
 
 * `init()`: den här funktionen laddar normalt modellen till ett globalt objekt. Den här funktionen körs bara en gång, när Docker-behållaren för webb tjänsten startas.
 
-* `run(input_data)`: den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
+* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>Hitta modell filer i ditt post skript
 
@@ -867,6 +867,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 Ingen kod modell distribution är för närvarande en för hands version och stöder följande ramverk för Machine Learning:
 
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel-format
+Tensorflow-modeller måste registreras i **SavedModel-format** för att fungera med modell distribution utan kod.
+
+Information om hur du skapar en SavedModel finns i [den här länken](https://www.tensorflow.org/guide/saved_model) .
 
 ```python
 from azureml.core import Model
@@ -961,7 +964,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Till exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1069,8 +1072,8 @@ docker kill mycontainer
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill ta bort en distribuerad webb tjänst använder du `service.delete()`.
-Använd `model.delete()`om du vill ta bort en registrerad modell.
+Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
+Ta bort registrerade modellen genom att använda `model.delete()`.
 
 Mer information finns i dokumentationen för [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
@@ -1078,7 +1081,7 @@ Mer information finns i dokumentationen för [WebService. Delete ()](https://doc
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
+* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
 * [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

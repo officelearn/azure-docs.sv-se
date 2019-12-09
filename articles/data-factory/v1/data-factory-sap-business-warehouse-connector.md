@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från SAP Business Warehouse me
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47bc2db8730ebdedd180646d2fb86b642bbc631d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666044"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929211"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Flytta data från SAP Business Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -47,7 +46,7 @@ Om du vill aktivera anslutningen till SAP BW-instansen installerar du följande 
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -59,7 +58,7 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för ett SAP BW data lager:
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning av JSON-element som är specifika för SAP Business Warehouse (BW)-länkad tjänst.
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
@@ -72,7 +71,7 @@ lösenord | Lösenordet för användaren. | sträng | Ja
 gatewayName | Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SAP BW-instansen. | sträng | Ja
 encryptedCredential | Krypterad Credential-sträng. | sträng | Nej
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Det finns inga typ-/regionsspecifika egenskaper som stöds för SAP BW-datauppsättningen av typen **RelationalTable**. 
@@ -87,7 +86,7 @@ När källan i kopierings aktiviteten är av typen **RelationalSource** (som inn
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query | Anger MDX-frågan för att läsa data från SAP BW-instansen. | MDX-fråga. | Ja |
+| DocumentDB | Anger MDX-frågan för att läsa data från SAP BW-instansen. | MDX-fråga. | Ja |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON-exempel: kopiera data från SAP Business Warehouse till Azure Blob
@@ -291,24 +290,24 @@ När du flyttar data från SAP BW används följande mappningar från SAP BW typ
 
 Datatyp i ABAP-ordlistan | .NET-datatyp
 -------------------------------- | --------------
-ACCP |  int
-HÄNGANDE | Sträng
+ACCP |  Int
+CHAR | Sträng
 CLNT | Sträng
 CURR | Decimal
 CUKY | Sträng
 DEC | Decimal
-FLTP | Dubbelklicka
-INT1 | Stor
+FLTP | Double
+INT1 | Mottagna byte
 INT2 | Int16
-INT4 | int
+INT4 | Int
 LANG | Sträng
 LCHR | Sträng
-LRAW | Byte []
+LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-OUTSPÄDD | Byte []
-RAWSTRING | Byte []
-NOLLÄNGD | Sträng
+RAW | Byte[]
+RAWSTRING | Byte[]
+STRING | Sträng
 ENHET | Sträng
 DATS | Sträng
 NUMC | Sträng

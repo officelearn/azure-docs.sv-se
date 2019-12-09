@@ -1,23 +1,22 @@
 ---
-title: Kopiera data från en SAP-tabell med hjälp av Azure Data Factory
+title: Kopiera data från en SAP-tabell
 description: Lär dig hur du kopierar data från en SAP-tabell till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 9c4e22e997b4ad8c36d8aaf84d1bb8aacb5c5529
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd363f7b685db5e309827a0c5e635264e676b388
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680227"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926182"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiera data från en SAP-tabell med hjälp av Azure Data Factory
 
@@ -48,7 +47,7 @@ Mer specifikt stöder SAP Table Connector:
 - Kopiera data med hjälp av grundläggande autentisering eller säker nätverkskommunikation (SNC), om SNC har kon figurer ATS.
 - Ansluta till en SAP-program Server eller SAP Message Server.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här SAP Table Connector måste du:
 
@@ -61,15 +60,15 @@ Om du vill använda den här SAP Table Connector måste du:
 - Den SAP-användare som används i Data Factory SAP Table Connector måste ha följande behörigheter:
 
   - Auktorisering för att använda RFC-mål (Remote Function Call).
-  - Behörigheter till EXECUTE-aktiviteten för S_SDSAUTH-Authorization-objektet.
+  - Behörigheter till aktiviteten kör för S_SDSAUTH Authorization-objektet.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för SAP Table Connector.
 
-## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
 Följande egenskaper stöds för den länkade tjänsten SAP BW Open Hub:
 
@@ -91,7 +90,7 @@ Följande egenskaper stöds för den länkade tjänsten SAP BW Open Hub:
 | `sncPartnerName` | Kommunikations partnerns SNC-namn för att få åtkomst till SAP-servern där tabellen finns.<br/>Gäller när `sncMode` är på. | Nej |
 | `sncLibraryPath` | Den externa säkerhets produktens bibliotek för att få åtkomst till SAP-servern där tabellen finns.<br/>Gäller när `sncMode` är på. | Nej |
 | `sncQop` | SNC kvalitet för skydds nivå som ska tillämpas.<br/>Gäller när `sncMode` är på. <br/>Tillåtna värden är `1` (autentisering), `2` (integritet), `3` (sekretess), `8` (standard), `9` (max). | Nej |
-| `connectVia` | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. En integration runtime med egen värd krävs, som nämnts tidigare i [krav](#prerequisites). |Ja |
+| `connectVia` | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. En integration runtime med egen värd krävs, som nämnts tidigare i [krav](#prerequisites). |Ja |
 
 **Exempel 1: Anslut till en SAP-Programserver**
 
@@ -175,7 +174,7 @@ Följande egenskaper stöds för den länkade tjänsten SAP BW Open Hub:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 En fullständig lista över avsnitten och egenskaperna för att definiera data uppsättningar finns i [data uppsättningar](concepts-datasets-linked-services.md). Följande avsnitt innehåller en lista över de egenskaper som stöds av SAP Table-datauppsättningen.
 
@@ -220,7 +219,7 @@ Följande egenskaper stöds för att kopiera data från en SAP-tabell:
 | `rfcTableFields`                   | De fält (kolumner) som ska kopieras från SAP-tabellen. Till exempel `column0, column1`. | Nej       |
 | `rfcTableOptions`                  | Alternativen för att filtrera raderna i en SAP-tabell. Till exempel `COLUMN0 EQ 'SOMEVALUE'`. Se även tabellen SAP Query-operator längre fram i den här artikeln. | Nej       |
 | `customRfcReadTableFunctionModule` | En anpassad RFC Function-modul som kan användas för att läsa data från en SAP-tabell.<br>Du kan använda en anpassad RFC Function-modul för att definiera hur data hämtas från SAP-systemet och returneras till Data Factory. Modulen för anpassad funktion måste ha ett implementerat gränssnitt (importera, exportera, tabeller) som liknar `/SAPDS/RFC_READ_TABLE2`, vilket är det standard gränssnitt som används av Data Factory. | Nej       |
-| `partitionOption`                  | Den partition mekanism som ska läsas från en SAP-tabell. De alternativ som stöds är: <ul><li>`None`</li><li>`PartitionOnInt` (vanliga heltals-eller heltals värden med utfyllnaden noll till vänster, till exempel `0000012345`)</li><li>`PartitionOnCalendarYear` (4 siffror i formatet "åååå")</li><li>`PartitionOnCalendarMonth` (6 siffror i formatet "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 siffror i formatet "ÅÅÅÅMMDD")</li></ul> | Nej       |
+| `partitionOption`                  | Den partition mekanism som ska läsas från en SAP-tabell. Alternativ som stöds är: <ul><li>`None`</li><li>`PartitionOnInt` (vanliga heltals-eller heltals värden med utfyllnaden noll till vänster, till exempel `0000012345`)</li><li>`PartitionOnCalendarYear` (4 siffror i formatet "åååå")</li><li>`PartitionOnCalendarMonth` (6 siffror i formatet "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 siffror i formatet "ÅÅÅÅMMDD")</li></ul> | Nej       |
 | `partitionColumnName`              | Namnet på den kolumn som används för att partitionera data.                | Nej       |
 | `partitionUpperBound`              | Det maximala värdet för kolumnen som anges i `partitionColumnName` som ska användas för att fortsätta med partitionering. | Nej       |
 | `partitionLowerBound`              | Det minsta värdet för kolumnen som anges i `partitionColumnName` som ska användas för att fortsätta med partitionering. | Nej       |
@@ -288,7 +287,7 @@ I `rfcTableOptions`kan du använda följande vanliga SAP-fråge operatorer för 
 
 När du kopierar data från en SAP-tabell används följande mappningar från data typerna SAP Table till Azure Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och data typ till mottagaren finns i schema- [och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-| Typ av SAP-ABAP | Data Factory data typen Interim |
+| Typ av SAP-ABAP | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | `C` (sträng) | `String` |
 | `I` (heltal) | `Int32` |

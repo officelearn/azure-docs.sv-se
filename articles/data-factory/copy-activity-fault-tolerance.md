@@ -4,20 +4,19 @@ description: Lär dig mer om hur du lägger till fel tolerans för att kopiera a
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: a60cafd529db1c6726a15db2c442af8d097411cc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b874c0dcc1f394866e74b45e6bc335a25ce24499
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678165"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930020"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -73,10 +72,10 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | True<br/>Falskt (standard) | Nej
+enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>Falskt (standard) | Nej
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Nej
 linkedServiceName | Den länkade tjänsten [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnet på en länkad `AzureStorage`-eller `AzureDataLakeStore` typ som refererar till den instans som du vill använda för att lagra logg filen. | Nej
-sökväg | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
+Sökväg | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
 
 ## <a name="monitor-skipped-rows"></a>Övervaka överhoppade rader
 När körningen av kopierings aktiviteten är klar kan du se antalet rader som hoppades över i resultatet av kopierings aktiviteten:
@@ -106,9 +105,9 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra artiklar om kopierings aktiviteter:
+Se de andra artiklarna i Kopieringsaktiviteten:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
 - [Kopiera aktivitets prestanda](copy-activity-performance.md)
 
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8337d18b5c6b484e45e6cefaec98e2684155a02
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 9d76a11fc41fd964ff4e43518aee34aad3ecffd3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900425"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922672"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -139,7 +139,7 @@ SCIM RFC definierar en kärn användare och ett grupp schema, samtidigt som till
    1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com), Välj **företags program**, Välj ditt program och välj sedan **etablering**.
    2. Under **mappningar**väljer du det objekt (användare eller grupp) som du vill lägga till ett anpassat attribut för.
    3. Längst ned på sidan väljer du **Visa avancerade alternativ**.
-   4. Välj * * Redigera attributlistan för *programmet*.
+   4. Välj **Redigera attributlistan för APPNAME*.
    5. Längst ned i listan attribut anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut**.
 
 För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. Du kan anpassa "CustomExtensionName" och "CustomAttribute" enligt programmets krav, till exempel: urn: IETF: params: scim: schemas: tillägg: 2.0: CustomExtensionName: CustomAttribute

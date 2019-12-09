@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 07062ea9ce10b99e0f03a66247bb97795b45aedc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40025e2347fa80d2717ba292f6e3d74f5dda8e5c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212592"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931415"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor
 
-> [!NOTE]
+> [!WARNING]
 > Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-subscription.md).
 
 [Azure aktivitets loggen](activity-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Den här artikeln beskriver hur du samlar in aktivitets loggen på en Log Analytics arbets yta och hur du använder Aktivitetslogganalys [övervaknings lösning](../insights/solutions.md)som innehåller logg frågor och vyer för att analysera dessa data. 
@@ -67,9 +67,9 @@ Klicka på panelen **Azure aktivitets loggar** för att öppna vyn **Azure aktiv
 
 | Visualiserings del | Beskrivning |
 | --- | --- |
-| Azure-Aktivitetsloggposter | Visar ett stapeldiagram för de översta posterna i Azures aktivitets logg post för det datum intervall som du har valt och visar en lista över de 10 främsta aktivitetens anropare. Klicka på stapeldiagrammet för att köra en loggs ökning för `AzureActivity`. Klicka på ett anroparens objekt för att köra en loggs ökning som returnerar alla aktivitets logg poster för objektet. |
+| Azure-Aktivitetsloggposter | Visar ett stapeldiagram för de översta posterna i Azures aktivitets logg post för det datum intervall som du har valt och visar en lista över de 10 främsta aktivitetens anropare. Klicka på diagrammet för att köra en loggsökning för `AzureActivity`. Klicka på ett anroparens objekt för att köra en loggs ökning som returnerar alla aktivitets logg poster för objektet. |
 | Aktivitetsloggar efter Status | Visar ett ring diagram för Azures aktivitets logg status för det valda datum intervallet och en lista över de tio främsta status posterna. Klicka på diagrammet för att köra en logg fråga för `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Klicka på ett status objekt om du vill köra en loggs ökning som returnerar alla aktivitets logg poster för den status posten. |
-| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitets loggar och listar de tio främsta resurserna med antal poster för varje resurs. Klicka på det totala utrymmet för att köra en loggs ökning för `AzureActivity | summarize AggregatedValue = count() by Resource`, som visar alla Azure-resurser som är tillgängliga för lösningen. Klicka på en resurs för att köra en logg fråga som returnerar alla aktivitets poster för resursen. |
+| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitets loggar och listar de tio främsta resurserna med antal poster för varje resurs. Klicka på den totala område för att köra en loggsökning för `AzureActivity | summarize AggregatedValue = count() by Resource`, som visar alla Azure-resurser tillgängliga för lösningen. Klicka på en resurs för att köra en logg fråga som returnerar alla aktivitets poster för resursen. |
 | Aktivitetsloggar av Resursprovidern | Visar det totala antalet resurs leverantörer som skapar aktivitets loggar och listar de tio främsta. Klicka på det totala utrymmet för att köra en logg fråga för `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, som visar alla Azure Resource providers. Klicka på en resurs leverantör för att köra en logg fråga som returnerar alla aktivitets poster för providern. |
 
 ## <a name="next-steps"></a>Nästa steg

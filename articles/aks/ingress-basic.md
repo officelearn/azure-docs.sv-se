@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 1e5c3aa7ed4ec990dba07fb24830fae243141ad5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7b1fb26adc49067c35745011414ada7b33d7e55e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615582"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913584"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollant i Azure Kubernetes service (AKS)
 
 En ingress-kontrollant är en del av programvaran som tillhandahåller omvänd proxy, konfigurerbar trafikroutning och TLS-Avslut för Kubernetes-tjänster. Kubernetes ingress-resurser används för att konfigurera inkommande regler och vägar för enskilda Kubernetes-tjänster. Med hjälp av en ingress-kontrollant och ingress-regler kan en IP-adress användas för att dirigera trafik till flera tjänster i ett Kubernetes-kluster.
 
-Den här artikeln visar hur du distribuerar [nginx ingress][nginx-ingress] -kontrollanten i ett Azure Kubernetes service-kluster (AKS). Två program körs sedan i AKS-klustret, som var och en är tillgänglig över den enskilda IP-adressen.
+Den här artikeln visar hur du distribuerar [nginx ingress-kontrollanten][nginx-ingress] i ett Azure Kubernetes service-kluster (AKS). Två program körs sedan i AKS-klustret, som var och en är tillgänglig över den enskilda IP-adressen.
 
 Du kan också:
 
@@ -35,15 +35,15 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller sena
 
 ## <a name="create-an-ingress-controller"></a>Skapa en ingångs kontroll enhet
 
-Om du vill skapa en ingångs `Helm` kontroll, använder du för att installera *nginx-ingress*. För ytterligare redundans distribueras två repliker av nginx-ingångs styrenheterna med `--set controller.replicaCount` parametern. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
+Om du vill skapa en ingångs kontroll använder du `Helm` för att installera *nginx-ingress*. För ytterligare redundans distribueras två repliker av NGINX-ingångs styrenheterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
 
-Ingångs kontroll enheten måste också schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i för hands version i AKS) behöver inte köra ingångs styrenheten. En Node-selektor anges med `--set nodeSelector` parametern för att instruera Kubernetes Scheduler att köra nginx-ingångs styrenheten på en Linux-baserad nod.
-
-> [!TIP]
-> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat `--set rbac.create=false` lägger du till dem i Helm-kommandona.
+Ingångs kontroll enheten måste också schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i för hands version i AKS) behöver inte köra ingångs styrenheten. En Node-selektor anges med parametern `--set nodeSelector` för att instruera Kubernetes Scheduler att köra NGINX-ingångs styrenheten på en Linux-baserad nod.
 
 > [!TIP]
-> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. När du använder en ingångs kontroll för att aktivera IP-konservering för klient källa fungerar inte SSL-vidarekoppling.
+> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat lägger du till `--set rbac.create=false` i Helm-kommandona.
+
+> [!TIP]
+> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för begär anden till behållare i klustret lägger du till `--set controller.service.externalTrafficPolicy=Local` i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. När du använder en ingångs kontroll för att aktivera IP-konservering för klient källa fungerar inte SSL-vidarekoppling.
 
 ```console
 # Create a namespace for your ingress resources
@@ -98,9 +98,9 @@ helm install azure-samples/aks-helloworld \
 
 Båda programmen körs nu på ditt Kubernetes-kluster. Skapa en Kubernetes ingress-resurs för att dirigera trafik till varje program. I ingress-resursen konfigureras de regler som dirigerar trafik till ett av de två programmen.
 
-I följande exempel dirigeras trafik till adressen `http://40.117.74.8/` till tjänsten med namnet. `aks-helloworld` Trafik till adressen `http://40.117.74.8/hello-world-two` dirigeras `ingress-demo` till tjänsten.
+I följande exempel dirigeras trafik till adress `http://40.117.74.8/` till tjänsten med namnet `aks-helloworld`. Trafik till adress `http://40.117.74.8/hello-world-two` dirigeras till `ingress-demo`s tjänsten.
 
-Skapa en fil med `hello-world-ingress.yaml` namnet och kopiera i följande exempel yaml.
+Skapa en fil med namnet `hello-world-ingress.yaml` och kopiera i följande exempel YAML.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -111,7 +111,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
   - http:
@@ -126,7 +126,7 @@ spec:
         path: /hello-world-two(/|$)(.*)
 ```
 
-Skapa den inkommande resursen med hjälp `kubectl apply -f hello-world-ingress.yaml` av kommandot.
+Skapa den inkommande resursen med hjälp av kommandot `kubectl apply -f hello-world-ingress.yaml`.
 
 ```
 $ kubectl apply -f hello-world-ingress.yaml
@@ -136,11 +136,11 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-controller"></a>Testa ingångs styrenheten
 
-Om du vill testa vägarna för ingångs styrenheten bläddrar du till de två programmen. Öppna en webbläsare till IP-adressen för din NGINX-ingångs kontroll, till *http://40.117.74.8* exempel. Det första demo programmet visas i webbläsaren, som du ser i följande exempel:
+Om du vill testa vägarna för ingångs styrenheten bläddrar du till de två programmen. Öppna en webbläsare till IP-adressen för din NGINX-ingångs kontroll, till exempel *http://40.117.74.8* . Det första demo programmet visas i webbläsaren, som du ser i följande exempel:
 
 ![Första app som körs bakom ingångs styrenheten](media/ingress-basic/app-one.png)
 
-Lägg nu till */Hello-World-Two* -sökvägen till IP-adressen, till *http://40.117.74.8/hello-world-two* exempel. Det andra demonstrations programmet med den anpassade rubriken visas:
+Lägg nu till */Hello-World-Two* -sökvägen till IP-adressen, t. ex. *http://40.117.74.8/hello-world-two* . Det andra demonstrations programmet med den anpassade rubriken visas:
 
 ![Den andra appen som körs bakom ingångs styrenheten](media/ingress-basic/app-two.png)
 
@@ -150,7 +150,7 @@ I den här artikeln används Helm för att installera ingångs komponenter och e
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Ta bort exempel namn området och alla resurser
 
-Om du vill ta bort hela exempel namnområdet `kubectl delete` använder du kommandot och anger namn på namn området. Alla resurser i namn området tas bort.
+Om du vill ta bort hela exempel namnområdet använder du kommandot `kubectl delete` och anger namn på namn området. Alla resurser i namn området tas bort.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -164,7 +164,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>Ta bort resurser individuellt
 
-Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som skapats. Visar en lista med Helm- `helm list` versioner med kommandot. Leta efter diagram med namnet *nginx – ingress* och *AKS-HelloWorld*, som du ser i följande exempel resultat:
+Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som skapats. Visar en lista över Helm-utgåvor med kommandot `helm list`. Leta efter diagram med namnet *nginx – ingress* och *AKS-HelloWorld*, som du ser i följande exempel resultat:
 
 ```
 $ helm list
@@ -175,7 +175,7 @@ esteemed-koala          1           Wed Mar 27 19:59:18 2019    DEPLOYED    aks-
 wonderful-puma          1           Wed Mar 27 19:59:07 2019    DEPLOYED    aks-helloworld-0.1.0                ingress-basic
 ```
 
-Ta bort utgåvorna `helm delete` med kommandot. I följande exempel tar vi bort NGINX ingress-distributionen och de två exempel AKS Hello World-apparna.
+Ta bort utgåvorna med kommandot `helm delete`. I följande exempel tar vi bort NGINX ingress-distributionen och de två exempel AKS Hello World-apparna.
 
 ```
 $ helm delete aspiring-labradoodle esteemed-koala wonderful-puma
@@ -197,7 +197,7 @@ Ta bort ingångs vägen som riktar sig mot trafik till exempel apparna:
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-Slutligen kan du ta bort själva namn området. `kubectl delete` Använd kommandot och ange namn på namn område:
+Slutligen kan du ta bort själva namn området. Använd kommandot `kubectl delete` och ange namn på namn området:
 
 ```console
 kubectl delete namespace ingress-basic

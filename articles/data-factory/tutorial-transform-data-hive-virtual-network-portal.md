@@ -1,25 +1,25 @@
 ---
-title: 'Transformera data med Hive i Azure Virtual Network '
+title: Transformera data med Hive i Azure Virtual Network att använda Azure Portal
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Hive-aktivitet i Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: tutorial
-ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 73a43bdb859d39bd0cb8e3d4a3ed3f114fb2c156
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.topic: tutorial
+ms.custom: seo-dt-2019
+ms.date: 01/04/2018
+ms.openlocfilehash: d52aed98549478898cb3bd263d52eeae2a69ccfd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683424"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925559"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
-I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I de här självstudierna går du igenom följande steg:
+
+I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 
@@ -32,7 +32,7 @@ I den här självstudien använder du Azure Portal för att skapa en Data Factor
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -70,7 +70,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Logga in på [Azure-portalen](https://portal.azure.com/).    
 2. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
@@ -100,7 +100,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
    
     ![Datafabrikens startsida](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Klicka på **Författare och övervakare** för att starta användargränssnittet för Data Factory på en separat flik.
-11. På sidan **kom igång** växlar du till fliken **Redigera** på den vänstra panelen som på följande bild: 
+11. På sidan **Kom igång** växlar du till fliken **Redigera** på den vänstra panelen, som på följande bild: 
 
     ![Fliken Redigera](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
@@ -149,10 +149,10 @@ Eftersom Hadoop-klustret är inne i ett virtuellt nätverk måste du installera 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
 Du skapar och distribuerar två länkade tjänster i det här avsnittet:
-- Den **länkade Azure Storage-tjänsten** som länkar ditt Azure Storage-konto till datafabriken. Den här lagringen är den som primärt används av ditt HDInsight-kluster. I det här fallet använder du det här Azure Storage-kontot för att lagra Hive-skriptet och dess utdata.
+- En **länkad Azure Storage-tjänst** som länkar ett Azure Storage-konto till datafabriken. Den här lagringen är den som primärt används av ditt HDInsight-kluster. I det här fallet använder du det här Azure Storage-kontot för att lagra Hive-skriptet och dess utdata.
 - En **länkad HDInsight-tjänst**. Azure Data Factory skickar Hive-skriptet till det här HDInsight-klustret för körning.
 
-### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
+### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
 
 1. Växla till fliken **Länkade tjänster** och klicka på **Ny**.
 
@@ -166,7 +166,7 @@ Du skapar och distribuerar två länkade tjänster i det här avsnittet:
     2. Välj **MySelfHostedIR** för **Connect via integration runtime** (Anslut via Integration Runtime).
     3. Välj ditt Azure-lagringskonto i **Lagringskontonamn**. 
     4. Testa anslutningen till lagringskontot genom att klicka på **Testa anslutning**.
-    5. Klicka på **Spara**.
+    5. Klicka på **Save** (Spara).
    
         ![Ange Azure Blob Storage-konto](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png)
 
@@ -233,7 +233,7 @@ Observera följande punkter:
 
     ![Publicera](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 
 1. Verifiera först pipelinen genom att klicka på knappen **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **högerpil (>>)** . 
 
@@ -259,7 +259,7 @@ Observera följande punkter:
     ![Utdatafil](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudien har du fått: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 

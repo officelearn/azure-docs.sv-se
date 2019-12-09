@@ -1,23 +1,21 @@
 ---
-title: 'Rensa SSISDB-loggar med Azure Elastic Database-jobb '
+title: Rensa SSISDB-loggar med Azure Elastic Database-jobb
 description: Den här artikeln beskriver hur du rensar SSISDB-loggar med hjälp av Azure Elastic Database-jobb för att utlösa den lagrade proceduren som finns för detta ändamål
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/13/2018
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 0697addb14894855f554c1d82f59f3798e63d03b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 331a2317f11fbb6f0dd1437a0b41f7ad110a63c7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674745"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928013"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Rensa SSISDB-loggar med Azure Elastic Database-jobb
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bff3547456c03ae313e7465238872670965765f1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784620"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927686"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -44,11 +44,11 @@ Före korrigeringen kan du ansluta data uppsättningen till en datatransformerin
 
 Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
-## <a name="sdk-installation-issues"></a>Installations problem för SDK
+## <a name="sdk-installation-issues"></a>SDK-installationsproblem
 
-**Fel meddelande: det går inte att avinstallera ' PyYAML '**
+**Felmeddelande: Det går inte att avinstallera 'PyYAML'**
 
-Azure Machine Learning SDK för python: PyYAML är ett distutils-installerat projekt. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta att installera SDK och ignorera det här felet använder du:
+Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils installerad. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -62,13 +62,13 @@ conda create -n <env-name> python=3.7.3
 ```
 Som skapar en Conda-miljö med python 3.7.3, som inte har installations problemet som finns i 3.7.4.
 
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa Azure Machine Learning Compute
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa beräkning av Azure Machine Learning
 
-Det är en sällsynt risk att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan GA-versionen inte kan skapa Azure Machine Learning beräkning på den arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
+Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart.
 
-## <a name="image-building-failure"></a>Det gick inte att skapa bild
+## <a name="image-building-failure"></a>Bild byggnad fel
 
-Det gick inte att skapa bild när du distribuerar webb tjänsten. Lösning är att lägga till "pynacl = = 1.2.1" som ett pip-beroende av Conda-filen för avbildnings konfiguration.
+Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.
 
 ## <a name="deployment-failure"></a>Distributions problem
 
@@ -76,7 +76,7 @@ Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 ## <a name="fpgas"></a>FPGA:er
 
-Du kommer inte att kunna distribuera modeller på FPGAs förrän du har begärt och godkänts för FPGA-kvoten. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
+Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
@@ -89,6 +89,19 @@ Binära klassificerings diagram (precisions återkallning, ROC, kurva osv.) som 
 ## <a name="datasets-and-data-preparation"></a>Data uppsättningar och förberedelse av data
 
 Detta är kända problem för Azure Machine Learning data uppsättningar.
+
+### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>TypeError: FileNotFound: ingen sådan fil eller katalog
+
+Det här felet uppstår om fil Sök vägen som du anger inte är den plats där filen finns. Du måste kontrol lera att det sätt som du refererar till filen är konsekvent med var du monterade data uppsättningen på beräknings målet. För att säkerställa ett deterministiskt tillstånd rekommenderar vi att du använder den abstrakta sökvägen när du monterar en data uppsättning till ett beräknings mål. I följande kod monterar du till exempel data uppsättningen under roten i fil systemet för beräknings målet `/tmp`. 
+
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
+
+Om du inte tar med det inledande snedstrecket "/" måste du ange ett prefix till arbets katalogen, t. ex. `/mnt/batch/.../tmp/dataset` på beräknings målet för att ange var du vill att data uppsättningen ska monteras. 
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Det gick inte att läsa Parquet-filen från HTTP eller ADLS gen 2
 
@@ -108,7 +121,7 @@ pip install --upgrade azureml-dataprep
 
 ## <a name="databricks"></a>Databricks
 
-Databricks-och Azure Machine Learning problem.
+Databricks och Azure Machine Learning-problem.
 
 ### <a name="failure-when-installing-packages"></a>Det gick inte att installera paket
 
@@ -161,11 +174,11 @@ Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks k
 
 ## <a name="azure-portal"></a>Azure portal
 
-Om du går direkt till att visa din arbets yta från en resurs länk från SDK eller portalen, kan du inte visa sidan för normal översikt med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
+Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
+Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
 
 > [!NOTE]
 > Azure Machine Learning loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
@@ -178,7 +191,7 @@ Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på när du arbetar med Azure Machine Learning.
+Lär dig mer om den [resurskvoter](how-to-manage-quotas.md) som kan uppstå när du arbetar med Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 
@@ -215,7 +228,7 @@ Uppdateringar av Azure Machine Learning-komponenter som är installerade i ett A
 > [!WARNING]
 > Innan du utför följande åtgärder kontrollerar du versionen av Azure Kubernetes service-klustret. Om kluster versionen är lika med eller större än 1,14 kommer du inte att kunna ansluta klustret till Azure Machine Learning-arbetsytan.
 
-Du kan tillämpa dessa uppdateringar genom att koppla från klustret från arbets ytan Azure Machine Learning och sedan koppla klustret till arbets ytan igen. Om SSL är aktiverat i klustret måste du ange SSL-certifikatet och den privata nyckeln när du ansluter klustret igen. 
+Du kan tillämpa dessa uppdateringar genom att koppla från klustret från arbets ytan Azure Machine Learning och sedan återansluta klustret till arbets ytan. Om SSL är aktiverat i klustret måste du ange SSL-certifikatet och den privata nyckeln när du återansluter klustret. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -253,18 +266,18 @@ Om du kör i ModuleErrors när du skickar experiment i Azure ML, innebär det at
 
 Om du använder [uppskattningar](concept-azure-machine-learning-architecture.md#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parameter.
 
-Azure ML tillhandahåller också Ramverks uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att Ramverks beroenden är installerade på din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
+Azure ML tillhandahåller också branschspecifika uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att Ramverks beroenden är installerade på din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
  
  Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
-Ramverks beroenden visas i respektive ramverk dokumentation – [kedjor](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+De Ramverks-/regionsspecifika beroendena visas i respektive Framework-dokumentation – [kedjar](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 >[OBS!] Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (namn har inte definierats), AttributeError (objektet har inget attribut)
 Detta undantag bör komma från dina utbildnings skript. Du kan titta på loggfilerna från Azure Portal för att få mer information om det angivna namnet inte är definierat eller ett attributvärde. Från SDK kan du använda `run.get_details()` för att titta på fel meddelandet. Detta visar även alla loggfiler som genererats för din körning. Se till att ta en titt på ditt utbildnings skript och åtgärda felet innan du försöker igen. 
 
-### <a name="horovod-is-shutdown"></a>Horovod är avstängd
-I de flesta fall innebär detta undantag att det uppstod ett underliggande undantag i en av de processer som orsakade att horovod stängdes av. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna heter `70_driver_logs`. I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enkelt att skilja loggarna åt. Om du vill hitta det exakta fel som orsakade horovod avstängning går du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
+### <a name="horovod-is-shut-down"></a>Horovod är avstängd
+I de flesta fall innebär detta undantag att det uppstod ett underliggande undantag i en av processerna som orsakade att horovod stängdes av. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna heter `70_driver_logs`. I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enkelt att skilja loggarna åt. Om du vill hitta det exakta fel som orsakade horovod avstängning går du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
 
 ## <a name="labeling-projects-issues"></a>Problem med att märka projekt
 
@@ -282,6 +295,6 @@ Uppdatera sidan manuellt. Initieringen bör fortsätta ungefär 20 Datapoints pe
 
 Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den **första** knappen tar dig tillbaka till början av listan, men läser in alla etiketterade data.
 
-### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Tryck på ESC-tangenten när du etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.
+### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Tryck på ESC-tangenten när etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.
 
 Ta bort etiketten genom att klicka på kryss rutan bredvid det.

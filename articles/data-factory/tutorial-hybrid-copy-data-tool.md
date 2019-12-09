@@ -1,22 +1,22 @@
 ---
-title: Kopiera lokala data med hjälp av Azure Kopiera data-verktyget
+title: Kopiera lokala data med Azure Kopiera data-verktyget
 description: Skapa en Azure-datafabrik och kopiera sedan data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data.
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.author: abnarain
-ms.openlocfilehash: 3b9c9371d947b0193f93b8084fbaaf66e3253997
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e248c7f37c062fc69e5e42ae7d33e275c4b0aa19
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683542"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926529"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -35,7 +35,7 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -72,14 +72,14 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
     ```
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination/mottagare. Om du inte har något allmänt lagringskonto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
+I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt lagringskonto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för lagringskontot i den här självstudien. Gör så här för att hämta namnet och nyckeln till lagringskontot: 
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med användarnamnet och lösenordet för Azure. 
 
-1. I det vänstra fönstret väljer du **alla tjänster**. Filtrera genom att använda nyckelordet **Lagring** och välj sedan **Lagringskonton**.
+1. Välj **Alla tjänster** i rutan till vänster. Filtrera genom att använda nyckelordet **Lagring** och välj sedan **Lagringskonton**.
 
     ![Lagringskontosökning](media/doc-common-process/search-storage-account.png)
 
@@ -123,7 +123,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
    - Välj **Skapa ny** och ange namnet på en resursgrupp. 
         
-     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
 1. Under **Version** väljer du **V2**.
 1. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL-databas) och beräkningarna (t.ex. Azure HDInsight) som används i Data Factory kan finnas på andra platser/i andra regioner.
 1. Välj **Skapa**.

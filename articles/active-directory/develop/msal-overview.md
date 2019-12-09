@@ -1,29 +1,25 @@
 ---
-title: Lär dig mer om Microsoft Authentication Library (MSAL)
+title: Läs mer om MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: 'Microsoft Authentication Library (MSAL) gör det möjligt för programutvecklare att förvärva tokens för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från tredje part eller ditt eget webb-API. MSAL stöder flera program arkitekturer och plattformar.'
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dedd9f3458118117546a900aa1a2c8c5aa627100
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 718c33fc8a834a6abbbc9f1a1c33e02eb810a991
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473725"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915305"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Översikt över Microsoft Authentication Library (MSAL)
 Med Microsoft Authentication Library (MSAL) kan utvecklare Hämta [tokens](developer-glossary.md#security-token) från slut punkten för Microsoft Identity Platform för att få åtkomst till säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från tredje part eller ditt eget webb-API. MSAL är tillgängligt för .NET, Java Script, Android och iOS, som har stöd för många olika program arkitekturer och plattformar.
@@ -56,7 +52,7 @@ MSAL kan användas i många program scenarier, inklusive följande:
 | Bibliotek | Plattformar och ramverk som stöds|
 | --- | --- |
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universell Windows-plattform|
-| [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Java Script/TypeScript-ramverk som AngularJS, maskininlärning. js eller Durandal. js|
+| [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Java Script/TypeScript-ramverk som AngularJS, maskininlärning. js eller Durandal. js|
 | [MSAL för Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL för iOS och macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS och macOS|
 | [MSAL Java (för hands version)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|

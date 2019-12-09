@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory mappar uttrycks verktyg för data flöde
+title: Mappa data flöde uttrycks verktyg
 description: Uttrycks verktyget för Azure Data Factory mappning av data flöden
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: 7d8f02647224c971c44bff51f09315c53c53e9a3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672267"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928345"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mappa data flöde uttrycks verktyg
 
@@ -27,7 +28,7 @@ Uttrycks verktyget standard är standard alternativet text redigerare. funktione
 
 ## <a name="build-schemas-in-output-schema-pane"></a>Bygg scheman i fönstret utdata schema
 
-![Lägg till komplex kolumn](media/data-flow/complexcolumn.png "Lägg till kolumner")
+![Lägg till komplex kolumn](media/data-flow/complexcolumn.png "Lägga till kolumner")
 
 I fönstret till vänster schema för utdata visas de kolumner som du ändrar och lägger till i schemat. Du kan bygga enkla och komplexa data strukturer interaktivt här. Lägg till ytterligare fält med hjälp av "Lägg till kolumn" och skapa hierarkier med "Lägg till underkolumn".
 
@@ -50,6 +51,16 @@ Klicka på Uppdatera om du vill uppdatera resultatet av ditt uttryck mot ett Liv
 Lägg till kommentarer till dina uttryck med hjälp av en enkel rad och en kommentar med flera rader:
 
 ![Kommentarer](media/data-flow/comments.png "Kommentarer")
+
+## <a name="string-interpolation"></a>String-interpolation
+
+Använd dubbla citat tecken för att omsluta textuella sträng text med uttryck. Du kan inkludera uttrycks funktioner, kolumner och parametrar. Detta är användbart för att undvika en omfattande användning av sträng sammanfogning när du inkluderar parametrar i frågesträngar.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## <a name="regular-expressions"></a>Reguljära uttryck
 

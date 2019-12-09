@@ -1,6 +1,6 @@
 ---
-title: 'Skriv bords app som anropar webb-API: er (flytta till produktion) – Microsoft Identity Platform'
-description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (flytta till produktion)'
+title: 'Flytta Desktop-appen som anropar webb-API: er till produktion – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du flyttar en stationär app som anropar webb-API: er till produktion'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,16 +17,16 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175546"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919991"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Skriv bords app som anropar webb-API: er – flytta till produktion
 
-Den här artikeln innehåller information om hur du förbättrar programmet ytterligare och flyttar det till produktion.
+Den här artikeln innehåller information om hur du flyttar din Desktop-app som anropar webb-API: er till produktion.
 
 ## <a name="handling-errors-in-desktop-applications"></a>Hantera fel i Skriv bords program
 

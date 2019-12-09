@@ -1,20 +1,21 @@
 ---
-title: 'PowerShell-skript – transformera data i molnet med hjälp av Data Factory '
+title: Transformera data i molnet med hjälp av PowerShell
 description: Det här PowerShell-skriptet transformerar data i molnet genom att köra Spark-program på ett Azure HDInsight Spark kluster.
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: 53f64103819476e4efe918bd7a7be4ee2a1bcca3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684320"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932052"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell-skript – transformera data i molnet med hjälp av Azure Data Factory
 
@@ -24,7 +25,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * **Azure Storage-konto**. Skapa ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Överföra Python-skriptet till ditt Blob Storage-konto

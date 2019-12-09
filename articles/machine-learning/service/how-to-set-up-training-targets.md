@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305317"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912469"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Med Azure Machine Learning kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
+Med Azure Machine Learning kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Beräkningsmål kan vara en lokal dator eller en molnresurs, till exempel en Azure Machine Learning-beräkning, Azure HDInsight eller en fjärransluten virtuell dator.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
 
 Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Machine Learning Studio, Azure CLI eller Azure Machine Learning VS Code Extension. Om du har beräknings mål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster) kan du använda dem genom att koppla dem till din Azure Machine Learning-arbetsyta.
  
@@ -54,7 +54,7 @@ Läs mer om hur du [skickar experiment](#submit) i slutet av den här artikeln.
 
 ## <a name="whats-an-estimator"></a>Vad är en uppskattning?
 
-För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning. Med den här klassen kan du enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
+För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning. Vi rekommenderar att du använder en uppskattning för utbildning eftersom klassen innehåller metoder som gör att du enkelt kan skapa och anpassa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära). Om du behöver göra dina datafiler tillgängliga för beräknings målet, se [träna med Azure Machine Learning data uppsättningar](how-to-train-with-datasets.md).
 
 För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
 
@@ -76,7 +76,7 @@ ML pipelines skapas från flera **steg**, som är distinkta beräknings enheter 
 Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 * [Lokal dator](#local)
-* [Azure Machine Learning Compute](#amlcompute)
+* [Azure Machine Learning-beräkning](#amlcompute)
 * [Virtuella fjärrdatorer](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -91,7 +91,7 @@ Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](#submit).
 
-### <a id="amlcompute"></a>Azure Machine Learning Compute
+### <a id="amlcompute"></a>Azure Machine Learning-beräkning
 
 Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller beräkning med flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
 
@@ -347,7 +347,7 @@ Följ stegen som beskrivs ovan för att visa listan över beräknings mål. Anv�
     > Microsoft rekommenderar att du använder SSH-nycklar, som är säkrare än lösen ord. Lösen ord är utsatta för angrepp med brute force. SSH-nycklar är beroende av kryptografiska signaturer. Information om hur du skapar SSH-nycklar för användning med Azure Virtual Machines finns i följande dokument:
     >
     > * [Skapa och använda SSH-nycklar på Linux eller macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Skapa och Använd SSH-nycklar i Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Skapa och använda SSH-nycklar i Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Välj __bifoga__. 
 1. Visa status för åtgärden Anslut genom att välja Compute-målet i listan.
@@ -504,8 +504,8 @@ När du startar en utbildning som kör där käll katalogen är en lokal git-lag
 ## <a name="notebook-examples"></a>Exempel på bärbara datorer
 
 Se dessa antecknings böcker för exempel på utbildning med olika beräknings mål:
-* [instruktion för att använda – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [Självstudier/img-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [How-to-till-användning – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

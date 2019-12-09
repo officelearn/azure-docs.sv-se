@@ -1,22 +1,22 @@
 ---
-title: 'Förgrening i Azure Data Factory pipeline '
+title: Förgrening i Azure Data Factory pipeline
 description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
-documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a7e5f56fe71c174c78f1363e403ae41a2ec90a6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 277616d9fcd15affc7ddc8ede5d9af3ff68c62f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683669"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926602"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -42,7 +42,7 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure Storage konto. Du använder Blob Storage som käll data lager. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett lagrings konto](../storage/common/storage-quickstart-create-account.md).
 * Azure Storage Explorer. Information om hur du installerar det här verktyget finns [Azure Storage Explorer](https://storageexplorer.com/).
@@ -63,7 +63,7 @@ Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-progr
    Tamika|Walsh
    ```
 
-1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **BLOB-behållare** och välj **skapa BLOB-behållare**.
+1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **Blobcontainrar** och välj **Skapa blobcontainer**.
 1. Namnge den nya behållaren *adfv2branch* och välj **Ladda upp** för att lägga till filen *indata. txt* i behållaren.
 
 ## Skapa Visual Studio-projekt<a name="create-visual-studio-project"></a>
@@ -77,7 +77,7 @@ Skapa ett C# .net-konsol program:
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
+1. Välj **Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**.
 1. Kör följande kommandon i **Package Manager Console** för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) .
 
    ```powershell
@@ -101,7 +101,7 @@ Skapa ett C# .net-konsol program:
    using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 
-1. Lägg till dessa statiska variabler i klassen `Program`. Ersätt platshållarna med dina egna värden.
+1. Lägg till dessa statiska variabler i `Program`-klassen. Ersätt platshållarna med dina egna värden.
 
    ```csharp
    // Set variables
@@ -171,7 +171,7 @@ Skapa ett C# .net-konsol program:
    }
    ```
 
-1. Lägg till följande rad i metoden `Main` som skapar en data fabrik:
+1. Lägg till följande rad i `Main`-metoden som skapar en data fabrik:
 
    ```csharp
    Factory df = CreateOrUpdateDataFactory(client);
@@ -195,7 +195,7 @@ Skapa ett C# .net-konsol program:
    }
    ```
 
-1. Lägg till följande rad i metoden `Main` som skapar en Azure Storage länkad tjänst:
+1. Lägg till följande rad i `Main`-metoden som skapar en Azure Storage länkad tjänst:
 
    ```csharp
    client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
@@ -258,7 +258,7 @@ Observera att parametrarna för *FolderPath*används. `sourceBlobContainer` är 
    }
    ```
 
-1. Lägg till följande kod i metoden `Main` som skapar både Azure Blob Source och Sink-datauppsättningar.
+1. Lägg till följande kod i `Main`-metoden som skapar både Azure Blob Source och Sink-datauppsättningar.
 
    ```csharp
    client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDatasetName, SourceBlobDatasetDefinition(client));
@@ -268,9 +268,9 @@ Observera att parametrarna för *FolderPath*används. `sourceBlobContainer` är 
 
 ## <a name="create-a-c-class-emailrequest"></a>Skapa en C#-klass: EmailRequest
 
-Skapa en C# klass med namnet `EmailRequest` i projektet. Den här klassen definierar vilka egenskaper som pipelinen skickar i Body-begäran när ett e-postmeddelande skickas. I den här självstudiekursen skickar pipelinen fyra egenskaper från pipelinen till e-postmeddelandet:
+Skapa en C# klass med namnet `EmailRequest`i projektet. Den här klassen definierar vilka egenskaper som pipelinen skickar i Body-begäran när ett e-postmeddelande skickas. I den här självstudiekursen skickar pipelinen fyra egenskaper från pipelinen till e-postmeddelandet:
 
-* Meddelande. E-postmeddelandets brödtext. För en lyckad kopiering innehåller den här egenskapen mängden data som skrivits. För en misslyckad kopia innehåller den här egenskapen information om felet.
+* meddelande. E-postmeddelandets brödtext. För en lyckad kopiering innehåller den här egenskapen mängden data som skrivits. För en misslyckad kopia innehåller den här egenskapen information om felet.
 * Data fabriks namn. Namnet på data fabriken.
 * Pipeline-namn. Namnet på pipeline.
 * Mottagare. Parameter som passerar genom. Den här egenskapen anger mottagaren av e-postmeddelandet.
@@ -332,7 +332,7 @@ Ditt arbets flöde ser ut ungefär som i följande exempel:
 
 ![Lyckat e-postarbetsflöde](media/tutorial-control-flow/success-email-workflow-trigger.png)
 
-Det här JSON-innehållet överensstämmer med klassen `EmailRequest` som du skapade i föregående avsnitt.
+Det här JSON-innehållet överensstämmer med `EmailRequest`-klassen som du skapade i föregående avsnitt.
 
 Lägg till en åtgärd för `Office 365 Outlook – Send an email`. För åtgärden **Skicka ett e-postmeddelande** anpassar du hur du vill formatera e-postmeddelandet med hjälp av egenskaperna som skickas i begär ande **textens** JSON-schema. Här är ett exempel:
 
@@ -360,7 +360,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-Gå tillbaka till projektet i Visual Studio. Nu ska vi lägga till koden som skapar en pipeline med en kopierings aktivitet och en `DependsOn`-egenskap. I den här självstudien innehåller pipelinen en aktivitet, en kopierings aktivitet, som tar i BLOB-datauppsättningen som en källa och en annan BLOB-datauppsättning som en mottagare. Om kopierings aktiviteten lyckas eller Miss lyckas anropas olika e-postuppgifter.
+Gå tillbaka till projektet i Visual Studio. Nu ska vi lägga till koden som skapar en pipeline med en kopierings aktivitet och `DependsOn` egenskap. I den här självstudien innehåller pipelinen en aktivitet, en kopierings aktivitet, som tar i BLOB-datauppsättningen som en källa och en annan BLOB-datauppsättning som en mottagare. Om kopierings aktiviteten lyckas eller Miss lyckas anropas olika e-postuppgifter.
 
 I denna pipeline kan du använda följande funktioner:
 
@@ -443,7 +443,7 @@ I denna pipeline kan du använda följande funktioner:
             }
     ```
 
-1. Lägg till följande rad i metoden `Main` som skapar pipelinen:
+1. Lägg till följande rad i `Main`-metoden som skapar pipelinen:
 
    ```csharp
    client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
@@ -468,7 +468,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
 
 ### <a name="web-activity"></a>Webb aktivitet
 
-Webb aktiviteten tillåter ett anrop till alla REST-slutpunkter. Mer information om aktiviteten finns [i webb aktivitet i Azure Data Factory](control-flow-web-activity.md). Den här pipelinen använder en webb aktivitet för att anropa Logic Apps e-postarbetsflöde. Du skapar två webb aktiviteter: en som anropar arbets flödet `CopySuccessEmail` och en som anropar `CopyFailWorkFlow`.
+Webb aktiviteten tillåter ett anrop till alla REST-slutpunkter. Mer information om aktiviteten finns [i webb aktivitet i Azure Data Factory](control-flow-web-activity.md). Den här pipelinen använder en webb aktivitet för att anropa Logic Apps e-postarbetsflöde. Du skapar två webb aktiviteter: en som anropar `CopySuccessEmail` arbets flödet och en som anropar `CopyFailWorkFlow`.
 
 ```csharp
         new WebActivity
@@ -490,8 +490,8 @@ Webb aktiviteten tillåter ett anrop till alla REST-slutpunkter. Mer information
 
 I egenskapen `Url` klistrar du in **URL-** slutpunkterna för http post från dina Logic Apps-arbetsflöden. I egenskapen `Body` skickar du en instans av klassen `EmailRequest`. E-postbegäran innehåller följande egenskaper:
 
-* Meddelande. Överför värdet för `@{activity('CopyBlobtoBlob').output.dataWritten`. Öppnar en egenskap för den tidigare kopierings aktiviteten och överför värdet för `dataWritten`. Vid ett fel skickas felutdata i stället för `@{activity('CopyBlobtoBlob').error.message`.
-* Data Factory namn. Pass värde för `@{pipeline().DataFactory}` den här system variabeln gör att du kan komma åt motsvarande data fabriks namn. En lista över systemvariabler finns i [Systemvariabler](control-flow-system-variables.md).
+* meddelande. Överför värdet för `@{activity('CopyBlobtoBlob').output.dataWritten`. Öppnar en egenskap för den tidigare kopierings aktiviteten och överför värdet för `dataWritten`. Vid ett fel skickas felutdata i stället för `@{activity('CopyBlobtoBlob').error.message`.
+* Data Factory namn. Överför värdet för `@{pipeline().DataFactory}` den här system variabeln gör att du kan komma åt motsvarande data fabriks namn. En lista över systemvariabler finns i [Systemvariabler](control-flow-system-variables.md).
 * Pipeline-namn. Överför värdet för `@{pipeline().Pipeline}`. Med den här system variabeln kan du komma åt motsvarande pipelines namn.
 * Mottagare. Överför värdet för `"@pipeline().parameters.receiver"`. Åtkomst till pipeline-parametrarna.
 
@@ -499,7 +499,7 @@ Den här koden skapar ett nytt aktivitets beroende som är beroende av föregåe
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i metoden `Main` som utlöser en pipeline-körning.
+Lägg till följande kod i `Main`-metoden som utlöser en pipeline-körning.
 
 ```csharp
 // Create a pipeline run
@@ -517,7 +517,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="main-class"></a>Main-klass
 
-Den slutgiltiga `Main`-metoden bör se ut så här.
+Den slutliga `Main`s metoden bör se ut så här.
 
 ```csharp
 // Authenticate and create a data factory management client
@@ -570,7 +570,7 @@ Skapa och kör programmet för att utlösa en pipelinekörning!
 
     Den här koden kontrollerar kontinuerligt status för körningen tills den har slutfört kopieringen av data.
 
-1. Lägg till följande kod i metoden `Main` som hämtar körnings information om kopierings aktiviteten, till exempel storleken på data som läses/skrivs:
+1. Lägg till följande kod i `Main`-metoden som hämtar körnings information om kopierings aktiviteten, till exempel storleken på data som läses/skrivs:
 
     ```csharp
     // Check the copy activity run details

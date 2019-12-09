@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: 4aab699ff0141b648066fae0de445c4467be7509
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 394c674da63bbda643246c3d61fb670d6ac8d1f7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048398"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928623"
 ---
 # <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 
@@ -31,26 +31,34 @@ Med Azure Hybrid-förmån kan du välja att bara betala för den underliggande A
 
 Du kan välja eller ändra licensierings modellen med hjälp av Azure Portal eller genom att använda någon av följande API: er:
 
-- Ange eller uppdatera licens typen med hjälp av PowerShell:
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
+Ange eller uppdatera licens typen med hjälp av PowerShell:
 
-- Ange eller uppdatera licens typen med hjälp av Azure CLI:
+- [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)
+- [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)
+- [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
+- [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [AZ SQL mi Create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [AZ SQL mi-uppdatering](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-- Ange eller uppdatera licens typen genom att använda REST API:
+Ange eller uppdatera licens typen med hjälp av Azure CLI:
 
-  - [Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Databaser – uppdatera](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Hanterade instanser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Hanterade instanser – uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+- [az sql db create](/cli/azure/sql/db#az-sql-db-create)
+- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
+- [AZ SQL mi Create](/cli/azure/sql/mi#az-sql-mi-create)
+- [AZ SQL mi-uppdatering](/cli/azure/sql/mi#az-sql-mi-update)
+
+# <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+
+Ange eller uppdatera licens typen genom att använda REST API:
+
+- [Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)
+- [Databaser – uppdatera](/rest/api/sql/databases/update)
+- [Hanterade instanser – skapa eller uppdatera](/rest/api/sql/managedinstances/createorupdate)
+- [Hanterade instanser – uppdatera](/rest/api/sql/managedinstances/update)
+
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 

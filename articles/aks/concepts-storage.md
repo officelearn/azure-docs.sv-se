@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120488"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913721"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Lagrings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -60,8 +60,8 @@ Om du vill definiera olika lagrings nivåer, till exempel Premium och standard, 
 
 I AKS skapas två inledande StorageClasses:
 
-- *standard* – använder Azure standard Storage för att skapa en hanterad disk. Anspråks principen anger att den underliggande Azure-disken tas bort när Pod som användes i den tas bort.
-- *Managed-Premium* – använder Azure Premium Storage för att skapa en hanterad disk. Reclaim-principen igen anger att den underliggande Azure-disken tas bort när Pod som användes i den tas bort.
+- *standard* – använder Azure standard Storage för att skapa en hanterad disk. Anspråks principen anger att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
+- *Managed-Premium* – använder Azure Premium Storage för att skapa en hanterad disk. Reclaim-principen igen anger att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
 
 Om ingen StorageClass har angetts för en beständig volym används standard-StorageClass. Var försiktig när du begär beständiga volymer så att de använder rätt lagrings utrymme som du behöver. Du kan skapa en StorageClass för ytterligare behov med hjälp av `kubectl`. I följande exempel används Premium-Managed Disks och anger att den underliggande Azure-disken ska *behållas* när Pod tas bort:
 

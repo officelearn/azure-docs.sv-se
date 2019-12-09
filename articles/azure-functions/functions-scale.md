@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ebb2fcf0f626a82bcb5e6439183ba98c39c58588
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322891"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929735"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -37,16 +37,16 @@ Funktions stödet ingår i följande två kategorier:
 
 Följande tabell visar den aktuella support nivån för de tre värd planerna, när de körs på antingen Windows eller Linux:
 
-| | Förbrukningsplan | Premiumplan | Dedikerad plan |
+| | Förbrukningsplan | Premium-plan | Dedikerad plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) |
-| Linux | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) |
+| Windows | Allmänt tillgänglig | Allmänt tillgänglig | Allmänt tillgänglig |
+| Linux | Allmänt tillgänglig | Allmänt tillgänglig | Allmänt tillgänglig |
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
-När du använder förbruknings planen läggs instanser av Azure Functions-värden dynamiskt till och tas bort baserat på antalet inkommande händelser. Den här server lös planen skalas automatiskt och du debiteras för beräknings resurser endast när funktionerna körs. I en förbruknings plan är en funktions körning tids gräns efter en konfigurerbar tids period.
+När du använder förbruknings planen läggs instanser av Azure Functions-värden dynamiskt till och tas bort baserat på antalet inkommande händelser. Den här serverlösa planen skalas automatiskt och du debiteras bara för beräkningsresurser när dina funktioner körs. I en förbrukningsplan får en funktions körningstid timeout efter en konfigurerbar tidsperiod.
 
-Faktureringen baseras på antalet körningar, körnings tid och använt minne. Faktureringen sammanställs för alla funktioner i en Function-app. Mer information finns på sidan med [Azure Functions priser](https://azure.microsoft.com/pricing/details/functions/).
+Fakturering baseras på antalet körningar, körningstid och använt minne. Fakturering slås samman över alla funktioner inom en funktionsapp. Mer information finns på sidan med [Azure Functions priser](https://azure.microsoft.com/pricing/details/functions/).
 
 Förbruknings planen är standard värd planen och ger följande fördelar:
 
@@ -124,7 +124,7 @@ När utdata från det här kommandot är `dynamic`är din Function-app i förbru
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
-I alla planer kräver en Function-app ett allmänt Azure Storage konto, som stöder Azure Blob, Queue, Files och table Storage. Detta beror på att funktioner förlitar sig på Azure Storage för åtgärder som att hantera utlösare och loggning av funktions körningar, men vissa lagrings konton stöder inte köer och tabeller. Dessa konton, som inkluderar BLOB-endast lagrings konton (inklusive Premium Storage) och allmänna lagrings konton med zon-redundant lagrings replikering, filtreras bort från dina befintliga **lagrings konto** val när du skapar en function-app.
+I alla planer kräver en Function-app ett allmänt Azure Storage konto, som stöder Azure Blob, Queue, Files och table Storage. Detta beror på att funktioner förlitar sig på Azure Storage för åtgärder som att hantera utlösare och loggning av funktions körningar, men vissa lagrings konton stöder inte köer och tabeller. Dessa konton, som inkluderar BLOB-endast lagrings konton (inklusive Premium Storage) och allmänna lagrings konton med zon-redundant lagrings replikering, filtreras bort från dina befintliga **lagrings konto** val när du skapar en Function-app.
 
 Samma lagrings konto som används av din Function-app kan också användas av utlösare och bindningar för att lagra program data. För lagrings intensiva åtgärder bör du dock använda ett separat lagrings konto.   
 
@@ -142,7 +142,7 @@ Funktions kod filen lagras på Azure Files resurser på funktionens huvud lagrin
 
 Azure Functions använder en komponent som kallas för *skalnings styrenheten* för att övervaka händelse frekvensen och bestämma om du vill skala ut eller skala in. Skalnings styrenheten använder heuristik för varje utlösnings typ. Om du till exempel använder en Azure Queue Storage-utlösare, skalas den baserat på köns längd och ålder för det äldsta Queue meddelandet.
 
-Skalnings enheten för Azure Functions är Function-appen. När funktions programmet skalas ut allokeras ytterligare resurser för att köra flera instanser av den Azure Functions värden. I takt med att Compute demand minskas, tar skalnings kontrollen bort funktions värd instanser. Antalet instanser skalas slutligen ned till noll när inga funktioner körs i en Function-app.
+Skalnings enheten för Azure Functions är Function-appen. När funktions programmet skalas ut allokeras ytterligare resurser för att köra flera instanser av den Azure Functions värden. I takt med att Compute demand minskas, tar skalnings kontrollen bort funktions värd instanser. Antalet instanser *skalas* slutligen till noll när inga funktioner körs i en Function-app.
 
 ![Skala övervakning av kontroll händelser och skapa instanser](./media/functions-scale/central-listener.png)
 

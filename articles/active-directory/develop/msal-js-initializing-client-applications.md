@@ -1,29 +1,25 @@
 ---
-title: Initiera klient program (Microsoft Authentication Library för Java Script)
+title: Initiera MSAL. js-klient program | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att initiera klient program med hjälp av Microsoft Authentication Library för Java Script (MSAL. js).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25f2776b9b5683a345c55af4bc0020fef8109edd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150661"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916510"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med MSAL. js
 I den här artikeln beskrivs hur du initierar Microsoft Authentication Library för Java Script (MSAL. js) med en instans av ett användar agent program. Användar agent programmet är en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig. Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
@@ -115,7 +111,7 @@ Nedan visas den totala uppsättningen konfigurerbara alternativ som stöds för 
 - **clientID**: krävs. ClientID för ditt program, du bör hämta detta från program registrerings portalen.
 
 - **auktoritet**: valfritt. En URL som anger en katalog som MSAL kan begära token från. Standardvärdet är: `https://login.microsoftonline.com/common`.
-    * I Azure AD är det av formen https://&lt;instans&gt;/&lt;Audience&gt;, där &lt;instance&gt; är en identitets leverantörs domän (till exempel `https://login.microsoftonline.com`) och &lt;Audience&gt; är en identifierare representerar inloggnings mål gruppen. Detta kan vara följande värden:
+    * I Azure AD är det av formen https://&lt;instans&gt;/&lt;Audience&gt;, där &lt;instance&gt; är en identitets leverantörs domän (till exempel `https://login.microsoftonline.com`) och &lt;Audience&gt; är en identifierare som representerar inloggnings mål gruppen. Detta kan vara följande värden:
         * `https://login.microsoftonline.com/<tenant>`-klient organisation är en domän som är kopplad till klienten, till exempel contoso.onmicrosoft.com eller det GUID som representerar den `TenantID` egenskapen för katalogen som används för att logga in användare av en speciell organisation.
         * `https://login.microsoftonline.com/common`– används för att logga in användare med arbets-och skol konton eller ett personligt Microsoft-konto.
         * `https://login.microsoftonline.com/organizations/`– används för att logga in användare med arbets-och skol konton.
@@ -125,7 +121,7 @@ Nedan visas den totala uppsättningen konfigurerbara alternativ som stöds för 
 
 - **validateAuthority**: valfritt.  Verifiera utfärdaren av tokens. Standardvärdet är `true`. För B2C-program, eftersom auktoritets värdet är känt och kan skilja sig åt per princip, kommer verifieringen av auktoriteten inte att fungera och måste ställas in på `false`.
 
-- **redirectUri**: valfritt.  Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen. Standardvärdet är `window.location.href`.
+- **redirectUri**: valfritt.  Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen. Som standard `window.location.href`.
 
 - **postLogoutRedirectUri**: valfritt.  Omdirigerar användaren till `postLogoutRedirectUri` efter utloggning. Standardvärdet är `redirectUri`.
 
@@ -144,6 +140,6 @@ Nedan visas den totala uppsättningen konfigurerbara alternativ som stöds för 
 - **navigateFrameWait**: valfritt. Antalet millisekunder som anger vänte tiden innan dolda iframes navigerar till sitt mål. Standardvärdet är 500 millisekunder.
 
 Dessa kan endast användas för att skickas ned från MSAL-biblioteket:
-- **unprotectedResources**: valfritt.  Matris med URI: er som är oskyddade resurser. MSAL kommer inte att koppla en token till utgående begär Anden som har dessa URI: er. Standardvärdet är `null`.
+- **unprotectedResources**: valfritt.  Matris med URI: er som är oskyddade resurser. MSAL kommer inte att koppla en token till utgående begär Anden som har dessa URI: er. Som standard `null`.
 
-- **protectedResourceMap**: valfritt.  Detta är mappning av resurser till omfattningar som används av MSAL för att automatiskt koppla åtkomsttoken i webb-API-anrop. En enda åtkomsttoken hämtas för resursen. Så du kan mappa en viss resurs Sök väg enligt följande: {"https://graph.microsoft.com/v1.0/me", ["User. Read"]} eller App-URL: en för resursen som {"https://graph.microsoft.com/", ["User. Read", "mail. send"]}. Detta krävs för CORS-anrop. Standardvärdet är `null`.
+- **protectedResourceMap**: valfritt.  Detta är mappning av resurser till omfattningar som används av MSAL för att automatiskt koppla åtkomsttoken i webb-API-anrop. En enda åtkomsttoken hämtas för resursen. Så du kan mappa en viss resurs Sök väg enligt följande: {"https://graph.microsoft.com/v1.0/me", ["User. Read"]} eller App-URL: en för resursen som {"https://graph.microsoft.com/", ["User. Read", "mail. send"]}. Detta krävs för CORS-anrop. Som standard `null`.

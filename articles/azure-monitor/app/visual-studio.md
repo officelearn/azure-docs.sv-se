@@ -1,5 +1,5 @@
 ---
-title: Felsöka program med Azure Application insikter i Visual Studio | Microsoft Docs
+title: Felsöka i Visual Studio med Azure Application insikter
 description: Prestandaanalys och diagnostik för webbappar vid felsökning och i produktion.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -9,12 +9,12 @@ ms.author: daviste
 ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 32596b058918d3a8859dc356f8f0b1223b7f755a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4b32d775f64d3adba4ca07fa5154e395717d599
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899284"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930663"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Felsöka dina program med Azure Application insikter i Visual Studio
 I Visual Studio (2015 och senare) kan du analysera prestanda och diagnostisera problem i din ASP.NET-webbapp både när du felsöker och i produktion med hjälp av telemetri från [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).

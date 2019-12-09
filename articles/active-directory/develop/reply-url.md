@@ -1,5 +1,5 @@
 ---
-title: Omdirigera URI/svars-URL begränsningar och begränsningar – Microsoft Identity Platform
+title: Omdirigera URI & svar på URL-begränsningar – Microsoft Identity Platform | Azure
 description: 'Svars-URL: er/omdirigera URL-adresser begränsningar & begränsningar'
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389600"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920335"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restriktioner och begränsningar för omdirigerings-URI/svars-URL
 
@@ -28,15 +28,15 @@ Följande tabell visar det maximala antalet omdirigerings-URI: er som du kan lä
 
 | Konton som är inloggade | Maximalt antal omdirigerings-URI: er | Beskrivning |
 |--------------------------|---------------------------------|-------------|
-| Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience`-fältet i applikations manifestet anges till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
-| Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience`-fältet i applikations manifestet har angetts till *AzureADandPersonalMicrosoftAccount* |
+| Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience` fältet i applikations manifestet anges till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
+| Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience` fältet i applikations manifestet är inställt på *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Maximal URI-längd
 
 Du kan använda högst 256 tecken för varje omdirigerings-URI som du lägger till i en app-registrering.
 
 ## <a name="supported-schemes"></a>Scheman som stöds
-Azure AD-programmodellen stöder idag både HTTP-och HTTPS-scheman för appar som loggar in på Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD). Det är `signInAudience`-fältet i applikations manifestet anges till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs*. För appar som loggar in på personliga Microsoft-konton och arbets-och skol konton (som är `signInAudience` inställt på *AzureADandPersonalMicrosoftAccount*) tillåts bara https-schemat.
+Azure AD-programmodellen stöder idag både HTTP-och HTTPS-scheman för appar som loggar in på Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD). Det är `signInAudience` fältet i applikations manifestet anges till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs*. För appar som loggar in på personliga Microsoft-konton och arbets-och skol konton (som är `signInAudience` inställt på *AzureADandPersonalMicrosoftAccount*) tillåts bara https-schemat.
 
 > [!NOTE]
 > Med den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön kan utvecklare inte lägga till URI: er med http-schemat i användar gränssnittet. Det går bara att lägga till HTTP-URI: er för appar som loggar in på arbets-eller skol konton via appens manifest redigeraren. Nya appar kommer inte att kunna använda HTTP-scheman i omdirigerings-URI: n. Men äldre appar som innehåller HTTP-scheman i omdirigerings-URI: er fortsätter att fungera. Utvecklare måste använda HTTPS-scheman i omdirigerings-URI: er.

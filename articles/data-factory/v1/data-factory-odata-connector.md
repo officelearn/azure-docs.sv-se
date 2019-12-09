@@ -4,21 +4,20 @@ description: Lär dig mer om hur du flyttar data från OData-källor med hjälp 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ea751a18f8a5e5423b3199919ccf440c41595091
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666674"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931870"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Flytta data från en OData-källa med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -46,7 +45,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från en O
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -141,14 +140,14 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för data mängd
+## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **ODataResource** (som innehåller OData-datauppsättningen) har följande egenskaper
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| sökväg |Sökväg till OData-resursen |Nej |
+| Sökväg |Sökväg till OData-resursen |Nej |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
@@ -159,7 +158,7 @@ När källan är av typen **RelationalSource** (som inkluderar OData) finns föl
 
 | Egenskap | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
-| query |Använd den anpassade frågan för att läsa data. |"? $select = namn, beskrivning & $top = 5" |Nej |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |"? $select = namn, beskrivning & $top = 5" |Nej |
 
 ## <a name="type-mapping-for-odata"></a>Typ mappning för OData
 Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) utför kopierings aktiviteten automatiska typ konverteringar från käll typer till mottagar typer med följande två stegs metod.
@@ -171,20 +170,20 @@ När du flyttar data från OData används följande mappningar från OData-typer
 
 | OData-datatyp | .NET-typ |
 | --- | --- |
-| EDM. Binary |Byte [] |
-| Edm.Boolean |Booleska |
-| EDM. byte |Byte [] |
-| EDM. DateTime |DateTime |
-| EDM. decimal |Decimal |
-| Edm.Double |Dubbelklicka |
-| EDM. Single |Enkel |
-| EDM. GUID |GUID |
-| EDM. Int16 |Int16 |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Bool |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |DateTime |
+| Edm.Decimal |Decimal |
+| Edm.Double |Double |
+| Edm.Single |Enkel |
+| Edm.Guid |GUID |
+| Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
-| EDM. SByte |Int16 |
+| Edm.SByte |Int16 |
 | Edm.String |Sträng |
-| EDM. Time |Intervall |
+| Edm.Time |TimeSpan |
 | Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]

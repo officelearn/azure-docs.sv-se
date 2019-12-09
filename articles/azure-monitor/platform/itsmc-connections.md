@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: bd9f659589b222350fe688ee4da876801a65226a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769973"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927602"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter/tjänster med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -185,6 +185,7 @@ Se till att följande krav är uppfyllda:
 **ServiceNow-administratörer måste göra följande i sin ServiceNow-instans**:
 - Generera klient-ID och klient hemlighet för ServiceNow-produkten. Information om hur du genererar klient-ID och hemlighet finns i följande information som krävs:
 
+    - [Konfigurera OAuth för New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -192,7 +193,7 @@ Se till att följande krav är uppfyllda:
     - [Konfigurera OAuth för Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Helsingfors](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Genève](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
-    - [Konfigurera OAuth för New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+
 
 - Installera User-appen för Microsoft Log Analytics integration (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Skapa en integrerings användar roll för användar programmet som är installerat. Information om hur du skapar integrations användar rollen finns [här](#create-integration-user-role-in-servicenow-app).
@@ -262,7 +263,7 @@ Den nyskapade användaren visas med de standard roller som tilldelats.
 **Standard roller**:
 - personalize_choices
 - import_transformer
--   x_mioms_microsoft. user
+-   x_mioms_microsoft.user
 -   ITIL
 -   template_editor
 -   view_changer

@@ -1,30 +1,26 @@
 ---
-title: Så här skapar du en app som kan logga in på valfri Azure AD-användare
+title: Bygg appar som loggar in Azure AD-användare
 titleSuffix: Microsoft identity platform
 description: Visar hur du skapar ett program med flera innehavare som kan logga in en användare från en Azure Active Directory klient.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803930"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917785"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Så här: Logga in Azure Active Directory användare med program mönstret för flera innehavare
 
@@ -46,7 +42,7 @@ Nu ska vi titta närmare på varje steg. Du kan också gå direkt till [den här
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Uppdatera registreringen till att vara flera innehavare
 
-Som standard är Web App/API-registreringar i Azure AD en enda klient. Du kan registrera flera klient organisationer genom att söka efter de **konto typer som stöds** i fönstret **verifiering** i program registreringen i [Azure Portal][AZURE-portal] och ställa in den på **konton i valfri organisation katalogen**.
+Som standard är Web App/API-registreringar i Azure AD en enda klient. Du kan registrera flera klient organisationer genom att söka efter de **konto typer som stöds** i fönstret **verifiering** i program registreringen i [Azure Portal][AZURE-portal] och ange dem som **konton i en organisations katalog**.
 
 Innan ett program kan göras till flera klienter kräver Azure AD att app-ID-URI: n för programmet är globalt unik. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen.
 
@@ -139,7 +135,7 @@ Ditt program kan ha flera nivåer som representeras av sin egen registrering i A
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Flera nivåer i en enda klient
 
-Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [program manifest][AAD-App-Manifest]. Till exempel:
+Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [program manifest][AAD-App-Manifest]. Exempel:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 

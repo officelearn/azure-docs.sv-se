@@ -2,28 +2,24 @@
 title: Så här skaffar du AppSource Certified för Azure Active Directory | Microsoft Docs
 description: Information om hur du får ditt program AppSource certifierat för Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.reviewer: andret
+ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139c7c2e6736eeb3e78ac0aab913378ac84160e1
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 789b7d29673bca8a7703349ee46f4595fd24c2ea
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374098"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917819"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här skaffar du AppSource Certified för Azure Active Directory
 
@@ -40,8 +36,8 @@ Om du vill lära dig mer om hur du integrerar ditt program med Azure AD med hjä
 Ett *program med flera innehavare* är ett program som godkänner inloggningar från användare från ett företag eller en organisation som har Azure AD utan att kräva en separat instans, konfiguration eller distribution. AppSource rekommenderar att program implementerar flera innehavare *för att aktivera den kostnads* fria utvärderings versionen.
 
 Följ dessa steg om du vill aktivera flera innehavare av ditt program:
-1. Ange `Multi-Tenanted`-egenskapen till `Yes` på program registreringens information i [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Som standard konfigureras program som skapats i Azure Portal som *[en enda klient](#single-tenant-applications)* .
-1. Uppdatera din kod för att skicka begär anden till slut punkten för `common`. Det gör du genom att uppdatera slut punkten från `https://login.microsoftonline.com/{yourtenant}` till `https://login.microsoftonline.com/common*`.
+1. Ange `Multi-Tenanted` egenskap som ska `Yes` på program registreringens information i [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Som standard konfigureras program som skapats i Azure Portal som *[en enda klient](#single-tenant-applications)* .
+1. Uppdatera din kod för att skicka begär anden till `common` slut punkten. Det gör du genom att uppdatera slut punkten från `https://login.microsoftonline.com/{yourtenant}` till `https://login.microsoftonline.com/common*`.
 1. För vissa plattformar, t. ex. ASP .NET, behöver du också uppdatera koden för att godkänna flera utfärdare.
 
 Mer information om flera innehavare finns i [så här loggar du in en Azure Active Directory (Azure AD)-användare med program mönstret för flera innehavare](howto-convert-app-to-be-multi-tenant.md).

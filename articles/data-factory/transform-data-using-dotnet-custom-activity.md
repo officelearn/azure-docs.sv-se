@@ -2,21 +2,20 @@
 title: Använd anpassade aktiviteter i en pipeline
 description: Lär dig hur du skapar anpassade aktiviteter och använder dem i en Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: d922100d2747822d5683c0f65b169327c2866318
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+manager: anandsub
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 11/26/2018
+ms.openlocfilehash: 0f0e2b6164eab7afc39532b0d572d367e3d4ae64
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893883"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913061"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 

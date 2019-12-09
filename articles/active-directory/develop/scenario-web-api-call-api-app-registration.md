@@ -1,6 +1,6 @@
 ---
-title: 'Webb-API som anrop underordnat webb API: er (appregistrering) - Microsoft identity-plattformen'
-description: 'Lär dig hur du skapar ett webb-API som anrop underordnat webb API: er (appregistrering)'
+title: 'Registrera ett webb-API som anropar webb-API: er – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du skapar ett webb-API som anropar underordnade webb-API: er (app Registration)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,24 +15,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb03869cdea2150b6e922e2d6d81e577c3be02da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb5f4763e13935b99564bfcb6d8b6e7f463ed59e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075392"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919808"
 ---
-# <a name="web-api-that-calls-web-apis---app-registration"></a>Webb-API att anrop webb-API: er – appregistrering
+# <a name="web-api-that-calls-web-apis---app-registration"></a>Webb-API som anropar webb-API: er – app-registrering
 
-Ett webb-API som anropar underordnade webb-API: er har samma registreringen som ett skyddat webb-API. Därför måste du följa instruktionerna i [skyddade webb-API - appregistrering](scenario-protected-web-api-app-registration.md).
+Ett webb-API som anropar underordnade webb-API: er har samma registrering som en skyddad webb-API. Därför måste du följa anvisningarna i den [skyddade Web API-appens registrering](scenario-protected-web-api-app-registration.md).
 
-Men eftersom appen blir nu anropar webb-API: er, det ett konfidentiellt klientprogram. Det är därför det är extra registrering information som krävs: appen måste dela hemligheter (klientautentiseringsuppgifter) med Microsoft identity-plattformen.
+Men eftersom webbappen nu anropar webb-API: er blir det ett konfidentiellt klient program. Det är därför det finns en extra registrerings information som krävs: appen måste dela hemligheter (klientautentiseringsuppgifterna) med Microsoft Identity Platform.
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Webbprogram anropa API: er åt den användaren som ägartoken togs emot. De måste begära delegerade behörigheter. Mer information finns i [Lägg till behörigheter för att få åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Webb program anropar API: er åt den användare som Bearer-token togs emot för. De måste begära delegerade behörigheter. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Nästa steg
 

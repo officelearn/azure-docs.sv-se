@@ -1,28 +1,27 @@
 ---
-title: Använd Azure Key Vault hemligheter i pipeline-aktiviteter
+title: Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
 description: Lär dig hur du hämtar lagrade autentiseringsuppgifter från Azure Key Vault och använder dem under Data Factory-pipeline-körningar.
 services: data-factory
 author: ChrisLound
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 83d0981a0d277eab1aae8654343ab34661b3e88b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 837d62784a56ad0f17471cca5a660819d4a83e12
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672883"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926760"
 ---
-# <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använd Azure Key Vault hemligheter i pipeline-aktiviteter
+# <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
 
 Du kan lagra autentiseringsuppgifter eller hemliga värden i en Azure Key Vault och använda dem under pipeline-körningen för att skicka till dina aktiviteter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här funktionen använder den hanterade identiteten för Data Factory.  Lär dig hur det fungerar från [hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) och se till att data fabriken har en associerad.
 
@@ -50,7 +49,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
 
     |Egenskap  |Värde  |
     |---------|---------|
-    |Säkra utdata     |True         |
+    |Säkra utdata     |Sant         |
     |URL     |[Ditt hemliga URI-värde]? API-version = 7.0         |
     |Metod     |HÄMTA         |
     |Autentisering     |MSI         |

@@ -1,18 +1,20 @@
 ---
-title: Felsöka Azure Data Factory data flöden
+title: Felsöka data flöden
 description: Lär dig hur du felsöker data flödes problem i Azure Data Factory.
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
-ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721346"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930177"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Felsöka Azure Data Factory data flöden
 
@@ -84,6 +86,14 @@ Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Az
 
 - **Lösning**: på käll omvandlingen som använder en JSON-datauppsättning expanderar du "JSON-inställningar" och aktiverar "enstaka dokument".
 
+### <a name="error-message-duplicate-columns-found-in-join"></a>Fel meddelande: duplicerade kolumner hittades i kopplingen
+
+- **Symptom**: sammanfognings omvandlingen resulterade i kolumner från både vänster och höger sida som innehåller dubbletter av kolumn namn
+
+- **Orsak**: de strömmar som har anslutits har gemensamma kolumn namn
+
+- **Lösning**: Lägg till ett SELECT-Transforamtion efter kopplingen och välj Ta bort duplicerade kolumner för både indata och utdata.
+
 
 ## <a name="general-troubleshooting-guidance"></a>Allmän fel söknings vägledning
 
@@ -95,7 +105,7 @@ Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Az
 
 Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 
-*  [Data Factory-bloggen](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

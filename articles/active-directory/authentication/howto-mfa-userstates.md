@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f6fd2a01cdb325d543bc624d0c13bce1d84a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 55bba2ff51460a10feabd881458b8d4a15cde924
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848246"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914610"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
@@ -52,7 +52,10 @@ Användar konton i Azure Multi-Factor Authentication har följande tre distinkta
 
 En användares tillstånd visar om en administratör har registrerat dem i Azure MFA och om de har slutfört registrerings processen.
 
-Alla användare börjar vara *inaktiverade*. När du registrerar användare i Azure MFA ändras deras status till *aktive rad*. När aktiverade användare loggar in och slutför registrerings processen ändras deras status till *tvingande*.  
+Alla användare börjar vara *inaktiverade*. När du registrerar användare i Azure MFA ändras deras status till *aktive rad*. När aktiverade användare loggar in och slutför registrerings processen ändras deras status till *tvingande*.
+
+> [!NOTE]
+> Om MFA återaktiveras på ett användar objekt som redan har registrerings information, till exempel telefon eller e-post, måste administratörerna ha den användaren omregistrera MFA via Azure Portal eller PowerShell. Om användaren inte omregistreras, övergår inte MFA-statusen över från *aktive rad* till *tvingande* i MFA management UI.
 
 ### <a name="view-the-status-for-a-user"></a>Visa status för en användare
 
@@ -179,6 +182,8 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 > [!NOTE]
 > Vi ändrade nyligen beteendet och PowerShell-skriptet ovan enligt detta. Tidigare har skriptet sparat av MFA-metoderna, inaktiverat MFA och återställt metoderna. Detta behövs inte längre nu när standard beteendet för inaktivera inte tar bort metoderna.
+>
+> Om MFA återaktiveras på ett användar objekt som redan har registrerings information, till exempel telefon eller e-post, måste administratörerna ha den användaren omregistrera MFA via Azure Portal eller PowerShell. Om användaren inte omregistreras, övergår inte MFA-statusen över från *aktive rad* till *tvingande* i MFA management UI.
 
 ## <a name="next-steps"></a>Nästa steg
 

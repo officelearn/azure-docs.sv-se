@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 6884c8f1bf7a462b5d93f5c9ea23a2f64021fd9e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328500"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925185"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
 
@@ -22,7 +22,7 @@ Den här artikeln förklarar hur du arbetar med uppvärmnings-utlösaren i Azure
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
 [Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version **3.0.5 eller högre** krävs. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) lagringsplatsen. 
 
@@ -80,7 +80,7 @@ I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil 
 
 Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -94,7 +94,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är C# skript koden som binder till `HttpRequest`:
 
@@ -111,7 +111,7 @@ I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil 
 
 Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -125,7 +125,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är JavaScript-kod:
 
@@ -142,7 +142,7 @@ I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil 
 
 Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -156,7 +156,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är python-koden:
 
@@ -175,7 +175,7 @@ I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil 
 
 Din funktion måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -241,13 +241,13 @@ Uppvärmnings-utlösaren stöds inte i Java som ett attribut.
 
 ## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `WarmupTrigger`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `WarmupTrigger` attribut.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-| **typ** | Saknas| Required-måste anges till `warmupTrigger`. |
-| **riktning** | Saknas| Required-måste anges till `in`. |
-| **Namn** | Saknas| Obligatoriskt – variabel namnet som används i funktions koden.|
+| **typ** | Ej tillämpligt| Required-måste anges till `warmupTrigger`. |
+| **riktning** | Ej tillämpligt| Required-måste anges till `in`. |
+| **Namn** | Ej tillämpligt| Obligatoriskt – variabel namnet som används i funktions koden.|
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
@@ -262,4 +262,4 @@ Ingen ytterligare information ges till en uppvärmnings-utlöst funktion när de
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+[Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

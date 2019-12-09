@@ -1,17 +1,18 @@
 ---
-title: Härledd kolumn omvandling i Azure Data Factory mappnings data flöde
+title: Härledd kolumn omvandling i data flöde för mappning
 description: Lär dig hur du omvandlar data i skala i Azure Data Factory med den härledda kolumn omvandlingen för data flöde.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 387af25b87fdedff5d15ccb6a03819ad8b020e9a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676870"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930399"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Härledd kolumn omvandling i data flöde för mappning
 
@@ -27,7 +28,7 @@ Om du vill lägga till ytterligare härledda kolumner, Hovra över en befintlig 
 
 ![Ny härledd kolumn markering](media/data-flow/columnpattern.png "Ny härledd kolumn markering")
 
-## <a name="data-flow-script"></a>Skript för data flöde
+## <a name="data-flow-script"></a>Dataflödesskript
 
 ### <a name="syntax"></a>Syntax
 
@@ -46,7 +47,7 @@ Om du vill lägga till ytterligare härledda kolumner, Hovra över en befintlig 
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en härledd kolumn med namnet `CleanData` som tar en inkommande data ström `MoviesYear` och skapar två härledda kolumner. Den första härledda kolumnen ersätter kolumnen `Rating` med gradering svärdet som en heltals typ. Den andra härledda kolumnen är ett mönster som matchar varje kolumn vars namn börjar med "filmer". För varje matchad kolumn skapar den en kolumn `movie` som är lika med värdet för den matchade kolumnen som föregås av "movie_". 
+Exemplet nedan är en härledd kolumn med namnet `CleanData` som tar en inkommande data ström `MoviesYear` och skapar två härledda kolumner. Den första härledda kolumnen ersätter kolumnen `Rating` med gradering svärdet som en heltals typ. Den andra härledda kolumnen är ett mönster som matchar varje kolumn vars namn börjar med "filmer". För varje matchad kolumn skapar den en kolumn `movie` som är lika med värdet för den matchade kolumnen som föregås av movie_. 
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

@@ -3,21 +3,20 @@ title: Viktig information för gateway för datahantering
 description: Viktig information om Data Management Gateway Tory
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d0e31a89494477e048c7a2f9f7b8165e08d1a2f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682575"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924262"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Viktig information för gateway för datahantering
 > [!NOTE]
@@ -65,7 +64,7 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
 - Fast: felaktig läsning av decimalt null-värde från Oracle som källa.
 
 ## <a name="2661922"></a>2.6.6192.2
-### <a name="whats-new"></a>Nyheter
+### <a name="whats-new"></a>Senaste nytt
 - Kunder kan ge feedback om registreringen av gatewayen.
 - Stöd för ett nytt komprimerings format: ZIP (DEFLATE)
 
@@ -75,14 +74,14 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
 
 
 ## <a name="2561641"></a>2.5.6164.1
-### <a name="enhancements"></a>Funktioner
+### <a name="enhancements"></a>Förbättringar
 - Förbättrad och robust Gateway-registrerings upplevelse – nu kan du spåra status status under registreringen av Gateway-registreringen, vilket gör registrerings upplevelsen mer effektiv.
 - Förbättrad i Gateway-återställning – du kan fortfarande återställa Gateway även om du inte har säkerhets kopian av Gateway-filen med den här uppdateringen. Detta kräver att du återställer länkade autentiseringsuppgifter för tjänsten i portalen.
 - Fel korrigering.
 
 ## <a name="2461511"></a>2.4.6151.1
 
-### <a name="whats-new"></a>Nyheter
+### <a name="whats-new"></a>Senaste nytt
 
 - Nu kan du lagra autentiseringsuppgifter för data källa lokalt. Autentiseringsuppgifterna är krypterade. Autentiseringsuppgifterna för data källan kan återställas och återställas med hjälp av den säkerhets kopia som kan exporteras från den befintliga gatewayen, allt lokalt.
 

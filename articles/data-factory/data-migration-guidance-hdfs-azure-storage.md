@@ -1,23 +1,22 @@
 ---
-title: Använd Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage
+title: Migrera data från ett lokalt Hadoop-kluster till Azure Storage
 description: Lär dig hur du använder Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: afccbdbbfd5b8ddeefa621448d6170d937b518f0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675822"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931450"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage 
 
@@ -82,7 +81,7 @@ Den här bilden visar hur du migrerar data via en privat länk:
 - I den här arkitekturen migreras data via en privat peering-länk via Azure ExpressRoute. Data passerar aldrig över det offentliga Internet.
 - DistCp-verktyget stöder inte ExpressRoute privat peering med en Azure Storage virtuell nätverks slut punkt. Vi rekommenderar att du använder Data Factory inbyggda funktioner via integration runtime för att migrera data.
 - För den här arkitekturen måste du installera Data Factory integration runtime med egen värd på en virtuell Windows-dator i ditt virtuella Azure-nätverk. Du kan skala upp den virtuella datorn manuellt eller skala ut till flera virtuella datorer för att helt använda nätverket och lagrings-IOPS eller bandbredd.
-- Den rekommenderade konfigurationen för att börja med för varje virtuell Azure-dator (med den Data Factory egen värdbaserade integrerings körningen) är Standard_D32s_v3 med 32 vCPU och 128 GB minne. Du kan övervaka processor-och minnes användningen för den virtuella datorn under datamigreringen för att se om du behöver skala upp den virtuella datorn för bättre prestanda eller skala ned den virtuella datorn för att minska kostnaderna.
+- Den rekommenderade konfigurationen för att börja med för varje virtuell Azure-dator (med den Data Factory egen värd för integration runtime installerad) är Standard_D32s_v3 med 32 vCPU och 128 GB minne. Du kan övervaka processor-och minnes användningen för den virtuella datorn under datamigreringen för att se om du behöver skala upp den virtuella datorn för bättre prestanda eller skala ned den virtuella datorn för att minska kostnaderna.
 - Du kan också skala ut genom att associera upp till fyra VM-noder med en enda egen värd för integration Runtime. Ett enda kopierings jobb som körs mot en egen värd integrerings körning partitionerar automatiskt fil uppsättningen och använder alla VM-noder för att kopiera filerna parallellt. För hög tillgänglighet rekommenderar vi att du börjar med två noder i virtuella datorer för att undvika ett problem med en enda punkt under datamigreringen.
 - När du använder den här arkitekturen, är den första migreringen av ögonblicks bilder och delta data tillgängliga.
 
@@ -140,7 +139,7 @@ Här är det uppskattade priset baserat på våra antaganden:
 
 ### <a name="additional-references"></a>Ytterligare referenser
 
-- [HDFS-anslutning](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
+- [HDFS-koppling](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
 - [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 koppling](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)

@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 robots: noindex
-ms.openlocfilehash: 7608719c4e0c2b9e23f1982efda9789d25f50224
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c6d3510dfdd02bf2eb07d656c706c44d895c582d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665948"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927903"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -57,7 +56,7 @@ Följande tabell innehåller beskrivningar av de allmänna egenskaper som använ
 ### <a name="service-principal-authentication-recommended"></a>Autentisering av tjänstens huvud namn (rekommenderas)
 Om du vill använda tjänstens huvud namns autentisering registrerar du en program enhet i Azure Active Directory (Azure AD) och ger den åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 * Program-ID:t
-* Program nyckel 
+* Programnyckel 
 * Klient-ID:t
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
@@ -66,7 +65,7 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Ange programmets klient-ID. | Ja |
 | **servicePrincipalKey** | Ange programmets nyckel. | Ja |
-| **innehav** | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
+| **tenant** | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja |
 
 **Exempel: autentisering av tjänstens huvud namn**
 ```json
@@ -114,9 +113,9 @@ Du kan också använda autentisering med användarens autentiseringsuppgifter f�
 ```
 
 #### <a name="token-expiration"></a>Förfallo datum för token
-Den auktoriseringskod som du genererade med knappen **auktorisera** upphör att gälla efter en stund. Se följande tabell för förfallo tiderna för olika typer av användar konton. Du kan se följande fel meddelande när autentiseringstoken **upphör att gälla**: autentiseringsuppgifter för autentiseringsuppgift: INVALID_GRANT-AADSTS70002: det gick inte att verifiera autentiseringsuppgifterna. AADSTS70008: den angivna åtkomst tilldelningen har förfallit eller återkallats. Spårnings-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 korrelations-ID: fac30a0c-6BE6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21:09:31Z
+Den auktoriseringskod som du genererade med knappen **auktorisera** upphör att gälla efter en stund. Se följande tabell för förfallo tiderna för olika typer av användar konton. Du kan se följande fel meddelande när **token för autentisering upphör att gälla**: fel i autentiseringsuppgift: INVALID_GRANT-AADSTS70002: fel vid verifiering av autentiseringsuppgifter. AADSTS70008: den angivna åtkomst tilldelningen har förfallit eller återkallats. Spårnings-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 korrelations-ID: fac30a0c-6BE6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21:09:31Z
 
-| Användar typ | Upphör att gälla efter |
+| Användartyp | Upphör att gälla efter |
 |:--- |:--- |
 | Användar konton som inte hanteras av Azure Active Directory (@hotmail.com, @live.comosv.) |12 timmar |
 | Användar konton som hanteras av Azure Active Directory (AAD) |14 dagar efter den sista sektor körningen. <br/><br/>90 dagar, om en sektor som baseras på OAuth-baserad länkad tjänst körs minst en gång var 14: e dag. |
@@ -331,7 +330,7 @@ I exempel definitionen för pipeline kan in-och out-parametrarna tilldelas med h
 }
 ```
 
-Du kan använda dynamiska parametrar i stället. Till exempel: 
+Du kan använda dynamiska parametrar i stället. Exempel: 
 
 ```json
 "parameters": {

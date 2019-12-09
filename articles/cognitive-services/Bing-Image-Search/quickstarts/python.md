@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17864ed471537f80b537af4b3a8679cb9deaab57
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323806"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930731"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och python
 
-Använd den här snabbstarten till att börja skicka sökbegäranden till API:et för bildsökning i Bing. Python-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Python, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. Python-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Python, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder:
 
@@ -40,7 +40,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande moduler. Skapa en variabel för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor.
+1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande moduler. Skapa en variabel för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor. `search_url` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
 
     ```python
     import requests
@@ -151,7 +151,7 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 > [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
 * [Vad är API:et för bildsökning i Bing?](../overview.md)  
-* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
+* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) av API:er för Bing-sökning. 
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

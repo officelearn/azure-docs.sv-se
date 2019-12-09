@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4cd5fc50c35f4c4adb63c9d91af05dcf8b2dda40
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618566"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924640"
 ---
 # <a name="duplicate-detection"></a>Dubblettidentifiering
 
@@ -32,7 +32,7 @@ Genom att aktivera dubblettidentifiering kan du hålla koll på det programstyrd
 
 Program kontroll av identifieraren är nödvändig, eftersom endast det gör att programmet kan koppla *messageid* till en affärs process kontext som det kan förkonstrueras på ett förutsägbart sätt när ett fel uppstår.
 
-För en affärs process där flera meddelanden skickas i samband med hantering av vissa program kontexter kan *messageid* vara en sammansatt av Sammanhangs identifieraren på program nivå, till exempel ett inköps order nummer och meddelandets ämne, för exempel, **12345.2017/betalning**.
+För en affärs process där flera meddelanden skickas i samband med hantering av vissa program kontexter kan *messageid* vara en sammansatt av Sammanhangs identifieraren på program nivå, till exempel ett inköps order nummer och meddelandets ämne, till exempel **12345.2017/betalning**.
 
 *Messageid* kan alltid vara en del av GUID, men för att fästa identifieraren till affärs processen får du förutsägbar repeterbarhet, vilket är praktiskt om du vill använda funktionen för dubblettidentifiering på ett effektivt sätt.
 
@@ -67,6 +67,8 @@ Mer information om Service Bus meddelanden finns i följande avsnitt:
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+I scenarier där klient koden inte kan skicka ett meddelande igen med samma *messageid* som tidigare är det viktigt att utforma meddelanden som kan bearbetas på ett säkert sätt. Det här [blogg inlägget om idempotence](https://particular.net/blog/what-does-idempotent-mean) beskriver olika metoder för hur du gör det.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

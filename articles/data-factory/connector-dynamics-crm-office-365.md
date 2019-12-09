@@ -5,24 +5,23 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: eaf8060d3ccfd1f76aa81a289cba5b795106b2b1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280692"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929457"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Microsoft Dynamics 365 eller Microsoft Dynamics CRM. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Microsoft Dynamics 365 eller Microsoft Dynamics CRM. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -48,11 +47,11 @@ Se följande tabell på de autentiseringstyper och konfigurationer som stöds f�
 
 För Dynamics 365 är det specifikt att följande program typer stöds:
 
-- Dynamics 365 för försäljning
-- Dynamics 365 för kund tjänst
+- Dynamics 365 for Sales
+- Dynamics 365 for Customer Service
 - Dynamics 365 for Field Service
-- Dynamics 365 för Project service Automation
-- Dynamics 365 för marknadsföring
+- Dynamics 365 for Project Service Automation
+- Dynamics 365 for Marketing
 
 Andra program typer, t. ex. ekonomi och drift, personal osv. stöds inte av den här anslutningen.
 
@@ -61,7 +60,7 @@ Den här Dynamics Connector bygger på [Dynamics XRM-verktyg](https://docs.micro
 >[!TIP]
 >Om du vill kopiera data från **ekonomi och åtgärder i dynamics 365**kan du använda [Dynamics AX-anslutningen](connector-dynamics-ax.md).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom i gång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -83,8 +82,8 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 | servicePrincipalCredentialType | Ange vilken typ av autentiseringsuppgift som ska användas för autentisering av tjänstens huvud namn. Tillåtna värden är: **ServicePrincipalKey** eller **ServicePrincipalCert**. | Ja när du använder `AADServicePrincipal` autentisering |
 | servicePrincipalCredential | Ange autentiseringsuppgifterna för tjänstens huvud namn. <br>När du använder `ServicePrincipalKey` som autentiseringstyp kan `servicePrincipalCredential` vara en sträng (ADF krypterar den vid länkad tjänst distribution) eller en referens till en hemlighet i AKV. <br>När du använder `ServicePrincipalCert` som autentiseringsuppgift bör `servicePrincipalCredential` vara en referens till ett certifikat i AKV. | Ja när du använder `AADServicePrincipal` autentisering | 
 | användarnamn | Ange användar namnet för att ansluta till Dynamics. | Ja när du använder `Office365` autentisering |
-| lösenord | Ange lösen ordet för det användar konto som du har angett för användar namn. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja när du använder `Office365` autentisering |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har en integrerings körning |
+| lösenord | Ange lösen ordet för det användar konto som du har angett för användar namn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja när du använder `Office365` autentisering |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har en integrerings körning |
 
 >[!NOTE]
 >Dynamics-anslutningen som används för att använda valfri "företags namn"-egenskap för att identifiera din Dynamics CRM/365 Online-instans. Medan det fungerar, rekommenderar vi att du anger den nya egenskapen "serviceUri" i stället för att få bättre prestanda för instans identifiering.
@@ -180,7 +179,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 | authenticationType | Autentiseringstypen för att ansluta till Dynamics-servern. Ange **"IFD"** för Dynamics lokalt med IFD. | Ja |
 | användarnamn | Ange användar namnet för att ansluta till Dynamics. | Ja |
 | lösenord | Ange lösen ordet för det användar konto som du har angett för användar namn. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta kopierings aktiviteten hämta från där när data kopieringen ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
 **Exempel: Dynamics lokalt med IFD med IFD-autentisering**
 
@@ -212,7 +211,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics DataSet.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics DataSet.
 
 Följande egenskaper stöds för att kopiera data från och till Dynamics.
 
@@ -242,7 +241,7 @@ Följande egenskaper stöds för att kopiera data från och till Dynamics.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av typerna Dynamics-källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av typerna Dynamics-källa och mottagare.
 
 ### <a name="dynamics-as-a-source-type"></a>Dynamics som typ av källa
 
@@ -322,7 +321,7 @@ För att kunna kopiera data till Dynamics stöds följande egenskaper i avsnitte
 | writeBehavior | Åtgärdens Skriv funktion.<br/>Tillåtet värde är **"upsert"** . | Ja |
 | alternateKeyName | Ange det alternativa nyckel namnet som definierats i entiteten för att utföra "upsert". | Nej |
 | writeBatchSize | Rad antalet data som skrivs till Dynamics i varje batch. | Nej (standard är 10) |
-| ignoreNullValues | Anger om null-värden ska ignoreras från indata (förutom nyckel fält) under en Skriv åtgärd.<br/>Tillåtna värden är **True** och **false**.<br>- **Sant**: lämna kvar data i målobjektet oförändrade när du gör en upsert/uppdatering-åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **falskt**: uppdatera data i MÅLOBJEKTET till null när du gör en upsert/uppdatering-åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
+| ignoreNullValues | Anger om null-värden ska ignoreras från indata (förutom nyckel fält) under en Skriv åtgärd.<br/>Tillåtna värden är **true** och **false**.<br>- **Sant**: lämna kvar data i målobjektet oförändrade när du gör en upsert/uppdatering-åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **falskt**: uppdatera data i MÅLOBJEKTET till null när du gör en upsert/uppdatering-åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
 
 >[!NOTE]
 >Standardvärdet för sinken "**writeBatchSize**" och kopierings aktiviteten " **[ParallelCopies](copy-activity-performance.md#parallel-copy)** " för Dynamics-Sink är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
@@ -376,15 +375,15 @@ Konfigurera motsvarande Data Factory data typ i en data uppsättnings struktur b
 | AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
 | AttributeTypeCode. Boolean | Boolesk | ✓ | ✓ |
 | AttributeType. kund | GUID | ✓ | |
-| AttributeType. DateTime | Datum/tid | ✓ | ✓ |
-| AttributeType.Decimal | decimaltal | ✓ | ✓ |
+| AttributeType. DateTime | Datetime | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType. Double | Double | ✓ | ✓ |
 | AttributeType. EntityName | Sträng | ✓ | ✓ |
 | AttributeType. Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (med associerat enskilt mål) |
 | AttributeType.ManagedProperty | Boolesk | ✓ | |
 | AttributeType.Memo | Sträng | ✓ | ✓ |
-| AttributeType. Money | decimaltal | ✓ | ✓ |
+| AttributeType. Money | Decimal | ✓ | ✓ |
 | AttributeType. owner | GUID | ✓ | |
 | AttributeType. listruta | Int32 | ✓ | ✓ |
 | AttributeType. uniqueidentifier | GUID | ✓ | ✓ |
@@ -400,4 +399,4 @@ Konfigurera motsvarande Data Factory data typ i en data uppsättnings struktur b
 Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

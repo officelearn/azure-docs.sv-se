@@ -4,7 +4,7 @@ description: I den här självstudiekursen ska du skapa en Azure Data Factory-pi
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 27bfebf35e2ba2f732068913682e1d16063a1da5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682892"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931739"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 > 
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -115,7 +115,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 * Klient-ID:t
-* Prenumerations-ID:t
+* Prenumerations-ID
 * Program-ID:t
 * Lösenord (anges i det första kommandot)
 

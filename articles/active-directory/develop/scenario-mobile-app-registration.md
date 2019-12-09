@@ -1,5 +1,5 @@
 ---
-title: 'Mobilapp som anropar webb-API: er – appens kod konfiguration'
+title: 'Konfigurera mobilappar som anropar webb-API: er | Azure'
 titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (appens kod konfiguration)'
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2c5160d88e390f9bfe905dfee0684983a7a49365
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803733"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919893"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Mobilapp som anropar webb-API: er – app-registrering
 
@@ -66,7 +66,7 @@ Observera att det finns en förhands gransknings upplevelse i appens registrerin
    ![avbildning](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. Omdirigerings-URI: n beräknas för dig.
-   ![avbildning](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ![bild](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 Om du föredrar att konfigurera omdirigerings-URI: n manuellt kan du göra det via applikations manifestet. Det rekommenderade formatet är följande:
 

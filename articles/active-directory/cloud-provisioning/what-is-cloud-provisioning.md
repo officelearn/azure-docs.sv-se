@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 903551bfcaae3ffa7ccee72b1a5d781413864b32
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 333a3b93d872c1a99d1ec18d4941adc8986d4a03
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868464"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914557"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Vad är Azure AD Connect Cloud revisioner?
 Azure AD Connect Cloud etableringen är en ny Microsoft-Agent som är utformad för att möta och uppnå dina hybrid identitets mål för synkronisering av användare, grupper och kontakter till Azure AD.  Den kan användas tillsammans med Azure AD Connect Sync och ger följande fördelar:
@@ -33,7 +33,7 @@ Med Azure AD Connect Cloud etableringen dirigeras etableringen från AD till Azu
 
 Följande tabell innehåller en jämförelse mellan Azure AD Connect och Azure AD Connect moln etablering:
 
-| Funktion | Azure Active Directory Connect Synch| Azure Active Directory Connect moln etablering |
+| Funktion | Azure Active Directory Connect synkronisering| Azure Active Directory Connect moln etablering |
 |:--- |:---:|:---:|
 |Ansluta till en enda lokal AD-skog|● |● |
 | Ansluta till flera lokala AD-skogar |● |● |

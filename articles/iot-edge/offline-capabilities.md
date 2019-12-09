@@ -3,23 +3,22 @@ title: Använd enheter offline – Azure IoT Edge | Microsoft Docs
 description: Förstå hur IoT Edge-enheter och moduler kan användas utan internet-anslutning för längre tid och hur IoT Edge kan aktivera vanliga IoT-enheter att fungera offline för.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/04/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b16a8d8ddd4ac23a59db8e7fed48f1c39752d130
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456883"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924859"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter
 
-Azure IoT Edge stöder utökade offline-åtgärder på IoT Edge enheter och aktiverar offline-åtgärder på icke-IoT Edge underordnade enheter. Så länge som en IoT Edge-enhet har haft en möjlighet att ansluta till IoT Hub, kan den och alla underordnade enheter fortsätta att funktionen med tillfälliga eller Ingen Internetanslutning. 
+Azure IoT Edge stöder utökade offline-åtgärder på IoT Edge enheter och aktiverar offline-åtgärder på icke-IoT Edge underordnade enheter. Så länge en IoT Edge enhet har haft en möjlighet att ansluta till IoT Hub, kan den enheten och underordnade enheter fortsätta att fungera med tillfälliga eller ingen Internet anslutning.
 
-
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 När en IoT Edge enhet försätts i offlineläge, använder IoT Edge Hub tre roller. Först lagras alla meddelanden som skulle gå överordnade och de sparas tills enheten ska återansluta. Den fungerar dessutom för IoT Hub för att autentisera moduler och underordnade enheter så att de kan fortsätta att fungera. Det tredje möjliggör den kommunikation mellan underordnade enheter som normalt skulle gå via IoT Hub. 
 
@@ -39,13 +38,15 @@ I följande exempel visas hur en IoT Edge-scenariot fungerar i offline-läge:
 
 4. **Återanslut och omsynkronisera med IoT Hub**
 
-   När anslutningen med IoT Hub återställs synkroniserar IoT Edge-enheten igen. Lokalt lagrade meddelanden levereras i samma ordning som de har lagrats. Eventuella skillnader mellan önskade och rapporterade egenskaper för moduler och enheter har stämts av. IoT Edge-enhet uppdaterar alla ändringar till en uppsättning tilldelade underordnade IoT-enheter.
+   När anslutningen med IoT Hub återställs synkroniserar IoT Edge-enheten igen. Lokalt lagrade meddelanden levereras till IoT Hub direkt, men beror på anslutningens hastighet, IoT Hub svars tid och relaterade faktorer. De levereras i samma ordning som de lagrades i.
+
+   Eventuella skillnader mellan önskade och rapporterade egenskaper för moduler och enheter har stämts av. IoT Edge-enhet uppdaterar alla ändringar till en uppsättning tilldelade underordnade IoT-enheter.
 
 ## <a name="restrictions-and-limits"></a>Begränsningar och gränser
 
 De utökade offline-funktionerna som beskrivs i den här artikeln är tillgängliga i [IoT Edge version 1.0.7 eller senare](https://github.com/Azure/azure-iotedge/releases). Tidigare versioner har en delmängd av Offlinefunktioner. Befintliga IoT Edge-enheter som inte har utökat offlinefunktionerna kan inte uppgraderas genom att ändra körningsversion, men måste konfigureras med en ny enhetsidentitet i IoT Edge att få dessa funktioner. 
 
-Stöd för utökad offline är tillgängligt i alla regioner där IoT Hub är tillgängligt, **förutom** USA, östra.
+Utökad offline support är tillgänglig i alla regioner där IoT Hub är tillgänglig, **utom** östra USA.
 
 Endast icke-IoT Edge enheter kan läggas till som underordnade enheter. 
 

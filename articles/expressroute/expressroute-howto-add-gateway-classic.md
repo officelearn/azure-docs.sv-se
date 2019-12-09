@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/06/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 75c2b400a2caf4e5f2e14589fc007bb506b46338
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d7927af5b831dbe3294e1abc3a878e323bf1867e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031860"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928050"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell (klassisk)
 > [!div class="op_single_selector"]
@@ -32,7 +32,9 @@ Den här artikeln vägleder dig igenom stegen för att lägga till, ändra storl
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Innan du börjar
-Kontrollera att du har installerat Azure PowerShell-cmdlets som krävs för den här konfigurationen (1.0.2 eller senare). Om du inte har installerat cmdletarna som behöver du göra det innan du påbörjar konfigurationen. Mer information om hur du installerar Azure PowerShell finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Kontrol lera att du har installerat de Azure PowerShell-cmdletar som behövs för den här konfigurationen.
+
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 

@@ -211,6 +211,8 @@
       items:
         - name: Felsökningsguide
           href: service-bus-messaging-exceptions.md
+        - name: Resource Manager-undantag
+          href: service-bus-resource-manager-exceptions.md
 - name: Referens
   items:
     - name: .NET

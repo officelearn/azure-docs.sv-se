@@ -385,6 +385,10 @@
           href: functions-for-customizing-application-data.md
         - name: Välja en etableringsmetod
           href: isv-automatic-provisioning-multi-tenant-apps.md
+    - name: Etablering av HR Cloud
+      items:
+        - name: SuccessFactors-attributreferens
+          href: sap-successfactors-attribute-reference.md
     - name: Azure AD Connect-etableringsagent
       items:
         - name: Versionshistorik för etableringsagent

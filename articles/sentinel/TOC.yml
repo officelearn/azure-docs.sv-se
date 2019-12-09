@@ -111,7 +111,7 @@
           href: notebooks.md
         - name: Använda bokmärken för hotjakt
           href: bookmarks.md
-        - name: Använda liveström till hotjakt
+        - name: Använda direktsändning för hotjakt
           href: livestream.md
     - name: Ta bort Azure Sentinel
       href: offboard.md

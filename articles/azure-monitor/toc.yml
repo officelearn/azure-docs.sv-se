@@ -563,7 +563,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-classic.md
                         - name: Molntjänst
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: JSON Lines-format för diagnostikloggar
+                    - name: JSON Lines-format för resursloggar
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: Felsökning
                       href: platform/diagnostics-extension-troubleshooting.md
@@ -1163,7 +1163,7 @@
           href: platform/metrics-supported.md
         - name: Mått som stöds för nyare aviseringar
           href: platform/alerts-metric-near-real-time.md
-    - name: 'Tjänster, kategorier och scheman för resursloggar'
+    - name: 'Tjänster, kategorier och scheman för plattformloggar'
       href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest

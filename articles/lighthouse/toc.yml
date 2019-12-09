@@ -44,9 +44,6 @@
     - name: Visa och hantera kunder
       displayName: my customers
       href: ./how-to/view-manage-customers.md
-    - name: Visa och hantera tjänstleverantörer
-      displayName: 'customer, update'
-      href: ./how-to/view-manage-service-providers.md
     - name: Azure Policy-integration
       items:
         - name: Distribuera en skalanpassad princip
@@ -55,6 +52,14 @@
         - name: Distribuera en princip som kan åtgärdas
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Kundåtgärder
+      items:
+        - name: Visa och hantera tjänstleverantörer
+          displayName: 'customer, update'
+          href: ./how-to/view-manage-service-providers.md
+        - name: Visa tjänstleverantörsaktivitet
+          displayName: 'monitor, log'
+          href: ./how-to/view-service-provider-activity.md
 - name: Referens
   items:
     - name: Azure CLI

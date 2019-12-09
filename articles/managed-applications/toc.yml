@@ -51,6 +51,10 @@
       href: concepts-custom-role-definition.md
     - name: Registrering av resurser
       href: concepts-custom-providers-resourceonboarding.md
+    - name: Azure Policy för kundproviderassociationer
+      href: concepts-custom-providers-built-in-policy.md
+    - name: Azure Policy för hanterade programassociationer
+      href: concepts-managed-applications-built-in-policy.md
 - name: Instruktionsguider
   items:
     - name: Anpassade providrar

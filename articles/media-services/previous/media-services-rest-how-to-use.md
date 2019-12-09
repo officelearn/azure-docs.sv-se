@@ -1,6 +1,6 @@
 ---
 title: Översikt över Media Services åtgärder REST API | Microsoft Docs
-description: Översikt över Media Services REST API
+description: 'API: et "Media Services Operations REST" används för att skapa jobb, till gångar, direktsända kanaler och andra resurser i ett Media Services konto. Den här artikeln innehåller en Azure Media Services v2 REST API översikt.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014852"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895817"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API 
 
@@ -38,7 +38,7 @@ Autentisering till Media Services REST API görs genom Azure Active Directory au
 Följande överväganden gäller när du använder REST.
 
 * När du frågar entiteter, finns det en gräns på 1000 entiteter som returneras vid en tidpunkt eftersom offentliga REST v2 begränsar frågeresultat till 1000-resultat. Du måste använda **hoppa över** och **ta** (.net)/ **Top** (rest) enligt beskrivningen i [det här .net-exemplet](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [REST API exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* När du använder JSON och anger för att använda nyckelordet **__metadata** i begäran (t. ex. för att referera till ett länkat objekt) måste du ange formatet för att **tillåta** sidhuvud till [JSON](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (se följande exempel). OData förstår inte egenskapen **__metadata** i begäran, om du inte anger den som utförlig.  
+* När du använder JSON och anger att ska använda **__metadata** nyckelordet i begäran (t. ex. för att referera till ett länkat objekt) måste du ange formatet för att **ta emot** sidhuvud till [JSON](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (se följande exempel). OData förstår inte **__metadata** egenskapen i begäran, om du inte anger den som utförlig.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
@@ -58,9 +58,9 @@ Följande överväganden gäller när du använder REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard-HTTP-begärandehuvuden som stöds av Media Services
 För varje anrop du gör i Media Services finns det en uppsättning obligatoriska huvuden som du måste inkludera i din begäran och även en uppsättning valfria huvuden som du kanske vill inkludera. I tabellen nedan visas de huvuden som krävs:
 
-| Huvud | type | Value |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
-| Authorization |Ägar |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
+| Autentisering |Bearer |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
 | x-ms-version |Decimal |2,17 (eller senaste versionen)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
@@ -72,26 +72,26 @@ För varje anrop du gör i Media Services finns det en uppsättning obligatorisk
 
 Följande är en uppsättning valfria huvuden:
 
-| Huvud | type | Value |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
-| Date |RFC 1123-datum |Tidsstämpel för begäran |
-| Godkänn |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
-| Accept-Encoding |Gzip, deflate |GZIP och DEFLATE-kodning, om tillämpligt. Anteckning: För stora resurser kan Media Services ignorera detta sidhuvud och returnera data som inte är komprimerade. |
+| Datum |RFC 1123-datum |Tidsstämpel för begäran |
+| Acceptera |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
+| Accept-Encoding |Gzip, deflate |GZIP och DEFLATE-kodning, om tillämpligt. Obs! för stora resurser kan Media Services ignorera detta sidhuvud och returnera data som inte är komprimerade. |
 | Acceptera-språk |"sv", "es" och så vidare. |Anger det språk som ska besvaras. |
 | Acceptera-teckenuppsättning |Teckenuppsättnings typ som "UTF-8" |Standardvärdet är UTF-8. |
 | X-HTTP-Method |HTTP-metod |Tillåter att klienter eller brand väggar som inte stöder HTTP-metoder som att lägga till eller ta bort använder dessa metoder, tunnlade via ett GET-anrop. |
-| Innehållstyp |Innehållstyp |Innehålls typ för begär ande texten i begäran om att skicka eller publicera. |
+| Content-Type |Innehållstyp |Innehålls typ för begär ande texten i begäran om att skicka eller publicera. |
 | klient-begärande-ID |Sträng |Ett callation-definierat värde som identifierar den angivna begäran. Om det här värdet anges tas det här värdet med i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Viktigt**<p>Värdena bör vara tak vid 2096b (2 000). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standard-HTTP-svarshuvuden som stöds av Media Services
 Följande är en uppsättning huvuden som kan returneras till dig, beroende på vilken resurs du begärde och vilka åtgärder du avsåg att utföra.
 
-| Huvud | type | Value |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
 | begärande-ID |Sträng |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
 | klient-begärande-ID |Sträng |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
-| Date |RFC 1123-datum |Datum/tid då begäran bearbetades. |
-| Innehållstyp |Varierar |Innehålls typen för svars texten. |
+| Datum |RFC 1123-datum |Datum/tid då begäran bearbetades. |
+| Content-Type |Varierar |Innehålls typen för svars texten. |
 | Content-Encoding |Varierar |Gzip eller deflatera efter behov. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standard-HTTP-verb som stöds av Media Services
@@ -103,7 +103,7 @@ Följande är en fullständig lista över HTTP-verb som kan användas när du g�
 | POST |Skapar ett objekt baserat på angivna data eller skickar ett kommando. |
 | PLACERA |Ersätter ett objekt, eller skapar ett namngivet objekt (om tillämpligt). |
 | DELETE |Tar bort ett objekt. |
-| KATALOG |Uppdaterar ett befintligt objekt med namngivna egenskaps ändringar. |
+| Katalog |Uppdaterar ett befintligt objekt med namngivna egenskaps ändringar. |
 | HEAD |Returnerar metadata för ett objekt för GET-svar. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Identifiera och bläddra i Media Services Entity-modellen

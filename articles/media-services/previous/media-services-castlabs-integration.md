@@ -1,6 +1,6 @@
 ---
 title: Använda castLabs för att leverera Widevine-licenser till Azure Media Services | Microsoft Docs
-description: 'I den här artikeln beskrivs hur du kan använda Azure Media Services (AMS) för att leverera en ström som är dynamiskt krypterad av AMS med både PlayReady-och Widevine-DRM: er. PlayReady-licensen kommer från Media Services PlayReady licens Server och Widevine-licensen levereras av castLabs-licensservern.'
+description: 'I den här artikeln beskrivs hur du kan använda Azure Media Services (AMS) för att leverera en ström som är dynamiskt krypterad av AMS med både PlayReady-och Widevine-DRM: er.'
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c038480c9a49c96aaba7c7ff7299c8ebea31b81f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016679"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887823"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd castLabs för att leverera Widevine-licenser till Azure Media Services 
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ I följande tabell beskrivs JWT-token i AMS.
 | Målgrupp |Mål grupp sträng från den använda STS |
 | Anspråk |En uppsättning anspråk |
 | NotBefore |Startens giltighet för token |
-| Går ut |Slut giltighet för token |
+| Upphör |Slut giltighet för token |
 | SigningCredentials |Nyckeln som delas mellan PlayReady-licensserver, castLabs licens Server och STS, kan vara antingen symmetrisk eller asymmetrisk nyckel. |
 
 ### <a name="jwt-token-in-castlabs"></a>JWT-token i castLabs

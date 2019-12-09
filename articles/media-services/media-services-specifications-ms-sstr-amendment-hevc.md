@@ -1,6 +1,6 @@
 ---
 title: MS-SSTR-ändring (Azure Media Services-Smooth Streaming protokoll) för HEVC | Microsoft Docs
-description: I den här specifikationen beskrivs protokoll och format för fragmenterad MP4-baserad direkt uppspelning med HEVC i Azure Media Services. Detta är en ändring i dokumentationen för Smooth Streaming protokoll (MS-SSTR) som innehåller stöd för HEVC-inmatning och strömning. Endast de ändringar som krävs för att leverera HEVC anges i den här artikeln, förutom "(ingen ändring)" anger att texten bara kopieras för klargörande.
+description: I den här specifikationen beskrivs protokoll och format för fragmenterad MP4-baserad direkt uppspelning med HEVC i Azure Media Services. Endast de ändringar som krävs för att leverera HEVC anges i den här artikeln, förutom "(ingen ändring)" anger att texten bara kopieras för klargörande.
 services: media-services
 documentationcenter: ''
 author: johndeu
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6dd7e0dc7e58f33f952aa5531773a84ebd31a163
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624805"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887874"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming protokoll (MS-SSTR) ändring för HEVC 
 
@@ -42,21 +42,21 @@ Följande villkor gäller för det här dokumentet:
 
 >  **sammansättnings tid:** Tiden som ett exempel visas på klienten, enligt definitionen i [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
->   **CENC**: Common Encryption, enligt definitionen i [ISO/IEC 23001-7] Second Edition.
+>   **Cenc**: common Encryption, enligt definitionen i [ISO/IEC 23001-7] Second Edition.
 > 
 >   **avkodnings tid:** Tiden som ett exempel måste avkodas på klienten, enligt definitionen i [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
-**fragment** En separat nedladdnings bar enhet av **Media** som omfattar ett eller flera **exempel**.
+**fragment:** En separat nedladdnings bar enhet av **Media** som omfattar ett eller flera **exempel**.
 
->   **HEVC:** Video kodning med hög effektivitet enligt definitionen i [ISO/IEC 23008-2]
+>   **Hevc:** Video kodning med hög effektivitet enligt definitionen i [ISO/IEC 23008-2]
 > 
->   **uppenbarligen** Metadata om **presentationen** som gör det möjligt för en klient att göra begär Anden för **Media**. **mellanhand** Komprimerade ljud-, video-och text data som används av klienten för att spela upp en **presentation**. **medie format:** Ett väldefinierat format för att representera ljud eller video som ett komprimerat **exempel**.
+>   **manifest:** Metadata om **presentationen** som gör det möjligt för en klient att göra begär Anden för **Media**. **Media:** Komprimerade ljud-, video-och text data som används av klienten för att spela upp en **presentation**. **medie format:** Ett väldefinierat format för att representera ljud eller video som ett komprimerat **exempel**.
 > 
->   **presentation** Uppsättningen med alla **strömmar** och relaterade metadata som krävs för att spela upp en enda film. **anmoda** Ett HTTP-meddelande som skickas från klienten till servern, enligt definitionen i svaret [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **:** Ett HTTP-meddelande som skickas från servern till klienten, enligt definitionen i [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentation:** Uppsättningen med alla **strömmar** och relaterade metadata som krävs för att spela upp en enda film. **begäran:** Ett HTTP-meddelande som skickas från klienten till servern, enligt definitionen i [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **svar:** ett http-meddelande som skickas från servern till klienten, enligt definitionen i [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
->   **urvalsundersökningar** Den minsta grundläggande enheten (till exempel en ram) där **mediet** lagras och bearbetas.
+>   **exempel:** Den minsta grundläggande enheten (till exempel en ram) där **mediet** lagras och bearbetas.
 > 
->   **KAN, OM INTE, FÅR INTE, FÅR INTE:** Dessa villkor (i alla versaler) används enligt beskrivningen i [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) alla instruktioner för valfria beteenden, kan, eller inte.
+>   **kan, om inte, får inte,** får inte: Dessa villkor (i alla versaler) används enligt beskrivningen i [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) alla instruktioner för valfria beteenden, kan, eller inte.
 
 ## <a name="12-references"></a>1,2 referenser
 
@@ -64,31 +64,31 @@ Följande villkor gäller för det här dokumentet:
 
 ### <a name="121-normative-references"></a>1.2.1 normativa referenser 
 
->  [MS-SSTR] Smooth Streaming protokoll *v20140502*[https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>  [MS-SSTR] Smooth Streaming protokoll *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 > 
->   [ISO/IEC 14496-12] Internationella standardiseringsorganisationen, "Information Technology--kodning av ljud-visuella objekt – del 12: ISO Base-filformat ", ISO/IEC 14496-12:2014, utgåva 4, plus korrigering 1, ändringar 1 & 2.
+>   [ISO/IEC 14496-12] Internationella standardiseringsorganisationen, "Information Technology--kodning av ljud-visuella objekt – del 12: ISO Base Media-filformat", ISO/IEC 14496-12:2014, utgåva 4, plus korrigering 1, ändringar 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
 > 
->   [ISO/IEC 14496-15] Internationella standardiseringsorganisationen, "Information Technology--kodning av ljud-visuella objekt – del 15: Transport av NAL-enhet strukturerad video i ISO-filformatet ISO-fil, ISO 14496-15:2015, utgåva 3.
+>   [ISO/IEC 14496-15] Internationella standardiseringsorganisationen, "Information Technology--kodning av ljud-visuella objekt – del 15: transport av NAL-enhet strukturerad video i formatet ISO-basadress", ISO 14496-15:2015, utgåva 3.
 >   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 > 
->   [ISO/IEC 23008-2] Informations teknik – hög effektivitets kod och medie leverans i heterogena miljöer – del 2: Video kodning med hög effektivitet: 2013 eller nyaste versionen<https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   [ISO/IEC 23008-2] Informations teknik – hög effektivitets kod och medie leverans i heterogena miljöer – del 2: hög effektivitets video kodning: 2013 eller nyaste Edition <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 > 
->   [ISO/IEC 23001-7] Informations teknik – MPEG Systems Technologies – del 7: Vanlig kryptering i filer för ISO-filformat, CENC Edition 2:2015<https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
+>   [ISO/IEC 23001-7] Informations teknik – MPEG Systems Technologies – del 7: gemensam kryptering i ISO Base-filer för mediefiler, CENC Edition 2:2015 <https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 > 
->   [RFC-6381] IETF RFC-6381, parametrarna ' Codecs ' och ' profiler ' för "Bucket" medie typer "<https://tools.ietf.org/html/rfc6381>
+>   [RFC-6381] IETF RFC-6381, parametrarna "codecs" och "profil" för "Bucket"-medie typer "<https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] MP4-registrerings utfärdaren, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] MP4-registrerings utfärdaren, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   [RFC2119] Bradner, S., "viktiga ord som används i RFC: er för att indikera krav nivåer", BCP 14, RFC 2119, mars 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "viktiga ord som används i RFC: er för att indikera krav nivåer", BCP 14, RFC 2119, mars 1997, [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2-informativa referenser 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols huvud ord lista*".
 > 
->   [RFC3548] Josefsson, S., ED., "Base16, Base32 och base64 data encodings", RFC 3548, juli 2003,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., ED., "Base16, Base32 och base64 data encodings", RFC 3548, juli 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   [RFC5234] Crocker, D., ED., och Overell, P., "förstärkta BNF för syntax: ABNF ", STD 68, RFC 5234, januari 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., ED., och Overell, P., "förstärkta BNF för syntax: ABNF", STD 68, RFC 5234, januari 2008, [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1,3 översikt 
@@ -147,9 +147,9 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 
 >   **FourCC (variabel):** En kod med fyra tecken som identifierar vilket Media format som används för varje exempel. Följande värde intervall är reserverat med följande semantiska betydelser:
 > 
-> * "hev1": Video exempel för den här spårningen använder HEVC video med formatet "hev1" som anges i [ISO/IEC-14496-15].
+> * "hev1": video exempel för den här spåret använder HEVC video med hjälp av exempel beskrivningen "hev1" som anges i [ISO/IEC-14496-15].
 >
-> * "hvc1": Video exempel för den här spårningen använder HEVC video med formatet "hvc1" som anges i [ISO/IEC-14496-15].
+> * "hvc1": video exempel för den här spåret använder HEVC video med hjälp av exempel beskrivningen "hvc1" som anges i [ISO/IEC-14496-15].
 > 
 >   **CodecPrivateData (variabel):** Data som anger parametrar som är unika för medie formatet och som är gemensamma för alla exempel i spåret, som visas som en sträng med hex-kodade byte. Format och semantisk innebörd i byte ordningen varierar med värdet för **FourCC** -fältet enligt följande:
 > 
@@ -163,7 +163,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 > 
 >   * PPSField innehåller en sektor parameter uppsättning (PPS).
 > 
->   Obs! VPS (video parameter set) finns inte i CodecPrivateData, men ska finnas i fil huvudet för lagrade filer i rutan hvcC. System som använder Smooth Streaming protokoll måste signalera ytterligare avkodnings parametrar (till exempel HEVC-nivå) med hjälp av det anpassade attributet "codec".
+>   Obs! video parameter uppsättningen (VPS) finns inte i CodecPrivateData, men ska finnas i fil huvudet för lagrade filer i rutan hvcC. System som använder Smooth Streaming protokoll måste signalera ytterligare avkodnings parametrar (till exempel HEVC-nivå) med hjälp av det anpassade attributet "codec".
 
 ##### <a name="22251-customattributeselement"></a>2.2.2.5.1 CustomAttributesElement 
 
@@ -175,7 +175,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 
 ### <a name="223-fragment-request"></a>2.2.3-fragment förfrågan 
 
->   **Obs!** Standard medie formatet som krävs för **MinorVersion** 2 och ' hev1 ' eller ' hvc1 ' är ' iso8 ' varumärke ISO Base Media-filformat som anges i [ISO/IEC 14496-12] ISO Base Media-filformat, fjärde utgåvan, och [ISO/IEC 23001-7] common Encryption andra utgåvan.
+>   **Obs!** standard medie formatet som krävs för **MinorVersion** 2 och ' hev1 ' eller ' hvc1 ' är ' Iso8 ' varumärke ISO Base Media-filformat som anges i [ISO/IEC 14496-12] ISO Base Media-filformat, fjärde utgåvan, och [ISO/IEC 23001-7] common Encryption andra utgåvan.
 
 ### <a name="224-fragment-response"></a>2.2.4 fragment-svar 
 
@@ -189,15 +189,15 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 
 >   **TfxdBox** är inaktuell och dess funktion ersätts av den avkodnings tid för spår fragment (' tfdt ') som anges i avsnittet [ISO/IEC 14496-12] 8.8.12.
 > 
->   **Obs!** En klient kan beräkna varaktigheten för ett fragment genom att summera de samplings varaktigheter som anges i rutan spåra körning (' Trun ') eller multiplicera antalet prover gånger som standard samplings varaktighet. BaseMediaDecodeTime i tfdt plus Fragmentets varaktighet är lika med URL-tidsparametern för nästa fragment.
+>   **Obs!** en klient kan beräkna varaktigheten för ett fragment genom att summera de exempel varaktigheter som anges i rutan spåra körning (' Trun ') eller multiplicera antalet prover gånger som standard samplings varaktighet. BaseMediaDecodeTime i tfdt plus Fragmentets varaktighet är lika med URL-tidsparametern för nästa fragment.
 > 
->   En referens tid för en producent (' prft ') bör infogas före en ruta för film fragment (' moof ') vid behov, för att ange den UTC-tid som motsvarar avkodnings tiden för spår fragment för det första exemplet som refereras till i rutan film fragment, enligt vad som anges i [ISO/IEC 14496 -12] avsnitt 8.16.5.
+>   En referens tid för en producent (' prft ') bör infogas före en film fragment ruta (' moof ') vid behov, för att ange den UTC-tid som motsvarar avkodnings tiden för spår fragment för det första exemplet som refereras till i rutan film fragment, enligt vad som anges i avsnittet [ISO/IEC 14496-12] 8.16.5.
 
 #### <a name="2245-tfrfbox"></a>2.2.4.5 TfrfBox 
 
 >   **TfrfBox** är inaktuell och dess funktion ersätts av den avkodnings tid för spår fragment (' tfdt ') som anges i avsnittet [ISO/IEC 14496-12] 8.8.12.
 > 
->   **Obs!** En klient kan beräkna varaktigheten för ett fragment genom att summera de samplings varaktigheter som anges i rutan spåra körning (' Trun ') eller multiplicera antalet prover gånger som standard samplings varaktighet. BaseMediaDecodeTime i tfdt plus Fragmentets varaktighet är lika med URL-tidsparametern för nästa fragment. Se till att adresserna i förväg är föråldrade eftersom de fördröjer Direktsänd strömning.
+>   **Obs!** en klient kan beräkna varaktigheten för ett fragment genom att summera de exempel varaktigheter som anges i rutan spåra körning (' Trun ') eller multiplicera antalet prover gånger som standard samplings varaktighet. BaseMediaDecodeTime i tfdt plus Fragmentets varaktighet är lika med URL-tidsparametern för nästa fragment. Se till att adresserna i förväg är föråldrade eftersom de fördröjer Direktsänd strömning.
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
@@ -213,7 +213,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 > 
 >   enligt definitionen i [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
->   Obs! På så sätt undviker du ett videosynkroniseringsfel som orsakas av video som avbildar ljud som är lika med den största avkodade bildbuffertens borttagnings fördröjning och bibehåller visnings tiderna mellan alternativa fragment som kan ha olika borttagnings fördröjningar.
+>   OBS! detta förhindrar att ett videosynkroniseringsfel som orsakas av video isolerings ljud är lika med den största avkodade bildbuffertens borttagnings fördröjning.
 > 
 >   Syntaxen för fälten som definieras i det här avsnittet, som anges i ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) förblir samma, förutom följande:
 > 
@@ -247,7 +247,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
     MinorVersion = STRING_UINT32
     CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 
-**Obs!** Kompatibiliteten varumärken CCFF och iso8 anger att fragmenten överensstämmer med "common container File Format" och Common Encryption [ISO/IEC 23001-7] och ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
+**Obs!** kompatibiliteten "CCFF" och "iso8" visar att fragment följer "common container File Format" och common Encryption [ISO/IEC 23001-7] och ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 
 #### <a name="2272-streammanifestbox"></a>2.2.7.2 StreamManifestBox 
 
@@ -276,7 +276,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 
 >   Data elementet presentations Beskrivning kapslar in alla metadata för presentationen.
 > 
->   Metadata för presentation: En uppsättning metadata som är gemensamma för alla strömmar i presentationen. Metadata för presentationen består av följande fält som anges i avsnitt *2.2.2.1*:
+>   Metadata för presentation: en uppsättning metadata som är gemensamma för alla strömmar i presentationen. Metadata för presentationen består av följande fält som anges i avsnitt *2.2.2.1*:
 > 
 > * **MajorVersion**
 > * **MinorVersion**
@@ -291,21 +291,21 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
     MajorVersion = 2
     MinorVersion = 2
 
->   LookaheadCount = 0 (Anmärkning: Inaktuella rutor)
+>   LookaheadCount = 0 (Obs! rutor föråldrade)
 > 
 >   Presentationer bör också anges:
 
     TimeScale = 90000
 
->   Stream-samling: En samling data element för data Ströms beskrivning, enligt vad som anges i avsnittet *3.1.1.1.2*.
+>   Stream-samling: en samling data element för data Ströms Beskrivning enligt vad som anges i avsnittet *3.1.1.1.2*.
 > 
->   Beskrivning av skydd: En samling av data element för metadata i skydds systemet, enligt vad som anges i avsnittet *3.1.1.1.1*.
+>   Skydds Beskrivning: en samling skydds systemets metadata Beskrivning data element enligt vad som anges i avsnittet *3.1.1.1.1*.
 
 ##### <a name="31111-protection-system-metadata-description"></a>Beskrivning av metadata för 3.1.1.1.1 Protection System 
 
 >   Data elementet för data för metadata i skydds systemet kapslar in metadata som är unika för ett enda Content Protection System. (Ingen ändring)
 > 
->   Beskrivning av skydds rubrik: Innehålls skydds metadata som hör till ett enda Content Protection System. Beskrivning av skydds rubrik omfattar följande fält, som anges i avsnitt *2.2.2.2*:
+>   Beskrivning av skydds rubrik: metadata för innehålls skydd som hör till ett enda Content Protection System. Beskrivning av skydds rubrik omfattar följande fält, som anges i avsnitt *2.2.2.2*:
 > 
 >   * **SystemID**
 >   * **ProtectionHeaderContent**
@@ -352,9 +352,9 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 
 ## <a name="51-security-considerations-for-implementers"></a>5,1 säkerhets aspekter för implementerare
 
->   Om innehållet som transporteras med det här protokollet har ett högt kommersiellt värde, bör ett Content Protection system användas för att förhindra obehörig användning av innehållet. **ProtectionElement** kan användas för att hantera metadata som är relaterade till användningen av ett Content Protection System. Skyddat ljud-och video innehåll måste krypteras enligt vad som anges i MPEG Common Encryption Second Edition: 2015 [ISO/IEC 23001-7].
+>   Om innehållet som transporteras med det här protokollet har ett högt kommersiellt värde, bör ett Content Protection system användas för att förhindra obehörig användning av innehållet. **ProtectionElement** kan användas för att hantera metadata som är relaterade till användningen av ett Content Protection System. Skyddat ljud-och video innehåll måste krypteras enligt vad som anges av MPEG Common Encryption andra utgåvan: 2015 [ISO/IEC 23001-7].
 > 
->   **Obs!** För HEVC-video krypteras endast segment data i VCL NALs. Segment rubriker och andra NALs är tillgängliga för presentations program före dekryptering. i en säker video Sök väg är krypterad information inte tillgänglig för presentations program.
+>   **Obs!** för hevc-video krypteras endast segment data i VCL NALs. Segment rubriker och andra NALs är tillgängliga för presentations program före dekryptering. i en säker video Sök väg är krypterad information inte tillgänglig för presentations program.
 
 ## <a name="52-index-of-security-parameters"></a>5,2 index för säkerhets parametrar 
 

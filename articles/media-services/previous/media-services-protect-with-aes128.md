@@ -1,6 +1,6 @@
 ---
 title: Använd AES-128 dynamisk kryptering och Key Delivery Service | Microsoft Docs
-description: Leverera ditt innehåll krypterat med AES 128-bitars krypterings nycklar med hjälp av Microsoft Azure Media Services. Media Services tillhandahåller också den nyckel leverans tjänst som levererar krypterings nycklar till behöriga användare. Det här avsnittet visar hur du krypterar dynamiskt med AES-128 och använder Key Delivery Service.
+description: Det här avsnittet visar hur du krypterar dynamiskt med AES-128 och använder Key Delivery Service.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 2b96d968cb1ad2ec903dbf9788e1fbae22bd2b7d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014974"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895838"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använd AES-128 dynamisk kryptering och Key Delivery Service
 > [!div class="op_single_selector"]
@@ -57,9 +57,9 @@ Utför följande allmänna steg när du krypterar dina till gångar med AES med 
 
 5. [Konfigurera leverans principen för en till gång](media-services-protect-with-aes128.md#configure_asset_delivery_policy). Konfigurationen för leverans principen omfattar URL för nyckel hämtning och en initierings vektor (IV). (AES-128 kräver samma IV för kryptering och dekryptering.) Konfigurationen inkluderar även leverans protokollet (till exempel MPEG-streck, HLS, Smooth Streaming eller alla) och typen av dynamisk kryptering (till exempel kuvert eller ingen dynamisk kryptering).
 
-    Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES envelope för HLS. Alla protokoll som inte har definierats i en leverans princip blockeras från strömning. (Ett exempel är om du lägger till en enskild princip som endast anger HLS som protokoll.) Ett undantag är om du inte har definierat någon tillgångsleveransprincip alls. Därefter tillåts alla protokoll fritt.
+    Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES envelope för HLS. Alla protokoll som inte har definierats i en leverans princip blockeras från strömning. (Ett exempel är om du lägger till en enskild princip som endast anger HLS som protokoll.) Undantaget är om du inte har definierat någon till gångs leverans princip alls. Därefter tillåts alla protokoll fritt.
 
-6. [Skapa en OnDemand](media-services-protect-with-aes128.md#create_locator) -lokaliserare för att få en strömnings-URL.
+6. [Skapa en OnDemand-lokaliserare](media-services-protect-with-aes128.md#create_locator) för att få en strömnings-URL.
 
 Artikeln visar också [hur ett klient program kan begära en nyckel från Key Delivery Service](media-services-protect-with-aes128.md#client_request).
 
@@ -141,7 +141,7 @@ Du kan använda [Azure Media Services Player](https://aka.ms/azuremediaplayer) f
 I föregående steg konstruerade du den URL som pekar på en manifest fil. Klienten måste extrahera nödvändig information från de strömmande manifest filerna för att göra en begäran till nyckel leverans tjänsten.
 
 ### <a name="manifest-files"></a>MANIFEST filer
-Klienten måste extrahera URL: en (som också innehåller värde för innehålls nyckel-ID [barn]) från manifest filen. Klienten försöker sedan hämta krypterings nyckeln från Key Delivery Service. Klienten måste också extrahera IV-värdet och använda det för att dekryptera data strömmen. Följande fragment visar `<Protection>` elementet i Smooth Streaming manifestet:
+Klienten måste extrahera URL: en (som också innehåller värde för innehålls nyckel-ID [barn]) från manifest filen. Klienten försöker sedan hämta krypterings nyckeln från Key Delivery Service. Klienten måste också extrahera IV-värdet och använda det för att dekryptera data strömmen. Följande fragment visar `<Protection>`-elementet i Smooth Streaming manifestet:
 
 ```xml
     <Protection>
@@ -159,7 +159,7 @@ Klienten måste extrahera URL: en (som också innehåller värde för innehålls
 
 Vid HLS är rot manifestet indelat i segmentera filer. 
 
-Rot manifestet är till exempel: http:\//test001.ORIGIN.MediaServices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/manifest (format = M3U8-AAPL). Den innehåller en lista över segment fil namn.
+Rot manifestet är till exempel: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest (format = M3U8-AAPL). Den innehåller en lista över segment fil namn.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ Rot manifestet är till exempel: http:\//test001.ORIGIN.MediaServices.Windows.ne
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Om du öppnar en av segment filerna i en text redigerare (till exempel http:\//test001.ORIGIN.MediaServices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (video, format = M3U8-AAPL), den innehåller #EXT-X-KEY, som anger att filen är krypterad.
+Om du öppnar en av segment filerna i en text redigerare (till exempel http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/manifest (video, format = M3U8-AAPL), innehåller den #EXT-X-KEY, som anger att filen är krypterad.
 
     #EXTM3U
     #EXT-X-VERSION:4

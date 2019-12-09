@@ -1,6 +1,6 @@
 ---
-title: Förbered för format ändring till Azure Monitor diagnostikloggar
-description: Beskriver effekten och hur du uppdaterar ditt verktyg för att hantera de nya Azure-diagnostikloggar som ändrades till att använda tilläggs-blobbar den 1 november 2018.
+title: Förbered för format ändring till Azure Monitor resurs loggar
+description: Beskriver effekten och hur du uppdaterar ditt verktyg för att hantera de nya Azure-resursposterna som ändrades till att använda tilläggs-blobbar den 1 november 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dc7fd8916f356414437d4def21f26f0b651ee76f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307058"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893526"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor diagnostikloggar arkiverade på ett lagrings konto
+# <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto
 
 > [!WARNING]
-> Om du skickar [Azure-resursens diagnostikloggar eller mått till ett lagrings konto med hjälp av inställningar för resurs diagnostik](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./../../azure-monitor/platform/archive-activity-log.md), kommer formatet för data i lagrings kontot att ändras till JSON-rader på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
+> Om du skickar [Azures resurs loggar eller mått till ett lagrings konto med hjälp av resurs diagnostikinställningar](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./../../azure-monitor/platform/archive-activity-log.md), kommer formatet för data i lagrings kontot att ändras till JSON-rader på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
 >
 > 
 
@@ -31,13 +31,13 @@ Azure Monitor erbjuder en funktion som gör att du kan skicka resurs diagnostikd
 * Att ställa in en diagnostisk inställning mellan nu och den 1 november fortsätter att generera data i det aktuella formatet fram till 1 november.
 * Den här ändringen görs samtidigt i alla offentliga moln regioner. Ändringen görs inte i Microsoft Azure som drivs av 21Vianet, Azure Germany eller Azure Government moln ännu.
 * Den här ändringen påverkar följande data typer:
-  * [Azure Resource Diagnostic-loggar](archive-diagnostic-logs.md) ([Se lista över resurser här](diagnostic-logs-schema.md))
+  * [Azure resurs resurs loggar](archive-diagnostic-logs.md) ([Se lista över resurser här](diagnostic-logs-schema.md))
   * [Azure-resursens mått exporteras av diagnostikinställningar](diagnostic-settings.md)
   * [Azures aktivitets logg data exporteras av logg profiler](archive-activity-log.md)
 * Den här ändringen påverkar inte:
   * Nätverks flödes loggar
-  * Azures tjänst loggar är inte tillgängliga via Azure Monitor än (till exempel Azure App Service diagnostikloggar, lagrings analys loggar)
-  * Routning av Azure Diagnostic-loggar och aktivitets loggar till andra destinationer (Event Hubs Log Analytics)
+  * Azures tjänst loggar är inte tillgängliga via Azure Monitor än (till exempel Azure App Service resurs loggar, lagrings analys loggar)
+  * Routning av Azures resurs loggar och aktivitets loggar till andra destinationer (Event Hubs, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Så här ser du om du påverkas
 
@@ -135,6 +135,6 @@ Anpassade verktyg bör uppdateras för att hantera både det aktuella formatet o
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [att arkivera resurs diagnostiska loggar till ett lagrings konto](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Läs mer om [att arkivera resurs resurs loggar till ett lagrings konto](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Lär dig mer om [att arkivera aktivitets logg data till ett lagrings konto](./../../azure-monitor/platform/archive-activity-log.md)
 

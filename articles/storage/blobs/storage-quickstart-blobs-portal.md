@@ -1,19 +1,20 @@
 ---
-title: Azure-snabbstart – Skapa en blob i objektlagring med hjälp av Azure-portalen | Microsoft Docs
+title: Snabb start – skapa en blob med Azure Portal
+titleSuffix: Azure Storage
 description: I den här snabbstarten använder du Azure-portalen i objektlagring (Blob). Sedan använder du Azure-portalen och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f3d5aaaf57387ae4ccefdfe8ec22435f03b2452f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7336260d7565697b0559419ae502848bcff9424c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757549"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892863"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure-portalen
 

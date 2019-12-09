@@ -1,6 +1,6 @@
 ---
 title: Konfigurera en Azure Media Services-utvecklingsmiljö | Microsoft-dokument
-description: Konfigurera din miljö för utveckling med Azure Media Services.
+description: Den här artikeln beskriver hur du konfigurerar din miljö för utveckling med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 546e8e50bc34307c46d33e217d5bc0887b548774
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ef9b3d6f13de70cdf2fff87d9aed0a8efc2b782
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410033"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895790"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Konfigurera en Media Services-utvecklingsmiljö  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Följande steg beskriver de krav som ställs vid utveckling med Azure Media Services.
 
-## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
+## <a name="create-a-media-services-account"></a>Skapa ett medietjänstkonto
 Använd Azure Portal, .NET SDK eller REST API för att skapa ett Azure Media Services-konto.
 
 <a id="setup_dev_env"></a>
@@ -47,7 +47,7 @@ Information om hur du ansluter till API:et för Azure Media Services finns i [Ac
 
 ## <a name="next-steps"></a>Nästa steg
 
-Leta upp flera kodexempel i galleriet **Azure Code Samples** (Azure-kodexempel): [Azure Media Services-kodexempel](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Du hittar flera exempel i galleriet med **kodexempel för Azure**: [kodexempel för Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

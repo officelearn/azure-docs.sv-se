@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/16/2018
-ms.openlocfilehash: 48ce748a95f58abb060cd6f54ac29c877356f5de
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0def528e0c432ecbc706622f0b8c29c2d610c663
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555582"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893543"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Snabb starts exempel för Azure Monitor CLI
 Den här artikeln visar exempel kommandon för kommando rads gränssnitt (CLI) som hjälper dig att komma åt Azure Monitor-funktioner. Med Azure Monitor kan du Autoskala Cloud Services, Virtual Machines och Web Apps och skicka aviseringar eller anropa webb-URL: er baserat på värden för konfigurerade telemetridata.
@@ -160,7 +160,7 @@ Använd informationen i det här avsnittet för att arbeta med diagnostikinstäl
 az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### <a name="create-a-diagnostic-log-setting"></a>Skapa en diagnostisk logg inställning 
+### <a name="create-a-diagnostic-setting"></a>Skapa en diagnostisk inställning 
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

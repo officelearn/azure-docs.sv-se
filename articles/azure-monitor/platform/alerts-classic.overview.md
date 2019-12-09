@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555694"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893594"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska varningar i Microsoft Azure?
 
 > [!NOTE]
-> Den här artikeln beskriver hur du skapar äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](../../azure-monitor/platform/alerts-overview.md). Klassiska aviseringar är [schemalagda att dras tillbaka](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> Den här artikeln beskriver hur du skapar äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](../../azure-monitor/platform/alerts-overview.md). Klassiska aviseringar [dras tillbaka](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna. 
 >
 
 Med aviseringar kan du konfigurera villkor över data och bli informerad när villkoren stämmer överens med de senaste övervaknings data.
@@ -54,7 +54,7 @@ Det finns två typer av klassiska aviseringar tillgängliga – mått aviseringa
 
 * **Klassisk aktivitets logg aviseringar** – en strömmande logg avisering som utlöser en händelse post i aktivitets loggen som matchar filter villkoren. De här aviseringarna har bara ett tillstånd, "aktiverat". Aviserings motorn tillämpar bara filter villkoren för nya händelser. Den söker inte efter äldre poster. De här aviseringarna kan meddela dig när en ny Service Health incident inträffar eller när en användare eller ett program utför en åtgärd i din prenumeration, till exempel "ta bort virtuell dator".
 
-För diagnostiska loggdata som är tillgängliga via Azure Monitor dirigerar du data till Log Analytics (tidigare OMS) och använder en Log Analytics fråga. Log Analytics använder nu den [nya varnings metoden](../../azure-monitor/platform/alerts-overview.md) 
+För resurs logg data som är tillgängliga via Azure Monitor dirigerar du data till Log Analytics och använder en logg frågas avisering. Log Analytics använder nu den [nya varnings metoden](../../azure-monitor/platform/alerts-overview.md) 
 
 I följande diagram sammanfattas data källor i Azure Monitor och hur du kan få aviseringar från dessa data.
 
@@ -82,7 +82,7 @@ Azure Monitor skapade en återanvändbar meddelande grupp som kallas *Åtgärds 
 Webhooks möjliggör automatisering och reparation, till exempel med hjälp av:
 - Azure Automation – Runbook
 - Azure Function
-- Azure Logic-app
+- Azure Logic App
 - en tjänst från tredje part
 
 ## <a name="next-steps"></a>Nästa steg

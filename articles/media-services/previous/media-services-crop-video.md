@@ -1,6 +1,6 @@
 ---
 title: Så här beskär du videor med Media Encoder Standard – Azure | Microsoft Docs
-description: Den här artikeln visar hur du beskär videor med Media Encoder Standard.
+description: Beskärning är en process där du väljer ett rektangulärt fönster i video ramen och bara kodar pixlarna i det fönstret. Den här artikeln visar hur du beskär videor med Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 03d68cc3a60abba8b7189a9d03fbc21d7606f736
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 059816284e39c65bb772bd02f066d73da624722f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69016619"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887772"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Beskär videoklipp med Media Encoder Standard  
 
@@ -29,7 +29,7 @@ Du kan använda Media Encoder Standard (en gång) för att beskära din InVideo.
 
 Anta att du har angett en video som har en upplösning på 1920x1080 bild punkter (16:9-höjd-breddförhållandet), men har svarta fält (pelare rutor) till vänster och höger, så att bara ett 4:3-fönster eller 1440x1080 bild punkter innehåller aktiv video. Du kan använda peka på att beskära eller redigera ut de svarta fälten och koda 1440x1080-regionen.
 
-Att beskära i gång är ett för bearbetnings steg, så beskärnings parametrarna i kodnings för inställningen gäller för den ursprungliga indata-videon. Encoding är ett efterföljande steg och inställningarna för bredd/höjd gäller för den förädlade videon och inte till den ursprungliga videon. När du utformar din för inställning måste du göra följande: (a) Välj beskärnings parametrarna baserat på den ursprungliga Indataporten och (b) Välj dina kodnings inställningar baserat på den beskurna videon. Om du inte matchar dina kodnings inställningar till den beskurna videon visas inte utdata som du förväntar dig.
+Att beskära i gång är ett för bearbetnings steg, så beskärnings parametrarna i kodnings för inställningen gäller för den ursprungliga indata-videon. Encoding är ett efterföljande steg och inställningarna för bredd/höjd gäller för den *förädlade* videon och inte till den ursprungliga videon. När du utformar din för inställning måste du göra följande: (a) Välj beskärnings parametrarna baserat på den ursprungliga Indataporten och (b) Välj dina kodnings inställningar baserat på den beskurna videon. Om du inte matchar dina kodnings inställningar till den beskurna videon visas inte utdata som du förväntar dig.
 
 I [följande](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) avsnitt visas hur du skapar ett kodnings jobb med aktiviteter och hur du anger en anpassad för inställning för kodnings uppgiften. 
 

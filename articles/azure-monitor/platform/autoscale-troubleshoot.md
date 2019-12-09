@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 14e2f79383aa45125ce6955f3611a75ece1df10d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152949"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893577"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Felsöka Azures autoskalning
  
@@ -115,7 +115,7 @@ Precis som med alla Azure Monitor tjänster som stöds kan du använda [diagnost
 
 ![Inställningar för autoskalning av diagnostik](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-Föregående bild visar Azure Portal inställningarna för autoskalning av diagnostik. Där kan du välja fliken diagnostikloggar och aktivera logg insamling och routning. Du kan också utföra samma åtgärd med REST API, CLI, PowerShell, Resource Manager-mallar för diagnostikinställningar genom att välja resurs typ som *Microsoft. Insights/AutoscaleSettings*. 
+Föregående bild visar Azure Portal inställningarna för autoskalning av diagnostik. Där kan du välja fliken diagnostik/resurs loggar och aktivera logg insamling och routning. Du kan också utföra samma åtgärd med REST API, CLI, PowerShell, Resource Manager-mallar för diagnostikinställningar genom att välja resurs typ som *Microsoft. Insights/AutoscaleSettings*. 
 
 ## <a name="troubleshooting-using-autoscale-logs"></a>Felsöka med hjälp av automatiska skalnings loggar 
 

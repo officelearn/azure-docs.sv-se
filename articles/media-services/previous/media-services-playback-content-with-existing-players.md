@@ -1,6 +1,6 @@
 ---
 title: Använd befintliga spelare för att spela upp innehållet – Azure | Microsoft Docs
-description: I det här avsnittet visas befintliga spelare som du kan använda för att spela upp ditt innehåll.
+description: Den här artikeln innehåller befintliga spelare som du kan använda för att spela upp ditt innehåll.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69015298"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895862"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
 Azure Media Services stöder många populära strömnings format, till exempel Smooth Streaming, HTTP Live Streaming och MPEG-streck. Det här avsnittet pekar på befintliga spelare som du kan använda för att testa dina data strömmar.
@@ -27,7 +27,7 @@ Azure Media Services stöder många populära strömnings format, till exempel S
 ### <a name="the-azure-portal-media-services-content-player"></a>Azure Portal Media Services innehålls spelare
 **Azure** portal tillhandahåller en innehålls spelare som du kan använda för att testa videon.
 
-Klicka på önskad video (se till att den har [publicerats](media-services-portal-publish.md)) och klicka på uppspelnings knappen längst ned i portalen.
+Klicka på önskad video (se till att den har [publicerats](media-services-portal-publish.md)) och klicka på **uppspelnings** knappen längst ned i portalen.
 
 Vissa förutsättningar gäller:
 
@@ -60,7 +60,7 @@ Använd [Azure Media Player](https://aka.ms/azuremediaplayer) för att spela upp
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 För att testa HLS-URL: er kan du också använda:
 
 * **Safari** på en iOS-enhet eller

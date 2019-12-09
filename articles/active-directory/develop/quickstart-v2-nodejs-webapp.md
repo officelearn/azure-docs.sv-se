@@ -2,27 +2,22 @@
 title: Microsoft Identity Platform OIDC Node. js snabb start för webb program | Azure
 description: Lär dig hur du implementerar autentisering i ett Node. js-webbprogram med OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac3344fe16d24ae116a5fde289421998f11f18
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a73193a4e43ad4c91e23534898d003a310dff5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178048"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920607"
 ---
 # <a name="quickstart-add-sign-in-using-oidc-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OIDC i en Node. js-webbapp
 
@@ -126,7 +121,7 @@ $ npm install -g bunyan
 $ node app.js | bunyan
 ```
 
-### <a name="youre-done"></a>Du är klar!
+### <a name="youre-done"></a>Då ska det vara klart!
 
 Du kommer att kunna köra en server på `http://localhost:3000`.
 

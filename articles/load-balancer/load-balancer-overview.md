@@ -1,7 +1,7 @@
 ---
 title: Vad är Azure Load Balancer?
 titleSuffix: Azure Load Balancer
-description: Översikt över funktioner, arkitektur och implementering av Azure Load Balancer-funktioner. Lär dig hur Load Balancer fungerar och utnyttja den i molnet.
+description: Översikt över funktioner, arkitektur och implementering av Azure Load Balancer-funktioner. Lär dig hur Load Balancer fungerar och hur du utnyttjar det i molnet.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,76 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: c95744e58ce08943765755145645ed45a2ccdb1f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 50cb61394043bb8d0e67cae2aea8be4285f3432c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894454"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926271"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
 *Belastnings utjämning* syftar på en effektiv distribution av belastningen eller inkommande nätverks trafik i en grupp av Server dels resurser eller servrar. Azure erbjuder en [mängd olika alternativ för belastnings utjämning](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) som du kan välja bland utifrån dina behov. Det här dokumentet täcker Azure Load Balancer.
 
-Azure Load Balancer arbetar i lager fyra av OSI-modellen (Open Systems Interconnection). Det är den enda kontakt punkten för-klienter. Load Balancer distribuerar nya inkommande flöden som anländer till Load Balancer klient delen till backend-instanser, enligt angivna inläsnings Utjämnings-regler och hälso avsökningar. Server dels instanserna kan vara Azure Virtual Machines eller instanser i en skalnings uppsättning för virtuella datorer (VMSS). 
+Azure Load Balancer arbetar i lager fyra av OSI-modellen (Open Systems Interconnection). Det är den enda kontakt punkten för-klienter. Load Balancer distribuerar nya inkommande flöden som anländer till Load Balancer klient delen till backend-instanser, enligt angivna regler för belastnings utjämning och hälso avsökningar. Backend-poolens instanser kan vara Azure Virtual Machines eller instanser i en skalnings uppsättning för virtuella datorer. 
 
-Med Azure Load Balancer kan du skala dina program och skapa höga tillgänglig-tjänster. Load Balancer stöder både inkommande och utgående scenarier, ger låg latens och högt data flöde och skalar upp till miljon tals flöden för alla TCP-och UDP-program.
+Med Azure Load Balancer kan du skala dina program och skapa tjänster med hög tillgänglighet. Load Balancer stöder både inkommande och utgående scenarier, ger låg latens och högt data flöde och skalar upp till miljon tals flöden för alla TCP-och UDP-program.
 
 En **[offentlig Load Balancer](#publicloadbalancer)** kan tillhandahålla utgående anslutningar för virtuella datorer i det virtuella nätverket genom att översätta sina privata IP-adresser till offentliga IP-adresser. Offentliga belastnings utjämning används för att belastningsutjämna Internet trafik till dina virtuella datorer.
 
-Ett **[internt (eller privat) Load Balancer](#internalloadbalancer)** kan användas för scenarier där endast privata IP-adresser behövs på klient sidan. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. Du kan även nå en Load Balancer-klientdel från ett lokalt nätverk i ett hybridscenario.
+Ett **[internt (eller privat) Load Balancer](#internalloadbalancer)** kan användas för scenarier där endast privata IP-adresser behövs på klient delen. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. Du kan också komma åt en Load Balancer-frontend från ett lokalt nätverk i ett hybrid scenario.
 
-## <a name="fundamental-load-balancer-features"></a>Grundläggande lastbalanseringsfunktioner
+## <a name="load-balancer-components"></a>Load Balancer-komponenter
+* **IP-konfigurationer för klient**del: IP-adressen för Load Balancer. Det är kontakt punkten för-klienter. Dessa kan vara antingen offentliga eller privata IP-adresser, vilket skapar antingen offentliga eller interna belastningsutjämnare.
+* **Backend-pool**: grupp Virtual Machines eller instanser i den virtuella datorns skalnings uppsättning som ska betjäna inkommande begäran. Om du vill skala kostnads effektivt för att möta stora mängder inkommande trafik beräknings metoder rekommenderar vi vanligt vis att lägga till fler instanser i backend-poolen. Load Balancer omkonfigureras omedelbart via automatisk omkonfiguration när du skalar upp eller ned instanser. När du lägger till eller tar bort virtuella datorer från serverdelspoolen konfigureras lastbalanseraren om utan ytterligare åtgärder på lastbalanseringsresursen.
+* **Hälso avsökningar**: en hälso avsökning används för att fastställa hälso tillståndet för instanserna i backend-poolen. Du kan definiera tröskelvärdet för hälso avsökningar. När en avsökning inte svarar slutar lastbalanseraren att skicka nya anslutningar till de ohälsosamma instanserna. Ett avsöknings haveri påverkar inte befintliga anslutningar. Anslutningen fortsätter tills programmet avslutar flödet, tids gränsen för inaktivitet inträffar eller den virtuella datorn stängs av. Load Balancer tillhandahåller olika typer av hälso avsökningar för TCP-, HTTP-och HTTPS-slutpunkter. Mer information finns i [avsöknings typer](load-balancer-custom-probe-overview.md#types).
+* **Belastnings Utjämnings regler**: belastnings Utjämnings regler är de som talar om för Load Balancer vad som måste göras när. 
+* **Inkommande NAT-regler**: en inkommande NAT-regel vidarebefordrar trafik från en speciell port för en speciell klient dels-IP-adress till en angiven port för en speciell Server dels instans i det virtuella nätverket. Vidarebefordran av portar utförs av samma hash-baserade distribution som belastnings utjämning. Vanliga scenarier för den här funktionen är Remote Desktop Protocol (RDP) eller Secure Shell-sessioner (SSH) till enskilda VM-instanser i en Azure-Virtual Network. Du kan mappa flera interna slut punkter till portar på samma IP-adress för klient delen. Du kan använda klient dels-IP-adresserna för att fjärradministrera dina virtuella datorer utan någon ytterligare hopp ruta.
+* **Utgående regler**: en utgående regel konfigurerar utgående NAT (Network Address Translation) för alla virtuella datorer eller instanser som identifieras av backend-poolen som ska översättas till klient delen.
+
+## <a name="load-balancer-concepts"></a>Load Balancer begrepp
 
 Load Balancer har följande grundläggande funktioner för TCP- och UDP-program:
 
-* **Belastningsutjämning**
-
-  Med Azure Load Balancer kan du skapa en regel för belastnings utjämning för att distribuera trafik som anländer till klient delen till backend-instanser. Load Balancer använder en hash-algoritm för distribution av inkommande flöden och skriver om meddelandehuvuden för flöden till Server dels instanser. En server är tillgänglig för att ta emot nya flöden när en hälso avsökning indikerar en felfri slut punkt för backend.
-
-  Som standard använder Load Balancer en hash med 5 tupler. Hashen omfattar Källans IP-adress, källport, mål-IP-adress, målport och IP-protokollnummer för att mappa flöden till tillgängliga servrar. Du kan skapa tillhörighet till en käll-IP-adress genom att använda en hash med två eller tre tupleer för en specifik regel. Alla paket i samma paketflöde kommer till samma instans bakom den belastningsutjämnade serverdelen. När klienten initierar ett nytt flöde från samma käll-IP, ändras käll porten. Därför kan den 5-tupel-hashen leda till att trafiken går till en annan backend-slutpunkt.
-
-  Mer information finns i [Konfigurera distributions läge för Azure Load Balancer](load-balancer-distribution-mode.md). Följande bild visar den hash-baserade distributionen:
+* **Algoritm för belastnings utjämning**: med Azure Load Balancer kan du skapa en regel för belastnings utjämning för att distribuera trafik som kommer till klient delen till Server dels bassängs instanser. Load Balancer använder en hash-algoritm för distribution av inkommande flöden och skriver om meddelandehuvuden för flöden till instanser i backend-poolen. En server är tillgänglig för att ta emot nya flöden när en hälso avsökning indikerar en felfri slut punkt för backend.
+Som standard använder Load Balancer en hash med 5 tupler. Hashen omfattar Källans IP-adress, källport, mål-IP-adress, målport och IP-protokollnummer för att mappa flöden till tillgängliga servrar. Du kan skapa tillhörighet till en käll-IP-adress genom att använda en hash med två eller tre tupleer för en specifik regel. Alla paket i samma paketflöde kommer till samma instans bakom den belastningsutjämnade serverdelen. När klienten initierar ett nytt flöde från samma käll-IP, ändras käll porten. Därför kan en hash på 5 tupler leda till att trafiken går till en annan backend-slutpunkt.
+Mer information finns i [Konfigurera distributions läge för Azure Load Balancer](load-balancer-distribution-mode.md). Följande bild visar den hash-baserade distributionen:
 
   ![Hash-baserad distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
   *Bild: Hash-baserad distribution*
 
-* **Portvidarebefordran**
-
-  Med Load Balancer kan du skapa en inkommande NAT-regel. Den här NAT-regeln vidarebefordrar trafik från en speciell port för en speciell klient dels-IP-adress till en speciell port för en speciell backend-instans i det virtuella nätverket. Den här vidarebefordran utförs av samma hash-baserade distribution som belastnings utjämning. Vanliga scenarier för den här funktionen är Remote Desktop Protocol (RDP) eller Secure Shell-sessioner (SSH) till enskilda VM-instanser i en Azure-Virtual Network.
-  
-  Du kan mappa flera interna slut punkter till portar på samma IP-adress för klient delen. Du kan använda klient dels-IP-adresserna för att fjärradministrera dina virtuella datorer utan någon ytterligare hopp ruta.
-
-* **Program oberoende och öppenhet**
-
-  Load Balancer interagerar inte direkt med TCP eller UDP eller program skiktet. Det kan finnas stöd för alla TCP-eller UDP-programscenarier. Load Balancer inte avslutar eller härstammar från flöden, interagerar med nytto lasten för flödet eller tillhandahåller en program nivå för gateway-funktion. Protokoll hand skakningar sker alltid direkt mellan klienten och backend-instansen. Ett svar till ett inkommande flöde är alltid ett svar från en virtuell dator. När flödet kommer till den virtuella datorn bevaras också den ursprungliga käll-IP-adressen.
-
+* **Program oberoende och genomskinlighet**: Load Balancer interagerar inte direkt med TCP eller UDP eller program skiktet. Det kan finnas stöd för alla TCP-eller UDP-programscenarier. Load Balancer inte avslutar eller härstammar från flöden, interagerar med nytto lasten för flödet eller tillhandahåller en program nivå för gateway-funktion. Protokoll hand skakningar sker alltid direkt mellan klienten och backend-instansen. Ett svar till ett inkommande flöde är alltid ett svar från en virtuell dator. När flödet kommer till den virtuella datorn bevaras också den ursprungliga käll-IP-adressen.
   * Varje slutpunkt besvaras bara av en virtuell dator. En TCP-handskakning sker till exempel alltid mellan klienten och den valda backend-VM: en. Ett svar på en begäran till en klient del är ett svar som genereras av en backend-VM. När du har verifierat anslutningen till en klient del, verifierar du slut punkt till slut punkt på minst en virtuell server dels dator.
-  * Program nytto laster är transparenta för Load Balancer. Alla UDP-eller TCP-program kan stödjas. För arbets belastningar som kräver bearbetning av en HTTP-begäran eller manipulering av program nivå nytto laster, t. ex. tolkning av HTTP-URL: er, bör du använda en Layer 7-belastningsutjämnare som [Application Gateway](https://azure.microsoft.com/services/application-gateway).
-  * Eftersom Load Balancer inte samverkar med TCP-nyttolasten och tillhandahålla TLS-avlastning, kan du skapa krypterade scenarier från slut punkt till slut punkt. Att använda Load Balancer får stor skalbarhet för TLS-program genom att avbryta TLS-anslutningen på den virtuella datorn. Din nyckel kapacitet för TLS-sessioner begränsas till exempel bara av typen och antalet virtuella datorer som du lägger till i backend-poolen. Om du behöver SSL-avlastning, program skikts behandling eller vill delegera certifikat hantering till Azure, använder du i stället Azure Layer 7 Load Balancer [Application Gateway](https://azure.microsoft.com/services/application-gateway) i stället.
+  * Program nytto laster är transparenta för Load Balancer. Alla UDP-eller TCP-program kan stödjas.
+  * Eftersom Load Balancer inte samverkar med TCP-nyttolasten och tillhandahålla TLS-avlastning, kan du skapa krypterade scenarier från slut punkt till slut punkt. Att använda Load Balancer får stor skalbarhet för TLS-program genom att avbryta TLS-anslutningen på den virtuella datorn. Din nyckel kapacitet för TLS-sessioner begränsas till exempel bara av typen och antalet virtuella datorer som du lägger till i backend-poolen.
 
-* **Automatisk omkonfiguration**
-
-  Load Balancer konfigurerar direkt om sig själv när du skalar upp eller ned instanser. Om du lägger till eller tar bort virtuella datorer från backend-poolen omkonfigureras Load Balancer utan ytterligare åtgärder på Load Balancer resursen.
-
-* **Hälsoavsökningar**
-
-  Load Balancer använder hälso avsökningar som du definierar för att fastställa hälso tillståndet för instanser i backend-poolen. När en avsökning inte svarar slutar lastbalanseraren att skicka nya anslutningar till de ohälsosamma instanserna. Ett avsöknings haveri påverkar inte befintliga anslutningar. Anslutningen fortsätter tills programmet avslutar flödet, tids gränsen för inaktivitet inträffar eller den virtuella datorn stängs av.
-
-  Load Balancer tillhandahåller olika typer av hälso avsökningar för TCP-, HTTP-och HTTPS-slutpunkter. Mer information finns i [avsöknings typer](load-balancer-custom-probe-overview.md#types).
-
-  När du använder klassiska moln tjänster tillåts en annan typ: [gästa Gent](load-balancer-custom-probe-overview.md#guestagent). En gästa Gent bör anses vara en hälso avsökning av den sista utväg. Microsoft rekommenderar inte dem om andra alternativ är tillgängliga.
-
-* **Utgående anslutningar (SNAT)**
-
-  Alla utgående flöden från privata IP-adresser i ditt virtuella nätverk till offentliga IP-adresser på Internet kan översättas till en IP-adress för klient delen av Load Balancer. När en offentlig klient del är knuten till en VM-baserad VM med en belastnings Utjämnings regel översätter Azure utgående anslutningar till den offentliga klient delens IP-adress. Den här konfigurationen har följande fördelar:
-
+* **Utgående anslutningar (SNAT)** : alla utgående flöden från privata IP-adresser i ditt virtuella nätverk till offentliga IP-adresser på Internet kan översättas till en klient-IP-adress för Load Balancer. När en offentlig klient del är knuten till en VM-baserad VM med en belastnings Utjämnings regel översätter Azure utgående anslutningar till den offentliga klient delens IP-adress. Den här konfigurationen har följande fördelar:
   * Enkel uppgradering och haveri beredskap för tjänster, eftersom klient delen kan mappas dynamiskt till en annan instans av tjänsten.
   * Enklare hantering av åtkomst kontrol lista (ACL). ACL: er uttryckt som klient-IP-adresser ändras inte när tjänster skalas upp eller ned eller omdistribueras. Översättning av utgående anslutningar till ett mindre antal IP-adresser än datorer minskar belastningen på att implementera listor över betrodda mottagare.
-
-  Mer information finns i [utgående anslutningar i Azure](load-balancer-outbound-connections.md).
-
+Mer information finns i [utgående anslutningar i Azure](load-balancer-outbound-connections.md).
 Standard Load Balancer har ytterligare SKU-/regionsspecifika funktioner utöver de här grunderna, enligt beskrivningen nedan.
 
 ## <a name="skus"></a> Load Balancer SKU:er – jämförelse
@@ -93,20 +71,14 @@ Load Balancer stöder både Basic-och standard-SKU: er. Dessa SKU: er skiljer si
 Den fullständiga scenario konfigurationen kan skilja sig något beroende på SKU. Load Balancer-dokumentationen anger när en artikel bara gäller för en viss SKU. Du kan jämföra och se skillnaderna i tabellen nedan. Mer information finns i [Översikt över Azure standard Load Balancer](load-balancer-standard-overview.md).
 
 >[!NOTE]
-> Nya designer bör införa Standard Load Balancer.
-
+> Microsoft reccomends Standard Load Balancer.
 Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsuppsättningar kan bara anslutas till en SKU, aldrig båda. Load Balancer och den offentliga IP-adressens SKU måste matcha när du använder dem med offentliga IP-adresser. Load Balancer och offentliga IP-SKU: er är inte föränderligt.
-
-Det bästa sättet är att ange SKU: er explicit. För tillfället hålls de ändringar som krävs på ett minimum. Om ingen SKU anges är standardvärdet för den `2017-08-01` API-versionen av Basic SKU.
-
->[!IMPORTANT]
->Standard Load Balancer är en ny Load Balancer produkt. Det är i stort sett en supermängd av grundläggande Load Balancer, men det finns viktiga skillnader mellan de två produkterna. Alla scenarier slutpunkt till slutpunkt som är möjliga med Basic Load Balancer kan även skapas med Standard Load Balancer. Om du redan använder grundläggande Load Balancer kan du jämföra dem med Standard Load Balancer för att förstå de senaste ändringarna i deras beteende.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Mer information finns i [gränser för belastnings utjämning](https://aka.ms/lblimits). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
 
-## <a name="concepts"></a>Koncept
+## <a name="load-balancer-types"></a>Load Balancer typer
 
 ### <a name = "publicloadbalancer"></a>Offentlig lastbalanserare
 
@@ -121,7 +93,7 @@ Följande bild visar en belastningsutjämnad slut punkt för webb trafik som del
 
 *Bild: balansera webb trafik med hjälp av en offentlig Load Balancer*
 
-Internet klienter skickar webb sidor begär anden till den offentliga IP-adressen för en webbapp på TCP-port 80. Azure Load Balancer distribuerar begär Anden mellan de tre virtuella datorerna i den belastningsutjämnade uppsättningen. Mer information om Load Balancer algoritmer finns i [grundläggande Load Balancer funktioner](load-balancer-overview.md##fundamental-load-balancer-features).
+Internet klienter skickar webb sidor begär anden till den offentliga IP-adressen för en webbapp på TCP-port 80. Azure Load Balancer distribuerar begär Anden mellan de tre virtuella datorerna i den belastningsutjämnade uppsättningen. Mer information om Load Balancer algoritmer finns i [Load Balancer begrepp](load-balancer-overview.md##load-balancer-concepts).
 
 Azure Load Balancer distribuerar nätverks trafiken jämnt mellan flera virtuella dator instanser som standard. Du kan även konfigurera sessionstillhörighet. Mer information finns i [Konfigurera distributions läge för Azure Load Balancer](load-balancer-distribution-mode.md).
 

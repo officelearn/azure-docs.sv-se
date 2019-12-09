@@ -1,28 +1,24 @@
 ---
-title: Registrera en app med Microsoft Identity Platform – Microsoft Identity Platform
+title: Registrera en app med Microsoft Identity Platform | Azure
 description: Lär dig hur du lägger till och registrerar ett program med Microsoft Identity Platform.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 329e4b262731ae1b23fb94da7b937c9c1549185f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58a68b89ce38664c0d0ec87b509fe5f872cfd78c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473659"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921423"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabb start: registrera ett program med Microsoft Identity Platform
 
@@ -32,7 +28,7 @@ Den här snabb starten visar hur du lägger till och registrerar ett program med
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registrera ett nytt program med hjälp av Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. Sök efter och välj **Azure Active Directory**. På sidan **Active Directory** väljer du **Appregistreringar** och väljer sedan **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:

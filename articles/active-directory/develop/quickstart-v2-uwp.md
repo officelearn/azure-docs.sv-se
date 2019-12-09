@@ -2,27 +2,22 @@
 title: Microsoft Identity Platform Windows-UWP snabb start | Azure
 description: Lär dig hur ett Universell Windows-plattform (XAML)-program kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform-slutpunkten.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad7afc2a4936737cf1cb3fd08bc69289b9cfc90a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 996bc35820d35e031056207adeb707a7ea98a763
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379787"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920437"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
@@ -40,12 +35,12 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
 > 1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) .
-> 1. Ange ett namn för ditt program och klicka på **Registrera**.
+> 1. Ange ett namn för programmet och klicka på **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen med hjälp av följande steg:
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
@@ -61,13 +56,13 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > 1. Välj **Spara**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera din app
+> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera programmet
 > För kodexemplet för den här snabbstarten måste du lägga till en omdirigerings-URI som **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-uwp/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-uwp/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
@@ -87,7 +82,7 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.    
 
 > [!div renderon="docs"]
-> Där:
+> Var:
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 >
 > > [!TIP]
@@ -129,7 +124,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Där: ||
+> |Var: ||
 > |---------|---------|
 > | `ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
 
@@ -137,7 +132,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
 
 MSAL har två metoder för att förvärva tokens i en UWP-app: `AcquireTokenInteractive` och `AcquireTokenSilent`.
 
-#### <a name="get-a-user-token-interactively"></a>Hämta en token interaktivt
+#### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
 Vissa situationer kräver tvingande av användare att interagera med Microsoft Identity Platform-slutpunkten via ett popup-fönster för att antingen verifiera sina autentiseringsuppgifter eller ge medgivande. Några exempel är:
 
@@ -151,9 +146,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Där:||
+> |Var:||
 > |---------|---------|
-> | `scopes` | Innehåller de omfång som begärs, som `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
+> | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
@@ -166,7 +161,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Där: ||
+> |Var: ||
 > |---------|---------|
 > | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er |
 > | `firstAccount` | Anger det första användar kontot i cachen (MSAL stöder flera användare i en enda app) |

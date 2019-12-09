@@ -2,26 +2,22 @@
 title: Microsoft Identity Platform Android-snabb start | Azure
 description: Lär dig hur Android-program kan anropa ett API som kräver åtkomsttoken av Microsoft Identity Platform-slutpunkten.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c9a194dcd2ccb353f11aa939200213f0db1c2ea
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 84603dfa865afe1c7661f49d7dac7374fa62a2a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73942945"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920794"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -35,7 +31,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 ![Skärm bild av exempel appen](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
-> **Krav**
+> **Förutsättningar**
 > * Android Studio 
 > * Android 16 +
 
@@ -159,7 +155,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 
 Koden är indelad i fragment som visar hur du skriver en enda och flera konton MSAL-appen. Filerna är organiserade enligt följande:
 
-| Fil  | Visat  |
+| Fil  | Demonstrationer  |
 |---------|---------|
 | MainActivity | Hanterar användar gränssnittet |
 | MSGraphRequestWrapper  | Anropar Microsoft Graph-API med hjälp av token som tillhandahålls av MSAL |

@@ -2,35 +2,31 @@
 title: Ändra Microsoft identifiera plattforms program konton | Azure
 description: Konfigurera en app registrerad på Microsoft Identity Platform för att ändra vilka, eller vilka konton, som har åtkomst till appen.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 439d2c06f05aa8824afa4a4aec3990ecba1aa8da
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380778"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921350"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabbstart: Ändra de konton som stöds av ett program
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabb start: ändra de konton som stöds av ett program
 
 När du registrerar en app på Microsoft Identity Platform vill du kanske att appen endast kan kommas åt av användare i din organisation. Du kan också vilja att appen är åtkomlig för användare i externa organisationer eller av användare i externa i organisationer samt användare som inte nödvändigtvis är en del av en organisation (personliga konton).
 
 I den här snabbstarten lär du hur du ändrar appens konfiguration för att ändra vilka, eller vilka konton, som har åtkomst till appen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -85,7 +81,7 @@ Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
 * [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
 * [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md)
-* [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
+* [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)
 
 Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).

@@ -2,26 +2,23 @@
 title: 'Konfigurera ett program för åtkomst till webb-API: er – Microsoft Identity Platform'
 description: Lär dig hur du konfigurerar en app som har registrerats på Microsoft Identity Platform att inkludera omdirigerings-URI, autentiseringsuppgifter eller behörigheter för åtkomst till webb-API:er.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0fd9374c0f507dfc075719ef61f71457317dedba
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106607"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915171"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er
 
@@ -37,7 +34,7 @@ Dessutom, innan en klient kan komma åt ett webb-API som görs tillgängligt av 
 
 I den här snabbstarten visas hur du konfigurerar din app för att:
 
-* [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
+* [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
 * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
 * [Ändra konto typer som stöds](#modify-supported-account-types)
 * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
@@ -55,13 +52,13 @@ Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
 Innan du kan konfigurera appen gör du följande:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
 1. Sök efter och välj **Azure Active Directory**. 
 1. I den vänstra rutan väljer du **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er:
-    * [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
+    * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
     * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
     * [Ändra konto typer som stöds](#modify-supported-account-types)
     * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
@@ -128,7 +125,7 @@ Om du vill konfigurera program inställningar baserat på plattformen eller enhe
 
 1. Ange inställnings informationen baserat på den plattform som du har valt.
 
-   | Plattform                | Alternativ              | Konfigurationsinställningar            |
+   | Plattform                | Choices              | Konfigurationsinställningar            |
    |-------------------------|----------------------|-----------------------------------|
    | **Webbprogram**    | **Webb**              | Ange **omdirigerings-URI** för programmet. |
    | **Mobil program** | **iOS**              | Ange appens **paket-ID**, som du hittar i Xcode i info. plist eller skapa inställningar. Genom att lägga till paket-ID: t skapas automatiskt en omdirigerings-URI för programmet. |
@@ -211,7 +208,7 @@ Medgivande meddelandet ger möjlighet att **godkänna** eller **avbryta**. Om du
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
 * [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
-* [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
+* [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)
 

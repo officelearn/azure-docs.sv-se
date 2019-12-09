@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122578"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927072"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Snabb start: Använd Azure cache för Redis med en ASP.NET-webbapp 
 
@@ -98,7 +98,7 @@ Eftersom *CacheSecrets.config* inte har distribuerats till Azure med din app anv
 
     ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
 
-2. Leta reda på elementet *i filen*web.config`<appSetting>`. Lägg sedan till följande `file`-attribut. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
+2. Leta reda på elementet `<appSetting>` i filen *web.config*. Lägg sedan till följande `file`-attribut. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
 
 * Innan: `<appSettings>`
 * Efter: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
@@ -143,7 +143,7 @@ ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeri
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = lazyConnection.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeri
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Value.Dispose();
+            lazyConnection.Dispose();
 
             return View();
         }

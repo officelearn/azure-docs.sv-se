@@ -4,19 +4,19 @@ description: Skapa en datafabrik med en pipeline som en kopierar data från en p
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 642039e99df19939def5ac850f1abccca0e67222
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ea218da5316e921c44b7e80fa5f072417d98ca05
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684477"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929931"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
 
@@ -37,7 +37,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Gå till [Azure-portalen](https://portal.azure.com). 
 1. Från Azure Portal-menyn väljer du **skapa en resurs**.
    
@@ -66,7 +66,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 
 1. När datafabriken har skapats visas sidan **Datafabrik**. Välj panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
    
-   ![Startsidan för datafabriken med panelen Författare och övervakare](./media/doc-common-process/data-factory-home-page.png)
+   ![Startsidan för datafabriken med panelen ”Författare och övervakare”](./media/doc-common-process/data-factory-home-page.png)
 1. På sidan **Nu sätter vi igång** växlar du till fliken **Författare** i den vänstra panelen. 
 
     ![Sidan ”Nu sätter vi igång”](./media/quickstart-create-data-factory-portal/get-started-page.png)
@@ -200,7 +200,7 @@ Den här proceduren är valfri i den här självstudien. Du kan skapa en *schema
 
 1. Välj **Publicera alla** för att publicera ändringarna till Data Factory. 
 
-1. Växla till fliken **Övervaka** till vänster. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). Du ser att pipelinen körs varje minut från publiceringstiden till sluttiden. 
+1. Växla till fliken **Övervaka** till vänster. Om du vill uppdatera listan väljer du **Uppdatera**. Du ser att pipelinen körs varje minut från publiceringstiden till sluttiden. 
 
    Observera värdena i kolumnen **Aktiverad av**. Den manuella körningen av utlösaren var från steget (**Trigger Now**) (Utlös nu) du gjorde tidigare. 
 

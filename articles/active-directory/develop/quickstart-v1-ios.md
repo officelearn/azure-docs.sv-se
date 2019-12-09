@@ -2,10 +2,8 @@
 title: Bygg en iOS-app integrerad med Azure AD för inloggning med OAuth 2,0 | Microsoft Docs
 description: Lär dig hur du loggar in användare och anropar Microsoft Graph API från iOS-appen.
 services: active-directory
-documentationcenter: ios
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
 ms.subservice: develop
@@ -18,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b78461c9e585cbba4902799543dadb0f013e85
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f0c7064cff695b3aad9be69a7acbc07eb186201c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149682"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920948"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app-v10"></a>Snabb start: Logga in användare och anropa Microsoft Graph-API från en iOS-app (v 1.0)
 

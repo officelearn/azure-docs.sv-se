@@ -2,25 +2,21 @@
 title: Snabb start för Microsoft Identity Platform Java Web Apps | Azure
 description: Lär dig hur du implementerar Microsoft-inloggning på en Java-webbapp med OpenID Connect
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 6645fa30772d7e1556f7a1aae76c7189577c3c1d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452613"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920709"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -32,7 +28,7 @@ När du har slutfört den här snabb starten kommer ditt program att godkänna i
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill köra det här exemplet behöver du:
 
@@ -49,9 +45,9 @@ Om du vill köra det här exemplet behöver du:
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 >
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
@@ -85,7 +81,7 @@ Om du vill köra det här exemplet behöver du:
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-code-sample"></a>Steg 2: Hämta kod exemplet
 

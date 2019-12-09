@@ -4,7 +4,7 @@ description: Skapa en Azure-datafabrik för att kopiera data från en plats i Az
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 3282106651f9ec101251d7d35369040df9572b06
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 71a256b0350742f0e7a7b95519fafff5bc32f58b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122856"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928791"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabb start: skapa en data fabrik och pipeline med .NET SDK
 
@@ -61,7 +61,7 @@ Skapa sedan ett C# .net-konsol program i Visual Studio:
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
+1. Välj **Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**.
 2. I fönstret **Package Manager-konsol** kör du följande kommandon för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -151,7 +151,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
-Lägg till följande kod i **Main**-metoden som skapar en **länkad Azure Storage-tjänst**.
+Lägg till följande kod som skapar en **länkad Azure Storage-tjänst** till **Main**-metoden.
 
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabb starten behöver du bara skapa en Azure Storage länkad tjänst för både kopierings källan och mottagar lagret. den heter "AzureStorageLinkedService" i exemplet.
 
@@ -175,7 +175,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
 
 ## <a name="create-a-dataset"></a>Skapa en datamängd
 
-Lägg till följande kod till **Main**-metoden som skapar en **Azure-blobdatauppsättning**.
+Lägg till följande kod i **Main**-metoden som skapar en **Azure-blobdatauppsättning**.
 
 Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet refererar denna blob-datauppsättning till den Azure Storage-länkade tjänst som du skapade i föregående steg. Datauppsättningen tar en parameter vars värde anges i en aktivitet som förbrukar datauppsättningen. Parametern används för att konstruera "folderPath" som pekar på var data finns/lagras.
 
@@ -256,7 +256,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i **Main**-metoden som **utlöser en pipelinekörning**.
+Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
 
 Den här koden anger också värden för parametrarna **inputPath** och **outputPath** som anges i pipelinen med de faktiska värdena för käll-och mottagar-BLOB-sökvägar.
 

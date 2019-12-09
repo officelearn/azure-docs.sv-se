@@ -3,12 +3,12 @@ title: Anslut din Java-funktion till Azure Storage
 description: Lär dig hur du ansluter en HTTP-utlöst Java-funktion till Azure Storage med hjälp av en kö Storage utgående bindning.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231212"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926905"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Anslut din Java-funktion till Azure Storage
 
@@ -18,7 +18,7 @@ Den här artikeln visar hur du integrerar funktionen som du skapade i [föregåe
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra anslutningen enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln slutför du stegen i [del 1 av Java-snabb](functions-create-first-java-maven.md)starten.
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Eftersom du har aktiverat tilläggs paket i Host. JSON laddades [lagrings bindnings tillägget](functions-bindings-storage-blob.md#packages---functions-2x) ned och installerades åt dig under starten, tillsammans med de andra Microsoft binding-tilläggen.
+> Eftersom du har aktiverat tilläggs paket i Host. JSON laddades [lagrings bindnings tillägget](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) ned och installerades åt dig under starten, tillsammans med de andra Microsoft binding-tilläggen.
 
 Som tidigare utlöser funktionen från kommando raden med hjälp av sväng i ett nytt terminalfönster:
 

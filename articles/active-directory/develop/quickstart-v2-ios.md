@@ -2,27 +2,23 @@
 title: Snabb start för Microsoft Identity Platform iOS och macOS | Azure
 description: Lär dig hur du loggar in användare och frågar Microsoft Graph i ett iOS-eller macOS-program.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b515a7954d82cdd377cec72fa8525fbd9691351d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 10225efb1dcd870f5922a6521b0bd6ec44965152
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149506"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920692"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
@@ -35,7 +31,7 @@ Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bar
 > [!NOTE]
 > **Förutsättningar**
 > * XCode 10 +
-> * iOS 10 + 
+> * iOS 10+ 
 > * macOS 10.12 +
 
 > [!div renderon="docs"]
@@ -97,7 +93,7 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Öppna projekt inställningarna. I avsnittet **identitet** anger du det **paket-ID** som du angav i portalen.
-> 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som** > -**källkod**.
+> 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som** > **käll kod**.
 > 1. För endast iOS, under noden dict-rotnod, ersätter du `CFBundleURLSchemes` med det ***paket-ID*** som du angav i portalen.
 >
 >    ```xml
@@ -123,7 +119,7 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Öppna projekt inställningarna. I avsnittet **identitet** anger du det **paket-ID** som du angav i portalen.
-> 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som** > -**källkod**.
+> 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som** > **käll kod**.
 > 1. För endast iOS, under noden dict-rotnod, ersätter du `Enter_the_bundle_Id_Here` med det ***paket-ID*** som du använde i portalen.
 >
 >    ```xml
@@ -203,7 +199,7 @@ Din app måste också ha följande i din `AppDelegate`. Detta låter MSAL SDK ha
  ```
 
 > [!NOTE]
-> I iOS 13 +, om du antar `UISceneDelegate` i stället för `UIApplicationDelegate`, placerar du koden i återanropet `scene:openURLContexts:` i stället (se [Apples dokumentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)).
+> I iOS 13 +, om du antar `UISceneDelegate` i stället för `UIApplicationDelegate`, placerar du koden i `scene:openURLContexts:` återanropet i stället (se [Apples dokumentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)).
 > Om du har stöd för både UISceneDelegate och UIApplicationDelegate för kompatibilitet med äldre iOS måste MSAL-återanropet placeras på båda platserna.
 
  ```swift
@@ -266,7 +262,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 > |Var: ||
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs (`[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (`api://<Application ID>/access_as_user`) |
-> | `account` | Det konto som en token begärs för. Den här snabb starten är ungefär samma konto program. Om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för Tokenbegäran med `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | Det konto som en token begärs för. Den här snabb starten är ungefär samma konto program. Om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för Tokenbegäran med hjälp av `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## <a name="next-steps"></a>Nästa steg
 

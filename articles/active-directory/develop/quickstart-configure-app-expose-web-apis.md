@@ -2,27 +2,23 @@
 title: 'Konfigurera ett program för att exponera webb-API: er – Microsoft Identity Platform'
 description: Lär dig hur du konfigurerar en app att exponera en ny behörighet/ett nytt omfång och roller för att göra appen tillgänglig för klientprogram.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8ba582516002c3e34ca91ceddbfd826bafe0c282
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68989274"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921457"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabb start: Konfigurera ett program för att exponera webb-API: er
 
@@ -52,7 +48,7 @@ Innan du kan konfigurera appen gör du följande:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Exponera ett nytt omfång via användargränssnittet
 
-[![Shows hur du exponerar ett API med hjälp av användar gränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![visar hur du exponerar ett API med hjälp av användar gränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Så här exponerar du ett nytt omfång via användargränssnittet:
 

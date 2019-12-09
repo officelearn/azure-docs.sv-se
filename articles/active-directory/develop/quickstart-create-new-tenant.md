@@ -2,29 +2,26 @@
 title: Skapa en Azure Active Directory-klientorganisation | Microsoft Docs
 description: Lär dig hur du skapar en Azure AD-klientorganisation att använda för att registrera och skapa appar.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c29195e5e597583a5c16c7f1d9494d655f2b317
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b9d4e51e6242da90a1e7044e0c3a182ea59ad187
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268599"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915110"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Snabbstart: Konfigurera en klient
+# <a name="quickstart-set-up-a-tenant"></a>Snabb start: Konfigurera en klient
 
 Med Microsoft Identity-plattformen kan utvecklare skapa appar som riktar sig till flera olika anpassade Microsoft 365-miljöer och -identiteter. För att komma igång med att använda Microsoft Identity-plattform så behöver du åtkomst till en miljö, även kallad en Azure AD-klientorganisation, som kan registrera och hantera appar, ha åtkomst till Microsoft 365-data och distribuera villkorsstyrd åtkomst och klientorganisationsbegränsningar.
 

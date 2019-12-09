@@ -4,19 +4,19 @@ description: Skapa en Azure-datafabrik och kopiera sedan data från en plats i A
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.author: yexu
-ms.openlocfilehash: 64f2c989d6ccb4b3ade96065836e1b1f2439e6f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4ead3472e1706742781cb64a12103f3dec1fd27a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684548"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922464"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Snabb start: Använd Kopiera data-verktyget för att kopiera data
 
@@ -33,7 +33,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Gå till [Azure-portalen](https://portal.azure.com). 
 1. Från Azure Portal-menyn väljer du **skapa en resurs**.
 
@@ -64,7 +64,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 
 1. När datafabriken har skapats visas sidan **Datafabrik**. Välj panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
    
-   ![Startsidan för datafabriken med panelen Författare och övervakare](./media/doc-common-process/data-factory-home-page.png)
+   ![Startsidan för datafabriken med panelen ”Författare och övervakare”](./media/doc-common-process/data-factory-home-page.png)
 
 ## <a name="start-the-copy-data-tool"></a>Starta verktyget Kopiera data
 

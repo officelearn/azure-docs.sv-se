@@ -2,27 +2,23 @@
 title: Snabb start för Microsoft Identity Platform ASP.NET-webbserver | Azure
 description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET-webbapp med OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03bb9ede4bbbfdc1c902fec755425a433fea07a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 46902d72c888713be62524ed4b609e2299a85c2b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149466"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920726"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
 
@@ -99,7 +95,7 @@ I den här snabb starten ska du aktivera en ASP.NET-webbapp för att logga in pe
 >
 > > [!TIP]
 > > - För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
-> > - Se till att värdet för `redirectUri` i **Web. config** motsvarar den **omdirigerings-URI** som definierats för appens registrering i Azure AD (om inte, navigera till **verifierings** menyn för appens registrering och uppdatera **omdirigerings-URI: n** att matcha)
+> > - Se till att värdet för `redirectUri` i **Web. config** motsvarar den **omdirigerings-URI** som definierats för appens registrering i Azure AD (om inte, navigera till **verifierings** menyn för appens registrering och uppdatera **omdirigerings-URI: n** så att den matchar)
 
 ## <a name="more-information"></a>Mer information
 

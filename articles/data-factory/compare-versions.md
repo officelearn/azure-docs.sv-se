@@ -4,24 +4,23 @@ description: Den här artikeln jämför Azure Data Factory med Azure Data Factor
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e0c92fbd06bec00f09c66c322ba2520bacb7bffb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267775"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924814"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Jämför Azure Data Factory med Data Factory version 1
 Den här artikeln jämför Data Factory med Data Factory version 1. En introduktion till Data Factory finns i [Introduktion till Data Factory](introduction.md). En introduktion till Data Factory version 1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). 
 
-## <a name="feature-comparison"></a>Jämför funktioner
+## <a name="feature-comparison"></a>Funktionsjämförelse
 I följande tabell jämförs funktionerna i Data Factory med funktionerna i Data Factory version 1. 
 
 | Funktion | Version 1 | Aktuell version | 
@@ -130,7 +129,7 @@ SDK:erna som har uppdaterats i den aktuella versionen är inte bakåtkompatibla 
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure Portal | [Ja](quickstart-create-data-factory-portal.md) | Nej |
+| Azure portal | [Ja](quickstart-create-data-factory-portal.md) | Nej |
 | Azure PowerShell | [Ja](quickstart-create-data-factory-powershell.md) | [Ja](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Ja](quickstart-create-data-factory-dot-net.md) | [Ja](data-factory-build-your-first-pipeline-using-vs.md) |
 | REST-API | [Ja](quickstart-create-data-factory-rest-api.md) | [Ja](data-factory-build-your-first-pipeline-using-rest-api.md) |

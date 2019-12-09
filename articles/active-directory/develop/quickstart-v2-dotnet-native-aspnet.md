@@ -2,27 +2,22 @@
 title: Anropa ett ASP.NET-webb-API som skyddas av Azure AD – Microsoft Identity
 description: 'I den här snabb starten lär du dig att anropa ett ASP.NET webb-API som skyddas av Azure Active Directory från ett Windows Desktop-program (WPF). WPF-klienten autentiserar en användare, begär en åtkomsttoken och anropar webb-API: et.'
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e0fdeb2c1955eab18b440c3ef3bcac725ad92b6
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 6f1d9e402bff9d333957d51982dd917822d2c24d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200251"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920658"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Snabb start: anropa ett ASP.NET-webb-API som skyddas av Azure AD
 
@@ -88,7 +83,7 @@ Om du vill registrera dina appar manuellt, som ett första steg, måste du:
 
 ### <a name="add-the-new-scope-to-the-todolistclients-appconfig"></a>Lägg till det nya omfånget i *TodoListClient*app. config
 
-1. Öppna filen **app. config** som finns i **TodoListClient** -projektets rotmapp och klistra sedan in **program-ID** från programmet som du precis registrerade för din *TodoListService* under `TodoListServiceScope` parameter, och ersätt strängen `{Enter the Application ID of your TodoListService from the app registration portal}`.
+1. Öppna filen **app. config** i **TodoListClient** -projektets rotmapp och klistra sedan in **program-ID** från programmet som du precis registrerade för din *TodoListService* under `TodoListServiceScope` parameter, och ersätt strängen `{Enter the Application ID of your TodoListService from the app registration portal}`.
 
    > Obs: kontrol lera att den använder följande format:
    >
@@ -115,7 +110,7 @@ I det här steget konfigurerar du ditt *TodoListClient* -projekt genom att regis
    - Klicka på knappen **Lägg till en behörighet** och sedan
    - Välj fliken **Mina API: er** .
    - I listan över API: er väljer du `AppModelv2-NativeClient-DotNet-TodoListService API`eller det namn som du angav för webb-API: et.
-   - Kontrol lera **access_as_user** -behörigheten om den inte redan är markerad. Använd Sök fältet om det behövs.
+   - Kontrol lera **access_as_user** behörigheten om den inte redan är markerad. Använd Sök fältet om det behövs.
    - Välj knappen **Lägg till behörigheter**
 
 ### <a name="configure-your-todolistclient-project"></a>Konfigurera ditt *TodoListClient* -projekt
@@ -128,7 +123,7 @@ I det här steget konfigurerar du ditt *TodoListClient* -projekt genom att regis
 1. Tryck på `<F5>` för att köra projektet. Din *TodoListClient* bör vara öppen.
 1. Välj **Logga** in längst upp till höger och logga in med samma användare som du har använt för att registrera ditt program, eller en användare i samma katalog.
 1. Om du loggar in för första gången kan du vid det här tillfället uppmanas att godkänna *TodoListService* webb-API.
-1. Inloggningen begär också åtkomst-token till *access_as_user* -omfånget för att få åtkomst till *TodoListService* -webb-API och ändra *att göra-* listan.
+1. Inloggningen begär också åtkomst-token till *access_as_user* omfång för att komma åt *TodoListService* -webb-API och ändra *att göra-* listan.
 
 ## <a name="pre-authorize-your-client-application"></a>För att auktorisera ditt klient program
 
@@ -155,7 +150,7 @@ Använd något av alternativen för att begränsa vem som kan logga in till ditt
 
 Du kan begränsa inloggnings åtkomsten för ditt program till endast användar konton som finns i en enda Azure AD-klient, inklusive *gäst konton* för den klient organisationen. Det här scenariot är ett vanligt för *branschspecifika program*:
 
-1. Öppna filen **App_Start\Startup.auth** och ändra värdet för slut punkten för metadata som skickas till `OpenIdConnectSecurityTokenProvider` till `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (du kan också använda klient namnet, till exempel `contoso.onmicrosoft.com`).
+1. Öppna filen **App_Start \STARTUP.auth** och ändra värdet för slut punkten för metadata som skickas till `OpenIdConnectSecurityTokenProvider` till `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (du kan också använda klient namnet, t. ex. `contoso.onmicrosoft.com`).
 2. I samma fil ställer du in egenskapen `ValidIssuer` i `TokenValidationParameters` till `"https://sts.windows.net/{Tenant ID}/"` och `ValidateIssuer` argumentet till `true`.
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Alternativ 2: Använd en anpassad metod för att validera utfärdare

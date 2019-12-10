@@ -11,14 +11,14 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333a3b93d872c1a99d1ec18d4941adc8986d4a03
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 10c778025c3def384f621cb5311d0d71ccb457d7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914557"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951130"
 ---
-# <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Vad är Azure AD Connect Cloud revisioner?
+# <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Vad är Azure AD Connect-molnetablering?
 Azure AD Connect Cloud etableringen är en ny Microsoft-Agent som är utformad för att möta och uppnå dina hybrid identitets mål för synkronisering av användare, grupper och kontakter till Azure AD.  Den kan användas tillsammans med Azure AD Connect Sync och ger följande fördelar:
     
 - Stöd för synkronisering till en Azure AD-klient från en frånkopplad Active Directory skogs miljö: de vanliga scenarierna omfattar Fusion & förvärv, där det förvärvade företagets AD-skogar är isolerade från moder bolagets AD skogar och företag som har historiskt haft flera AD-skogar tidigare.
@@ -60,6 +60,7 @@ Följande tabell innehåller en jämförelse mellan Azure AD Connect och Azure A
 | Tillåt avancerad anpassning av attributflöden |● | |
 | Stöd för tillbakaskrivning (lösen ord, enheter, grupper) |● | |
 | Azure AD Domain Services support|● | |
+| Exchange hybrid konfiguration |● | |
 
 ## <a name="next-steps"></a>Nästa steg 
 

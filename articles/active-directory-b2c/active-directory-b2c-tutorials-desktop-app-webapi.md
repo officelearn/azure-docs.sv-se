@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Ge åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C | Microsoft Docs
-description: Självstudiekurs som visar hur du använder Active Directory B2C för att skydda ett Node.js-webb-API och anropar det från en .NET-skrivbordsapp.
+title: 'Självstudie: bevilja åtkomst till ett Node. js-webb-API från ett Skriv bords program'
+description: Själv studie kurs om hur du använder Active Directory B2C för att skydda ett Node. js-webb-API och anropa det från en .NET Desktop-app.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f271dd23501aa0514faff29f638f695c80c844f2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641863"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949780"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Ge behörigheter till webb-API:t
 > * Uppdatera exemplet så att programmet används
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen och kraven i [Självstudier: autentisera användare i en intern Skriv bords klient](active-directory-b2c-tutorials-desktop-app.md).
 
@@ -54,7 +54,7 @@ I den nödvändiga självstudien har du registrerat ett internt klient program m
 #### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
 
 1. Välj **Program** och sedan *nativeapp1*.
-1. Välj **API-åtkomst** och därefter **Lägg till**.
+1. Välj **API-åtkomst** och sedan **Lägg till**.
 1. I listrutan **Välj API** väljer du *webapi1*.
 1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
 1. Välj **OK**.

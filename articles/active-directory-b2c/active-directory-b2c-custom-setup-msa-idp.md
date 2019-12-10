@@ -1,6 +1,7 @@
 ---
-title: Lägg till Microsoft-konto (MSA) som en identitets leverantör med anpassade principer i Azure Active Directory B2C
-description: Exempel som använder Microsoft som identitets leverantör med OpenID Connect (OIDC)-protokollet.
+title: Konfigurera inloggning med ett konto med Microsoft-konto genom att använda anpassade principer
+titleSuffix: Azure AD B2C
+description: Använda anpassade principer för att aktivera Microsoft-konto (MSA) som en identitetsprovider med OpenID Connect-protokollet (OIDC).
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 393e6f0b87cbd6a548825276da3f59863e2833eb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643663"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948376"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Microsoft-konto att använda anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "73643663"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Microsoft-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Om du inte redan har en Microsoft-konto skapar du en på [https://www.live.com/](https://www.live.com/).
@@ -32,7 +33,7 @@ Den här artikeln visar hur du aktiverar inloggning för användare från en Mic
 
 Om du vill aktivera inloggning för användare med en Microsoft-konto måste du registrera ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
@@ -50,9 +51,9 @@ Om du vill aktivera inloggning för användare med en Microsoft-konto måste du 
 
 Nu när du har skapat programmet i din Azure AD-klient måste du lagra programmets klient hemlighet i din Azure AD B2C klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du `Manual`.
@@ -178,7 +179,7 @@ Uppdatera den förlitande parten (RP) som initierar användar resan som du har s
 1. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_msa`
 1. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID: t för användar resan som du skapade tidigare (SignUpSignInMSA).
 1. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.
-1. Se till att Azure AD B2C programmet som du skapade i föregående avsnitt (eller genom att slutföra kraven, till exempel *webapp1* eller *testapp1*) är markerat i fältet **Välj program** och testa det genom att klicka på **Kör nu** .
+1. Se till att Azure AD B2C programmet som du skapade i föregående avsnitt (eller genom att slutföra kraven, till exempel *webapp1* eller *testapp1*) är markerat i fältet **Välj program** och testa det genom att klicka på **Kör nu**.
 1. Välj knappen **Microsoft-konto** och logga in.
 
     Om inloggnings åtgärden lyckas omdirigeras du till `jwt.ms` som visar den avkodade token, ungefär som:

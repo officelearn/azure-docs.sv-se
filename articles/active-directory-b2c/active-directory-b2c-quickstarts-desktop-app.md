@@ -1,5 +1,6 @@
 ---
-title: Snabb start – konfigurera inloggning för en desktop-app med hjälp av Azure Active Directory B2C
+title: 'Snabb start: Konfigurera inloggning för en Skriv bords app'
+titleSuffix: Azure AD B2C
 description: I den här snabb starten kör du ett exempel på ett WPF Desktop-program som använder Azure Active Directory B2C för att tillhandahålla konto inloggning.
 services: active-directory-b2c
 author: mmacy
@@ -11,12 +12,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ed92605c7fb74186ddde6ff193a1365146494594
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8265bad5b756ee2ac23bc41c9c58452251ce0717
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420222"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950655"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C
 
@@ -34,12 +35,12 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
     ```
 
-## <a name="run-the-application-in-visual-studio"></a>Kör programmet i Visual Studio
+## <a name="run-the-application-in-visual-studio"></a>Köra programmet i Visual Studio
 
 1. I exempelprogrammets projektmapp öppnar du lösningen **active-directory-b2c-wpf.sln** i Visual Studio.
 2. Tryck på **F5** för att felsöka programmet.
 
-## <a name="sign-in-using-your-account"></a>Logga in på ditt konto
+## <a name="sign-in-using-your-account"></a>Logga in med ditt konto
 
 1. Klicka på **Logga in** för att starta arbetsflödet **Registrera sig eller logga in**.
 
@@ -95,7 +96,7 @@ I den här snabb starten använde du ett exempel på ett Skriv bords program fö
 * Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
-Kom igång med att skapa en egen Azure AD B2C-klientorganisation.
+Kom igång med att skapa en egen Azure AD B2C-klient.
 
 > [!div class="nextstepaction"]
 > [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

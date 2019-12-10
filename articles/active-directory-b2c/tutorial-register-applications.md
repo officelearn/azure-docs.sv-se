@@ -1,5 +1,6 @@
 ---
-title: Självstudie – registrera ett program – Azure Active Directory B2C
+title: 'Självstudie: registrera ett program'
+titleSuffix: Azure AD B2C
 description: Lär dig hur du registrerar ett webb program i Azure Active Directory B2C med hjälp av Azure Portal.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a5d5099c91736276aca56c8b94b846b53a190c1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642423"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950790"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett program i Azure Active Directory B2C
 
@@ -29,7 +30,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenant.md)skapar du en nu. Du kan använda en befintlig Azure AD B2C klient.
 
@@ -40,7 +41,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 #### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
 
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Välj **Program** och därefter **Lägg till**.
 1. Ange ett namn på programmet. Till exempel *webapp1*.
 1. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
@@ -57,7 +58,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
@@ -72,7 +73,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
     * Svars-URL: en måste börja med schemat `https`.
     * Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program till exempel innehåller som en del av sökvägen `.../abc/response-oidc`ska du inte ange `.../ABC/response-oidc` i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga kan cookies som är kopplade till `.../abc/response-oidc` uteslutas om de omdirigeras till den Skift läges fel matchning `.../ABC/response-oidc` URL.
 
-1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .
+1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
 1. Välj **Registrera**.
 
 När program registreringen är klar aktiverar du det implicita tilldelnings flödet:

@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines planera och implementera för SAP NetWeaver | Microsoft Docs
+title: 'SAP på Azure: planerings-och implementerings guide'
 description: Azure Virtual Machines planera och implementera SAP-NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b791ac58ada84ac0c2087f266d29bff4bd9c6fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 863070eb025d8ac58f6a0946d49732dc6b2842b8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224715"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951759"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -483,7 +483,7 @@ Det är inte alla olika VM-serier som erbjuds i var och en av Azure-regionerna (
 >
 >
 
-### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure-regioner
+### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
 Virtual Machines distribueras till så kallade *Azure-regioner*. En Azure-region kan vara en eller flera data Center som finns nära varandra. För de flesta regionerna i världen har Microsoft minst två Azure-regioner. I Europa finns det till exempel en Azure-region i *Nord Europa* och *en av Västeuropa*. Sådana två Azure-regioner i ett geografiskt politisk region skiljs åt med tillräckligt stort avstånd så att fysiska eller tekniska haveri effekter inte påverkar både Azure-regioner i samma geografiskt politisk region. Eftersom Microsoft ständigt skapar nya Azure-regioner i olika politiska regioner globalt, växer antalet regioner ständigt och från och med dec 2015 uppnås antalet 20 Azure-regioner med ytterligare regioner som redan har meddelats. Du som kund kan distribuera SAP-system i alla dessa regioner, inklusive de två Azure-regionerna i Kina. Aktuell information om Azure-regioner finns på följande webbplats: <https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Koncept för Microsoft Azure virtuell dator
@@ -551,12 +551,12 @@ Mer information om Azure Storage hittar du här:
 * <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
-#### <a name="azure-standard-storage"></a>Azure standard Storage
+#### <a name="azure-standard-storage"></a>Azure Standard Storage
 Azure standard Storage var den typ av lagring som är tillgänglig när Azure-IaaS släpptes. Det gällde IOPS-kvoter per enskild disk. Svars tiden upplevde inte i samma klass som SAN/NAS-enheter som vanligt vis har distribuerats för avancerade SAP-system som finns lokalt. Azure standard-lagring visat sig vara tillräckligt för många hundratals SAP-system under tiden som distribuerats i Azure.
 
 Diskar som lagras på Azures standard lagrings konton debiteras baserat på faktiska data som lagras, volymen lagrings transaktioner, utgående data överföringar och alternativ för redundans som valts. Många diskar kan skapas med maximalt 1 TB storlek, men om de inte är tomma är det ingen kostnad. Om du sedan fyller en virtuell hård disk med 100 GB, debiteras du för lagring av 100 GB och inte för den nominella storlek som den virtuella hård disken skapades med.
 
-#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure-Premium Storage
+#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
 Azure Premium Storage lanserades med målet att tillhandahålla:
 
 * Bättre I/O-latens.
@@ -770,7 +770,7 @@ Se även den här bloggen och det bifogade dokumentet för SAP-storlek på Azure
 
 ## <a name="managing-azure-assets"></a>Hantera Azure-tillgångar
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal är ett av tre gränssnitt för att hantera distributioner av virtuella Azure-datorer. De grundläggande hanterings aktiviteterna, t. ex. distribution av virtuella datorer från avbildningar, kan göras via Azure Portal. Dessutom är skapandet av lagrings konton, virtuella nätverk och andra Azure-komponenter också aktiviteter som Azure Portal kan hantera bra. Funktioner som att ladda upp virtuella hård diskar från lokala datorer till Azure eller kopiera en virtuell hård disk i Azure är dock aktiviteter, vilket kräver verktyg från tredje part eller administration via PowerShell eller CLI.
 
@@ -1633,8 +1633,8 @@ I tabellen nedan visas typiska SAP-kommunikations portar. I princip räcker det 
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` se * |3201 |3200 - 3299 |SAP dispatcher, som används av SAP GUI för Windows och Java |
 | Meddelande Server |sapms`<sid`> Se * * |3600 |gratis sapms`<anySID`> |sid = SAP-system-ID |
-| Gateway |sapgw`<nn`> Se * |3301 |kostnads fria |SAP-Gateway, som används för CPIC-och RFC-kommunikation |
-| SAP-router |sapdp99 |3299 |kostnads fria |Endast CI (Central instans) tjänst namn kan omtilldelas i/etc/Services till ett godtyckligt värde efter installationen. |
+| Gateway |sapgw`<nn`> Se * |3301 |kostnadsfri |SAP-Gateway, som används för CPIC-och RFC-kommunikation |
+| SAP-router |sapdp99 |3299 |kostnadsfri |Endast CI (Central instans) tjänst namn kan omtilldelas i/etc/Services till ett godtyckligt värde efter installationen. |
 
 *) NN = SAP instance Number
 
@@ -1688,7 +1688,7 @@ Skrivar resursen identifieras med ett unikt namn i nätverket:
 * Namnet på domänen om skrivar resursen inte finns i samma domän som SAP-systemet.
 * Dessutom kan ett användar namn och ett lösen ord krävas för att få åtkomst till skrivar resursen.
 
-Anvisningar:
+Så här:
 
 ---
 > ![Windows][Logo_Windows] Windows
@@ -1727,7 +1727,7 @@ TMS (SAP Change and transport system) måste konfigureras för att exportera och
 
 Konfigurera transport domänen på det system som du angav som transport domän kontrol Lanterna enligt beskrivningen i [Konfigurera transport](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm)domänkontrollanten. En systemuser-TMSADM skapas och den obligatoriska RFC-destinationen skapas. Du kan kontrol lera dessa RFC-anslutningar med transaktions SM59. Hostname-matchning måste vara aktiverat i din transport domän.
 
-Anvisningar:
+Så här:
 
 * I vårt scenario bestämde vi att det lokala QAS-systemet är den CTS-domänkontrollanten. Anropa transaktion STMS. Dialog rutan TMS visas. Dialog rutan konfigurera transport domän visas. (Den här dialog rutan visas bara om du ännu inte har konfigurerat en transport domän.)
 * Se till att den automatiskt skapade användaren TMSADM är auktoriserad (SM59-> ABAP Connection-> TMSADM@E61.DOMAIN_E61-> information – > Utilities (M) – > Authorization test). Den första skärmen i transaktions STMS bör visa att SAP-systemet nu fungerar som styrenhet för transport domänen som visas här:
@@ -1745,7 +1745,7 @@ Detta SAP-system innehåller nu nödvändig information om alla andra SAP-system
 
 Fortsätt med konfigurationen av ditt transport system som vanligt enligt beskrivningen i dokumentations [ändrings-och transport systemet](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
 
-Anvisningar:
+Så här:
 
 * Kontrol lera att din STMS lokalt är korrekt konfigurerad.
 * Se till att värd namnet för transport domänkontrollanten kan lösas av den virtuella datorn på Azure och vice visum.
@@ -1757,7 +1757,7 @@ I scenarier med plats-till-plats ansluten mellan olika platser kan svars tiden m
 
 För att undvika svars tid och låta systemet arbeta snabbt vid läsning eller skrivning till eller från transport katalogen, kan du konfigurera två STMS transport domäner (en för lokal och en med system i Azure och länka transport domänerna. Läs den här dokumentationen, som förklarar principerna bakom det här konceptet i SAP-TMS: <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
 
-Anvisningar:
+Så här:
 
 * Konfigurera en transport domän på varje plats (lokalt och Azure) med Transaction STMS <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
 * Länka domänerna till en domän länk och bekräfta länken mellan de två domänerna.

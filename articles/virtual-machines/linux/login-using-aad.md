@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 74de621f88d9af65f8894319729f902bf11e57ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873020"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951317"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -206,6 +206,10 @@ Om du har slutfört Authentication-steget i en webbläsare kan du omedelbart upp
 - Kontrol lera att det inloggnings namn som du angav i SSH-prompten är korrekt. Ett skrivfel i inloggnings namnet kan orsaka ett matchnings fel mellan det inloggnings namn som du angav i SSH-prompten och det konto som du loggade in på Azure AD med. Till exempel skrev du *azuresuer\@contoso.onmicrosoft.com* i stället för *azureuser\@contoso.onmicrosoft.com*.
 - Om du har flera användar konton ser du till att du inte anger något annat användar konto i webbläsarfönstret när du loggar in på Azure AD.
 - Linux är ett skift läges känsligt operativ system. Det finns en skillnad mellan "Azureuser@contoso.onmicrosoft.com" och "azureuser@contoso.onmicrosoft.com", vilket kan orsaka ett matchnings fel. Se till att du anger UPN med rätt Skift läges känslighet i SSH-prompten.
+
+### <a name="other-limitations"></a>Andra begränsningar
+
+Användare som ärver åtkomst rättigheter via kapslade grupper eller roll tilldelningar stöds inte för närvarande. Användaren eller gruppen måste tilldelas direkt de [nödvändiga roll tilldelningarna](#configure-role-assignments-for-the-vm). Till exempel ger användning av hanterings grupper eller kapslade grupp roll tilldelningar inte rätt behörighet för att tillåta användaren att logga in.
 
 ## <a name="preview-feedback"></a>Förhandsgranska feedback
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1a45ed90b2b2c4a3a4f8eb11c4618c11e6d66761
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849368"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951470"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsök önskad tillstånds konfiguration (DSC)
 
@@ -89,6 +89,68 @@ Det här felet orsakas normalt av en brand vägg, datorn är bakom en proxyserve
 #### <a name="resolution"></a>Upplösning
 
 Kontrol lera att datorn har åtkomst till rätt slut punkter för Azure Automation DSC och försök igen. En lista över portar och adresser som behövs finns i [nätverks planering](../automation-dsc-overview.md#network-planning)
+
+### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>scenario: status rapporter returnerar svars koden "overifierad"
+
+#### <a name="issue"></a>Problem
+
+När du registrerar en nod med tillstånds konfiguration (DSC) får du ett av följande fel meddelanden:
+
+```error
+The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+```
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / Registration of the Dsc Agent with the server failed.
+```
+
+### <a name="cause"></a>Orsak
+
+Det här problemet orsakas av ett felaktigt eller utgånget certifikat.  Mer information finns i [certifikatets förfallo datum och omregistrering](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+
+### <a name="resolution"></a>Upplösning
+
+Följ stegen nedan för att registrera den felande DSC-noden igen.
+
+Först avregistrerar du noden med hjälp av följande steg.
+
+1. Från Azure Portal, under **start** -> **Automation-konton**– > {ditt Automation-konto}-> **tillstånds konfiguration (DSC)**
+2. Klicka på noder och klicka på noden med problem.
+3. Klicka på avregistrera om du vill avregistrera noden.
+
+Sedan avinstallerar du DSC-tillägget från noden.
+
+1. Från Azure Portal, under **start** -> **virtuell dator** -> {misslyckad Node}-> **tillägg**
+2. Klicka på Microsoft. PowerShell. DSC.
+3. Klicka på Avinstallera om du vill avinstallera PowerShell DSC-tillägget.
+
+Ta sedan bort alla dåliga eller utgångna certifikat från noden.
+
+Kör följande på noden som misslyckats från en upphöjd PowerShell-prompt:
+
+```powershell
+$certs = @()
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC"}
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC-OaaS Client Authentication"}
+$certs += dir cert:\localmachine\CA | ?{$_.subject -like "CN=AzureDSCExtension*"}
+"";"== DSC Certificates found: " + $certs.Count
+$certs | FL ThumbPrint,FriendlyName,Subject
+If (($certs.Count) -gt 0)
+{ 
+    ForEach ($Cert in $certs) 
+    {
+        RD -LiteralPath ($Cert.Pspath) 
+    }
+}
+```
+
+Sedan kan du registrera den felaktiga noden på nytt med hjälp av följande steg.
+
+1. Från Azure Portal, under **start** -> **Automation-konton** – > {ditt Automation-konto}-> **tillstånds konfiguration (DSC)**
+2. Klicka på noder.
+3. Klicka på knappen Lägg till.
+4. Välj noden som misslyckats.
+5. Klicka på Anslut och välj önskade alternativ.
 
 ### <a name="failed-not-found"></a>Scenario: noden har statusen misslyckades med fel meddelandet "hittades inte"
 
@@ -187,6 +249,49 @@ Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn
 
 * Kontrol lera att du har tilldelats noden med ett konfigurations namn för noden som exakt matchar namnet i tjänsten.
 * Du kan välja att inte inkludera konfigurations namnet för noden, vilket leder till att du registrerar noden men inte tilldelar en nods konfiguration
+
+### <a name="cross-subscription"></a>Scenario: om du registrerar en nod med PowerShell returneras felet "ett eller flera fel inträffade"
+
+#### <a name="issue"></a>Problem
+
+När du registrerar en nod med `Register-AzAutomationDSCNode` eller `Register-AzureRMAutomationDSCNode`får du följande fel meddelande.
+
+```error
+One or more errors occurred.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet uppstår när du försöker registrera en nod som finns i en separat prenumeration än Automation-kontot.
+
+#### <a name="resolution"></a>Upplösning
+
+Behandlar noden över prenumerationer som om den finns i ett separat moln eller lokalt.
+
+Följ stegen nedan för att registrera noden.
+
+* Windows- [fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws).
+* Linux- [fysiska/virtuella Linux-datorer lokalt eller i ett annat moln än Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+
+### <a name="agent-has-a-problem"></a>Scenario: fel meddelande-"Det gick inte att utföra etableringen"
+
+#### <a name="issue"></a>Problem
+
+När du registrerar en nod visas felet:
+
+```error
+Provisioning has failed
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här meddelandet inträffar när det finns ett anslutnings problem mellan noden och Azure.
+
+#### <a name="resolution"></a>Upplösning
+
+Ta reda på om din nod finns i ett privat virtuellt nätverk eller om det finns andra problem att ansluta till Azure.
+
+Mer information finns i [Felsöka fel vid integrering av lösningar](onboarding.md).
 
 ### <a name="failure-linux-temp-noexec"></a>Scenario: att tillämpa en konfiguration i Linux uppstår ett fel med ett allmänt fel
 

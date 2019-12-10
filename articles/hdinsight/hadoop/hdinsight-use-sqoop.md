@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/12/2019
-ms.openlocfilehash: f2a153b1eef974c8c73df49a6eed53ef5dbf2353
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 12/06/2019
+ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076217"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951861"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använda Apache Sqoop med Hadoop i HDInsight
 
@@ -42,18 +42,18 @@ HDInsight-kluster innehåller vissa exempel data. Du använder följande två ex
 ...
 ```
 
-* En Hive-tabell `hivesampletable`med namnet som refererar till den data fil `/hive/warehouse/hivesampletable`som finns på. Tabellen innehåller vissa mobila enhets data.
+* En Hive-tabell med namnet `hivesampletable`som refererar till den data fil som finns på `/hive/warehouse/hivesampletable`. Tabellen innehåller vissa mobila enhets data.
   
   | Fält | Datatyp |
   | --- | --- |
   | clientid |sträng |
   | querytime |sträng |
-  | Telefonförsäljning |sträng |
+  | telefonförsäljning |sträng |
   | deviceplatform |sträng |
   | devicemake |sträng |
   | devicemodel |sträng |
   | state |sträng |
-  | Ursprungslandet |sträng |
+  | land |sträng |
   | querydwelltime |double |
   | SessionID |bigint |
   | sessionpagevieworder |bigint |
@@ -61,7 +61,8 @@ HDInsight-kluster innehåller vissa exempel data. Du använder följande två ex
 I den här artikeln använder du dessa två data uppsättningar för att testa Sqoop import och export.
 
 ## <a name="create-cluster-and-sql-database"></a>Konfigurera test miljö
-Klustret, SQL-databasen och andra objekt skapas via Azure Portal med hjälp av en Azure Resource Manager mall. Mallen finns i [snabb starts mallar för Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Resource Manager-mallen anropar ett BACPAC-paket för att distribuera tabell scheman till en SQL-databas.  BACPAC-paketet finns i en offentlig BLOB- https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac behållare. Om du vill använda en privat behållare för BACPAC-filerna använder du följande värden i mallen:
+
+Klustret, SQL-databasen och andra objekt skapas via Azure Portal med hjälp av en Azure Resource Manager mall. Mallen finns i [snabb starts mallar för Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Resource Manager-mallen anropar ett BACPAC-paket för att distribuera tabell scheman till en SQL-databas.  BACPAC-paketet finns i en offentlig BLOB-behållare https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Om du vill använda en privat behållare för BACPAC-filerna använder du följande värden i mallen:
 
 ```json
 "storageKeyType": "Primary",
@@ -77,24 +78,24 @@ Klustret, SQL-databasen och andra objekt skapas via Azure Portal med hjälp av e
 
 2. Ange följande egenskaper:
 
-    |Fält |Value |
+    |Fält |Värde |
     |---|---|
-    |Subscription |Välj din Azure-prenumeration i list rutan.|
-    |Resource group |Välj din resurs grupp i den nedrullningsbara listan eller skapa en ny|
-    |Location |Välj en region i den nedrullningsbara listan.|
+    |Prenumeration |Välj din Azure-prenumeration i list rutan.|
+    |Resursgrupp |Välj din resurs grupp i den nedrullningsbara listan eller skapa en ny|
+    |Plats |Välj en region i den nedrullningsbara listan.|
     |Klusternamn |Ange ett namn för Hadoop-klustret. Använd bara gemena bokstäver.|
-    |Användarnamn för klusterinloggning |Behåll värdet `admin`i förväg.|
+    |Användarnamn för klusterinloggning |Behåll det förifyllda värdet `admin`.|
     |Lösenord för klusterinloggning |Ange ett lösen ord.|
-    |Användar namn för SSH |Behåll värdet `sshuser`i förväg.|
+    |Användar namn för SSH |Behåll det förifyllda värdet `sshuser`.|
     |SSH-lösenord |Ange ett lösen ord.|
-    |SQL admin-inloggning |Behåll värdet `sqluser`i förväg.|
+    |SQL admin-inloggning |Behåll det förifyllda värdet `sqluser`.|
     |SQL admin-lösenord |Ange ett lösen ord.|
-    |_artifacts-plats | Använd standardvärdet om du inte vill använda din egen BACPAC-fil på en annan plats.|
-    |SAS-token för _artifacts-plats |Lämna tomt.|
+    |_artifacts plats | Använd standardvärdet om du inte vill använda din egen BACPAC-fil på en annan plats.|
+    |SAS-token för _artifacts plats |Lämna tomt.|
     |BACPAC fil namn |Använd standardvärdet om du inte vill använda din egen BACPAC-fil.|
-    |Location |Använd standardvärdet.|
+    |Plats |Använd standardvärdet.|
 
-    Namnet på Azure-SQL Server kommer `<ClusterName>dbserver`att vara. Databas namnet kommer att vara `<ClusterName>db`. Standard namnet för lagrings kontot är `e6qhezrh2pdqu`.
+    Azure SQL Server-namnet kommer att `<ClusterName>dbserver`. Databas namnet kommer att `<ClusterName>db`. Standard namnet för lagrings kontot kommer att `e6qhezrh2pdqu`.
 
 3. Välj **Jag accepterar de villkor som anges ovan**.
 
@@ -113,11 +114,12 @@ HDInsight kan köra Sqoop-jobb genom att använda en mängd olika metoder. Anvä
 ## <a name="limitations"></a>Begränsningar
 
 * Mass export – med Linux-baserat HDInsight har Sqoop-anslutningen som används för att exportera data till Microsoft SQL Server eller Azure SQL Database för närvarande inte stöd för Mass infogningar.
-* Batchering – med Linux-baserat HDInsight, när du använder `-batch` växeln när du utför infogningar, utför Sqoop flera infogningar i stället för att batch-sätta in åtgärderna.
+* Batchering – med Linux-baserat HDInsight, när du använder växeln `-batch` när du utför infogningar, utför Sqoop flera infogningar i stället för att batch-sätta in åtgärderna.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 
 * [Använda Apache Hive med HDInsight](../hdinsight-use-hive.md)
-* [Använda Apache gris med HDInsight](../hdinsight-use-pig.md)
-* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): Hitta andra metoder för att ladda upp data till HDInsight/Azure Blob Storage.
+* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): hitta andra metoder för att ladda upp data till HDInsight/Azure Blob Storage.
+* [Använda Apache Sqoop för att importera och exportera data mellan Apache Hadoop på HDInsight och SQL Database](./apache-hadoop-use-sqoop-mac-linux.md)

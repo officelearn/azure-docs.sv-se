@@ -1,5 +1,6 @@
 ---
-title: Hantera hot mot resurser och data i Azure Active Directory B2C
+title: Hantera hot mot resurser och data
+titleSuffix: Azure AD B2C
 description: Lär dig mer om identifierings-och minsknings metoder för DOS-attacker och lösen ords attacker i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b236dba9b682bc4d62ef8cfc8b95e67370b3e0ea
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256911"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947748"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Hantera hot mot resurser och data i Azure Active Directory B2C
 
@@ -43,12 +44,12 @@ För att hantera inställningar för lösen ords skydd, inklusive utelåsnings t
 1. Under **säkerhet**väljer du **autentiseringsmetoder (förhands granskning)** och väljer sedan **lösen ords skydd**.
 1. Ange önskade inställningar för lösen ords skydd och välj sedan **Spara**.
 
-    ![Sidan Azure Portal lösen ords skydd i Azure AD-inställningar](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
+    Sidan ![Azure Portal lösen ords skydd i Azure AD-inställningar](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
     <br />*Anger utelåsnings tröskeln till 5 i inställningar för **lösen ords skydd*** .
 
 ## <a name="view-locked-out-accounts"></a>Visa låsta konton
 
-För att få information om låsta konton kan du kontrol lera [rapporten Active Directory inloggnings aktivitet](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md). Under **status**väljer du **Miss lyckas**. Misslyckade inloggnings försök med en **inloggnings fel kod** som `50053` anger ett låst konto:
+För att få information om låsta konton kan du kontrol lera [rapporten Active Directory inloggnings aktivitet](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md). Under **status**väljer du **Miss lyckas**. Misslyckade inloggnings försök med **inloggnings fel koden** `50053` indikerar ett låst konto:
 
 ![Avsnitt i Azure AD-inloggnings rapport som visar utelåst konto](media/active-directory-b2c-reference-threat-management/portal-01-locked-account.png)
 

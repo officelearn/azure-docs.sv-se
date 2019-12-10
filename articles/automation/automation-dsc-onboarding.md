@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 80038cf5fba18eca4fbbe1405df2a76cfc84e2db
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850337"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951419"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding-datorer för hantering genom Azure Automation tillstånds konfiguration
 
@@ -305,6 +305,15 @@ Du kan hämta den information som krävs för registrerings protokollet för til
 
 För ökad säkerhet kan de primära och sekundära åtkomst nycklarna för ett Automation-konto återskapas när som helst (på sidan **Hantera nycklar** ) för att förhindra framtida Node-registreringar med hjälp av tidigare nycklar.
 
+## <a name="certificate-expiration-and-re-registration"></a>Certifikatets giltighets tid och omregistrering
+
+När du har registrerat en dator som en DSC-nod i Azure Automation tillstånds konfiguration, finns det ett antal orsaker till varför du kan behöva registrera noden i framtiden:
+
+- För versioner av Windows Server före Windows Server 2019 förhandlar varje nod automatiskt ett unikt certifikat för autentisering som upphör att gälla efter ett år. För närvarande kan PowerShell DSC-protokollet för registrering inte automatiskt förnya certifikat när de snart upphör att gälla, så du måste registrera om noderna efter ett års tid. Innan du registrerar igen kontrollerar du att varje nod kör Windows Management Framework 5,0 RTM. Om autentiseringen av en nods certifikat går ut och noden inte registreras igen, kan inte noden kommunicera med Azure Automation och har marker ATS som "svarar inte". omregistreringen utförde 90 dagar eller mindre från certifikatets förfallo tid, eller när som helst efter det att certifikatet upphör att gälla, leder det till att ett nytt certifikat skapas och används.  En lösning på det här problemet ingår i Windows Server 2019 och senare.
+- Om du vill ändra de [lokala PowerShell-Configuration Manager värdena](/powershell/scripting/dsc/managing-nodes/metaConfig4) som angavs under den inledande registreringen av noden, till exempel ConfigurationMode. För närvarande kan de här DSC-agentens värden bara ändras genom omregistrering. Det enda undantaget är den Node-konfiguration som är tilldelad noden. Detta kan ändras i Azure Automation DSC direkt.
+
+omregistrering kan utföras på samma sätt som du registrerade noden från början med någon av de onboarding-metoder som beskrivs i det här dokumentet. Du behöver inte avregistrera en nod från Azure Automation tillstånds konfiguration innan du registrerar om den.
+
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Felsöka onboarding av virtuella Azure-datorer
 
 Med Azure Automation tillstånds konfiguration kan du enkelt publicera virtuella Azure Windows-datorer för konfigurations hantering. Under huven används det önskade tillstånds konfigurations tillägget för Azure VM för att registrera den virtuella datorn med Azure Automation tillstånds konfiguration. Eftersom det önskade tillstånds konfigurations tillägget för Azure VM körs asynkront, kan det vara viktigt att spåra förloppet och felsöka körningen.
@@ -314,14 +323,7 @@ Med Azure Automation tillstånds konfiguration kan du enkelt publicera virtuella
 
 Om du vill felsöka eller Visa status för tillägget Azure VM Desired State Configuration går du till Azure Portal navigera till den virtuella dator som har registrerats och klickar sedan på **tillägg** under **Inställningar**. Klicka sedan på **DSC** eller **DSCForLinux** beroende på vilket operativ system du har. Du kan klicka på **Visa detaljerad status**om du vill ha mer information.
 
-## <a name="certificate-expiration-and-reregistration"></a>Certifikatets giltighets tid och omregistrering
-
-När du har registrerat en dator som en DSC-nod i Azure Automation tillstånds konfiguration, finns det ett antal orsaker till varför du kan behöva registrera om noden i framtiden:
-
-- För versioner av Windows Server före Windows Server 2019 förhandlar varje nod automatiskt ett unikt certifikat för autentisering som upphör att gälla efter ett år. För närvarande kan PowerShell DSC-protokollet för registrering inte automatiskt förnya certifikat när de snart upphör att gälla, så du måste registrera om noderna efter ett års tid. Innan du registrerar igen kontrollerar du att varje nod kör Windows Management Framework 5,0 RTM. Om autentiseringen av en nods certifikat upphör att gälla, och noden inte registreras igen, kan inte noden kommunicera med Azure Automation och har marker ATS som "svarar inte". Omregistreringen utförde 90 dagar eller mindre från certifikatets förfallo tid, eller när som helst efter det att certifikatet upphör att gälla, leder det till att ett nytt certifikat skapas och används.  En lösning på det här problemet ingår i Windows Server 2019 och senare.
-- Om du vill ändra de [lokala PowerShell-Configuration Manager värdena](/powershell/scripting/dsc/managing-nodes/metaConfig4) som angavs under den inledande registreringen av noden, till exempel ConfigurationMode. För närvarande kan dessa DSC-agenttjänsten bara ändras genom omregistrering. Det enda undantaget är den Node-konfiguration som är tilldelad noden. Detta kan ändras i Azure Automation DSC direkt.
-
-Omregistrering kan utföras på samma sätt som du registrerade noden från början med någon av de onboarding-metoder som beskrivs i det här dokumentet. Du behöver inte avregistrera en nod från Azure Automation tillstånds konfiguration innan du registrerar om den.
+Mer information om fel sökning finns i [fel söknings problem med Azure Automation önskad tillstånds konfiguration (DSC)](./troubleshoot/desired-state-configuration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

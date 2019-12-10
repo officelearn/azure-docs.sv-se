@@ -2,18 +2,18 @@
 title: 'Infrastruktur: lokal Apache Hadoop till Azure HDInsight'
 description: Lär dig metod tips för infrastruktur för migrering av lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499220"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951521"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för infrastruktur
 
@@ -23,10 +23,17 @@ Den här artikeln innehåller rekommendationer för att hantera infrastrukturen 
 
 De viktigaste alternativen för att planera prestanda för HDInsight-kluster är följande:
 
-- **Välj region** – Azure-regionen fastställer var klustret är fysiskt etablerad. För att minimera svars tiden för läsningar och skrivningar bör klustret vara i samma region som data.
-- **Välj lagrings plats och storlek** – standard lagringen måste finnas i samma region som klustret. För ett kluster med 48 noder rekommenderar vi att du har 4 till 8 lagrings konton. Även om det kanske redan finns tillräckligt med lagrings utrymme ger varje lagrings konto ytterligare nätverks bandbredd för Compute-noderna. När det finns flera lagrings konton använder du ett slumpmässigt namn för varje lagrings konto utan ett prefix. Syftet med slumpmässig namngivning minskar risken för Flask halsar i lagring (begränsning) eller vanliga läges problem i alla konton. Använd endast en behållare per lagrings konto för bättre prestanda.
-- **Välj storlek och typ för virtuell dator (stöder nu G-serien)** – varje kluster typ har en uppsättning nodtyper och varje nodtyp har olika alternativ för deras VM-storlek och-typ. VM-storlek och-typ bestäms av processor processor kraft, RAM-storlek och nätverks fördröjning. En simulerad arbets belastning kan användas för att fastställa den optimala storleken och typen för den virtuella datorn för varje Node-typ.
-- **Välj antalet arbetsnoder** – det första antalet arbetsnoder kan bestämmas med hjälp av de simulerade arbets belastningarna. Klustret kan skalas senare genom att lägga till fler arbetsnoder för att uppfylla högsta belastnings krav. Klustret kan senare skalas tillbaka när ytterligare arbetsnoder inte krävs.
+**Region**  
+Azure-regionen fastställer var klustret är fysiskt allokerat. För att minimera svars tiden för läsningar och skrivningar bör klustret vara i samma region som data.
+
+**Lagrings plats och storlek**  
+Standard lagringen måste finnas i samma region som klustret. För ett kluster med 48 noder rekommenderar vi att du har 4 till 8 lagrings konton. Även om det kanske redan finns tillräckligt med lagrings utrymme ger varje lagrings konto ytterligare nätverks bandbredd för Compute-noderna. När det finns flera lagrings konton använder du ett slumpmässigt namn för varje lagrings konto utan ett prefix. Syftet med slumpmässig namngivning minskar risken för Flask halsar i lagring (begränsning) eller vanliga läges problem i alla konton. Använd endast en behållare per lagrings konto för bättre prestanda.
+
+**VM-storlek och-typ (stöder nu G-serien)**  
+Varje kluster typ har en uppsättning nodtyper och varje nodtyp har olika alternativ för deras VM-storlek och-typ. VM-storlek och-typ bestäms av processor processor kraft, RAM-storlek och nätverks fördröjning. En simulerad arbets belastning kan användas för att fastställa den optimala storleken och typen för den virtuella datorn för varje Node-typ.
+
+**Antal arbetsnoder**  
+Det första antalet arbetsnoder kan bestämmas med hjälp av de simulerade arbets belastningarna. Klustret kan skalas senare genom att lägga till fler arbetsnoder för att uppfylla högsta belastnings krav. Klustret kan senare skalas tillbaka när ytterligare arbetsnoder inte krävs.
 
 Mer information finns i artikeln [kapacitets planering för HDInsight-kluster](../hdinsight-capacity-planning.md).
 
@@ -42,7 +49,7 @@ Du kan också använda Apache Ambari-gränssnittet eller Ambari-REST API för at
 
 Program eller komponenter som var tillgängliga i lokala kluster, men som inte ingår i HDInsight-kluster, kan läggas till på en Edge-nod eller på en virtuell dator i samma VNet som HDInsight-klustret. Ett Hadoop-program från tredje part som inte är tillgängligt på Azure HDInsight kan installeras med alternativet "program" i HDInsight-klustret. Anpassade Hadoop-program kan installeras på HDInsight-kluster med hjälp av skript åtgärder. I följande tabell visas några av de vanligaste programmen och deras HDInsight-integrerings alternativ:
 
-|**Applicering**|**Samordning**
+|**Programmet**|**Integrering**
 |---|---|
 |Luft flöde|IaaS-eller HDInsight Edge-nod
 |Alluxio|IaaS  
@@ -61,7 +68,7 @@ Program eller komponenter som var tillgängliga i lokala kluster, men som inte i
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
-|SÄKERHETS|IaaS 
+|SAS|IaaS 
 |Vertica|IaaS (SQLDW ett alternativ i Azure)
 |Tableau|IaaS 
 |Linje|HDInsight Edge-nod
@@ -145,7 +152,7 @@ Mer information finns i artikeln [använda tomma Edge-noder i Apache Hadoop klus
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Använda funktionen skala upp och skala ned i kluster
 
-HDInsight tillhandahåller elastiskhet genom att ge dig möjlighet att skala upp och ned antalet arbetsnoder i klustren. Med den här funktionen kan du krympa ett kluster efter timmar eller helger och expandera det under de högsta affärs behoven. Mer information finns i:
+HDInsight tillhandahåller elastiskhet genom att ge dig möjlighet att skala upp och ned antalet arbetsnoder i klustren. Med den här funktionen kan du krympa ett kluster efter timmar eller helger och expandera det under de högsta affärs behoven. Mer information finns här:
 
 * [Skala HDInsight-kluster](../hdinsight-scaling-best-practices.md).
 * [Skala kluster](../hdinsight-administer-use-portal-linux.md#scale-clusters).
@@ -191,6 +198,4 @@ Mer information finns i artikeln [ansluta HDInsight till ditt lokala nätverk](.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs nästa artikel i den här serien:
-
-- [Metod tips för lagring för lokal att Azure HDInsight Hadoop migrering](apache-hadoop-on-premises-migration-best-practices-storage.md)
+Läs nästa artikel i den här serien: [metod tips för lagring för lokal att Azure HDInsight Hadoop migrering](apache-hadoop-on-premises-migration-best-practices-storage.md).

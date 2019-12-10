@@ -1,5 +1,6 @@
 ---
-title: Konfigurera inloggning med ett LinkedIn-konto med anpassade principer – Azure Active Directory B2C
+title: Konfigurera inloggning med ett LinkedIn-konto genom att använda anpassade principer
+titleSuffix: Azure AD B2C
 description: Konfigurera inloggning med ett LinkedIn-konto i Azure Active Directory B2C att använda anpassade principer.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6d7beae75e13ef797c9e80a9a012e9f48b69d407
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 442c50df5da42da6d63c926845efd4a6bc3fcb12
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827185"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948393"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett LinkedIn-konto med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "71827185"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från ett LinkedIn-konto genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - LinkedIn-konto – om du inte redan har ett [konto kan du skapa ett konto](https://www.linkedin.com/start/join).
@@ -36,7 +37,7 @@ Om du vill använda LinkedIn som identitets leverantör i Azure AD B2C måste du
 ### <a name="create-app"></a>Skapa app
 
 1. Logga in på webbplatsen [LinkedIn Application Management](https://www.linkedin.com/secure/developer?newapp=) med dina LinkedIn-kontoautentiseringsuppgifter.
-1. Välj **skapa app**.
+1. Välj **Skapa app**.
 1. Ange ett **namn på appen**.
 1. Ange ett **företags** namn som motsvarar namnet på LinkedIn-sidan. Skapa en LinkedIn-sida om du inte redan har en.
 1. Valfritt Ange en **URL för sekretess policy**. Det måste vara en giltig URL, men behöver inte vara en nåbar slut punkt.
@@ -44,7 +45,7 @@ Om du vill använda LinkedIn som identitets leverantör i Azure AD B2C måste du
 1. Ladda upp en **app logo** -avbildning. Logo typens bild måste vara kvadratisk och dess dimensioner måste vara minst 100x100 bild punkter.
 1. Lämna standardinställningarna i avsnittet **produkter** .
 1. Granska informationen som presenteras i **juridiska villkor**. Markera kryss rutan om du godkänner villkoren.
-1. Välj **skapa app**.
+1. Välj **Skapa app**.
 
 ### <a name="configure-auth"></a>Konfigurera autentisering
 
@@ -59,15 +60,15 @@ Om du vill använda LinkedIn som identitets leverantör i Azure AD B2C måste du
 
 Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer `Manual`du.
-7. Ange ett **namn** för princip nyckeln. Till exempel `LinkedInSecret`. Prefixet *B2C_1A_* läggs automatiskt till i namnet på din nyckel.
+6. För **alternativ**väljer du `Manual`.
+7. Ange ett **namn** för princip nyckeln. Till exempel `LinkedInSecret`. Prefixet *B2C_1A_* läggs automatiskt till namnet på din nyckel.
 8. I **hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
-9. För **nyckel användning**väljer `Signature`du.
+9. För **nyckel användning**väljer du `Signature`.
 10. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -204,7 +205,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 
 Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är att Azure AD B2C kommunicera med ett LinkedIn-konto för att ta emot en token.
 
-1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
+1. Hitta **OrchestrationStep** som innehåller `Order="2"` i användar resan.
 2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
 
     ```XML
@@ -245,7 +246,7 @@ I det befintliga **metadata** -elementet i **TechnicalProfile**uppdaterar du fö
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-att
+Till:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -271,7 +272,7 @@ I den befintliga **OutputClaims** av **TechnicalProfile**uppdaterar du följande
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-att
+Till:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
@@ -335,7 +336,7 @@ Som en del av LinkedIn-migreringen från v 1.0 till v 2.0 krävs ytterligare ett
 
 1. Slutför stegen ovan för att tillåta att Azure AD B2C federera med LinkedIn så att användaren kan logga in. Som en del av federationen Azure AD B2C tar emot åtkomsttoken för LinkedIn.
 2. Spara LinkedIn-åtkomsttoken i ett anspråk. [Se instruktionerna här](idp-pass-through-custom.md).
-3. Lägg till följande anspråks leverantör som gör begäran till LinkedIn `/emailAddress` -API: et. För att godkänna den här begäran behöver du LinkedIn-åtkomsttoken.
+3. Lägg till följande anspråks leverantör som gör begäran till LinkedIns `/emailAddress`-API. För att godkänna den här begäran behöver du LinkedIn-åtkomsttoken.
 
     ```XML
     <ClaimsProvider>
@@ -363,7 +364,7 @@ Som en del av LinkedIn-migreringen från v 1.0 till v 2.0 krävs ytterligare ett
     </ClaimsProvider>
     ```
 
-4. Lägg till följande Orchestration-steg i din användar resa, så att API-anspråks leverantören utlöses när en användare loggar in med LinkedIn. Se till att uppdatera numret `Order` på rätt sätt. Lägg till det här steget direkt efter Orchestration-steget som utlöser den tekniska profilen för LinkedIn.
+4. Lägg till följande Orchestration-steg i din användar resa, så att API-anspråks leverantören utlöses när en användare loggar in med LinkedIn. Se till att uppdatera `Order` numret på rätt sätt. Lägg till det här steget direkt efter Orchestration-steget som utlöser den tekniska profilen för LinkedIn.
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->

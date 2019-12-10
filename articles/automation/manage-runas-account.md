@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849538"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951385"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -67,7 +67,7 @@ Om du vill konfigurera eller förnya klassiska kör som-konton måste du ha roll
 I det här avsnittet utför du följande steg för att uppdatera ditt Azure Automation-konto i Azure Portal. Du skapar kör som-konton och klassiska kör som-konton var för sig. Om du inte behöver hantera klassiska resurser kan du bara skapa Azure Kör som-kontot.
 
 1. Logga in på Azure Portal med ett konto som är medlem i rollen Prenumerationsadministratörer och som är medadministratör för prenumerationen.
-2. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
+2. I Azure Portal söker du efter och väljer **Automation-konton**.
 3. På sidan **Automation-konton** väljer du ditt Automation-konto i listan med Automation-konton.
 4. I vänster fönster väljer du **Kör som-konton** under avsnittet **Kontoinställningar**.
 5. Beroende på vilket konto du behöver väljer du antingen **Azures Kör som-konto** eller **Azures klassiska Kör som-konto**. När du har gjort ditt val visas antingen fönstret **Lägg till Azures Kör som-konto** eller **Lägg till Azures klassiska Kör som-konto**. Efter att du läst översiktsinformationen klickar du på **Skapa** för att fortsätta att skapa Kör som-kontot.
@@ -86,7 +86,7 @@ Följande lista innehåller krav för att skapa ett Kör som-konto i PowerShell:
 
 Utför följande steg för att hämta värdena för *SubscriptionID*, *ResourceGroup*och *AutomationAccountName*, som är obligatoriska parametrar för skriptet:
 
-1. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
+1. I Azure Portal söker du efter och väljer **Automation-konton**.
 1. På sidan Automation-konto väljer du ditt Automation-konto och sedan under **Kontoinställningar** väljer du **Egenskaper**.
 1. Anteckna värdena för **prenumerations-ID**, **namn**och **resurs grupp** på sidan **Egenskaper** .
 

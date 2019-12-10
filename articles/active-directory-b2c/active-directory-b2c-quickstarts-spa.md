@@ -1,5 +1,6 @@
 ---
-title: Snabb start – konfigurera inloggning för en app med en enda sida med hjälp av Azure Active Directory B2C
+title: 'Snabb start: Konfigurera inloggning för en enskild sida-app (SPA)'
+titleSuffix: Azure AD B2C
 description: I den här snabb starten kör du ett exempel på en Enkels Ides applikation som använder Azure Active Directory B2C för att tillhandahålla konto inloggning.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7dc3a52ca9f227f8476cf74286be917b5b6ba021
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ef6fd46ef51cff9823c93e2297a738f95494f577
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420176"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948342"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C
 
@@ -29,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
 - [Node.js](https://nodejs.org/en/download/)
 - Socialt konto från Facebook, Google eller Microsoft
 - Kod exempel från GitHub: [Active-Directory-B2C-JavaScript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-    
+
     Du kan [Hämta zip-arkivet](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona lagrings platsen:
 
     ```
@@ -54,13 +55,13 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
 
 2. Bläddra till programmets URL. Till exempel `http://localhost:6420`.
 
-## <a name="sign-in-using-your-account"></a>Logga in på ditt konto
+## <a name="sign-in-using-your-account"></a>Logga in med ditt konto
 
 1. Klicka på **Inloggning** för att starta arbetsflödet.
 
     ![Exempel program för en enda sida som visas i webbläsare](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    Exemplet stöder flera registreringsalternativ, inklusive att använda en social identitetsprovider eller skapa ett lokalt konto med en e-postadress. I den här snabb starten ska du använda ett konto för sociala identitets leverantörer från Facebook, Google eller Microsoft.
+    Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. I den här snabb starten ska du använda ett konto för sociala identitets leverantörer från Facebook, Google eller Microsoft.
 
 2. Azure AD B2C visar en inloggnings sida för ett fiktivt företag som kallas Fabrikam för exempel webb programmet. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
 
@@ -91,7 +92,7 @@ I den här snabb starten använde du ett exempel på en Enkels Ides applikation 
 * Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
-Kom igång med att skapa en egen Azure AD B2C-klientorganisation.
+Kom igång med att skapa en egen Azure AD B2C-klient.
 
 > [!div class="nextstepaction"]
 > [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

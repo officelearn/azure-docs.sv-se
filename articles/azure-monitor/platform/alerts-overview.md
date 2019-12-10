@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802319"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951147"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -60,12 +60,12 @@ Följande är nyckelattribut för en varnings regel:
 
 ## <a name="what-you-can-alert-on"></a>Vad du kan Avisera om
 
-Du kan varna för mått och loggar enligt beskrivningen i [övervaka data källor](../../azure-monitor/platform/data-sources-reference.md). Dessa inkluderar, men är inte begränsade till:
-- Mät värden
-- Loggs öknings frågor
-- Aktivitets logg händelser
-- Hälso tillståndet för den underliggande Azure-plattformen
-- Test för webbplats tillgänglighet
+Du kan varna för mått och loggar enligt beskrivningen i [övervaka data källor](../../azure-monitor/platform/data-sources-reference.md). Dessa inkludera, men är inte begränsade till:
+- Måttvärden
+- Loggsökningsfrågor
+- Aktivitetslogghändelser
+- Hälsotillståndet för den underliggande Azure-plattformen
+- Test för webbplatsens tillgänglighet
 
 Tidigare Azure Monitor Mät värden, Application Insights, Log Analytics och Service Health hade separata aviserings funktioner. Med tiden kan Azure förbättra och kombinera både användar gränssnittet och olika metoder för aviseringar. Denna konsolidering pågår fortfarande. Därför finns det fortfarande vissa aviserings funktioner som ännu inte finns i det nya varnings systemet.  
 
@@ -83,7 +83,7 @@ Följande aviserings tillstånd stöds.
 |:---|:---|
 | Nytt | Problemet har precis identifierats och har ännu inte granskats. |
 | Godkänt | En administratör har granskat aviseringen och börjat arbeta med den. |
-| kopplade | Problemet har åtgärd ATS. När en avisering har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
+| Stängd | Problemet har åtgärd ATS. När en avisering har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
 *Aviserings tillståndet* är annorlunda och oberoende av *övervaknings villkoret*. Aviserings tillstånd anges av användaren. Övervaknings villkoret anges av systemet. När en varning utlöses anges övervaknings villkoret för aviseringen till *utlöst*. När det underliggande villkoret som orsakade aviseringen om att brand figurer rensas, anges övervaknings villkoret som *löst*. Aviserings statusen har inte ändrats förrän användaren ändrar det. Lär dig [hur du ändrar status för dina aviseringar och smarta grupper](https://aka.ms/managing-alert-smart-group-states).
 
@@ -118,10 +118,10 @@ Välj följande värden överst på aviserings sidan för att öppna en annan si
 |:---|:---|
 | Totalt antal aviseringar | Det totala antalet aviseringar som matchar de valda kriterierna. Välj det här värdet för att öppna vyn alla aviseringar utan filter. |
 | Smarta grupper | Det totala antalet smarta grupper som har skapats från de aviseringar som matchar de valda kriterierna. Välj det här värdet för att öppna listan Smart grupper i vyn alla aviseringar.
-| Totalt antal aviserings regler | Det totala antalet aviserings regler i den valda prenumerationen och resurs gruppen. Välj det här värdet för att öppna regel vyn filtrerad på den valda prenumerationen och resurs gruppen.
+| Totalt antal aviseringsregler | Det totala antalet aviserings regler i den valda prenumerationen och resurs gruppen. Välj det här värdet för att öppna regel vyn filtrerad på den valda prenumerationen och resurs gruppen.
 
 
-## <a name="manage-alert-rules"></a>Hantera aviserings regler
+## <a name="manage-alert-rules"></a>Hantera aviseringsregler
 Om du vill visa sidan **regler** väljer du **Hantera aviserings regler**. Sidan regler är en plats där du kan hantera alla aviserings regler i dina Azure-prenumerationer. Den visar alla varnings regler och kan sorteras baserat på mål resurser, resurs grupper, regel namn eller status. Du kan också redigera, aktivera eller inaktivera aviserings regler från den här sidan.  
 
  ![Skärm bild av sidan regler](./media/alerts-overview/alerts-preview-rules.png)
@@ -156,8 +156,8 @@ Du kan filtrera vyn genom att välja följande värden i list menyerna längst u
 | Resurstyp | Välj en eller flera resurs typer. Endast aviseringar med mål av den valda typen tas med i vyn. Den här kolumnen är bara tillgänglig efter att en resurs grupp har angetts. |
 | Resurs | Välj en resurs. Endast aviseringar med den resursen som mål ingår i vyn. Den här kolumnen är bara tillgänglig efter att en resurs typ har angetts. |
 | Allvarsgrad | Välj en allvarlighets grad för aviseringar eller Välj **alla** om du vill inkludera aviseringar för alla allvarlighets grader. |
-| Övervaknings villkor | Välj ett övervaknings villkor eller Välj **alla** om du vill inkludera aviseringar för alla villkor. |
-| Aviserings tillstånd | Välj ett aviserings tillstånd eller Välj **alla** om du vill inkludera aviseringar för alla tillstånd. |
+| Övervakningsvillkor | Välj ett övervaknings villkor eller Välj **alla** om du vill inkludera aviseringar för alla villkor. |
+| Aviseringstillstånd | Välj ett aviserings tillstånd eller Välj **alla** om du vill inkludera aviseringar för alla tillstånd. |
 | Övervaka tjänst | Välj en tjänst eller Välj **alla** om du vill inkludera alla tjänster. Endast aviseringar som skapats av regler som använder tjänsten som mål ingår. |
 | Tidsintervall | Endast aviseringar som har utlösts inom det valda tidsintervallet ingår i vyn. De värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
 
@@ -211,6 +211,7 @@ Använd [Aviseringshantering REST API](https://aka.ms/alert-management-api) för
 - [Lär dig mer om åtgärds grupper](../../azure-monitor/platform/action-groups.md)
 - [Hantera dina varnings instanser i Azure](https://aka.ms/managing-alert-instances)
 - [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
+- [Läs mer om priser för Azure-aviseringar](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348942"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942230"
 ---
 # <a name="application-gateway-components"></a>Komponenter för Application Gateway
 
@@ -75,7 +75,7 @@ Det finns två typer av lyssnare:
 
 När du har skapat en lyssnare associerar du den med en regel för anslutningsbegäran. Den här regeln avgör hur begäran som tagits emot på lyssnaren ska dirigeras till Server delen.
 
-Application Gateway bearbetar lyssnare i den ordning som visas. Om Basic Listener matchar en inkommande begäran bearbetas det först. Om du vill dirigera trafik till rätt server del konfigurerar du en lyssnare för flera platser innan en grundläggande lyssnare.
+Application Gateway bearbetar lyssnare i den [ordning som visas](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ## <a name="request-routing-rules"></a>Regler för routning av begäran
 
@@ -126,7 +126,7 @@ Den här komponenten används också för att:
 En backend-pool dirigerar begäran till backend-servrar, som servar begäran. Backend-pooler kan innehålla:
 
 - Nätverkskort
-- Virtual Machine Scale Sets
+- VM-skalningsuppsättningar
 - Offentliga IP-adresser
 - Interna IP-adresser
 - FQDN
@@ -140,7 +140,7 @@ En Programgateway kan också kommunicera med lokala servrar när de är anslutna
 
 Du kan skapa olika backend-pooler för olika typer av begär Anden. Du kan till exempel skapa en backend-pool för allmänna begär Anden och sedan en annan backend-pool för förfrågningar till mikrotjänster för ditt program.
 
-## <a name="health-probes"></a>Hälsoavsökningar
+## <a name="health-probes"></a>Hälsotillståndsavsökningar
 
 Som standard övervakar en Programgateway hälsan för alla resurser i sin backend-pool och tar automatiskt bort felaktiga. Den övervakar sedan skadade instanser och lägger tillbaka dem till den felfria backend-poolen när de blir tillgängliga och svarar på hälso avsökningar.
 

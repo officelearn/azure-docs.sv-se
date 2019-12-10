@@ -1,5 +1,6 @@
 ---
-title: Konfigurera inloggning för en Azure Active Directory organisation – Azure Active Directory B2C
+title: Konfigurera inloggning för en Azure AD-organisation
+titleSuffix: Azure AD B2C
 description: Konfigurera inloggning för en speciell Azure Active Directory organisation i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -11,12 +12,12 @@ ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0c2e368b9c12d8ab673e5b8808632501de448b9a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d864561273f89c510633bbc95a2d037a270401f8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755755"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947691"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurera inloggning för en speciell Azure Active Directory organisation i Azure Active Directory B2C
 
@@ -49,7 +50,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Konfigurera Azure AD som en identitets leverantör
 
 1. Kontrol lera att du använder den katalog som innehåller Azure AD B2C klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller Azure AD B2C klienten.
-1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Välj **identitets leverantörer**och välj sedan **ny OpenID Connect-Provider**.
 1. Ange ett **namn**. Ange till exempel *contoso Azure AD*.
 1. För **metadata-URL**anger du följande URL och ersätter `your-AD-tenant-domain` med domän namnet för din Azure AD-klient:
@@ -65,12 +66,12 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. För **klient-ID**anger du det program-ID som du tidigare har registrerat.
 1. För **klient hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
 1. Lämna standardvärdena för **omfång**, **svars typ**och **svars läge**.
-1. Valfritt Ange ett värde för **Domain_hint**. Till exempel *ContosoAD*. Detta är det värde som ska användas för att referera till den här identitets leverantören med *domain_hint* i begäran.
+1. Valfritt Ange ett värde för **Domain_hint**. Till exempel *ContosoAD*. Detta är det värde som ska användas när du refererar till den här identitets leverantören med *domain_hint* i begäran.
 1. Under **anspråks mappning för identitetsprovider**anger du följande anspråks mappnings värden:
 
     * **Användar-ID**: *OID*
     * **Visnings namn**: *namn*
-    * **Angivet namn**: *given_name*
+    * **Tilldelat namn**: *given_name*
     * Efter **namn**: *family_name*
     * **E-post**: *unique_name*
 

@@ -1,5 +1,6 @@
 ---
-title: Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer i Azure Active Directory B2C | Microsoft Docs
+title: Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer
+titleSuffix: Azure AD B2C
 description: Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ad6ac4c30572f1b475cba2f699f5842ae3c7528
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 460f16775bf8b02bbb345b609e1419311f81bd22
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826997"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948427"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "71826997"
 
 Den här artikeln visar hur du aktiverar inloggning för användare av ett Twitter-konto genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Om du inte redan har ett Twitter-konto skapar du ett på [Twitter-registrerings sidan](https://twitter.com/signup).
@@ -35,8 +36,8 @@ Om du vill använda Twitter som identitets leverantör i Azure AD B2C måste du 
 1. Logga in på webbplatsen för [Twitter-utvecklare](https://developer.twitter.com/en/apps) med dina Twitter-kontoautentiseringsuppgifter.
 2. Välj **skapa en app**.
 3. Ange ett **namn på appen** och en **program beskrivning**.
-4. I **webbplats-URL**anger `https://your-tenant.b2clogin.com`du. Ersätt `your-tenant` med namnet på din klient. Till exempel https://contosob2c.b2clogin.com.
-5. Ange`https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`för **ÅTERanrops-URL: en**. Ersätt `your-tenant` med namnet på ditt klient namn och `your-policy-Id` med identifieraren för din princip. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
+4. I **webbplats-URL**anger du `https://your-tenant.b2clogin.com`. Ersätt `your-tenant` med namnet på din klient. Till exempel https://contosob2c.b2clogin.com.
+5. Ange `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`för **återanrops-URL: en**. Ersätt `your-tenant` med namnet på ditt klient namn och `your-policy-Id` med identifieraren för din princip. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
 6. Längst ned på sidan, Läs och godkänn villkoren och välj sedan **skapa**.
 7. På sidan **information om appar** väljer du **Redigera > Redigera information**, markerar kryss rutan **Aktivera inloggning med Twitter**och väljer sedan **Spara**.
 8. Välj **nycklar och tokens** och registrera konsument- **API-nyckeln** och de **hemliga nyckel** värden för konsument-API som ska användas senare.
@@ -45,15 +46,15 @@ Om du vill använda Twitter som identitets leverantör i Azure AD B2C måste du 
 
 Du måste lagra den hemliga nyckeln som du tidigare har registrerat i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer `Manual`du.
-7. Ange ett **namn** för princip nyckeln. Till exempel `TwitterSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+6. För **alternativ**väljer du `Manual`.
+7. Ange ett **namn** för princip nyckeln. Till exempel `TwitterSecret`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
 8. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
-9. För **nyckel användning**väljer `Encryption`du.
+9. För **nyckel användning**väljer du `Encryption`.
 10. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -141,7 +142,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 
 Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är att Azure AD B2C kommunicera med ett Twitter-konto för att ta emot en token.
 
-1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
+1. Hitta **OrchestrationStep** som innehåller `Order="2"` i användar resan.
 2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
 
     ```XML

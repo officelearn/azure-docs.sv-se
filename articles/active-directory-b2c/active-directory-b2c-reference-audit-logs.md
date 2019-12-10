@@ -1,6 +1,7 @@
 ---
-title: Exempel och definitioner för gransknings loggar i Azure Active Directory B2C
-description: Guide och exempel på hur du kommer åt Azure AD B2C gransknings loggar.
+title: Åtkomst och granska gransknings loggar
+titleSuffix: Azure AD B2C
+description: Få åtkomst till Azure AD B2C gransknings loggar program mässigt och i Azure Portal.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643611"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948240"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -33,7 +34,7 @@ Kategorin **B2C** i gransknings loggar innehåller följande typer av aktivitete
 
 |Aktivitetstyp |Beskrivning  |
 |---------|---------|
-|Auktorisering |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
+|Autentisering |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
 |Katalog |Aktiviteter relaterade till katalogattribut som hämtats när en administratör loggar in med hjälp av Azure Portal. |
 |Program | Skapa, läsa, uppdatera och ta bort (CRUD) åtgärder på B2C-program. |
 |Nyckel |CRUD åtgärder för nycklar som lagras i en B2C Key-behållare. |
@@ -52,13 +53,13 @@ Panelen aktivitets information innehåller följande relevanta information:
 
 |Section|Fält|Beskrivning|
 |-------|-----|-----------|
-| Aktivitet | Namn | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*som avslutar den faktiska användar inloggningen. |
-| Initierad av (aktör) | objectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
+| Aktivitet | Namn | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*, vilket avslutar den faktiska användar inloggningen. |
+| Initierad av (aktör) | ObjectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
 | Initierad av (aktör) | Namn | **Program-ID** för det B2C-program som användaren loggar in på. |
-| Mål (ar) | objectId | **Objekt-ID** för den användare som loggar in. |
+| Mål | ObjectId | **Objekt-ID** för den användare som loggar in. |
 | Ytterligare information | TenantId | **Klient-ID** för Azure AD B2C klient organisationen. |
-| Ytterligare information | policyId | **Princip-ID: t** för det användar flöde (princip) som används för att signera användaren i. |
-| Ytterligare information | applicationId | **Program-ID** för det B2C-program som användaren loggar in på. |
+| Ytterligare information | `PolicyId` | **Princip-ID: t** för det användar flöde (princip) som används för att signera användaren i. |
+| Ytterligare information | ApplicationId | **Program-ID** för det B2C-program som användaren loggar in på. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Visa gransknings loggar i Azure Portal
 
@@ -109,7 +110,7 @@ Följ de här stegen registrera ett program, tilldela det nödvändiga Microsoft
 1. Välj **Microsoft Graph**och **Välj**sedan.
 1. Under **program behörigheter**väljer du **Läs alla Gransknings logg data**.
 1. Välj knappen **Välj** och välj sedan **färdig**.
-1. Välj **bevilja behörigheter**och välj sedan **Ja**.
+1. Välj **bevilja**, och välj sedan **Ja**.
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 

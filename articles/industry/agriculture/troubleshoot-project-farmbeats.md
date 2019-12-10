@@ -5,26 +5,29 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0a4fb337adfb2f4e6b8edb86ac620103e929c3a8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 89f364d9246db27276eee6d05e8130e87061feec
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842143"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941617"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Felsöka Azure-FarmBeats
 
 Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats.
 
-Om du behöver ytterligare hjälp kan du kontakta oss på farmbeatssupport@microsoft.com. Se till att inkludera *Deployer. log* -filen i din e-postadress.
+Om du behöver ytterligare hjälp kan du kontakta oss på farmbeatssupport@microsoft.com. Se till att inkludera **Deployer. log** -filen i din e-postadress.
 
-Så här hämtar du filen *Deployer. log* :
+Så här hämtar du filen **Deployer. log** :
 
-1. Välj den markerade ikonen och välj sedan **Hämta**i list rutan.
+1. Logga in till **Azure Portal** och välj din prenumeration och Azure AD-klient.
+2. Starta Cloud Shell från det övre navigeringsfältet i Azure Portal.
+3. Välj **bash** som önskad Cloud Shell upplevelse.
+4. Välj den markerade ikonen och välj sedan **Hämta**i list rutan.
 
     ![Project-FarmBeats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
-1. I nästa fönster anger du sökvägen till filen *Deployer. log* . Skriv till exempel **farmbeats-Deployer. log**.
+5. I nästa fönster anger du sökvägen till filen **Deployer. log** . Skriv till exempel **farmbeats-Deployer. log**.
 
 ## <a name="sensor-telemetry"></a>Sensor telemetri
 
@@ -32,7 +35,7 @@ Så här hämtar du filen *Deployer. log* :
 
 **Symptom**: enheter eller sensorer distribueras och du har länkat FarmBeats med din enhets partner, men du kan inte hämta eller Visa telemetridata på FarmBeats.
 
-**Korrigerande åtgärd**: 
+**Korrigerande åtgärd**:
 
 1. Gå till resurs gruppen FarmBeats Datahub.   
 1. Välj **Event Hub** (DatafeedEventHubNamespace) och kontrol lera sedan antalet inkommande meddelanden.
@@ -44,14 +47,14 @@ Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuell
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Du har inte Azure Event Hubs-anslutningssträng
 
-**Korrigerande åtgärd**: 
+**Korrigerande åtgärd**:
 
 1. I Datahub Swagger går du till partner-API: et.
 1. Välj **hämta** > **testa** > **köra**.
 1. Notera partner-ID för den sensor partner som du är intresse rad av.
 1. Gå tillbaka till partner-API: et och välj **Get/\<ID >** .
 1. Ange partner-ID: t från steg 3 och välj sedan **Kör**.
-   
+
    API-svaret ska ha Event Hubs anslutnings strängen.
 
 ### <a name="device-appears-offline"></a>Enheten visas offline
@@ -128,7 +131,7 @@ Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-
 **Problem**: FarmBeats Accelerator visar inte den senaste versionen, även efter att du har uppgraderat FarmBeatsDeployment.
 
 **Korrigerande åtgärd**: det här felet uppstår på grund av beständiga service Worker i webbläsaren. Gör följande:
-1. Stäng alla flikar för webbläsare som har en Accelerator öppen och Stäng webbläsarfönstret. 
+1. Stäng alla flikar för webbläsare som har en Accelerator öppen och Stäng webbläsarfönstret.
 1. Starta en ny instans av webbläsaren och Läs in Accelerator-URI igen. Den här åtgärden läser in den nya versionen av Accelerator.
 
 ## <a name="sentinel-imagery-related-issues"></a>Sentinel: bilder problem
@@ -137,7 +140,7 @@ Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-
 
 **Jobb fel meddelande**: "fullständig autentisering krävs för att få åtkomst till den här resursen".
 
-**Korrigerande åtgärd**: 
+**Korrigerande åtgärd**:
 
 Gör något av följande:
 * Kör installations programmet för att uppgradera Datahub med rätt användar namn och lösen ord.
@@ -207,7 +210,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
     ![Project-FarmBeats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
 
-### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>Samla in Azure Data Factory jobb loggar i Accelerator 
+### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>Samla in Azure Data Factory jobb loggar i Accelerator
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter resurs gruppen FarmBeats Accelerator i **sökrutan.**

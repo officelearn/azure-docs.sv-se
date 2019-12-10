@@ -1,5 +1,6 @@
 ---
-title: Developer-kommentarer för anpassade principer – Azure Active Directory B2C | Microsoft Docs
+title: Developer-kommentarer för anpassade principer
+titleSuffix: Azure AD B2C
 description: Anteckningar för utvecklare om hur man konfigurerar och underhåller Azure AD B2C med anpassade principer.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f8d1ac217647ee292338da875671ef8bd3f79db
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: edbd31434715c380badf15118b0779885aed700f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227202"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949763"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Developer-kommentarer för anpassade principer i Azure Active Directory B2C
 
@@ -44,7 +45,7 @@ Utvecklare som använder den anpassade princip inställningen bör följa följa
 - Utför metodiska scenario testning.
 - Följ program utvecklings-och mellanlagringsplatsen med bästa praxis med minst en utvecklings-och test miljö och en produktions miljö.
 - Håll dig informerad om ny utveckling från identitets leverantörer och tjänster som du integrerar med. Du kan till exempel hålla reda på ändringar i hemligheter och schemalagda och oplanerade ändringar i tjänsten.
-- Konfigurera aktiv övervakning och övervaka svars tiderna för produktions miljöer. Mer information om hur du integrerar med Application Insights [finns i Azure Active Directory B2C: Samlar in](active-directory-b2c-custom-guide-eventlogger-appins.md)loggar.
+- Konfigurera aktiv övervakning och övervaka svars tiderna för produktions miljöer. Mer information om hur du integrerar med Application Insights finns i [Azure Active Directory B2C: samla in loggar](active-directory-b2c-custom-guide-eventlogger-appins.md).
 - Behåll kontaktens e-postadresser som är aktuella i Azure-prenumerationen och håll dig uppdaterad med e-postmeddelandena från Microsoft Live-site.
 - Ta åtgärds tid när du uppmanas att göra det av Microsoft Live-site-teamet.
 
@@ -60,7 +61,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="identity-providers-tokens-protocols"></a>Identitets leverantörer, token, protokoll
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Till exempel Google +.  |
 | IDP-OAUTH2 |  |  | X | Till exempel Facebook.  |
@@ -77,7 +78,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="component-support"></a>Komponent stöd
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi Factor Authentication |  |  | X |  |
 | Azure Active Directory som lokal katalog |  |  | X |  |
@@ -88,7 +89,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="content-definition"></a>Innehålls definition
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Felsida, API. fel |  |  | X |  |
 | IDP-urvals sida, API. idpselections |  |  | X |  |
@@ -104,17 +105,17 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="app-ief-integration"></a>App-IEF-integrering
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Domain_hint för frågesträngparametern |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
-| Login_hint för frågesträngparametern |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
+| Parameter för frågesträng domain_hint |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
+| Parameter för frågesträng login_hint |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
 | Infoga JSON i UserJourney via client_assertion | X |  |  | Är föråldrad. |
 | Infoga JSON i UserJourney som id_token_hint |  | X |  | Go-Forward-metoden för att skicka JSON. |
 | Skicka IDP-TOKEn till programmet |  | X |  | Till exempel från Facebook till app. |
 
 ### <a name="session-management"></a>Sessionshantering
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | SSO-sessionsbiljett |  |  | X |  |
 | Provider för extern inloggningssession |  |  | X |  |
@@ -123,7 +124,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="security"></a>Säkerhet
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Princip nycklar – generera, manuell, uppladdning |  |  | X |  |
 | Princip nycklar – RSA/cert, hemligheter |  |  | X |  |
@@ -131,7 +132,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="developer-interface"></a>Gränssnittet för utvecklare
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal – IEF UX |  |  | X |  |
 | Application Insights UserJourney-loggar |  | X |  | Används för fel sökning under utveckling.  |

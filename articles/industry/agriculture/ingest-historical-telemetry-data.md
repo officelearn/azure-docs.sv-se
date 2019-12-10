@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d2ac3b0f531b6384643d91fac1cf50a0ea719969
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a3e4f543be2f01e0c649d5f9bcc9287dedc275f1
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900342"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941652"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -39,7 +39,7 @@ Följ de här stegen.
 > Du måste vara administratör för att utföra följande steg.
 
 1. Hämta det här [skriptet](https://aka.ms/farmbeatspartnerscript)och extrahera det på din lokala enhet. Två filer finns inuti zip-filen.
-2. Logga in i [Azure-portalen](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen. 
+2. Logga in i [Azure-portalen](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen.
 
     ![Azure Portal verktygsfält](./media/for-tutorials/navigation-bar-1.png)
 
@@ -47,7 +47,7 @@ Följ de här stegen.
 
     ![PowerShell-inställning](./media/for-tutorials/power-shell-new-1.png)
 
-4. Ladda upp de två filerna som du laddade ned från steg 1 i Cloud Shell-instansen. 
+4. Ladda upp de två filerna som du laddade ned från steg 1 i Cloud Shell-instansen.
 
     ![Knappen Ladda upp i verktygsfältet](./media/for-tutorials/power-shell-two-1.png)
 
@@ -55,7 +55,7 @@ Följ de här stegen.
 
    >[!NOTE]
    > Som standard laddas filerna upp till hem katalogen/hem/användar namn.
-6. Kör skriptet med det här kommandot: 
+6. Kör skriptet med det här kommandot:
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -67,10 +67,10 @@ Följ de här stegen.
 
  Nu när du har de autentiseringsuppgifter som krävs kan du definiera enheten och sensorer. Det gör du genom att skapa metadata med FarmBeats-API: er.
 
- FarmBeats Datahub har följande API: er som möjliggör skapande och hantering av enhets-eller sensor-metadata. 
+ FarmBeats Datahub har följande API: er som möjliggör skapande och hantering av enhets-eller sensor-metadata.
 
-- /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod. 
-- /**enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen. 
+- /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod.
+- /**enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
 - /**SensorModel**: SensorModel motsvarar sensorns metadata, t. ex. tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
 - /**sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.  
 
@@ -99,7 +99,7 @@ Följ de här stegen.
 |     ProductCode| Produkt kod eller modell namn eller nummer. Till exempel RS-CO2-N01. |
 |       SensorMeasures > namn       | Sensor måttets namn. Endast gemener stöds. Ange djupet för mått från olika djup. Till exempel soil_moisture_15cm. Det här namnet måste vara konsekvent med telemetri-data.  |
 |          SensorMeasures > datatype       |Datatyp för telemetri. För närvarande stöds Double.|
-|    sensorMeasures > typ    |Typ av mått för sensorer för telemetri. Systemdefinierade typer är AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.|
+|    SensorMeasures > typ    |Typ av mått för sensorer för telemetri. Systemdefinierade typer är AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.|
 |        SensorMeasures > enhet              | Enhet för data för sensor telemetri. De systemdefinierade enheterna är nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, kvicksilver, PSI, MilliMeter, CentiMeter, meter, tum, fot, mil, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, examen, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, procent,,,,, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour för att lägga till mer finns i/ExtendedType-API: et.|
 |    SensorMeasures > AggregationType    |  Värdena kan vara ingen, genomsnitt, högsta, lägsta eller StandardDeviation.  |
 |          Namn            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
@@ -269,7 +269,7 @@ Mäta
   }
 }
 ```
-Följande exempel förfrågan skapar en enhet. Den här begäran har indataports-JSON som nytto last med begär ande texten. 
+Följande exempel förfrågan skapar en enhet. Den här begäran har indataports-JSON som nytto last med begär ande texten.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -292,7 +292,7 @@ Du måste skicka Telemetrin till Azure-Event Hubs för bearbetning. Azure Event 
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Skicka ett meddelande om telemetri som klienten
 
-När du har upprättat en anslutning som en Event Hubs-klient kan du skicka meddelanden till Event Hub som JSON. 
+När du har upprättat en anslutning som en Event Hubs-klient kan du skicka meddelanden till Event Hub som JSON.
 
 Här är exempel på python-kod som skickar telemetri som en klient till en angiven Event Hub:
 
@@ -313,7 +313,7 @@ write_client.stop()
 
 ```
 
-Konvertera det historiska sensor data formatet till ett kanoniskt format som Azure-FarmBeats förstår. Det kanoniska meddelande formatet är följande: 
+Konvertera det historiska sensor data formatet till ett kanoniskt format som Azure-FarmBeats förstår. Det kanoniska meddelande formatet är följande:
 
 ```json
 {

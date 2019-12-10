@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122833"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951436"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Vad är Azure-båge för servrar?
 
@@ -108,6 +108,40 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 Du kan också registrera resurs leverantörer med hjälp av portalen genom att följa stegen under [Azure Portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+
+## <a name="machine-changes-after-installing-the-agent"></a>Dator ändringar efter installation av agenten
+
+Om du har en lösning för ändrings spårning distribuerad i din miljö kan du använda listan nedan för att spåra, identifiera och tillåta de ändringar som gjorts av installations paketet för **Azure Connected Machine agent (AzCMAgent)** .
+
+När du har installerat agenten ser du följande ändringar som gjorts på dina servrar.
+
+### <a name="windows"></a>Windows
+
+Tjänster installerade:
+
+* `Himds` – tjänsten **Azure Connected Machine agent** .
+* `Dscservice` eller `gcd` – **gäst konfigurations** tjänsten.
+
+Filer som lagts till på servern:
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` plats för **Azure Connected Machine agent** -filer.
+* `%ProgramData%\GuestConfig\*.*` - **gäst konfigurations** loggar.
+
+Register nyckel platser:
+
+* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent`-register nycklar för **Azure Connected Machine agent**.
+
+### <a name="linux"></a>Linux
+
+Tjänster installerade:
+
+* `Himdsd` – tjänsten **Azure Connected Machine agent** .
+* `dscd` eller `gcd` – **gäst konfigurations** tjänsten.
+
+Filer som lagts till på servern:
+
+* `/var/opt/azcmagent/**` plats för **Azure Connected Machine agent** -filer.
+* `/var/lib/GuestConfig/**` - **gäst konfigurations** loggar.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 

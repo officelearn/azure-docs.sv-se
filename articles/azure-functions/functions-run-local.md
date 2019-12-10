@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 24bee8ffe23d524553143b2097560979a39329d7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784722"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941839"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -29,37 +29,47 @@ Genom att utveckla funktioner på den lokala datorn och publicera dem på Azure 
 > * [Kör funktionen lokalt](#start)
 > * [Publicera projektet till Azure](#publish)
 
-## <a name="core-tools-versions"></a>Core tools-versioner
+## <a name="core-tools-versions"></a>Core Tools-versioner
 
-Det finns två versioner av Azure Functions Core Tools. Vilken version du använder beror på din lokala utvecklings miljö, [Val av språk](supported-languages.md)och support nivå som krävs:
+Det finns tre versioner av Azure Functions Core Tools. Vilken version du använder beror på din lokala utvecklings miljö, [Val av språk](supported-languages.md)och support nivå som krävs:
 
-+ Version 1. x: stöder version 1. x av körnings miljön. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://docs.npmjs.com/getting-started/what-is-npm). Med den här versionen kan du skapa funktioner i experiment språk som inte stöds av officiellt. Mer information finns [i språk som stöds i Azure Functions](supported-languages.md)
++ **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [Version 2. x](#v2): stöder [version 2. x av körnings miljön](functions-versions.md). Den här versionen stöder [Windows](#windows-npm), [MacOS](#brew)och [Linux](#linux). Använder plattformsspecifika paket hanterare eller NPM för installation.
++ [**Version 2. x/3. x**](#v2): stöder antingen [version 2. x eller 3. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](#windows-npm), [MacOS](#brew)och [Linux](#linux) och använder plattformsspecifika paket hanterare eller NPM för installation.
 
-Om inget annat anges är exemplen i den här artikeln för version 2. x.
+Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
 [Azure Functions Core tools] innehåller en version av samma körnings miljö som har behörighet Azure Functions runtime som du kan köra på din lokala utvecklings dator. Den innehåller också kommandon för att skapa funktioner, ansluta till Azure och distribuera funktions projekt.
 
-### <a name="v2"></a>Version 2. x
+### <a name="v2"></a>Version 2. x och 3. x
 
-Version 2. x av verktygen använder Azure Functions runtime 2. x som bygger på .NET Core. Den här versionen stöds på alla plattformar .NET Core 2. x stöder, inklusive [Windows](#windows-npm), [MacOS](#brew)och [Linux](#linux). 
+Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](#windows-npm), [MacOS](#brew)och [Linux](#linux). 
 
 > [!IMPORTANT]
-> Du kan kringgå kravet för att installera .NET Core 2. x SDK med hjälp av [tilläggs paket].
+> Du kan kringgå kravet för att installera .NET Core SDK med hjälp av [tilläggs paket].
 
-#### <a name="windows-npm"></a>Aktivitets
+#### <a name="windows-npm"></a>Windows
 
 I följande steg används NPM för att installera kärn verktyg i Windows. Du kan också använda [choklad](https://chocolatey.org/). Mer information finns i Readme- [verktyg för viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installera [Node.js], som innehåller NPM. För version 2. x av verktygen stöds endast Node. js 8,5 och senare versioner.
+1. Installera [Node.js], som innehåller NPM.
+    - För version 2. x av verktygen stöds endast Node. js 8,5 och senare versioner.
+    - För version 3. x av verktygen stöds endast Node 10 och senare versioner.
 
 1. Installera paketet core tools:
 
+    ##### <a name="v2x"></a>v2. x
+
     ```bash
     npm install -g azure-functions-core-tools
+    ```
+
+    ##### <a name="v3x"></a>v3. x
+
+    ```bash
+    npm install -g azure-functions-core-tools@3
     ```
 
    Det kan ta några minuter för NPM att hämta och installera Core Tools-paketet.
@@ -74,13 +84,21 @@ I följande steg används homebrew för att installera kärn verktygen på macOS
 
 1. Installera paketet core tools:
 
+    ##### <a name="v2x"></a>v2. x
+
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
 
-1. Om du inte planerar att använda [tilläggs paket]installerar du [.net Core 2. x SDK för MacOS](https://www.microsoft.com/net/download/macos).
+    ##### <a name="v3x"></a>v3. x
 
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@3
+    # if upgrading on a machine that has 2.x installed
+    brew link --overwrite azure-functions-core-tools@3
+    ```
 
 #### <a name="linux"></a>Linux (Ubuntu/Debian) med APT
 
@@ -199,7 +217,7 @@ Som standard migreras de här inställningarna inte automatiskt när projektet p
 Värdena för funktionen app-inställningar kan också läsas i koden som miljövariabler. Mer information finns i avsnittet miljövariabler i de här språkspecifika referens avsnitten:
 
 * [C#förkompilerade](functions-dotnet-class-library.md#environment-variables)
-* [C#skript (. CSX)](functions-reference-csharp.md#environment-variables)
+* [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -212,7 +230,7 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 Även om du använder Storage-emulatorn för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-create-storage-account.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
 
 - Sök efter och välj **lagrings konton**från [Azure-portalen]. 
-  ![väljer du lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
+  ![välja lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
   
   Välj ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar**och kopiera sedan ett av värdena för **anslutnings strängen** .
   ![kopiera anslutnings strängen från Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
@@ -295,7 +313,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 Kör Functions-värden om du vill köra ett Functions-projekt. Värden aktiverar utlösare för alla funktioner i projektet. 
 
-### <a name="version-2x"></a>Version 2. x
+### <a name="version-2x"></a>Version 2.x
 
 I version 2. x av körnings miljön varierar Start kommandot beroende på ditt projekt språk.
 
@@ -318,7 +336,7 @@ npm install
 npm start     
 ```
 
-### <a name="version-1x"></a>Version 1. x
+### <a name="version-1x"></a>Version 1.x
 
 Version 1. x av Functions-körningen kräver kommandot `host`, som i följande exempel:
 
@@ -526,5 +544,5 @@ Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-prob
 [Azure-portalen]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [tilläggs paket]: functions-bindings-register.md#extension-bundles

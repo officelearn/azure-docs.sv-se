@@ -1,6 +1,7 @@
 ---
-title: Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C | Microsoft Docs
-description: Lär dig hur du konfigurerar flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C.
+title: Konfigurera autentiseringsuppgifter för resurs ägar lösen ord med anpassade principer
+titleSuffix: Azure AD B2C
+description: Lär dig hur du konfigurerar ROPC-flödet (Resource Owner Password Credential) genom att använda anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678129"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951072"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
 
@@ -35,7 +36,7 @@ Följande flöden stöds inte:
 - **Program** med en sida – ett klient program som främst är skrivet i Java Script. Programmet skrivs ofta med hjälp av ett ramverk som AngularJS, maskininlärning. js eller Durandal.
 - **Konfidentiellt klient flöde** – programmets klient-ID är verifierat, men program hemligheten är inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
@@ -95,7 +96,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </ClaimsTransformations>
     ```
 
-4. Leta upp det **ClaimsProvider** -element som har ett `Local Account SignIn` **visnings** namn och Lägg till följande tekniska profil:
+4. Leta upp det **ClaimsProvider** -element som har ett **DisplayName** för `Local Account SignIn` och Lägg till följande tekniska profil:
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -133,7 +134,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </TechnicalProfile>
     ```
 
-    Ersätt **DefaultValue** för **client_id** med program-ID: t för det ProxyIdentityExperienceFramework-program som du skapade i den nödvändiga självstudien. Ersätt sedan **DefaultValue** för **resource_id** med program-ID: t för IdentityExperienceFramework-programmet som du också skapade i den nödvändiga självstudien.
+    Ersätt **DefaultValue** för **client_id** med program-ID: t för det ProxyIdentityExperienceFramework-program som du skapade i den nödvändiga självstudien. Ersätt sedan **DefaultValue** för **resource_id** med program-ID: t för det IdentityExperienceFramework-program som du också skapade i den nödvändiga självstudien.
 
 5. Lägg till följande **ClaimsProvider** -element med sina tekniska profiler i **ClaimsProviders** -elementet:
 
@@ -258,20 +259,20 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
-- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
+- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ord princip för autentiseringsuppgifter.
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
-| username | `user-account` |
-| password | `password1` |
-| grant_type | password |
-| scope | OpenID `application-id` offline_access |
+| användarnamn | `user-account` |
+| lösenord | `password1` |
+| grant_type | lösenord |
+| omfång | OpenID `application-id` offline_access |
 | client_id | `application-id` |
-| response_type | id_token för token |
+| response_type | token id_token |
 
 - Ersätt `user-account` med namnet på ett användar konto i din klient organisation.
 - Ersätt `password1` med användar kontots lösen ord.
-- Ersätt `application-id` med program-ID: t från *ROPC_Auth_app* -registreringen.
+- Ersätt `application-id` med program-ID: t från *ROPC_Auth_app* registreringen.
 - *Offline_access* är valfritt om du vill ta emot en uppdateringstoken.
 
 Förfrågningen om faktisk POST ser ut som i följande exempel:
@@ -303,9 +304,9 @@ Skapa ett POST samtal som det som visas här. Använd informationen i följande 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
-- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
+- Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ord princip för autentiseringsuppgifter.
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -313,8 +314,8 @@ Skapa ett POST samtal som det som visas här. Använd informationen i följande 
 | resource | `application-id` |
 | refresh_token | `refresh-token` |
 
-- Ersätt `application-id` med program-ID: t från *ROPC_Auth_app* -registreringen.
-- Ersätt `refresh-token` med den **refresh_token** som skickades tillbaka i föregående svar.
+- Ersätt `application-id` med program-ID: t från *ROPC_Auth_app* registreringen.
+- Ersätt `refresh-token` med **refresh_token** som har skickats tillbaka i föregående svar.
 
 Ett lyckat svar ser ut som i följande exempel:
 

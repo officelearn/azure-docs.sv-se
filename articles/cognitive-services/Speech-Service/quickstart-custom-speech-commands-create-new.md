@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 081327e7c70128dad764d66942f1703a889f77fd
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815829"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951269"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Snabb start: skapa ett anpassat kommando (förhands granskning)
 
@@ -28,16 +28,6 @@ Programmet kommer att identifiera en uttryck som "slå på TV" och svara med ett
 
   > [!NOTE]
   > Under för hands versionen stöds endast regionen westus2 för prenumerations nycklar.
-
-- En [language Understanding](https://www.luis.ai/home) (Luis) redigerings nyckel:
-  1. Öppna en webbläsare och gå till [Azure Portal](https://portal.azure.com)
-  1. Välj Skapa en resurs
-  1. Sök efter och välj [language Understanding](https://aka.ms/sc-luis-all)
-  1. Välj redigering i alternativen för att skapa
-  1. När resursen har distribuerats går du till resursen och kopierar nyckeln från snabb starts-eller nyckel avsnittet
-
-      > [!div class="mx-imgBorder"]
-      > ![skapa en redigering av resurs](media/custom-speech-commands/resources-lu-authoring.png)
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Gå till tal Studio för anpassade kommandon
 
@@ -58,11 +48,21 @@ Standardvyn är en lista över de anpassade kommando program som du har skapat.
 1. Välj **nytt projekt** för att skapa ett nytt projekt
 
    > [!div class="mx-imgBorder"]
-   > ![skapa ett nytt projekt](media/custom-speech-commands/create-new-project.png)
+   > ![skapa ett projekt](media/custom-speech-commands/create-new-project.png)
 
-1. Ange projekt namn och språk och välj sedan **Nästa** för att fortsätta
-1. Ange din redigerings nyckel för LUIS
-1. När du har skapat väljer du ditt projekt
+1. Ange projekt namn och språk.
+1. Välj en redigerings resurs. Om det inte finns några giltiga redigerings resurser skapar du en genom att välja **Skapa ny resurs**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Skapa en resurs](media/custom-speech-commands/create-new-resource.png)
+
+   1. Ange resurs namn, grupp, plats och pris nivå.
+
+         > [!NOTE]
+         > Du kan skapa resurs grupper genom att ange önskat resurs grupp namn i fältet resurs grupp. Resurs gruppen skapas när du väljer **skapa** .
+
+1. Skapa projektet genom att klicka på **skapa** .
+1. När du har skapat väljer du ditt projekt.
 
 Din vy bör nu vara en översikt över ditt anpassade kommandon-program.
 
@@ -99,25 +99,41 @@ För närvarande har vi inga parametrar så att vi kan gå vidare till slut för
 
 Lägg nu till en regel för slut för ande för att svara på användaren som anger att en åtgärd utförs.
 
+1. Skapa en ny regel för slut för ande genom att välja `+` ikonen bredvid slut för ande regler
+1. Ange regel namnet
+1. Lägga till en åtgärd
+   1. Skapa en ny röst svars åtgärd genom att välja ikonen `+` bredvid åtgärder och välj `SpeechResponse`
+   1. Ange svaret
+
+   > [!NOTE]
+   > Vanlig text måste börja med ett bindestreck. Mer information finns [här](https://aka.ms/sc-lg-format)
+
+   > [!div class="mx-imgBorder"]
+   > ![skapa ett tal svar](media/custom-speech-commands/create-speech-response-action.png)
+
+1. Klicka på **Spara** för att spara regeln
+
 > [!div class="mx-imgBorder"]
 > ![skapa en regel för slut för ande](media/custom-speech-commands/create-basic-completion-response-rule.png)
+
 
 | Inställning    | Föreslaget värde                        | Beskrivning                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Regelnamn  | "ConfirmationResponse"                 | Ett namn som beskriver syftet med regeln          |
 | Villkor | Inget                                   | Villkor som avgör när regeln kan köras    |
-| Åtgärder    | SpeechResponse "OK, aktivera TV" | Den åtgärd som ska vidtas när regel villkoret är sant |
+| Åtgärder    | SpeechResponse "– OK, aktivera TV" | Den åtgärd som ska vidtas när regel villkoret är sant |
 
 ## <a name="try-it-out"></a>Prova
 
 Testa beteendet med hjälp av panelen test chatt.
 
 > [!div class="mx-imgBorder"]
-> ![test med webchat](media/custom-speech-commands/create-basic-test-chat.png)
+> ![test med Web Chat](media/custom-speech-commands/create-basic-test-chat.png)
 
 - Du skriver: "slå på TV"
 - Förväntat svar: "OK, aktivera TV"
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"]
 > [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)

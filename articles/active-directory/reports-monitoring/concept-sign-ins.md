@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805264"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951181"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -79,7 +79,7 @@ Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
 ![Inloggnings aktivitet](./media/concept-sign-ins/19.png "Inloggningsaktivitet")
 
-Visar ytterligare fält eller tar bort fält som redan visas.
+Dialog rutan **kolumner** ger dig till gång till de valbara attributen. I en inloggnings rapport kan du bara ha attribut som inte har en en-till-många-relation till andra attribut som kolumn.
 
 ![Inloggnings aktivitet](./media/concept-sign-ins/columns.png "Inloggningsaktivitet")
 

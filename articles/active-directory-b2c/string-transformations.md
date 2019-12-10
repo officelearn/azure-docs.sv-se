@@ -1,6 +1,7 @@
 ---
-title: Exempel på omvandlings exempel för sträng anspråk för identitets upplevelsens Ramverks schema i Azure Active Directory B2C | Microsoft Docs
-description: Exempel på omvandlings exempel för sträng anspråk för Azure Active Directory B2C i identitets upplevelsens Ramverks schema.
+title: Transformerings exempel för sträng anspråk för anpassade principer
+titleSuffix: Azure AD B2C
+description: Exempel på sträng anspråk för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936815"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950824"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
@@ -237,9 +238,9 @@ Skapar en slumpmässig sträng med slump tals generatorn. Om slump tals generato
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | sträng | Anger det slumpmässiga värde som ska genereras, `GUID` (globalt unikt ID) eller `INTEGER` (ett tal). |
 | InputParameter | stringFormat | sträng | Valfritt Formatera det slumpmässiga värdet. |
-| InputParameter | Base64 | boolesk | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
+| InputParameter | base64 | boolesk | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
 | InputParameter | maximumNumber | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange det maximala antalet. |
-| InputParameter | Dirigeringsrouter  | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
+| InputParameter | dirigeringsrouter  | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
 | OutputClaim | outputClaim | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Det slumpmässiga värdet. |
 
 I följande exempel skapas ett globalt unikt ID. Den här anspråks omvandlingen används för att skapa det slumpmässiga UPN-namnet (användar Principens namn).
@@ -476,7 +477,7 @@ Hämtar domän delen av en e-postadress.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | sträng | Den ClaimType som innehåller e-postadressen. |
-| OutputClaim | domänsuffix | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats – domänen. |
+| OutputClaim | domän | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats – domänen. |
 
 Använd den här anspråks omvandlingen för att parsa domän namnet efter användarens @-symbol. Detta kan vara till hjälp när du tar bort personligt identifierbar information (PII) från gransknings data. Följande anspråks omvandling visar hur du kan parsa domän namnet från ett **e-** postanspråk.
 

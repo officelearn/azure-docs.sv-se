@@ -1,5 +1,6 @@
 ---
-title: Anpassa användar gränssnittet i Azure Active Directory B2C
+title: Anpassa användargränssnittet
+titleSuffix: Azure AD B2C
 description: Lär dig hur du anpassar användar gränssnittet för dina program som använder Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6ebaeedf88bc02aa16e8be07fcb734e44ffa5bb6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258171"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949414"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -57,7 +58,7 @@ Välj **sidlayouter** under **Anpassa** på den vänstra menyn och välj sedan *
 
 Välj sedan en mall i listan. Här följer några exempel på inloggnings sidorna för varje mall:
 
-| Havsblå | Skiffergrå | Klassisk |
+| Havet, blå | Platta, grå | Klassisk |
 |:-:|:-:|:-:|
 |![Exempel på en blå mall i Atlanten som återges på inloggnings Sidan](media/customize-ui-overview/template-ocean-blue.png)|![Exempel på den bakgrunds grå mall som återges på inloggnings Sidan](media/customize-ui-overview/template-slate-gray.png)|![Exempel på en klassisk mall som återges på inloggnings Sidan](media/customize-ui-overview/template-classic.png)|
 
@@ -90,7 +91,7 @@ Den viktiga punkten är att du är värd för innehållet på en offentligt till
 
 Kom igång med din egen HTML och CSS på sidorna med användar upplevelsen genom att följa dessa rikt linjer.
 
-- Skapa välformulerat HTML-innehåll med ett `<div id="api"></div>` tomt element någonstans `<body>`i. Det här elementet anger var Azure AD B2C innehållet infogas. I följande exempel visas en minimal sida:
+- Skapa välformulerat HTML-innehåll med ett tomt `<div id="api"></div>`-element någonstans i `<body>`. Det här elementet anger var Azure AD B2C innehållet infogas. I följande exempel visas en minimal sida:
 
     ```html
     <!DOCTYPE html>
@@ -136,7 +137,7 @@ Kom igång med din egen HTML och CSS på sidorna med användar upplevelsen genom
 
 ### <a name="html-fragments-from-azure-ad-b2c"></a>HTML-fragment från Azure AD B2C
 
-I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<div id="api"></div>` element som finns i ditt innehåll.
+I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<div id="api"></div>`-element som finns i ditt innehåll.
 
 | Infogad sida | Beskrivning av HTML |
 | ------------- | ------------------- |
@@ -144,12 +145,12 @@ I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<d
 | Registrera lokalt konto | Innehåller ett formulär för registrering av lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, till exempel text inmatnings ruta, rutan lösen ords post, alternativ knapp, list rutor med flera val och kryss rutor med flera val. |
 | Registrering av socialt konto | Kan visas när du registrerar dig med ett befintligt konto från en social identitetsprovider som Facebook eller Google. Den används när ytterligare information måste samlas in från kunden med hjälp av ett registrerings formulär. |
 | Enhetlig registrering eller inloggning | Hanterar både registrering och inloggning av kunder som kan använda sociala identitets leverantörer som Facebook, Google eller lokala konton. |
-| Multi-Factor Authentication | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
+| Multifaktorautentisering | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
 | Fel | Tillhandahåller fel information till kunden. |
 
 ## <a name="localize-content"></a>Lokalisera innehåll
 
-Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md) i Azure AD B2C klient organisationen. När du aktiverar den här funktionen kan Azure AD B2C vidarebefordra parametern `ui-locales` OpenID Connect till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
+Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md) i Azure AD B2C klient organisationen. När du aktiverar den här funktionen kan Azure AD B2C vidarebefordra OpenID Connect-parametern `ui-locales` till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
 
 Innehållet kan hämtas från olika platser baserat på det språk som används. I din CORS-aktiverade slut punkt ställer du in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}`.
 
@@ -169,7 +170,7 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 Du kan hitta flera exempel mallfiler i [B2C-AzureBlobStorage-client-](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) lagringsplatsen på GitHub.
 
-HTML-och CSS-exempelfilerna i-mallarna finns i [/sample_templates](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates) -katalogen.
+HTML-och CSS-exempelfilerna i mallarna finns i katalogen [/sample_templates](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates) .
 
 ## <a name="next-steps"></a>Nästa steg
 

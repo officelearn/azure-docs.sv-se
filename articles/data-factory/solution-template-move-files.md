@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: dc842ba0e7ca0f34b7dacb98322c4dc0cd056483
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931987"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941962"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Flytta filer med Azure Data Factory
 
@@ -36,9 +36,11 @@ Mallen innehåller fem aktiviteter:
 - **Kopiera** kopierar en fil från källan till mål butiken.
 - **Ta bort** tar bort samma fil från käll arkivet.
 
-Mallen definierar två parametrar:
-- *FolderPath_SourceStore* är mappsökvägen till käll arkivet där du vill flytta filer från. 
-- *FolderPath_DestinationStore* är mappsökvägen till din destinations lager dit du vill flytta filer till. 
+Mallen definierar fyra parametrar:
+- *SourceStore_Location* är mappsökvägen till käll arkivet där du vill flytta filer från. 
+- *SourceStore_Directory* är sökvägen till undermappen för det käll arkiv som du vill flytta filer från.
+- *DestinationStore_Location* är mappsökvägen till din destinations lager dit du vill flytta filer till. 
+- *DestinationStore_Directory* är sökvägen till undermappen för din destinations lager dit du vill flytta filer till.
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
@@ -50,9 +52,7 @@ Mallen definierar två parametrar:
 
     ![Skapa en ny anslutning till målet](media/solution-template-move-files/move-files2.png)
 
-3. Välj **Använd den här mallen**.
-
-    ![Använd den här mallen](media/solution-template-move-files/move-files3.png)
+3. Välj fliken **Använd den här mallen** .
     
 4. Du ser pipelinen, som i följande exempel:
 

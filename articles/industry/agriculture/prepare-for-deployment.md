@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c29bba81132df15fcea9ff0df7be6a8cea94c9a0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27bf62cb328273db1f7bdd44117853b00feca9ae
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851136"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941592"
 ---
 # <a name="deploy-azure-farmbeats"></a>Distribuera Azure-FarmBeats
 
@@ -33,7 +33,7 @@ En snabb distribution av Azure FarmBeats bör ta mindre än en timme. Kostnadern
 
 Azure FarmBeats-distributionen skapar följande resurser i din prenumeration:
 
-| S. nr  | Resursnamn  | FarmBeats-komponent  |
+| Nummer. nr  | Resursnamn  | FarmBeats-komponent  |
 |---------|---------|---------|
 |1  |       Azure Cosmos DB   |  Datahub       |
 |2  |    Application Insights      |     Datahub/Accelerator     |
@@ -49,7 +49,6 @@ Azure FarmBeats-distributionen skapar följande resurser i din prenumeration:
 |12|      Azure App Service      |  Datahub/Accelerator       |
 |13 |    App Service-plan        |     Datahub/Accelerator      |
 |14 |Azure Maps konto     |Gas    |
-|15 |       Azure Time Series Insights      |  Datahub     |
 
 Azure FarmBeats är tillgängligt för hämtning på Azure Marketplace, som du kan komma åt direkt från Azure Portal.  
 
@@ -83,7 +82,7 @@ Innan du börjar distributionen måste du kontrol lera att följande krav är up
 
 Ett konto med Sentinel hjälper dig att ladda ned kontroll satellit bilder från sin officiella webbplats till din enhet. Om du vill skapa ett kostnads fritt konto gör du följande:
 
-1. Gå till [registrerings sidan för Sentinel-kontot](https://scihub.copernicus.eu/dhus/#/self-registration). 
+1. Gå till [registrerings sidan för Sentinel-kontot](https://scihub.copernicus.eu/dhus/#/self-registration).
 1. I registrerings formuläret anger du ditt förnamn, efter namn, användar namn, lösen ord och e-postadress.
 
 En verifierings-e-postadress skickas till den registrerade e-postadressen för bekräftelse. Välj länken för att bekräfta din e-postadress. Registrerings processen har slutförts.
@@ -211,7 +210,7 @@ I det här scenariot, som beskrivs tidigare i "alternativ 1", skapar installatio
     > Token upphör att gälla efter 60 minuter. Om den går ut kan du starta om genom att skriva om distributions kommandot.
 
 1. Ange lösen ordet för Sentinel-kontot i prompten.
-   
+
    Installations programmet validerar och startar distributionen, vilket kan ta ungefär 20 minuter.
 
    När distributionen har slutförts får du följande utgående länkar:
@@ -282,12 +281,8 @@ Om du stöter på problem kan du läsa [fel sökning](troubleshoot-project-farmb
 När Datahub-installationen är klar får du en URL för att få åtkomst till Azure FarmBeats-API: er via Swagger-gränssnittet i formatet https://\<yourdatahub-webbplats-Name >. azurewebsites. net/Swagger.
 
 1. Om du vill logga in via Swagger kopierar du och klistrar in webb adressen i webbläsaren.
-1. Logga in med dina Azure Portal autentiseringsuppgifter.
-1. Valfritt Prova detta "Sanity-test": 
-
-     - Logga in på Swagger-portalen med hjälp av Datahub-länken, som du fick som utdata till en lyckad distribution.
-     - Utökade typer Hämta API – Välj "testa utsättaren"
-     - Du bör få Server svars koden 200 och inte ett undantag, t. ex. "403 obehörig användare".
+2. Logga in med dina Azure Portal autentiseringsuppgifter.
+3. Du kan se Swagger och utföra alla REST-åtgärder på Azure FarmBeats-API: erna. Detta innebär en lyckad distribution av Azure-FarmBeats.
 
 ### <a name="accelerator"></a>Gas
 

@@ -1,5 +1,6 @@
 ---
-title: Metoder för användarmigrering i Azure Active Directory B2C
+title: Metoder för användarmigrering
+titleSuffix: Azure AD B2C
 description: Diskuterar både grundläggande och avancerade koncept för användarmigrering med hjälp av Azure AD Graph API och om du vill med hjälp av Azure AD B2C anpassade principer.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c01e22cfa96321994c16df6b61a52ebd4137549
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c5b7d477b0704db3f23919281fd61328be114dae
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322923"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950229"
 ---
 # <a name="migrate-users-to-azure-active-directory-b2c"></a>Migrera användare till Azure Active Directory B2C
 
@@ -27,7 +28,7 @@ Med Azure AD B2C kan du migrera användare via [Azure AD-Graph API][B2C-GraphQui
 
 - **Före migrering**: det här flödet gäller när du antingen har rensa åtkomst till en användares autentiseringsuppgifter (användar namn och lösen ord), eller om autentiseringsuppgifterna är krypterade, men du kan dekryptera dem. För migreringen sker att läsa användare från den gamla identitets leverantören och skapa nya konton i Azure AD B2C-katalogen.
 
-- **Före migrering och lösen ords återställning**: det här flödet gäller när en användares lösen ord inte är tillgänglig. Till exempel:
+- **Före migrering och lösen ords återställning**: det här flödet gäller när en användares lösen ord inte är tillgänglig. Exempel:
   - Lösen ordet lagras i HASH-format.
   - Lösen ordet lagras i en identitets leverantör som du inte kan komma åt. Den gamla identitets leverantören verifierar användarens autentiseringsuppgifter genom att anropa en webb tjänst.
 
@@ -228,7 +229,7 @@ Följ dessa steg om du vill hämta en länk till din princip för lösen ords å
 > [!NOTE]
 > Om du vill kontrol lera och ändra status för användarmigrering måste du använda en anpassad princip. Konfigurations anvisningarna från [Kom igång med anpassade principer][B2C-GetStartedCustom] måste utföras.
 
-När användarna försöker logga in utan att återställa lösen ordet först bör principen returnera ett eget fel meddelande. Till exempel:
+När användarna försöker logga in utan att återställa lösen ordet först bör principen returnera ett eget fel meddelande. Exempel:
 
 > *Ditt lösen ord har upphört att gälla. Om du vill återställa det väljer du länken Återställ lösen ord.*
 

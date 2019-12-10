@@ -1,6 +1,7 @@
 ---
-title: Använda AppAuth i ett iOS-program i Azure Active Directory B2C | Microsoft Docs
-description: Den här artikeln visar hur du skapar en iOS-app som använder AppAuth med Azure Active Directory B2C för att hantera användar identiteter och autentisera användare.
+title: Använda AppAuth i ett iOS-program
+titleSuffix: Azure AD B2C
+description: Så här skapar du en iOS-app som använder AppAuth med Azure Active Directory B2C för att hantera användar identiteter och autentisera användare.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a61b97ade6513785c1cd298f33a5158a14efad82
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469158"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948220"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -132,4 +133,4 @@ Om du vill konfigurera ditt program för att hantera omdirigeringen till URI: n 
 
 Läs AppAuth- [guiden](https://openid.github.io/AppAuth-iOS/) om hur du Slutför resten av processen. Om du snabbt behöver komma igång med en fungerande app kan du kolla [in exemplet](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Följ stegen i [Readme.MD](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) för att ange din egen Azure AD B2C konfiguration.
 
-Vi är alltid öppna för feedback och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskatta din feedback längst ned på sidan. För funktions begär Anden lägger du till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskatta din feedback längst ned på sidan. För förfrågningar om ny funktionalitet, vänligen lägg till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

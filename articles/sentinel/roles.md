@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: rkarlin
-ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0479eba13fd747ea1bcab2672fce1df2156802e8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762727"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947594"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
@@ -70,7 +70,7 @@ I följande tabell visas roller och tillåtna åtgärder i Azure Sentinel. Ett X
 >
 ## <a name="building-custom-rbac-roles"></a>Skapa anpassade RBAC-roller
 
-Förutom, eller i stället för, med inbyggda RBAC-roller kan du skapa anpassade RBAC-roller för Azure Sentinel. Anpassade RBAC-roller för Azure Sentinel skapas på samma sätt som du skapar andra [anpassade Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) -roller, baserat på vissa behörigheter för Azure Sentinel-resurser.
+Förutom, eller i stället för, med inbyggda RBAC-roller kan du skapa anpassade RBAC-roller för Azure Sentinel. Anpassade RBAC-roller för Azure Sentinel skapas på samma sätt som du skapar andra [anpassade Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) -roller, baserat på [vissa behörigheter för Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) och [Azure Log Analytics-resurser](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
 ## <a name="advanced-rbac-on-the-data-you-store-in-azure-sentinel"></a>Avancerad RBAC för de data du lagrar i Azure Sentinel
   

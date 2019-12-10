@@ -1,6 +1,7 @@
 ---
-title: Regions tillgänglighet & data placering i Azure Active Directory B2C
-description: Ett avsnitt om typerna av Azure Active Directory B2C klienter.
+title: Regions tillgänglighet och data placering
+titleSuffix: Azure AD B2C
+description: Regions tillgänglighet, data placering och information om Azure Active Directory B2C för hands versioner av klienter.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bb7a7ef2aabd7f93531d9afa662d7e582e05550
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 1b09eb85df6748fed042731ac90ebbf20c65b702
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273568"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950519"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regionstillgänglighet och dataplacering
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: regions tillgänglighet & data placering
 
 Regions tillgänglighet och data placering är två mycket olika koncept som fungerar annorlunda för Azure AD B2C från resten av Azure. Den här artikeln förklarar skillnaderna mellan dessa två begrepp och jämför hur de gäller för Azure jämfört med Azure AD B2C.
 
@@ -27,7 +28,7 @@ Azure AD B2C är **allmänt tillgänglig i hela världen** med alternativet för
 
 [Data placering](#data-residency) refererar till var användar data lagras.
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 
 Azure AD B2C är tillgängligt i hela världen via det offentliga Azure-molnet.
 
@@ -57,7 +58,7 @@ Följande länder/regioner håller på att läggas till i listan. Nu kan du fort
 
 > Argentina, Australien, Brasilien, Chile, Colombia, Ecuador, Irak, Nya Zeeland, Paraguay, Peru, Uruguay och Venezuela.
 
-## <a name="preview-tenant"></a>Förhandsgranska klient
+## <a name="preview-tenant"></a>Förhandsgranska klient organisation
 
 Om du har skapat en B2C-klient under för hands versionen av Azure AD B2C's är det troligt att **klient typen** säger för **hands klienten**.
 

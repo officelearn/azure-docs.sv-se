@@ -2,13 +2,13 @@
 title: Översikt över Azure Functions körnings versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig mer om skillnaderna mellan dem och hur du väljer det som passar dig bäst.
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: 53da5869b4768c95fd225fb15db60f4301e537d4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/09/2019
+ms.openlocfilehash: 874d2e657c2c9d7cba7874ff9815c61f9bbe8ef7
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226538"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941750"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions körnings versioner
 
@@ -16,16 +16,13 @@ Huvud versionerna av Azure Functions runtime är relaterade till den version av 
 
 | Körnings version | Versions nivå<sup>1</sup> | .NET-version | 
 | --------------- | ------------- | ------------ |
-| 3.x  | förhandsversion | .NET Core 3. x | 
-| 2x | Allmän tillgänglighet (GA) | .NET Core 2.2 |
+| 3.x | Allmänt tillgänglig | .NET Core 3,1 | 
+| 2x | Allmänt tillgänglig | .NET Core 2.2 |
 | 1.x | GA<sup>2</sup> | .NET Framework 4,6<sup>3</sup> |
 
-<sup>1</sup> GA-versioner stöds för produktions scenarier.   
-<sup>2</sup> Version 1. x är i underhålls läge. Förbättringar finns bara i senare versioner.   
-<sup>3</sup> Stöder endast utveckling i Azure Portal eller lokalt på Windows-datorer.
-
->[!NOTE]  
-> Version 3. x av Functions-körningen är i för hands version och stöds inte för produktions miljöer. Mer information om hur du testar version 3. x finns i [det här meddelandet](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
+<sup>1</sup> ga-versioner stöds för produktions scenarier.   
+<sup>2</sup> version 1. x är i underhålls läge. Förbättringar finns bara i senare versioner.   
+<sup>3</sup> stöder endast utveckling i Azure Portal eller lokalt på Windows-datorer.
 
 I den här artikeln beskrivs några skillnader mellan olika versioner, hur du kan skapa varje version och hur du ändrar versioner.
 
@@ -41,23 +38,23 @@ Mer information finns i [språk som stöds](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Kör på en angiven version
 
-Som standard är Function-appar som skapats i Azure Portal och av Azure CLI inställda på version 2. x. När det är möjligt bör du använda den här körnings versionen. Om du behöver kan du fortfarande köra en Function-app på version 1. x-körningsmiljön. Du kan bara ändra kör tids versionen när du har skapat din Function-app, men innan du lägger till några funktioner. Information om hur du fäster körnings versionen på 1. x finns i [Visa och uppdatera den aktuella körnings versionen](set-runtime-version.md#view-and-update-the-current-runtime-version).
-
-Du kan också uppgradera till version 3. x av körnings miljön, som finns i för hands version. Gör detta om du behöver kunna köra dina funktioner på .NET Core 3. x. Information om hur du uppgraderar till 3. x finns i [Visa och uppdatera den aktuella körnings versionen](set-runtime-version.md#view-and-update-the-current-runtime-version).
+Som standard är Function-appar som skapats i Azure Portal och av Azure CLI inställda på version 2. x. Du kan ändra den här versionen efter behov. Du kan bara ändra körnings versionen till 1. x när du har skapat din Function-app, men innan du lägger till några funktioner.  Att flytta mellan 2. x och 3. x tillåts även med appar som har funktioner, men det rekommenderas fortfarande att testa i en ny app först.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migrera från 1. x till senare versioner
 
-Du kan välja att migrera en befintlig app som skrivits för att använda version 1. x runtime för att istället använda version 2. x. De flesta ändringar du behöver göra är relaterade till ändringar i språk körningen, till exempel C# API-ändringar mellan .NET Framework 4,7 och .net Core 2. Du måste också kontrol lera att din kod och dina bibliotek är kompatibla med den språk körning som du väljer. Slutligen är det viktigt att notera eventuella ändringar i utlösare, bindningar och funktioner som marker ATS nedan. För bästa migrerings resultat bör du skapa en ny function-app för version 2. x och port din befintliga version 1. x-funktions kod till den nya appen.  
+Du kan välja att migrera en befintlig app som skrivits för att använda version 1. x runtime för att istället använda en nyare version. De flesta ändringar du behöver göra är relaterade till ändringar i språk körningen, till exempel C# API-ändringar mellan .NET Framework 4,7 och .net Core. Du måste också kontrol lera att din kod och dina bibliotek är kompatibla med den språk körning som du väljer. Slutligen är det viktigt att notera eventuella ändringar i utlösare, bindningar och funktioner som marker ATS nedan. För bästa migrerings resultat bör du skapa en ny function-app i en ny version och port din befintliga version 1. x-funktions kod i den nya appen.  
 
-### <a name="changes-in-triggers-and-bindings"></a>Ändringar i utlösare och bindningar
+Även om det är möjligt att göra en "på plats"-uppgradering genom att uppdatera appen manuellt genom att gå från 1. x till en högre version innehåller några större ändringar. I C#, till exempel, ändras objektet fel sökning från `TraceWriter` till `ILogger`. Genom att skapa ett nytt version 3. x-projekt börjar du med uppdaterade funktioner baserat på de senaste version 3. x-mallarna.
 
-Version 2. x kräver att du installerar tillägg för vissa utlösare och bindningar som används av funktionerna i din app. Det enda undantaget för HTTP-och timer-utlösare, vilket inte kräver ett tillägg.  Mer information finns i [Registrera och installera bindnings tillägg](./functions-bindings-register.md).
+### <a name="changes-in-triggers-and-bindings-after-version-1x"></a>Ändringar i utlösare och bindningar efter version 1. x
 
-Det har också uppstått några ändringar i `function.json` eller attributen för funktionen mellan versioner. Till exempel är Event Hub `path`-egenskapen nu `eventHubName`. I den [befintliga bindnings tabellen](#bindings) finns länkar till dokumentation för varje bindning.
+Från och med version 2. x måste du installera tilläggen för vissa utlösare och bindningar som används av funktionerna i din app. Det enda undantaget för HTTP-och timer-utlösare, vilket inte kräver ett tillägg.  Mer information finns i [Registrera och installera bindnings tillägg](./functions-bindings-register.md).
 
-### <a name="changes-in-features-and-functionality"></a>Ändringar i funktioner och funktioner
+Det finns också några ändringar i *funktionen. JSON* eller attribut för funktionen mellan versioner. Till exempel är Event Hub `path`-egenskapen nu `eventHubName`. I den [befintliga bindnings tabellen](#bindings) finns länkar till dokumentation för varje bindning.
 
-Några funktioner som också har tagits bort, uppdaterats eller ersatts i den nya versionen. Det här avsnittet innehåller information om de ändringar som visas i version 2. x efter att ha använt version 1. x.
+### <a name="changes-in-features-and-functionality-after-version-1x"></a>Ändringar i funktioner efter version 1. x
+
+Några funktioner har tagits bort, uppdaterats eller ersatts efter version 1. x. I det här avsnittet beskrivs de ändringar du ser i senare versioner när du har använt version 1. x.
 
 I version 2. x gjordes följande ändringar:
 
@@ -79,9 +76,46 @@ I version 2. x gjordes följande ändringar:
 
 * URL-formatet för Event Grid trigger-webhookar har ändrats till `https://{app}/runtime/webhooks/{triggerName}`.
 
-### <a name="migrating-a-locally-developed-application"></a>Migrera ett lokalt utvecklat program
+## <a name="migrating-from-2x-to-3x"></a>Migrerar från 2. x till 3. x
 
-Du kan ha befintliga Function app-projekt som du har utvecklat lokalt med version 1. x-körningsmiljön. Om du vill uppgradera till version 2. x bör du skapa ett lokalt Function-projekt med version 2. x och port din befintliga kod i den nya appen. Du kan uppdatera det befintliga projektet och koden manuellt, en sortering av "på plats"-uppgraderingen. Det finns dock ett antal andra förbättringar mellan version 1. x och version 2. x som du kanske fortfarande måste göra. Till exempel har C# ett fel söknings objekt ändrats från `TraceWriter` till `ILogger`. Genom att skapa ett nytt version 2. x-projekt börjar du med uppdaterade funktioner baserat på de senaste version 2. x-mallarna.
+Azure Functions version 3. x är en hög baklänges som är kompatibel med version 2. x.  Många appar bör kunna uppgraderas på ett säkert sätt till 3. x utan några kod ändringar.  När du flyttar till 3. x rekommenderas du att köra omfattande tester innan du ändrar huvud versionen i produktions program.
+
+### <a name="breaking-changes-between-2x-and-3x"></a>Bryta ändringar mellan 2 x och 3. x
+
+Följande är ändringar som du måste känna till innan du uppgraderar en 2. x-app till 3. x.
+
+#### <a name="javascript"></a>JavaScript
+
+* Utgående bindningar som tilldelas via `context.done` eller RETUR värden beter sig nu på samma sätt som inställningen i `context.bindings`.
+
+* Timer-utlösarens objekt är camelCase i stället för PascalCase
+
+* Event Hub utlösta funktioner med `dataType` Binary får en matris med `binary` i stället för `string`.
+
+* Nytto lasten HTTP-begäran kan inte längre nås via `context.bindingData.req`.  Den kan fortfarande nås som en indataparameter, `context.req`och i `context.bindings`.
+
+* Node. js 8 stöds inte längre och körs inte i 3. x-funktioner.
+
+#### <a name="net"></a>.NET
+
+* [Synkrona Server åtgärder är inaktiverade som standard](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+
+### <a name="changing-version-of-apps-in-azure"></a>Ändra versionen av appar i Azure
+
+Den version av Functions runtime som används av publicerade appar i Azure bestäms av inställningen för [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) program. Följande värden för större körnings versioner stöds:
+
+| Värde | Körnings mål |
+| ------ | -------- |
+| `~3` | 3.x |
+| `~2` | 2x |
+| `~1` | 1.x |
+
+>[!IMPORTANT]
+> Ändra inte den här inställningen godtyckligt, eftersom andra inställnings ändringar och ändringar i funktions koden kan krävas.
+
+### <a name="locally-developed-application-versions"></a>Lokalt utvecklade program versioner
+
+Du kan göra följande uppdateringar Function-appar lokalt ändra mål versioner.
 
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio runtime-versioner
 
@@ -97,21 +131,56 @@ I Visual Studio väljer du kör tids versionen när du skapar ett projekt. Azure
 ##### <a name="version-2x"></a>Version 2.x
 
 ```xml
-<TargetFramework>netcoreapp2.2</TargetFramework>
+<TargetFramework>netcoreapp2.1</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-När du felsöker eller publicerar ditt projekt används rätt version av körnings miljön.
+##### <a name="version-3x"></a>Version 3.x
+
+```xml
+<TargetFramework>netcoreapp3.1</TargetFramework>
+<AzureFunctionsVersion>v3</AzureFunctionsVersion>
+```
+
+> [!NOTE]
+> Azure Functions 3. x och .NET kräver att `Microsoft.Sdk.NET.Functions`-tillägget är minst `3.0.0`.
+
+###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>Uppdaterar 2. x-appar till 3. x i Visual Studio
+
+Du kan öppna en befintlig funktion med målet 2. x och flytta till 3. x genom att redigera `.csproj`-filen och uppdatera värdena ovan.  Visual Studio hanterar körnings versioner automatiskt för dig baserat på projektets metadata.  Men det är möjligt om du aldrig har skapat en 3. x-app innan Visual Studio ännu inte har mallarna och körnings miljön för 3. x på din dator.  Detta kan presentera sig själv med ett fel som "det finns ingen funktion körning som matchar den version som anges i projektet".  Om du vill hämta de senaste mallarna och körnings miljön går du igenom upplevelsen för att skapa ett nytt funktions projekt.  När du kommer till sidan version och mall väljer du vänta tills Visual Studio har slutfört hämtningen av de senaste mallarna.  När de senaste 3 mallarna för .NET Core är tillgängliga och visas ska du kunna köra och felsöka alla projekt som har kon figurer ATS för version 3. x.
+
+> [!IMPORTANT]
+> Version 3. x-funktioner kan bara utvecklas i Visual Studio om du använder version 16,4 eller senare.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS-kod och Azure Functions Core Tools
 
-[Azure Functions Core tools](functions-run-local.md) används för utveckling av kommando rader och även av [Azure Functions-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code. För att utveckla mot version 2. x, installerar du version 2. x av kärn verktygen. Version 1. x-utveckling kräver version 1. x av kärn verktygen. Mer information finns i [installera Azure Functions Core tools](functions-run-local.md#install-the-azure-functions-core-tools).
+[Azure Functions Core tools](functions-run-local.md) används för utveckling av kommando rader och även av [Azure Functions-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code. För att utveckla mot version 3. x, installerar du version 3. x av kärn verktygen. Version 2. x-utveckling kräver version 2. x av kärn verktygen och så vidare. Mer information finns i [installera Azure Functions Core tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-För utveckling av Visual Studio-kod kan du också behöva uppdatera användar inställningen för `azureFunctions.projectRuntime` så att den matchar versionen av de installerade verktygen.  Den här inställningen uppdaterar även de mallar och språk som används när en funktion skapas.
+För utveckling av Visual Studio-kod kan du också behöva uppdatera användar inställningen för `azureFunctions.projectRuntime` så att den matchar versionen av de installerade verktygen.  Den här inställningen uppdaterar även de mallar och språk som används när en funktion skapas.  Om du vill skapa appar i `~3` uppdaterar du `azureFunctions.projectRuntime` användar inställningen till `~3`.
 
-### <a name="changing-version-of-apps-in-azure"></a>Ändra versionen av appar i Azure
+![Azure Functions tillägg för runtime-inställningar](./media/functions-versions/vs-code-version-runtime.png)
 
-Den version av Functions runtime som används av publicerade appar i Azure bestäms av inställningen för [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) program. Ett värde på `~2` riktar sig till version 2. x-körningen och `~1` riktar sig till version 1. x-körningsmiljön. Ändra inte den här inställningen godtyckligt, eftersom andra program inställnings ändringar och kod ändringar i dina funktioner troligen krävs. Information om det rekommenderade sättet att migrera din Function-app till en annan körnings version finns i [så här fungerar Azure Functions runtime-versioner](set-runtime-version.md).
+#### <a name="maven-and-java-apps"></a>Maven och Java-appar
+
+Du kan migrera Java-appar från version 2. x till 3. x genom [att installera 3. x-versionen av de kärn verktyg](functions-run-local.md#install-the-azure-functions-core-tools) som krävs för att köra lokalt.  När du har verifierat att appen fungerar som den ska lokalt i version 3. x uppdaterar du appens `POM.xml` fil för att ändra `FUNCTIONS_EXTENSION_VERSION`s inställningen till `~3`, som i följande exempel:
+
+```xml
+<configuration>
+    <resourceGroup>${functionResourceGroup}</resourceGroup>
+    <appName>${functionAppName}</appName>
+    <region>${functionAppRegion}</region>
+    <appSettings>
+        <property>
+            <name>WEBSITE_RUN_FROM_PACKAGE</name>
+            <value>1</value>
+        </property>
+        <property>
+            <name>FUNCTIONS_EXTENSION_VERSION</name>
+            <value>~3</value>
+        </property>
+    </appSettings>
+</configuration>
+```
 
 ## <a name="bindings"></a>Bindningar
 

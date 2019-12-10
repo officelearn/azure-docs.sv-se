@@ -1,5 +1,6 @@
 ---
-title: Definiera en teknisk profil för SAML i en anpassad princip i Azure Active Directory B2C
+title: Definiera en teknisk profil för SAML i en anpassad princip
+titleSuffix: Azure AD B2C
 description: Definiera en teknisk profil för SAML i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b75367a90ce557f055ff4a9b1ff85f5b1f8f9637
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 74666b1dc2ba4fac25aff0a56a52d048d746d465
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603069"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950943"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för SAML i en Azure Active Directory B2C anpassad princip
 
@@ -96,8 +97,8 @@ Om du vill läsa SAML Assertion **NamedId** i **ämnet** som ett normaliserat an
 I följande exempel visas de anspråk som returneras av Facebook Identity Provider:
 
 - **IssuerUserId** -anspråket är mappat till **assertionSubjectName** -anspråket.
-- **First_name** -anspråket är mappat till **givenName** -anspråket.
-- **Last_Name** -anspråket är mappat till anspråket efter **namn** .
+- **First_name** -anspråk är mappat till **givenName** -anspråket.
+- **Last_Name** -anspråk är mappat till anspråket efter **namn** .
 - **DisplayName** -anspråket utan namn mappning.
 - **E-** postanspråk utan namn mappning.
 

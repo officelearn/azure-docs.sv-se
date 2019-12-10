@@ -1,5 +1,6 @@
 ---
-title: Konfigurera registrering och inloggning med ett GitHub-konto – Azure Active Directory B2C
+title: Konfigurera registrering och inloggning med ett GitHub-konto
+titleSuffix: Azure AD B2C
 description: Tillhandahålla registrera dig och logga in till kunder med GitHub-konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 74c663d8847c2829a5d9466f8e601dd44593a6f8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ae431ecd76f0ae5d51880832a5de415d3271ba54
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065204"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949363"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett GitHub-konto med hjälp av Azure Active Directory B2C
 
@@ -34,7 +35,7 @@ Om du vill använda ett GitHub-konto som [identitets leverantör](active-directo
 
 ## <a name="configure-a-github-account-as-an-identity-provider"></a>Konfigurera ett GitHub-konto som identitetsprovider
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Välj **identitets leverantörer**och välj sedan **GitHub (för hands version)** .

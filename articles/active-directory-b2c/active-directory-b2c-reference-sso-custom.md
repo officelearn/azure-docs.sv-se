@@ -1,5 +1,6 @@
 ---
-title: Hantering av enkel inloggnings session med anpassade principer i Azure Active Directory B2C | Microsoft Docs
+title: Hantering av enkel inloggning med anpassade principer
+titleSuffix: Azure AD B2C
 description: Lär dig hur du hanterar SSO-sessioner med anpassade principer i Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065380"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950501"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
 
@@ -34,7 +35,7 @@ Azure AD B2C har definierat ett antal SSO-användarsessioner som kan användas:
 * ExternalLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-SSO-hanterings klasser anges med `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` hjälp av elementet i en teknisk profil.
+SSO-hanterings klasser anges med `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />`-elementet i en teknisk profil.
 
 ## <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
@@ -59,7 +60,7 @@ Den här providern kan användas för att lagra anspråk i en session. Den här 
 </TechnicalProfile>
 ```
 
-Om du vill lägga till anspråk i sessionen använder `<PersistedClaims>` du elementet i den tekniska profilen. När providern används för att fylla i sessionen läggs de beständiga anspråken till i anspråks säcken. `<OutputClaims>`används för att hämta anspråk från sessionen.
+Om du vill lägga till anspråk i sessionen använder du `<PersistedClaims>` elementet i den tekniska profilen. När providern används för att fylla i sessionen läggs de beständiga anspråken till i anspråks säcken. `<OutputClaims>` används för att hämta anspråk från sessionen.
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
@@ -91,8 +92,8 @@ Det finns två metadata-objekt i den tekniska profilen:
 
 | Objekt | Default Value | Möjliga värden | Beskrivning
 | --- | --- | --- | --- |
-| IncludeSessionIndex | true | True/false | Anger vilken provider som ska lagras i sessionens index. |
-| RegisterServiceProviders | true | True/false | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. |
+| IncludeSessionIndex | sant | True/false | Anger vilken provider som ska lagras i sessionens index. |
+| RegisterServiceProviders | sant | True/false | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. |
 
-När du använder providern för att lagra en SAML-identitetsprovider måste objekten ovan vara falska. När du använder providern för att lagra B2C SAML-sessionen ska objekten ovan vara sanna eller utelämnade eftersom standardvärdena är sanna. Utloggningen av `SessionIndex` SAML- `NameID` sessionen kräver och slutförs.
+När du använder providern för att lagra en SAML-identitetsprovider måste objekten ovan vara falska. När du använder providern för att lagra B2C SAML-sessionen ska objekten ovan vara sanna eller utelämnade eftersom standardvärdena är sanna. Utloggningen av SAML-sessionen kräver att `SessionIndex` och `NameID` har slutförts.
 

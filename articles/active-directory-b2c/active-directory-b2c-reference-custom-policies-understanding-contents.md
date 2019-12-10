@@ -1,6 +1,7 @@
 ---
-title: Förstå anpassade principer för start-paket i Azure Active Directory B2C | Microsoft Docs
-description: Ett ämne på Azure Active Directory B2C anpassade principer.
+title: Komponenter i Start paketet för anpassad princip
+titleSuffix: Azure AD B2C
+description: En översikt över principerna i Azure Active Directory B2C anpassad princip start paket.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,102 +11,102 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b52f1a4cb6837dd779dcf4edac140bb13e06eacb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d49bd9af80b1bb9bd86466269b14ba0a47181e0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509562"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948189"
 ---
-# <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Förstå anpassade principer för Azure AD B2C anpassad princip-startpaket
+# <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Förstå de anpassade principerna för Azure AD B2C anpassad princip start paket
 
-Det här avsnittet innehåller alla kärnelement policyns B2C_1A_base som medföljer den **startpaket** och som används för att skapa dina egna principer genom arv av den *B2C_1A_base_extensions princip* .
+I det här avsnittet visas alla kärn element i den B2C_1A_base principen som medföljer **Start paketet** och som används för att skapa egna principer genom arv av *B2C_1A_base_extensionss principen*.
 
-Därför måste fokuserar den särskilt på redan definierade anspråkstyper, anspråksomvandlingar, innehållsdefinitioner, Anspråksproviders med sin tekniska profil(er) och utbildning för core-användare.
-
-> [!IMPORTANT]
-> Microsoft lämnar inga garantier, uttryckliga eller underförstådda, avseende informationen nedan. Ändringar kan införas när som helst före GA tiden på tillgänglig för allmänheten eller.
-
-Både dina egna principer och principen B2C_1A_base_extensions kan åsidosätta dessa definitioner och utöka den här överordnade principen genom att tillhandahålla ytterligare dem efter behov.
-
-Grundelementen i den *B2C_1A_base princip* är anspråkstyper och anspråksomvandlingar innehållsdefinitioner. De här elementen kan sårbara för att referera till i dina egna principer samt som i den *B2C_1A_base_extensions princip*.
-
-## <a name="claims-schemas"></a>Anspråk scheman
-
-Detta anspråk scheman är uppdelad i tre avsnitt:
-
-1.  En första avsnitt som visar en lista över de minsta anspråk som krävs för användaren resor ska fungera korrekt.
-2.  Ett andra avsnitt som visar anspråk som krävs för frågesträngsparametrar och andra särskilda parametrar som ska skickas till andra anspråksleverantörer, särskilt login.microsoftonline.com för autentisering. **Ändra inte de här anspråken**.
-3.  Och slutligen ett tredje avsnitt som visar en lista över ytterligare, valfria anspråk som kan samlas in från användaren, lagras i katalogen och skickas i token när de loggar in. Ny typ av anspråk till att samlas in från användaren och/eller skickas i token kan läggas till i det här avsnittet.
+Detta är särskilt avsett för de redan definierade anspråks typerna, anspråks omvandlingar, innehålls definitioner, anspråks leverantörer med teknisk profil (er) och kärn användar resan.
 
 > [!IMPORTANT]
-> Anspråk schemat innehåller begränsningar för vissa anspråk som lösenord och användarnamn. Lita på Framework (TF) principen behandlar Azure AD som någon annan anspråksleverantör av och dess begränsningar utformas i den anpassade principen. En princip kan ändras om du vill lägga till fler begränsningar eller Använd en annan anspråksprovider för lagring av autentiseringsuppgifter som har sin egen begränsningar.
+> Microsoft lämnar inga garantier, vare sig uttryckliga eller underförstådda, vad gäller den information som anges nedan. Ändringar kan införas när som helst, före GA-tid, vid GA-tid eller efter.
 
-De tillgängliga anspråkstyper som listas nedan.
+Både dina egna principer och B2C_1A_base_extensions-principen kan åsidosätta dessa definitioner och utöka den här överordnade principen genom att tillhandahålla ytterligare dem efter behov.
 
-### <a name="claims-that-are-required-for-the-user-journeys"></a>Anspråk som krävs för användaren-utbildning
+De viktigaste elementen i *B2C_1A_bases principen* är anspråks typer, anspråks omvandlingar och innehålls definitioner. Dessa element kan vara mottagliga för att refereras till i dina egna principer samt i *B2C_1A_base_extensions principen*.
 
-Följande anspråk krävs för användaren resor ska fungera korrekt:
+## <a name="claims-schemas"></a>Anspråks scheman
 
-| Typ av anspråk | Beskrivning |
+Anspråks scheman är indelade i tre delar:
+
+1.  Ett första avsnitt som visar de minsta anspråk som krävs för att användar resan ska fungera korrekt.
+2.  Ett andra avsnitt som visar de anspråk som krävs för parametrar för frågesträng och andra särskilda parametrar som ska skickas till andra anspråks leverantörer, särskilt login.microsoftonline.com för autentisering. **Ändra inte de här anspråken**.
+3.  Och slutligen ett tredje avsnitt som visar ytterligare, valfria anspråk som kan samlas in från användaren, lagras i katalogen och skickas i token under inloggningen. Ny anspråks typ som ska samlas in från användaren och/eller skickas i token kan läggas till i det här avsnittet.
+
+> [!IMPORTANT]
+> Anspråks schema innehåller begränsningar för vissa anspråk, t. ex. lösen ord och användar namn. Principen för förtroende Framework (TF) behandlar Azure AD som alla andra anspråks leverantörer och alla dess begränsningar är fördelade i den anpassade principen. En princip kan ändras för att lägga till fler begränsningar eller använda en annan anspråks leverantör för lagring av autentiseringsuppgifter som kommer att ha egna begränsningar.
+
+Tillgängliga anspråks typer visas nedan.
+
+### <a name="claims-that-are-required-for-the-user-journeys"></a>Anspråk som krävs för användar resan
+
+Följande anspråk krävs för att användar resan ska fungera korrekt:
+
+| Anspråks typ | Beskrivning |
 |-------------|-------------|
-| *Användar-ID* | Användarnamn |
-| *signInName* | Logga in namn |
-| *tenantId* | Klient-ID (ID) för användarobjektet i Azure AD B2C |
-| *objectId* | Objekt-ID (ID) för användarobjektet i Azure AD B2C |
+| *UserId* | Användarnamn |
+| *signInName* | Inloggnings namn |
+| *tenantId* | Klient-ID för användarobjektet i Azure AD B2C |
+| *objectId* | Objekt identifierare (ID) för användarobjektet i Azure AD B2C |
 | *Lösenord* | Lösenord |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Lösenordsprinciper som används av Azure AD B2C för att fastställa lösenordssäkerhet, förfallodatum, osv. |
-| *sub* | |
+| *passwordPolicies* | Lösen ords principer som används av Azure AD B2C för att fastställa lösen ords säkerhet, förfallo datum osv. |
+| *Build* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
 | *displayName* | |
 | *strongAuthenticationPhoneNumber* | Användarens telefonnummer |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *email* | E-postadress som kan användas för att kontakta användaren |
+| *åtkomst* | E-postadress som kan användas för att kontakta användaren |
 | *signInNamesInfo.emailAddress* | E-postadress som användaren kan använda för att logga in |
 | *otherMails* | E-postadresser som kan användas för att kontakta användaren |
-| *userPrincipalName* | Användarnamnet som lagras i Azure AD B2C |
-| *upnUserName* | Användarnamn för att skapa användarens huvudnamn |
-| *mailNickName* | Användarens e-post-smeknamn som lagras i Azure AD B2C |
+| *userPrincipalName* | Användar namn som lagrats i Azure AD B2C |
+| *upnUserName* | Användar namn för att skapa User Principal Name |
+| *mailNickName* | Användarens e-Nick namn som det lagras i Azure AD B2C |
 | *newUser* | |
-| *executed-SelfAsserted-Input* | Anspråk som anger om attribut har samlats in från användaren |
-| *executed-PhoneFactor-Input* | Anspråk som anger om ett nytt telefonnummer har samlats in från användaren |
-| *authenticationSource* | Anger om användaren har autentiserats på Social identitetsprovider, login.microsoftonline.com eller lokalt konto |
+| *körd-SelfAsserted-indatamängd* | Anspråk som anger om attribut har samlats in från användaren |
+| *executed-PhoneFactor-Input* | Anspråk som anger om ett nytt telefonnummer samlats in från användaren |
+| *authenticationSource* | Anger om användaren autentiserades hos social identitetsprovider, login.microsoftonline.com eller lokalt konto |
 
-### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Anspråk som krävs för frågesträngsparametrar och andra särskilda parametrar
+### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Anspråk som krävs för parametrar för frågesträng och andra särskilda parametrar
 
-Följande anspråk krävs för att skicka vidare särskilda parametrar (inklusive några frågesträngsparametrar) till andra anspråksleverantörer:
+Följande anspråk krävs för att överföra särskilda parametrar (inklusive vissa parametrar för frågesträng) till andra anspråks leverantörer:
 
-| Typ av anspråk | Beskrivning |
+| Anspråks typ | Beskrivning |
 |-------------|-------------|
-| *nux* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *nca* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *fråga* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *mkt* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *lc* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *_typ av beviljande* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *Omfång* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *client_id* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *objectIdFromSession* | Parametern som tillhandahålls av standardprovidern för sessionen management att indikera att objekt-ID har hämtats från en SSO-session |
-| *isActiveMFASession* | Parametern som tillhandahålls av MFA-sessionshantering som visar att användaren har en aktiv MFA-session |
+| *nux* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *NCA* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *visas* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *mkt* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *lc* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *grant_type* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *utrymme* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *client_id* | Speciell parameter som skickades för autentisering med lokalt konto till login.microsoftonline.com |
+| *objectIdFromSession* | Parameter som tillhandahålls av standardprovidern för hantering av sessioner för att ange att objekt-ID: t har hämtats från en SSO-session |
+| *isActiveMFASession* | Parameter som tillhandahålls av MFA-sessionen hantering för att indikera att användaren har en aktiv MFA-session |
 
-### <a name="additional-optional-claims-that-can-be-collected"></a>Ytterligare (valfritt) anspråk som kan samlas in
+### <a name="additional-optional-claims-that-can-be-collected"></a>Ytterligare (valfria) anspråk som kan samlas in
 
-Följande anspråk är ytterligare anspråk som kan samlas in från användarna, lagras i katalogen och skickas i token. Enligt beskrivningen innan kan ytterligare anspråk läggas till i listan.
+Följande anspråk är ytterligare anspråk som kan samlas in från användarna, lagras i katalogen och skickas i token. Som beskrivs tidigare kan ytterligare anspråk läggas till i den här listan.
 
-| Typ av anspråk | Beskrivning |
+| Anspråks typ | Beskrivning |
 |-------------|-------------|
-| *givenName* | Användarens förnamn (även kallat Förnamn) |
-| *surname* | Användarens efternamn (även kallat Familjenamn eller efternamn) |
+| *givenName* | Användarens förnamn (kallas även förnamnet) |
+| *efter namn* | Användarens efter namn (även kallat familje namn eller efter namn) |
 | *Extension_picture* | Användarens bild från sociala |
 
-## <a name="claim-transformations"></a>Anspråksomvandlingar
+## <a name="claim-transformations"></a>Anspråks omvandlingar
 
-Tillgängliga anspråksomvandlingar listas nedan.
+Tillgängliga anspråks omvandlingar visas nedan.
 
-| Anspråksomvandling | Beskrivning |
+| Anspråks omvandling | Beskrivning |
 |----------------------|-------------|
 | *CreateOtherMailsFromEmail* | |
 | *CreateRandomUPNUserName* | |
@@ -114,42 +115,42 @@ Tillgängliga anspråksomvandlingar listas nedan.
 | *CreateSubjectClaimFromAlternativeSecurityId* | |
 | *CreateAlternativeSecurityId* | |
 
-## <a name="content-definitions"></a>Innehållsdefinitioner
+## <a name="content-definitions"></a>Innehålls definitioner
 
-Det här avsnittet beskrivs innehållsdefinitioner som har redan deklarerats i den *B2C_1A_base* princip. Dessa innehållsdefinitioner kan vara utsatta för att referera till, åsidosätts och/eller utökade efter behov i dina egna principer samt som i den *B2C_1A_base_extensions* princip.
+I det här avsnittet beskrivs de innehålls definitioner som redan har deklarerats i *B2C_1A_bases* principen. Dessa innehålls definitioner är utsatta för att refereras, åsidosättas och/eller utökas efter behov i dina egna principer samt i *B2C_1A_base_extensions* principen.
 
 | Anspråksleverantör | Beskrivning |
 |-----------------|-------------|
 | *Facebook* | |
-| *Inloggning från lokalt konto* | |
+| *Inloggning för lokalt konto* | |
 | *PhoneFactor* | |
 | *Azure Active Directory* | |
-| *Self verifieringsvillkor* | |
+| *Self-kontrollerad* | |
 | *Lokalt konto* | |
 | *Sessionshantering* | |
-| *Motorn för Trustframework-princip* | |
+| *Trustframework-princip motor* | |
 | *TechnicalProfiles* | |
-| *Tokenutfärdare* | |
+| *Token utfärdare* | |
 
 ## <a name="technical-profiles"></a>Tekniska profiler
 
-Det här avsnittet beskrivs de tekniska profiler som redan deklarerats per anspråksleverantör i den *B2C_1A_base* princip. Dessa tekniska profiler kan vara utsatta för att ytterligare refereras, åsidosätts och/eller utökade efter behov i dina egna principer samt som i den *B2C_1A_base_extensions* princip.
+I det här avsnittet beskrivs de tekniska profiler som redan har deklarerats per anspråks leverantör i principen för *B2C_1A_base* . De här tekniska profilerna är utsatta för ytterligare referenser, åsidosätts och/eller utökas efter behov i dina egna principer samt i *B2C_1A_base_extensions* -principen.
 
 ### <a name="technical-profiles-for-facebook"></a>Tekniska profiler för Facebook
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
-| *Facebook-OAUTH* | |
+| *Facebook – OAUTH* | |
 
-### <a name="technical-profiles-for-local-account-signin"></a>Tekniska profiler för inloggning från lokalt konto
+### <a name="technical-profiles-for-local-account-signin"></a>Teknisk profil för inloggning med lokalt konto
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
-| *Login-NonInteractive* | |
+| *Inloggning-ej interaktiv* | |
 
-### <a name="technical-profiles-for-phone-factor"></a>Tekniska profiler för Phonefactor
+### <a name="technical-profiles-for-phone-factor"></a>Tekniska profiler för telefon faktor
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
 | *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
@@ -157,60 +158,60 @@ Det här avsnittet beskrivs de tekniska profiler som redan deklarerats per anspr
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Tekniska profiler för Azure Active Directory
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
-| *AAD-Common* | Tekniska profil inkluderas med de andra AAD-xxx tekniska profilerna |
-| *AAD-UserWriteUsingAlternativeSecurityId* | Tekniska profilen för sociala inloggningar |
-| *AAD-UserReadUsingAlternativeSecurityId* | Tekniska profilen för sociala inloggningar |
-| *AAD-UserReadUsingAlternativeSecurityId-NoError* | Tekniska profilen för sociala inloggningar |
-| *AAD-UserWritePasswordUsingLogonEmail* | Tekniska profilen för lokala konton |
-| *AAD-UserReadUsingEmailAddress* | Tekniska profilen för lokala konton |
-| *AAD-UserWriteProfileUsingObjectId* | Tekniska profilen för att uppdatera användarpost med objekt-ID |
-| *AAD-UserWritePhoneNumberUsingObjectId* | Tekniska profilen för att uppdatera användarpost med objekt-ID |
-| *AAD-UserWritePasswordUsingObjectId* | Tekniska profilen för att uppdatera användarpost med objekt-ID |
-| *AAD-UserReadUsingObjectId* | Tekniska profilen används för att läsa data när användaren autentiseras |
+| *AAD-common* | Teknisk profil som ingår i de andra AAD-XXX-tekniska profilerna |
+| *AAD-UserWriteUsingAlternativeSecurityId* | Teknisk profil för sociala inloggningar |
+| *AAD-UserReadUsingAlternativeSecurityId* | Teknisk profil för sociala inloggningar |
+| *AAD-UserReadUsingAlternativeSecurityId-noerror* | Teknisk profil för sociala inloggningar |
+| *AAD-UserWritePasswordUsingLogonEmail* | Teknisk profil för lokala konton |
+| *AAD-UserReadUsingEmailAddress* | Teknisk profil för lokala konton |
+| *AAD-UserWriteProfileUsingObjectId* | Teknisk profil för uppdatering av användar post med objectId |
+| *AAD-UserWritePhoneNumberUsingObjectId* | Teknisk profil för uppdatering av användar post med objectId |
+| *AAD-UserWritePasswordUsingObjectId* | Teknisk profil för uppdatering av användar post med objectId |
+| *AAD-UserReadUsingObjectId* | Teknisk profil används för att läsa data när användaren autentiseras |
 
-### <a name="technical-profiles-for-self-asserted"></a>Tekniska profiler för Self verifieringsvillkor
+### <a name="technical-profiles-for-self-asserted"></a>Tekniska profiler för självkontrollerad
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
 | *SelfAsserted-Social* | |
 | *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Tekniska profiler för lokalt konto
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
-### <a name="technical-profiles-for-session-management"></a>Tekniska profiler för sessionshantering
+### <a name="technical-profiles-for-session-management"></a>Tekniska profiler för hantering av sessioner
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
 | *SM-Noop* | |
 | *SM-AAD* | |
-| *SM-SocialSignup* | Profilnamnet används disambiguate AAD session mellan logga in och logga in |
+| *SM-SocialSignup* | Profil namnet används för att disambiguate AAD-sessionen mellan registrera dig och logga in |
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Tekniska profiler för förtroende framework-principmodulen
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Tekniska profiler för förtroende Ramverks princip motorn
 
-För närvarande inga tekniska profiler har definierats för den **Trustframework-princip motorn TechnicalProfiles** anspråksleverantör.
+För närvarande har inga tekniska profiler definierats för **Trustframework-TechnicalProfiles för princip motor** .
 
-### <a name="technical-profiles-for-token-issuer"></a>Tekniska profiler för tokenutfärdare
+### <a name="technical-profiles-for-token-issuer"></a>Tekniska profiler för token Issuer
 
-| Tekniska profilen | Beskrivning |
+| Teknisk profil | Beskrivning |
 |-------------------|-------------|
 | *JwtIssuer* | |
 
 ## <a name="user-journeys"></a>Användarresor
 
-Det här avsnittet visar de användare körningar som har redan deklarerats i den *B2C_1A_base* princip. Dessa användare transporter kan vara utsatta för att ytterligare refereras, åsidosätts och/eller utökade efter behov i dina egna principer samt som i den *B2C_1A_base_extensions* princip.
+I det här avsnittet beskrivs användar resan som redan har deklarerats i *B2C_1A_base* principen. Dessa användar resor är utsatta för ytterligare referenser, åsidosätts och/eller utökas efter behov i dina egna principer samt i *B2C_1A_base_extensions* principen.
 
-| Användarresa | Beskrivning |
+| Användar resa | Beskrivning |
 |--------------|-------------|
 | *SignUp* | |
-| *Inloggning från* | |
+| *Inloggning* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
-| *PasswordReset* | |
+| *PasswordReset original* | |

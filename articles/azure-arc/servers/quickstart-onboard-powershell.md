@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: b5299f49663fbf2e828f76d9c240a86fdccb2ff2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872697"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951453"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Snabb start: ansluta datorer till Azure med Azure Arc for servers – PowerShell
 
@@ -72,8 +72,11 @@ Från utdata kopierar du **lösen ordet** och **ApplicationId** (från föregåe
 
 I installera agent onboarding-skriptet:
 
-* Egenskapen **ApplicationId** används för den `--service-principal-id`-parameter som används i installations agenten
-* **Lösen ords** egenskapen används för parametern `--service-principal-secret` i installations agenten.
+* Egenskapen **ApplicationId** används för den `--service-principal-id`-parameter som används för att ansluta agenten
+* **Lösen ords** egenskapen används för den `--service-principal-secret`-parameter som används för att ansluta agenten.
+
+> [!NOTE]
+> Se till att använda egenskapen **ApplicationId** för tjänstens huvud namn, inte egenskapen **ID** . **ID** fungerar inte.
 
 ## <a name="manually-install-the-agent-and-connect-to-azure"></a>Installera agenten manuellt och Anslut till Azure
 
@@ -90,7 +93,6 @@ För **Linux** -servrar distribueras agenten via [Microsofts paket lagrings plat
 > [!NOTE]
 > Under den offentliga för hands versionen har endast ett paket släppts, vilket är lämpligt för Ubuntu 16,04 eller 18,04.
 
-<!-- What about this aks? -->
 Det enklaste alternativet är att registrera paketets lagrings plats och sedan installera paketet med distributionens paket hanterare.
 Bash-skriptet som finns på [https://aka.ms/azcmagent](https://aka.ms/azcmagent) utför följande åtgärder:
 

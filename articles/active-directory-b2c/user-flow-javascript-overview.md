@@ -1,5 +1,6 @@
 ---
-title: Versioner av Java Script och sidlayout – Azure Active Directory B2C | Microsoft Docs
+title: Versioner av Java Script och sidlayout
+titleSuffix: Azure AD B2C
 description: Lär dig hur du aktiverar Java Script och använder versioner av sidlayouten i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0eb5c89387d8bdcf0e0b72c669c42f716ff5fbb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 92925dc32d7f26b224811aa852112a275f112b35
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227109"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950841"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Java Script och versioner av sidlayouten i Azure Active Directory B2C
 
@@ -47,6 +48,6 @@ Oavsett om du aktiverar java script i dina anpassade principer kan du ange en ve
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om olika versioner av sidlayouten finns i avsnittet versions **ändrings logg** i [Välj en sidlayout i Azure Active Directory B2C med anpassade principer](page-layout.md#version-change-log).
+Information om olika versioner av sidlayouten finns i avsnittet **versions ändrings logg** i [Välj en sidlayout i Azure Active Directory B2C med anpassade principer](page-layout.md#version-change-log).
 
 Du kan hitta exempel på JavaScript-användning i [JavaScript-exempel för användning i Azure Active Directory B2C](javascript-samples.md).

@@ -3,12 +3,12 @@ title: Så här riktar du Azure Functions runtime-versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig hur du anger körnings versionen av en Function-app som finns i Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230311"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942281"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Så här riktar du Azure Functions runtime-versioner
 
@@ -29,9 +29,9 @@ I följande tabell visas `FUNCTIONS_EXTENSION_VERSION` värden för varje huvud 
 
 | Huvud version | `FUNCTIONS_EXTENSION_VERSION` värde |
 | ------------- | ----------------------------------- |
-| 3. x (förhands granskning) | `~3` |
+| 3.x  | `~3` |
 | 2x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 En ändring i körnings versionen leder till att en Function-app startar om.
 
@@ -42,7 +42,7 @@ Du kan ändra den körnings version som används av din Function-app. På grund 
 > [!IMPORTANT]
 > Även om körnings versionen bestäms av inställningen `FUNCTIONS_EXTENSION_VERSION` bör du göra den här ändringen i Azure Portal och inte genom att ändra inställningen direkt. Detta beror på att portalen validerar dina ändringar och gör andra relaterade ändringar efter behov.
 
-### <a name="from-the-azure-portal"></a>Från Azure Portal
+### <a name="from-the-azure-portal"></a>Från Azure-portalen
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 

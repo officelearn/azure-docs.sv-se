@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2019
+ms.date: 12/08/2019
 ms.author: alehall
-ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6af0881049e52cbead5cca9719d4c9b06be29491
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121273"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951555"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudie: Strömma data till Azure Databricks med Event Hubs
 
@@ -36,7 +36,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa anteckningsböcker i Azure Databricks
 > * Bifoga bibliotek för Event Hubs och Twitter-API
 > * Skicka tweets till Event Hubs
-> * Läsa tweets från Event Hubs
+> * Läs tweets från Event Hubs
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -101,7 +101,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     Godkänn alla övriga standardvärden, förutom följande:
 
    * Ange ett namn för klustret.
-   * I den här artikeln skapar du ett kluster med **6,0* -körning.
+   * I den här artikeln skapar du ett kluster med **6,0** Runtime.
    * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
    Välj den kluster arbetare och den driv rutins nod som passar dina tekniska kriterier och [budget](https://azure.microsoft.com/pricing/details/databricks/).
@@ -138,14 +138,10 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
    ![Dialog rutan Lägg till bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Lägg till bibliotek installera ny")
 
-2. På sidan nytt bibliotek för **källa** väljer du **maven**. För **koordinat**klickar du på **Sök efter paket** för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
+2. På sidan nytt bibliotek för **källa** väljer du **maven**. Ange följande koordinater för Spark Event Hubs-anslutningen och Twitter-API: et i **koordinaterna**individuellt.
 
-   * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
-
-     ![Ange maven-koordinater](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Ange maven-koordinater")
-
-     ![Ange maven-koordinater](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Sök maven-koordinater")
 
 3. Välj **Installera**.
 
@@ -294,7 +290,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Utdata som l
     ...
     ...
 
-## <a name="read-tweets-from-event-hubs"></a>Läsa tweets från Event Hubs
+## <a name="read-tweets-from-event-hubs"></a>Läs tweets från Event Hubs
 
 I anteckningsboken **ReadTweetsFromEventHub** klistrar du in följande kod och ersätter platshållarna med värdena för den Azure Event Hubs som du skapade tidigare. Den här anteckningsboken läser de tweets som du tidigare strömmade till Event Hubs med hjälp av anteckningsboken **SendTweetsToEventHub**.
 
@@ -406,7 +402,7 @@ Klart! Med Azure Databricks har du nu strömmat data till Azure Event Hubs näst
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med självstudien kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med självstudien kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
@@ -422,7 +418,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa anteckningsböcker i Azure Databricks
 > * Bifoga bibliotek för Event Hubs och Twitter-API
 > * Skicka tweets till Event Hubs
-> * Läsa tweets från Event Hubs
+> * Läs tweets från Event Hubs
 
 Gå vidare till nästa självstudie om du vill lära dig hur du utför sentiment-analys på strömmade data med hjälp av Azure Databricks och [COGNITIVE Services API](../cognitive-services/text-analytics/overview.md).
 

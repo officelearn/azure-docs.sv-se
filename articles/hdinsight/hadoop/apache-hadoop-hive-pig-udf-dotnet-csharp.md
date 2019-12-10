@@ -2,18 +2,18 @@
 title: C#, Apache Hive & Apache gris på Apache Hadoop-Azure HDInsight
 description: Lär dig hur du C# använder användardefinierade funktioner (UDF) med Apache Hive och Apache gris streaming i Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: b8baf8ee11d34756e55f3a78fd5916e042785587
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821638"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949397"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
 
@@ -24,7 +24,7 @@ Lär dig hur du C# använder användardefinierade funktioner (UDF) med [Apache H
 
 Både Hive och gris kan skicka data till externa program för bearbetning. Den här processen kallas för _strömning_. När du använder ett .NET-program skickas data till programmet på STDIN och programmet returnerar resultatet i STDOUT. Om du vill läsa och skriva från STDIN och STDOUT kan du använda `Console.ReadLine()` och `Console.WriteLine()` från ett konsol program.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En välbekanthet med att skriva C# och skapa kod som är riktad mot .NET Framework 4,5.
 
@@ -52,11 +52,11 @@ I följande avsnitt beskrivs hur du skapar ett C# projekt i Visual Studio för e
 
 Skapa ett C# projekt för en Apache Hive UDF:
 
-1. Öppna Visual Studio.
+1. Starta Visual Studio.
 
-2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
+2. Välj **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** rullar du till och väljer mallen **konsol program (.NET Framework)** ( C# versionen). Välj sedan **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** ( C# version). Välj sedan **Nästa**.
 
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp*och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
 
@@ -113,7 +113,9 @@ Skapa ett C# projekt för en Apache Hive UDF:
 
 6. Välj **bygge** > **build-lösning** i meny raden för att bygga projektet.
 
-### <a name="apache-pig-udf"></a>Apache gris UDF
+7. Stäng lösningen.
+
+### <a name="apache-pig-udf"></a>Apache Pig UDF
 
 Skapa ett C# projekt för en Apache Hive UDF:
 
@@ -121,7 +123,7 @@ Skapa ett C# projekt för en Apache Hive UDF:
 
 2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** rullar du till och väljer mallen **konsol program (.NET Framework)** ( C# versionen). Välj sedan **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** ( C# version). Välj sedan **Nästa**.
 
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF*och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **Skapa**.
 
@@ -160,17 +162,17 @@ Skapa ett C# projekt för en Apache Hive UDF:
 
 6. Välj **bygge** > **build-lösning** i meny raden för att bygga projektet.
 
+7. Lämna lösningen öppen.
+
 ## <a name="upload-to-storage"></a>Ladda upp till lagring
 
 Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-kluster.
 
-1. I Visual Studio väljer du **visa** > **Server Explorer**.
+1. I Visual Studio navigerar du till **visa** > **Server Explorer**.
 
-2. Expandera **Azure** och expandera därefter **HDInsight**.
+1. Från **Server Explorer**högerklickar du på **Azure**, väljer **Anslut till Microsoft Azure prenumeration**och slutför inloggnings processen.
 
-3. Om du uppmanas till det anger du dina autentiseringsuppgifter för Azure-prenumerationen och väljer sedan **Logga**in.
-
-4. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten **(standard lagrings kontot)** visas.
+1. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten **(standard lagrings kontot)** visas.
 
     ![Standard lagrings konto, HDInsight-kluster, Server Explorer](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
@@ -178,14 +180,14 @@ Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-
 
     * Om den här posten inte kan utökas använder du **Azure Data Lake Storage** som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret dubbelklickar du på posten **(standard lagrings konto)** .
 
-5. Använd någon av följande metoder för att ladda upp exe-filerna:
+1. Använd någon av följande metoder för att ladda upp exe-filerna:
 
     * Om du använder ett **Azure Storage konto**väljer du ikonen **Ladda upp BLOB** .
 
         ![HDInsight upload-ikon för nytt projekt](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
         Välj **Bläddra**under **fil namn**i dialog rutan **Ladda upp ny fil** . I dialog rutan **Ladda upp BLOB** går du till mappen *bin\debug* för *HiveCSharp* -projektet och väljer sedan filen *HiveCSharp. exe* . Klicka slutligen på **Öppna** och sedan på **OK** för att slutföra överföringen.
-    
+
     * Om du använder **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen filen *HiveCSharp. exe* och välj **Öppna**.
 
     När *HiveCSharp. exe* -överföringen är färdig upprepar du överförings processen för filen *PigUDF. exe* .
@@ -194,7 +196,7 @@ Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-
 
 Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
 
-1. I Visual Studio väljer du **visa** > **Server Explorer**.
+1. I Visual Studio navigerar du till **visa** > **Server Explorer**.
 
 2. Expandera **Azure** och expandera därefter **HDInsight**.
 
@@ -204,7 +206,7 @@ Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
-    -- add file wasb:///HiveCSharp.exe;
+    -- add file wasbs:///HiveCSharp.exe;
     -- Uncomment the following if you are using Azure Data Lake Storage Gen1
     -- add file adl:///HiveCSharp.exe;
     -- Uncomment the following if you are using Azure Data Lake Storage Gen2
@@ -222,7 +224,7 @@ Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
 
     Den här frågan markerar fälten `clientid`, `devicemake`och `devicemodel` från `hivesampletable`och skickar sedan fälten till programmet *HiveCSharp. exe* . Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid`, `phoneLabel`och `phoneHash`. Frågan förväntar sig också att hitta *HiveCSharp. exe* i roten för standard lagrings behållaren.
 
-5. Välj **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
+5. Ändra standardinställningen för **interaktiv** till **batch**och välj sedan **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
 
 6. Välj **Uppdatera** för att uppdatera sammanfattningen tills **jobbets status** ändras till **slutförd**. Om du vill visa jobbets utdata väljer du **jobbets utdata**.
 
@@ -265,6 +267,8 @@ Du kan också köra ett jobb i gris som använder ditt UDF-program för svinhål
     (2019-07-15 16:43:25 SampleClass7 [DEBUG] detail for id 1475865947)
     ```
 
+5. Använd `exit` för att avsluta gris.
+
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig hur du använder ett .NET Framework program från Hive och gris i HDInsight. Om du vill lära dig hur du använder python med Hive och gris, se [Använd python med Apache Hive och Apache gris i HDInsight](python-udf-hdinsight.md).
@@ -273,3 +277,4 @@ Om du vill lära dig mer om hur du använder Hive och lär dig mer om hur du anv
 
 * [Använda Apache Hive med HDInsight](hdinsight-use-hive.md)
 * [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md)
+* [Grunderna i gris](https://pig.apache.org/docs/latest/basic.html)

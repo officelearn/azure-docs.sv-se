@@ -1,5 +1,6 @@
 ---
-title: Lägg till ADFS som en SAML Identity Provider med anpassade principer i Azure Active Directory B2C | Microsoft Docs
+title: Lägg till ADFS som en SAML-identitetsprovider genom att använda anpassade principer
+titleSuffix: Azure AD B2C
 description: Konfigurera ADFS 2016 med hjälp av SAML-protokollet och anpassade principer i Azure Active Directory B2C
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80accdc4a14a2246ed91a92f6472490479327e2a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 202c3bfb8e9818437ff35454a1eafce008cdb00c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827196"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948682"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till ADFS som en SAML Identity Provider med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "71827196"
 
 Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C). Du aktiverar inloggning genom att lägga till en [teknisk SAML-profil](saml-technical-profile.md) i en anpassad princip.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Se till att du har åtkomst till en Certificate. pfx-fil med en privat nyckel. Du kan skapa ett eget signerat certifikat och överföra det till Azure AD B2C. Azure AD B2C använder det här certifikatet för att signera SAML-begäran som skickats till din SAML Identity-Provider.
@@ -33,13 +34,13 @@ Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto
 
 Du måste lagra ditt certifikat i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer `Upload`du.
-7. Ange ett **namn** för princip nyckeln. Till exempel `SamlCert`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+6. För **alternativ**väljer du `Upload`.
+7. Ange ett **namn** för princip nyckeln. Till exempel `SamlCert`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
 8. Bläddra till och välj din Certificate. pfx-fil med den privata nyckeln.
 9. Klicka på **Skapa**.
 
@@ -132,7 +133,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 
 Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är att Azure AD B2C kommunicera med ett ADFS-konto för att ta emot en token.
 
-1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
+1. Hitta **OrchestrationStep** som innehåller `Order="2"` i användar resan.
 2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
 
     ```XML
@@ -177,8 +178,8 @@ Ersätt följande värden:
     | User-Principal-Name | userPrincipalName |
     | Efternamn | family_name |
     | Angivet namn | given_name |
-    | E-Mail-Address | email |
-    | Visnings namn | name |
+    | E-Mail-Address | e-post |
+    | Visnings namn | namn |
 
     Observera att dessa namn inte visas i list rutan Utgående anspråks typer. Du måste skriva in dem manuellt i. (List rutan kan redige ras i själva verket).
 

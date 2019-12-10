@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931947"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941871"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
 
@@ -156,3 +156,38 @@ När du stoppar SSIS IR tas alla Virtual Network-relaterade resurser bort. Men b
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
 Det här felet uppstår när IR körs och innebär att IR har blivit defekt. Det här felet orsakas alltid av en ändring i den DNS-server- eller NSG-konfiguration som blockerar SSIS IR från att ansluta till en nödvändig tjänst. Eftersom konfigurationen av DNS-server och NSG kontrolleras av kunden måste kunden åtgärda blockeringsproblemen på deras sida. Mer information finns i [Konfiguration av virtuellt nätverk för SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Om det fortfarande är problem kan du kontakta supportteamet för Azure Data Factory.
+
+## <a name="static-public-ip-addresses-configuration"></a>Konfiguration av statiska offentliga IP-adresser
+
+När du ansluter Azure-SSIS IR till Azure Virtual Network kan du också ta med egna statiska offentliga IP-adresser för IR så att IR kan komma åt data källor som begränsar åtkomsten till specifika IP-adresser. Mer information finns i [Koppla en Azure-SSIS Integration Runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+
+Förutom ovanstående problem med virtuella nätverk kan du också möta problem som rör statiska offentliga IP-adresser. Kontrol lera följande fel om du behöver hjälp.
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+Det här felet kan inträffa av olika orsaker när du startar Azure-SSIS IR:
+
+| Felmeddelande | Lösning|
+|:--- |:--- |
+| Den angivna statiska offentliga IP-adressen används redan, ange två oanvända för Azure-SSIS Integration Runtime. | Du bör välja två oanvända statiska offentliga IP-adresser eller ta bort aktuella referenser till den angivna offentliga IP-adressen och sedan starta om Azure-SSIS IR. |
+| Den angivna statiska offentliga IP-adressen har inget DNS-namn. Ange två av dem med DNS-namnet för din Azure-SSIS Integration Runtime. | Du kan konfigurera DNS-namnet för den offentliga IP-adressen i Azure Portal, som visas i bilden nedan. De olika stegen är följande: (1) öppna Azure Portal och gå till resurs sidan för den här offentliga IP-adressen. (2) Välj **konfigurations** avsnittet och konfigurera DNS-namnet och klicka sedan på knappen **Spara** . (3) starta om Azure-SSIS IR. |
+| De angivna VNet-och statiska offentliga IP-adresserna för din Azure-SSIS Integration Runtime måste finnas på samma plats. | Enligt Azure-nätverkets krav bör den statiska offentliga IP-adressen och det virtuella nätverket finnas på samma plats och i samma prenumeration. Ange två giltiga statiska offentliga IP-adresser och starta om Azure-SSIS IR. |
+| Den tillhandahållna statiska offentliga IP-adressen är en grundläggande lösning, ange två standard för din Azure-SSIS Integration Runtime. | Se [SKU: er för offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) för hjälp. |
+
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
+
+Om Azure-SSIS IR etableringen Miss lyckas raderas alla resurser som har skapats. Men om det finns ett resurs borttagnings lås på prenumerationen eller resurs gruppen (som innehåller din statiska offentliga IP-adress), tas inte nätverks resurserna bort som förväntat. Åtgärda felet genom att ta bort borttagnings låset och starta om IR.
+
+### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
+
+När du stoppar Azure-SSIS IR tas alla nätverks resurser som skapats i resurs gruppen som innehåller din offentliga IP-adress bort. Men det går inte att ta bort om det finns ett resurs borttagnings lås på prenumerationen eller resurs gruppen (som innehåller din statiska offentliga IP-adress) nivå. Ta bort borttagnings låset och starta om IR.
+
+### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
+
+Azure-SSIS IR uppdateras automatiskt regelbundet. Nya IR-noder skapas under uppgraderingen och de gamla noderna tas bort. Dessutom raderas de skapade nätverks resurserna (t. ex. belastningsutjämnaren och nätverks säkerhets gruppen) för de gamla noderna, och de nya nätverks resurserna skapas under din prenumeration. Det här felet innebär att det inte gick att ta bort nätverks resurserna för de gamla noderna på grund av ett borttagnings lås på prenumerationen eller resurs gruppen (som innehåller din statiska offentliga IP-adress) nivå. Ta bort borttagnings låset så att vi kan rensa de gamla noderna och frigöra den statiska offentliga IP-adressen för de gamla noderna. Annars kan inte den statiska offentliga IP-adressen släppas och vi kommer inte att kunna uppgradera dina IR-data.
+
+### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+
+När du vill ta med egna statiska offentliga IP-adresser ska två offentliga IP-adresser anges. En av dem kommer att användas för att skapa IR-noderna omedelbart och en annan kommer att användas vid uppgradering av IR. Det här felet kan inträffa när den andra offentliga IP-adressen inte kan användas under uppgraderingen. Det finns möjliga orsaker till [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) .

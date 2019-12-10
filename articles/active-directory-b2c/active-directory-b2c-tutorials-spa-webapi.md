@@ -1,5 +1,6 @@
 ---
-title: Självstudie – bevilja åtkomst till ett ASP.NET Core webb-API från ett program med en sida – Azure Active Directory B2C
+title: 'Självstudie: bevilja åtkomst till ett ASP.NET Core webb-API från en app med en enda sida'
+titleSuffix: Azure AD B2C
 description: 'I den här självstudien får du lära dig hur du använder Active Directory B2C för att skydda ett .NET Core webb-API och anropa API: et från ett enda-Page Node. js-program.'
 services: active-directory-b2c
 author: mmacy
@@ -10,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7dae8bb552fe12d1cdf1f3d8a5fe124491933a87
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e5ced0c3e4ad05c33866548acb09189e03ed22f4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420336"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949712"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudie: bevilja åtkomst till ett ASP.NET Core webb-API från ett program med en sida med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du anropar en Azure Active Directory B2C (Azure AD B2C)-skyddad ASP.NET Core webb-API-resurs från ett program på en sida.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
@@ -60,7 +61,7 @@ Webb programmet med en sida är registrerat för att anropa det skyddade webb-AP
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-När webb-API:et är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du ett exempel på ett .NET Core-webbprogram som du hämtar från GitHub.
+När webb-API:t är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du ett exempel på ett .NET Core-webbprogram som du hämtar från GitHub.
 
 [Hämta ett \*. zip-arkiv](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) eller klona exempel webb-API-projektet från GitHub.
 
@@ -88,7 +89,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) i webb-API: et om du vill tillåta att ett program med en enda sida anropar ASP.net Core webb-API.
 
-1. Lägg till CORS till metoden *i*Startup.cs`ConfigureServices()`.
+1. Lägg till CORS till metoden `ConfigureServices()` i *Startup.cs*.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -114,7 +115,7 @@ Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) 
     ```
 
 1. (Endast Visual Studio) Öppna filen *launchSettings. JSON* under **Egenskaper** i Solution Explorer och leta upp `iisExpress` blocket.
-1. (Endast Visual Studio) Uppdatera `applicationURL`-värdet med det port nummer du angav när du registrerade *webapi1* -programmet i ett tidigare steg. Till exempel:
+1. (Endast Visual Studio) Uppdatera `applicationURL`-värdet med det port nummer du angav när du registrerade *webapi1* -programmet i ett tidigare steg. Exempel:
 
     ```json
     "iisExpress": {
@@ -158,7 +159,7 @@ I Visual Studio trycker du på **F5** för att bygga och felsöka lösningen *We
 
 Om du föredrar att använda `dotnet` CLI i stället för Visual Studio:
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller filen *\*. CSPROJ* . Till exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller filen *\*. CSPROJ* . Exempel:
 
     `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
 
@@ -176,7 +177,7 @@ Om du föredrar att använda `dotnet` CLI i stället för Visual Studio:
 
 ### <a name="run-the-single-page-app"></a>Kör ensidesappen
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node. js-exemplet. Till exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node. js-exemplet. Exempel:
 
     `cd active-directory-b2c-javascript-msal-singlepageapp`
 

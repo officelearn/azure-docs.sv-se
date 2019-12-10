@@ -1,5 +1,6 @@
 ---
-title: Anpassa Azure Active Directory B2C användar gränssnitt (UI) dynamiskt genom att använda anpassade principer | Microsoft Docs
+title: Anpassa användar gränssnittet (UI) dynamiskt med anpassade principer
+titleSuffix: Azure AD B2C
 description: Stöd för flera anpassnings upplevelser med HTML5/CSS-innehåll som ändras dynamiskt vid körning.
 services: active-directory-b2c
 author: mmacy
@@ -10,20 +11,20 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227211"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950246"
 ---
-# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera användar gränssnittet med dynamiskt innehåll med anpassade principer
+# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: konfigurera användar gränssnittet med dynamiskt innehåll med anpassade principer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Genom att använda Azure Active Directory B2C (Azure AD B2C) anpassade principer kan du skicka en parameter i en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln fokuserar på hur du anpassar Azure AD B2C användar gränssnitt med *dynamiskt innehåll* med hjälp av anpassade principer. För att komma igång, se [UI-anpassning i en anpassad princip](active-directory-b2c-ui-customization-custom.md).
 
 >[!NOTE]
@@ -37,7 +38,7 @@ Den här artikeln fokuserar på hur du anpassar Azure AD B2C användar gränssni
 
 I en anpassad princip definierar en innehålls definition den HTML5-sid-URI som används för ett angivet användar gränssnitts steg (till exempel inloggnings-eller registrerings sidor). Bas principen definierar standard utseendet och känslan genom att peka på en URI med HTML5-filer (i CSS). I tilläggs principen kan du ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-filen. Innehålls definitioner innehåller URL: er till externt innehåll som definieras av hantverkande HTML5/CSS-filer, efter behov.
 
-Avsnittet innehåller en serie med `ContentDefinition` XML-element. `ContentDefinitions` Attributet ID för `ContentDefinition` elementet anger vilken typ av sida som relaterar till innehålls definitionen. Det innebär att elementet definierar den kontext som en anpassad HTML5/CSS-mall kommer att använda. I följande tabell beskrivs de innehålls Definitions-ID: n som identifieras av IEF-motorn och vilka sidtyper som är relaterade till dem.
+Avsnittet `ContentDefinitions` innehåller en serie med `ContentDefinition` XML-element. Attributet ID i `ContentDefinition`-elementet anger vilken typ av sida som relaterar till innehålls definitionen. Det innebär att elementet definierar den kontext som en anpassad HTML5/CSS-mall kommer att använda. I följande tabell beskrivs de innehålls Definitions-ID: n som identifieras av IEF-motorn och vilka sidtyper som är relaterade till dem.
 
 | ID för innehålls definition | Standard HTML5-mall| Beskrivning |
 |-----------------------|--------|-------------|
@@ -62,13 +63,13 @@ I den här genom gången ska du:
 * Lägg till en anpassad HTML5-mall, _Unified. cshtml_.
 * Publicera din webbapp till Azure App Service.
 * Ange resurs delning mellan ursprung (CORS) för din webbapp.
-* `LoadUri` Åsidosätt elementen så att de pekar på din HTML5-fil.
+* Åsidosätt `LoadUri`-elementen så att de pekar på din HTML5-fil.
 
-## <a name="step-1-create-an-aspnet-web-app"></a>Steg 1: Skapa en ASP.NET-webbapp
+## <a name="step-1-create-an-aspnet-web-app"></a>Steg 1: skapa en ASP.NET-webbapp
 
-1. Skapa ett projekt i Visual Studio genom att välja **Arkiv** > **nytt** > **projekt**.
+1. Skapa ett projekt i Visual Studio genom att välja **fil** > **nytt** > **projekt**.
 
-2. I fönstret **nytt projekt**  > väljer du **Visual C#**  **Web** > **ASP.net Core Web Application (.net Core)** .
+2. I fönstret **nytt projekt** väljer du **visuella C#**  > **webb** > **ASP.net Core webb program (.net Core)** .
 
 3. Ge programmet namnet (till exempel *contoso. AADB2C. UI*) och välj sedan **OK**.
 
@@ -82,12 +83,12 @@ I den här genom gången ska du:
 
 6. Klicka på **OK** för att skapa projektet.
 
-## <a name="step-2-create-mvc-view"></a>Steg 2: Skapa MVC-vy
-### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Steg 2.1: Ladda ned den inbyggda HTML5-mallen B2C
+## <a name="step-2-create-mvc-view"></a>Steg 2: skapa MVC-vy
+### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Steg 2,1: hämta den inbyggda HTML5-mallen B2C
 Din anpassade HTML5-mall baseras på Azure AD B2C inbyggd HTML5-mall. Du kan hämta den [enhetliga HTML-filen](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) eller hämta mallen från [Start paket](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). Du använder den här HTML5-filen för att skapa en enhetlig registrerings-eller inloggnings sida.
 
-### <a name="step-22-add-the-mvc-view"></a>Steg 2.2: Lägga till MVC-vyn
-1. Högerklicka på mappen vyer/hem och **Lägg sedan till** > ett**nytt objekt**.
+### <a name="step-22-add-the-mvc-view"></a>Steg 2,2: Lägg till MVC-vyn
+1. Högerklicka på mappen vyer/hem och **Lägg sedan till** > **nytt objekt**.
 
     ![Meny alternativet Lägg till nytt objekt i Visual Studio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
@@ -119,9 +120,9 @@ Din anpassade HTML5-mall baseras på Azure AD B2C inbyggd HTML5-mall. Du kan hä
 
     ![enhetlig. cshtml-fil efter tillägg av HTML5](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
 
-### <a name="step-23-change-the-background-image"></a>Steg 2,3: Ändra bakgrunds bilden
+### <a name="step-23-change-the-background-image"></a>Steg 2,3: ändra bakgrunds bilden
 
-Leta upp `<img>` det element som `ID` innehåller `src` värdet *background_background_image*och ersätt sedan värdet med **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** eller någon annan bakgrunds bild som du vill använda.
+Leta upp det `<img>`-element som innehåller värdet för `ID` *background_background_image*och ersätt sedan `src`-värdet med **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** eller någon annan bakgrunds bild som du vill använda.
 
 ![img-element med anpassat background_background_image src-värde](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
@@ -143,10 +144,10 @@ Leta upp `<img>` det element som `ID` innehåller `src` värdet *background_back
 
 2. Felsök din webbapp och se till att den _enhetliga_ sidan är tillgänglig (till exempel `http://localhost:<Port number>/Home/unified`).
 
-### <a name="step-25-publish-to-azure"></a>Steg 2,5: Publicera till Azure
+### <a name="step-25-publish-to-azure"></a>Steg 2,5: publicera till Azure
 1. I **Solution Explorer**högerklickar du på projektet **contoso. AADB2C. UI** och väljer sedan **publicera**.
 
-    ![Publicera till Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
+    ![Publicera på Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
 
 2. Välj panelen **Microsoft Azure App Service** och välj sedan **publicera**.
 
@@ -165,7 +166,7 @@ Leta upp `<img>` det element som `ID` innehåller `src` värdet *background_back
 
     När processen har skapats publicerar guiden ASP.NET-webbappen till Azure och startar sedan appen i standard webbläsaren.
 
-5. Kopiera URL: en för den _enhetliga_ sidan (till exempel _https://< APP_NAME >. net/Home/Unified_).
+5. Kopiera URL: en för den _enhetliga_ sidan (till exempel _https://< APP_NAME >. azurewebsites. net/Home/Unified_).
 
 ## <a name="step-3-configure-cors-in-azure-app-service"></a>Steg 3: Konfigurera CORS i Azure App Service
 1. I [Azure Portal](https://portal.azure.com/)väljer du **app Services**och väljer sedan namnet på din API-app.
@@ -187,8 +188,8 @@ Leta upp `<img>` det element som `ID` innehåller `src` värdet *background_back
 
     När du har valt **Spara**accepterar API-appen JavaScript-anrop från de angivna URL: erna.
 
-## <a name="step-4-html5-template-validation"></a>Steg 4: Validering av HTML5-mall
-Din HTML5-mall är klar att använda. Det är dock inte tillgängligt i `ContentDefinition` koden. Innan du kan lägga `ContentDefinition` till den anpassade principen måste du se till att:
+## <a name="step-4-html5-template-validation"></a>Steg 4: val av HTML5-mall
+Din HTML5-mall är klar att använda. Det är dock inte tillgängligt i `ContentDefinition`s koden. Innan du kan lägga till `ContentDefinition` i den anpassade principen kontrollerar du att:
 * Ditt innehåll är HTML5 kompatibelt och tillgängligt.
 * Innehålls servern är aktive rad för CORS.
 
@@ -196,27 +197,27 @@ Din HTML5-mall är klar att använda. Det är dock inte tillgängligt i `Content
     >För att kontrol lera att den plats där du är värd för ditt innehåll har aktiverat CORS och kan testa CORS-begäranden, går du till [test-CORS.org](https://test-cors.org/) -webbplatsen.
 
 * Ditt hanterade innehåll är säkert över **https**.
-* Du använder *absoluta URL: er*, till `https://yourdomain/content`exempel för alla länkar, CSS-innehåll och bilder.
+* Du använder *absoluta URL: er*, till exempel `https://yourdomain/content`, för alla länkar, CSS-innehåll och bilder.
 
 ## <a name="step-5-configure-your-content-definition"></a>Steg 5: Konfigurera din innehålls definition
-Gör följande `ContentDefinition`för att konfigurera:
+Gör så här för att konfigurera `ContentDefinition`:
 1. Öppna bas filen för principen (till exempel *TrustFrameworkBase. XML*).
 
-2. Sök efter `<ContentDefinitions>` elementet och kopiera sedan hela innehållet `<ContentDefinitions>` i noden.
+2. Sök efter `<ContentDefinitions>`-elementet och kopiera sedan hela innehållet i noden `<ContentDefinitions>`.
 
-3. Öppna tilläggs filen (till exempel *TrustFrameworkExtensions. XML*) och Sök sedan efter `<BuildingBlocks>` elementet. Om elementet inte finns lägger du till det.
+3. Öppna tilläggs filen (till exempel *TrustFrameworkExtensions. XML*) och Sök sedan efter `<BuildingBlocks>`-elementet. Om elementet inte finns lägger du till det.
 
-4. Klistra in hela innehållet i `<ContentDefinitions>` noden som du kopierade som underordnat `<BuildingBlocks>` elementet.
+4. Klistra in hela innehållet i `<ContentDefinitions>`-noden som du kopierade som underordnad till `<BuildingBlocks>`-elementet.
 
-5. Sök efter `<ContentDefinition>` noden som innehåller `Id="api.signuporsignin"` i XML-filen som du kopierade.
+5. Sök efter den `<ContentDefinition>`-nod som innehåller `Id="api.signuporsignin"` i XML-filen som du kopierade.
 
 6. Ändra värdet för `LoadUri` från _~/Tenant/default/Unified_ till _https://< APP_NAME >. azurewebsites. net/Home/Unified_.
     Den anpassade principen bör se ut så här:
 
     ![Exempel på XML-kodfragment med LoadUri-element markerat](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
-## <a name="step-6-upload-the-policy-to-your-tenant"></a>Steg 6: Överför principen till klienten
-1. I [Azure Portal](https://portal.azure.com)växlar du till kontexten [för din Azure AD B2C klient](active-directory-b2c-navigate-to-b2c-context.md)och väljer sedan **Azure AD B2C**.
+## <a name="step-6-upload-the-policy-to-your-tenant"></a>Steg 6: överför principen till din klient organisation
+1. I [Azure Portal](https://portal.azure.com)växlar du till [kontexten för din Azure AD B2C klient](active-directory-b2c-navigate-to-b2c-context.md)och väljer sedan **Azure AD B2C**.
 
 2. Välj **ramverk för identitets upplevelse**.
 
@@ -228,7 +229,7 @@ Gör följande `ContentDefinition`för att konfigurera:
 
 6. Ladda upp filen *TrustFrameworkExtensions. XML* och kontrol lera att den klarar verifieringen.
 
-## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Steg 7: Testa den anpassade principen med hjälp av kör nu
+## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Steg 7: testa den anpassade principen med hjälp av kör nu
 1. Välj **Azure AD B2C inställningar**och välj sedan **Identity Experience Framework**.
 
     >[!NOTE]
@@ -244,10 +245,10 @@ Gör följande `ContentDefinition`för att konfigurera:
 
 ### <a name="step-81-add-a-content-definition-parameter"></a>Steg 8,1: Lägg till en innehålls definitions parameter
 
-Lägg till `ContentDefinitionParameters` elementet genom att göra följande:
+Lägg till `ContentDefinitionParameters`-elementet genom att göra följande:
 1. Öppna *SignUpOrSignin* -filen för principen (till exempel *SignUpOrSignin. XML*).
 
-2. Under noden lägger du till noden `UserJourneyBehaviors` `<DefaultUserJourney>` :
+2. Lägg till noden `UserJourneyBehaviors` under `<DefaultUserJourney>`-noden:
 
     ```XML
     <RelyingParty>
@@ -261,10 +262,10 @@ Lägg till `ContentDefinitionParameters` elementet genom att göra följande:
     </RelyingParty>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Steg 8,2: Ändra koden så att den accepterar en frågesträngparametern och ersätt bakgrunds bilden
-Ändra HomeController `unified` -metoden för att godkänna parametern campaignId. Metoden kontrollerar sedan parameterns värde och ställer in `ViewData["background"]` variabeln enligt detta.
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Steg 8,2: ändra koden till att godkänna en frågesträngparametern och ersätt bakgrunds bilden
+Ändra HomeController-`unified`-metoden för att godkänna parametern campaignId. Metoden kontrollerar sedan parameterns värde och anger variabeln `ViewData["background"]`.
 
-1. Öppna filen *Controllers\HomeController.cs* och ändra `unified` sedan metoden genom att lägga till följande kodfragment:
+1. Öppna filen *Controllers\HomeController.cs* och ändra sedan `unified`-metoden genom att lägga till följande kodfragment:
 
     ```csharp
     public IActionResult unified(string campaignId)
@@ -290,11 +291,11 @@ Lägg till `ContentDefinitionParameters` elementet genom att göra följande:
 
     ```
 
-2. Leta upp `background_background_image` `src` elementet med ID och Ersätt värdet med `@ViewData["background"]`. `<img>`
+2. Leta upp `<img>`-elementet med ID `background_background_image`och ersätt `src`-värdet med `@ViewData["background"]`.
 
     ![img-element med src-värde markerat ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
-### <a name="83-upload-the-changes-and-publish-your-policy"></a>8,3: Överför ändringarna och publicera principen
+### <a name="83-upload-the-changes-and-publish-your-policy"></a>8,3: överför ändringarna och publicera principen
 1. Publicera ditt Visual Studio-projekt i Azure App Service.
 
 2. Ladda upp *SignUpOrSignin. XML-* principen till Azure AD B2C.
@@ -304,7 +305,7 @@ Lägg till `ContentDefinitionParameters` elementet genom att göra följande:
 
 4. Kopiera URL: en från webbläsarens Adress fält.
 
-5. Lägg till frågesträngparametern _campaignId_ i URI: n. Till exempel Lägg till `&campaignId=hawaii`, som visas i följande bild:
+5. Lägg till frågesträngparametern _campaignId_ i URI: n. Lägg exempelvis till `&campaignId=hawaii`, som du ser i följande bild:
 
     ![URI med en campaignId-parameter för frågesträng markerad](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
@@ -317,7 +318,7 @@ Lägg till `ContentDefinitionParameters` elementet genom att göra följande:
 
     ![Registrerings sidan för registrering med anpassad bild bakgrund för Tokyo-bilder](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
-## <a name="step-9-change-the-rest-of-the-user-journey"></a>Steg 9: Ändra resten av användar resan
+## <a name="step-9-change-the-rest-of-the-user-journey"></a>Steg 9: ändra resten av användar resan
 Om du väljer länken **Registrera dig nu** på inloggnings sidan, visar webbläsaren standard bakgrunds bilden, inte den bild som du har definierat. Detta beror på att du har ändrat bara registrerings-eller inloggnings sidan. Ändra resten av de självkontrollerande innehålls definitionerna:
 1. Gå tillbaka till "steg 2" och gör följande:
 
@@ -331,9 +332,9 @@ Om du väljer länken **Registrera dig nu** på inloggnings sidan, visar webblä
 
 2. Gå tillbaka till "steg 4" och gör följande:
 
-    a. Leta upp `<ContentDefinition>` noden som innehåller `Id="api.selfasserted"`, `Id="api.localaccountsignup"`, och `Id="api.localaccountpasswordreset"`i tilläggs principen.
+    a. I principen för tillägg letar du reda på `<ContentDefinition>`-noden som innehåller `Id="api.selfasserted"`, `Id="api.localaccountsignup"`och `Id="api.localaccountpasswordreset"`.
 
-    b. Ange attributet till din selfasserted-URI.  `LoadUri`
+    b. Ange `LoadUri`-attributet till din *selfasserted* -URI.
 
 3. Gå tillbaka till "steg 8,2" och ändra koden för att godkänna parametrar för frågesträng, men den här gången till funktionen *selfasserted* .
 

@@ -1,5 +1,6 @@
 ---
-title: Konfigurera inloggning med ett Azure Active Directory konto i Azure Active Directory B2C med anpassade principer
+title: Konfigurera inloggning med ett Azure AD-konto genom att använda anpassade principer
+titleSuffix: Azure AD B2C
 description: Konfigurera logga in med ett Azure Active Directory konto i Azure Active Directory B2C med anpassade principer.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a221d55d942e6140c12f2ebfb64428b8ec7be74b
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2babd21ab477fae8c0d139932e08b8d99b9170ae
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643579"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947795"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Azure Active Directory-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "73643579"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Azure Active Directory (Azure AD)-organisation genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
@@ -31,7 +32,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 Om du vill aktivera inloggning för användare från en specifik Azure AD-organisation måste du registrera ett program inom organisationens Azure AD-klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
@@ -54,11 +55,11 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 Du måste lagra den program nyckel som du skapade i Azure AD B2C klient organisationen.
 
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Under **principer**väljer du **Identity Experience Framework**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du `Manual`.
-1. Ange ett **namn** för princip nyckeln. Till exempel `ContosoAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är till *B2C_1A_ContosoAppSecret*.
+1. Ange ett **namn** för princip nyckeln. Till exempel `ContosoAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är att *B2C_1A_ContosoAppSecret*.
 1. I **hemlighet**anger du din klient hemlighet som du registrerade tidigare.
 1. För **nyckel användning**väljer du `Signature`.
 1. Välj **Skapa**.

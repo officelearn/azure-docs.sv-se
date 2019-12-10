@@ -1,20 +1,20 @@
 ---
 title: Hantera användare
-description: Beskriver hur du hanterar användare
+description: Den här artikeln beskriver hur du hanterar användare.
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 37dacf0adfc9e3dcbab963cef50e2ee5209df314
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f58db00e598fd08972adb60cbd8aae0d3bf3391d
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852359"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942343"
 ---
 # <a name="manage-users"></a>Hantera användare
 
-Azure FarmBeats innehåller användar hantering för personer som är en del av din Azure Active Directory (Azure AD). Du kommer att kunna lägga till användare till din Azure FarmBeats-instans för att få åtkomst till API: erna, Visa de genererade kartorna och sensorn för telemetri från Server gruppen
+Azure FarmBeats innehåller användar hantering för personer som är en del av din Azure Active Directory (Azure AD). Du kan lägga till användare till din Azure FarmBeats-instans för att få åtkomst till API: erna, Visa de genererade mappningarna och sensor telemetri från Server gruppen.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -38,40 +38,43 @@ Det finns två typer av användar roller som stöds i Azure dataFarmBeatss idag:
 
 ## <a name="add-user-to-azure-farmbeats"></a>Lägg till användare i Azure-FarmBeats
 
-För att lägga till en användare i Azure FarmBeats 
-1.  Logga in på acceleratorn och klicka på ikonen Inställningar
-2.  Klicka på Access Control
+Följ stegen för att lägga till en användare i Azure FarmBeats:
+
+1.  Logga in på acceleratorn och välj sedan ikonen **Inställningar** .
+2.  Välj **Access Control**.
 
     ![Taktslag i projekt grupp](./media/create-farms/settings-users-1.png)
 
-3.  Ange e-post-ID: t för den användare som du vill ge åtkomst till
-4.  Välj önskad roll – administratör eller skrivskyddad
-5.  Klicka på Lägg till roll
+3.  Ange e-post-ID: t för den användare som du vill ge åtkomst.
+4.  Välj önskad roll – administratör eller skrivskyddad.
+5.  Välj **Lägg till roll**.
 
 De tillagda användarna kommer nu att kunna komma åt Azure-FarmBeats (både data hubb och Accelerator).
 
 ## <a name="delete-user-from-azure-farmbeats"></a>Ta bort användare från Azure-FarmBeats
 
-Om du vill ta bort en användare från Azure FarmBeats-systemet kan du
-1.  Logga in på acceleratorn och klicka på ikonen Inställningar
-2.  Klicka på Access Control
-3.  Klicka på ikonen Ta bort nära e-postadressen för den användare som du vill ta bort
+Följ stegen för att ta bort en användare från Azure FarmBeats-systemet:
 
-Användaren tas bort från systemet. Följande meddelande visas för att bekräfta att åtgärden har slutförts
+1.  Logga in på acceleratorn och välj sedan ikonen **Inställningar** .
+2.  Välj **Access Control**.
+3.  Välj **ta bort** för att ta bort en användare.
 
+Användaren tas bort från systemet. Följande meddelande visas för att bekräfta att åtgärden lyckades.
 
 ![Taktslag i projekt grupp](./media/create-farms/manage-users-2.png)
-
 
 ## <a name="add-azure-ad-users"></a>Lägg till Azure AD-användare
 
 > [!NOTE]
-> Du måste utföra följande steg, endast om användaren som du försöker ge åtkomst till Azure-FarmBeats inte finns i Azure AD-klienten. Om användaren redan finns behöver du inte utföra stegen nedan
+> Följ stegen nedan för att ge användarna åtkomst till Azure-FarmBeats, om användaren inte finns i Azure AD-klienten. Du kan hoppa över stegen nedan om användaren finns i Azure AD-klienten.
+>
 
 FarmBeats-användare måste finnas i Azure AD-klienten innan du kan tilldela dem till program och roller. Använd följande steg för att lägga till användare i Azure AD:
+
 1.  Logga in på [Azure-portalen](https://portal.azure.com/).
-2.  Välj ditt konto i det övre högra hörnet och växla till den Azure AD-klient som är kopplad till FarmBeats
-3.  Välj **Azure Active Directory > användare**. Du ser en lista över användare i din katalog.
+2.  Välj ditt konto i det övre högra hörnet och växla till den Azure AD-klient som är kopplad till FarmBeats.
+3.  Välj **Azure Active Directory > användare**.
+    Du ser en lista över användare i din katalog.
 4.  Om du vill lägga till användare i katalogen väljer du **ny användare**. För externa användare väljer du **ny gäst användare**.
 
     ![Taktslag i projekt grupp](./media/create-farms/manage-users-3.png)
@@ -82,5 +85,4 @@ Besök [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat Azure-FarmBeats. Nu kan du lära dig hur du [skapar Server grupper](manage-farms.md#create-farms).
-
+Du har lagt till användare i Azure FarmBeats-instansen. Nu kan du lära dig hur du [skapar Server grupper](manage-farms.md#create-farms).

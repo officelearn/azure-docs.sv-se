@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 313332689b0f2df9698f868297c72be7d8bde5bb
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 54c6f920b581a0bbd00910a3b3ddeebecdbb595f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829121"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954933"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -65,13 +65,18 @@ Gå vidare och placera deras deklarationer innan du `recognizeSpeech`.
 
 ## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en http-klient
 Det första vi behöver är en http-klient som har rätt bas-URL och autentisering.
-Infoga den här koden i `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
+Infoga den här koden i `recognizeSpeech`
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
 
 ## <a name="generate-a-transcription-request"></a>Generera en avskrifts förfrågan
-Nu ska vi skapa en avskrifts förfrågan. Lägg till den här koden i `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
+Nu ska vi skapa en avskrifts förfrågan. Lägg till den här koden i `recognizeSpeech`
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Skicka begäran och kontrol lera dess status
 Nu ska vi publicera begäran till tal tjänsten och kontrol lera den ursprungliga svars koden. Den här svars koden anger bara om tjänsten har tagit emot begäran. Tjänsten returnerar en URL i svarshuvuden som är den plats där den kommer att lagra avskrifts status.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Vänta tills avskriften har slutförts
@@ -80,16 +85,20 @@ Eftersom tjänsten bearbetar avskriften asynkront måste vi avsöka efter status
 Vi kan kontrol lera statusen genom att hämta innehållet på URL: en som vi fick när du publicerade begäran. När vi får tillbaka innehållet deserialiserar vi det till någon av våra hjälp klasser för att göra det enklare att interagera med.
 
 Här är avsöknings koden med status visning för allt, förutom att slutföra slut för ande, vi ska göra det härnäst.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=222-245,285-299)]
 
 ## <a name="display-the-transcription-results"></a>Visa avskrifts resultatet
 När tjänsten har slutfört avskriften kommer resultatet att lagras i en annan URL som vi kan få från status svaret.
 
 Vi laddar ned innehållet i den URL: en, deserialiserar JSON och loopar igenom de resultat som skriver ut visnings texten som vi går.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=246-284)]
 
 ## <a name="check-your-code"></a>Kontrol lera koden
-I det här läget bör din kod se ut så här: (vi har lagt till några kommentarer till den här versionen) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
+I det här läget bör din kod se ut så här: (vi har lagt till några kommentarer till den här versionen)
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

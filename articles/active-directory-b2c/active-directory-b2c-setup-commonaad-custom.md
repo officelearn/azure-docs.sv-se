@@ -1,6 +1,7 @@
 ---
-title: Konfigurera inloggning för en Azure AD-identitetsprovider med flera innehavare med hjälp av anpassade principer i Azure Active Directory B2C
-description: Lägg till en Azure AD-identitetsprovider med flera innehavare med anpassade principer – Azure Active Directory B2C.
+title: Konfigurera inloggning för Azure AD med flera innehavare med anpassade principer
+titleSuffix: Azure AD B2C
+description: Lägg till en Azure AD-identitetsprovider med flera innehavare med hjälp av anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5e4645d0fbdcd8cd44bb5972cdc28ab7eaa2a681
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: abac9152ff71c8fbf4ed53bfd663d29616382cf9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642625"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947798"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för Azure Active Directory för flera innehavare med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "73642625"
 
 Den här artikeln visar hur du aktiverar inloggning för användare som använder slut punkten för flera innehavare för Azure Active Directory (Azure AD) med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure AD B2C. Detta gör att användare från flera Azure AD-klienter kan logga in med hjälp av Azure AD B2C, utan att du behöver konfigurera en identitets leverantör för varje klient. Gäst medlemmar i någon av dessa klienter **kommer dock inte** att kunna logga in. För det måste du [Konfigurera varje klient för sig](active-directory-b2c-setup-aad-custom.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
@@ -31,7 +32,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 Om du vill aktivera inloggning för användare från en specifik Azure AD-organisation måste du registrera ett program inom organisationens Azure AD-klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
@@ -54,11 +55,11 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 Du måste lagra den program nyckel som du skapade i Azure AD B2C klient organisationen.
 
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Under **principer**väljer du **Identity Experience Framework**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du `Manual`.
-1. Ange ett **namn** för princip nyckeln. Till exempel `AADAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är till *B2C_1A_AADAppSecret*.
+1. Ange ett **namn** för princip nyckeln. Till exempel `AADAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är att *B2C_1A_AADAppSecret*.
 1. I **hemlighet**anger du din klient hemlighet som du registrerade tidigare.
 1. För **nyckel användning**väljer du `Signature`.
 1. Välj **Skapa**.
@@ -123,7 +124,7 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
 
 1. Under elementet **ClaimsProvider** uppdaterar du värdet för **domän** till ett unikt värde som kan användas för att skilja den från andra identitets leverantörer.
 1. Uppdatera värdet för **DisplayName**under **TechnicalProfile** -elementet, till exempel `Contoso Employee`. Det här värdet visas på inloggnings knappen på inloggnings sidan.
-1. Ange **client_id** till program-ID: t för det program för Azure AD multi-Tenant som du registrerade tidigare.
+1. Ange **client_id** till program-ID: t för Azure AD-programmet för flera klient organisationer som du registrerade tidigare.
 1. Under **CryptographicKeys**uppdaterar du värdet för **StorageReferenceId** till namnet på den princip nyckel som skapades tidigare. Till exempel `B2C_1A_AADAppSecret`.
 
 ### <a name="restrict-access"></a>Begränsa åtkomst
@@ -133,7 +134,7 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
 
 Du måste uppdatera listan över giltiga token-utfärdare och begränsa åtkomsten till en särskild lista över Azure AD-Innehavaradministratörer som kan logga in.
 
-Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, där `your-tenant` är namnet på din Azure AD-klient. Till exempel:
+Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, där `your-tenant` är namnet på din Azure AD-klient. Exempel:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 

@@ -1,6 +1,7 @@
 ---
-title: Om anspråk matchare i Azure Active Directory B2C anpassade principer | Microsoft Docs
-description: Lär dig mer om hur anspråk matchare används i en anpassad princip i Azure Active Directory B2C.
+title: Anspråk matchare i anpassade principer
+titleSuffix: Azure AD B2C
+description: Lär dig hur du använder anspråk matchare i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064401"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949882"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -23,7 +24,7 @@ Anspråk matchare i Azure Active Directory B2C (Azure AD B2C) [anpassade princip
 
 Om du vill använda en anspråks lösare i ett indata-eller utgående anspråk definierar du en sträng **claimType**, under elementet [ClaimsSchema](claimsschema.md) , och anger sedan **DefaultValue** till anspråks lösa ren i elementet indata-eller utdata-anspråk. Azure AD B2C läser värdet för anspråks matcharen och använder värdet i den tekniska profilen.
 
-I följande exempel definieras en anspråks typ `correlationId` med namnet med en **data** `string`typ.
+I följande exempel definieras en anspråks typ med namnet `correlationId` med en `string`s **datatyp** .
 
 ```XML
 <ClaimType Id="correlationId">
@@ -33,7 +34,7 @@ I följande exempel definieras en anspråks typ `correlationId` med namnet med e
 </ClaimType>
 ```
 
-I den tekniska profilen mappar du anspråks matcharen till anspråks typen. Azure AD B2C fyller i värdet för anspråks matcharen `{Context:CorrelationId}` i anspråket `correlationId` och skickar anspråket till den tekniska profilen.
+I den tekniska profilen mappar du anspråks matcharen till anspråks typen. Azure AD B2C fyller i värdet för anspråks matcharen `{Context:CorrelationId}` till anspråks `correlationId` och skickar anspråket till den tekniska profilen.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
@@ -45,16 +46,16 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 ### <a name="culture"></a>Kultur
 
-| Begäran | Beskrivning | Exempel |
+| Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Culture: LanguageName} | Den två bokstävernas ISO-kod för språket. | sv-SE |
+| {Culture: LanguageName} | Den två bokstävernas ISO-kod för språket. | en |
 | {Culture: LCID}   | LCID för språk koden. | 1033 |
 | {Culture: RegionName} | ISO-koden för den två bokstaven för regionen. | USA |
 | {Culture: RFC5646} | Språk koden RFC5646. | en-US |
 
 ### <a name="policy"></a>Princip
 
-| Begäran | Beskrivning | Exempel |
+| Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
 | {Princip: PolicyId} | Princip namnet för den förlitande parten. | B2C_1A_signup_signin |
 | {Princip: RelyingPartyTenantId} | Klient-ID för den förlitande part principen. | your-tenant.onmicrosoft.com |
@@ -63,21 +64,21 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Begäran | Beskrivning | Exempel |
+| Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |`acr_values` Frågesträngparametern. | Gäller inte |
-| {OIDC:ClientId} |`client_id` Frågesträngparametern. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC:DomainHint} |`domain_hint` Frågesträngparametern. | facebook.com |
-| {OIDC: LoginHint} |  `login_hint` Frågesträngparametern. | someone@contoso.com |
+| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Gäller inte |
+| {OIDC:ClientId} |Parametern `client_id` frågesträng. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:DomainHint} |Parametern `domain_hint` frågesträng. | facebook.com |
+| {OIDC: LoginHint} |  Parametern `login_hint` frågesträng. | someone@contoso.com |
 | {OIDC:MaxAge} | `max_age`. | Gäller inte |
-| {OIDC:Nonce} |`Nonce` Frågesträngparametern. | defaultNonce |
-| {OIDC: prompt} | `prompt` Frågesträngparametern. | inloggning |
-| {OIDC:Resource} |`resource` Frågesträngparametern. | Gäller inte |
-| {OIDC: omfång} |`scope` Frågesträngparametern. | OpenID |
+| {OIDC:Nonce} |Parametern `Nonce` frågesträng. | defaultNonce |
+| {OIDC: prompt} | Parametern `prompt` frågesträng. | inloggning |
+| {OIDC:Resource} |Parametern `resource` frågesträng. | Gäller inte |
+| {OIDC: omfång} |Parametern `scope` frågesträng. | OpenID |
 
 ### <a name="context"></a>Kontext
 
-| Begäran | Beskrivning | Exempel |
+| Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
 | {Context: BuildNumber} | Versionen av ID Experience Framework (versions nummer).  | 1.0.507.0 |
 | {Context: CorrelationId} | Korrelations-ID  | 00000000-0000-0000-0000-000000000000 |
@@ -90,7 +91,7 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till ett anspråk i användar resan. Begäran från programmet kan till exempel innehålla en frågesträngparametern med namnet `app_session`, `loyalty_number`eller en anpassad frågesträng.
 
-| Begäran | Beskrivning | Exempel |
+| Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
@@ -99,7 +100,7 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 
 ### <a name="oauth2"></a>OAuth2
 
-| Begäran | Beskrivning | Exempel |
+| Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Åtkomsttoken. | Gäller inte |
 
@@ -138,7 +139,7 @@ Med hjälp av anspråks matchare kan du fylla i inloggnings namnet eller diriger
 
 Med Azure AD B2C kan du skicka frågesträngs parametrar till dina HTML-slutpunkter för innehålls definitioner så att du dynamiskt kan återge sid innehållet. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
 
-Följande exempel skickar i frågesträngen en parameter med namnet **campaignId** med `hawaii`värdet, **språk** koden `en-US`och **appen** som representerar klient-ID:
+Följande exempel skickar i frågesträngen en parameter med namnet **campaignId** med värdet `hawaii`, en **språk** kod `en-US`och en **app** som representerar klient-ID:
 
 ```XML
 <UserJourneyBehaviors>

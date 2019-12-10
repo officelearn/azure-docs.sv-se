@@ -1,5 +1,6 @@
 ---
-title: Felsöka anpassade principer med Application Insights-Azure Active Directory B2C
+title: Felsöka anpassade principer med Application Insights
+titleSuffix: Azure AD B2C
 description: Konfigurera Application Insights för att spåra körningen av dina anpassade principer.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8bf26791ca6489c12e4f9538d56ae0f0f66cc8c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602028"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950093"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Samla in Azure Active Directory B2C loggar med Application Insights
 
@@ -30,7 +31,7 @@ De detaljerade aktivitets loggarna som beskrivs här ska **bara** aktive ras und
 
 Om du inte redan har en, skapar du en instans av Application Insights i din prenumeration.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din Azure-prenumeration (inte din Azure AD B2C-katalog).
 1. Välj **skapa en resurs** i den vänstra navigerings menyn.
 1. Sök efter och välj **Application Insights**och välj sedan **skapa**.
@@ -60,7 +61,7 @@ Om du inte redan har en, skapar du en instans av Application Insights i din pren
     * `ClientEnabled="true"` skickar skript för ApplicationInsights på klient sidan för att spåra sid visning och fel på klient sidan. Du kan visa dessa i tabellen **browserTimings** i Application Insights-portalen. Genom att ange `ClientEnabled= "true"`lägger du till Application Insights till sid skriptet och du får tids inställningar för sid inläsningar och AJAX-anrop, antal, information om webb läsar undantag och AJAX-fel samt antal användare och sessioner. Det här fältet är **valfritt**och är inställt på `false` som standard.
     * `ServerEnabled="true"` skickar den befintliga UserJourneyRecorder-JSON som en anpassad händelse till Application Insights.
 
-    Till exempel:
+    Exempel:
 
     ```XML
     <TrustFrameworkPolicy
@@ -92,7 +93,7 @@ Det finns en kort fördröjning, vanligt vis mindre än fem minuter, innan du ka
 
 Här är en lista över frågor som du kan använda för att visa loggarna:
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |---------------------|--------------------|
 `traces` | Se alla loggar som genererats av Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Se alla loggar som genererats av Azure AD B2C den senaste dagen

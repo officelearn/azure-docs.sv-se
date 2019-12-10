@@ -1,5 +1,6 @@
 ---
-title: Definiera en Azure Active Directory teknisk profil i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
+title: Definiera en teknisk Azure AD-profil i en anpassad princip
+titleSuffix: Azure AD B2C
 description: Definiera en Azure Active Directory teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064628"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949566"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -23,9 +24,9 @@ ms.locfileid: "71064628"
 
 Azure Active Directory B2C (Azure AD B2C) ger stöd för Azure Active Directory användar hantering. I den här artikeln beskrivs de olika kraven för en teknisk profil för att interagera med en anspråks leverantör som stöder detta standardiserade protokoll.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på protokoll hanterarens sammansättning `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet för protokoll hanterarens sammansättning `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 Alla tekniska profiler för Azure AD inkluderar **AAD-vanliga** tekniska profiler. Följande tekniska profiler anger inte protokollet eftersom protokollet har kon figurer ATS i **AAD-common** Technical Profile:
 
@@ -61,13 +62,13 @@ Följande tekniska profiler innehåller **InputClaims** för sociala och lokala 
 
 - De tekniska profilerna för sociala konton **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserWriteUsingAlternativeSecurityId** innehåller **AlternativeSecurityId** -anspråket. Detta påstående innehåller användar identifieraren för sociala kontot.
 - De lokala kontots tekniska profiler **AAD-UserReadUsingEmailAddress** och **AAD-UserWriteUsingLogonEmail** innehåller **e-** postanspråket. Detta anspråk innehåller inloggnings namnet för det lokala kontot.
-- De enhetliga (lokala och sociala) tekniska profilerna **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**och **AAD-UserWritePhoneNumberUsingObjectId** innehåller **ObjectID** -anspråk. Unikt ID för ett konto.
+- De enhetliga (lokala och sociala) tekniska profilerna **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**och **AAD-UserWritePhoneNumberUsingObjectId** innehåller **ObjectID** -anspråket. Unikt ID för ett konto.
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller skapa nya.
 
 ## <a name="output-claims"></a>Utgående anspråk
 
-**OutputClaims** -elementet innehåller en lista över anspråk som returneras av den tekniska Azure AD-profilen. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i Azure Active Directory. Du kan också inkludera anspråk som inte returneras av Azure Active Directory, så länge som du ställer in `DefaultValue` attributet.
+**OutputClaims** -elementet innehåller en lista över anspråk som returneras av den tekniska Azure AD-profilen. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i Azure Active Directory. Du kan också inkludera anspråk som inte returneras av Azure Active Directory, förutsatt att du anger attributet `DefaultValue`.
 
 **OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -75,7 +76,7 @@ Till exempel skapar den tekniska profilen **AAD-UserWriteUsingLogonEmail** ett l
 
 - **ObjectID**, som är identifierare för det nya kontot
 - **newUser**, som anger om användaren är ny
-- **authenticationSource**, som anger autentiseringen till`localAccountAuthentication`
+- **authenticationSource**, som anger autentiseringen till `localAccountAuthentication`
 - **userPrincipalName**, som är User Principal Name för det nya kontot
 - **signInNames. EmailAddress**, som är kontots inloggnings namn, på liknande sätt som **e-** postanspråket
 
@@ -114,8 +115,8 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 ## <a name="requirements-of-an-operation"></a>Krav för en åtgärd
 
 - Det måste finnas exakt ett **InputClaim** -element i anspråks säcken för alla Azure AD-tekniska profiler.
-- Om åtgärden är `Write` eller `DeleteClaims`, måste den också visas i ett **PersistedClaims** -element.
-- Värdet för **userPrincipalName** -anspråket måste ha formatet `user@tenant.onmicrosoft.com`.
+- Om åtgärden är `Write` eller `DeleteClaims`måste den också visas i ett **PersistedClaims** -element.
+- Värdet för **userPrincipalName** -anspråket måste vara i formatet `user@tenant.onmicrosoft.com`.
 - Detta **DisplayName** -anspråk krävs och kan inte vara en tom sträng.
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD Technical Provider-åtgärder
@@ -252,13 +253,13 @@ Följande tekniska profil tar bort ett socialt användar konto med **alternative
 ```
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`eller. `DeleteClaimsPrincipal` |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`eller `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Nej | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. Värdet kan lokaliseras [](localization.md).|
+| UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. Värdet kan [lokaliseras](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Nej | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. Värdet kan lokaliseras [](localization.md).|
+| UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. Värdet kan [lokaliseras](localization.md).|
 | ApplicationObjectId | Nej | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
 | ClientId | Nej | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) |
 

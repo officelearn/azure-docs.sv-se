@@ -3,28 +3,24 @@ title: Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren fö
 description: I den här artikeln beskrivs hur du skalar ut och skalar i ett Azure Datautforskaren-kluster baserat på ändring efter frågan.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/14/2019
-ms.openlocfilehash: eb204701b42436a5ae95bac97ed6fd97cf272860
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.date: 12/09/2019
+ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561872"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942247"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
 
-Att ändra storlek på ett kluster är på lämpligt sätt avgörande för Azure Datautforskarens prestanda. En statisk kluster storlek kan leda till användning eller över-användning, men ingen av dem är idealisk.
-
-Eftersom efter frågan på ett kluster inte kan förutsägas med absolut noggrannhet är det bättre att *skala* ett kluster, lägga till och ta bort kapacitets-och CPU-resurser med justerbar efter frågan. 
+Att ändra storlek på ett kluster är på lämpligt sätt avgörande för Azure Datautforskarens prestanda. En statisk kluster storlek kan leda till användning eller över-användning, men ingen av dem är idealisk. Eftersom efter frågan på ett kluster inte kan förutsägas med absolut noggrannhet är det bättre att *skala* ett kluster, lägga till och ta bort kapacitets-och CPU-resurser med justerbar efter frågan. 
 
 Det finns två arbets flöden för skalning av ett Azure Datautforskaren-kluster: 
-
 * Horisontell skalning, även kallat skalning in och ut.
 * [Vertikal skalning](manage-cluster-vertical-scaling.md), även kallat skalning upp och ned.
-
 I den här artikeln beskrivs arbets flödet för horisontell skalning.
 
 ## <a name="configure-horizontal-scaling"></a>Konfigurera vågrät skalning
@@ -35,7 +31,7 @@ Genom att använda vågrät skalning kan du skala antalet instanser automatiskt,
 
 2. I fönstret **skala ut** väljer du den metod för autoskalning som du vill använda: **manuell skalning**, **optimerad autoskalning**eller **anpassad autoskalning**.
 
-### <a name="manual-scale"></a>Manuell skalning
+### <a name="manual-scale"></a>Manuell skala
 
 Manuell skalning är standardinställningen när klustret skapas. Klustret har en statisk kapacitet som inte ändras automatiskt. Du väljer den statiska kapaciteten med hjälp av **antalet instans antal** . Klustrets skalning förblir i den inställningen tills du gör en ny ändring.
 
@@ -47,7 +43,7 @@ Optimerad autoskalning är den rekommenderade automatiska skalnings metoden. Med
 
 1. Välj **optimerad autoskalning**. 
 
-1. Välj ett minsta antal instanser och maximalt antal instanser. Intervallet för automatisk skalning av klustret mellan de två talen, baserat på belastning.
+1. Välj ett minsta antal instanser och maximalt antal instanser. Klustrets intervall för automatisk skalning mellan de två talen, baserat på belastning.
 
 1. Välj **Spara**.
 
@@ -55,13 +51,40 @@ Optimerad autoskalning är den rekommenderade automatiska skalnings metoden. Med
 
 Optimerad autoskalning börjar fungera. Dess åtgärder visas nu i Azures aktivitets logg i klustret.
 
+#### <a name="logic-of-optimized-autoscale"></a>Logik för optimerad autoskalning 
+
+**Skala ut**
+
+När klustret närmar sig ett tillstånd för överförbrukning kan du skala ut för att upprätthålla optimala prestanda. Skala ut sker när:
+* Antalet kluster instanser är lägre än det maximala antalet instanser som definierats av användaren.
+* Användningen av cacheminnet är hög i över en timme.
+
+> [!NOTE]
+> Skala ut-logiken avser för närvarande inte förbruknings användning och CPU-mått. Om dessa mått är viktiga för ditt användnings fall använder du [anpassad autoskalning](#custom-autoscale).
+
+**Skala i**
+
+När klustret närmar sig ett tillstånd med under användningen kan du skala in till lägre kostnader men upprätthålla prestanda. Flera mått används för att kontrol lera att det är säkert att skala i klustret. Följande regler utvärderas dagligen i 7 dagar innan skalning i utförs:
+* Antalet instanser är över 2 och över det minsta antalet definierade instanser.
+* För att säkerställa att det inte finns någon överlagring av resurser måste följande mått verifieras innan skalning i utförs: 
+    * Användningen av cacheminnet är inte hög
+    * CPU är under genomsnittet 
+    * Förbruknings användningen är under genomsnittet 
+    * Strömnings förbrukning (om streaming används) är inte hög
+    * Keep Alive-händelser är över ett definierat minimum, bearbetat korrekt och i tid.
+    * Ingen fråga begränsning 
+    * Antalet misslyckade frågor är under ett definierat minimum.
+
+> [!NOTE]
+> Skalan i Logic kräver för närvarande en 7-dagars utvärdering innan implementering av optimerad skalning i. Denna utvärdering sker var 24: e timme. Om en snabb ändring krävs använder du [manuell skalning](#manual-scale).
+
 ### <a name="custom-autoscale"></a>Anpassad autoskalning
 
 Med hjälp av anpassad autoskalning kan du skala klustret dynamiskt baserat på mått som du anger. Följande bild visar flödet och stegen för att konfigurera anpassad autoskalning. Mer information finns i bilden.
 
 1. I rutan **namn på inställning för autoskalning** anger du ett namn, till exempel *utskalning: cache-användning*. 
 
-   ![Skalnings regel](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
+   ![Skalningsregel](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
 
 2. I **skalnings läge**väljer du **skala baserat på ett mått**. Det här läget ger dynamisk skalning. Du kan också välja **skala till ett angivet instans antal**.
 
@@ -108,5 +131,4 @@ Du har nu konfigurerat horisontell skalning för ditt Azure Datautforskaren-klus
 ## <a name="next-steps"></a>Nästa steg
 
 * [Övervaka Azure Datautforskaren prestanda, hälsa och användning med mått](using-metrics.md)
-
 * [Hantera vertikal kluster skalning](manage-cluster-vertical-scaling.md) för lämplig storlek på ett kluster.

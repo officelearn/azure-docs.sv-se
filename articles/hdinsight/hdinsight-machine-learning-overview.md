@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: a770fca4f14e5441e5ef4f7bc99d9c0abd9a59d3
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241627"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951793"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskin inlärning på HDInsight
 
@@ -21,7 +21,7 @@ HDInsight möjliggör maskin inlärning med Big data, vilket ger möjlighet att 
 
 ## <a name="sparkml-and-mllib"></a>SparkML och MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) är ett Azure-värd erbjudande för [Apache Spark](https://spark.apache.org/), en enhetlig, öppen källa, Parallel Data processing Framework som stöder minnes intern bearbetning för att förbättra stor data analys. Motorn för Spark-bearbetning är byggd för hastighet, enkel användning och avancerad analys. Spark: s InMemory-distribuerade beräknings funktioner gör det ett bra val för de iterativa algoritmerna som används i maskin inlärnings-och diagram beräkningar. Det finns två skalbara Machine Learning-bibliotek som ger algoritmiska modellerings funktioner till den här distribuerade miljön: MLlib och SparkML. MLlib innehåller det ursprungliga API som byggts ovanpå RDD. SparkML är ett nyare paket som ger ett API på högre nivå som bygger på DataFrames för att konstruera ML-pipeliner. SparkML har ännu inte stöd för alla funktioner i MLlib, men ersätter MLlib som Spark standard Machine Learning-bibliotek.
+[HDInsight Spark](spark/apache-spark-overview.md) är ett Azure-värd erbjudande för [Apache Spark](https://spark.apache.org/), en enhetlig, öppen källa, Parallel Data processing Framework som stöder minnes intern bearbetning för att förbättra stor data analys. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. Det finns två skalbara Machine Learning-bibliotek som ger algoritmiska modellerings funktioner till den här distribuerade miljön: MLlib och SparkML. MLlib innehåller det ursprungliga API som byggts ovanpå RDD. SparkML är ett nyare paket som ger ett API på högre nivå som bygger på DataFrames för att konstruera ML-pipeliner. SparkML har ännu inte stöd för alla funktioner i MLlib, men ersätter MLlib som Spark standard Machine Learning-bibliotek.
 
 Microsoft Machine Learning-biblioteket för Apache Spark är [MMLSpark](https://github.com/Azure/mmlspark). Det här biblioteket är utformat för att göra data experter mer produktiva i Spark, öka frekvensen för experimentering och utnyttja de senaste teknikerna för maskin inlärning, inklusive djup inlärning, på mycket stora data uppsättningar. MMLSpark tillhandahåller ett lager ovanpå SparkMLs lågnivå-API: er när du skapar skalbara ML-modeller, t. ex. indexering av strängar, data som ska förväntas av Machine Learning-algoritmer och sammansättning av funktions vektorer. MMLSpark-biblioteket fören klar dessa och andra vanliga uppgifter för att skapa modeller i PySpark.
 
@@ -31,13 +31,13 @@ Microsoft Machine Learning-biblioteket för Apache Spark är [MMLSpark](https://
 
 ![Utbildning för förutsägelse med R Server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
-Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript.  Du kan också välja att köra R-skript över noderna i klustret med hjälp av skalnings programmets Hadoop-karta minska eller Spark Compute-kontexter.
+Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript.  Du kan också köra R-skript över noderna i klustret med hjälp av skalnings programmets Hadoop-karta minska eller Spark Compute-kontexter.
 
-Med ML-tjänster i HDInsight med Spark kan du parallellisera utbildning över noderna i ett kluster med hjälp av en spark Compute-kontext. Du kan köra R-skript direkt på Edge-noden med alla tillgängliga kärnor parallellt efter behov. Alternativt kan du köra din kod från Edge-noden för att starta bearbetningen som distribueras över alla noder i klustret. ML-tjänster i HDInsight med Spark möjliggör också parallellt av funktioner från R-paket med öppen källkod, om så önskas.
+Med ML-tjänster i HDInsight med Spark kan du parallellisera utbildning över noderna i ett kluster med hjälp av en spark Compute-kontext. Du kan köra R-skript direkt på Edge-noden med alla tillgängliga kärnor parallellt efter behov. Alternativt kan du köra din kod från Edge-noden för att starta bearbetningen som distribueras över alla noder i klustret. ML-tjänster i HDInsight med Spark möjliggör också parallella funktioner från R-paket med öppen källkod, om så önskas.
 
 ## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning och Apache Hive
 
-Azure Machine Learning innehåller verktyg för att modellera förutsägelse analys, samt en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelse modeller som färdiga webb tjänster. Azure Machine Learning är en komplett lösning för förutsägelse analys i molnet som du kan använda för att skapa, testa, operationalisera och hantera förutsägelse modeller. Välj från ett bibliotek med stora algoritmer, Använd en webbaserad Studio för att skapa modeller och enkelt distribuera din modell som en webb tjänst.
+Azure Machine Learning innehåller verktyg för att modellera förutsägelse analyser och en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelse modeller som färdiga webb tjänster. Azure Machine Learning är en komplett lösning för förutsägelse analys i molnet som du kan använda för att skapa, testa, operationalisera och hantera förutsägelse modeller. Välj från ett bibliotek med stora algoritmer, Använd en webbaserad Studio för att skapa modeller och enkelt distribuera din modell som en webb tjänst.
 
 ![Översikt över Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 

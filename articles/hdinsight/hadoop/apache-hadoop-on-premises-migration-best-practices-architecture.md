@@ -2,18 +2,18 @@
 title: 'Arkitektur: lokal Apache Hadoop till Azure HDInsight'
 description: Lär dig metod tips för att migrera lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499256"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951538"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop kluster till Azure HDInsight-arkitektur metod tips
 
@@ -25,7 +25,7 @@ Många lokala Apache Hadoop distributioner består av ett enda stort kluster som
 
 Azure HDInsight-kluster har utformats för en speciell typ av beräknings användning. Eftersom lagringen kan delas mellan flera kluster, är det möjligt att skapa flera arbets belastnings optimerade beräknings kluster för att uppfylla behoven hos olika jobb. Varje kluster typ har den optimala konfigurationen för den aktuella arbets belastningen. I följande tabell visas de kluster typer som stöds i HDInsight och motsvarande arbets belastningar.
 
-|**Arbetsbelastning**|**HDInsight-kluster typ**|
+|Arbetsbelastning|HDInsight-kluster typ|
 |---|---|
 |Batchbearbetning (ETL/ELT)|Hadoop, Spark|
 |Datalagerhantering|Hadoop, Spark, interaktiv fråga|
@@ -36,9 +36,9 @@ Azure HDInsight-kluster har utformats för en speciell typ av beräknings använ
 
 I följande tabell visas de olika metoder som kan användas för att skapa ett HDInsight-kluster.
 
-|**Verktyg**|**Webbläsare baserad**|**Kommando rad**|**REST-API**|**SDK**|
+|Verktyg|Webbläsare baserad|Kommandoraden|REST-API|SDK|
 |---|---|---|---|---|
-|[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Azure-portalen](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Azure CLI (ver 1,0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
@@ -60,7 +60,7 @@ Azure Data Factory kan användas för att schemalägga skapande av HDInsight-klu
 
 ## <a name="decouple-storage-from-compute"></a>Frikoppla lagring från data bearbetning
 
-Typiska lokala Hadoop-distributioner använder samma uppsättning datorer för data lagring och data bearbetning. Eftersom de är samplacerade måste beräkning och lagring skalas tillsammans.
+Typiska lokala Hadoop-distributioner använder samma uppsättning datorer för data lagring och data bearbetning. Eftersom de är samplacerade, måste beräkning och lagring skalas tillsammans.
 
 I HDInsight-kluster behöver inte lagring befinna sig med beräkning och kan antingen vara i Azure Storage, Azure Data Lake Storage eller båda. Koppling av lagring från Compute har följande fördelar:
 
@@ -74,9 +74,7 @@ Beräknings kluster skapas nära lagrings konto resurser i en Azure-region för 
 
 ## <a name="use-external-metadata-stores"></a>Använda extern metadatalagring
 
-
 Det finns två huvudsakliga metastores som fungerar med HDInsight-kluster: [Apache Hive](https://hive.apache.org/) och [Apache Oozie](https://oozie.apache.org/). Hive-metaarkiv är den centrala schema lagrings platsen som kan användas av data bearbetnings motorer, däribland Hadoop, Spark, LLAP, Presto och Apache gris. Oozie-metaarkiv lagrar information om schemaläggning och status för pågående och slutförda Hadoop-jobb.
-
 
 HDInsight använder Azure SQL Database för Hive-och Oozie-metastores. Det finns två sätt att konfigurera en metaarkiv i HDInsight-kluster:
 
@@ -105,7 +103,7 @@ Några HDInsight-Hive-metaarkiv bästa praxis är följande:
 - Säkerhetskopiera de anpassade metaarkiv med jämna mellanrum.
 - Behåll metaarkiv-och HDInsight-klustret i samma region.
 - Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database övervaknings verktyg som Azure Portal eller Azure Monitor loggar.
-- Kör kommandot **analysera tabell** som krävs för att generera statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Kör `ANALYZE TABLE` kommandot som krävs för att generera statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Metod tips för olika arbets belastningar
 

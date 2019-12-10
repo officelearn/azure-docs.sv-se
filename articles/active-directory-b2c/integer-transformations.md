@@ -1,6 +1,7 @@
 ---
-title: Exempel på heltals anspråk för identitets upplevelse Framework-schemat för Azure Active Directory B2C | Microsoft Docs
-description: Exempel på heltals anspråk för identitets upplevelse Framework-schemat för Azure Active Directory B2C.
+title: Exempel på heltals anspråk för anpassade principer
+titleSuffix: Azure AD B2C
+description: Transformerings exempel för heltals anspråk för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064220"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948916"
 ---
 # <a name="integer-claims-transformations"></a>Transformeringar av heltals anspråk
 
@@ -29,10 +30,10 @@ Konverterar en lång data typ till en sträng data typ.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | long | ClaimType som ska konverteras till en sträng. |
+| InputClaim | inputClaim | lång | ClaimType som ska konverteras till en sträng. |
 | OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
-I det här exemplet `numericUserId` konverteras anspråket med värde typen Long till ett `UserId` anspråk med ett värde av sträng typ.
+I det här exemplet konverteras `numericUserId`-anspråk med värde typen Long till ett `UserId`-anspråk med en värdetyp.
 
 ```XML
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">

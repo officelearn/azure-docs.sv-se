@@ -1,5 +1,6 @@
 ---
-title: Lägg till egna attribut till anpassade principer i Azure Active Directory B2C | Microsoft Docs
+title: Lägg till egna attribut till anpassade principer
+titleSuffix: Azure AD B2C
 description: En genom gång av hur du använder tilläggs egenskaper och anpassade attribut och inkluderar dem i användar gränssnittet.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 82a796a3252a4de6eacabcad45c61c864e963fe0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 92050261777482bae8055f697ef50c2295675c5b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066177"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948785"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Använd anpassade attribut i en anpassad profil redigerings princip
 
@@ -23,9 +24,9 @@ ms.locfileid: "71066177"
 
 I den här artikeln skapar du ett anpassat attribut i Azure Active Directory B2C-katalogen (Azure AD B2C). Du kommer att använda det här nya attributet som ett anpassat anspråk i profilen redigera användar resa.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Följ stegen i artikeln [Azure Active Directory B2C: Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
+Följ stegen i artikeln [Azure Active Directory B2C: kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>Använd anpassade attribut för att samla in information om dina kunder i Azure AD B2C med anpassade principer
 Din Azure AD B2C katalog levereras med en inbyggd uppsättning attribut. Exempel på **namn**, efter **namn**, **stad**, **post nummer**och **userPrincipalName**. Du behöver ofta skapa egna attribut som de här exemplen:
@@ -43,7 +44,7 @@ Om programmet tas bort, tas även dessa tilläggs egenskaper tillsammans med all
 Tilläggs egenskaper finns bara i kontexten för ett registrerat program i klienten. Objekt-ID för programmet måste ingå i **TechnicalProfile** som använder det.
 
 >[!NOTE]
->Azure AD B2C-katalogen innehåller vanligt vis en webbapp med `b2c-extensions-app`namnet. Det här programmet används främst av de inbyggda B2C-principerna för de anpassade anspråk som skapats via Azure Portal. Vi rekommenderar att endast avancerade användare registrerar tillägg för anpassade B2C-principer med hjälp av det här programmet.
+>Azure AD B2C-katalogen innehåller vanligt vis en webbapp med namnet `b2c-extensions-app`. Det här programmet används främst av de inbyggda B2C-principerna för de anpassade anspråk som skapats via Azure Portal. Vi rekommenderar att endast avancerade användare registrerar tillägg för anpassade B2C-principer med hjälp av det här programmet.
 Instruktioner finns i avsnittet **Nästa steg** i den här artikeln.
 
 ## <a name="create-a-new-application-to-store-the-extension-properties"></a>Skapa ett nytt program för att lagra tilläggs egenskaperna
@@ -52,14 +53,14 @@ Instruktioner finns i avsnittet **Nästa steg** i den här artikeln.
 2. Välj **Azure Active Directory** på den vänstra navigerings menyn. Du kan behöva hitta den genom att välja **fler tjänster**.
 3. Välj **Appregistreringar**. Välj **Ny programregistrering**.
 4. Ange följande poster:
-    * Ett namn för webb programmet: **Webapp-GraphAPI-DirectoryExtensions**.
-    * Program typ: **Webbapp/API**.
+    * Ett namn för webb programmet: **webapp-GraphAPI-DirectoryExtensions**.
+    * Program typ: **webbapp/API**.
     * Inloggnings-URL: **https://{tenantName}. onmicrosoft. com/webapp-GraphAPI-DirectoryExtensions**.
 5. Välj **Skapa**.
 6. Välj det nyligen skapade webb programmet.
-7. Välj **Inställningar** > **nödvändiga behörigheter**.
+7. Välj **inställningar** > **nödvändiga behörigheter**.
 8. Välj API **Windows-Azure Active Directory**.
-9. Ange en markering i program behörigheter: **Läsa och skriva katalog data**. Välj sedan **Spara**.
+9. Ange en bock i program behörigheter: **läsa och skriva katalog data**. Välj sedan **Spara**.
 10. Välj **bevilja behörigheter** och bekräfta **Ja**.
 11. Kopiera följande identifierare till Urklipp och spara dem:
     * **Program-ID**. Exempel: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -67,9 +68,9 @@ Instruktioner finns i avsnittet **Nästa steg** i den här artikeln.
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Ändra den anpassade principen för att lägga till **ApplicationObjectId**
 
-När du följde stegen i [Azure Active Directory B2C: Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md), du hämtade och ändrade [exempelfilerna](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) med namnet **TrustFrameworkBase. XML**, **TrustFrameworkExtensions. XML**, **SignUpOrSignin. XML**, **ProfileEdit. XML**och  **PasswordReset original. XML**. I det här steget gör du fler ändringar av filerna.
+När du följde stegen i [Azure Active Directory B2C: kom igång med anpassade principer](active-directory-b2c-get-started-custom.md), hämtade och ändrade [exempelfilerna](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) med namnet **TrustFrameworkBase. XML**, **TrustFrameworkExtensions. XML**, **SignUpOrSignin. XML**, **ProfileEdit. XML**och **PasswordReset original. XML**. I det här steget gör du fler ändringar av filerna.
 
-* Öppna filen **TrustFrameworkBase. XML** och Lägg till `Metadata` avsnittet som det visas i följande exempel. Infoga det objekt-ID som du tidigare har spelat `ApplicationObjectId` in för värdet och det program-ID som du `ClientId` har spelat in för värdet:
+* Öppna filen **TrustFrameworkBase. XML** och Lägg till avsnittet `Metadata` som visas i följande exempel. Infoga det objekt-ID som du tidigare har spelat in för `ApplicationObjectId`-värdet och det program-ID som du registrerade för `ClientId` svärdet:
 
     ```xml
     <ClaimsProviders>
@@ -102,7 +103,7 @@ När du följde stegen i [Azure Active Directory B2C: Kom igång med anpassade p
 ## <a name="use-the-new-extension-property-or-custom-attribute-in-a-user-journey"></a>Använd den nya tilläggs egenskapen eller det anpassade attributet i en användar resa
 
 1. Öppna filen **ProfileEdit. XML** .
-2. Lägg till ett anpassat `loyaltyId`anspråk. Genom att inkludera det anpassade anspråket i `<RelyingParty>` elementet ingår det i token för programmet.
+2. Lägg till en anpassad anspråks `loyaltyId`. Genom att inkludera det anpassade anspråket i `<RelyingParty>`-elementet ingår det i token för programmet.
 
     ```xml
     <RelyingParty>
@@ -123,7 +124,7 @@ När du följde stegen i [Azure Active Directory B2C: Kom igång med anpassade p
     </RelyingParty>
     ```
 
-3. Öppna filen **TrustFrameworkExtensions. XML** och Lägg till`<ClaimsSchema>` elementet och dess `BuildingBlocks` underordnade element till elementet:
+3. Öppna filen **TrustFrameworkExtensions. XML** och lägg till`<ClaimsSchema>`-elementet och dess underordnade element till `BuildingBlocks`-elementet:
 
     ```xml
     <BuildingBlocks>
@@ -138,9 +139,9 @@ När du följde stegen i [Azure Active Directory B2C: Kom igång med anpassade p
     </BuildingBlocks>
     ```
 
-4. Lägg till samma `ClaimType` definition i **TrustFrameworkBase. XML**. Det är inte nödvändigt att lägga till `ClaimType` en definition i både bas-och tillägg-filerna. Nästa steg är dock `extension_loyaltyId` att lägga till **TechnicalProfiles** i bas filen. Det innebär att princip verifieringen avvisar överföringen av bas filen utan den. Det kan vara användbart att spåra körningen av användar resan med namnet **ProfileEdit** i filen **TrustFrameworkBase. XML** . Sök efter användar resan med samma namn i redigeraren. Observera att Orchestration steg 5 anropar **TechnicalProfileReferenceID = "SelfAsserted-ProfileUpdate**. Sök efter och granska den här **TechnicalProfile** för att bekanta dig med flödet.
+4. Lägg till samma `ClaimType`-definition till **TrustFrameworkBase. XML**. Du behöver inte lägga till en `ClaimType`-definition i både bas-och tillägg-filerna. Nästa steg är dock att lägga till `extension_loyaltyId` i **TechnicalProfiles** i bas filen. Det innebär att princip verifieringen avvisar överföringen av bas filen utan den. Det kan vara användbart att spåra körningen av användar resan med namnet **ProfileEdit** i filen **TrustFrameworkBase. XML** . Sök efter användar resan med samma namn i redigeraren. Observera att Orchestration steg 5 anropar **TechnicalProfileReferenceID = "SelfAsserted-ProfileUpdate**. Sök efter och granska den här **TechnicalProfile** för att bekanta dig med flödet.
 
-5. Öppna filen **TrustFrameworkBase. XML** och Lägg till `loyaltyId` som ett indata-och utgående anspråk i **TechnicalProfile SelfAsserted-ProfileUpdate**:
+5. Öppna filen **TrustFrameworkBase. XML** och lägg till `loyaltyId` som ett indata-och utgående anspråk i **TechnicalProfile SelfAsserted-ProfileUpdate**:
 
     ```xml
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -176,7 +177,7 @@ När du följde stegen i [Azure Active Directory B2C: Kom igång med anpassade p
     </TechnicalProfile>
     ```
 
-6. I filen **TrustFrameworkBase. XML** lägger du `loyaltyId` till anspråket i **TechnicalProfile AAD-UserWriteProfileUsingObjectId**. Detta tillägg behåller värdet för anspråket i tilläggs egenskapen för den aktuella användaren i katalogen:
+6. I filen **TrustFrameworkBase. XML** lägger du till `loyaltyId`-anspråk till **TechnicalProfile AAD-UserWriteProfileUsingObjectId**. Detta tillägg behåller värdet för anspråket i tilläggs egenskapen för den aktuella användaren i katalogen:
 
     ```xml
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
@@ -203,7 +204,7 @@ När du följde stegen i [Azure Active Directory B2C: Kom igång med anpassade p
     </TechnicalProfile>
     ```
 
-7. I filen **TrustFrameworkBase. XML** lägger `loyaltyId` du till anspråket i **TechnicalProfile AAD-UserReadUsingObjectId** för att läsa värdet för attributet Extension varje gång en användare loggar in. Hittills har **TechnicalProfiles** endast ändrats i flödet av lokala konton. Om du vill ha det nya attributet i flödet för ett socialt eller federerat konto måste du ändra en annan uppsättning **TechnicalProfiles** . Se **Nästa steg** -avsnitt.
+7. I filen **TrustFrameworkBase. XML** lägger du till `loyaltyId`-anspråk till **TechnicalProfile AAD-UserReadUsingObjectId** för att läsa värdet för attributet Extension varje gång en användare loggar in. Hittills har **TechnicalProfiles** endast ändrats i flödet av lokala konton. Om du vill ha det nya attributet i flödet för ett socialt eller federerat konto måste du ändra en annan uppsättning **TechnicalProfiles** . Se **Nästa steg** -avsnitt.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -233,7 +234,7 @@ När du följde stegen i [Azure Active Directory B2C: Kom igång med anpassade p
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
-1. Öppna bladet Azure AD B2C och gå till**anpassade principer**för **Identity Experience Framework** > .
+1. Öppna bladet Azure AD B2C och gå till **identifieraren för identitets miljö** > **anpassade principer**.
 1. Välj den anpassade princip som du överförde. Välj **Kör nu**.
 1. Registrera dig med hjälp av en e-postadress.
 
@@ -300,5 +301,6 @@ Mer information om tilläggs egenskaper finns i artikeln [katalog schema tilläg
 
 > [!NOTE]
 > * En **TechnicalProfile** är en element typ, eller funktion, som definierar en slut punkts namn, metadata och protokoll. **TechnicalProfile** innehåller information om utbytet av anspråk som identitets miljöns ramverk utför. När den här funktionen anropas i ett Orchestration-steg eller från en annan **TechnicalProfile**anges **InputClaims** och **OutputClaims** som parametrar av anroparen.
-> * Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_ApplicationObjectID_attributename`.
-> * Anpassade principer refererar till tilläggets attribut som **extension_attributename**. Den här referensen utesluter **ApplicationObjectId** i XML.
+> * Attribut för tillägg i Graph API namnges med hjälp av konventions `extension_ApplicationObjectID_attributename`.
+> * Anpassade principer refererar till tilläggs-attribut som **extension_attributename**. Den här referensen utesluter **ApplicationObjectId** i XML.
+> * Du måste ange attribut-ID i följande format **extension_attributename** när det refereras till.

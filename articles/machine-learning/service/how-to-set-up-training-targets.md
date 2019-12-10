@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934899a74362ec9354c772c341d38d6a8f988ab4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912469"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951878"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Läs mer om hur du [skickar experiment](#submit) i slutet av den här artikeln.
 
 ## <a name="whats-an-estimator"></a>Vad är en uppskattning?
 
-För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning. Vi rekommenderar att du använder en uppskattning för utbildning eftersom klassen innehåller metoder som gör att du enkelt kan skapa och anpassa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära). Om du behöver göra dina datafiler tillgängliga för beräknings målet, se [träna med Azure Machine Learning data uppsättningar](how-to-train-with-datasets.md).
+För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning.  Med den här klassen kan du enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära). Vi rekommenderar att du använder en uppskattning för utbildning som automatiskt contructs inbäddade objekt som en miljö eller RunConfiguration objekt åt dig. Om du vill ha mer kontroll över hur dessa objekt skapas och specfify vilka paket som ska installeras för att experiement ska köras följer du [stegen](#amlcompute) nedan för att skicka dina utbildnings experiment med ett RunConfiguration-objekt på en Azure Machine Learning-beräkning.
 
 För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
 

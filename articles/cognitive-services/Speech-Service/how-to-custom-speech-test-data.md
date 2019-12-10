@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ba95723e62cec9708684665a9d141b1e39ccb831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816401"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951844"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
@@ -62,6 +62,9 @@ Använd den här tabellen för att se till att ljudfilerna är korrekt formatera
 | Arkiv format | .zip |
 | Maximal Arkiv storlek | 2 GB |
 
+> [!TIP]
+> När du överför utbildning och testar data får. zip-filens storlek inte överskrida 2 GB. Om du behöver mer data för utbildning och testning delar du upp det i flera. zip-filer och laddar upp dem separat. Senare kan du välja att träna och testa från *flera* data uppsättningar.
+
 Om ljudet inte uppfyller dessa egenskaper eller om du vill kontrol lera om det gör det rekommenderar vi att du hämtar [SOX](http://sox.sourceforge.net) för att kontrol lera eller konvertera ljudet. Nedan visas några exempel på hur var och en av dessa aktiviteter kan göras via kommando raden:
 
 | Aktivitet | Beskrivning | SOX-kommando |
@@ -71,7 +74,7 @@ Om ljudet inte uppfyller dessa egenskaper eller om du vill kontrol lera om det g
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Ljud + mänskligt avskrifts data för testning/utbildning
 
-För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetning av ljudfiler, måste du tillhandahålla medmärkta avskrifter (ord för ord) för jämförelse. Även om det ofta finns tids krävande avskrifter, är det nödvändigt att utvärdera precisionen och träna modellen för dina användnings fall. Kom ihåg att förbättringarna i igenkänningen bara är lika lämpliga som de data som tillhandahålls. Därför är det viktigt att endast avskrifter av hög kvalitet överförs.  
+För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetning av ljudfiler, måste du tillhandahålla medmärkta avskrifter (ord för ord) för jämförelse. Även om det ofta finns tids krävande avskrifter, är det nödvändigt att utvärdera precisionen och träna modellen för dina användnings fall. Kom ihåg att förbättringarna i igenkänningen bara är lika lämpliga som de data som tillhandahålls. Därför är det viktigt att endast avskrifter av hög kvalitet överförs.
 
 | Egenskap | Värde |
 |----------|-------|
@@ -82,6 +85,9 @@ För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetn
 | Exempel format | PCM, 16-bitars |
 | Arkiv format | .zip |
 | Maximal zip-storlek | 2 GB |
+
+> [!TIP]
+> När du överför utbildning och testar data får. zip-filens storlek inte överskrida 2 GB. Om du behöver mer data för utbildning och testning delar du upp det i flera. zip-filer och laddar upp dem separat. Senare kan du välja att träna och testa från *flera* data uppsättningar.
 
 För att lösa problem som Word-borttagning eller ersättning krävs en stor mängd data för att förbättra igenkänningen. I allmänhet rekommenderar vi att du ger ord för ord-avskrifter i ungefär 10 till 1 000 timmar av ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
 

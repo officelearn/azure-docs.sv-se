@@ -1,6 +1,7 @@
 ---
-title: Definiera en teknisk validerings profil i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
-description: Definiera en Azure Active Directory teknisk profil i en anpassad princip i Azure Active Directory B2C.
+title: Definiera en teknisk validerings profil i en anpassad princip
+titleSuffix: Azure AD B2C
+description: Verifiera anspråk genom att använda en validerings teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167573"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950807"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk validerings profil i en Azure Active Directory B2C anpassad princip
 
@@ -40,7 +41,7 @@ En teknisk verifierings profil kan köras villkorligt baserat på de villkor som
 En självkontrollerad teknisk profil kan definiera en validerings teknisk profil som ska användas för att verifiera vissa eller alla dess utgående anspråk. Alla indata-anspråk för den refererade tekniska profilen måste visas i utdata-anspråk för den refererande verifieringen av den tekniska profilen.
 
 > [!NOTE]
-> Endast självkontrollerade tekniska profiler kan använda verifiering av tekniska profiler. Om du behöver validera de utgående anspråken från icke-självkontrollerade tekniska profiler bör du överväga att använda ett ytterligare Orchestration-steg i din användar resa för att hantera den tekniska profilen som är ansvarig för verifieringen.    
+> Endast självkontrollerade tekniska profiler kan använda verifiering av tekniska profiler. Om du behöver validera de utgående anspråken från icke-självkontrollerade tekniska profiler bör du överväga att använda ett ytterligare Orchestration-steg i din användar resa för att hantera den tekniska profilen som är ansvarig för verifieringen.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 

@@ -1,5 +1,6 @@
 ---
-title: Lägg till anspråk och anpassa användarindata med anpassade principer – Azure Active Directory B2C | Microsoft Docs
+title: Lägg till anspråk och anpassa användarindata i anpassade principer
+titleSuffix: Azure AD B2C
 description: Lär dig hur du anpassar användarindata och lägger till anspråk till inloggnings-eller inloggnings resan i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 452a7f61726c3039b2c2b37280d0153fbcbca5fb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066215"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948921"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "71066215"
 
 I den här artikeln lägger du till en ny användardefinierad post (ett anspråk) till din inloggnings användar resa i Azure Active Directory B2C (Azure AD B2C).  Du konfigurerar posten som en listruta och definierar om det krävs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i artikeln [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Testa inloggnings-eller inloggnings användar resan och registrera ett nytt lokalt konto innan du fortsätter.
 
@@ -113,7 +114,7 @@ Följande element används för att definiera anspråket:
 
 ### <a name="add-the-claim-to-the-user-journey"></a>Lägg till anspråket till användar resan
 
-1. Lägg till anspråket `<OutputClaim ClaimTypeReferenceId="city"/>` som en `LocalAccountSignUpWithLogonEmail` till den tekniska profilen som finns i TrustFrameworkBase-princip filen. Den här tekniska profilen använder SelfAssertedAttributeProvider.
+1. Lägg till anspråket som en `<OutputClaim ClaimTypeReferenceId="city"/>` till den `LocalAccountSignUpWithLogonEmail` tekniska profilen som finns i TrustFrameworkBase-princip filen. Den här tekniska profilen använder SelfAssertedAttributeProvider.
 
     ```xml
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -150,7 +151,7 @@ Följande element används för att definiera anspråket:
     </TechnicalProfile>
     ```
 
-2. Lägg till anspråket i AAD-UserWriteUsingLogonEmail tekniska profil som `<PersistedClaim ClaimTypeReferenceId="city" />` en för att skriva anspråket till AAD-katalogen när den har samlats in från användaren. Du kan hoppa över det här steget om du inte föredrar att behålla anspråk i katalogen för framtida bruk.
+2. Lägg till anspråket i den tekniska profilen för AAD-UserWriteUsingLogonEmail som en `<PersistedClaim ClaimTypeReferenceId="city" />` för att skriva anspråket till AAD-katalogen när du har samlat in det från användaren. Du kan hoppa över det här steget om du inte föredrar att behålla anspråk i katalogen för framtida bruk.
 
     ```xml
     <!-- Technical profiles for local accounts -->
@@ -186,7 +187,7 @@ Följande element används för att definiera anspråket:
     </TechnicalProfile>
     ```
 
-3. Lägg till `<OutputClaim ClaimTypeReferenceId="city" />` anspråket i de tekniska profiler som läser från katalogen när en användare loggar in.
+3. Lägg till `<OutputClaim ClaimTypeReferenceId="city" />`-anspråk till de tekniska profiler som läser från katalogen när en användare loggar in.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
@@ -236,7 +237,7 @@ Följande element används för att definiera anspråket:
     </TechnicalProfile>
     ```
 
-4. Lägg till `<OutputClaim ClaimTypeReferenceId="city" />` anspråket i filen SignUporSignIn. XML så att detta anspråk skickas till programmet i token efter en lyckad användar resa.
+4. Lägg till `<OutputClaim ClaimTypeReferenceId="city" />`-anspråk i filen SignUporSignIn. XML så att detta anspråk skickas till programmet i token efter en lyckad användar resa.
 
     ```xml
     <RelyingParty>
@@ -260,7 +261,7 @@ Följande element används för att definiera anspråket:
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 4. Välj **ramverk för identitets upplevelse (för hands version)** .
@@ -272,7 +273,7 @@ Registrerings skärmen bör se ut ungefär så här:
 
 ![Skärm bild av ändrat registrerings alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-Den token som skickas tillbaka till programmet inkluderar `city` anspråket.
+Den token som skickas tillbaka till programmet omfattar `city`-anspråk.
 
 ```json
 {
@@ -294,11 +295,11 @@ Den token som skickas tillbaka till programmet inkluderar `city` anspråket.
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>Valfritt: Ta bort e-postverifiering
+## <a name="optional-remove-email-verification"></a>Valfritt: ta bort e-postverifiering
 
-Om du vill hoppa över verifiering av e-post `PartnerClaimType="Verified.Email"`kan du välja att ta bort. I det här fallet är e-postadressen obligatorisk men inte verifierad, om inte "nödvändig" = True tas bort.  Överväg noga om det här alternativet är rätt för dina användnings fall.
+Om du vill hoppa över verifiering av e-post kan du välja att ta bort `PartnerClaimType="Verified.Email"`. I det här fallet är e-postadressen obligatorisk men inte verifierad, om inte "nödvändig" = True tas bort.  Överväg noga om det här alternativet är rätt för dina användnings fall.
 
-Verifierad e-post är aktiverat som `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` standard i i TrustFrameworkBase-princip filen:
+Verifierad e-post är aktiverat som standard i `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` i TrustFrameworkBase-princip filen:
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />

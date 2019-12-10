@@ -2,13 +2,13 @@
 title: Språk som stöds i Azure Functions
 description: Lär dig vilka språk som stöds (GA) och vilka som är experimentella eller i för hands versionen.
 ms.topic: conceptual
-ms.date: 08/02/2018
-ms.openlocfilehash: 3b61dd83e481d42dd15f089247d016c6b71ff0de
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 11/27/2019
+ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230289"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942264"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Språk som stöds i Azure Functions
 
@@ -24,7 +24,7 @@ Det finns tre support nivåer:
 
 ## <a name="languages-by-runtime-version"></a>Språk efter körnings version 
 
-[Det finns två versioner av Azure Functions runtime](functions-versions.md) . I följande tabell visas vilka språk som stöds i varje körnings version.
+[Det finns tre versioner av Azure Functions runtime](functions-versions.md) . I följande tabell visas vilka språk som stöds i varje körnings version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -34,7 +34,7 @@ Experiment språken i version 1. x skalar inte bra och har inte stöd för alla 
 
 Använd inte experimentella funktioner för något som du förlitar dig på, eftersom det inte finns något offentligt stöd för dem. Support ärenden bör inte öppnas för problem med experimentella språk. 
 
-Version 2. x-körningsmiljön stöder inte experiment språk. Stöd för nya språk läggs bara till om språket kan användas i produktionen. 
+Senare körnings versioner stöder inte experiment språk. Stöd för nya språk läggs bara till om språket kan användas i produktionen. 
 
 ### <a name="language-extensibility"></a>Språk utökning
 

@@ -1,6 +1,7 @@
 ---
-title: Exempel på StringCollection-anspråk för identitets upplevelse Framework-schemat för Azure Active Directory B2C | Microsoft Docs
-description: Exempel på StringCollection-anspråk för identitets upplevelse Framework-schemat för Azure Active Directory B2C.
+title: Transformerings exempel för StringCollection-anspråk för anpassade principer
+titleSuffix: Azure AD B2C
+description: Transformerings exempel för StringCollection-anspråk för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063316"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951011"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection-anspråk omvandlingar
 
@@ -67,7 +68,7 @@ Lägger till en sträng parameter till ett nytt stringCollection-anspråk.
 | InputParameter | item | sträng | Det värde som ska läggas till i utgående anspråk. |
 | OutputClaim | samling | stringCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. |
 
-Använd den här anspråks omvandlingen för att lägga till ett sträng värde till en ny eller befintlig stringCollection. I följande exempel läggs en konstant e-postadressadmin@contoso.com() till i **otherMails** -anspråket.
+Använd den här anspråks omvandlingen för att lägga till ett sträng värde till en ny eller befintlig stringCollection. I följande exempel läggs en konstant e-postadress (admin@contoso.com) till i **otherMails** -anspråket.
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">

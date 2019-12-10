@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8efc98ad2785a9052244556bddc60a5ba34bd3d8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 501e5bc1b2de91e0dd74ae0f0d9163d74dcb06f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900380"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941567"
 ---
 # <a name="references"></a>Referenser
 
@@ -23,7 +23,7 @@ Azure FarmBeats-API: er tillhandahåller jordbruks företag med ett standardiser
 - API: er för att få sensor, kamera, drönare, väder, satellit och granskade grunddata.
 - Normalisering och contextualization av data över gemensamma data leverantörer.
 - Schematiserade åtkomst och fråge funktioner på alla inmatade data.
-- Automatisk generering av metadata som kan frågas, baserat på agronom-funktioner. 
+- Automatisk generering av metadata som kan frågas, baserat på agronom-funktioner.
 - Automatiskt genererade tidssekvensiska agg regeringar för skapande av snabb modell.
 - Integrerad Azure Data Factory motor för att enkelt bygga anpassade pipeliner för data bearbetning.
 
@@ -102,7 +102,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 ### <a name="query-parameters"></a>Frågeparametrar
 
 För REST GET-anrop kan du filtrera, begränsa storleken på och sortera data i ett API-svar genom att inkludera en eller flera frågeparametrar i begärande-URI: n. För frågeparametrar, se API-dokumentationen och enskilda GET-anrop.
-När du till exempel frågar listan över enheter (GET Call på/Device) kan du ange följande frågeparametrar: 
+När du till exempel frågar listan över enheter (GET Call på/Device) kan du ange följande frågeparametrar:
 
 ![Lista över enheter](./media/for-references/query-parameters-device-1.png)
 
@@ -163,12 +163,12 @@ Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Az
 
 4. Gå till din [Datahub-Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) och gör följande:
     - Gå till **RoleAssignment-API: et**.
-    - Utför ett inlägg för att skapa ett **RoleAssignment** -objekt för det **objekt-ID** som du nyss skapade. 
+    - Utför ett inlägg för att skapa ett **RoleAssignment** -objekt för det **objekt-ID** som du nyss skapade.
 
   > [!NOTE]
   > Mer information om hur du lägger till användare och Active Directory registrering finns i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-När du har slutfört de föregående stegen kan registreringen av appen (klienten) anropa Azure FarmBeats-API: erna genom att använda en åtkomsttoken via Bearer-autentisering. 
+När du har slutfört de föregående stegen kan registreringen av appen (klienten) anropa Azure FarmBeats-API: erna genom att använda en åtkomsttoken via Bearer-autentisering.
 
 Använd åtkomsttoken för att skicka den i efterföljande API-begäranden i rubrik avsnittet som:
 

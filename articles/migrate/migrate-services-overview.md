@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5843e6a5669cd90cdc0572e7a104c4fdf70ac2b3
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 54aea9fac946713ee6c1709e952e3962bb7288e9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669134"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951776"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -34,7 +34,7 @@ Azure Migrate hjälper dig att migrera ditt företag från en lokal plats till A
 Det finns för närvarande två versioner av tjänsten Azure Migrate:
 
 - **Aktuell version**: Använd den här versionen för att skapa Azure Migrate projekt, identifiera lokala datorer och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md) om vad som är nytt i den här versionen.
-- **Tidigare version**: om du använde den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. Du kan inte längre skapa Azure Migrate projekt med hjälp av den tidigare versionen och vi rekommenderar att du inte gör nya identifieringar. Om du vill komma åt befintliga projekt går du till Azure Portal > **alla tjänster**och söker efter **Azure Migrate**. På Azure Migrate-instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
+- **Tidigare version**: om du använde den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. Du kan inte längre skapa Azure Migrate projekt med hjälp av den tidigare versionen och vi rekommenderar att du inte gör nya identifieringar. Om du vill komma åt befintliga projekt går du till Azure Portal och söker efter och väljer **Azure Migrate**. På **Azure Migrate** -instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
 
 
 

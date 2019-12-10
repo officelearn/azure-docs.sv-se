@@ -78,8 +78,6 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrera klassiska principer
       href: policy-migration-mfa.md
-    - name: Använda villkorsstyrd åtkomst
-      href: howto-conditional-access-adoption-kit.md
     - name: Felsökning
       items:
         - name: Felsöka med hjälp av What If-verktyget

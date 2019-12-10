@@ -124,8 +124,6 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: Skapa och installera VPN-klientkonfigurationsfiler
               href: point-to-site-vpn-client-configuration-azure-cert.md
-            - name: Om nedladdningsfilen för VPN-klientprofilen
-              href: about-vpn-profile-download.md
         - name: RADIUS-autentisering
           items:
             - name: Konfigurera ett virtuellt privat P2S-nätverk
@@ -142,6 +140,8 @@
               href: openvpn-azure-ad-mfa.md
             - name: Konfigurera en VPN-klient
               href: openvpn-azure-ad-client.md
+            - name: Om nedladdningsfilen för VPN-klientprofilen
+              href: about-vpn-profile-download.md
         - name: OpenVPN
           items:
             - name: Konfigurera OpenVPN för punkt-till-plats-anslutningar

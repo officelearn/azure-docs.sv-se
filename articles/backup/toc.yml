@@ -222,6 +222,8 @@
       items:
         - name: Skapa Recovery Services-valv
           href: backup-azure-arm-userestapi-createorupdatevault.md
+        - name: Uppdaterar konfigurationer för Recovery Services-valv
+          href: use-restapi-update-vault-properties.md
         - name: Skapa och uppdatera säkerhetskopieringspolicy
           href: backup-azure-arm-userestapi-createorupdatepolicy.md
         - name: Säkerhetskopiera virtuella Azure-datorer

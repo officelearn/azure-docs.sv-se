@@ -389,6 +389,8 @@
       items:
         - name: SuccessFactors-attributreferens
           href: sap-successfactors-attribute-reference.md
+        - name: Workday-attributreferens
+          href: workday-attribute-reference.md
     - name: Azure AD Connect-etableringsagent
       items:
         - name: Versionshistorik för etableringsagent

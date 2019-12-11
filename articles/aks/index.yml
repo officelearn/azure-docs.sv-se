@@ -65,13 +65,14 @@ sections:
           - html: <a href="/azure/aks/tutorial-kubernetes-scale">Skala ett program och Kubernetes-infrastruktur (Scale an application and Kubernetes infrastructure)</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Uppdatera ett program som körs i Kubernetes (Update an application running in Kubernetes)</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Uppgradera AKS-kluster</a>
+          - html: <a href="/azure/architecture/reference-architectures/microservices/aks">Lär dig om och implementera referensarkitektur för mikrotjänst</a>
   - title: Utveckla dina färdigheter med Microsoft Learn
     items:
       - type: list
         style: cards
         className: cardsFTitle
         items:
-          - title: Introduktion till behållare i Azure
+          - title: Introduktion till containrar i Azure
             href: /learn/modules/intro-to-containers/
             image:
               src: /learn/achievements/intro-to-containers.svg

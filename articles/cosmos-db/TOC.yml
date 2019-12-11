@@ -972,6 +972,8 @@
           href: access-secrets-from-keyvault.md
         - name: Certifikatbaserad autentisering med Azure Active Directory
           href: certificate-based-authentication.md
+        - name: Begränsa användaråtkomst till endast dataåtgärder
+          href: how-to-restrict-user-data.md
     - name: Företagsberedskap
       items:
         - name: Återställa data från en säkerhetskopia

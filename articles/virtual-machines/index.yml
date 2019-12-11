@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentation om Virtual Machines
 metadata:
   document_id: na
-  title: 'Dokumentation om virtuella datorer i Azure – Självstudier, API-referens | Microsoft Docs'
+  title: 'Dokumentation om virtuella datorer i Azure – självstudier, API-referens'
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
   author: georgewallace
@@ -13,8 +13,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: gwallace
-abstract:
-  description: 'Lär dig skapa virtuella Azure-datorer. Självstudier, API-referenser och annan dokumentation visar hur du skapar och distribuerar virtuella Windows- och Linux-datorer och mallar för virtuella datorer.'
+  description: Lär dig hur du skapar och distribuerar virtuella Windows- och Linux-datorer i Azure.
 sections:
   - title: null
     items:

@@ -25,7 +25,7 @@
       href: app-service-web-get-started-java.md
     - name: Skapa en statisk HTML-webbplats
       href: app-service-web-get-started-html.md
-    - name: Kör Windows-behållare
+    - name: Kör Windows-container
       href: app-service-web-get-started-windows-container.md
 - name: Självstudier
   items:
@@ -39,7 +39,7 @@
           href: app-service-web-tutorial-php-mysql.md
         - name: Node.js med MongoDB
           href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: Anpassa Windows (Behållare)
+    - name: Anpassa Windows (Container)
       href: app-service-web-tutorial-windows-containers-custom-fonts.md
     - name: Få åtkomst till SQL DB på ett säkert sätt
       href: app-service-web-tutorial-connect-msi.md
@@ -82,7 +82,11 @@
         - name: Säkerhetsöversikt
           href: overview-security.md
     - name: Nätverksfunktioner
-      href: networking-features.md
+      items:
+        - name: Översikt
+          href: networking-features.md
+        - name: Application Gateway med tjänstslutpunkter
+          href: networking/app-gateway-with-service-endpoints.md
     - name: Inkommande och utgående IP-adresser
       href: overview-inbound-outbound-ips.md
     - name: Integrering med virtuellt nätverk

@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om Azure AD Connect Cloud-etablering
+title: Vanliga frågor och svar om Azure AD Connect-molnetablering
 description: Det här dokumentet beskriver vanliga frågor om moln etablering.
 services: active-directory
 author: billmath
@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93c88b167884c455ffb995f35356b121bce8a207
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fbaafdce6f2510b58966f4b6c18e45a3fcd4a664
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793558"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997096"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -42,7 +42,7 @@ Ja. Moln etablering kan användas för att synkronisera från flera Active Direc
 
 **F: Hur uppdateras agenten?**
 
-Agenterna uppgraderas automatiskt av Microsoft. Detta minskar inbördat för att testa och validera nya agent versioner. 
+Agenterna uppgraderas automatiskt av Microsoft. För IT-teamet minskar detta belastningen på att testa och validera nya agent versioner. 
 
 **F: kan jag inaktivera automatisk uppgradering?**
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b0d71a7b010e91776a28330cfc32278c7060aab6
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4ff4025941e9a77148daa91995ecf182231d1f0b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901255"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976289"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt 
 
@@ -87,6 +87,10 @@ Följande gäller:
   * **Cenc**: för PlayReady eller Widevine (common Encryption)
   * **CBCS – AAPL**: för FAIRPLAY (AES CBC-kryptering)
   * **CBC**: för kryptering med AES-kuvert
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 I följande artiklar beskrivs nästa steg som hjälper dig att komma igång med innehålls skydd:

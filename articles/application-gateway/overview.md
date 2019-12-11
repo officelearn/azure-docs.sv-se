@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422308"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996586"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -77,7 +77,7 @@ Mer information finns i [URL-baserad routning med Application Gateway](https://d
 
 Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom samma programgateway-instans. Med den här funktionen kan du konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway eller 40 för WAF (för optimala prestanda). Varje webbplats kan dirigeras till en egen programpool. Till exempel kan programgatewayen hantera trafik för `contoso.com` och `fabrikam.com` från två serverpooler som kallas ContosoServerPool och FabrikamServerPool.
 
-Begäranden om `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
+Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
 På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara `http://blog.contoso.com` och `http://app.contoso.com` på samma distribution av en programgateway.
 
@@ -111,7 +111,7 @@ Mer information finns i stöd för [WebSocket-support](https://docs.microsoft.co
 
 ## <a name="connection-draining"></a>Anslutningstömning
 
-Anslutningstömning hjälper dig att få korrekt borttagning av medlemmar i serverdelspoolen under planerade serviceuppdateringar. Den här inställningen aktiveras via serverdelens http-inställning och kan tillämpas på alla medlemmar i en serverdelspool i samband med regelskapandet. Application Gateway säkerställer att alla avregistrerande instanser av en backend-pool inte får någon ny begäran samtidigt som de tillåter att befintliga begär Anden kan slutföras inom en angiven tids gräns. Detta gäller för båda Server dels instanserna som uttryckligen tas bort från backend-poolen med ett API-anrop, och Server dels instanser som rapporteras som skadade enligt hälso avsökningarna.
+Anslutningstömning hjälper dig att få korrekt borttagning av medlemmar i serverdelspoolen under planerade serviceuppdateringar. Den här inställningen aktiveras via serverdelens http-inställning och kan tillämpas på alla medlemmar i en serverdelspool i samband med regelskapandet. Application Gateway säkerställer att alla avregistrera instanser av en backend-pool inte får någon ny begäran samtidigt som befintliga begär Anden kan slutföras inom en konfigurerad tids gräns. Detta gäller för båda Server dels instanserna som uttryckligen tas bort från backend-poolen av en användar konfigurations ändring och Server dels instanser som rapporteras som ohälsosama enligt vad som fastställs av hälso avsökningarna. Det enda undantaget till detta är begär Anden som är kopplade till avregistrering av instanser, som har avregistrerats uttryckligen, på grund av en Gateway-hanterad session tillhörighet och kommer att fortsätta att vara proxy till de deregistrerade instanserna.
 
 Mer information finns i avsnittet om tömning av anslutningar i [Application Gateway konfigurations översikt](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 
@@ -143,10 +143,10 @@ En fullständig lista över gränserna för programgateways finns i avsnittet om
 
 I följande tabell visas ett genomsnittligt prestanda data flöde för varje Application Gateway v1-instans med SSL-avlastning aktive rad:
 
-| Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medel | Stor |
+| Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medium | Stor |
 | --- | --- | --- | --- |
 | 6 kB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
-| 100 kB |35 Mbit/s |100 Mbps |200 Mbps |
+| 100 kB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
 
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.

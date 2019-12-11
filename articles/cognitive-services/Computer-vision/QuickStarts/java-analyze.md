@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 3674db68de509c738488b8c3f1d95b7c8c31c306
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 526cc8ca002b3b6c2821eb842b0c6a7794f2cd33
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176550"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968994"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API och Java
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Java&trade; Platform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` och `COMPUTER_VISION_ENDPOINT`.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -53,7 +53,7 @@ Så här skapar du och kör exemplet:
    import org.json.JSONObject;
    ```
 
-1. Ersätt den offentliga `Main`-klassen med följande kod.
+1. Ersätt `Main` offentliga klassen med följande kod.
 1. Du kan också ersätta värdet för `imageToAnalyze` med webbadressen till en annan bild som du vill analysera.
 
 ```java
@@ -120,7 +120,7 @@ public class Main {
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`.
 
-Alternativt, om du kör programmet från ett kommando rads fönster, kör du följande kommandon. Dessa kommandon förutsätter att dina bibliotek finns i en mapp med namnet `libs` som finns i samma mapp som `Main.java`; Om du inte gör det måste du ersätta `libs` med sökvägen till dina bibliotek.
+Alternativt, om du kör programmet från ett kommando rads fönster, kör du följande kommandon. Dessa kommandon förutsätter att dina bibliotek finns i en mapp med namnet `libs` som finns i samma mapp som `Main.java`. Om du inte gör det måste du ersätta `libs` med sökvägen till dina bibliotek.
 
 1. Kompilera filen `Main.java`.
 

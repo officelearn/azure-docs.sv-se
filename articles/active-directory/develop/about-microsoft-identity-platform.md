@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca1b6cc6288b75dc7194ead916f2ecb468b053d2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7e5faf9db9a6ba97f353b54a4fb8123fde072574
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845917"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996994"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Utvecklingen av Microsofts identitetsplattform
 
@@ -26,13 +26,13 @@ Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen f
 
 Fram till nu har de flesta utvecklare arbetat med Azure AD v 1.0-plattformen för att autentisera arbets-och skol konton (etablerade av Azure AD) genom att begära token från Azure AD v 1.0-slutpunkten, med hjälp av Azure AD Authentication Library (ADAL), Azure Portal för program registrering och konfiguration och Azure AD-Graph API för program konfiguration.
 
-Med Microsoft Identity Platform (v 2.0) expanderar du din räckvidd till följande typer av användare:
+Med den enhetliga Microsoft Identity Platform (v 2.0) kan du skriva kod en gång och autentisera alla Microsoft-identiteter i ditt program. För flera plattformar rekommenderar vi att du använder Microsoft Authentication Library (MSAL) med öppen källkod för användning mot identitets Plattformens slut punkter. MSAL är enkelt att använda, ger utmärkta funktioner för enkel inloggning (SSO) för dina användare, hjälper dig att uppnå hög tillförlitlighet och prestanda och utvecklas med Microsoft Secure Development Lifecycle (SDL). När du anropar API: er kan du konfigurera ditt program så att det utnyttjar det stegvisa godkännandet, vilket gör att du kan fördröja begäran om godkännande för mer invasiva omfattningar tills programmets användning garanterar detta vid körning.  MSAL har också stöd för Azure Active Directory B2C, så dina kunder använder sina prioriterade sociala, företags eller lokala konto identiteter för att få enkel inloggning till dina program och API: er.
+
+Med Microsoft Identity Platform kan du utöka din räckvidd till följande typer av användare:
 
 - Arbets-och skol konton (etablerade Azure AD-konton)
 - Personliga konton (t. ex. Outlook.com eller Hotmail.com)
-- Dina kunder som tar sin egen e-post eller sociala identitet (till exempel LinkedIn, Facebook, Google) via det Azure AD B2C erbjudandet
-
-Med den enhetliga Microsoft Identity Platform kan du skriva kod en gång och autentisera alla Microsoft-identiteter i ditt program. Det finns ett bibliotek med öppen källkod som heter Microsoft Authentication Library (MSAL) för flera plattformar. MSAL är enkelt att använda, ger utmärkta funktioner för enkel inloggning (SSO) för dina användare, hjälper dig att uppnå hög tillförlitlighet och prestanda och utvecklas med Microsoft Secure Development Lifecycle (SDL). När du anropar API: er kan du konfigurera ditt program så att det utnyttjar det stegvisa godkännandet, vilket gör att du kan fördröja begäran om godkännande för mer invasiva omfattningar tills programmets användning garanterar detta vid körning.
+- Dina kunder som tar sin egen e-post eller sociala identitet (till exempel LinkedIn, Facebook, Google) via MSAL och Azure AD B2C
 
 Du kan använda Azure Portal för att registrera och konfigurera ditt program och använda Microsoft Graph API för program konfiguration.
 

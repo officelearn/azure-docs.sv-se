@@ -1,5 +1,5 @@
 ---
-title: Autentiserings scenarier för Microsoft Identity Platform | Azure
+title: Microsoft Identity Platform-autentiserings scenarier | Azure
 description: 'Lär dig mer om autentiserings flöden och program scenarier för Microsoft Identity Platform. Lär dig mer om de olika typerna av program som kan autentisera identiteter, Hämta token och anropa skyddade API: er.'
 services: active-directory
 author: jmprieur
@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c508bbafd31a2a72dcb7804ef2d274584345bf6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 969c7b6c86e09ec73ccf1ffa5cc4dc9703a3d25c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844302"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963808"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 

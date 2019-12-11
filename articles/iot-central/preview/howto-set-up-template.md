@@ -3,17 +3,17 @@ title: Konfigurera en enhets mall i ett Azure IoT Central-program | Microsoft Do
 description: Lär dig hur du konfigurerar en enhets mall med mätningar, inställningar, egenskaper, regler och en instrument panel.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/23/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e3925f2d6c2a1034cc96475721de7936deeb4a9d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 648d93b996cf8d4ef6a8beb323bb1ebce9d4c9c0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895636"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974384"
 ---
 # <a name="set-up-and-manage-a-device-template-preview-features"></a>Konfigurera och hantera en enhets mall (för hands versions funktioner)
 
@@ -120,10 +120,10 @@ I följande tabell visas konfigurations inställningarna för en telemetri-funkt
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för telemetri-värdet som används på instrument paneler och formulär. |
 | Namn | Namnet på fältet i telemetri meddelandet. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Funktions typ | Telemetridata. |
-| Semantisk typ | Den semantiska typen av telemetri, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Typ av kapacitet | Telemetridata. |
+| Semantiktyp | Den semantiska typen av telemetri, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Data typen telemetri, till exempel Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
-| Severity | Endast tillgängligt för den semantiska händelse typen. **Fel**, **information**eller **Varning**. |
+| Allvarsgrad | Endast tillgängligt för den semantiska händelse typen. **Fel**, **information**eller **Varning**. |
 | Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
 | Enhet | En enhet för telemetri-värdet, till exempel **mph**, **%** eller **&deg;C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
@@ -140,11 +140,11 @@ I följande tabell visas konfigurations inställningarna för en egenskaps funkt
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär. |
 | Namn | Egenskapens namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Funktions typ | Immaterialrätt. |
-| Semantisk typ | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Typ av kapacitet | Immaterialrätt. |
+| Semantiktyp | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Egenskaps data typen, t. ex. Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
 | Skrivbar | Om egenskapen inte är skrivbar kan enheten rapportera egenskaps värden till IoT Central. Om egenskapen är skrivbar kan enheten rapportera egenskaps värden till IoT Central och IoT Central kan skicka egenskaps uppdateringar till enheten.
-| Severity | Endast tillgängligt för den semantiska händelse typen. **Fel**, **information**eller **Varning**. |
+| Allvarsgrad | Endast tillgängligt för den semantiska händelse typen. **Fel**, **information**eller **Varning**. |
 | Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
 | Enhet | En enhet för egenskap svärdet, till exempel **mph**, **%** eller **&deg;C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
@@ -161,7 +161,7 @@ I följande tabell visas konfigurations inställningarna för en kommando funkti
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för kommandot som används på instrument paneler och formulär. |
 | Namn | Kommandots namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Funktions typ | Kommando |
+| Typ av kapacitet | Kommando |
 | Kommando | SynchronousExecutionType. |
 | Kommentar | Eventuella kommentarer om kommando funktionen. |
 | Beskrivning | En beskrivning av kommando funktionen. |
@@ -184,7 +184,7 @@ I följande tabell visas konfigurations inställningarna för en moln egenskap:
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för moln egenskap svärdet som används på instrument paneler och formulär. |
 | Namn | Namnet på moln egenskapen. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Semantisk typ | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Semantiktyp | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Data typen Cloud Property, till exempel Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. |
 
 ## <a name="add-customizations"></a>Lägg till anpassningar
@@ -241,7 +241,7 @@ Så här lägger du till ett formulär i en enhets mal len:
 1. Ordna egenskaperna i formuläret.
 1. Spara ändringarna.
 
-## <a name="publish-a-device-template"></a>Publicera en enhets mall
+## <a name="publish-a-device-template"></a>Publicera en enhetsmall
 
 Innan du kan ansluta en enhet som implementerar din enhets kapacitets modell måste du publicera din enhets mall.
 

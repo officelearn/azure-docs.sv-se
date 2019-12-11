@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e043d9bf0e87304868b2c573600578c911134856
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce76136f166660bf34c81aab065ba761e4c2867a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859185"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977887"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
 
 I den här snabbstarten ska du använda Azures REST API för ansiktsigenkänning med Ruby för att identifiera mänskliga ansikten i en bild.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
-- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
+- En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Skriva skriptet
 
@@ -60,7 +60,7 @@ end
 puts response.body
 ```
 
-Du måste uppdatera `request['Ocp-Apim-Subscription-Key']` värdet med din prenumerations nyckel och `uri` ändra strängen så att den innehåller rätt slut punkt.
+Du måste uppdatera `request['Ocp-Apim-Subscription-Key']`-värdet med din prenumerations nyckel och ändra `uri`s strängen så att den innehåller rätt slut punkt.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a0b0a4e89242103811f20071b7235c825c9d8bd2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900357"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967532"
 ---
 # <a name="azure-media-player-overview"></a>Översikt över Azure Media Player
 
@@ -50,6 +50,10 @@ Du kan använda [sidan Azure Media Player demonstration](https://aka.ms/azuremed
 ## <a name="set-up-azure-media-player-in-your-html"></a>Konfigurera Azure Media Player i din HTML
 
 Azure Media Player är enkelt att konfigurera. Det tar bara en liten stund att få en grundläggande uppspelning av medie innehåll från ditt Media Services-konto. Mer information om hur du konfigurerar och konfigurerar Azure Media Player finns i [Azure Media Player-dokumentationen](https://aka.ms/ampdocs) . 
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 

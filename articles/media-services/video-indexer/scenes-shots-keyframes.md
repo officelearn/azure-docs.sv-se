@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806732"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976612"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scener, klipp och nyckelbilder
 
@@ -36,7 +36,7 @@ Video Indexer bestämmer när en bild ändras i videon baserat på visuella tips
 
 ## <a name="keyframe-detection"></a>Identifiering av nyckel rutor
 
-Markerar de ramar som bäst representerar bilden. Nyckel rutor är de representativa bild rutor som valts från hela videon baserat på de egenskaper som är markerade (till exempel kontrast och stabilhet). Video Indexer hämtar en lista över nyckel Rute-ID: n som en del av bildens metadata, baserat på vilka kunder som kan extrahera nyckel Rute miniatyren. 
+Video Indexer väljer den eller de ramar som bäst representerar varje bild. Nyckel rutor är de representativa bild rutor som valts från hela videon baserat på de egenskaper som är markerade (till exempel kontrast och stabilhet). Video Indexer hämtar en lista över nyckel Rute-ID: n som en del av bildens metadata, baserat på vilka kunder som kan extrahera nyckel rutan som en hög upplöst bild.  
 
 ### <a name="extracting-keyframes"></a>Extraherar nyckel rutor
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a51a8e02ec08b9a4ee353c2c45345c4d01246894
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981833"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972667"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Snabb start: Visuellt innehåll klient bibliotek för Node. js
 
@@ -88,7 +88,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning **VisualFeatureTypes** -värden beroende på dina behov. |
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll-klient biblioteket för Node. js:
 
@@ -258,7 +258,7 @@ node index.js
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -266,5 +266,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 > [!div class="nextstepaction"]
 >[API för visuellt innehåll referens (Node. js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [Vad är API för visuellt innehåll?](../Home.md)
+* [Vad är Visuellt innehåll?](../Home.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

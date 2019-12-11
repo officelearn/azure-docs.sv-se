@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: de4565fd8b44a589dbb6c435ecf3e0625ef97b16
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d0327c05119af76bd6e056df6796392967d456d5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73613413"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973925"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och Node. js
 
 > [!NOTE]
 > Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text).
 
-I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+I den här snabb starten ska du extrahera utskriven text med optisk tecken igenkänning (OCR) från en bild med hjälp av Visuellt innehåll REST API. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Node.js](https://nodejs.org) 4.x eller senare installerat.
 - Du måste ha [npm](https://www.npmjs.com/) installerat.
@@ -48,7 +48,7 @@ Så här skapar du och kör exemplet:
    1. Stäng kommandotolksfönstret när paketet har installerats.
 
 1. Kopiera följande kod till en textredigerare.
-1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild från vilken du vill extrahera tryckt text.
+1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill extrahera tryckt text ur.
 1. Spara koden som en fil med tillägget `.js`. Till exempel `get-printed-text.js`.
 1. Öppna ett kommandotolksfönster.
 1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node get-printed-text.js`.
@@ -208,11 +208,11 @@ När du inte behöver filen längre kan du ta bort den och sedan avinstallera np
    npm uninstall request
    ```
 
-3. Stäng kommandotolkens fönster när paketet har avinstallerats.
+3. Stäng kommandotolksfönstret när paketet har avinstallerats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API:et för visuellt innehåll, som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska det API för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Utforska API för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

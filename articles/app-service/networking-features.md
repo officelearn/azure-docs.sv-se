@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672340"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971765"
 ---
 # <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
@@ -27,7 +27,7 @@ Azure App Service är ett distribuerat system. Rollerna som hanterar inkommande 
 | Inkommande funktioner | Utgående funktioner |
 |---------------------|-------------------|
 | App-tilldelad adress | Hybridanslutningar |
-| Åtkomst begränsningar | Gateway krävs VNet-integrering |
+| Åtkomstbegränsningar | Gateway krävs VNet-integrering |
 | Serviceslutpunkter | VNet-integrering (för hands version) |
 
 Om inget annat anges kan alla funktioner användas tillsammans. Du kan blanda funktionerna för att lösa de olika problemen.
@@ -38,15 +38,15 @@ För alla typer av användnings fall kan det finnas några sätt att lösa probl
  
 | Inkommande användnings fall | Funktion |
 |---------------------|-------------------|
-| Stöd för IP-baserade SSL-behov för din app | App-tilldelad adress |
-| Inte delad, dedikerad inkommande adress för din app | App-tilldelad adress |
-| Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomst begränsningar |
+| Stöd för IP-baserade SSL-behov för din app | app-tilldelad adress |
+| Inte delad, dedikerad inkommande adress för din app | app-tilldelad adress |
+| Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomstbegränsningar |
 | Exponera min app på privata IP-adresser i mitt VNet | ILB ASE </br> Application Gateway med tjänst slut punkter |
 | Begränsa åtkomsten till min app från resurser i ett virtuellt nätverk | Serviceslutpunkter </br> ILB ASE |
 | Exponera min app på en privat IP-adress i mitt VNet | ILB ASE </br> privat IP för inkommande på en Application Gateway med tjänst slut punkter |
 | Skydda min app med en WAF | Application Gateway + ILB ASE </br> Application Gateway med tjänst slut punkter </br> Azures frontend-dörr med åtkomst begränsningar |
 | Belastnings Utjämnings trafik till Mina appar i olika regioner | Azures frontend-dörr med åtkomst begränsningar | 
-| Belastnings Utjämnings trafik i samma region | Application Gateway med tjänst slut punkter | 
+| Belastnings Utjämnings trafik i samma region | [Application Gateway med tjänst slut punkter][appgwserviceendpoints] | 
 
 I följande fall av utgående användning föreslås hur du använder App Service nätverksfunktioner för att lösa utgående åtkomst behov för din app. 
 
@@ -82,11 +82,11 @@ När du använder en app-tilldelad adress, går trafiken fortfarande genom samma
 
 Du kan lära dig hur du anger en adress i din app med själv studie kursen om hur du [konfigurerar IP-baserad SSL][appassignedaddress]. 
 
-### <a name="access-restrictions"></a>Åtkomst begränsningar 
+### <a name="access-restrictions"></a>Åtkomstbegränsningar 
 
 Med funktionen åtkomst begränsningar kan du filtrera **inkommande** begär Anden baserat på den ursprungliga IP-adressen. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets rollerna där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över tillåtna och neka-adressblock som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE kan du begränsa åtkomsten från privata adress block.
 
-![Åtkomst begränsningar](media/networking-features/access-restrictions.png)
+![Åtkomstbegränsningar](media/networking-features/access-restrictions.png)
 
 Funktionen åtkomst begränsningar hjälper dig i scenarier där du vill begränsa vilka IP-adresser som kan användas för att nå din app. Bland användnings exemplen för den här funktionen är:
 
@@ -222,3 +222,4 @@ Du kan ha flera frontend-appar som använder samma API-app genom att använda VN
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

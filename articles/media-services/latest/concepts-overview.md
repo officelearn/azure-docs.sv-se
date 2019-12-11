@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 39bdcc94b785371044b5d49fd844a06a176a8fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910301"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970044"
 ---
 # <a name="media-services-concepts"></a>Media Services begrepp
 
@@ -32,7 +32,7 @@ De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utv
 
 Det här avsnittet visar hur några vanliga bransch villkor mappar till Media Services v3 API.
 
-### <a name="live-event"></a>Direktsändning
+### <a name="live-event"></a>Live-händelse
 
 En **Live-händelse** representerar en pipeline för inmatning, kodning (valfritt) och paketering av direktsända video-, ljud-och real tids metadata.
 
@@ -51,7 +51,7 @@ För att börja hantera, kryptera, koda, analysera och strömma medie innehåll 
 - [Uppladdning till och lagring i molnet](storage-account-concept.md)
 - [Till gångs koncept](assets-concept.md)
 
-## <a name="encoding"></a>Kodning
+## <a name="encoding"></a>Encoding
 
 När du har överfört digitala mediefiler med hög kvalitet till till gångar kan du koda dem till-format som kan spelas upp i en mängd olika webbläsare och enheter. 
 
@@ -62,7 +62,7 @@ Om du vill koda med Media Services v3 måste du skapa **transformeringar** och *
 - [Transformeringar och jobb](transforms-jobs-concept.md)
 - [Kodning med Media Services](encoding-concept.md)
 
-## <a name="media-analytics"></a>Mediaanalys
+## <a name="media-analytics"></a>Medieanalys
 
 Om du vill analysera dina video-och ljudfiler måste du också skapa **transformeringar** och **jobb**.
 
@@ -101,6 +101,9 @@ Du kan använda Media Services **dynamiska manifest** för att endast strömma e
 - [Dynamiska manifest](filters-dynamic-manifest-overview.md)
 - [Filter](filters-concept.md)
 
+> [!NOTE]
+> Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
+
 ## <a name="live-streaming"></a>Liveuppspelning
 
 Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azure-molnet. **Livehändelser** ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en **Live-händelse**skapas en ingångs slut punkt som du kan använda för att skicka en Live-signal från en fjär kodare. När strömmen flödar in i Live- **evenemanget**kan du starta den strömmande händelsen genom att skapa en **till gång**, en **Live-utgång**och en **strömmande positionerare**. **Live-utdata** kommer att arkivera strömmen till **till gången** och göra den tillgänglig för användare via **slut punkten för direkt uppspelning**. En **Live-händelse** kan vara en av två typer: direkt kodning och **Live** **-** kodning.
@@ -116,7 +119,7 @@ Följande bild illustrerar arbets flödet genom strömnings typ:
 
 ### <a name="event-grid"></a>Event Grid
 
-Om du vill se förloppet för jobbet bör du använda **Event Grid**. Media Services utskriver också direkt händelse typer. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. 
+Om du vill se förloppet för jobbet bör du använda **Event Grid**. Media Services utskriver också direkt händelse typer. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt anpassade källor. 
 
 - [Hantera Event Grid händelser](reacting-to-media-services-events.md)
 - [Scheman](media-services-event-schemas.md)

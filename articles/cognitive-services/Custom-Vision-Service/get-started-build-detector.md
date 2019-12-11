@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 0ca849e75f01573bbb356105b281f03d267836e6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 0d9c175db1370fe07b3278a46d910c59d81df860
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "73520466"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969929"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Snabb start: så här skapar du en objekt detektor med Custom Vision
 
@@ -23,7 +23,7 @@ I den här snabb starten får du lära dig hur du skapar en objekt detektor via 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En uppsättning avbildningar som du kan använda för att träna din detektor modell. Du kan använda en uppsättning [exempel bilder](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) på GitHub. Du kan också välja egna bilder med hjälp av tipsen nedan.
 
@@ -54,7 +54,7 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
     |Domain|Syfte|
     |---|---|
     |__Allmänt__| Optimerad för ett brett utbud av objekt identifierings aktiviteter. Om ingen av de andra domänerna är lämpliga, eller om du är osäker på vilken domän du väljer, väljer du den allmänna domänen. |
-    |__Microsofts__|Optimerad för att hitta varumärkes logo typer i bilder.|
+    |__Logotyp__|Optimerad för att hitta varumärkes logo typer i bilder.|
     |__Komprimerade domäner__| Optimerad för begränsningar av objekt identifiering i real tid på mobila enheter. Modeller som genereras av komprimerade domäner kan exporteras för att köras lokalt.|
 
 1. Välj slutligen __skapa projekt__.
@@ -100,7 +100,7 @@ När utbildningen har slutförts beräknas och visas modellens prestanda. I Cust
 
 ![Utbildnings resultatet visar den övergripande precisionen och återställningen och genomsnitts precisionen.](./media/get-started-build-detector/trained-performance.png)
 
-### <a name="probability-threshold"></a>Sannolikhets tröskel
+### <a name="probability-threshold"></a>Tröskelvärde för sannolikhet
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 

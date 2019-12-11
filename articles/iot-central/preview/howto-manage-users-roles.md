@@ -3,17 +3,17 @@ title: Hantera användare och roller i Azure IoT Central program | Microsoft Doc
 description: Som administratör kan du hantera användare och roller i ditt Azure IoT Central-program
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/22/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 603bc4ad39a472f2ebc786257bc7c625e3f6b9a4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9729a51c36a520a2c196fb83515c9fa616411cf3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895753"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974435"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>Hantera användare och roller i ditt IoT Central program (för hands versions funktioner)
 
@@ -95,7 +95,7 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
+| Visa | Inget     |
 | Hantera | Visa <br/> Andra beroenden: Visa enhets instanser  |
 | Fullständig behörighet | Visa, hantera <br/> Andra beroenden: Visa enhets instanser |
 
@@ -103,9 +103,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen <br/> Andra beroenden: Visa mallar och enhets grupper |
-| Uppdatering | Visa <br/> Andra beroenden: Visa mallar och enhets grupper  |
-| Skapa | Visa <br/> Andra beroenden: Visa mallar och enhets grupper  |
+| Visa | Inget <br/> Andra beroenden: Visa mallar och enhets grupper |
+| Uppdatera | Visa <br/> Andra beroenden: Visa mallar och enhets grupper  |
+| Create | Visa <br/> Andra beroenden: Visa mallar och enhets grupper  |
 | Ta bort | Visa <br/> Andra beroenden: Visa mallar och enhets grupper  |
 | Köra kommandon | Uppdatera, Visa <br/> Andra beroenden: Visa mallar och enhets grupper  |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort, köra kommandon <br/> Andra beroenden: Visa mallar och enhets grupper  |
@@ -114,9 +114,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen <br/> Andra beroenden: Visa mallar för enheter och enhets instanser |
-| Uppdatering | Visa <br/> Andra beroenden: Visa mallar för enheter och enhets instanser   |
-| Skapa | Visa, uppdatera <br/> Andra beroenden: Visa mallar för enheter och enhets instanser   |
+| Visa | Inget <br/> Andra beroenden: Visa mallar för enheter och enhets instanser |
+| Uppdatera | Visa <br/> Andra beroenden: Visa mallar för enheter och enhets instanser   |
+| Create | Visa, uppdatera <br/> Andra beroenden: Visa mallar för enheter och enhets instanser   |
 | Ta bort | Visa <br/> Andra beroenden: Visa mallar för enheter och enhets instanser   |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort <br/> Andra beroenden: Visa mallar för enheter och enhets instanser |
 
@@ -124,9 +124,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Läs instans | Ingen <br/> Andra beroenden: Visa enhetsspecifika, enhets grupper, enhets instanser |
-| Hantera instanstjänsten | Ingen |
-| Läs global | Ingen   |
+| Läs instans | Inget <br/> Andra beroenden: Visa enhetsspecifika, enhets grupper, enhets instanser |
+| Hantera instanstjänsten | Inget |
+| Läs global | Inget   |
 | Hantera globala | Läs global |
 | Fullständig behörighet | Läs instans, hantera instans, läsa global, hantera global. <br/> Andra beroenden: Visa enhetsspecifika, enhets grupper, enhets instanser |
 
@@ -134,9 +134,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper |
-| Uppdatering | Visa <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper |
-| Skapa | Visa, uppdatera <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper |
+| Visa | Inget <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper |
+| Uppdatera | Visa <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper |
+| Create | Visa, uppdatera <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper |
 | Ta bort | Visa <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper |
 | Genomförande | Visa <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper; Uppdatera enhets instanser; Köra kommandon på enhets instanser |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort, köra <br/> Andra beroenden: Visa enhetsspecifika, enhets instanser och enhets grupper; Uppdatera enhets instanser; Köra kommandon på enhets instanser |
@@ -145,9 +145,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen <br/> Andra beroenden: Visa mallar för enheter |
-| Uppdatering | Visa <br/> Andra beroenden: Visa mallar för enheter |
-| Skapa | Visa, uppdatera <br/> Andra beroenden: Visa mallar för enheter |
+| Visa | Inget <br/> Andra beroenden: Visa mallar för enheter |
+| Uppdatera | Visa <br/> Andra beroenden: Visa mallar för enheter |
+| Create | Visa, uppdatera <br/> Andra beroenden: Visa mallar för enheter |
 | Ta bort | Visa <br/> Andra beroenden: Visa mallar för enheter |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort <br/> Andra beroenden: Visa mallar för enheter |
 
@@ -157,8 +157,8 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
-| Uppdatering | Visa   |
+| Visa | Inget     |
+| Uppdatera | Visa   |
 | Kopiera | Visa <br/> Andra beroenden: Visa mallar för enheter, enhets instanser, enhets grupper, instrument paneler, data export, anpassning, hjälp länkar, anpassade roller, regler |
 | Ta bort | Visa   |
 | Fullständig behörighet | Visa, uppdatera, kopiera och ta bort <br/> Andra beroenden: Visa enhetsspecifika, enhets grupper, program instrument paneler, data export, anpassning, hjälp länkar, anpassade roller, regler |
@@ -167,7 +167,7 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
+| Visa | Inget     |
 | Exportera | Visa <br/> Andra beroenden: Visa mallar för enheter, enhets instanser, enhets grupper, instrument paneler, data export, anpassning, hjälp länkar, anpassade roller, regler |
 | Fullständig behörighet | Visa, exportera <br/> Andra beroenden: Visa enhetsspecifika, enhets grupper, program instrument paneler, data export, anpassning, hjälp länkar, anpassade roller, regler |
 
@@ -175,7 +175,7 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Hantera | Ingen     |
+| Hantera | Inget     |
 | Fullständig behörighet | Hantera |
 
 #### <a name="managing-users-and-roles"></a>Hantera användare och roller
@@ -184,9 +184,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen |
-| Uppdatering | Visa |
-| Skapa | Visa, uppdatera |
+| Visa | Inget |
+| Uppdatera | Visa |
+| Create | Visa, uppdatera |
 | Ta bort | Visa |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort |
 
@@ -194,7 +194,7 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen <br/> Andra beroenden: Visa anpassade roller |
+| Visa | Inget <br/> Andra beroenden: Visa anpassade roller |
 | Lägg till | Visa <br/> Andra beroenden: Visa anpassade roller |
 | Ta bort | Visa <br/> Andra beroenden: Visa anpassade roller |
 | Fullständig behörighet | Visa, lägga till, ta bort <br/> Andra beroenden: Visa anpassade roller |
@@ -208,9 +208,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
-| Uppdatering | Visa   |
-| Skapa | Visa, uppdatera |
+| Visa | Inget     |
+| Uppdatera | Visa   |
+| Create | Visa, uppdatera |
 | Ta bort | Visa   |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort |
 
@@ -218,9 +218,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
-| Uppdatering | Visa   |
-| Skapa | Visa, uppdatera   |
+| Visa | Inget     |
+| Uppdatera | Visa   |
+| Create | Visa, uppdatera   |
 | Ta bort | Visa   |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort |
 
@@ -228,16 +228,16 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
-| Uppdatering | Visa   |
+| Visa | Inget     |
+| Uppdatera | Visa   |
 | Fullständig behörighet | Visa, uppdatera |
 
 **Hjälp länkar behörigheter**
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
-| Uppdatering | Visa   |
+| Visa | Inget     |
+| Uppdatera | Visa   |
 | Fullständig behörighet | Visa, uppdatera |
 
 #### <a name="extending-the-app"></a>Utöka appen
@@ -246,9 +246,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
-| Uppdatering | Visa   |
-| Skapa | Visa, uppdatera  |
+| Visa | Inget     |
+| Uppdatera | Visa   |
+| Create | Visa, uppdatera  |
 | Ta bort | Visa   |
 | Fullständig behörighet | Visa, uppdatera, skapa, ta bort |
 
@@ -256,8 +256,8 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 
 | Namn | Beroenden |
 | ---- | -------- |
-| Visa | Ingen     |
-| Skapa | Visa   |
+| Visa | Inget     |
+| Create | Visa   |
 | Ta bort | Visa   |
 | Fullständig behörighet | Visa, skapa, ta bort |
 

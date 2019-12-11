@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Utföra en webbsökning med C# – REST-API:et för webbsökning i Bing'
+title: 'Snabb start: utföra en Webbs C# ökning med-webbsökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka begäranden till REST-API:et för webbsökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6c847af4f6938923abdfced4d5e8b842ae84eca6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823363"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978823"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabbstart: Söka på webben med hjälp av REST-API:et för webbsökning i Bing och C#
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API ochC#
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Detta C# programmet skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten när du gör ditt första anrop till API:et för webbsökning i Bing och ta sedan emot JSON-svaret. Det C# här programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Några variabler måste anges innan vi kan fortsätta. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till koden för den `Program` klassen som anges ovan.
+Några variabler måste anges innan vi kan fortsätta.  `uriBase` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till den här koden i `Program`-klassen som anges ovan.
 
 ```csharp
 // Enter a valid subscription key.
@@ -78,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Deklarera Main-metoden
 
-Den `Main()` metod krävs och det är den första metoden anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
+Metoden `Main()` måste anges och det är den första metoden som anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
 
 Tänk på att `main()` är beroende av metoder som skapas i de avsnitt som följer.
 
@@ -109,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Skapa en struct för sökresultat
 
-Den här structen returnerar sökresultat med relevanta rubriker. Den anropas när du gör en begäran till Bing Web Search API för att skapa ett resultatobjekt.
+Den här structen returnerar sökresultat med relevanta rubriker. Den anropas när du gör en begäran till API för webbsökning i Bing för att skapa ett resultat objekt.
 
 ```csharp
 // Returns search results with headers.

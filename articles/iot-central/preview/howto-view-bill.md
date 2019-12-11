@@ -3,17 +3,17 @@ title: Hantera din faktura och konvertera utvärderings versionen så att du bet
 description: Som administratör lär du dig att hantera din faktura och konvertera från utvärderings versionen till ditt Azure IoT Central-program
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 11bcdaab34cf4d82b688a578ab2d9ee686ffe07e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0c1c1643fb8c8394ce3ce50e5926f05fd4d366f6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894817"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976425"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Hantera din faktura i ett IoT Central program
 

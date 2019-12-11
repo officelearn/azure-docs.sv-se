@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370ccd2508e9dda35ccc5815dce42a7b7089c07e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7acd4b8014aad7b70f1a67c91368477599a97901
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160018"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudie: Azure Active Directory integrering med snö flingor
 
@@ -47,6 +47,7 @@ Om du vill konfigurera Azure AD-integrering med Snowflake behöver du följande 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
 * Snowflake har stöd för **SP- och IDP**-initierad enkel inloggning
+* Snö har stöd för [Automatisk användar etablering och avetablering](snowflake-provisioning-tutorial.md) (rekommenderas)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Lägga till Snowflake från galleriet
 

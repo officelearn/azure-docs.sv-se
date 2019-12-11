@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438627"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997232"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Dra tillbaka Security Center funktioner (2019 juli)
 
@@ -169,7 +169,7 @@ Om du har befintliga anslutna lösningar rekommenderar vi att du flyttar till Az
 
 Azure Security Center övervakar säkerhetskonfigurationer genom att använda en uppsättning av [över 150 rekommenderade regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för att härda operativsystemet. Dessa regler gäller brand väggar, granskning, lösen ords principer med mera. Om en sårbar konfiguration hittas på en dator, genererar Security Center en säkerhetsrekommendation. På sidan [Redigera säkerhets konfiguration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) kan kunderna anpassa standard säkerhets konfigurationen för operativ systemet i Security Center.
 
-Vi drog tillbaka den här förhands gransknings funktionen. Om du vill återställa säkerhetskonfigurationerna till standardvärdena efter indragnings datumet gör du det via API eller PowerShell med hjälp av [följande instruktioner](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
+Vi drog tillbaka den här förhands gransknings funktionen. Om du vill återställa säkerhetskonfigurationerna till standardvärdena efter indragnings datumet gör du det via API eller PowerShell med hjälp av [följande instruktioner](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization).
 
 ![Redigera säkerhetskonfigurationer][17]
 

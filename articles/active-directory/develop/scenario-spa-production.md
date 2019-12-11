@@ -1,5 +1,5 @@
 ---
-title: En Enkels Ides applikation (flytta till produktion) – Microsoft Identity Platform
+title: Flytta en app med en enda sida till produktion – Microsoft Identity Platform | Azure
 description: Lär dig hur du skapar ett program med en sida (flytta till produktion)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ba41b29cfcea2d9dfcab2cd552040eaffa4e90ff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766114"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965287"
 ---
 # <a name="single-page-application-move-to-production"></a>Program med en sida: flytta till produktion
 

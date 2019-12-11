@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - TPM-attestering
-description: Den här artikeln innehåller en översikt över TPM-attestering flödet med hjälp av IoT Device Provisioning-tjänsten.
+title: Azure-IoT Hub Device Provisioning Service – TPM-attestering
+description: Den här artikeln innehåller en översikt över flödet för TPM-attestering med IoT Device Provisioning-tjänsten (DPS).
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746478"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975286"
 ---
 # <a name="tpm-attestation"></a>TPM-attestering
 
-IoT Hub Device Provisioning Service är en hjälptjänst för IoT-hubb som används för att konfigurera zero touch-enhetsetablering till en angiven IoT-hubb. Med Device Provisioning-tjänsten, kan du etablera miljontals enheter på ett säkert sätt.
+IoT Hub Device Provisioning Service är en hjälp tjänst för IoT Hub som du använder för att konfigurera enhets etablering med noll touch till en angiven IoT-hubb. Med enhets etablerings tjänsten kan du etablera miljon tals enheter på ett säkert sätt.
 
-Den här artikeln beskriver attesteringsprocessen identitet när du använder en [TPM](./concepts-device.md). TPM står för Trusted Platform Module och är en typ av maskinvarusäkerhetsmodul (HSM). Den här artikeln förutsätter att du använder en diskret, inbyggd programvara eller integrerad TPM. Programvara emulerade TPM: er lämpar sig väl för prototyper eller testning, men de gör inte ger samma nivå av säkerhet som diskreta, inbyggd programvara eller integrerad TPM: er att göra. Vi rekommenderar inte att använda programvara TPM: er i produktionen. Mer information om typer av TPM: er finns i [en kort introduktion till TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+I den här artikeln beskrivs processen för identitets attestering när du använder en [TPM](./concepts-device.md). TPM står för Trusted Platform Module och är en typ av HSM (Hardware Security Module). Den här artikeln förutsätter att du använder en diskret, inbyggd program vara eller integrerad TPM. Programvarubaserade TPM: er lämpar sig väl för prototyper eller testning, men de ger inte samma säkerhets nivå som diskret, inbyggd program vara eller integrerade TPM: er. Vi rekommenderar inte att du använder programvaru-TPM: er i produktion. Mer information om typer av TPM: er finns i [en kort introduktion till TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
-Den här artikeln gäller endast för enheter som använder TPM 2.0 med stöd för HMAC-nyckel och bekräftelsenyckeln nycklar. Det är inte för enheter som använder X.509-certifikat för autentisering. TPM är en branschomfattande, ISO-standarden från Trusted Computing Group och du kan läsa mer om TPM på den [fullständig TPM 2.0-specifikationen](https://trustedcomputinggroup.org/tpm-library-specification/) eller [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). Den här artikeln förutsätts även att du är bekant med offentliga och privata nyckelpar och hur de används för kryptering.
+Den här artikeln är endast relevant för enheter som använder TPM 2,0 med stöd för HMAC-nycklar och deras bekräftelse nycklar. Det är inte för enheter som använder X. 509-certifikat för autentisering. TPM är en ISO-standard som är bransch standard från Trusted Computing Group och du kan läsa mer om TPM i den [fullständiga tpm 2,0-specifikationen](https://trustedcomputinggroup.org/tpm-library-specification/) eller [ISO/IEC 11889-specifikationen](https://www.iso.org/standard/66510.html). Den här artikeln förutsätter också att du är van vid offentliga och privata nyckel par och hur de används för kryptering.
 
-Enheten Device Provisioning-tjänsten med hjälp av SDK: er hantera allt som beskrivs i den här artikeln för dig. Det finns inget behov av att implementera något mer om du använder SDK: erna på dina enheter. Den här artikeln hjälper dig att förstå begreppsmässigt vad som händer med din TPM-chip för säkerhet när din enhet etablerar och varför det är det skyddar.
+Enhets Provisioning service-enhetens SDK: er hanterar allt som beskrivs i den här artikeln. Du behöver inte implementera något ytterligare om du använder SDK: er på dina enheter. Den här artikeln hjälper dig att förstå vad som händer med ditt TPM-säkerhetschip när enhets bestämmelserna och varför det är säkert.
 
 ## <a name="overview"></a>Översikt
 
-TPM: er använder något som kallas bekräftelsenyckeln (EK) som säker förtroenderoten. En Bekräftelsenyckel som är unika för TPM och ändra den i grunden ändrar enheten till en ny.
+TPM: er använder något som kallas bekräftelse nyckel (EK) som säker rot för förtroendet. EK är unikt för TPM: en och ändrar den så att den ändrar enheten i en ny.
 
-Det finns en annan typ av nyckel att TPM: er har, heter lagringsrotnyckel (SRK). En SRK kan genereras av TPM-ägare när den ägarskapet till TPM. Ägarskap av TPM är på TPM-specifika sätt av som säger ”någon anger ett lösenord för HSM”. Om en TPM-enhet säljs till en ny ägare, kan den nya ägaren bli ägare till TPM: en för att generera en ny SRK. Den nya generationen SRK säkerställer den föregående ägaren inte kan använda TPM. Eftersom SRK är unika för ägaren av TPM, användas SRK för att försegla data in i TPM själva för den aktuella ägaren. SRK ger en sandlåda för ägare för att kunna lagra sina nycklar och ger åtkomst revocability om enheten eller TPM säljs. Det är som att flytta till en ny house: ägarskap förändrar lås på dörrarna och förstöra alla möbler som lämnats kvar av de föregående ägarna (SRK), men du kan inte ändra adressen för house (EK).
+Det finns en annan typ av nyckel som används av TPM, som kallas lagrings rot nyckel (SRK). En SRK-enhet kan genereras av TPM: s ägare när den tar ägarskap över TPM: en. Att bli ägare till TPM är det TPM-specificerade sättet att säga "någon anger ett lösen ord på HSM." Om en TPM-enhet säljs till en ny ägare kan den nya ägaren bli ägare till TPM: en för att generera en ny SRK. Den nya SRK-genereringen säkerställer att den tidigare ägaren inte kan använda TPM. Eftersom SRK är unik för TPM-ägaren, kan SRK användas för att försegla data till själva TPM: en för den ägaren. SRK ger en Sand låda för ägaren att lagra sina nycklar och ger åtkomst till revocability om enheten eller TPM: en säljs. Det är som att flytta till ett nytt hus: När ägarskapet ändras ändras lås på dörrarna och alla möbler som ägs av tidigare ägare (SRK) tas bort, men du kan inte ändra adressen för huset (EK).
 
-När en enhet har ställts in och klar att användas, får både ett EK och en SRK som är tillgängliga för användning.
+När en enhet har kon figurer ATS och är redo att användas har den både en EK och en SRK tillgänglig för användning.
 
 ![Bli ägare till en TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-En anteckning på ägarskap av TPM: Bli ägare till en TPM beror på många olika saker, inklusive TPM-tillverkare, uppsättning TPM-verktyg som används och enhetens operativsystem. Följ instruktionerna i systemet för att bli ägare.
+En kommentar om att bli ägare till TPM: en är beroende av många saker, inklusive TPM-tillverkare, den uppsättning TPM-verktyg som används och enhetens operativ system. Följ de anvisningar som är relevanta för ditt system för att bli ägare.
 
-Device Provisioning-tjänsten använder den offentliga delen av EK (EK_pub) för att identifiera och registrera enheter. Tillverkaren kan läsa EK_pub under tillverkning eller slutlig testning och ladda upp EK_pub till etableringstjänsten, så att enheten identifieras när den ansluter till etablera. Device Provisioning-tjänsten kontrollerar inte SRK eller ägare, så att ”rensa” TPM rensar kunddata, men en Bekräftelsenyckel (och andra leverantörsdata) bevaras och enheten fortfarande känns igen av Device Provisioning-tjänsten när den ansluter till etablera.
+Enhets etablerings tjänsten använder den offentliga delen av EK (EK_pub) för att identifiera och registrera enheter. Enhets leverantören kan läsa EK_pub under tillverkning eller slutlig testning och ladda upp EK_pub till etablerings tjänsten så att enheten kan identifieras när den ansluter till etableringen. Enhets etablerings tjänsten kontrollerar inte SRK eller ägaren, så "rensar" TPM: en tar bort kund information, men EK (och annan leverantörs information) bevaras och enheten kommer fortfarande att identifieras av enhets etablerings tjänsten när den ansluter till etableringen.
 
-## <a name="detailed-attestation-process"></a>Detaljerad attesteringsprocessen
+## <a name="detailed-attestation-process"></a>Detaljerad attesterings process
 
-När en enhet med en TPM ansluter först till Device Provisioning-tjänsten, kontrollerar tjänsten först den angivna EK_pub mot EK_pub som lagras i registreringslistan. Om inte EK_pubs matchar tillåts inte enheten att etablera. Om EK_pubs matchar kräver tjänsten sedan enheten att bevisa ägarskapet för den privata delen av EK via en tillfälligt utmaning, vilket är en säker utmaning som används för att bevisa identiteten. Device Provisioning-tjänsten genererar en nonce och krypterar den med SRK och sedan EK_pub, som tillhandahålls av enheten under det första registreringen-anropet. TPM skyddar alltid den privata delen av en Bekräftelsenyckel. Detta förhindrar förfalskning och SAS-token etableras på ett säkert sätt till auktoriserade enheter.
+När en enhet med en TPM ansluter först till enhets etablerings tjänsten, kontrollerar tjänsten först EK_pub mot EK_pub som lagras i registrerings listan. Om EK_pubs inte matchar, kan enheten inte etableras. Om EK_pubs matchar, kräver tjänsten att enheten försäkrar ägarskapet av den privata delen av EK via en nonce-utmaning, som är en säker utmaning som används för att bevisa identiteten. Enhets etablerings tjänsten genererar ett nonce och krypterar den sedan med SRK och sedan EK_pub, som anges av enheten under det första registrerings anropet. TPM: en behåller alltid den privata delen av den säkra EK-delen. Detta förhindrar förfalskning och säkerställer att SAS-token allokeras säkert till auktoriserade enheter.
 
-Låt oss gå igenom attesteringsprocessen i detalj.
+Låt oss gå igenom attesterings processen i detalj.
 
-### <a name="device-requests-an-iot-hub-assignment"></a>Enhet begär en IoT Hub-tilldelning
+### <a name="device-requests-an-iot-hub-assignment"></a>Enhet begär en IoT Hub tilldelning
 
-Enheten ansluter först till Device Provisioning-tjänsten och begär att etablera. Du gör det förser enheten tjänsten med dess registrerings-ID, ett ID-omfång och EK_pub och SRK_pub från TPM. Tjänsten skickar den krypterade nonce till enheten och frågar enheten för att dekryptera nonce och använda den för att logga en SAS-token för att ansluta igen och avsluta etableringen.
+Först enheten ansluter till enhets etablerings tjänsten och begär Anden om att etablera. Då tillhandahåller enheten tjänsten med sitt registrerings-ID, ett ID-omfång och EK_pub och SRK_pub från TPM: en. Tjänsten skickar den krypterade nonce tillbaka till enheten och ber enheten att dekryptera nonce och använda det för att signera en SAS-token för att ansluta igen och slutföra etableringen.
 
-![Begäranden om etablering och enhet](./media/concepts-tpm-attestation/step-one-request-provisioning.png)
+![Etablering av enhets begär Anden](./media/concepts-tpm-attestation/step-one-request-provisioning.png)
 
-### <a name="nonce-challenge"></a>Tillfälligt utmaning
+### <a name="nonce-challenge"></a>Nonce-utmaning
 
-Enheten temporärt ID och använder de privata delarna av EK och SRK för att dekryptera temporärt ID in i TPM; ordningen på tillfälligt kryptering delegerar förtroende från en Bekräftelsenyckel som inte kan ändras till SRK, som kan ändra om en ny ägare ägarskapet till TPM.
+Enheten tar med nonce och använder de privata delarna av EK och SRK för att dekryptera nonce i TPM: en. ordningen för nonce-kryptering delegerar förtroendet från EK, som är oföränderligt, till SRK, som kan ändra om en ny ägare tar ägande av TPM: en.
 
-![Dekryptera temporärt ID](./media/concepts-tpm-attestation/step-two-nonce.png)
+![Dekrypterar nonce](./media/concepts-tpm-attestation/step-two-nonce.png)
 
 ### <a name="validate-the-nonce-and-receive-credentials"></a>Verifiera nonce och ta emot autentiseringsuppgifter
 
-Enheten kan sedan registrera en SAS-token med hjälp av den dekrypterade nonce och återupprätta en anslutning till Device Provisioning-tjänsten med hjälp av signerade SAS-token. Nonce utmaningen har slutförts, kan tjänsten enheten för etablering.
+Enheten kan sedan signera en SAS-token med hjälp av dekrypterad nonce och återupprätta en anslutning till enhets etablerings tjänsten med hjälp av den signerade SAS-token. När nonce-utmaningen har slutförts tillåter tjänsten att enheten etablerar.
 
-![Enheten som återupprättar anslutningen till Device Provisioning-tjänsten att validera EK ägarskap](./media/concepts-tpm-attestation/step-three-validation.png)
+![Enheten återupprättar anslutningen till enhets etablerings tjänsten för att validera EK-ägande](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu enheten ansluter till IoT Hub och du helt säker i vetskapen om att dina enheter nycklar lagras på ett säkert sätt. Nu när du vet hur Device Provisioning-tjänsten på ett säkert sätt verifierar en enhetsidentitet som använder TPM, finns i följande artiklar om du vill veta mer:
+Enheten ansluter nu till IoT Hub och du är säker på att dina enhets nycklar lagras på ett säkert sätt. Nu när du vet hur enhets etablerings tjänsten verifierar en enhets identitet på ett säkert sätt med hjälp av TPM kan du läsa mer i följande artiklar:
 
-* [Lär dig mer om alla begreppen i Automatisk etablering](./concepts-auto-provisioning.md)
-* [Kom igång med hjälp av Automatisk etablering](./quick-setup-auto-provision.md) använder SDK: erna för att ta hand om flödet.
+* [Lär dig mer om alla koncept vid automatisk etablering](./concepts-auto-provisioning.md)
+* [Kom igång med automatisk etablering](./quick-setup-auto-provision.md) med hjälp av SDK: er för att ta hand om flödet.

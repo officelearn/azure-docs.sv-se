@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821271"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973534"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Välj mellan vCore och DTU inköps modeller
 
@@ -102,7 +102,7 @@ De resurser som används av arbets belastningen påverkar inte resurserna som ä
 
 ![avgränsnings ruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Till exempel:
+DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Exempel:
 
 - Att dubblera DTU: er genom att öka beräknings storleken för en databas, motsvarar att dubblera den uppsättning av resurser som är tillgängliga för den databasen.
 - En Premium Service Tier p11-databas med 1750 DTU: er ger beräkningskraft mer DTU-beräknings kraft än en grundläggande tjänst nivå databas med 5 DTU: er.  
@@ -129,7 +129,7 @@ Om du vill migrera en befintlig lokal eller SQL Server virtuell dators arbets be
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Arbets belastningar som drar nytta av en elastisk pool av resurser
 
-Pooler lämpar sig väl för databaser med ett genomsnittligt medelvärde för resursanvändning och relativt ovanliga användnings toppar. SQL Database utvärderar automatiskt den historiska resurs användningen av databaser på en befintlig SQL Database-Server och rekommenderar lämplig konfiguration av poolen i Azure Portal. Mer information finns i [när bör du överväga en SQL Database elastisk pool?](sql-database-elastic-pool.md).
+Pooler lämpar sig väl för databaser med ett genomsnittligt medelvärde för resursanvändning och relativt ovanliga användnings toppar. Mer information finns i [när bör du överväga en SQL Database elastisk pool?](sql-database-elastic-pool.md).
 
 ## <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 

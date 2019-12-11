@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927668"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978636"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -245,7 +245,7 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | Hanterad instans | Azure SQL Database hanterade instansen stöds för närvarande inte med storskaliga databaser. |
 | Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database storskalig.|
 | Migrering till storskalig skalning är för närvarande en enkelriktad åtgärd | När en databas har migrerats till storskalig kan den inte migreras direkt till en icke-storskalig tjänst nivå. Det enda sättet att migrera en databas från storskalig till icke-storskalig är att exportera/importera med hjälp av en BACPAC-fil eller annan teknik för data förflyttning (Mass kopiering, Azure Data Factory, Azure Databricks, SSIS osv.)|
-| Migrering av databaser med beständiga minnes objekt | Storskaligt stöder endast icke-beständiga minnes objekt (tabell typer, inbyggda SPs och funktioner).  Permanenta InMemory-tabeller och andra objekt måste släppas och återskapas som icke-minnesbaserade objekt innan migreringen av en databas till den storskaliga tjänst nivån.|
+| Migrering av databaser med InMemory OLTP-objekt | Storskaligt stöder endast en delmängd av InMemory OLTP-objekt typer, inklusive minnesoptimerade tabell typer, internt kompilerade lagrade procedurer och funktioner. Men när det finns minnesbaserade OLTP-objekt i databasen stöds inte direkt migrering från Premium-och Affärskritisk-tjänst nivåer till storskalig skalning. Migrering av en sådan databas till storskalig kräver tre steg: (1) ta bort alla InMemory OLTP-objekt och deras beroenden. Om du vill bevara data i varaktiga minnesoptimerade tabeller konverterar du dem till disk tabeller. (2) ändra databasens tjänst nivå till skalning. (3) återskapa tidigare borttagna objekt. Varaktiga och icke-varaktiga minnesoptimerade tabeller stöds inte för närvarande i storskaliga och måste vara disk tabeller. Minnesoptimerade Table-variabler stöds. |
 | Spårning av ändringar | Ändringsspårning finns för närvarande i en offentlig för hands version och kan aktive ras på nya eller befintliga storskaliga databaser. |
 | Geo-replikering  | Du kan inte konfigurera geo-replikering för Azure SQL Database storskaligt. |
 | Databas kopia | Du kan inte använda databas kopiering ännu för att skapa en ny databas i Azure SQL-skalning. |

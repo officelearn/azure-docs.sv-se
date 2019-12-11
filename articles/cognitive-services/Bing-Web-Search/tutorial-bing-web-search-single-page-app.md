@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa en enkelsidig webbapp – API för webbsökning i Bing'
+title: 'Självstudier: Skapa ensideswebbapp – API för webbsökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Den här ensidesappen visar hur API för webbsökning i Bing kan användas för att hämta, analysera och visa relevanta sökresultat i en ensidesapp.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ec6c1ef31b6cf92629be600b3b139bb2e1a0d3ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390053"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977258"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en enkelsidig app med hjälp av API:et för webbsökning i Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
 
 Den här ensidesappen visar hur du hämtar, analyserar och visar sökresultat från API för webbsökning i Bing. Självstudien använder formaterad HTML och CSS och fokuserar på JavaScript-koden. HTML-, CSS- och JS-filer finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) med snabbstartsinstruktioner.
 
@@ -32,7 +32,7 @@ Den här exempelappen kan:
 
 För att använda den här appen krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du kan behöva för att köra appen:
 
@@ -287,7 +287,7 @@ function handleBingResponse() {
 
 En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
 
-| Fas | Potentiella fel | Hanterat av |
+| Mellanlagra | Potentiella fel | Hanterat av |
 |-------|--------------------|------------|
 | Skapa objektbegäran | Ogiltig URL | `try` / `catch` blockera |
 | Skapa begäran | Nätverksfel, avbrutna anslutningar | Händelsehanterare för `error` och `abort` |
@@ -421,7 +421,7 @@ Bildåtergivare:
 * Beräknar storleken på miniatyrbilderna (bredd varierar, medan höjd är högst 60 bildpunkter).
 * Infogar den HTML som föregår bildresultatet baserat på kontext.
 * Skapar en HTML `<a>`-tagg som länkar till den sida som innehåller bilden.
-* Skapar en HTML `<img>`-tagg för att visa miniatyrbilden.
+* Skapar HTML `<img>`-taggen för att visa miniatyrbilden.
 
 Bildåtergivning använder variablerna `section` och `index` för att visa resultat på olika sätt beroende på var de förekommer. En radbrytning (`<br>`-tagg) infogas mellan bildresultat i sidopanelen, så att sidopanelen visar en kolumn med bilder. I andra avsnitt, föregås det första bildresultatet `(index === 0)` av en `<p>`-tagg.
 

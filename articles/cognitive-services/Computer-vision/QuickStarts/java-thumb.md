@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 703453de705ab8a2e1b5b324bdad25ea221cfbfb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 01dd03eb0ed17fc43e62c8f749dfa2de78e38f69
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177213"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974588"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Snabb start: skapa en miniatyr med hjälp av Visuellt innehåll REST API och Java
 
-I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av REST-API:et. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
+I den här snabb starten ska du skapa en miniatyr bild från en avbildning med hjälp av Visuellt innehåll REST API. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Java&trade; Platform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` och `COMPUTER_VISION_ENDPOINT`.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -58,7 +58,7 @@ Så här skapar du och kör exemplet:
    import org.json.JSONObject;
    ```
 
-1. Ersätt den offentliga `Main`-klassen med följande kod.
+1. Ersätt `Main` offentliga klassen med följande kod.
 1. Du kan också ersätta värdet för `imageToAnalyze` med webbadressen till en annan bild som du vill generera en miniatyrbild för.
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Till exempel `java Main`.

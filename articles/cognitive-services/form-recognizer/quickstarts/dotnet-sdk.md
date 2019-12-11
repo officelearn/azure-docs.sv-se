@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904609"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978619"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabb start: formulär tolkens klient bibliotek för .NET
 
@@ -99,7 +99,7 @@ Följande klasser hanterar huvud funktionerna i formulär igenkännings-SDK: n.
 |[AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview)| Den här klassen ger resultatet av en analys åtgärd för anpassad modell. Den innehåller en lista över **ExtractedPage** -instanser. |
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Den här klassen representerar alla data som extraheras från ett enda formulär dokument.|
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 <!--
     Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.

@@ -1,20 +1,20 @@
 ---
 title: Interagera med en IoT-Plug and Play förhands gransknings enhet från en Azure IoT-lösning | Microsoft Docs
 description: 'Som en lösnings utvecklare kan du läsa om hur du använder tjänst-SDK: n för att interagera med IoT Plug and Play-enheter.'
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 07/24/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5abfe0300bd61f5ccfbfccedf16659f055eb8ad4
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878000"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977598"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Ansluta till och interagera med en IoT Plug and Play förhands gransknings enhet
 
@@ -30,7 +30,7 @@ npm install
 
 ## <a name="run-the-service-samples"></a>Kör tjänst exemplen
 
-Använd följande exempel för att utforska funktionerna i Node. js-tjänst-SDK: n. Kontrol lera att `IOTHUB_CONNECTION_STRING` miljövariabeln har angetts i gränssnittet som du använder:
+Använd följande exempel för att utforska funktionerna i Node. js-tjänst-SDK: n. Kontrol lera att variabeln `IOTHUB_CONNECTION_STRING`s miljö har angetts i gränssnittet som du använder:
 
 ### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Hämta en digital, och visa en lista över gränssnitten
 
@@ -40,11 +40,11 @@ Använd följande exempel för att utforska funktionerna i Node. js-tjänst-SDK:
 
 ### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Hämta och ange egenskaper med hjälp av Node service SDK
 
-**update_digital_twin. js** uppdaterar en skrivbar egenskap på enheten digitalt med en fullständig korrigerings fil. Du kan uppdatera flera egenskaper på flera gränssnitt om du vill. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som om enhets exemplet skriver ut något om att uppdatera en egenskap som tjänst exemplet skriver ut ett uppdaterat digitalt objekt i terminalen.
+**update_digital_twin. js** uppdaterar en skrivbar egenskap på enheten digitalt med en fullständig korrigering. Du kan uppdatera flera egenskaper på flera gränssnitt om du vill. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som om enhets exemplet skriver ut något om att uppdatera en egenskap som tjänst exemplet skriver ut ett uppdaterat digitalt objekt i terminalen.
 
 ### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Skicka ett kommando och hämta svaret med Node service SDK
 
-**invoke_command. js** anropar ett synkront kommando på din enhets digitala enhet. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som enhets exemplet skriver ut något om att bekräfta ett kommando och tjänst klienten skriver ut resultatet av kommandot i terminalen.
+**invoke_command. js** anropar ett synkront kommando på enheten digitalt. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som enhets exemplet skriver ut något om att bekräfta ett kommando och tjänst klienten skriver ut resultatet av kommandot i terminalen.
 
 ### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Anslut till den offentliga lagrings platsen och hämta en modell definition med hjälp av Node service SDK
 
@@ -70,7 +70,7 @@ Det här exemplet laddar ned **ModelDiscovery** -gränssnittet och skriver ut de
 
 ### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Köra frågor i IoT Hub baserade på kapacitets modeller och gränssnitt
 
-IoT Hub frågespråk stöder `HAS_INTERFACE` och `HAS_CAPABILITYMODEL` som visas i följande exempel:
+Språket IoT Hub Query stöder `HAS_INTERFACE` och `HAS_CAPABILITYMODEL` som visas i följande exempel:
 
 ```sql
 select * from devices where HAS_INTERFACE('id without version', version)
@@ -87,7 +87,7 @@ Din lösning kan ta emot aviseringar om digitala dubbla ändrings händelser. Om
 Så här skapar du en digital, dubbel väg:
 
 1. I Azure Portal går du till din IoT Hub-resurs.
-1. Väljmeddelanderoutning.
+1. Välj **meddelanderoutning**.
 1. Välj **Lägg till**på fliken **vägar** .
 1. Ange ett värde i fältet **namn** och välj en **slut punkt**. Om du inte har konfigurerat någon slut punkt väljer du **Lägg till slut punkt**.
 1. I list rutan **data källa** väljer du **digitala dubbla ändrings händelser**.

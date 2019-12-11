@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 62c9ac0020db92c1540d0ecb4fa996d9b8405a58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307272"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974265"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Självstudie: träna och distribuera din första modell i R med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ I den här självstudien kommer du att lära dig följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Följ [installations anvisningarna](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) för att:
     + Installera Anaconda
@@ -142,7 +142,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### <a name="upload-data-to-the-datastore"></a>Ladda upp data till data lagret
-Ladda upp data till molnet så att de kan komma åt den i din miljö för fjärr utbildning. Varje Azure ML-arbetsyta levereras med ett standard data lager som lagrar anslutnings informationen till Azure Blob-behållaren som är etablerad i det lagrings konto som är kopplat till arbets ytan. Följande kod överför de olycks data som du skapade ovan till det data lagret.
+Ladda upp data till molnet så att de kan komma åt den i din miljö för fjärr utbildning. Varje Azure Machine Learning arbets yta levereras med ett standard data lager som lagrar anslutnings informationen till den Azure Blob-behållare som är etablerad i det lagrings konto som är kopplat till arbets ytan. Följande kod överför de olycks data som du skapade ovan till det data lagret.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -164,10 +164,10 @@ I den här självstudien får du anpassa en logistik Regressions modell på dina
 * Skicka jobbet
 
 ### <a name="prepare-the-training-script"></a>Förbereda övnings skriptet
-Ett utbildnings skript som heter `accidents.R` har angetts för dig i samma katalog som den här självstudien. Observera följande information **i övnings skriptet** som har utförts för att utnyttja Azure ml-tjänsten för utbildning:
+Ett utbildnings skript som heter `accidents.R` har angetts för dig i samma katalog som den här självstudien. Observera följande information **i övnings skriptet** som har utförts för att utnyttja Azure Machine Learning för utbildning:
 
 * Övnings skriptet tar ett argument `-d` för att hitta den katalog som innehåller tränings data. När du definierar och skickar jobbet senare pekar du på data lagret för det här argumentet. Azure ML kommer att montera lagringsmappen till fjärrklusteret för utbildnings jobbet.
-* Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure ML med hjälp av `log_metric_to_run()`. Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Azure Machine Learning Studio](https://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()`.
+* Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure ML med hjälp av `log_metric_to_run()`. Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Studio](https://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()`.
 * Övnings skriptet sparar din modell i en katalog med namnet **outputs**. `./outputs`-mappen får särskild behandling av Azure ML. Under utbildningen överförs filer som skrivs till `./outputs` automatiskt till din körnings post av Azure ML och behålls som artefakter. Genom att spara den tränade modellen till `./outputs`kommer du att kunna komma åt och hämta modell filen även när körningen är över och du inte längre har åtkomst till din fjärran sluten miljö.
 
 ### <a name="create-an-estimator"></a>Skapa ett beräkningsobjekt

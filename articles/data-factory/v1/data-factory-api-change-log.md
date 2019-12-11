@@ -1,6 +1,6 @@
 ---
 title: Data Factory-.NET API-ändrings logg
-description: Beskriver hur du bryter ändringar, funktions tillägg, fel korrigeringar osv... i en speciell version av .NET API för Azure Data Factory.
+description: Beskriver hur du avbryter ändringar, funktions tillägg, fel korrigeringar och så vidare i en speciell version av .NET API för Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: e1902db6bc3a127262f5e37f36e82b07ab15c7c9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683200"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979010"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory-.NET API-ändrings logg
 > [!NOTE]
@@ -78,7 +78,7 @@ Funktions tillägg:
   * Gör det möjligt att använda PolyBase för att kopiera data till SQL Data Warehouse.
 
 ## <a name="version-461"></a>Version 4.6.1
-### <a name="bug-fixes"></a>Fel korrigeringar
+### <a name="bug-fixes"></a>Felkorrigeringar
 * Korrigerar HTTP-begäran för List aktivitets fönster.
   * Tar bort resurs grupps namnet och data fabriks namnet från nytto lasten för begäran.
 
@@ -101,7 +101,7 @@ Funktions tillägg:
 * Följande typer av data uppsättningar har lagts till:
   * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
 * Följande kopierings käll typer har lagts till:     
-  * [Webbkälla](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
+  * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
 ## <a name="version-440"></a>Version 4.4.0
 ### <a name="feature-additions"></a>Funktions tillägg

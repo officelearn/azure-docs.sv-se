@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: cd0d09e4d46747b7f3f8e6fb714dd711beef9484
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 6bd99a200a8f9e6be6d155a334b9b06ac05eacc3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770855"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972191"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsamma Query-loggar i Azure Database for MySQL
 I Azure Database for MySQL är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
@@ -21,9 +21,11 @@ Mer information om den långsamma loggen MySQL finns i [avsnittet om långsam fr
 ## <a name="access-slow-query-logs"></a>Komma åt långsamma Query-loggar
 Du kan visa och hämta Azure Database for MySQL långsamma fråge loggar med hjälp av Azure Portal och Azure CLI.
 
-I Azure Portal väljer du Azure Database for MySQL-servern. Under **övervaknings** rubriken väljer du sidan **Server loggar** .
+Välj din Azure Database for MySQL-server i Azure-portalen. Under **övervaknings** rubriken väljer du sidan **Server loggar** .
 
 Mer information om Azure CLI finns i [Konfigurera och komma åt långsamma Query-loggar med Azure CLI](howto-configure-server-logs-in-cli.md).
+
+På samma sätt kan du skicka loggfiler till Azure Monitor med hjälp av diagnostikloggar. Se [nedan](concepts-server-logs.md#diagnostic-logs) för mer information.
 
 ## <a name="log-retention"></a>Logg kvarhållning
 Loggar är tillgängliga i upp till sju dagar från deras skapande. Om den totala storleken på de tillgängliga loggarna överstiger 7 GB, tas de äldsta filerna bort tills utrymmet är tillgängligt. 
@@ -39,6 +41,7 @@ Andra parametrar som du kan justera är:
 - **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de instruktioner som skrivs till slow_query_log.
 - **log_queries_not_using_indexes**: bestämmer om frågor som inte använder index ska loggas i slow_query_log
 - **log_throttle_queries_not_using_indexes**: den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på på.
+- **log_output**: om "File", tillåter att den långsamma fråge loggen skrivs till både den lokala serverns lagrings plats och för att Azure Monitor diagnostikloggar. Om du använder "ingen" skrivs den långsamma fråge loggen bara till den lokala serverns lagring. 
 
 > [!Note]
 > För `sql_text`kommer loggen att trunkeras om den överskrider 2048 tecken.
@@ -58,10 +61,10 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated` [UTC] | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. `AzureDiagnostics` alltid |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMYSQL` alltid |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -78,7 +81,7 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 | `insert_id_s` | Infoga ID |
 | `sql_text_s` | Fullständig fråga |
 | `server_id_s` | Serverns ID |
-| `thread_id_s` | Tråd-ID |
+| `thread_id_s` | Tråd-id |
 | `\_ResourceId` | Resurs-URI |
 
 ## <a name="next-steps"></a>Nästa steg

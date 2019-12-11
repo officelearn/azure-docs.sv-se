@@ -3,17 +3,17 @@ title: Förstå versions hantering av enhets mallar för dina Azure IoT Central-
 description: Iterera över dina enhetsspecifika mallar genom att skapa nya versioner och utan att påverka dina Live-anslutna enheter
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 666c3030d91fba3c3bdfe23f808c4e830dff6ec1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1f2ecb37ebe156b1eb092bda95f296c39c9e2baf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895597"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974972"
 ---
 # <a name="create-a-new-device-template-version-preview-features"></a>Skapa en ny version av enhets mal len (förhands gransknings funktioner)
 
@@ -32,7 +32,7 @@ Vissa delar av enhetens funktioner kan redige ras utan att du behöver version a
 1. Välj den enhets mall som du vill anpassa.
 1. Välj fliken **Anpassa** .
 1. Alla funktioner som definieras i enhetens kapacitets modell visas här. Alla fält som du kan redigera här kan sparas och användas i hela programmet, utan att du behöver ha en version av din enhets mall. Om det finns fält som du vill redigera som är skrivskyddade måste du konfigurera enhets mal len för att ändra dessa. Välj ett fält som du vill redigera och ange i alla nya värden.
-1. Klicka på **Spara**. Dessa värden kommer nu att åsidosätta allting som ursprungligen sparades i din enhets mall och som kommer att användas i hela programmet.
+1. Klicka på **Save** (Spara). Dessa värden kommer nu att åsidosätta allting som ursprungligen sparades i din enhets mall och som kommer att användas i hela programmet.
 
 ## <a name="versioning-a-device-template"></a>Versions hantering av enhets mal len
 

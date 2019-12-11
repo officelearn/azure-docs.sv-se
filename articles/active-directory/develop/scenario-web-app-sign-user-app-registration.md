@@ -1,6 +1,6 @@
 ---
-title: Webbapp som loggar in användare (app-registrering) – Microsoft Identity Platform
-description: Lär dig hur du skapar en webbapp som loggar in användare (app-registrering)
+title: Registrera en webbapp som loggar in användare – Microsoft Identity Platform | Azure
+description: Lär dig hur du registrerar en webbapp som loggar in användare
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766080"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964828"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Webbapp som loggar in användare: app-registrering
 
@@ -58,7 +58,7 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
 1. Välj menyn **Autentisering** och lägg sedan till följande information:
    1. Lägg till **https://localhost:44321/signin-oidc** av typen **webb**för **svars-URL**.
    1. I avsnittet **Avancerade inställningar** ställer du in **utloggnings-URL** till **https://localhost:44321/signout-oidc** .
-   1. Under **implicit beviljande**väljer du **ID-token**.
+   1. Under **Implicit beviljande** väljer du **ID-token**.
    1. Välj **Spara**.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)

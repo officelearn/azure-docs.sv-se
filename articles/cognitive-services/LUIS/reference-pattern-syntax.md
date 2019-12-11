@@ -8,34 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/11/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: c1353ae530493c34413399a7fbbfe56fb74d452f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010769"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974350"
 ---
-# <a name="pattern-syntax"></a>Mönstret syntax
+# <a name="pattern-syntax"></a>Mönstersyntax
 
-Mönstret syntaxen är en mall för ett uttryck. Mallen bör innehålla ord och entiteter som du vill matcha samt ord och skiljetecken som du vill ignorera. Det är **inte** ett reguljärt uttryck. 
+Mönstret syntaxen är en mall för ett uttryck. Mallen bör innehålla ord och entiteter som du vill matcha samt ord och skiljetecken som du vill ignorera. Det är **inte** ett reguljärt uttryck.
 
-Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla entiteter och entiteter med roller. [Mönster. alla](luis-concept-entity-types.md#patternany-entity) är en entitet som endast används i mönster. 
+> [!CAUTION]
+> Mönster innehåller bara de datorer som har lärt sin föräldrar, inte del komponenter.
+
+Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla entiteter och entiteter med roller. [Mönster. alla](luis-concept-entity-types.md#patternany-entity) är en entitet som endast används i mönster.
 
 Pattern-syntaxen stöder följande syntax:
 
 |Funktion|Syntax|Kapslings nivå|Exempel|
 |--|--|--|--|
 |entitet| {} klammer|2|Var finns formatet {Entity-Name}?|
-|valfritt|[]-hakparenteser<BR><BR>Det finns en gräns på 3 på kapslings nivåer för valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
-|Baserat|() – parenteser|2|is (a \| b)|
-|eller| \|-lodrätt streck (pipe)<br><br>Det finns en gräns på 2 på de lodräta staplarna (eller) i en grupp |-|Där är form ({form-Name-Short} &#x7c; {form-Name-Long} &#x7c; {form-Number})| 
+|valfri|[]-hakparenteser<BR><BR>Det finns en gräns på 3 på kapslings nivåer för valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
+|baserat|() – parenteser|2|is (a \| b)|
+|eller| \|-lodrätt streck (pipe)<br><br>Det finns en gräns på 2 på de lodräta staplarna (eller) i en grupp |-|Där är form ({form-Name-Short} &#x7c; {form-Name-Long} &#x7c; {form-Number})|
 |början och/eller slutet av uttryck|^-cirkumflex|-|^ Starta uttryck<br>uttryck är slutförd ^<br>^ Strict literal matchning av hela uttryck med {Number} Entity ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Kapsla syntax i mönster
 
-Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Till exempel: `[[this]is] a new form`. I det här exemplet används följande yttranden: 
+Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Till exempel: `[[this]is] a new form`. I det här exemplet används följande yttranden:
 
 |Exempel på kapslade valfria uttryck|Förklaring|
 |--|--|
@@ -43,7 +46,7 @@ Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Till exem
 |är ett nytt formulär|matchar yttre valfria ord och icke-valfria ord i mönstret|
 |ett nytt formulär|matchar endast obligatoriska ord|
 
-**Grupperingstypen** , med parenteser, kan kapslas två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Med den här funktionen kan alla de tre entiteterna matchas. 
+**Grupperingstypen** , med parenteser, kan kapslas två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Med den här funktionen kan alla de tre entiteterna matchas.
 
 Om Entity1 är en plats med roller som t. ex. ursprung (Seattle) och destination (Cairo) och entitet 2 är ett känt byggnads namn från en List-entitet (RedWest-C) mappar följande yttranden till det här mönstret:
 
@@ -57,7 +60,7 @@ Om Entity1 är en plats med roller som t. ex. ursprung (Seattle) och destination
 
 En kombination av **gruppering** med **valfri** syntax har en gräns på 3 kapslings nivåer.
 
-|Gett|Exempel|
+|Tillåts|Exempel|
 |--|--|
 |Ja|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
 |Nej|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
@@ -66,29 +69,29 @@ En kombination av **gruppering** med **valfri** syntax har en gräns på 3 kapsl
 
 En kombination av **gruppering** med **eller-ing-** syntaxen har en gräns på 2 lodräta staplar.
 
-|Gett|Exempel|
+|Tillåts|Exempel|
 |--|--|
 |Ja|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
 |Nej|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxen för att lägga till en entitet i en mall för mönstret
-Om du vill lägga till en entitet i mallen mönstret omger entitetsnamn med klammerparenteser, till exempel `Who does {Employee} manage?`. 
+Om du vill lägga till en entitet i mallen mönstret omger entitetsnamn med klammerparenteser, till exempel `Who does {Employee} manage?`.
 
 |Mönstret med entitet|
 |--|
 |`Who does {Employee} manage?`|
 
 ## <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Syntaxen för att lägga till en enhet och en roll i en mall för mönstret
-En entitet roll är angiven som `{entity:role}` med enhetens namn följt av ett kolon och sedan namnet på rollen. Om du vill lägga till en entitet med en roll i mallen mönstret omger enhetsnamnet och rollnamn med klammerparenteser, till exempel `Book a ticket from {Location:Origin} to {Location:Destination}`. 
+En entitet roll är angiven som `{entity:role}` med enhetens namn följt av ett kolon och sedan namnet på rollen. Om du vill lägga till en entitet med en roll i mallen mönstret omger enhetsnamnet och rollnamn med klammerparenteser, till exempel `Book a ticket from {Location:Origin} to {Location:Destination}`.
 
 |Mönstret med entiteten roller|
 |--|
 |`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ## <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Syntaxen för att lägga till en pattern.any mönster för mallen
-Entiteten Pattern.any kan du lägga till en entitet med varierande längd i mönstret. Så länge som mallen mönster följs kan pattern.any vara valfri längd. 
+Entiteten Pattern.any kan du lägga till en entitet med varierande längd i mönstret. Så länge som mallen mönster följs kan pattern.any vara valfri längd.
 
-Att lägga till en **Pattern.any** entiteten i mallen mönstret omger Pattern.any entiteten med klammerparenteser, till exempel `How much does {Booktitle} cost and what format is it available in?`.  
+Att lägga till en **Pattern.any** entiteten i mallen mönstret omger Pattern.any entiteten med klammerparenteser, till exempel `How much does {Booktitle} cost and what format is it available in?`.
 
 |Mönstret med Pattern.any entitet|
 |--|
@@ -98,7 +101,7 @@ Att lägga till en **Pattern.any** entiteten i mallen mönstret omger Pattern.an
 |--|
 |Hur mycket **stjäla den här boken** kostnaden och vilket format är tillgängliga i?|
 |Hur mycket **be** kostnaden och vilket format är tillgängliga i?|
-|Hur mycket **The nyfiken Incident av hund på natten-tiden** kostnaden och vilket format är tillgängliga i?| 
+|Hur mycket **The nyfiken Incident av hund på natten-tiden** kostnaden och vilket format är tillgängliga i?|
 
 Texten i bok rubriken är inte förvirrande för LUIS eftersom LUIS vet var bok rubriken slutar, baserat på mönstret. alla entiteter.
 
@@ -107,7 +110,7 @@ Texten i bok rubriken är inte förvirrande för LUIS eftersom LUIS vet var bok 
 skapa en [explicit lista](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) via redigerings-API: n för att tillåta undantaget när:
 
 * Ditt mönster innehåller ett [mönster. alla](luis-concept-entity-types.md#patternany-entity)
-* Och den mönstermatchningssyntax ger möjlighet till en felaktig enhets extrahering baserat på uttryck. 
+* Och den mönstermatchningssyntax ger möjlighet till en felaktig enhets extrahering baserat på uttryck.
 
 Anta exempelvis att du har ett mönster som innehåller både valfria syntax `[]`, och entiteten syntax `{}`, kombinerade på ett sätt att extrahera data felaktigt.
 
@@ -115,12 +118,12 @@ Att kartlägga mönstret ”[Sök efter] e-post om {ämne} [från {namn}].
 
 I följande uttryck i **ämne** och **person** entitet extraheras korrekt och felaktigt:
 
-|Yttrande|Entitet|Korrekt extrahering|
+|Yttrande|Enhet|Korrekt extrahering|
 |--|--|:--:|
 |e-post om hundar från Chris|ämne = hundar<br>person = Chris|✔|
 |e-post om man från La Mancha|ämne = mannen<br>person = La Mancha|X|
 
-I tabellen ovan ska ämnet vara `the man from La Mancha` (en bok titel), men eftersom det valfria ordet `from`i ämnet, är rubriken felaktigt förväntad. 
+I tabellen ovan ska ämnet vara `the man from La Mancha` (en bok titel), men eftersom det valfria ordet `from`i ämnet, är rubriken felaktigt förväntad.
 
 Åtgärda det här undantaget i mönstret genom att lägga till `the man from la mancha` som en explicit lista matchning för entiteten {subject} med den [redigering API för explicit lista](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -132,7 +135,7 @@ Markera valfri text i uttryck som använder syntax för reguljära uttryck hakpa
 |`[find] email about {subject} [from {person}]`|`find` och `from {person}` är valfria|
 |' Kan du hjälpa mig [?]|Interpunktion-tecknet är valfritt|
 
-Skiljetecken (`?`, `!`, `.`) ignoreras och du måste ignorera dem med hjälp av hakparenteser i mönster. 
+Skiljetecken (`?`, `!`, `.`) ignoreras och du måste ignorera dem med hjälp av hakparenteser i mönster.
 
 ## <a name="next-steps"></a>Nästa steg
 

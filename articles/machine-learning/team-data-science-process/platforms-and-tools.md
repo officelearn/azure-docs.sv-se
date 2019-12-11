@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626367"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978517"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för dataforskningsprojekt
 
@@ -44,7 +44,7 @@ Den virtuella datorn för datavetenskap erbjuds på både Windows och Linux av M
 - Power BI desktop för Windows
 - SQL Server 2016 Developer Edition på Windows / Postgres på Linux
 
-Den innehåller också **ML- och AI-verktyg** som xgboost, mxnet och Vowpal Wabbit.
+Den innehåller också **ml-och AI-verktyg** som xgboost, Mxnet och Vowpal Wabbit.
 
 DSVM är för närvarande tillgängligt i **Windows** och **Linux CentOS** operativsystem. Välj storleken på din DSVM (antal processorkärnor) och mängden minne baserat på dina behov för data science-projekt som du planerar att köra på den. 
 
@@ -73,7 +73,7 @@ Mer information om Azure SQL Data Warehouse finns i den [SQL Data Warehouse](htt
 
 Azure data lake är som en företagsomfattande lagringsplats för alla typer av data som samlas in på en enda plats innan några formella krav eller schemat som införts. Den här flexibiliteten gör att alla typer av data som ska lagras i en datasjö, oavsett dess storlek eller struktur eller hur snabbt det matas in. Organisationer kan sedan använda Hadoop eller avancerad analys för att hitta mönster i dessa data Lake-sjöar. Data Lake-sjöar kan också fungera som en lagringsplats för förberedelse av data för lägre kostnad innan curating data och flytta den till ett datalager.
 
-Mer information om Azure Data Lake finns i [introduktion till Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Läs hur du skapar en skalbar slutpunkt till slutpunkt data science-lösning med Azure Data Lake i [skalbar datavetenskap i Azure Data Lake: En slutpunkt till slutpunkt genomgång](data-lake-walkthrough.md)
+Mer information om Azure Data Lake finns i [introduktion till Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Läs hur du skapar en skalbar slutpunkt till slutpunkt data science-lösning med Azure Data Lake i [skalbar datavetenskap i Azure Data Lake: genomgång för en slutpunkt till slutpunkt](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Azure HDInsight Hive (Hadoop)-kluster
@@ -103,7 +103,7 @@ R Services (databasintern) stöder språk R med öppen källkod med en omfattand
 TDSP-teamet från Microsoft har publicerat två slutpunkt till slutpunkt genomgång som visar hur du skapar datavetenskapliga lösningar i SQL Server 2016 R Services: en för R-programmerare och en för SQL-utvecklare. För **R-programmerare**, se [Data Science slutpunkt till slutpunkt genomgång](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). För **SQL utvecklare**, se [i databasen Advanced Analytics för SQL-utvecklare (självstudier)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
-## <a name="appendix"></a>Tillägg: Verktyg för att ställa in dataforskningsprojekt
+## <a name="appendix"></a>Bilaga: Verktyg för att ställa in dataforskningsprojekt
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installera Git Credential Manager på Windows
 
@@ -124,28 +124,30 @@ Kör följande bash-kommando för att installera Git på datorer för Linux (Cen
 
 Om du använder Linux (CentOS) datorer för att köra git-kommandon måste du lägga till den offentliga SSH-nyckeln för din dator till din Azure DevOps-tjänster, så att den här datorn kan identifieras av Azure DevOps-tjänsterna. Först måste du generera en offentlig SSH-nyckel och lägga till nyckeln i offentliga SSH-nycklar i inställningen för Azure DevOps-tjänsterna säkerhetssidan. 
 
-- Om du vill skapa SSH-nyckeln, kör du följande två kommandon: 
+1. Om du vill skapa SSH-nyckeln, kör du följande två kommandon: 
 
-        ssh-keygen
-        cat .ssh/id_rsa.pub
+   ```
+   ssh-keygen
+   cat .ssh/id_rsa.pub
+   ```
+   
+   ![Kommandon för att skapa SSH-nyckeln](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-![Kommandon för att skapa SSH-nyckeln](./media/platforms-and-tools/resources-1-generate_ssh.png)
-
-- Kopiera hela ssh key inklusive *ssh-rsa*. 
-- Logga in på Azure DevOps-tjänster. 
-- Klicka på **< ditt namn\>**  i det övre högra hörnet på sidan och klicka på **security**. 
+1. Kopiera hela ssh key inklusive *ssh-rsa*. 
+1. Logga in på Azure DevOps-tjänster. 
+1. Klicka på **< ditt namn\>**  i det övre högra hörnet på sidan och klicka på **security**. 
     
-    ![Klicka på ditt namn och klicka sedan på säkerhet](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![Klicka på ditt namn och klicka sedan på säkerhet](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- Klicka på **offentliga SSH-nycklar**, och klicka på **+ Lägg till**. 
+1. Klicka på **offentliga SSH-nycklar**, och klicka på **+ Lägg till**. 
 
-    ![Klicka på offentliga SSH-nycklar och sedan klicka på + Lägg till](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![Klicka på offentliga SSH-nycklar och sedan klicka på + Lägg till](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-- Klistra in den ssh key nyss kopierade till textrutan för att spara.
+1. Klistra in den ssh key nyss kopierade till textrutan för att spara.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Fullständig slutpunkt till slutpunkt genomgång som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) avsnittet. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 
-Exempel kör stegen i Team Data Science Process som använder Azure Machine Learning Studio finns i den [med Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) Utbildningsväg.
+Exempel som visar hur du utför stegen i team data science-processen genom att använda Azure Machine Learning Studio (klassisk) finns i [Azure ml](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) Learning-sökvägen.

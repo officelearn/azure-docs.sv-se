@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 64f5afdc8eb24758fac6faa0cc6d1e4e1002b5db
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8580bafd4d68ef6567b09fefcaa01c682ae2cafe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895852"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968807"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Konfigurera en auktoriseringsprincip för innehålls nycklar
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -79,6 +79,10 @@ När du skyddar ditt innehåll med PlayReady är ett av de saker du behöver ang
         </PlayReadyLicenseResponseTemplate>
 
 Du kan välja **XML-knappen Importera princip** och ange en annan XML-kod som överensstämmer med det XML-schema som definierats i [Översikt över Media Services PlayReady-licens mal len](media-services-playready-license-template-overview.md).
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

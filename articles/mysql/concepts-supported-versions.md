@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/09/2019
+ms.openlocfilehash: b4029d49eeba53e7a502a7ac68081bb5a2d549f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970521"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971935"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Azure Database for MySQL Server versioner som stöds
 
@@ -26,22 +26,22 @@ Azure Database for MySQL stöder för närvarande följande versioner:
 
 ## <a name="mysql-version-56"></a>MySQL version 5,6
 
-Versions korrigerings version: 5.6.44
+Fel korrigerings version: 5.6.45
 
-Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
+Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 
 ## <a name="mysql-version-57"></a>MySQL version 5,7
 
-Versions korrigerings version: 5.7.26
+Fel korrigerings version: 5.7.27
 
-Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
+Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 
 ## <a name="mysql-version-80"></a>MySQL version 8,0
 
 > [!IMPORTANT]
 > MySQL 8,0 är för närvarande en för hands version.
 
-Versions korrigerings version: 8.0.15
+Fel korrigerings version: 8.0.15
 
 Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 

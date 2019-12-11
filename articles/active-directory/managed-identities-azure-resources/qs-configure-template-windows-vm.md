@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bbc596321b4882ef99104e045ee2da752b125a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6b12cd339aee0e9ae0e1cd6d31e523b9b1457c57
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547203"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971068"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av mallar
 
@@ -32,7 +32,7 @@ I den här artikeln, med hjälp av mallen för Azure Resource Manager distributi
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hur du använder mallen för Azure Resource Manager distribution kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Om du inte känner till hur du använder mallen för Azure Resource Manager distribution kan du läsa [avsnittet Översikt](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
@@ -117,12 +117,12 @@ För att tilldela en roll till den virtuella datorns systemtilldelade identitet 
 
     ```JSON
     "builtInRoleType": {
-          "type": "string",
-          "defaultValue": "Reader"
-        },
-        "rbacGuid": {
-          "type": "string"
-        }
+        "type": "string",
+        "defaultValue": "Reader"
+    },
+    "rbacGuid": {
+        "type": "string"
+    }
     ```
 
     Lägg till följande under avsnittet `variables`:
@@ -136,16 +136,16 @@ För att tilldela en roll till den virtuella datorns systemtilldelade identitet 
     ```JSON
     {
         "apiVersion": "2017-09-01",
-         "type": "Microsoft.Authorization/roleAssignments",
-         "name": "[parameters('rbacGuid')]",
-         "properties": {
-                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-                "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
-                "scope": "[resourceGroup().id]"
-          },
-          "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-            ]
+        "type": "Microsoft.Authorization/roleAssignments",
+        "name": "[parameters('rbacGuid')]",
+        "properties": {
+            "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+            "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
+            "scope": "[resourceGroup().id]"
+        },
+         "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        ]
     }
     ```
 
@@ -167,17 +167,17 @@ För att ta bort systemtilldelad hanterad identitet från en virtuell dator mås
    
 I följande exempel visas hur du tar bort en systemtilldelad hanterad identitet från en virtuell dator utan användare tilldelade hanterade identiteter:
 
-```JSON
-{
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[parameters('vmName')]",
-    "location": "[resourceGroup().location]",
-    "identity": { 
-        "type": "None"
-        },
-}
-```
+ ```JSON
+ {
+     "apiVersion": "2018-06-01",
+     "type": "Microsoft.Compute/virtualMachines",
+     "name": "[parameters('vmName')]",
+     "location": "[resourceGroup().location]",
+     "identity": { 
+         "type": "None"
+     }
+ }
+ ```
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
@@ -196,26 +196,26 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
    Om din `apiVersion` är `2018-06-01`lagras dina användares tilldelade hanterade identiteter i `userAssignedIdentities` ord listans format och `<USERASSIGNEDIDENTITYNAME>`-värdet måste lagras i en variabel som definierats i `variables`-avsnittet i mallen.
 
-   ```json
-   {
-       "apiVersion": "2018-06-01",
-       "type": "Microsoft.Compute/virtualMachines",
-       "name": "[variables('vmName')]",
-       "location": "[resourceGroup().location]",
-       "identity": {
-           "type": "userAssigned",
-           "userAssignedIdentities": {
-               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
-           }
+   ```JSON
+    {
+        "apiVersion": "2018-06-01",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[variables('vmName')]",
+        "location": "[resourceGroup().location]",
+        "identity": {
+            "type": "userAssigned",
+            "userAssignedIdentities": {
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+            }
         }
-   }
+    }
    ```
    
    **Microsoft. Compute/virtualMachines API version 2017-12-01**
     
    Om din `apiVersion` är `2017-12-01`lagras dina användares tilldelade hanterade identiteter i `identityIds` matrisen och `<USERASSIGNEDIDENTITYNAME>`-värdet måste lagras i en variabel som definierats i `variables`-avsnittet i mallen.
     
-   ```json
+   ```JSON
    {
        "apiVersion": "2017-12-01",
        "type": "Microsoft.Compute/virtualMachines",
@@ -265,10 +265,10 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "port": 50342
+                }
             }
         }
-       }
-    ]
+    ]   
    ```
    **Microsoft. Compute/virtualMachines API version 2017-12-01**
    
@@ -304,8 +304,8 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "port": 50342
+                }
             }
-        }
        }
     ]
    ```
@@ -347,4 +347,3 @@ För att ta bort en tilldelad identitet från en virtuell dator måste ditt kont
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över hanterade identiteter för Azure-resurser](overview.md).
-

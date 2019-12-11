@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om hyperskala
+title: Vanliga frågor och svar om citus-Azure Database for PostgreSQL
 description: Svar på vanliga frågor som kunder ställer om en Azure SQL-databas i den storskaliga tjänst nivån – vanligt vis kallas för en storskalig databas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 89316811f39b4cab918b913b45ae5945686e6b15
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818213"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974027"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 
@@ -39,17 +39,17 @@ Den storskaliga Service nivån är endast tillgänglig för enskilda databaser m
 
 VCore-baserade tjänst nivåer särskiljs baserat på databasens tillgänglighet och lagrings typ, prestanda och maximal storlek, enligt beskrivningen i följande tabell.
 
-| | Resurstyp | Generell användning |  Hyperskala | Affärskritisk |
+| | Resurstyp | Generellt syfte |  Hyperskalning | Affärskritisk |
 |:---:|:---:|:---:|:---:|:---:|
 | **Bäst för** |Alla|Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ.|De flesta företags arbets belastningar. Automatisk skalning av lagrings utrymme på upp till 100 TB, fast lodrät och vågrät beräknings skalning, snabb databas återställning.|OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
-|  **Resurstyp** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
+|  **Resurstyp** ||Enkel databas/elastisk pool/hanterad instans | Enkel databas | Enkel databas/elastisk pool/hanterad instans |
 | **Beräknings storlek**|Enkel databas/elastisk pool * | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor * | 1 till 80 virtuella kärnor |
-| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Saknas | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | **Lagringstyp** | Alla |Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
 | **Lagrings storlek** | Enkel databas/elastisk pool *| 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
-| | Hanterad instans  | 32 GB – 8 TB | Saknas | 32 GB – 4 TB |
-| **IOPS** | Enskild databas | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
-| | Hanterad instans | Beror på fil storlek | Saknas | 1375 IOPS/vCore |
+| | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
+| **IOPS** | Enkel databas | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
+| | Hanterad instans | Beror på fil storlek | Gäller inte | 1375 IOPS/vCore |
 |**Tillgänglighet**|Alla|1 replik, ingen Läs skalning, ingen lokal cache | Flera repliker, upp till 4 Läs skalbarhet, delvis lokal cache | 3 repliker, 1 Läs-och utskalning, zon-redundanta HA, fullständig lokal lagring |
 |**Regelbundet**|Alla|RA-GRS, 7-35 dag kvarhållning (7 dagar som standard)| RA-GRS, 7 dagars kvarhållning, konstant Time-Time-återställning (PITR) | RA-GRS, 7-35 dag kvarhållning (7 dagar som standard) |
 
@@ -117,7 +117,7 @@ Storskaligt stöder alla SQL Server arbets belastningar, men den är främst opt
 
 Om du kör interaktiva analys frågor med SQL Server som ett informations lager är storskaligt ett bra alternativ eftersom du kan vara värd för små och medel stora informations lager (till exempel några TB upp till 100 TB) till en lägre kostnad, och du kan migrera din SQL Server data War eHouse-arbetsbelastningar till skala med minimala T-SQL-kod ändringar.
 
-Om du kör data analys i stor skala med komplexa frågor och varaktiga inmatnings priser som är högre än 100 MB/s, eller använder Parallel Data Warehouse (PDW), Teradata eller andra data lager för massivt parallell bearbetning (MPP), kan SQL Data Warehouse vara bästa valet.
+Om du kör data analys i stor skala med komplexa frågor och varaktiga inmatnings hastigheter som är högre än 100 MB/s, eller använder Parallel Data Warehouse (PDW), Teradata eller andra data lager för massivt parallell bearbetning (MPP), kan SQL Data Warehouse vara det bästa valet.
   
 ## <a name="hyperscale-compute-questions"></a>Storskaliga beräknings frågor
 
@@ -143,7 +143,7 @@ I storskaliga databaser tillhandahålls data återhämtning på lagrings nivå. 
 
 Men om det bara finns en replik kan det ta en stund att skapa den lokala cachen i den nya repliken efter redundansväxlingen. Under fasen för cache-återuppbyggnad hämtar databasen data direkt från sidan servrar, vilket resulterar i högre svars tider för lagring och försämrade frågor.
 
-För verksamhets kritiska appar som kräver hög tillgänglighet med minimal redundans påverkan bör du etablera minst 2 beräknings repliker, inklusive den primära beräknings repliken. Detta är standard konfigurationen. På så sätt finns det en aktive ras replik som fungerar som ett failover-mål.
+För verksamhets kritiska appar som kräver hög tillgänglighet med minimal redundans påverkan bör du etablera minst 2 beräknings repliker, inklusive den primära beräknings repliken. Det här är standardkonfigurationen. På så sätt finns det en aktive ras replik som fungerar som ett failover-mål.
 
 ## <a name="data-size-and-storage-questions"></a>Data storlek och lagrings frågor
 
@@ -157,7 +157,7 @@ Transaktions loggen med stor skala är nästan oändlig. Du behöver inte bekymr
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Skalar mitt `tempdb` när min databas växer
 
-Din `tempdb`-databas finns på lokal SSD-lagring och konfigureras utifrån den beräknings storlek som du etablerar. Din `tempdb` är optimerad för att ge maximala prestanda för delar. `tempdb` storleken kan inte konfigureras och hanteras åt dig.
+`tempdb`-databasen finns på lokal SSD-lagring och konfigureras utifrån den beräknings storlek som du etablerar. Din `tempdb` är optimerad för att ge maximala prestanda för delar. `tempdb` storleken kan inte konfigureras och hanteras åt dig.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>Växer storleken på databasen automatiskt eller måste jag hantera storleken på datafilerna
 
@@ -278,7 +278,7 @@ Ja.  Geo-återställning stöds fullt ut.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Kan jag konfigurera geo-replikering med storskalig databas
 
-Inte just nu.
+Nej, inte just nu.
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>Kan jag göra en säkerhets kopia av en storskalig databas och återställa den till min lokala server eller på SQL Server på en virtuell dator
 

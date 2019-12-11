@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "73519160"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978687"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Snabb start: så här skapar du en klassificerare med Custom Vision
 
@@ -23,7 +23,7 @@ I den här snabb starten får du lära dig hur du skapar en klassificerare genom
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En uppsättning avbildningar som du kan använda för att träna din klassificerare. Se nedan för tips om att välja bilder.
 
@@ -47,7 +47,7 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
    > [!NOTE]
    > Om ingen resurs grupp är tillgänglig bekräftar du att du har loggat in på [customvision.AI](https://customvision.ai) med samma konto som du använde för att logga in på [Azure Portal](https://portal.azure.com/). Kontrol lera också att du har valt samma "katalog" i Custom Vision portal som katalog i den Azure Portal där dina Custom Vision-resurser finns. På båda platserna kan du välja din katalog från menyn för List menyn i det övre högra hörnet på skärmen. 
 
-1. Välj __klassificering__ under __projekt typer__. Välj antingen **multietikett** eller **Multiklass**under __klassificerings typer__, beroende på ditt användnings fall. Klassificering med flera etiketter använder valfritt antal taggar i en bild (noll eller flera), medan klassificering av flera klasser sorterar bilder i enskilda kategorier (varje bild som du skickar kommer att sorteras i den mest sannolika taggen). Du kommer att kunna ändra klassificerings typ senare om du vill.
+1. Välj __klassificering__ under __projekt typer__. Välj antingen **multietikett** eller **Multiklass**under __klassificerings typer__, beroende på ditt användnings fall. Klassificering med flera etiketter använder valfritt antal taggar i en bild (noll eller flera), medan klassificering av flera klasser sorterar bilder i enskilda kategorier (varje bild som du skickar kommer att sorteras i den mest sannolika taggen). Du kan ändra klassificerings typen senare om du vill.
 
 1. Välj sedan en av de tillgängliga domänerna. Varje domän optimerar klassificeraren för vissa typer av bilder, enligt beskrivningen i följande tabell. Du kommer att kunna ändra domänen senare om du vill.
 
@@ -103,13 +103,13 @@ När utbildningen har slutförts beräknas och visas modellens prestanda. Custom
 
 ![Utbildnings resultatet visar den övergripande precisionen och återställningen samt precisionen och återställningen för varje tagg i klassificeraren.](./media/getting-started-build-a-classifier/train03.png)
 
-### <a name="probability-threshold"></a>Sannolikhets tröskel
+### <a name="probability-threshold"></a>Tröskelvärde för sannolikhet
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## <a name="manage-training-iterations"></a>Hantera inlärnings iterationer
 
-Varje gången du tränar din klassificerare skapar du en ny _iteration_ med sina egna uppdaterade prestanda mått. Du kan visa alla iterationer i den vänstra rutan på fliken **prestanda** . I det vänstra fönstret hittar du också knappen **ta bort** , som du kan använda för att ta bort en iteration om den är föråldrad. När du tar bort en iteration tar du bort alla bilder som är unikt kopplade till den.
+Varje gången du tränar din klassificerare skapar du en ny _iteration_ med sina egna uppdaterade prestanda mått. Du kan visa alla iterationer i den vänstra rutan på fliken **prestanda** . Du hittar också knappen **ta bort** , som du kan använda för att ta bort en iteration om den är föråldrad. När du tar bort en iteration tar du bort alla bilder som är unikt kopplade till den.
 
 ## <a name="next-steps"></a>Nästa steg
 

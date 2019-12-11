@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 77442eda6c8b2aae71c5d647127ead9f851ec485
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1754168478caf3ca029e003ad0187fc29e85fa8a
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421415"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997300"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -29,7 +29,7 @@ SQL Database skapar automatiskt de databas säkerhets kopior som hålls mellan 7
 
 SQL Database använder SQL Server teknik för att skapa [fullständiga säkerhets kopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) varje vecka, [differentiella säkerhets kopieringar](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) var 12: e timme och [säkerhets kopior av transaktions loggar](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) var 5-10 minut. Säkerhets kopiorna lagras i [RA-GRS Storage-blobbar](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) som replikeras till ett [parat Data Center](../best-practices-availability-paired-regions.md) för skydd mot ett avbrott i data centret. När du återställer en databas, tar tjänsten reda på vilka säkerhets kopior av fullständig, differentiell och transaktions logg måste återställas.
 
-Du kan använda dessa säkerhets kopior för att:
+Du kan använda de här säkerhetskopiorna för att:
 
 - **Återställ en befintlig databas till en tidpunkt som redan har passerat** under kvarhållningsperioden med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. I en enkel databas och elastiska pooler skapar den här åtgärden en ny databas i samma server som den ursprungliga databasen. I en hanterad instans kan den här åtgärden Skapa en kopia av databasen eller samma eller en annan hanterad instans under samma prenumeration.
   - **[Ändra kvarhållning av säkerhets kopior](#how-to-change-the-pitr-backup-retention-period)** mellan 7 och 35 dagar för att konfigurera säkerhets kopierings principen.
@@ -67,7 +67,7 @@ Om du behöver behålla säkerhets kopiorna längre än den maximala kvarhållni
 
 ### <a name="backups-for-point-in-time-restore"></a>Säkerhets kopieringar för återställning av tidpunkter
 
-SQL Database stöder självbetjäning för återställning av PITR (Point-in-Time-återställning) genom att automatiskt skapa fullständig säkerhets kopiering, differentiella säkerhets kopieringar och säkerhets kopior av transaktions loggar. Fullständiga säkerhets kopior av databaser skapas varje vecka, och säkerhets kopior av differentiella databaser skapas vanligt vis var 12: e timme och säkerhets kopior av transaktions loggar skapas vanligt vis var 5-10 minut, med frekvensen baserat på beräknings storlek och mängden databas aktivitet. Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen har en betydande storlek. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhets kopieringen schemaläggs alla ytterligare säkerhets kopieringar automatiskt och hanteras tyst i bakgrunden. Den exakta tiden för alla säkerhets kopieringar av databasen bestäms av SQL Database tjänsten när den balanserar den övergripande system belastningen. Du kan inte ändra eller inaktivera säkerhets kopierings jobben. 
+SQL Database stöder självbetjäning för återställning av PITR (Point-in-Time-återställning) genom att automatiskt skapa fullständig säkerhets kopiering, differentiella säkerhets kopieringar och säkerhets kopior av transaktions loggar. Fullständiga säkerhets kopior av databaser skapas varje vecka, och säkerhets kopior av differentiella databaser skapas vanligt vis var 12: e timme och säkerhets kopior av transaktions loggar skapas vanligt vis var 5-10 minut, med frekvensen baserat på beräknings storlek och mängden databas aktivitet. Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen har en betydande storlek. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhetskopian schemaläggs alla ytterligare säkerhetskopieringar obevakat i bakgrunden. Den exakta tiden för alla databassäkerhetskopieringar fastställs av SQL Database-tjänsten eftersom den balanserar den övergripande systemarbetsbelastningen. Du kan inte ändra eller inaktivera säkerhetskopieringsjobben. 
 
 PITR-säkerhetskopieringar är geo-redundanta och skyddade genom [Azure Storage över-regional replikering](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -115,7 +115,7 @@ När du migrerar databasen från en DTU-baserad tjänst nivå med standard PITR-
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Så här ändrar du bevarande perioden för PITR-säkerhetskopiering
 
-Du kan ändra standardinställningen för kvarhållning av PITR med hjälp av Azure Portal, PowerShell eller REST API. De värden som stöds är: 7, 14, 21, 28 eller 35 dagar. I följande exempel visas hur du ändrar PITR kvarhållning till 28 dagar.
+Du kan ändra standardinställningen för kvarhållning av PITR med hjälp av Azure Portal, PowerShell eller REST API. I följande exempel visas hur du ändrar PITR kvarhållning till 28 dagar.
 
 > [!WARNING]
 > Om du minskar den aktuella kvarhållningsperioden är alla befintliga säkerhets kopior som är äldre än den nya kvarhållningsperioden inte längre tillgängliga. Om du ökar den aktuella kvarhållningsperioden, behåller SQL Database befintliga säkerhets kopior tills den längre kvarhållningsperioden har nåtts.

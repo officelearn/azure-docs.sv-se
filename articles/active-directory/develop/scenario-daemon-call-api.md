@@ -1,6 +1,6 @@
 ---
-title: 'Daemon-app som anropar webb-API: er (anropar webb-API: er)'
-description: 'Lär dig att bygga en daemon-app som anropar webb-API: er (anropar webb-API: er'
+title: Anropa ett webb-API från en daemon-app – Microsoft Identity Platform | Azure
+description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af0bb023136ba07057e4078d5abfcb4a3194a56
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175378"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962618"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Daemon-app som anropar webb-API: er – anropa ett webb-API från appen
 
@@ -29,7 +29,7 @@ En daemon-app kan anropa ett webb-API från ett .NET daemon-program eller anropa
 
 ## <a name="calling-a-web-api-daemon-application"></a>Anropa ett daemon-program för webb-API
 
-Så här använder du token för att anropa ett API
+Så här använder du token för att anropa ett API:
 
 # <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 

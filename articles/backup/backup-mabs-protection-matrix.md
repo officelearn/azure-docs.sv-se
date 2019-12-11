@@ -3,12 +3,12 @@ title: Vad kan Azure Backup Server säkerhets kopie ras
 description: Den här artikeln innehåller en support mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup Server skyddar.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: a7794ac82c70239693e91b3ae65c6292a6b4ed7f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841362"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996161"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 
@@ -38,7 +38,8 @@ Den här artikeln innehåller de olika servrar och arbets belastningar som du ka
 |Servrar (32-bitars och 64-bitars)|Windows Server 2008 SP2|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|Stöds inte|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2008 SP2|Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)<br /> <br /> Azure Stack|V3, V2|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
 |Servrar (32-bitars och 64-bitars)|Windows Storage Server 2008|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|V3, V2|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
-|SQL Server|SQL Server 2017|Fysisk server <br /><br /> Lokal virtuell Hyper-V-dator <br /> <br /> Virtuell Azure-dator <br /><br /> Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)<br /> <br /> Azure Stack|V3|Alla distributionsscenarier: Databas|
+|SQL Server|SQL Server 2019|Fysisk server <br /><br /> Lokal virtuell Hyper-V-dator <br /> <br /> Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator) <br /><br /> Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)<br /> <br /> Azure Stack|V3|Alla distributionsscenarier: Databas|
+|SQL Server|SQL Server 2017|Fysisk server <br /><br /> Lokal virtuell Hyper-V-dator <br /> <br /> Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator) <br /><br /> Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)<br /> <br /> Azure Stack|V3|Alla distributionsscenarier: Databas|
 |SQL Server|SQL Server 2016 SP2|Fysisk server <br /><br /> Lokal virtuell Hyper-V-dator <br /> <br /> Virtuell Azure-dator <br /><br /> Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)<br /> <br /> Azure Stack|V3, V2|Alla distributionsscenarier: Databas|
 |SQL Server|SQL Server 2016 SP1|Fysisk server <br /><br /> Lokal virtuell Hyper-V-dator <br /> <br /> Virtuell Azure-dator <br /><br /> Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)<br /> <br /> Azure Stack|V3, V2|Alla distributionsscenarier: Databas|
 |SQL Server|SQL Server 2016|Fysisk server <br /><br /> Lokal virtuell Hyper-V-dator <br /> <br /> Virtuell Azure-dator <br /><br /> Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)<br /> <br /> Azure Stack|V3, V2|Alla distributionsscenarier: Databas|

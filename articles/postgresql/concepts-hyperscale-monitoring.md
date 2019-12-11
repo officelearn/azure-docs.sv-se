@@ -1,17 +1,17 @@
 ---
-title: Övervaka och finjustera Azure Database for PostgreSQL-Scale (citus)
+title: Övervaka och finjustera skalning (citus) – Azure Database for PostgreSQL
 description: I den här artikeln beskrivs övervaknings-och justerings funktionerna i Azure Database for PostgreSQL-storskalig (citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6c9bf7a427c0d3d26c3accd1d0d7098413916993
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2e9fcd6f6292c1da76e725e90deda4547b3682d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512696"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975524"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Övervaka och finjustera Azure Database for PostgreSQL-storskalig (citus)
 
@@ -27,16 +27,16 @@ Förutom att visa diagram över måtten kan du konfigurera aviseringar. Steg fö
 
 De här måtten är tillgängliga för citus-noder (storskalig):
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Metrisk visningsnamn|Enhet|Beskrivning|
 |---|---|---|---|
 |active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |IOPS|IOPS|Antal|Se [IOPS-definitionen](../virtual-machines/linux/premium-storage-performance.md#iops) och [storskalig data flöde](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
-|network_bytes_ingress|Nätverk – inkommande|Skickade|Nätverk i över aktiva anslutningar.|
-|network_bytes_egress|Nätverk – utgående|Skickade|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
+|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
 |storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
-|storage_used|Använt lagringsutrymme|Skickade|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
+|storage_used|Använt lagringsutrymme|Byte|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
 
 Azure levererar inga mängd mått för klustret som helhet, men mått för flera noder kan placeras i samma diagram.
 

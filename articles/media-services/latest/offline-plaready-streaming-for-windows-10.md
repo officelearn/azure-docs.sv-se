@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 25559c7a6f66a1092007054c72f601b428fa4e7b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845512"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974061"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady-direktuppspelning för Windows 10
 
@@ -60,13 +60,13 @@ Nedan finns två typer av test till gångar, den första som använder PlayReady
 
 Till gångs #1:
 
-* URL för progressiv nedladdning:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
-* PlayReady LA_URL (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Till gångs #2:
 
-* URL för progressiv nedladdning:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (lokalt):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (lokalt): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 För uppspelnings testning använde vi ett universellt Windows-program i Windows 10. I [universella Windows 10](https://github.com/Microsoft/Windows-universal-samples)-exempel finns ett Basic Player-exempel som kallas [anpassningsbart strömnings exempel](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Allt vi behöver göra är att lägga till koden för att vi ska kunna välja nedladdad video och använda den som källa, i stället för anpassningsbar direkt uppspelnings källa. Knappen ändringar är i klickar du på händelse hanteraren:
 
@@ -113,7 +113,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ![Uppspelning av PlayReady-skyddade fMP4 i offlineläge](./media/offline-playready-for-windows/offline-playready1.jpg)
 
-
 Eftersom videon är under PlayReady-skydd kommer skärm bilden inte att kunna ta med videon.
 
 I sammanfattning har vi uppnått offline-läge på Azure Media Services:
@@ -122,6 +121,10 @@ I sammanfattning har vi uppnått offline-läge på Azure Media Services:
 * Innehållet kan finnas i Azure Media Services eller Azure Storage för progressiv nedladdning.
 * PlayReady-licensens leverans kan vara från Azure Media Services eller någon annan stans.
 * Det för beredda strömmande innehållet kan fortfarande användas för direkt uppspelning via tank streck eller smidigt med PlayReady som DRM.
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 

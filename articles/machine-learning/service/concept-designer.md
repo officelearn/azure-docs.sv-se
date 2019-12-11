@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: efc9d7fb31dc9f63780c3f94238bbbfb17756089
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707698"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973636"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning designer (för hands version)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -86,14 +86,14 @@ För viss hjälp att navigera genom biblioteket med Machine Learning-algoritmer 
 
 ## <a name="compute"></a>Beräknings resurser
 
-Använd beräknings resurser från din arbets yta för att köra din pipeline och vara värd för dina distribuerade modeller som real tids slut punkter eller pipelines slut punkter (för batch-härledning). De beräknings mål som stöds är:
+Använd beräknings resurser från din arbets yta för att köra din pipeline och vara värd för dina distribuerade modeller som real tids slut punkter eller pipelines slut punkter (för batch-härledning). Beräkningsmål som stöds är:
 
 | Beräkningsmål | Utbildning | Distribution |
 | ---- |:----:|:----:|
-| Azure Machine Learning Compute | ✓ | |
+| Azure Machine Learning-beräkning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute-målen är kopplade till din Machine Learning- [arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
+Compute-målen är kopplade till din [Azure Machine Learning-arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Machine Learning Studio (klassisk)](https://ml.azure.com).
 
 ## <a name="deploy"></a>Distribuera
 
@@ -122,7 +122,7 @@ Som ett resultat av dessa uppdateringar har vissa begrepp och villkor för det v
 
 | Koncept i designern | Tidigare i det visuella gränssnittet |
 | ---- |:----:|
-| Pipeline-utkast | Olika |
+| Pipeline-utkast | Experiment |
 | Slut punkt i real tid | Webbtjänst |
 
 ### <a name="migrating-to-the-designer"></a>Migrera till designern

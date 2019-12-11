@@ -1,6 +1,6 @@
 ---
-title: 'Webbapp som anropar webb-API: er (logga in) – Microsoft Identity Platform'
-description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (logga in)'
+title: Ta bort konton från cachen vid utloggning – Microsoft Identity Platform | Azure
+description: Lär dig hur du tar bort ett konto från token-cache vid utloggning
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596369"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961666"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>Webbapp som anropar webb-API: er – logga in
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Ta bort konton från cachen vid global utloggning
 
 Du vet redan hur du ska lägga till inloggning till din webbapp. Du lär dig det i [en webbapp som loggar in användare – Lägg till inloggning](scenario-web-app-sign-user-sign-in.md).
 

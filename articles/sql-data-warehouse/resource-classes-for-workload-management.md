@@ -11,12 +11,12 @@ ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d8c3e3c272ce12200ab7506fd7c9759a8cb3aa64
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30a3be1365f152a88713604570169091f09f0536
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851748"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975439"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Arbets belastnings hantering med resurs klasser i Azure SQL Data Warehouse
 
@@ -36,7 +36,7 @@ Det finns två typer av resurs klasser:
 
 Resurs klasser använder samtidiga platser för att mäta resursförbrukning.  [Samtidiga platser](#concurrency-slots) beskrivs senare i den här artikeln.
 
-- Om du vill visa resursutnyttjande för resurs klasserna läser du [minnes-och samtidiga gränser] minnes-samtidighets-limits.md).
+- Om du vill visa resursutnyttjande för resurs klasserna, se [minnes-och samtidiga gränser](memory-concurrency-limits.md).
 - Du kan ändra resurs klassen genom att köra frågan under en annan användare eller [ändra den aktuella användarens resurs klass](#change-a-users-resource-class) medlemskap.
 
 ### <a name="static-resource-classes"></a>Statiska resurs klasser

@@ -1,32 +1,32 @@
 ---
-title: 'Självstudier: Ansikts-API, C#'
+title: 'Självstudie: Ansikts-API C#'
 titleSuffix: Azure Cognitive Services
-description: Skapa en Windows-app som använder kognitiva tjänster Ansikts-API för att identifiera funktioner i ansikten i en bild.
+description: Skapa en Windows-app som använder Cognitive Services Ansikts-API för att identifiera funktioner i ansikten i en bild.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606801"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970303"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ansluta till Cognitive Services Ansikts-API med Connected Services i Visual Studio
 
 Med hjälp av Cognitive Services Ansikts-API kan du identifiera, analysera, organisera och tagga ansikten på foton.
 
-Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services Ansikts-API. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
+Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services Ansikts-API. Funktionen är tillgänglig i Visual Studio 2017 15.7 eller senare, med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 version 15.7 eller senare med den **webbutveckling** arbetsbelastning som är installerad. [Ladda ned det nu](https://www.visualstudio.com/downloads/).
+- Visual Studio 2017 version 15,7 eller senare med arbets belastningen **webb utveckling** installerad. [Ladda ned nu](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -43,7 +43,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 
    ![Välja tjänst att ansluta till](./media/vs-face-connected-service/Cog-Face-Connected-Service-0.PNG)
 
-   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer.
+   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerade med ditt konto visas en sida med en listruta med dina prenumerationer.
 
    ![Välj din prenumeration](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
@@ -58,7 +58,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 
 ## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Använda Ansikts-API för att identifiera ansiktsattribut på en bild
 
-1. Lägg till nedanstående med hjälp av instruktionerna i Startup.cs.
+1. Lägg till följande using-uttryck i Startup.cs.
  
    ```csharp
    using System.IO;
@@ -79,7 +79,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
       }
    ```
 
-1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [Ansikts-API-sidan](https://azure.microsoft.com/services/cognitive-services/face/). Högerklicka på en av avbildningarna, spara till den lokala hårddisken och sedan i Solution Explorer, högerklicka på bildmappen och välj **Lägg till** > **befintligt objekt** att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer:
+1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [Ansikts-API-sidan](https://azure.microsoft.com/services/cognitive-services/face/). Högerklicka på en av avbildningarna, Spara på den lokala hård disken, högerklicka sedan på mappen bilder i Solution Explorer och välj **Lägg till** > **befintligt objekt** för att lägga till det i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer:
  
    ![Bildmapp med bildfil](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -147,7 +147,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
             });
         }
    ```
-    Koden i det här steget skapar en HTTP-begäran med ett anrop till Ansikts-REST API, med hjälp av den nyckel som du har lagt till när du har lagt till den anslutna tjänsten.
+    Koden i det här steget skapar en HTTP-begäran med ett anrop till ansikts REST API med den nyckel som du lade till när du lade till den anslutna tjänsten.
 
 1. Lägg till hjälpfunktionerna GetImageAsByteArray och JsonPrettyPrint.
 

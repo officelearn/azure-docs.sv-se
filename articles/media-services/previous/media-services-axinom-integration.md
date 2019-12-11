@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 4d4823e8dcce0d1296ebe39a0b7a7c4bbc180317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015433"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974622"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd Axinom för att leverera Widevine-licenser till Azure Media Services 
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "69015433"
 ## <a name="overview"></a>Översikt
 Azure Media Services (AMS) har lagt till Google Widevine Dynamic Protection (se [Mingfeis blogg](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) för mer information). Dessutom har Azure Media Player (AMP) även lagt till stöd för Widevine (se [amp-dokument](https://amp.azure.net/libs/amp/latest/docs/) för mer information). Detta är en viktig funktion i strömmande streck innehåll som skyddas av CENC med multi-Native-DRM (PlayReady och Widevine) på moderna webbläsare som är utrustade med MSE och EME.
 
-Från och med Media Services .NET SDK-versionen 3.5.2 kan du Media Services konfigurera licens mal len för Widevine och hämta Widevine-licenser. Du kan också använda följande AMS-partner för att få hjälp att leverera Widevine-licenser: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
+Från och med Media Services .NET SDK-versionen 3.5.2 kan du Media Services konfigurera licens mal len för Widevine och hämta Widevine-licenser. Du kan också använda följande AMS-partner för hjälp med att leverera Widevine-licenser: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/) och [castLabs](https://castlabs.com/company/partners/azure/).
 
 Den här artikeln beskriver hur du integrerar och testar Widevine licens server som hanteras av Axinom. Mer specifikt gäller följande:  
 
@@ -45,18 +45,18 @@ Det fullständiga systemet och flödet av innehålls nyckel, nyckel-ID, nyckel-S
 ![BINDESTRECK och CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Content Protection
-Information om hur du konfigurerar dynamisk skydd och viktiga leverans principer finns i Mingfei blogg: [Konfigurera Widevine-paketering med Azure Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Information om hur du konfigurerar dynamisk skydd och viktiga leverans principer finns i Mingfeis blogg: [så här konfigurerar du Widevine-paketering med Azure Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Du kan konfigurera dynamiskt CENC skydd med multi-DRM för streck strömning med följande båda:
 
 1. PlayReady-skydd för Microsoft Edge och IE11, som kan ha en begränsning för token. Den begränsade token-principen måste åtföljas av en token som utfärdats av en Secure token service (STS), till exempel Azure Active Directory;
 2. Widevine-skydd för Chrome, det kan kräva token-autentisering med token som utfärdats av en annan STS. 
 
-Se avsnittet om [skapande av JWT](media-services-axinom-integration.md#jwt-token-generation) -token för varför Azure Active Directory inte kan användas som STS för Axinom-Widevine licens Server.
+Se avsnittet om [skapande av JWT-token](media-services-axinom-integration.md#jwt-token-generation) för varför Azure Active Directory inte kan användas som STS för Axinom-Widevine licens Server.
 
 ### <a name="considerations"></a>Överväganden
 1. Du måste använda Axinom-8888000000000000000000000000000000000000 (Key frö) och det genererade eller valda nyckel-ID: t för att generera innehålls nyckeln för att konfigurera Key Delivery Service. Axinom licens Server utfärdar alla licenser som innehåller innehålls nycklar baserat på samma nyckel-utsäde, som är giltig för både testning och produktion.
-2. URL: en för hämtning av Widevine- [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)licens för testning:. Både HTTP och HTTS är tillåtna.
+2. Hämtnings-URL: en för Widevine-licens för testning: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Både HTTP och HTTS är tillåtna.
 
 ## <a name="azure-media-player-preparation"></a>Azure Media Player förberedelser
 AMP v-1.4.0 stöder uppspelning av AMS-innehåll som är dynamiskt paketerat med både PlayReady och Widevine DRM.
@@ -177,6 +177,7 @@ Självklart finns det flera sätt att komma till med nyckel-ID. En kan till exem
     }
 
 ## <a name="summary"></a>Sammanfattning
+
 Med det senaste tillägget av Widevine-support i både Azure Media Services Content Protection och Azure Media Player kan vi implementera strömning av streck + multi-Native-DRM (PlayReady + Widevine) med både PlayReady Licensing Service i AMS och Widevine-licens Server från Axinom för följande moderna webbläsare:
 
 * Chrome
@@ -188,11 +189,15 @@ Följande parametrar krävs i den mini-lösning som utnyttjar Axinom Widevine Li
 
 | Parameter | Hur den används |
 | --- | --- |
-| ID för kommunikations nyckel |Måste inkluderas som värde för anspråket "com_key_id" i JWT-token (se [det här](media-services-axinom-integration.md#jwt-token-generation) avsnittet). |
+| ID för kommunikations nyckel |Måste inkluderas som värde för anspråket com_key_id i JWT-token (se [det här](media-services-axinom-integration.md#jwt-token-generation) avsnittet). |
 | Kommunikations nyckel |Måste användas som signerings nyckel för JWT-token (se [det här](media-services-axinom-integration.md#jwt-token-generation) avsnittet). |
 | Nyckel-Seed |Måste användas för att generera en innehålls nyckel med ett angivet innehålls nyckel-ID (se [det här](media-services-axinom-integration.md#content-protection) avsnittet). |
 | URL för hämtning av Widevine-licens |Måste användas för att konfigurera till gångs leverans princip för streck strömning (se [det här](media-services-axinom-integration.md#content-protection) avsnittet). |
 | Innehålls nyckel-ID |Måste ingå som en del av värdet för rättighets meddelande anspråk för JWT-token (se [det här](media-services-axinom-integration.md#jwt-token-generation) avsnittet). |
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -200,6 +205,6 @@ Följande parametrar krävs i den mini-lösning som utnyttjar Axinom Widevine Li
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-### <a name="acknowledgments"></a>Bekräftelser
-Vi vill bekräfta följande personer som bidragit till att skapa det här dokumentet: Kristjan Jõgi för Axinom, Mingfei Yan och Amit Rajput.
+### <a name="acknowledgments"></a>Tack
+Vi vill bekräfta följande personer som bidragit till att skapa det här dokumentet: Kristjan Jõgi of Axinom, Mingfei Yan och Amit Rajput.
 

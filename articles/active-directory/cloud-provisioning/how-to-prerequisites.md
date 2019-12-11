@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155edf72a60e079a609853e953e3cf66024cc83c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f033563bbd7888e53d910773cd1e0c501eaad098
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794255"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997113"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Det här avsnittet innehåller vägledning om hur du väljer och använder Azure AD Connect moln etablering som din identitets lösning.
@@ -48,7 +48,7 @@ Resten av dokumentet innehåller steg-för-steg-instruktioner för dessa krav.
      | --- | --- |
      | **80** | Hämtar listor över återkallade certifikat (CRL) när SSL-certifikatet verifieras |
      | **443** | Hanterar all utgående kommunikation med tjänsten |
-     | **8080** (valfritt) | Agenter rapporterar sin status var tionde minut via port 8080, om port 443 inte är tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 används _inte_ för användar inloggningar. |
+     | **8080** (valfritt) | Agenter rapporterar sin status var tionde minut via port 8080, om port 443 inte är tillgänglig. Den här statusen visas på Azure AD-portalen. |
      
      Om brand väggen tillämpar regler enligt de ursprungliga användarna öppnar du portarna för trafik från Windows-tjänster som körs som en nätverks tjänst.
    - Om din brand vägg eller proxy låter dig ange säkra suffix, lägger du till anslutningar i **\*. msappproxy.net** och **\*. ServiceBus.Windows.net**. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.

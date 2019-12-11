@@ -1,5 +1,5 @@
 ---
-title: 'Daemon-app som anropar webb-API: er (översikt) – Microsoft Identity Platform'
+title: 'Bygg en daemon-app som anropar webb-API: er – Microsoft Identity Platform | Azure'
 description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er'
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,18 +16,18 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 70a8c97ee1e10d53cd8da9687a9109eb4ce8ae3d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056389"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965576"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: Daemon-program som anropar webb-API: er
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: daemon-program som anropar webb-API: er
 
 Lär dig allt du behöver för att bygga ett daemon-program som anropar webb-API: er.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -47,7 +47,7 @@ Det finns ett annat vanligt fall där icke-daemon-program använder klientautent
 
 Program som hämtar en token för sina egna identiteter:
 
-- Är konfidentiella klient program. Dessa appar, med tanke på att de får åtkomst till resurser oberoende av en användare, måste bevisa sin identitet. De är också i stället känsliga appar som de måste godkänna av Azure Active Directory (Azure AD)-klient organisations administratörer.
+- är konfidentiella klient program. Dessa appar, med tanke på att de får åtkomst till resurser oberoende av en användare, måste bevisa sin identitet. De är också i stället känsliga appar som de måste godkänna av Azure Active Directory (Azure AD)-klient organisations administratörer.
 - Har registrerat en hemlighet (program lösen ord eller certifikat) med Azure AD. Den här hemligheten skickas under anropet till Azure AD för att hämta en token.
 
 ## <a name="specifics"></a>Information

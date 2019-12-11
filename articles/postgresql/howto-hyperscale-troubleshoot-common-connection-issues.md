@@ -1,5 +1,5 @@
 ---
-title: Felsöka anslutnings problem till Azure Database for PostgreSQL-storskalig (citus)
+title: Felsöka anslutningar – storskalig (citus) – Azure Database for PostgreSQL
 description: Lär dig hur du felsöker anslutnings problem till Azure Database for PostgreSQL-storskalig (citus)
 keywords: postgresql anslutning, anslutnings sträng, anslutnings problem, tillfälligt fel, anslutnings fel
 author: jonels-msft
@@ -7,12 +7,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b812b730cebba4dbf0735f49f544e53bf7f8787c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952152"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977513"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Felsöka anslutnings problem till Azure Database for PostgreSQL-storskalig (citus)
 
@@ -50,7 +50,7 @@ Om programmet inte kan ansluta till storskalig (citus) är de vanligaste orsaker
 
 * Konfiguration av koordinator-nodens brand vägg: kontrol lera att den storskaliga Server brand väggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
 * Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. Vissa brand väggar kräver att inte bara program efter namn, utan att tillåta IP-adresser och portar för-servern.
-* Användar fel: kontrol lera anslutnings strängen. Du kan ha felangede parametrar som server namn eller ett glömt ett *\@servername* -suffix i användar namnet.
+* Användar fel: kontrol lera anslutnings strängen. Du kan ha felangede parametrar som server namn. Du kan hitta anslutnings strängar för olika språk ramverk och psql i Azure Portal. Gå till sidan **anslutnings strängar** i citus-servergruppen (för Server gruppen). Tänk också på att citus-kluster bara har en databas och dess fördefinierade namn är **citus**.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 

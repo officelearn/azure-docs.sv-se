@@ -1,15 +1,15 @@
 ---
 title: Metadata-referens för konfiguration av Azure blockchain Workbench
 description: Översikt över metadata för för hands versionen av Azure blockchain Workbench för program konfiguration.
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 2ee1d1da1a9a5d8e890a6578eaec42cc6bf9f3ed
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326073"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972450"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Konfigurations referens för Azure blockchain Workbench
 
@@ -47,7 +47,7 @@ Ett exempel finns i [konfigurations filen exempel](#configuration-file-example).
 
 Ett programs affärs logik kan modelleras som en tillstånds dator där en åtgärd gör att affärs logikens flöde flyttas från ett tillstånd till ett annat. Ett arbets flöde är en samling av sådana tillstånd och åtgärder. Varje arbets flöde består av ett eller flera smarta kontrakt, som representerar affärs logiken i kod filer. Ett körbart kontrakt är en instans av ett arbets flöde.
 
-| Fält | Beskrivning | Krävs | Max längd |
+| Fält | Beskrivning | Krävs | Högsta längd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Unikt arbets flödes namn. Motsvarande smarta kontrakt måste använda samma **namn** för den aktuella kontrakts klassen. | Ja | 50 |
 | DisplayName | Eget visnings namn för arbets flödet. | Ja | 255 |
@@ -56,7 +56,7 @@ Ett programs affärs logik kan modelleras som en tillstånds dator där en åtg�
 | StartState | Namnet på arbets flödets ursprungliga tillstånd. | Ja | |
 | Egenskaper | Samling [identifierare](#identifiers). Representerar data som kan läsas av eller visualiseras i ett användar upplevelse verktyg. | Ja | |
 | Konstruktor | Definierar indataparametrar för att skapa en instans av arbets flödet. | Ja | |
-| Funktioner | En samling [funktioner](#functions) som kan köras i arbets flödet. | Ja | |
+| Functions | En samling [funktioner](#functions) som kan köras i arbets flödet. | Ja | |
 | Tillstånd | En samling med arbets flödes [tillstånd](#states). | Ja | |
 
 Ett exempel finns i [konfigurations filen exempel](#configuration-file-example).
@@ -67,7 +67,7 @@ Data typer som stöds.
 
 | Typ | Beskrivning |
 |-------|-------------|
-| adresspool  | Blockchain-adress typ, till exempel *kontrakt* eller *användare*. |
+| adress  | Blockchain-adress typ, till exempel *kontrakt* eller *användare*. |
 | matris    | Matris med en nivå av typen heltal, bool, Money eller Time. Matriser kan vara statiska eller dynamiska. Använd **ElementType** för att ange data typen för elementen i matrisen. Se [exempel på konfiguration](#example-configuration-of-type-array). |
 | bool     | Boolesk datatyp. |
 | tillverknings | Adress till typ kontrakt. |
@@ -75,7 +75,7 @@ Data typer som stöds.
 | int      | Data typen Integer. |
 | money    | Data typen Money. |
 | state    | Arbets flödes tillstånd. |
-| sträng  | Sträng data typ. 4000-maximalt antal bokstäver. Se [exempel på konfiguration](#example-configuration-of-type-string). |
+| sträng  | Strängdatatyp. 4000-maximalt antal bokstäver. Se [exempel på konfiguration](#example-configuration-of-type-string). |
 | Användare     | Adress till typ användare. |
 | time     | Tids data typ. |
 |`[ Application Role Name ]`| Ett namn som anges i program rollen. Begränsar användare till en roll typ. |
@@ -98,7 +98,7 @@ Data typer som stöds.
 
 #### <a name="using-a-property-of-type-array"></a>Använda en egenskap av typen matris
 
-Om du definierar en egenskap som typ mat ris i konfigurationen, måste du ta med en explicit get-funktion för att returnera den offentliga egenskapen för mat ris typen i solider. Till exempel:
+Om du definierar en egenskap som typ mat ris i konfigurationen, måste du ta med en explicit get-funktion för att returnera den offentliga egenskapen för mat ris typen i solider. Exempel:
 
 ```
 function GetQuotes() public constant returns (int[]) {
@@ -197,11 +197,11 @@ Definierar indataparametrar för en instans av ett arbets flöde.
 }
 ```
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Definierar funktioner som kan köras i arbets flödet.
 
-| Fält | Beskrivning | Krävs | Max längd |
+| Fält | Beskrivning | Krävs | Högsta längd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Funktionens unika namn. Motsvarande smarta kontrakt måste använda samma **namn** för den aktuella funktionen. | Ja | 50 |
 | DisplayName | Användarvänligt visnings namn för funktionen. | Ja | 255 |
@@ -249,14 +249,14 @@ Definierar funktioner som kan köras i arbets flödet.
 
 En samling av unika tillstånd i ett arbets flöde. Varje tillstånd fångar ett steg i affärs logikens kontroll flöde. 
 
-| Fält | Beskrivning | Krävs | Max längd |
+| Fält | Beskrivning | Krävs | Högsta längd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Unikt namn för tillstånd. Motsvarande Smart kontrakt måste använda samma **namn** för det aktuella läget. | Ja | 50 |
 | DisplayName | Eget visnings namn för tillstånd. | Ja | 255 |
 | Beskrivning | Beskrivning av tillstånd. | Nej | 255 |
 | Procent | Ett heltals värde som visas i användar gränssnittet för blockchain Workbench för att visa förloppet i affärs logikens kontroll flöde. | Ja | |
-| ATS | Visuell ledtråd som anger om tillstånd representerar ett lyckat eller misslyckat tillstånd. Det finns två giltiga värden: `Success` eller `Failure`. | Ja | |
-| Över gångar | Samling tillgängliga [över gångar](#transitions) från det aktuella tillståndet till nästa uppsättning tillstånd. | Nej | |
+| Stil | Visuell ledtråd som anger om tillstånd representerar ett lyckat eller misslyckat tillstånd. Det finns två giltiga värden: `Success` eller `Failure`. | Ja | |
+| Skärmövergångar | Samling tillgängliga [över gångar](#transitions) från det aktuella tillståndet till nästa uppsättning tillstånd. | Nej | |
 
 ### <a name="states-example"></a>Exempel på tillstånd
 
@@ -314,7 +314,7 @@ En samling av unika tillstånd i ett arbets flöde. Varje tillstånd fångar ett
   ]
 ```
 
-## <a name="transitions"></a>Över gångar
+## <a name="transitions"></a>Skärmövergångar
 
 Tillgängliga åtgärder till nästa tillstånd. En eller flera användar roller kan utföra en åtgärd i varje tillstånd, där en åtgärd kan övergå till ett tillstånd till ett annat tillstånd i arbets flödet. 
 
@@ -363,7 +363,7 @@ Tillgängliga åtgärder till nästa tillstånd. En eller flera användar roller
 
 Program roller definierar en uppsättning roller som kan tilldelas till användare som vill agera eller delta i programmet. Program roller kan användas för att begränsa åtgärder och deltagande i blockchain-programmet och motsvarande arbets flöden. 
 
-| Fält | Beskrivning | Krävs | Max längd |
+| Fält | Beskrivning | Krävs | Högsta längd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Program rollens unika namn. Motsvarande Smart kontrakt måste använda samma **namn** för den aktuella rollen. Namnet på bastypen är reserverat. Det går inte att namnge en program roll med samma namn som [typen](#type)| Ja | 50 |
 | Beskrivning | Beskrivning av program rollen. | Nej | 255 |
@@ -386,11 +386,12 @@ Program roller definierar en uppsättning roller som kan tilldelas till använda
 
 Identifierare representerar en samling information som används för att beskriva arbets flödes egenskaper, konstruktorer och funktions parametrar. 
 
-| Fält | Beskrivning | Krävs | Max längd |
+| Fält | Beskrivning | Krävs | Högsta längd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Egenskapens eller parameterns unika namn. Motsvarande smarta kontrakt måste använda samma **namn** för den aktuella egenskapen eller parametern. | Ja | 50 |
 | DisplayName | Eget visnings namn för egenskapen eller parametern. | Ja | 255 |
 | Beskrivning | Beskrivning av egenskapen eller parametern. | Nej | 255 |
+| Typ | Egenskaps [data typ](#type). | Ja |
 
 ### <a name="identifiers-example"></a>Exempel på identifierare
 

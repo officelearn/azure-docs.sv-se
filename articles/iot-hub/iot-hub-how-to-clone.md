@@ -2,18 +2,17 @@
 title: Så här klonar du en Azure IoT Hub
 description: Så här klonar du en Azure IoT Hub
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083269"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976153"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Så här klonar du en Azure IoT-hubb till en annan region
 
@@ -73,9 +72,7 @@ Detta är den allmänna metod som vi rekommenderar för att flytta en IoT-hubb f
    1. Lägg till något som inte exporterades till mallen. 
    
        Konsument grupper exporteras till exempel inte till mallen. Du måste lägga till konsument grupperna i mallen manuellt eller använda [Azure Portal](https://portal.azure.com) när hubben har skapats. Det finns ett exempel på att lägga till en konsument grupp till en mall i artikeln [Använd en Azure Resource Manager-mall för att konfigurera IoT Hub meddelanderoutning](tutorial-routing-config-message-routing-rm-template.md).
-
-       [Meddelande anrikninger](iot-hub-message-enrichments-overview.md) exporteras inte heller till mallen. Dessa används tillsammans med vägvals meddelanden och måste uppdateras manuellt på den nya hubben när konfigurationen för meddelanderoutning uppdateras.
-
+       
    1. Kopiera enheterna från den ursprungliga hubben till klonen. Detta beskrivs i avsnittet [Hantera enheter som är registrerade i IoT Hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## <a name="how-to-handle-message-routing"></a>Så här hanterar du meddelanderoutning
@@ -104,16 +101,13 @@ Om navet använder meddelanderoutning, har du två alternativ.
 
    * Du får en liten prestanda träff eftersom hubben och slut punkts resurserna inte finns på samma plats.
 
-> [!NOTE]
-> Om navet använder [Meddelande förbättringar](iot-hub-message-enrichments-overview.md)måste du konfigurera dem manuellt på den nya IoT-hubben, eftersom de inte exporteras med Resource Manager-mallen.
-
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Förbered för att migrera hubben till en annan region
 
 Det här avsnittet innehåller information om hur du migrerar hubben.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Hitta den ursprungliga hubben och exportera den till en resurs mal len.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 1. Gå till **resurs grupper** och välj den resurs grupp som innehåller den hubb som du vill flytta. Du kan också gå till **resurser** och hitta hubben på det sättet. Välj hubben.
 
@@ -353,13 +347,13 @@ Nu har du en mall som kommer att skapa en ny hubb som ser nästan precis likadan
 
 Skapa den nya hubben på den nya platsen med hjälp av mallen. Om du har cirkulations resurser som ska flyttas bör resurserna konfigureras på den nya platsen och referenserna i mallen har uppdaterats för att matcha. Om du inte flyttar cirkulations resurserna bör de finnas i mallen med de uppdaterade nycklarna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Skapa en resurs**. 
 
 1. I sökrutan skriver du i "mall distribution" och väljer RETUR.
 
-1. Välj **mall distribution (distribuera med anpassade mallar)** . Då går du till en skärm för Malldistribution. Välj **Skapa**. Du ser den här skärmen:
+1. Välj **mall distribution (distribuera med anpassade mallar)** . Då går du till en skärm för Malldistribution. Välj **Skapa**. Följande skärm visas:
 
    ![Skärm bild som visar kommandot för att skapa en egen mall](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 

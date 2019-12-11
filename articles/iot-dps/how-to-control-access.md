@@ -1,6 +1,6 @@
 ---
-title: Security slutpunkter i IoT Device Provisioning-tjänsten | Microsoft Docs
-description: Begrepp - Kontrollera åtkomst till IoT Device Provisioning-tjänsten för backend-appar. Innehåller information om säkerhetstoken.
+title: Säkerhets slut punkter i IoT Device Provisioning-tjänsten | Microsoft Docs
+description: Begrepp – hur du styr åtkomsten till IoT Device Provisioning-tjänsten (DPS) för backend-appar. Innehåller information om säkerhetstoken.
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -8,47 +8,47 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975133"
 ---
-# <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrollera åtkomst till Azure IoT Hub Device Provisioning-tjänsten
+# <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrol lera åtkomst till Azure IoT Hub Device Provisioning Service
 
-Den här artikeln beskrivs alternativ för att skydda IoT Device Provisioning-tjänsten. Provisioning-tjänsten använder *behörigheter* att bevilja åtkomst till varje slutpunkt. Användarbehörigheter begränsar åtkomsten till en tjänstinstans som baseras på funktionen.
+I den här artikeln beskrivs alternativen för att skydda IoT Device Provisioning-tjänsten. Etablerings tjänsten använder *behörigheter* för att bevilja åtkomst till varje slut punkt. Behörigheter begränsar åtkomsten till en tjänst instans baserat på funktioner.
 
 Den här artikeln beskrivs:
 
-* De olika behörigheter som du kan bevilja en backend-app för att få åtkomst till din etableringstjänst.
-* Autentiseringen och token som används för att kontrollera behörigheterna.
+* De olika behörigheter som du kan tilldela till en backend-app för att få åtkomst till etablerings tjänsten.
+* Autentiseringsprocessen och de token som används för att verifiera behörigheter.
 
-### <a name="when-to-use"></a>När du ska använda detta
+### <a name="when-to-use"></a>Används till att
 
-Du måste ha behörighet att komma åt någon av etablering Tjänsteslutpunkter. Till exempel måste en backend-app innehålla en token som innehåller säkerhetsreferenser tillsammans med alla meddelanden som skickas till tjänsten.
+Du måste ha rätt behörighet för att få åtkomst till alla etablerings tjänstens slut punkter. En backend-app måste till exempel innehålla en token som innehåller autentiseringsuppgifter för varje meddelande som skickas till tjänsten.
 
-## <a name="access-control-and-permissions"></a>Åtkomstkontroll och behörigheter
+## <a name="access-control-and-permissions"></a>Åtkomst kontroll och behörigheter
 
 Du kan bevilja [behörigheter](#device-provisioning-service-permissions) på följande sätt:
 
-* **Delad åtkomst auktoriseringsprinciper**. Principer för delad åtkomst kan ge olika kombinationer av [behörigheter](#device-provisioning-service-permissions). Du kan definiera principer i den [Azure-portalen][lnk-management-portal], eller via programmering med hjälp av den [Device Provisioning Service REST API: er][lnk-resource-provider-apis]. En nyligen skapade etableringstjänst har standardprincipen för följande:
+* **Auktoriseringsprinciper för delad åtkomst**. Principer för delad åtkomst kan ge en kombination av [behörigheter](#device-provisioning-service-permissions). Du kan definiera principer i [Azure Portal][lnk-management-portal]eller program mässigt med hjälp av [REST-API: er för enhets etablerings tjänsten][lnk-resource-provider-apis]. En nyligen skapad etablerings tjänst har följande standard princip:
 
-* **provisioningserviceowner**: Princip med alla behörigheter.
+* **provisioningserviceowner**: princip med alla behörigheter.
 
 > [!NOTE]
-> Se [behörigheter](#device-provisioning-service-permissions) detaljerad information.
+> Se [behörigheter](#device-provisioning-service-permissions) för detaljerad information.
 
 ## <a name="authentication"></a>Autentisering
 
-Azure IoT Hub Device Provisioning Service ger åtkomst till slutpunkterna genom att verifiera en token mot principer för delad åtkomst. Autentiseringsuppgifter för säkerhet, till exempel symmetriska nycklar skickas aldrig över nätverket.
+Azure IoT Hub Device Provisioning Service beviljar åtkomst till slut punkter genom att verifiera en token mot principerna för delad åtkomst. Säkerhets referenser, till exempel symmetriska nycklar, skickas aldrig över kabeln.
 
 > [!NOTE]
-> Resursprovidern Device Provisioning-tjänsten skyddas via din Azure-prenumeration, eftersom alla leverantörer i den [Azure Resource Manager][lnk-azure-resource-manager].
+> Resurs leverantören för enhets etablerings tjänsten skyddas via din Azure-prenumeration, som alla leverantörer i [Azure Resource Manager][lnk-azure-resource-manager].
 
 Mer information om hur du skapar och använder säkerhetstoken finns i nästa avsnitt.
 
-HTTP är det enda protokollet som stöds och den implementerar autentisering genom att inkludera en giltig token i den **auktorisering** huvudet i begäran.
+HTTP är det enda protokoll som stöds och implementerar autentisering genom att inkludera en giltig token i begärans huvud för **auktorisering** .
 
 #### <a name="example"></a>Exempel
 ```csharp
@@ -57,17 +57,17 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> Den [Azure IoT Device Provisioning Service SDK] [ lnk-sdks] automatiskt generera token när du ansluter till tjänsten.
+> [SDK: erna för Azure IoT Device Provisioning-tjänsten][lnk-sdks] genererar automatiskt tokens när de ansluter till tjänsten.
 
 ## <a name="security-tokens"></a>Säkerhetstoken
 
-Device Provisioning-tjänsten använder säkerhetstoken för att autentisera tjänster för att undvika att skicka nycklarna för anslutningen. Dessutom begränsas säkerhetstoken i giltighetstid och omfång. [Azure IoT Device Provisioning Service SDKs] [ lnk-sdks] automatiskt generera token utan någon specialkonfiguration. Vissa scenarier kräver att du kan skapa och använda säkerhetstoken direkt. Sådana scenarier är direkt användning av HTTP-angrepp.
+Enhets etablerings tjänsten använder säkerhetstoken för att autentisera tjänster för att undvika att skicka nycklar i kabeln. Dessutom är säkerhetstoken begränsade inom giltighets tid och omfång. SDK: er för [Azure IoT Device Provisioning-tjänsten][lnk-sdks] genererar automatiskt tokens utan att kräva någon speciell konfiguration. Vissa scenarier kräver att du genererar och använder säkerhetstoken direkt. Sådana scenarier omfattar direkt användning av HTTP-ytan.
 
-### <a name="security-token-structure"></a>Token säkerhetsstruktur
+### <a name="security-token-structure"></a>Struktur för säkerhetstoken
 
-Du kan använda säkerhetstoken för att bevilja begränsad tid åtkomst för specifika funktioner i IoT Device Provisioning Service-tjänster. Om du vill få behörighet att ansluta till etableringstjänsten skicka tjänster säkerhetstoken som har signerats med en delad åtkomst eller symmetrisk nyckel.
+Du använder säkerhetstoken för att bevilja tidsbegränsad åtkomst för tjänster till vissa funktioner i IoT Device Provisioning-tjänsten. För att få behörighet att ansluta till etablerings tjänsten måste tjänsterna skicka säkerhetstoken signerade med antingen delad åtkomst eller symmetrisk nyckel.
 
-En token som signerats med en delad åtkomst nyckel ger åtkomst till alla funktioner som är associerade med behörigheter för delad åtkomst-principen. 
+En token som signerats med en delad åtkomst nyckel beviljar åtkomst till alla funktioner som är associerade med behörigheterna för den delade åtkomst principen. 
 
 Säkerhetstoken har följande format:
 
@@ -77,14 +77,14 @@ Här är de förväntade värdena:
 
 | Värde | Beskrivning |
 | --- | --- |
-| {signature} |En HMAC-SHA256 signatur sträng med formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktiga**: Nyckeln är avkodas från base64 och används som nyckel för att utföra HMAC-SHA256-beräkningen.|
-| {expiry} |UTF8-strängar för antal sekunder sedan epoch 00:00:00 UTC på 1 januari 1970. |
-| {URL-encoded-resourceURI} | Lägre mål-URL-kodning av gemen resurs-URI. URI-prefix (efter segment) för slutpunkter som kan användas med denna token från och med värdnamnet för IoT Device Provisioning-tjänsten (inga protocol). Till exempel `mydps.azure-devices-provisioning.net`. |
-| {policyName} |Namnet på den princip för delad åtkomst som denna token refererar. |
+| signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen.|
+| förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
+| {URL-encoded-resourceURI} | Gemen URL-kodning för den nedre fall resurs-URI: n. URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Device Provisioning-tjänsten (inget protokoll). Till exempel `mydps.azure-devices-provisioning.net`. |
+| {policyName} |Namnet på den princip för delad åtkomst som denna token refererar till. |
 
-**Observera angående prefix**: URI-prefix beräknas efter segment och inte tecken. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
+**Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
 
-Följande kodfragment i Node.js visar en funktion som kallas **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins`. I nästa avsnitt förklarar vi hur du initierar olika indata för olika token användningsfall.
+Följande Node. js-kodfragment visar en funktion med namnet **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins`. I nästa avsnitt beskrivs hur du initierar de olika indatana för de olika användnings fallen för token.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -107,7 +107,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
 };
 ```
 
-Som en jämförelse är motsvarande Python-koden för att generera en säkerhetstoken:
+Motsvarande python-kod för att generera en säkerhetstoken är som jämförelse:
 
 ```python
 from base64 import b64encode, b64decode
@@ -133,29 +133,29 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 ```
 
 > [!NOTE]
-> Eftersom token giltighetstid har verifierats på IoT Device Provisioning Service-datorer kan måste drift på klockan på den dator som genererar token vara minimal.
+> Eftersom token för en giltighets tid verifieras på IoT Device Provisioning service-datorer, måste driften på datorns klocka som genererar token vara minimal.
 
-### <a name="use-security-tokens-from-service-components"></a>Använda säkerhetstoken från tjänstkomponenter
+### <a name="use-security-tokens-from-service-components"></a>Använda säkerhetstoken från tjänst komponenter
 
-Tjänstkomponenter kan bara generera säkerhetstoken med hjälp av principer för delad åtkomst som beviljar behörighet enligt beskrivningen ovan.
+Tjänst komponenter kan bara skapa säkerhetstoken med hjälp av principer för delad åtkomst som beviljar lämpliga behörigheter som förklaras tidigare.
 
-Här följer de servicefunktioner som exponeras för slutpunkter:
+Här är tjänst funktionerna som visas på slut punkterna:
 
 | Slutpunkt | Funktioner |
 | --- | --- |
-| `{your-service}.azure-devices-provisioning.net/enrollments` |Tillhandahåller åtgärder för registrering av enhet med Device Provisioning-tjänsten. |
-| `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Tillhandahåller åtgärder för att hantera grupper för registrering av enheter. |
-| `{your-service}.azure-devices-provisioning.net/registrations/{id}` |Tillhandahåller åtgärder för att hämta och hantera statusen för enhetsregistreringar. |
+| `{your-service}.azure-devices-provisioning.net/enrollments` |Tillhandahåller enhets registrerings åtgärder med Device Provisioning-tjänsten. |
+| `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Tillhandahåller åtgärder för att hantera enhets registrerings grupper. |
+| `{your-service}.azure-devices-provisioning.net/registrations/{id}` |Tillhandahåller åtgärder för att hämta och hantera statusen för enhets registreringar. |
 
 
-Exempelvis en tjänst som genereras med hjälp av en skapats i förväg delad åtkomstprincip som kallas **enrollmentread** skulle skapa en token med följande parametrar:
+Till exempel skulle en tjänst som genererats med en i förväg skapad princip för delad åtkomst som heter **enrollmentread** skapa en token med följande parametrar:
 
 * resurs-URI: `{mydps}.azure-devices-provisioning.net`,
-* nyckel för signeringscertifikatet: en av nycklarna för den `enrollmentread` principen
-* Principnamn: `enrollmentread`,
-* alla time.backn upphör att gälla
+* signerings nyckel: en av nycklarna i principen för `enrollmentread`
+* princip namn: `enrollmentread`,
+* förfallo tid. backad
 
-![Skapa en princip för delad åtkomst för Device Provisioning-tjänstinstans i portalen][img-add-shared-access-policy]
+![Skapa en princip för delad åtkomst för din enhets etablerings tjänst instans i portalen][img-add-shared-access-policy]
 
 ```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -165,25 +165,25 @@ var policyKey = '...';
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
 ```
 
-Resultatet, vilket skulle ge åtkomst för att läsa alla registreringsposter, skulle bli:
+Resultatet, som skulle ge åtkomst för att läsa alla registrerings poster, blir:
 
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=enrollmentread`
 
-## <a name="reference-topics"></a>Referensämnen:
+## <a name="reference-topics"></a>Referens ämnen:
 
-Följande referens ger dig mer information om hur du styr åtkomst till din IoT Device Provisioning-tjänsten.
+Följande referens avsnitt innehåller mer information om hur du styr åtkomsten till din IoT Device Provisioning-tjänst.
 
-### <a name="device-provisioning-service-permissions"></a>Behörigheter för Device Provisioning-tjänsten
+### <a name="device-provisioning-service-permissions"></a>Behörigheter för enhets etablerings tjänst
 
-I följande tabell visas de behörigheter som du kan använda för att styra åtkomsten till IoT Device Provisioning-tjänsten.
+I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till din IoT Device Provisioning-tjänst.
 
 | Behörighet | Anteckningar |
 | --- | --- |
-| **ServiceConfig** |Beviljar åtkomst till att ändra tjänstkonfigurationer. <br/>Den här behörigheten används av backend-molntjänster. |
-| **EnrollmentRead** |Ger läsbehörighet till enhetsregistreringar och registreringsgrupper. <br/>Den här behörigheten används av backend-molntjänster. |
-| **EnrollmentWrite** |Ger skrivåtkomst till enhetsregistreringar och registreringsgrupper. <br/>Den här behörigheten används av backend-molntjänster. |
-| **RegistrationStatusRead** |Beviljar skrivskyddad åtkomst till status på enhetsregistreringen. <br/>Den här behörigheten används av backend-molntjänster. |
-| **RegistrationStatusWrite**  |Beviljar borttagningsåtkomst till status på enhetsregistreringen. <br/>Den här behörigheten används av backend-molntjänster. |
+| **ServiceConfig** |Beviljar åtkomst för att ändra tjänst konfigurationerna. <br/>Den här behörigheten används av Server dels moln tjänster. |
+| **EnrollmentRead** |Ger Läs behörighet till enhets registreringar och registrerings grupper. <br/>Den här behörigheten används av Server dels moln tjänster. |
+| **EnrollmentWrite** |Ger skriv åtkomst till enhets registreringar och registrerings grupper. <br/>Den här behörigheten används av Server dels moln tjänster. |
+| **RegistrationStatusRead** |Ger Läs behörighet till status för enhets registrering. <br/>Den här behörigheten används av Server dels moln tjänster. |
+| **RegistrationStatusWrite**  |Ger behörighet att ta bort åtkomst till status för enhets registrering. <br/>Den här behörigheten används av Server dels moln tjänster. |
 
 <!-- links and images -->
 

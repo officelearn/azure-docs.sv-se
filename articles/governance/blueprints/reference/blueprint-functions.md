@@ -1,14 +1,14 @@
 ---
 title: Azure-ritningar fungerar
 description: Beskriver de funktioner som är tillgängliga för användning med skiss artefakter i definitioner och tilldelningar av Azure-modeller.
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: reference
-ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128767"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970898"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure-ritningar
 
@@ -19,7 +19,7 @@ Följande funktioner stöds:
 - [artifacts](#artifacts)
 - [concat](#concat)
 - [parameters](#parameters)
-- [ResourceGroup](#resourcegroup)
+- [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
 - [prenumeration](#subscription)
 
@@ -28,6 +28,9 @@ Följande funktioner stöds:
 `artifacts(artifactName)`
 
 Returnerar ett objekt med egenskaper som har fyllts med den skiss artefaktens utdata.
+
+> [!NOTE]
+> Det går inte att använda funktionen `artifacts()` i en Resource Manager-mall. Funktionen kan bara användas i ritnings definitions-JSON eller i artefakt-JSON när du hanterar skissen med Azure PowerShell eller REST API som en del av [skisser som kod](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parametrar
 
@@ -110,7 +113,7 @@ Några exempel på hämtning av data från _myTemplateArtifact_ -exemplet är:
 |`[artifacts("myTemplateArtifact").outputs.myString]` | Sträng | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Objekt | { "myproperty": "my value", "anotherProperty": true } |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Sträng | "my value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | Sant |
 
 ## <a name="concat"></a>concat
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016771"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969453"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Designen av ett system för innehållsskydd med åtkomstkontroll med Azure Media Services 
 
@@ -131,11 +131,11 @@ Varför är detta viktigt?
 
 Om du använder ett offentligt moln för licensleverans har permanent eller ickebeständig licenser en direkt inverkan på licenskostnaden för leverans. Följande två olika design-fall fungerar för att illustrera:
 
-* Månatlig prenumeration: Använd en beständiga licens och 1-till-många-mappning för innehålls nyckel till till gång. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
+* Månatlig prenumeration: använda en beständig licens och en 1-till-många innehåll nyckeln till tillgången mappning. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = 1
 
-* Månatlig prenumeration: Använd en ej beständiga licens och 1-till-1-mappning mellan innehålls nyckel och till gång. I det här fallet:
+* Månatlig prenumeration: använda en ickebeständig licens och 1-till-1-mappning mellan innehållsnyckeln och tillgången. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = [antal filmer sett] x [antalet sessioner]
 
@@ -257,7 +257,7 @@ Använd följande felsökningsinformation om du behöver hjälp med problem med 
 
 * Bevilja gruppmedlemskap anspråk privilegier. Kontrollera att följande finns i Azure AD program-manifestfilen: 
 
-    "groupMembershipClaims": "Alla" (Standardvärdet är null)
+    ”groupMembershipClaims”: ”alla” (standardvärdet är null)
 
 * Ange rätt TokenType när du skapar begränsning av krav.
 
@@ -336,7 +336,7 @@ För att registrera och konfigurera pekaren-app i Azure AD, gör du följande:
 
 2. Lägg till en ny nyckel för resursappen.
 
-3. Uppdatera appens manifest fil så att groupMembershipClaims-egenskapen har värdet "groupMembershipClaims": "Alla".
+3. Uppdatera manifestfilen app så att groupMembershipClaims-egenskap har värdet ”groupMembershipClaims”: ”alla”.
 
 4. I Azure AD-app som pekar till webbappen player, i avsnittet **behörigheter för andra program**, Lägg till resurs-app som har lagts till i steg 1. Under **delegerad behörighet**väljer **åtkomst [resource_name]** . Det här alternativet ger web appen behörighet att skapa åtkomst-token som har åtkomst till resursappen. Gör detta för både lokala och distribuerade versionen av appen om du utvecklar med Visual Studio och Azure-webbappen.
 
@@ -368,13 +368,13 @@ När du använder en anpassad STS måste två ändras:
 
 Det finns två typer av säkerhetsnycklar:
 
-* Symmetrisk nyckel: Samma nyckel används för att generera och verifiera en JWT.
-* Asymmetrisk nyckel: Ett offentligt privat nyckel par i ett X509-certifikat används med en privat nyckel för att kryptera/generera en JWT och med den offentliga nyckeln för att verifiera token.
+* Symmetrisk nyckel: samma nyckel används för att generera och verifiera en JWT.
+* Asymmetrisk nyckel: ett offentligt / privat nyckelpar i en X509 används certifikat med en privat nyckel för att kryptera/Generera en JWT och med den offentliga nyckeln för att verifiera token.
 
 > [!NOTE]
 > Om du använder .NET Framework / C# som din utvecklingsplattform, X509 certifikatet som används för en asymmetrisk säkerhetsnyckel måste ha en nyckellängd på minst 2 048. Det här är ett krav för System.IdentityModel.Tokens.X509AsymmetricSecurityKey i .NET Framework-klassen. Annars genereras följande undantag:
 > 
-> IDX10630: System. IdentityModel. tokens. X509AsymmetricSecurityKey för signering får inte vara mindre än 2048 bitar.
+> IDX10630: System.IdentityModel.Tokens.X509AsymmetricSecurityKey för signering får inte vara mindre än '2048-bitar.
 
 ## <a name="the-completed-system-and-test"></a>Slutförda system och testning
 Det här avsnittet vägleder dig genom följande scenarier i slutförda slutpunkt till slutpunkt-systemet så att du kan ha en grundläggande bild av beteendet innan du får ett inloggningskonto:
@@ -408,15 +408,15 @@ Du kan kontakta någon av författarna till ett konto eller har lagts till för 
 
 De följande skärmbilderna visar olika inloggningssidorna används av olika domänkonton:
 
-**Anpassat Azure AD-klient domän konto**: Den anpassade inloggnings sidan för den anpassade Azure AD-klient domänen.
+**Anpassad Azure AD-klient domänkonto**: den anpassade inloggningssidan av anpassade Azure AD-klient domän.
 
 ![Domänkonto för anpassat Azure AD-klient](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**Microsoft-domän konto med smartkort**: Inloggnings sidan som har anpassats av Microsoft Corporate med tvåfaktorautentisering.
+**Microsoft domänkonto med smartkort**: inloggningssidan genom Microsoft företagets IT med tvåfaktorsautentisering.
 
 ![Domänkonto för anpassat Azure AD-klient](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Microsoft-konto**: Inloggnings sidan för Microsoft-konto för konsumenter.
+**Microsoft-konto**: inloggningssidan för Microsoft-konto för konsumenter.
 
 ![Domänkonto för anpassat Azure AD-klient](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
@@ -463,11 +463,16 @@ I följande skärmbild visas ett scenario som använder en asymmetrisk nyckel vi
 I båda tidigare fall förblir användarautentisering densamma. Det sker via Azure AD. Den enda skillnaden är att JWTs utfärdas av anpassade STS i stället för Azure AD. När du konfigurerar dynamisk CENC protection anger licens delivery service begränsningen vilken typ av JWT, en symmetrisk eller en asymmetrisk nyckel.
 
 ## <a name="summary"></a>Sammanfattning
+
 Det här dokumentet beskrivs CENC med flera interna DRM och åtkomstkontroll via tokenautentisering, dess design och dess implementering med hjälp av Azure Media Services och Media Player.
 
 * En referensdesign angavs som innehåller alla de nödvändiga komponenterna i ett DRM/CENC undersystem.
 * En referensimplementering angavs på Azure Media Services och Media Player.
 * Vissa ämnen som är direkt inblandade i design och implementering beskrivs också.
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

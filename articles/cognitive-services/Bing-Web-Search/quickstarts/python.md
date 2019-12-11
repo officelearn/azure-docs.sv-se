@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4f7f1c28423e67ff9ff09385a5e0c7675e4a6049
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c1af1142faca76cc58b6b3ca9a7106bc0433ea18
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338832"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976374"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Python för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Python-program skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten när du gör ditt första anrop till API:et för webbsökning i Bing och ta sedan emot JSON-svaret. Det här python-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Det här exemplet körs som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Välj Starta binder märket:
+Det här exemplet körs som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Välj Start binder-märket:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Python 2.x eller 3.x](https://www.python.org/)
 
@@ -41,7 +41,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Deklarera slutpunkten för API för webbsökning i Bing. Om du får auktoriseringsfel kontrollerar du detta värde mot slutpunkten för Bing-sökmotorn i Azure-instrumentpanelen.
+Deklarera slutpunkten för API för webbsökning i Bing. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
@@ -69,7 +69,7 @@ search_results = response.json()
 
 ## <a name="format-and-display-the-response"></a>Formatera och visa svaret
 
-Den `search_results` objektet innehåller de sökresultat och metadata som närliggande sökningar och sidor. Den här koden använder `IPython.display`-biblioteket för att formatera och visa svaret i webbläsaren.
+`search_results`-objektet innehåller Sök Resultat och metadata som relaterade frågor och sidor. Den här koden använder `IPython.display`-biblioteket för att formatera och visa svaret i webbläsaren.
 
 ```python
 from IPython.display import HTML

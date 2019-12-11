@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175778"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963944"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metod tips för villkorlig åtkomst i Azure Active Directory
 
@@ -35,7 +35,7 @@ När du skapar en ny princip finns det inga användare, grupper, appar eller åt
 
 För att principen ska fungera måste du konfigurera:
 
-| Vad           | Vilken                                  | Varför |
+| Vad           | Hur?                                  | Varför |
 | :--            | :--                                  | :-- |
 | **Molnappar** |Välj en eller flera appar.  | Målet med en princip för villkorlig åtkomst är att du ska kunna styra hur auktoriserade användare kan komma åt molnappar.|
 | **Användare och grupper** | Välj minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | En princip för villkorlig åtkomst som inte har några tilldelade användare och grupper utlöses aldrig. |
@@ -45,17 +45,18 @@ För att principen ska fungera måste du konfigurera:
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Hur tillämpas principer för villkorlig åtkomst?
 
-Mer än en princip för villkorlig åtkomst kan gälla när du öppnar en molnbaserad app. I det här fallet måste alla principer som gäller vara uppfyllda. Om en princip till exempel kräver MFA och den andra kräver en kompatibel enhet måste du gå igenom MFA och använda en kompatibel enhet. 
+Mer än en princip för villkorlig åtkomst kan gälla när du öppnar en molnbaserad app. I det här fallet måste alla principer som gäller vara uppfyllda. Om en princip till exempel kräver Multi-Factor Authentication (MFA) och en annan kräver en kompatibel enhet måste du slutföra MFA och använda en kompatibel enhet. 
 
 Alla principer tillämpas i två faser:
 
-- I den **första** fasen utvärderas alla principer och alla åtkomst kontroller som inte är uppfyllda samlas in. 
-
-- I den **andra** fasen uppmanas du att uppfylla de krav som du inte har uppfyllt. Om någon av principerna blockerar åtkomsten är du blockerad och uppmanas inte att uppfylla andra princip kontroller. Om ingen av principerna blockerar dig uppmanas du att uppfylla andra princip kontroller i följande ordning:
-
-   ![Beställning](./media/best-practices/06.png)
-    
-   Externa MFA-leverantörer och användnings villkor kommer härnäst.
+- Fas 1: 
+   - Detalj insamling: samla in information för att identifiera principer som redan är uppfyllda.
+   - Under den här fasen kan användare se en certifikats tolk om enhetens efterlevnad är en del av dina principer för villkorlig åtkomst. Den här varningen kan inträffa för webb läsar appar när enhetens operativ system inte är Windows 10.
+   - Fas 1 av princip utvärderingen sker för alla aktiverade principer och principer i [endast rapport läge](concept-conditional-access-report-only.md).
+- Fas 2:
+   - Tvång: att ta hänsyn till den information som samlats in i fas 1, ber användaren att uppfylla eventuella ytterligare krav som inte har uppfyllts.
+   - Tillämpa resultatet på sessionen. 
+   - Fas 2 av princip utvärderingen sker för alla aktiverade principer.
 
 ### <a name="how-are-assignments-evaluated"></a>Hur utvärderas tilldelningar?
 
@@ -140,7 +141,7 @@ Vi rekommenderar att du skapar ett användar konto som är:
 - Du kan hantera alla principer för villkorlig åtkomst på en central plats.
 - Den klassiska Azure-portalen har dragits tillbaka.   
 
-Mer information finns i [migrera klassiska principer i Azure Portal](policy-migration.md).
+Mer information finns i [Migrera klassiska principer i Azure Portal](policy-migration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

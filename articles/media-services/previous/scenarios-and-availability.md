@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083213"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978176"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -37,7 +37,7 @@ Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
@@ -223,7 +223,7 @@ Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filer
 
 |Kryptering|Status|Datacenter|
 |---|---|---| 
-|Storage|Allmänt tillgänglig|Alla|
+|Lagring|Allmänt tillgänglig|Alla|
 |128-bitars AES-nycklar|Allmänt tillgänglig|Alla|
 |Fairplay|Allmänt tillgänglig|Alla|
 |PlayReady|Allmänt tillgänglig|Alla|
@@ -252,6 +252,10 @@ Mer information finns i avsnittet om [skalning](#scaling).
 |S1|Allmänt tillgänglig|Alla|
 |S2|Allmänt tillgänglig|Alla utom södra Brasilien och västra Indien|
 |S3|Allmänt tillgänglig|Allt utom västra Indien|
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 

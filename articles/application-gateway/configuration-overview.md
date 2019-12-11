@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108735"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996663"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -256,7 +256,7 @@ Den här funktionen är användbar när du vill behålla en användarsession på
 
 ### <a name="connection-draining"></a>Anslutningstömning
 
-Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla inregistreringar av instanser av en backend-pool inte tar emot några nya begär Anden. Under tiden kan befintliga begär Anden slutföras inom en konfigurerad tids gräns. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
+Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla avregistreringar av instanser av en backend-pool fortsätter att underhålla befintliga anslutningar och att betjäna begär Anden för en konfigurerbar tids gräns och inte får några nya förfrågningar eller anslutningar. Det enda undantaget till detta är begär Anden som är kopplade till deregistration-instanser på grund av en Gateway-hanterad session tillhörighet och kommer även fortsättnings vis att vara proxy till deregistration-instanserna. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
 
 ### <a name="protocol"></a>Protokoll
 

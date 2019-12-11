@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild med REST API och PHP'
+title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med PHP.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a0704f9e9a77eba2eb0d4f00bc1d880011e767de
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fb9539c8aa0477cbfbf11ce08635e4e9ccebb2ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859208"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977938"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med REST API och PHP
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP
 
 I den här snabbstarten använder du Azure ansikts-REST API med PHP för att identifiera ansikten i en bild.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - En kod redigerare som [Visual Studio Code](https://code.visualstudio.com/download).
@@ -99,7 +99,7 @@ catch (HttpException $ex)
 ?>
 ```
 
-Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du måste `uriBase` ändra strängen så att den innehåller rätt slut punkts sträng. Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
+Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du måste ändra `uriBase` strängen så att den innehåller rätt slut punkts sträng. Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

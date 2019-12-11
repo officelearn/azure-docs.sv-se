@@ -4,12 +4,12 @@ description: Använd Azure Functions för att schemalägga en aktivitet som ansl
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230387"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972242"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
@@ -19,7 +19,7 @@ Om det är första gången du arbetar med C# funktioner bör du läsa [Azure Fun
 
 ## <a name="prerequisites"></a>Krav
 
-+ Slutför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) för att skapa en lokal Function-app som är avsedd för version 2. x-körningsmiljön. Du måste också ha publicerat projektet till en Function-app i Azure.
++ Slutför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) för att skapa en lokal Function-app som är riktad mot version 2. x eller en senare version av körnings miljön. Du måste också ha publicerat projektet till en Function-app i Azure.
 
 + Den här artikeln visar ett Transact-SQL-kommando som kör en Mass rensnings åtgärd i **SalesOrderHeader** -tabellen i AdventureWorksLT-exempel databasen. Skapa AdventureWorksLT-exempel databasen genom att följa anvisningarna i artikeln [skapa en Azure SQL-databas i Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
@@ -29,7 +29,7 @@ Om det är första gången du arbetar med C# funktioner bör du läsa [Azure Fun
 
 Du måste hämta anslutnings strängen för den databas som du skapade när du har skapat [en Azure SQL-databas i Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj **SQL-databaser** på den vänstra menyn och välj din databas på sidan SQL- **databaser** .
 

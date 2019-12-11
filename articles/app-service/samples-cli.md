@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688514"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971510"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>CLI-exempel för Azure App Service
 
@@ -32,6 +32,8 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 |**Skala app**||
 | [Skala en app manuellt](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app och skalar den över 2 instanser. |
 | [Skala en app globalt med en arkitektur för hög tillgänglighet](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar två App Service-appar i två olika geografiska regioner och gör dem tillgängliga via en enskild slutpunkt med Azure Traffic Manager. |
+|**Skydda app**||
+| [Integrera med Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service app och integrerar den med Application Gateway med hjälp av tjänst slut punkt och åtkomst begränsningar. |
 |**Anslut app till resurser**||
 | [Anslut en webbapp till en SQL-databas](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och en SQL-databas och lägger sedan till dataanslutningssträngen till appinställningarna. |
 | [Anslut en app till ett lagringskonto](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och ett lagringskonto och lägger sedan till lagringsanslutningssträngen till appinställningarna. |

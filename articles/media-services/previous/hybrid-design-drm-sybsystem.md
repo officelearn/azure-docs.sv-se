@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: d15bfcfbae3b24e1a9b29dc74f9b41a979e63ae9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014700"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975201"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Hybrid design av DRM-undersystem 
 
@@ -69,8 +69,8 @@ Som en del av en omfattande moln video plattform har Azure Media Services DRM en
 
 ### <a name="drm-license-delivery"></a>DRM-licensleverans
 
-* AMS DRM-Licens levereras av AMS licens Delivery Service.
-* Tredje part: En DRM-Licens levereras av en tredjeparts-licens server utanför AMS.
+* AMS: DRM-Licens levereras av AMS licens Delivery Service.
+* Tredje part: DRM-Licens levereras av en tredjeparts-licens server utanför AMS.
 
 ## <a name="configure-based-on-your-hybrid-scenario"></a>Konfigurera baserat på ditt hybrid scenario
 
@@ -81,7 +81,7 @@ Genom att konfigurera en innehålls nyckel kan du kontrol lera följande attribu
 * Innehålls nyckeln som används för dynamisk DRM-kryptering.
 * Innehåll för DRM-licens som ska levereras av licens leverans tjänster: rättigheter, innehålls nyckel och begränsningar.
 * Typ av **princip begränsning för Auktoriseringsprinciper för innehålls nyckel**: öppna, IP eller token-begränsning.
-* Om **token** -typen för **begränsning av innehålls nycklar används**måste begränsningen för **innehålls nyckelns auktoriseringsprincip** uppfyllas innan en licens utfärdas.
+* Om **token** -typen för **begränsning av innehålls nycklar används**måste **begränsningen för innehålls nyckelns auktoriseringsprincip** uppfyllas innan en licens utfärdas.
 
 ### <a name="asset-delivery-policy"></a>Till gångs leverans princip
 
@@ -89,11 +89,11 @@ Genom att konfigurera en till gångs leverans princip kan du kontrol lera följa
 
 * Kombination av strömnings protokoll och DRM-kryptering, till exempel bindestreck under CENC (PlayReady och Widevine), smidig strömning under PlayReady, HLS under Widevine eller PlayReady.
 * URL: en för standard-/inbäddade licens leverans för var och en av de berörda DRM: er.
-* Om URL: er för licens hämtning (LA_URLs) i streck-eller HLS-spelnings listan innehåller frågesträng för nyckel-ID (barn) för Widevine respektive FairPlay.
+* Om URL: er för licens hämtning (LA_URLs) i en streck-eller HLS-spelnings lista innehåller frågesträng för nyckel-ID (barn) för Widevine respektive FairPlay.
 
 ## <a name="scenarios-and-samples"></a>Scenarier och exempel
 
-Baserat på förklaringarna i föregående avsnitt, använder följande fem hybrid scenarier respektive konfigurations kombinationer för **innehålls nyckel**-**till gångs** -och konfigurations principer (de exempel som anges i den sista kolumnen följer tabellen):
+Baserat på förklaringarna i föregående avsnitt, använder följande fem hybrid scenarier respektive **innehålls nyckel**-kombinationer av **till gångs leverans princip** konfiguration (de exempel som anges i den sista kolumnen följer tabellen):
 
 |**Innehåll som är värd för & ursprung**|**DRM-kryptering**|**DRM-licensleverans**|**Konfigurera innehålls nyckel**|**Konfigurera till gångs leverans princip**|**Exempel**|
 |---|---|---|---|---|---|
@@ -108,24 +108,28 @@ I exemplen fungerar PlayReady-skyddet både för streck och smidig strömning. V
 ### <a name="sample-1"></a>Exempel 1
 
 * Källa (bas) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL (streck & utjämna): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* PlayReady LA_URL (streck & mjuk): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
 * Widevine LA_URL (bindestreck): https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
 * FairPlay LA_URL (HLS): https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
 
 ### <a name="sample-2"></a>Exempel 2
 
 * Källa (bas) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL (streck & utjämna): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
+* PlayReady LA_URL (streck & mjuk): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### <a name="sample-3"></a>Exempel 3
 
 * Käll-URL: https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (streck & utjämna): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* PlayReady LA_URL (streck & mjuk): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
 
 ### <a name="sample-4"></a>Exempel 4
 
 * Käll-URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (streck & utjämna): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+* PlayReady LA_URL (streck & mjuk): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="summary"></a>Sammanfattning
 

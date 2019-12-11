@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d092756e24c4510b7ac5060ed3a4d035704b522f
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 16f3dda644a7168dcceb701ba80346e2ba42b38a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73613383"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973738"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och python
 
 > [!NOTE]
 > Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [python-snabb start](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text) är tillgänglig. 
 
-I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+I den här snabb starten ska du extrahera utskriven text med optisk tecken igenkänning (OCR) från en bild med hjälp av Visuellt innehåll REST API. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
@@ -31,7 +31,7 @@ Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-antec
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
@@ -41,10 +41,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
-1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild från vilken du vill extrahera tryckt text.
+1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill extrahera tryckt text ur.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `get-printed-text.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-printed-text.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python get-printed-text.py`.
 
 ```python
 import requests
@@ -120,7 +120,7 @@ response = requests.post(ocr_url, headers=headers, params=params, data = image_d
 
 ## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan parsar och visar ett lyckat svar i kommandotolkens fönster enligt följande exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan tolkar och visar ett lyckat svar i kommandotolkens fönster liknar följande exempel:
 
 ```json
 {
@@ -223,7 +223,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan p
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)

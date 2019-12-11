@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930399"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972259"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Härledd kolumn omvandling i data flöde för mappning
 
@@ -27,6 +27,16 @@ Om du vill åsidosätta en befintlig kolumn väljer du den via List rutan kolumn
 Om du vill lägga till ytterligare härledda kolumner, Hovra över en befintlig härledd kolumn och klicka på plus ikonen. Välj antingen **Lägg till kolumn** eller **Lägg till kolumn mönster**. Kolumn mönster kan komma att vara praktiska om kolumn namnen är variabla från dina källor. Mer information finns i [kolumn mönster](concepts-data-flow-column-pattern.md).
 
 ![Ny härledd kolumn markering](media/data-flow/columnpattern.png "Ny härledd kolumn markering")
+
+## <a name="build-schemas-in-output-schema-pane"></a>Bygg scheman i fönstret utdata schema
+
+De kolumner som du ändrar och lägger till i schemat visas i fönstret utdata schema. Du kan bygga enkla och komplexa data strukturer interaktivt här. Om du vill lägga till fler fält väljer du **Lägg till kolumn**. Välj **Lägg till under kolumn**för att skapa hierarkier.
+
+![Lägg till under kolumn](media/data-flow/addsubcolumn.png "Lägg till under kolumn")
+
+Mer information om hur du hanterar komplexa typer i data flöde finns i [JSON-hantering i mappa data flöde](concepts-data-flow-json.md)
+
+![Lägg till komplex kolumn](media/data-flow/complexcolumn.png "Lägga till kolumner")
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 

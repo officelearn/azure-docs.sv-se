@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 00d3b1dce9bacc01c8319c678ab27a3d4cc8da88
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718422"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969847"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudie: Köra en TensorFlow-modell i Python
 
@@ -24,11 +24,11 @@ När du har [exporterat din TensorFlow-modell](https://docs.microsoft.com/azure/
 > [!NOTE]
 > Den här självstudien gäller endast för modeller som exporteras från bild klassificerings projekt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 I självstudiekursen måste du göra följande:
 
-- Installera Python 2.7+ eller Python 3.5+.
+- Installera Python 2.7 + eller Python 3.5 +.
 - Installera pip.
 
 Sedan måste du installera följande paket:
@@ -68,7 +68,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>Förbereda en bild för förutsägelse
 
-Det finns några steg för att förbereda bilden så att den har rätt form för förutsägelse. De här stegen motsvarar den bildmanipulering som utförs under träning:
+Det finns några steg som du måste vidta för att förbereda avbildningen för förutsägelse. De här stegen motsvarar den bildmanipulering som utförs under träning:
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Öppna filen och skapa en bild i BGR-färgområdet
 

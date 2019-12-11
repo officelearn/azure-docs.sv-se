@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 30e4852668fc12c38cd7d1794c461041acd654db
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7097f399b2bf5a3b0f9adb990fbd66785adc09aa
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859190"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978006"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Java
 
@@ -23,7 +23,7 @@ I den här snabbstarten ska du använda Azure ansikts-REST API med Java för att
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - En valfri Java IDE.
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
    - [JSON-biblioteket](https://github.com/stleary/JSON-java) (org.json:json:20180130)
    - [Apache Commons-loggning](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (Commons-Logging: Commons-Logging: 1.1.2)
 
-## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsigenkänning
+## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsavkänning
 
 Öppna huvudklassen i ditt projekt. Här lägger du till den kod som behövs för att läsa in bilder och identifiera ansikten.
 
@@ -65,7 +65,7 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-Ersätt **huvud** klassen med följande kod. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och `uriBase` ändra strängen så att den innehåller rätt slut punkts sträng. Du kan också ange värdet `imageWithFaces` till en sökväg som pekar på en annan bildfil.
+Ersätt **huvud** klassen med följande kod. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och ändra `uriBase` strängen så att den innehåller rätt slut punkts sträng. Du kan också ange värdet `imageWithFaces` till en sökväg som pekar på en annan bildfil.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -251,4 +251,4 @@ Kompilera koden och kör den. Ett lyckat svar visar ansiktsinformation i lättl�
 I den här snabbstarten har du skapat ett enkelt Java-konsolprogram som använder REST-anrop med Ansikts-API i Azure för att identifiera ansikten i en bild och returnera deras attribut. Därefter lär dig hur du gör mer med den här funktionen i en Android-app.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skapa en Android-app för att upptäcka och rama in ansikten](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

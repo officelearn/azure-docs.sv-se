@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cbb6afb96ccea32aa78d1f587377e5d67e1a5b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381029"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964097"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Kräv app Protection-princip för Cloud app-åtkomst med villkorlig åtkomst (för hands version)
 
@@ -330,7 +330,7 @@ Alla Intune App Protection-principer krävs innan åtkomst beviljas till företa
 
 ### <a name="configuration"></a>Konfiguration
 
-**Steg 1: Konfigurera en Azure AD-princip för villkorlig åtkomst för Exchange Online**
+**Steg 1: Konfigurera en princip för villkorlig åtkomst för Azure AD för Exchange Online och SharePoint Online**
 
 Konfigurera följande komponenter för principen för villkorlig åtkomst i det här steget:
 
@@ -338,7 +338,7 @@ Konfigurera följande komponenter för principen för villkorlig åtkomst i det 
 
 1. Ange namnet på den villkorliga åtkomst principen.
 1. Under **tilldelningar**i **användare och grupper väljer du**minst en användare eller grupp för varje princip för villkorlig åtkomst.
-1. I **molnappar**väljer du **Office 365 Exchange Online**. 
+1. Välj **Office 365 Exchange Online** och **Office 365 SharePoint Online**i **molnappar**. 
 
    ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/02.png)
 

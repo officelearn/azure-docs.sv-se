@@ -1,5 +1,5 @@
 ---
-title: Ändringar som gjorts i ett WebAPI-projekt när du ansluter till Azure AD
+title: Ändringar som görs i WebAPI-projekt vid anslutning till Azure AD
 description: Beskriver vad som händer med ditt WebAPI-projekt när du ansluter till Azure AD med hjälp av Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32fc72d22d3f739018df22c315d7a1a3124c8823
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3a0cf375902281817ecc002f8fb76be32eed149d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851810"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966324"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt WebAPI-projekt (Visual Studio Azure Active Directory Connected service)
 
@@ -31,9 +31,9 @@ Information om hur du arbetar med den anslutna tjänsten finns i [komma igång](
 
 ## <a name="added-references"></a>Tillagda referenser
 
-Påverkar projekt filen *. net-referenser) och `packages.config` (NuGet-referenser).
+Påverkar projekt filen *. NET-referenser) och `packages.config` (NuGet-referenser).
 
-| type | Referens |
+| Typ | Referens |
 | --- | --- |
 | Nettotid NuGet | Microsoft. OWIN |
 | Nettotid NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -46,7 +46,7 @@ Påverkar projekt filen *. net-referenser) och `packages.config` (NuGet-referens
 
 Ytterligare referenser om du har valt alternativet **Läs katalog data** :
 
-| type | Referens |
+| Typ | Referens |
 | --- | --- |
 | Nettotid NuGet | EntityFramework |
 | .NET        | EntityFramework. SqlServer (endast Visual Studio 2015) |
@@ -60,7 +60,7 @@ Ytterligare referenser om du har valt alternativet **Läs katalog data** :
 
 Följande referenser tas bort (endast ASP.NET 4-projekt, som i Visual Studio 2015):
 
-| type | Referens |
+| Typ | Referens |
 | --- | --- |
 | Nettotid NuGet | Microsoft.AspNet.Identity.Core |
 | Nettotid NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -68,9 +68,9 @@ Följande referenser tas bort (endast ASP.NET 4-projekt, som i Visual Studio 201
 
 ## <a name="project-file-changes"></a>Projekt fil ändringar
 
-- Ange en distinkt `IISExpressSSLPort` siffra som egenskap.
+- Ange egenskapen `IISExpressSSLPort` till ett distinkt tal.
 - Ange egenskapen `WebProject_DirectoryAccessLevelKey` till 0, eller 1 om du har valt alternativet **Läs katalog data** .
-- Ange egenskapen `IISUrl` till `https://localhost:<port>/` där `<port>` matchar värdet.`IISExpressSSLPort`
+- Ange egenskapen `IISUrl` till `https://localhost:<port>/` där `<port>` matchar `IISExpressSSLPort` svärdet.
 
 ## <a name="webconfig-or-appconfig-changes"></a>ändringar i Web. config eller app. config
 
@@ -84,15 +84,15 @@ Följande referenser tas bort (endast ASP.NET 4-projekt, som i Visual Studio 201
     </appSettings>
     ```
 
-- Endast Visual Studio 2017: Även följande post har lagts till `<appSettings>`under "
+- Endast Visual Studio 2017: även följande post har lagts till under `<appSettings>`"
 
     ```xml
     <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
     ```
 
-- Element `<dependentAssembly>` har lagts till `<runtime><assemblyBinding>` under noden `System.IdentityModel.Tokens.Jwt`för.
+- `<dependentAssembly>` element har lagts till under noden `<runtime><assemblyBinding>` för `System.IdentityModel.Tokens.Jwt`.
 
-- Om du har valt alternativet **Läs katalog data** lade du till följande konfigurations post `<appSettings>`under:
+- Om du har valt alternativet **Läs katalog data** lade du till följande konfigurations post under `<appSettings>`:
 
     ```xml
     <add key="ida:Password" value="<Your Azure AD app's new password>" />
@@ -100,13 +100,13 @@ Följande referenser tas bort (endast ASP.NET 4-projekt, som i Visual Studio 201
 
 ## <a name="code-changes-and-additions"></a>Kod ändringar och tillägg
 
-- Attributet har lagts till `Controllers/ValueController.cs` och andra befintliga kontrollanter. `[Authorize]`
+- `[Authorize]`-attributet har lagts till i `Controllers/ValueController.cs` och andra befintliga kontrollanter.
 
-- Har lagt till en start klass `App_Start/Startup.Auth.cs`för autentisering, som innehåller start logik för Azure AD-autentisering eller ändrat den. Om du har valt alternativet **Läs katalog data** innehåller den här filen även kod för att ta emot en OAuth-kod och utbyta den för en åtkomsttoken.
+- Har lagt till en start klass för autentisering, `App_Start/Startup.Auth.cs`, som innehåller start logik för Azure AD-autentisering eller ändrat den. Om du har valt alternativet **Läs katalog data** innehåller den här filen även kod för att ta emot en OAuth-kod och utbyta den för en åtkomsttoken.
 
-- (Endast Visual Studio 2015 med ASP.NET 4 app) Har `App_Start/IdentityConfig.cs` tagits bort `Controllers/AccountController.cs`och `Models/IdentityModel.cs`lagts till `Providers/ApplicationAuthProvider.cs`, och.
+- (Endast Visual Studio 2015 med ASP.NET 4 app) Tog bort `App_Start/IdentityConfig.cs` och lagt till `Controllers/AccountController.cs`, `Models/IdentityModel.cs`och `Providers/ApplicationAuthProvider.cs`.
 
-- Lade `Connected Services/AzureAD/ConnectedService.json` till (Visual Studio 2017) `Service References/Azure AD/ConnectedService.json` eller (Visual Studio 2015) som innehåller information som Visual Studio använder för att spåra tillägget av den anslutna tjänsten.
+- Lade till `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) eller `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015) som innehåller information som Visual Studio använder för att spåra tillägget av den anslutna tjänsten.
 
 ### <a name="file-backup-visual-studio-2015"></a>Fil säkerhets kopiering (Visual Studio 2015)
 

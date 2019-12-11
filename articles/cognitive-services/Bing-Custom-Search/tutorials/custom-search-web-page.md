@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa en webbsida för anpassad sökning – Anpassad sökning i Bing'
+title: 'Självstudie: Skapa en webbsida för anpassad sökning – Anpassad sökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du konfigurerar en anpassad söknings instans i Bing och integrerar den på en webb sida.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: aee84a4d9203d80b81f773df30d68c3539e5ec7c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564693"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977207"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Självstudier: Skapa en webbsida för anpassad sökning
+# <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
 
 Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Om du till exempel äger en webbplats med sökfunktion om kampsport kan du ange vilka domäner, underwebbplatser och webbsidor Bing ska söka i. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland sökresultat som kan vara irrelevant. 
 
@@ -32,7 +32,7 @@ Här är några av uppgifterna:
 > - Lägga till fästa poster
 > - Integrera anpassad sökning i en webbsida
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Om du inte redan har installerat Visual Studio 2017 eller senare kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/).
@@ -79,7 +79,7 @@ Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du l
 
 ## <a name="add-pinned-entries"></a>Lägga till fästa poster
 
-För att fästa en specifik webbsida längst upp i sökresultatet lägger du till webbsidan och frågevillkoret till den **fästa** fliken. Den **fästa** fliken innehåller en lista över webbsidan och frågetermpar som anger webbsidan som visas i det översta resultatet för en specifik fråga. Webbsidan fästs endast om användarens frågesträng matchar fästets frågesträng baserat på fästets matchningsvillkor. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
+Lägg till webb sidan och fråge termen till den **fästa** fliken om du vill fästa en speciell webb sida överst i Sök resultaten. Den **fästa** fliken innehåller en lista över webb sidor och frågetermer som anger den webb sida som visas som det främsta resultatet för en speciell fråga. Webbsidan fästs endast om användarens frågesträng matchar fästets frågesträng baserat på fästets matchningsvillkor. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. På sidan **Konfiguration** klickar du på den **fästa** fliken och anger webbsidan och frågetermen för den webbsida som du vill ska returneras som ett översta resultat.  
   
@@ -128,9 +128,9 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
 Det finns två sätt att använda det värdbaserade användargränssnittet.  
 
 - Alternativ 1: Integrera medföljande JavaScript-kodfragment i programmet.
-- Alternativ 2: Använd HTML-slutpunkten som medföljer.
+- Alternativ 2: Använda HTML-slutpunkten som medföljer.
 
-Resten av den här självstudien visar **Alternativ 1: JavaScript-kodavsnitt**.  
+Resten av den här självstudien visar **Alternativ 1: Javascript-kodavsnitt**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Konfigurera din Visual Studio-lösning
 

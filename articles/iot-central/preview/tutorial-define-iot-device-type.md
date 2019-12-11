@@ -3,18 +3,18 @@ title: Definiera en ny IoT-enhets typ i Azure IoT Central | Microsoft Docs
 description: Den här självstudien visar dig som ett verktyg för att skapa en ny mall för Azure IoT-enheter i ditt Azure IoT Central-program. Du definierar telemetri, tillstånd, egenskaper och kommandon för din typ.
 author: rangv
 ms.author: rangv
-ms.date: 10/22/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 177caaa5400c10ed8de80b04a3305dce7cae77d6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2127bec4d5fdf0d3bf76fb31c548eab98f910d42
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407009"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979027"
 ---
 # <a name="tutorial-define-a-new-iot-device-type-in-your-azure-iot-central-application-preview-features"></a>Självstudie: definiera en ny IoT-enhets typ i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -46,7 +46,7 @@ Som ett verktyg har du flera alternativ för att skapa enhets mallar:
 - Skapa en enhets kapacitets modell med hjälp av Visual Studio Code. Implementera din enhets kod från modellen. Importera enhetens kapacitets modell manuellt till IoT Central programmet och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
 - Skapa en enhets kapacitets modell med hjälp av Visual Studio Code. Implementera din enhets kod från modellen och Anslut din riktiga enhet till ditt IoT Central program genom att använda en enhets första anslutning. IoT Central hittar och importerar enhets kapacitets modellen från den offentliga lagrings platsen åt dig. Du kan sedan lägga till alla moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver för enhets mal len.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
 
@@ -124,11 +124,11 @@ I följande tabell visas konfigurations inställningarna för en telemetri-funkt
 | Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för telemetri-värdet som används på instrument paneler och formulär. |
-| Name | Namnet på fältet i telemetri meddelandet. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Funktions typ | Telemetridata. |
-| Semantisk typ | Den semantiska typen av telemetri, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Namn | Namnet på fältet i telemetri meddelandet. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Typ av kapacitet | Telemetridata. |
+| Semantiktyp | Den semantiska typen av telemetri, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Data typen telemetri, till exempel Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
-| Allvarlighetsgrad | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
+| Allvarsgrad | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
 | Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
 | Enhet | En enhet för telemetri-värdet, till exempel **mph**, **%** eller **&deg;C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
@@ -144,12 +144,12 @@ I följande tabell visas konfigurations inställningarna för en egenskaps funkt
 | Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär. |
-| Name | Egenskapens namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Funktions typ | Immaterialrätt. |
-| Semantisk typ | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Namn | Egenskapens namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Typ av kapacitet | Immaterialrätt. |
+| Semantiktyp | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Egenskaps data typen, t. ex. Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
 | Skrivbar | Om egenskapen inte är skrivbar kan enheten rapportera egenskaps värden till IoT Central. Om egenskapen är skrivbar kan enheten rapportera egenskaps värden till IoT Central och IoT Central kan skicka egenskaps uppdateringar till enheten.
-| Allvarlighetsgrad | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
+| Allvarsgrad | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
 | Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
 | Enhet | En enhet för egenskap svärdet, till exempel **mph**, **%** eller **&deg;C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
@@ -165,8 +165,8 @@ I följande tabell visas konfigurations inställningarna för en kommando funkti
 | Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för kommandot som används på instrument paneler och formulär. |
-| Name | Kommandots namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Funktions typ | Kommandoprompt. |
+| Namn | Kommandots namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Typ av kapacitet | Kommandoprompt. |
 | Kommando | `SynchronousExecutionType`. |
 | Kommentar | Eventuella kommentarer om kommando funktionen. |
 | Beskrivning | En beskrivning av kommando funktionen. |
@@ -188,8 +188,8 @@ I följande tabell visas konfigurations inställningarna för en moln egenskap:
 | Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för moln egenskap svärdet som används på instrument paneler och formulär. |
-| Name | Namnet på moln egenskapen. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
-| Semantisk typ | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
+| Namn | Namnet på moln egenskapen. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Semantiktyp | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Data typen Cloud Property, till exempel Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. |
 
 ## <a name="add-customizations"></a>Lägg till anpassningar
@@ -229,7 +229,7 @@ Lägga till en instrument panel i en enhets mall:
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Konfigurera förhands gransknings enheten för att visa instrument panelen
 
-Välj **Konfigurera för hands versions enhet**om du vill visa och testa din instrument panel. På så sätt kan du se instrument panelen när din operatör ser den när den har publicerats. Använd det här alternativet för att kontrol lera att dina vyer visar rätt data. Du kan välja bland följande:
+Välj **Konfigurera för hands versions enhet**om du vill visa och testa din instrument panel. På så sätt kan du se instrument panelen när din operatör ser den när den har publicerats. Använd det här alternativet för att kontrol lera att dina vyer visar rätt data. Du kan välja bland följande alternativ:
 
 - Ingen förhands gransknings enhet.
 - Den riktiga testen het som du har konfigurerat för din enhets mall.
@@ -250,7 +250,7 @@ Så här lägger du till ett formulär i en enhets mal len:
 1. Ordna egenskaperna i formuläret.
 1. Spara ändringarna.
 
-## <a name="publish-a-device-template"></a>Publicera en enhets mall
+## <a name="publish-a-device-template"></a>Publicera en enhetsmall
 
 Innan du kan ansluta en enhet som implementerar din enhets kapacitets modell måste du publicera din enhets mall.
 
@@ -283,7 +283,7 @@ Så här skapar du mallar för IoT-enheter:
 
 1. På sidan **Granska** väljer du **skapa**. 
 
-   ![Skärm bild av gransknings Sidan](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
+   ![Skärmbild av granskningssidan](./media/tutorial-define-iot-device-type/gateway-downstream-review.png)
 
 1. En ny enhets mall skapas. 
 
@@ -297,7 +297,7 @@ Så här skapar du en enhets mall för S1-sensor:
 
 1. På sidan **Granska** väljer du **skapa**. 
 
-   ![Skärm bild av gransknings Sidan](./media/tutorial-define-iot-device-type/s1-review.png)
+   ![Skärmbild av granskningssidan](./media/tutorial-define-iot-device-type/s1-review.png)
 
 1. En ny enhets mall skapas. 
 
@@ -359,8 +359,8 @@ En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT 
 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inga          | Date   |
-    | Kund namn     | Inga          | Sträng |
+    | Senaste servicedatum | Inget          | Datum   |
+    | Kundnamn     | Inget          | Sträng |
 
 2. Välj **Spara**.
 
@@ -387,7 +387,7 @@ Som ett verktyg kan du anpassa programmet för att visa relevant information om 
 
 Om du väljer **generera standardvyer**kan du generera en **Översikt** och **om** instrument paneler. 
 
-## <a name="publish-a-device-template"></a>Publicera en enhets mall
+## <a name="publish-a-device-template"></a>Publicera en enhetsmall
 
 Innan du kan skapa en simulerad miljö sensor, eller ansluta en riktig miljö sensor, måste du publicera din enhets mall.
 

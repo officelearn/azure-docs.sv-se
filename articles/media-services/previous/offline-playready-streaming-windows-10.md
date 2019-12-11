@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 350b8d111652511627ddf67236f63248a5489015
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844777"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970456"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady-direktuppspelning för Windows 10  
 
@@ -64,13 +64,13 @@ Nedan finns två typer av test till gångar, den första som använder PlayReady
 
 Till gångs #1:
 
-* URL för progressiv nedladdning:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Till gångs #2:
 
-* URL för progressiv nedladdning:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (på-lokal):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (lokal): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 För uppspelnings testning använde jag ett universellt Windows-program i Windows 10. I [universella Windows 10](https://github.com/Microsoft/Windows-universal-samples)-exempel finns ett Basic Player-exempel som kallas [anpassningsbart strömnings exempel](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Allt vi behöver göra är att lägga till koden för att vi ska kunna välja nedladdad video och använda den som källa, i stället för anpassningsbar direkt uppspelnings källa. Knappen ändringar är i klickar du på händelse hanteraren:
 
@@ -125,6 +125,10 @@ I sammanfattning har vi uppnått offline-läge på Azure Media Services:
 * Innehållet kan finnas i Azure Media Services eller Azure Storage för progressiv nedladdning.
 * PlayReady-licensens leverans kan vara från Azure Media Services eller någon annan stans.
 * Det för beredda strömmande innehållet kan fortfarande användas för direkt uppspelning via tank streck eller smidigt med PlayReady som DRM.
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 

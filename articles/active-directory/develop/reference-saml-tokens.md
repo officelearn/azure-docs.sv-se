@@ -1,5 +1,5 @@
 ---
-title: Lär dig mer om olika token och anspråks typer som stöds av Azure AD | Microsoft Docs
+title: Azure AD-token & anspråks typer | Microsoft Docs
 description: En guide för att förstå och utvärdera anspråk i SAML 2,0 och JWT-token (JSON Web token) som utfärdats av Azure Active Directory (AAD)
 documentationcenter: na
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf4c976a1232d08df1be2549d2861295adf9ee1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 4acac79d79b584dac93d63f6d478627f7e953f81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532963"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965764"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referens för Azure AD SAML-token
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) genererar flera typer av säkerhetstoken vid b
 > | Autentiseringstillfälle | |Registrerar datum och tid då autentiseringen utfördes. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
 > |Autentiseringsmetod | `amr` |Anger hur ämnet för token autentiserades. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Förnamn | `given_name` |Anger det första eller "tilldelat" namnet på användaren, som anges på objektet Azure AD-användare. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |Grupper | `groups` |Tillhandahåller objekt-ID: n som representerar ämnets grupp medlemskap. Dessa värden är unika (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst, t. ex. för att tvinga behörighet att få åtkomst till en resurs. Grupperna som ingår i gruppen grupper har kon figurer ATS per program, via egenskapen "groupMembershipClaims" för applikations manifestet. Värdet null utesluter alla grupper, värdet "SecurityGroup" kommer bara att innehålla Active Directory medlemskap i säkerhets grupper och värdet "alla" omfattar både säkerhets grupper och distributions listor för Office 365. <br><br> **Anteckningar**: <br> Om antalet grupper som användaren betjänar över en gräns (150 för SAML, 200 för JWT) läggs anspråks källorna till anspråks källorna som pekar på diagrammets slut punkt med listan över grupper för användaren. för. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> |Grupper | `groups` |Tillhandahåller objekt-ID: n som representerar ämnets grupp medlemskap. Dessa värden är unika (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst, t. ex. för att tvinga behörighet att få åtkomst till en resurs. Grupperna som ingår i gruppen grupper har kon figurer ATS per program, via egenskapen "groupMembershipClaims" för applikations manifestet. Värdet null utesluter alla grupper, värdet "SecurityGroup" kommer bara att innehålla Active Directory medlemskap i säkerhets grupper och värdet "alla" omfattar både säkerhets grupper och distributions listor för Office 365. <br><br> **Kommentarer**: <br> Om antalet grupper som användaren betjänar över en gräns (150 för SAML, 200 för JWT) läggs anspråks källorna till anspråks källorna som pekar på diagrammets slut punkt med listan över grupper för användaren. för. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
 > | Indikator för överutnyttjade grupper | `groups:src1` | För Tokenbegäran som inte är begränsade (se `hasgroups` ovan) men fortfarande är för stor för token kommer en länk till listan över fullständiga grupper för användaren att inkluderas. För SAML läggs det till som ett nytt anspråk i stället för `groups`-anspråket. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Identitetsprovider | `idp` |Registrerar den identitetsprovider som har autentiserat subjektet för token. Värdet är identiskt med värdet för utfärdarens anspråk om inte användar kontot finns i en annan klient organisation än utfärdaren. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Lagrar tiden då token utfärdades. Den används ofta för att mäta aktualitet för token. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |

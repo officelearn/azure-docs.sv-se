@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med hjälp av PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 26e52e8aa498c37bd4cef95fb2b54b2fe9322f90
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226684"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974248"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -50,7 +50,7 @@ PSFunctionApp
 
 I projekt roten finns det en delad [`host.json`](functions-host-json.md) -fil som kan användas för att konfigurera Function-appen. Varje funktion har en mapp med en egen kod fil (. ps1) och en bindnings konfigurations fil (`function.json`). Namnet på function. JSON-filens överordnade katalog är alltid namnet på din funktion.
 
-Vissa bindningar kräver förekomst av en `extensions.csproj`-fil. Bindnings tillägg, som krävs i [version 2. x](functions-versions.md) av Functions-körningen, definieras i `extensions.csproj`-filen, med de faktiska biblioteksfilerna i mappen `bin`. När du utvecklar lokalt måste du [Registrera bindnings tillägg](functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
+Vissa bindningar kräver förekomst av en `extensions.csproj`-fil. Bindnings tillägg, som krävs i [version 2. x och senare versioner](functions-versions.md) av Functions-körningen, definieras i `extensions.csproj`-filen, med de faktiska biblioteksfilerna i mappen `bin`. När du utvecklar lokalt måste du [Registrera bindnings tillägg](functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
 
 I PowerShell Function-appar kan du eventuellt ha en `profile.ps1` som körs när en Function-app börjar köras (på annat sätt vet som en *[kall start](#cold-start)* ). Mer information finns i [PowerShell-profil](#powershell-profile).
 
@@ -75,9 +75,9 @@ $TriggerMetadata.sys
 
 | Egenskap   | Beskrivning                                     | Typ     |
 |------------|-------------------------------------------------|----------|
-| utcNow     | När, i UTC, utlöstes funktionen        | DateTime |
-| MethodName | Namnet på den funktion som har utlösts     | string   |
-| RandGuid   | ett unikt GUID för den här körningen av funktionen | string   |
+| UtcNow     | När, i UTC, utlöstes funktionen        | DateTime |
+| MethodName | Namnet på den funktion som har utlösts     | sträng   |
+| RandGuid   | ett unikt GUID för den här körningen av funktionen | sträng   |
 
 Varje utlösnings typ har en annan uppsättning metadata. `$TriggerMetadata` för `QueueTrigger` innehåller till exempel `InsertionTime`, `Id`, `DequeueCount`, bland annat. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
 
@@ -125,7 +125,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
-| Name | Typ | position | Beskrivning |
+| Namn | Typ | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | Sträng | 1 | Namnet på den utgående bindning som du vill ange. |
 | **`-Value`** | Objekt | 2 | Värdet för den utgående bindning som du vill ange, som accepteras från pipelinen ByValue. |
@@ -275,8 +275,8 @@ Det finns ett antal utlösare och bindningar som är tillgängliga för dig att 
 Alla utlösare och bindningar representeras i kod som några få verkliga data typer:
 
 * Hash
-* string
-* byte[]
+* sträng
+* byte
 * int
 * double
 * HttpRequestContext
@@ -296,12 +296,12 @@ Objektet Request som skickas till skriptet är av typen `HttpRequestContext`, so
 
 | Egenskap  | Beskrivning                                                    | Typ                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Ett objekt som innehåller bröd texten i begäran. `Body` serialiseras till den bästa typen baserat på data. Om data till exempel är JSON, skickas de som en hash-tabell. Om datan är en sträng skickas den som en sträng. | object |
+| **`Body`**    | Ett objekt som innehåller bröd texten i begäran. `Body` serialiseras till den bästa typen baserat på data. Om data till exempel är JSON, skickas de som en hash-tabell. Om datan är en sträng skickas den som en sträng. | objekt |
 | **`Headers`** | En ord lista som innehåller begärandehuvuden.                | Ord listans < sträng, String ><sup>*</sup> |
-| **`Method`** | HTTP-metoden för begäran.                                | string                    |
+| **`Method`** | HTTP-metoden för begäran.                                | sträng                    |
 | **`Params`**  | Ett objekt som innehåller Dirigerings parametrarna för begäran. | Ord listans < sträng, String ><sup>*</sup> |
 | **`Query`** | Ett objekt som innehåller frågeparametrarna.                  | Ord listans < sträng, String ><sup>*</sup> |
-| **`Url`** | URL för begäran.                                        | string                    |
+| **`Url`** | URL för begäran.                                        | sträng                    |
 
 <sup>*</sup> Alla `Dictionary<string,string>` nycklar är Skift läges känsliga.
 
@@ -311,8 +311,8 @@ Objektet Response som du ska skicka tillbaka är av typen `HttpResponseContext`,
 
 | Egenskap      | Beskrivning                                                 | Typ                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Ett objekt som innehåller bröd texten i svaret.           | object                    |
-| **`ContentType`** | En kort hand för att ange innehålls typen för svaret. | string                    |
+| **`Body`**  | Ett objekt som innehåller bröd texten i svaret.           | objekt                    |
+| **`ContentType`** | En kort hand för att ange innehålls typen för svaret. | sträng                    |
 | **`Headers`** | Ett objekt som innehåller svarshuvuden.               | Ord lista eller hash   |
 | **`StatusCode`**  | HTTP-statuskod för svaret.                       | sträng eller heltal             |
 

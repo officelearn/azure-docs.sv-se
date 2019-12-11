@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 0026aa377a58f6b766a400860692a35440deb962
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2ae0f3033b88b3229d3dbef35c8bc9a32510c00e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748355"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972344"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
 
@@ -43,9 +43,9 @@ För anslutnings problem, t. ex. fel vid kopiering av aktivitet, se [fel söknin
 
 - **Rekommendation**: Ange antecknings bokens sökväg i Databricks-aktiviteten.
 
-<br/>    
-              
-- **Meddelande**: `Cluster   ... does not exist.`
+<br/>  
+
+- **Meddelande**: `Cluster... does not exist.`
 
 - **Orsak**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
@@ -53,7 +53,7 @@ För anslutnings problem, t. ex. fel vid kopiering av aktivitet, se [fel söknin
 
 <br/>  
 
-- **Meddelande**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+- **Meddelande**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
 - **Orsak**: `Bad authoring.`
 
@@ -334,56 +334,56 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code--4121"></a>Felkod: 4121
 
-- **Meddelande**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Orsak**: autentiseringsuppgifterna som används för att komma åt Azure ml-tjänsten har upphört att gälla.
+- **Orsak**: autentiseringsuppgifterna som används för att komma åt Azure Machine Learning har upphört att gälla.
 
 - **Rekommendation**: kontrol lera att autentiseringsuppgifterna är giltigt och försök igen
 
 
 ### <a name="error-code--4122"></a>Felkod: 4122
 
-- **Meddelande**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Orsak**: autentiseringsuppgifter som angetts i den länkade tjänsten Azure ml-tjänsten är ogiltig eller har inte behörighet för åtgärden.
+- **Orsak**: autentiseringsuppgifterna som angavs i Azure Machine Learning länkade tjänsten är ogiltiga eller har inte behörighet för åtgärden.
 
-- **Rekommendation**: verifiera att autentiseringsuppgifterna i den länkade tjänsten är giltiga och har åtkomst behörighet till Azure ml-tjänsten.
+- **Rekommendation**: kontrol lera att autentiseringsuppgifterna i den länkade tjänsten är giltiga och har åtkomst behörighet till Azure Machine Learning.
 
 
 ### <a name="error-code--4123"></a>Felkod: 4123
 
-- **Meddelande**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Orsak**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+- **Orsak**: egenskaperna för aktiviteten, till exempel pipelineParameters, är ogiltiga för Azure ml-pipeline.
 
 - **Rekommendation**: kontrol lera värdet för aktivitets egenskaper för att matcha förväntad nytto last för den publicerade Azure ml-pipelinen som anges i den länkade tjänsten.
 
 
 ### <a name="error-code--4124"></a>Felkod: 4124
 
-- **Meddelande**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Orsak**: slut punkten för den publicerade Azure ml-pipelinen finns inte.
 
-- **Rekommendation**: kontrol lera att den publicerade Azure ml-pipelinen som angavs i den länkade tjänsten finns i Azure ml-tjänsten.
+- **Rekommendation**: kontrol lera att den publicerade Azure Machine Learning pipelinen som angavs i den länkade tjänsten finns i Azure Machine Learning.
 
 
 ### <a name="error-code--4125"></a>Felkod: 4125
 
-- **Meddelande**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Orsak**: Server fel i Azure ml-tjänsten.
+- **Orsak**: Server fel på Azure Machine Learning.
 
-- **Rekommendation**: försök igen senare. Kontakta Azure ML-teamet för hjälp om problemet kvarstår.
+- **Rekommendation**: försök igen senare. Kontakta Azure Machine Learning team för hjälp om problemet kvarstår.
 
 
 ### <a name="error-code--4126"></a>Felkod: 4126
 
-- **Meddelande**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure ML Service for more error logs.`
+- **Meddelande**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **Orsak**: körningen av Azure ml-pipeline misslyckades.
 
-- **Rekommendation**: kontrol lera i Azure ml-tjänsten om det finns fler fel loggar och åtgärda ml-pipeline
+- **Rekommendation**: sök i Azure Machine Learning efter fler fel loggar och korrigera ml-pipelinen.
 
 
 
@@ -522,7 +522,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code--2507"></a>Felkod: 2507
 
-- **Meddelande**: `The folder path does not exist or is empty: ....`
+- **Meddelande**: `The folder path does not exist or is empty: ...`
 
 - **Orsak**: inga filer finns i lagrings kontot på den angivna sökvägen.
 
@@ -668,12 +668,12 @@ Följande tabell gäller för Azure Batch.
 - **Orsak**: när fel meddelandet innehåller ett meddelande som liknar "502-webb servern tog emot ett ogiltigt svar när den fungerade som en gateway eller proxyserver" returneras det här felet av HDInsight-tjänsten.
 
 
-- **Rekommendation**: Titta igenom dokumentationen för Azure HDInsight-felsökning, till exempel https://hdinsight.github.io/ambari/ambari-ui-502-error.html, https://hdinsight.github.io/spark/spark-thriftserver-errors.htmlhttps://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
+- **Rekommendation**: Titta igenom dokumentationen för Azure HDInsight-felsökning, till exempel https://hdinsight.github.io/ambari/ambari-ui-502-error.html , https://hdinsight.github.io/spark/spark-thriftserver-errors.htmlhttps://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
                   
 
 <br>
 
-- **Orsak**: när fel meddelandet innehåller ett meddelande som liknar "Det gick inte att hantera begäran om att skicka jobb som Templeton-tjänsten är upptagen med för många begäran om att skicka jobb eller Queue rot. joblauncher har redan 500 program och kan inte acceptera sändning av program, innebär det att för många jobb skickas till HDInsight på samma tid.
+- **Orsak**: när fel meddelandet innehåller ett meddelande som liknar "Det gick inte att hantera begäran om att skicka jobb som Templeton-tjänsten är upptagen med för många begäran om att skicka jobb eller Queue rot. joblauncher har redan 500 program, det går inte att godkänna att programmet skickas, vilket innebär att för många jobb skickas till HDInsight samtidigt.
 
 - **Rekommendation**: Överväg att begränsa antalet samtidiga jobb som skickats till HDInsight. Referera till Data Factory aktivitets samtidighet om jobben skickas av samma aktivitet. Ändra utlösare så att samtidiga pipelines körs sprids över tid. Se HDInsight-dokumentationen för att justera Templeton. parallellism. job. submit som fel förslag.
 
@@ -685,7 +685,7 @@ Följande tabell gäller för Azure Batch.
 - **Orsak**: HDInsight-kluster eller-tjänsten har problem.
 
 
-- **Rekommendation**: det här felet uppstår när ADF inte får svar från HDInsight-kluster vid försök att hämta status för jobbet som körs. Det kan vara orsaken till problem i själva klustret, eller så kan HDInsight-tjänsten ha ett avbrott. Se fel söknings dokumentation för HDInsight på https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guideeller kontakta supporten om du vill ha mer hjälp.
+- **Rekommendation**: det här felet uppstår när ADF inte får svar från HDInsight-kluster vid försök att hämta status för jobbet som körs. Det kan vara orsaken till problem i själva klustret, eller så kan HDInsight-tjänsten ha ett avbrott. Se fel söknings dokumentation för HDInsight på https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide eller kontakta supporten om du vill ha mer hjälp.
                 
 
 
@@ -816,7 +816,7 @@ Följande tabell gäller för Azure Batch.
 
 - **Rekommendation**:  
       1. Kontrol lera att autentiseringsuppgifterna är korrekta genom att öppna HDInsight-klustrets Ambari-användargränssnitt i en webbläsare.
-      2. Om klustret är i VNet och lokal IR används, ska HDI-URL: en till vara den privata URL: en i virtuella nätverk, vilket innebär att den ska ha "-int" efter kluster namnet. Till exempel måste "https://mycluster.azurehdinsight.net/" ändras till "https://mycluster-int.azurehdinsight.net/".
+      2. Om klustret är i VNet och lokal IR används, ska HDI-URL: en till vara den privata URL: en i virtuella nätverk, vilket innebär att den ska ha "-int" efter kluster namnet. Till exempel måste "https://mycluster.azurehdinsight.net/ " ändras till "https://mycluster-int.azurehdinsight.net/".
       2. Om klustret är i VNet används egen värd-IR och den privata URL: en användes, och anslutningen fortfarande misslyckades. den virtuella datorn där IR har installerats hade problem med att ansluta till HDI. Anslut till den virtuella datorn där IR är installerat och öppna Ambari-ANVÄNDARGRÄNSSNITTET i en webbläsare. Använd den privata URL: en för klustret. Den här anslutningen bör fungera från webbläsaren. Om den inte gör det kontaktar du HDInsight support team för ytterligare hjälp.
       3. Om IR med egen värd inte används bör HDI-klustret vara tillgängligt offentligt. Öppna Ambari-ANVÄNDARGRÄNSSNITTET i en webbläsare och se till att det öppnas. Om det finns några problem med klustret eller tjänsterna på den kontaktar du HDInsight support team för att få hjälp.
       I allmänhet måste HDI-kluster-URL: en som används i den länkade ADF-tjänsten vara tillgänglig för ADF IR (lokal eller Azure) för att test anslutningen ska kunna skickas och för att körningen ska fungera. Detta kan vara enkelt att verifiera genom att öppna URL: en från en webbläsare, antingen från en virtuell dator eller någon offentlig dator.
@@ -1018,7 +1018,7 @@ Så här använder du Fiddler för att skapa en HTTP-session för det övervakad
 
 1. Om ditt webb program använder HTTPS går du till **verktyg** > **Fiddler-alternativ** > **https**. Välj **avbilda https ansluter** och **dekryptera HTTPS-trafik**.
 
-![Fiddler-alternativ](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Fiddler-alternativ](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. Om programmet använder SSL-certifikat lägger du till Fiddler-certifikatet på enheten. Gå till **verktyg** > **Fiddler alternativ** > **https** > **åtgärder** > **Exportera rot certifikat till Skriv bordet**.
 
@@ -1028,17 +1028,17 @@ Så här använder du Fiddler för att skapa en HTTP-session för det övervakad
 
 1. Skapa en begäran:
 
-a. Välj fliken **Composer** .
+   1. Välj fliken **Composer** .
 
-b. Ange HTTP-metod och URL.
+   1. Ange HTTP-metod och URL.
+   
+   1. Lägg till rubriker och en begär ande text om du behöver.
 
-c. Lägg till rubriker och en begär ande text om du behöver.
+   1. Välj **Kör**.
 
-d. Välj **Kör**.
+1. Aktivera trafik insamlingen igen och slutför den felande transaktionen på sidan.
 
-9. Aktivera trafik insamlingen igen och slutför den felande transaktionen på sidan.
-
-10. Gå till **fil** > **Spara** > **alla sessioner**.
+1. Gå till **fil** > **Spara** > **alla sessioner**.
 
 Mer information finns i [komma igång med Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
@@ -1046,7 +1046,7 @@ Mer information finns i [komma igång med Fiddler](https://docs.telerik.com/fidd
 
 Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 
-*  [Data Factory-bloggen](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

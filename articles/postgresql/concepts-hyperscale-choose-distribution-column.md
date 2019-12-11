@@ -1,5 +1,5 @@
 ---
-title: Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
+title: Välj distributions kolumner – storskalig (citus)-Azure Database for PostgreSQL
 description: Lär dig hur du väljer distributions kolumner i vanliga storskaliga scenarier i Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: a61c52773c4c6036a76d7b233988c713c1da861f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482851"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975677"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -35,7 +35,7 @@ Följande diagram illustrerar samplacering i data modellen för flera innehavare
 Om du vill använda den här designen i ditt eget schema, identifierar du vad som utgör en klient i ditt program. Vanliga instanser är företag, konto, organisation eller kund. Kolumn namnet kommer att vara något som liknar `company_id` eller `customer_id`. Undersök var och en av dina frågor och fråga dig själv, så fungerar det om det hade ytterligare WHERE-satser för att begränsa alla tabeller som ingår i rader med samma klient-ID?
 Frågor i modellen för flera klienter är begränsade till en klient. Till exempel är frågor om försäljning eller lager begränsade inom en viss butik.
 
-#### <a name="best-practices"></a>Bästa praxis
+#### <a name="best-practices"></a>Bästa metoder
 
 -   **Partitionera distribuerade tabeller av en gemensam klient\_ID-kolumn.** I ett SaaS-program där klienter är företag är dock\_-ID: t för klient organisationer som är företagets\_-ID.
 -   **Konvertera små kors klient tabeller till referens tabeller.** När flera klienter delar en liten tabell med information distribuerar du den som en referens tabell.
@@ -51,7 +51,7 @@ Vi använder "entitets-ID" som en term för distributions kolumner i real tids m
 
 Real tids frågor efterfrågar vanligt vis numeriska mängder grupperade efter datum eller kategori. Citus (storskalig) skickar dessa frågor till varje Shard för partiella resultat och sammanställer det slutliga svaret på koordinator-noden. Frågor körs snabbast när så många noder bidrar som möjligt, och när ingen enskild nod måste göra en oproportionerlig mängd arbete.
 
-#### <a name="best-practices"></a>Bästa praxis
+#### <a name="best-practices"></a>Bästa metoder
 
 -   **Välj en kolumn med hög kardinalitet som distributions kolumn.** För jämförelse är ett status fält i en order tabell med värdena New, betald och levererad ett dåligt val av distributions kolumn. Det förutsätter bara dessa få värden, vilket begränsar antalet Shards som kan innehålla data och antalet noder som kan bearbeta det. Mellan kolumner med hög kardinalitet är det också bäst att välja de kolumner som ofta används i Group by-satser eller som kopplings nycklar.
 -   **Välj en kolumn med jämn fördelning.** Om du distribuerar en tabell i en kolumn som skevas till vissa vanliga värden, kommer data i tabellen att kunna ackumuleras i vissa Shards. Noderna som innehåller dessa Shards Slutför mer arbete än andra noder.
@@ -67,7 +67,7 @@ I en tids serie arbets belastning frågar programmet efter den senaste informati
 
 Det vanligaste misstaget vid modellering av Time-Series-information i storskaliga (citus) är att använda själva tidsstämpeln som en distributions kolumn. En hash-distribution baserad på tid distribuerar tider som är ganska slumpmässiga i olika Shards, i stället för att hålla tidsintervallen sammantaget i Shards. Frågor som avser tid vanligt vis referens tider, till exempel de senaste data. Den här typen av hash-distribution leder till nätverks kostnader.
 
-#### <a name="best-practices"></a>Bästa praxis
+#### <a name="best-practices"></a>Bästa metoder
 
 -   **Välj inte en tidstämpel som distributions kolumn.** Välj en annan distributions kolumn. I en app för flera klient organisationer använder du klient-ID: t eller i en app i real tid använder du entitets-ID: t.
 -   **Använd PostgreSQL Table partitioning för tid i stället.** Använd tabell partitionering för att dela upp en stor tabell med tidsordnade data i flera ärvda tabeller med varje tabell som innehåller olika tidsintervall. Genom att distribuera en postgres tabell i citus () skapas Shards för de ärvda tabellerna.

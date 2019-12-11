@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 481e2ab63263f77b513e6443479827cc9e168bbb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926363"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972378"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -679,6 +679,24 @@ Som standard har alla funktions vägar prefixet med *API*. Du kan också anpassa
     }
 }
 ```
+
+### <a name="using-route-parameters"></a>Använda väg parametrar
+
+Väg parametrar definierade en funktions `route` mönster är tillgängliga för varje bindning. Om du till exempel har en väg definierad som `"route": "products/{id}"` kan en tabell lagrings bindning använda värdet för parametern `{id}` i bindnings konfigurationen.
+
+Följande konfiguration visar hur `{id}`-parametern skickas till bindningens `rowKey`.
+
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+
 
 ### <a name="working-with-client-identities"></a>Arbeta med klient identiteter
 

@@ -1,6 +1,6 @@
 ---
 title: Använd olika mekanismer för attestering med Azure IoT Hub Device Provisioning Service client SDK
-description: Så här gör du med Azure – Använda olika attesteringsmetoder för maskinvara med klient-SDK:t för enhetsetableringstjänsten i Azure
+description: Azure så här använder du olika attesterings metoder med klient-SDK för enhets etablerings tjänsten (DPS) i Azure
 author: robinsh
 ms.author: robinsh
 ms.date: 03/30/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 0cde591d2ec8c6f2f51c83b3f263c188c8cf2605
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c85d958074ea5d41d32f71350164c3c983e372a2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228276"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976663"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten för C
 

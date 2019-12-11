@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821284"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973551"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga data uppsättningar för testning och prototypering
 
@@ -24,9 +24,9 @@ Bläddra i listan över offentliga data uppsättningar för data som du kan anv�
 
 ## <a name="us-government-and-agency-data"></a>Amerikanska myndigheter och byrå uppgifter
 
-| Data Källa | Om de data som används | Om filerna |
+| Datakälla | Om de data som används | Om filerna |
 |---|---|---|
-| [AMERIKANSKA myndighets data](https://www.census.gov/data.html) | Över 190 000 data uppsättningar som omfattar jordbruk, klimat, konsument, eko system, utbildning, energi, ekonomi, hälsa, lokal myndighet, tillverkning, sjö, hav, offentlig säkerhet, vetenskap och forskning i USA | Filer av olika storlekar i olika format, inklusive HTML, XML, CSV, JSON, Excel och många andra. Du kan filtrera tillgängliga data uppsättningar efter fil format. |
+| [AMERIKANSKA myndighets data](https://catalog.data.gov/dataset) | Över 250 000 data uppsättningar som omfattar jordbruk, klimat, konsument, eko system, utbildning, energi, ekonomi, hälsa, lokal myndighet, tillverkning, sjö, hav, offentlig säkerhet, vetenskap och forskning i USA | Filer av olika storlekar i olika format, inklusive HTML, XML, CSV, JSON, Excel och många andra. Du kan filtrera tillgängliga data uppsättningar efter fil format. |
 | [AMERIKANSKA inventerings data](https://www.census.gov/data.html) | Statistisk information om befolkningen i USA | Data uppsättningar är i olika format. |
 | [Earth Science-data från NASA](https://earthdata.nasa.gov/) | Över 32 000 data samlingar som omfattar jord-, atmosfär-, biosfär-, klimat-, cryosphere-, mänsklig-, hydrosphere-, yt-, havs-, havs-och jord-och. | Data uppsättningar är i olika format. |
 | [Flyg fördröjningar och andra transport data](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Det amerikanska departementet transport (punkt) Bureau of transport Statistics (BTS) spårar den dagliga prestandan hos inrikes flygningar som drivs av stora lufttrafik företag. Sammanfattande information om antalet försenade, annullerade och avvisade flygningar visas... i sammanfattnings tabeller som publicerats på den här webbplatsen. " | Filerna är i CSV-format. |
@@ -37,7 +37,7 @@ Bläddra i listan över offentliga data uppsättningar för data som du kan anv�
 
 ## <a name="other-statistical-and-scientific-data"></a>Andra statistiska och vetenskapliga data
 
-| Data Källa | Om de data som används | Om filerna |
+| Datakälla | Om de data som används | Om filerna |
 |---|---|---|
 | [New York, stad, taxi data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi resor innehåller fält som fångar in hämtnings-och DropOff-datum/-tider, hämtnings-och DropOff-platser, rese sträckor, avgiftsbelagda priser, pris typer, betalnings typer och driv rutins rapporterad person antal." | Data uppsättningar är i CSV-filer per månad. |
 | [Microsoft Research data uppsättningar – "data vetenskap för forskning"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Flera data uppsättningar som täcker interaktion med mänsklig dator, ljud/video, Data utvinning/informations hämtning, geospatialt/plats, naturlig språk bearbetning och Robotics/dator vision. | Data uppsättningar är i olika format, zippade för hämtning. |
@@ -50,7 +50,7 @@ Bläddra i listan över offentliga data uppsättningar för data som du kan anv�
 
 ## <a name="online-service-data"></a>Online tjänst data
 
-| Data Källa | Om de data som används | Om filerna |
+| Datakälla | Om de data som används | Om filerna |
 |---|---|---|
 | [GitHub-Arkiv](https://www.githubarchive.org/) | "GitHub Archive är ett projekt för att registrera den offentliga GitHub-tidslinjen [av händelser], arkivera den och göra det enkelt att komma åt ytterligare analyser." | Ladda ned JSON-kodade händelse Arkiv i formatet. gz (gzip) från en webb klient. |
 | [GitHub-aktivitets data från GHTorrent-projektet](http://ghtorrent.org/) | "GHTorrent-projektet [är] ett arbete för att skapa en skalbar, fråga offline-spegling av data som erbjuds via GitHub-REST API. GHTorrent övervakar den GitHub offentliga händelsens tids linje. För varje händelse hämtas dess innehåll och deras beroenden, så omfattande. " | MySQL-databasens dumpar är i CSV-format. |

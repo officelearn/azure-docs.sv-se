@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Anropa slutpunkten för anpassad Bing-sökning med hjälp av Python | Microsoft Docs'
+title: 'Snabb start: anropa din Anpassad sökning i Bing slut punkt med python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att börja begära sökresultat från instansen av anpassad Bing-sökning med hjälp av Python
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 24416bc2259fdd35581699b11f599ea48e349d5a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cbfc122913978b1e0828917e901422942928644d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564629"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974452"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Snabbstart: Anropa slutpunkten för API för anpassad Bing-sökning med hjälp av Python
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt med python
 
-Använd den här snabbstarten till att börja begära sökresultat från instansen av anpassad Bing-sökning. Även om det här programmet är skrivet i Python, är API:et för anpassad Bing-sökning en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
+Använd den här snabbstarten till att börja begära sökresultat från din instans av anpassad Bing-sökning. Även om det här programmet är skrivet i Python, är API:et för anpassad Bing-sökning en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En instans av anpassad Bing-sökning. Gå till [Snabbstart: Skapa din första instans av anpassad Bing-sökning](quick-start.md) för mer information.
+- En instans av anpassad Bing-sökning. Se [snabb start: skapa din första anpassad sökning i Bing-instans](quick-start.md) för mer information.
 - [Python](https://www.python.org/) 2.x eller 3.x
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
@@ -44,7 +44,7 @@ Använd den här snabbstarten till att börja begära sökresultat från instans
 
 ## <a name="send-and-receive-a-search-request"></a>Skicka och ta emot en sökbegäran 
 
-1. Konstruera en begäran-URL genom att lägga till söktermen i `q=`-frågeparametern och sökinstansens ID för anpassad konfiguration i `customconfig=`. Avgränsa parametrarna med ett `&`-tecken. 
+1. Konstruera en begäran-URL genom att lägga till söktermen i `q=`-frågeparametern och sökinstansens ID för anpassad konfiguration i `customconfig=`. Avgränsa parametrarna med ett `&`-tecken. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```python
     url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 'q=' + searchTerm + '&' + 'customconfig=' + customConfigId

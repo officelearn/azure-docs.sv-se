@@ -8,20 +8,20 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 7f78230028b66fb12e52f7d5e96cbecbfe8b99a3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 458b4bfa99ccaf1f3a9bc884581df840ace46055
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73519474"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969810"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Snabb start: skapa ett bild klassificerings projekt med Custom Vision go SDK
 
 Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision SDK med Go för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, Hämta projektets URL för den publicerade förutsägelse slut punkten och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa dit eget Go-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](includes/create-resources.md)]
@@ -154,7 +154,7 @@ trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
 
-Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av filen:
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
 ```go
     fmt.Println("Predicting...")
@@ -199,7 +199,7 @@ Du kan sedan kontrollera att testbilden (finns i **<base_image_url>/Images/Test/
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i bildklassificeringsprocessen kan utföras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
+Nu har du sett hur varje steg i bildklassificeringsprocessen kan göras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](test-your-model.md)

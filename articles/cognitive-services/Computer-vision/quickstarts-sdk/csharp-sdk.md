@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 45cf376d54ef9f2e77acb2ece9529af640938853
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 72c66241965db1264cb508ed1f8f4c76a07883be
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931780"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974997"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>Snabb start: Visuellt innehåll klient bibliotek för .NET
 
@@ -25,7 +25,7 @@ Använd Visuellt innehåll klient bibliotek för .NET för att:
 * Analysera en bild för taggar, text beskrivning, ansikten, vuxen innehåll med mera.
 * Identifiera skriven text skriven och handskriven text med API: t batch Read.
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)  | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  | [Package (NuGet)  | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Package (NuGet) | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -97,7 +97,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Den här klassen innehåller ytterligare metoder för **ComputerVisionClient**.|
 |[VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll-klient biblioteket för .NET:
 
@@ -270,5 +270,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 > [!div class="nextstepaction"]
 >[API för visuellt innehåll referens (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [Vad är API för visuellt innehåll?](../Home.md)
+* [Vad är Visuellt innehåll?](../Home.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs).

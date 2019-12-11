@@ -7,22 +7,22 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/19/2019
-ms.openlocfilehash: 6676a6f7c694ffd4f2edf3f63a8181863df0016c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c8a1e2a19fa3c8691cdb381669dc3d4db189c42d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227967"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995855"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 
 Azure SQL [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) med kundhanterad nyckel möjliggör Bring Your Own Key-scenario (BYOK) för data skydd i vila och gör det möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data. Med kundhanterad transparent data kryptering är kunden ansvarig för och i en fullständig kontroll över en nyckel livs cykel hantering (nyckel skapande, uppladdning, rotation, borttagning), nyckel användnings behörigheter och granskning av åtgärder på nycklar.
 
-I det här scenariot är den nyckel som används för kryptering av databas krypterings nyckeln (DEK), som kallas TDE-skydd, en kundhanterad asymmetrisk nyckel som lagras i ett kundägda och Kundhanterade [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), en molnbaserad hantering av externa nycklar säker. Key Vault har hög tillgänglighet och skalbart säkert lagrings utrymme för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2-validerade maskinvarubaserade säkerhetsmoduler (HSM: er). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering/dekryptering med hjälp av nyckeln till auktoriserade entiteter. Nyckeln kan genereras av nyckel valvet, importeras eller [överföras till nyckel valvet från en lokal HSM-enhet](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+I det här scenariot är den nyckel som används för kryptering av databas krypterings nyckeln (DEK), som kallas TDE-skydd, en kundhanterad asymmetrisk nyckel som lagras i ett kundägda och Kundhanterade [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), ett molnbaserad hanterings system för externa nycklar. Key Vault har hög tillgänglighet och skalbart säkert lagrings utrymme för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2-validerade maskinvarubaserade säkerhetsmoduler (HSM: er). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering/dekryptering med hjälp av nyckeln till auktoriserade entiteter. Nyckeln kan genereras av nyckel valvet, importeras eller [överföras till nyckel valvet från en lokal HSM-enhet](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 För Azure SQL Database och Azure SQL Data Warehouse anges TDE-skydd på den logiska Server nivån och ärvs av alla krypterade databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både att SQL Database logisk server och hanterad instans i det här dokumentet, om inget annat anges. 
 

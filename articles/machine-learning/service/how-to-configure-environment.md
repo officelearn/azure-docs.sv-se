@@ -11,25 +11,25 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19045b54b97fdb69f9fdab3d17066faa5dbcc435
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cba77b89ac9a9a93a2a3d889d4faca32708fd719
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580724"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997266"
 ---
-# <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
+# <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du konfigurerar en utvecklings miljö så att den fungerar med Azure Machine Learning. Azure Machine Learning är plattforms oberoende. Det enda hårda kravet för utvecklings miljön är python 3. En isolerad miljö som Anaconda eller virtuell miljö rekommenderas också.
 
 I följande tabell visas varje utvecklings miljö som beskrivs i den här artikeln, tillsammans med-och-och nack delar.
 
-| Miljö | Proffs | Nackdelar |
+| Miljö | Experter | Nackdelar |
 | --- | --- | --- |
-| [Molnbaserad Azure Machine Learning Notebook VM](#notebookvm) | Enkelt sätt att komma igång. Hela SDK är redan installerat på den virtuella arbets ytan och själv studie kurser för bärbara datorer är förklonade och redo att köras. | Brist på kontroll över utvecklings miljön och beroenden. Ytterligare kostnader för virtuella Linux-datorer (VM kan stoppas när de inte används för att undvika avgifter). Se [prisuppgifter](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Molnbaserad Azure Machine Learning Notebook VM](#notebookvm) | Enkelt sätt att komma igång. Hela SDK är redan installerat på den virtuella arbets ytan och själv studie kurser för bärbara datorer är förklonade och redo att köras. | Brist på kontroll över utvecklings miljön och beroenden. Ytterligare kostnader för virtuella Linux-datorer (VM kan stoppas när de inte används för att undvika avgifter). Se [pris information](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Lokal miljö](#local) | Fullständig kontroll över utvecklings miljön och beroenden. Kör med valfri build-verktyg, miljö eller IDE som du väljer. | Det tar längre tid att komma igång. Nödvändiga SDK-paket måste vara installerade och en miljö måste också installeras om du inte redan har ett. |
-| [Azure Databricks](#aml-databricks) | Perfekt för att köra storskaliga arbets flöden för storskalig dator inlärning på den skalbara Apache Sparks plattformen. | Överkurs för experimentell maskin inlärning, eller mindre skalade experiment och arbets flöden. Ytterligare kostnader för Azure Databricks. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/databricks/). |
+| [Azure Databricks](#aml-databricks) | Perfekt för att köra storskaliga arbets flöden för storskalig dator inlärning på den skalbara Apache Sparks plattformen. | Överkurs för experimentell maskin inlärning, eller mindre skalade experiment och arbets flöden. Ytterligare kostnader för Azure Databricks. Se [pris information](https://azure.microsoft.com/pricing/details/databricks/). |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | Precis som den molnbaserade Notebook VM (python och SDK är förinstallerade), men med ytterligare populära data vetenskaps-och maskin inlärnings verktyg förinstallerade. Lätt att skala och kombinera med andra anpassade verktyg och arbets flöden. | En långsammare upplevelse jämfört med den molnbaserade Notebook VM. |
 
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 * [Visual Studio Code](#vscode): om du använder Visual Studio code innehåller [Azure Machine Learning tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) omfattande språk stöd för python samt funktioner för att arbeta med Azure Machine Learning mycket bekvämare och produktivitet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#notebookvm), en [DSVM](#dsvm)eller [Azure Databricks](#aml-databricks).
 
@@ -50,9 +50,9 @@ Om du vill installera SDK-miljön för den [lokala datorn](#local), [Jupyter Not
 - I Linux eller macOS behöver du bash-gränssnittet.
 
     > [!TIP]
-    > Om du använder Linux eller macOS och använder ett annat skal än bash (till exempel zsh) kan du få fel när du kör vissa kommandon. Undvik det här problemet genom att använda kommandot `bash` för att starta ett nytt bash-gränssnitt och köra kommandona där.
+    > Om du använder Linux eller macOS och använder ett annat skal än bash (till exempel zsh) kan du få fel när du kör vissa kommandon. Undvik problemet genom att använda den `bash` kommando för att starta en ny bash-gränssnitt och kör kommandon det.
 
-- I Windows behöver du kommando tolken eller Anaconda-prompten (installeras av AnaConDa och Miniconda).
+- På Windows måste du Kommandotolken eller Anaconda kommandotolk (installerad som Anaconda och Miniconda).
 
 ## <a id="notebookvm"></a>Din egen molnbaserade Notebook VM
 
@@ -65,7 +65,7 @@ Det finns inget att installera eller konfigurera för en beräknings instans.  S
 
 [Stoppa den virtuella Notebook-datorn](tutorial-1st-experiment-sdk-train.md#clean-up-resources)om du vill sluta att betala för beräknings kostnader.
 
-## <a id="dsvm"></a>Data Science Virtual Machine
+## <a id="dsvm"></a>Virtuell dator för datavetenskap
 
 DSVM är en anpassad avbildning av en virtuell dator (VM). Det är utformat för data vetenskaps arbete som är förkonfigurerat med:
 
@@ -73,7 +73,7 @@ DSVM är en anpassad avbildning av en virtuell dator (VM). Det är utformat för
   - Populära verktyg för data vetenskap som Spark standalone och detalj nivå
   - Azure-verktyg som Azure CLI, AzCopy och Storage Explorer
   - Integrerade utvecklings miljöer (IDE: er) som Visual Studio Code och pycharm med
-  - Jupyter Notebook Server
+  - Jupyter Notebook-Server
 
 Azure Machine Learning SDK fungerar antingen i Ubuntu-eller Windows-versionen av DSVM. Men om du endast planerar att använda DSVM som ett beräknings mål stöds endast Ubuntu.
 
@@ -111,7 +111,7 @@ Så här använder du DSVM som utvecklings miljö:
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
             ```
 
-2. Azure Machine Learning SDK har redan installerats på DSVM. Använd något av följande kommandon om du vill använda Conda-miljön som innehåller SDK:
+2. Azure Machine Learning SDK har redan installerats på DSVM. Använd någon av följande kommandon om du vill använda den Conda-miljö som innehåller SDK: N:
 
     * För Ubuntu-DSVM:
 
@@ -125,7 +125,7 @@ Så här använder du DSVM som utvecklings miljö:
         conda activate AzureML
         ```
 
-1. Kontrol lera att du har åtkomst till SDK och kontrol lera versionen med följande python-kod:
+1. Använd följande Python-kod för att kontrollera att du kan använda SDK: N och kontrollera vilken version:
 
     ```python
     import azureml.core
@@ -158,7 +158,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
 
     I det här exemplet skapas en miljö med python-3.6.5, men eventuella speciella under versioner kan väljas. SDK-kompatibiliteten kanske inte garanteras med vissa huvud versioner (3,5 + rekommenderas) och vi rekommenderar att du testar en annan version/under version i din Anaconda-miljö om du stöter på fel. Det tar flera minuter att skapa miljön medan komponenter och paket laddas ned.
 
-1. Kör följande kommandon i din nya miljö för att aktivera miljödefinierade ipython-kärnor. Detta säkerställer förväntat beteende för kernel-och paket import när du arbetar med Jupyter-anteckningsböcker i Anaconda-miljöer:
+1. Kör följande kommandon i din nya miljö för att aktivera miljödefinierade IPython-kärnor. Detta säkerställer förväntat beteende för kernel-och paket import när du arbetar med Jupyter-anteckningsböcker i Anaconda-miljöer:
 
     ```shell
     conda install notebook ipykernel
@@ -167,7 +167,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
     Kör sedan följande kommando för att skapa kärnan:
 
     ```shell
-    ipython kernel install --user
+    ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
 1. Använd följande kommandon för att installera paket:
@@ -206,7 +206,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
 
 ### <a id="jupyter"></a>Jupyter-anteckningsböcker
 
-Jupyter-anteckningsböcker är en del av [Jupyter-projektet](https://jupyter.org/). De ger en interaktiv kodnings upplevelse där du skapar dokument som blandar direktsänd kod med text och grafik. Jupyter-anteckningsböcker är också ett bra sätt att dela dina resultat med andra, eftersom du kan spara utdata från kod avsnitten i dokumentet. Du kan installera Jupyter-anteckningsböcker på olika plattformar.
+Jupyter Notebooks är en del av den [Jupyter projekt](https://jupyter.org/). De ger en interaktiv kodningserfarenheter där du skapar dokument som blandar live-koden med löpande text och grafik. Jupyter-anteckningsböcker är också ett bra sätt att dela dina resultat med andra, eftersom du kan spara utdata från kod avsnitten i dokumentet. Du kan installera Jupyter Notebooks på en rad olika plattformar.
 
 Proceduren i avsnittet [lokal dator](#local) installerar nödvändiga komponenter för att köra Jupyter-anteckningsböcker i en Anaconda-miljö.
 
@@ -247,7 +247,7 @@ Så här aktiverar du dessa komponenter i Jupyter Notebooks miljön:
 1. Om du vill konfigurera Jupyter Notebook att använda arbets ytan Azure Machine Learning går du till avsnittet [skapa en konfigurations fil för arbets yta](#workspace) .
 
 
-### <a id="vscode"></a>Visual Studio-kod
+### <a id="vscode"></a>Visual Studio Code
 
 Visual Studio Code är en mycket populär kod redigerare för olika plattformar som stöder en omfattande uppsättning programmeringsspråk och verktyg via tillägg som är tillgängliga i [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installerar [python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för kodning i alla typer av python-miljöer (Virtual, Anaconda osv.). Dessutom innehåller den praktiska funktioner för att arbeta med Azure Machine Learning resurser och köra Azure Machine Learning experiment utan att lämna Visual Studio Code.
 
@@ -289,14 +289,14 @@ Skapa ett [Databricks-kluster](https://docs.microsoft.com/azure/azure-databricks
 
 Använd de här inställningarna:
 
-| Inställning |Gäller för| Värde |
+| Inställning |Gäller| Värde |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
 | Databricks Runtime |alltid|Non-ML runtime 6,0 (Scala 2,11, Spark 2.4.3) |
 | Python-version |alltid| 3 |
 | Arbetare |alltid| 2 eller senare |
 | VM-typer för arbetsnoder <br>(fastställer Max antal samtidiga iterationer) |Automatisk ML<br>Only| Minnesoptimerade VM-prioritet |
-| Aktivera automatisk skalning |Automatisk ML<br>Only| Avmarkera |
+| Aktivera automatisk skalning |Automatisk ML<br>Only| Uncheck |
 
 Vänta tills klustret körs innan du fortsätter.
 
@@ -307,9 +307,9 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
 
 1. Välj **endast ett** alternativ (ingen annan SDK-installation stöds)
 
-   |SDK-&nbsp;paket&nbsp;extra|Källa|PyPi&nbsp;namn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK-&nbsp;paket&nbsp;extra|Källa|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
-   |För Databricks| Överför python-ägg eller PyPI | azureml – SDK [databricks]|
+   |För Databricks| Överför python-ägg eller PyPI | azureml-sdk[databricks]|
    |För Databricks – med-<br> automatiserade ML-funktioner| Överför python-ägg eller PyPI | azureml – SDK [automl]|
 
    > [!Warning]
@@ -339,7 +339,7 @@ SDK för Databricks **med** automatiserad machine Learning ![SDK med automatisk 
 
 ### <a name="start-exploring"></a>Börja utforska
 
-Prova:
+Prova själv:
 + Även om många exempel antecknings böcker är tillgängliga **fungerar bara [dessa exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) med Azure Databricks.**
 
 + Importera de här exemplen direkt från din arbets yta. Se nedan: ![välja importera](media/how-to-configure-environment/azure-db-screenshot.png)
@@ -347,7 +347,7 @@ Prova:
 
 + Lär dig hur du [skapar en pipeline med Databricks som inlärnings beräkning](how-to-create-your-first-pipeline.md).
 
-## <a id="workspace"></a>Skapa en konfigurations fil för arbets ytor
+## <a id="workspace"></a>Skapa en konfigurationsfil för arbetsyta
 
 Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur du kommunicerar med din Azure Machine Learning-arbetsyta. Filen heter *config. JSON*och har följande format:
 
@@ -361,7 +361,7 @@ Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur 
 
 Den här JSON-filen måste finnas i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog.
 
-Använd `ws=Workspace.from_config()`om du vill använda den här filen från din kod. Den här koden läser in informationen från filen och ansluter till din arbets yta.
+Om du vill använda den här filen från din kod använder `ws=Workspace.from_config()`. Den här koden läser in informationen från filen och ansluter till din arbetsyta.
 
 Du kan skapa konfigurations filen på tre sätt:
 
@@ -369,7 +369,7 @@ Du kan skapa konfigurations filen på tre sätt:
 
 * **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från **översikts** avsnittet på arbets ytan.
 
-     ![Azure Portal](./media/how-to-configure-environment/configure.png)
+     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * **Skapa filen program mässigt**: i följande kodfragment ansluter du till en arbets yta genom att ange PRENUMERATIONS-ID, resurs grupp och arbets ytans namn. Sedan sparas arbets ytans konfiguration till filen:
 

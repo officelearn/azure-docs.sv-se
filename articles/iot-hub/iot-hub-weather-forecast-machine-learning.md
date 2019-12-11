@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: e7114febe85af4acaf94ef7fe64fe47988fd6321
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d26ccd47ada4f1f1fd87f315e05f822bb2463114
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74079269"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976187"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning
 
@@ -45,20 +45,20 @@ Du får lära dig hur du använder Azure Machine Learning för att göra väder 
   - En aktiv Azure-prenumeration.
   - En Azure IoT-hubb under din prenumeration.
   - Ett klient program som skickar meddelanden till Azure IoT Hub.
-- Ett [Azure Machine Learning Studio](https://studio.azureml.net/) konto.
+- Ett [Azure Machine Learning Studio (klassiskt)](https://studio.azureml.net/) konto.
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Distribuera väder förutsägelse modellen som en webb tjänst
 
 1. Gå till [sidan för väder förutsägelse modellen](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Klicka på **Öppna i Studio** i Microsoft Azure Machine Learning Studio.
+1. Klicka på **Öppna i Studio** i Microsoft Azure Machine Learning Studio (klassisk).
    ![öppna sidan för väder förutsägelse modell i Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. Verifiera stegen i modellen genom att klicka på **Kör** . Det här steget kan ta 2 minuter att slutföra.
-   ![öppna väder förutsägelse modellen i Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![öppna väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. Klicka på **Konfigurera webb tjänsten** > **förutsägbar webb tjänst**.
-   ![distribuera väder förutsägelse modellen i Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![distribuera väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. I diagrammet drar du modulen för **webb tjänst Indataporten** någonstans nära **Poäng modell** .
 1. Anslut **webb tjänstens indataport** till **score modell** -modulen.
-   ![ansluta två moduler i Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![ansluta två moduler i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 1. Verifiera stegen i modellen genom att klicka på **Kör** .
 1. Klicka på **distribuera webb tjänst** för att distribuera modellen som en webb tjänst.
 1. På instrument panelen för modellen laddar du ned **Excel 2010 eller tidigare arbets bok** för **begäran/svar**.
@@ -94,7 +94,7 @@ Du får lära dig hur du använder Azure Machine Learning för att göra väder 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
 1. Öppna Stream Analyticss jobbet.
-1. Under **Jobbtopologi** klickar du på **Indata**.
+1. Klicka på **Indata** under **Jobbtopologi**.
 1. I rutan **indata** klickar du på **Lägg till**och anger följande information:
 
    **Indataområde**: det unika aliaset för indatamängden.

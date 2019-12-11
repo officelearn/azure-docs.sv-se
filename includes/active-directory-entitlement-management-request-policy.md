@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566370"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981161"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
@@ -66,6 +66,7 @@ Följ de här stegen om du vill tillåta att användare som inte tillhör din ka
     | --- | --- |
     | **Vissa anslutna organisationer** | Välj det här alternativet om du vill välja från en lista över organisationer som administratören har lagt till tidigare. Alla användare från de valda organisationerna kan begära det här åtkomst paketet. |
     | **Alla anslutna organisationer** | Välj det här alternativet om alla användare från alla anslutna organisationer kan begära det här åtkomst paketet. |
+    | **Alla användare (alla anslutna organisationer och alla nya externa användare)** | Välj det här alternativet om alla användare från alla anslutna organisationer kan begära det här åtkomst paketet och att List inställningarna för B2B-Tillåt eller neka ska ha företräde för alla nya externa användare. |
 
     En ansluten organisation är en extern Azure AD-katalog eller domän som du har en relation med.
 
@@ -80,7 +81,7 @@ Följ de här stegen om du vill tillåta att användare som inte tillhör din ka
 1. När du har valt alla anslutna organisationer klickar du på **Välj**.
 
     > [!NOTE]
-    > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är kopplade till organisationen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../articles/active-directory/b2b/allow-deny-list.md).
+    > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är kopplade till organisationen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer](../articles/active-directory/b2b/allow-deny-list.md).
 
 1. Hoppa ned till [godkännande](#approval) avsnittet.
 

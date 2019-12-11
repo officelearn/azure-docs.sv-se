@@ -3,12 +3,12 @@ title: Utveckla Azure Functions med Visual Studio Code
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f9ad40cd50863990b9af629c77321195dce5e97c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227059"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975592"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
 
@@ -20,7 +20,7 @@ Azure Functions tillägget ger följande fördelar:
 * Publicera Azure Functions-projektet direkt till Azure.
 * Skriv dina funktioner på olika språk och dra nytta av fördelarna med Visual Studio Code.
 
-Tillägget kan användas med följande språk, som stöds av Azure Functions version 2. x Runtime:
+Tillägget kan användas med följande språk, som stöds av Azure Functions runtime från och med version 2. x:
 
 * [C#samman](functions-dotnet-class-library.md)
 * <sup></sup> [ C# skript](functions-reference-csharp.md)*
@@ -38,7 +38,7 @@ Den här artikeln innehåller information om hur du använder Azure Functions-ti
 > [!IMPORTANT]
 > Blanda inte lokal utveckling och Portal utveckling för en enda Function-app. När du publicerar från ett lokalt projekt till en Function-app skriver distributions processen över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du installerar och kör tillägget [Azure Functions extension][azure functions-tillägg för visual studio code]måste du uppfylla följande krav:
 
@@ -138,7 +138,7 @@ Med Visual Studio Code kan du lägga till bindningar i din function. JSON-fil ge
 
 I följande exempel uppmanas du att definiera en ny bindning för lagring av utdata:
 
-| Uppmaning | Value | Beskrivning |
+| Uppmaning | Värde | Beskrivning |
 | -------- | ----- | ----------- |
 | **Välj bindnings riktning** | `out` | Bindningen är en utgående bindning. |
 | **Välj bindning med riktning** | `Azure Queue Storage` | Bindningen är en Azure Storage Queue-bindning. |
@@ -218,7 +218,7 @@ Följande steg publicerar projektet till en ny function-app som skapats med avan
 
 1. Ange följande information i meddelandet:
 
-    | Uppmaning | Value | Beskrivning |
+    | Uppmaning | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj Function-app i Azure | Skapa nya Funktionsapp i Azure | I nästa prompt, ange ett globalt unikt namn som identifierar din nya Function-app och välj sedan Retur. Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`. |
     | Välj ett operativ system | Windows | Function-appen körs i Windows. |
@@ -226,7 +226,7 @@ Följande steg publicerar projektet till en ny function-app som skapats med avan
     | Välj en körnings miljö för den nya appen | Ditt projekt språk | Körningen måste matcha projektet som du publicerar. |
     | Välj en resurs grupp för nya resurser | Skapa ny resurs grupp | Vid nästa prompt skriver du ett resurs grupp namn, till exempel `myResourceGroup`, och väljer sedan Retur. Du kan också välja en befintlig resurs grupp. |
     | Välj ett lagrings konto | Skapa ett nytt lagringskonto | Vid nästa prompt skriver du ett globalt unikt namn för det nya lagrings kontot som används av din Function-app och väljer sedan Retur. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också välja ett befintligt konto. |
-    | Välj en plats för nya resurser | region | Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. |
+    | Välj en plats för nya resurser | regionen | Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. |
 
     Ett meddelande visas när din Function-app har skapats och distributions paketet används. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat.
 
@@ -263,7 +263,7 @@ Med tillägget Azure Functions kan du köra ett Functions-projekt på din lokala
 
 För att köra ett Functions-projekt lokalt måste du uppfylla följande ytterligare krav:
 
-* Installera version 2. x av [Azure Functions Core tools](functions-run-local.md#v2). Core Tools-paketet hämtas och installeras automatiskt när du startar projektet lokalt. Kärn verktyg omfattar hela Azure Functions runtime, så hämtning och installation kan ta lite tid.
+* Installera version 2. x eller senare av [Azure Functions Core tools](functions-run-local.md#v2). Core Tools-paketet hämtas och installeras automatiskt när du startar projektet lokalt. Kärn verktyg omfattar hela Azure Functions runtime, så hämtning och installation kan ta lite tid.
 
 * Installera de specifika kraven för ditt valda språk:
 
@@ -271,7 +271,7 @@ För att köra ett Functions-projekt lokalt måste du uppfylla följande ytterli
     | -------- | --------- |
     | **C#** | [C#utöka](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Fel sökare för Java-tillägg](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 eller senare](https://maven.apache.org/) |
-    | **JavaScript** | [Node. js](https://nodejs.org/) -<sup>*</sup> |  
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python-3.6.8](https://www.python.org/downloads/) rekommenderas|
 
     <sup>*</sup> Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
@@ -311,7 +311,7 @@ Värden i **ConnectionString** publiceras aldrig.
 Värdena för funktionen Application Setting kan också läsas i koden som miljövariabler. Mer information finns i avsnittet miljövariabler i dessa språkspecifika referens artiklar:
 
 * [C#förkompilerade](functions-dotnet-class-library.md#environment-variables)
-* [C#skript (. CSX)](functions-reference-csharp.md#environment-variables)
+* [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -404,7 +404,7 @@ Azure Functions-tillägget ger ett användbart grafiskt gränssnitt i avsnittet 
 | **Installera eller uppdatera Azure Functions Core Tools** | Installerar eller uppdaterar [Azure Functions Core tools], som används för att köra funktioner lokalt. |
 | **Distribuera om**  | Gör att du kan distribuera projektfiler från en ansluten git-lagringsplats till en speciell distribution i Azure. [Publicera om projektet](#republish-project-files)om du vill publicera om lokala uppdateringar från Visual Studio Code. |
 | **Byt namn på Inställningar** | Ändrar nyckel namnet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i din lokala. Settings. JSON-fil. När du har bytt namn på inställningarna i Azure bör du [Hämta ändringarna till det lokala projektet](#download-settings-from-azure). |
-| **Börja** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
+| **Starta om** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
 | **Ange AzureWebJobsStorage**| Anger värdet för `AzureWebJobsStorage` program inställningen. Den här inställningen krävs av Azure Functions. Den ställs in när en Function-app skapas i Azure. |
 | **Börja** | Startar en stoppad Function-app i Azure. |
 | **Starta strömmande loggar** | Startar strömmande loggar för Function-appen i Azure. Använd strömmande loggar vid fjärrfelsökning i Azure om du behöver se loggnings information i nära real tid. Mer information finns i [strömmande loggar](#streaming-logs). |

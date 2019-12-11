@@ -1,5 +1,5 @@
 ---
-title: Microsoft Identity Platform och OAuth Authorization Code Flow | Azure
+title: Microsoft Identity Platform & OAuth Authorization Code Flow | Azure
 description: Skapa webb program med hjälp av Microsoft Identity Platform-implementeringen av autentiseringsprotokollet OAuth 2,0.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20f540d4d220d5cf7171633b817a496d48b8128
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 58a82caf825daf83ce58dffdf7056e063e74faa6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207728"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964386"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
 
@@ -66,18 +66,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter    | Obligatorisk/valfri | Beskrivning |
 |--------------|-------------|--------------|
-| `tenant`    | kunna    | `{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | kunna    | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app.  |
-| `response_type` | kunna    | Måste innehålla `code` för flödet för auktoriseringskod.       |
-| `redirect_uri`  | kunna | Appens redirect_uri, där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. Du bör använda standardvärdet `https://login.microsoftonline.com/common/oauth2/nativeclient`för interna & Mobile Apps.   |
-| `scope`  | kunna    | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md) som du vill att användaren ska godkänna.  För `/authorize` benet i begäran kan detta avse flera resurser, så att din app får tillåtelse för flera webb-API: er som du vill anropa. |
+| `tenant`    | obligatorisk    | `{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).  |
+| `client_id`   | obligatorisk    | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app.  |
+| `response_type` | obligatorisk    | Måste innehålla `code` för flödet för auktoriseringskod.       |
+| `redirect_uri`  | obligatorisk | Appens redirect_uri, där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. Du bör använda standardvärdet `https://login.microsoftonline.com/common/oauth2/nativeclient`för interna & Mobile Apps.   |
+| `scope`  | obligatorisk    | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md) som du vill att användaren ska godkänna.  För `/authorize` benet i begäran kan detta avse flera resurser, så att din app får tillåtelse för flera webb-API: er som du vill anropa. |
 | `response_mode`   | rekommenderas | Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara något av följande:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` tillhandahåller koden som en frågesträngparametern i omdirigerings-URI: n. Om du begär en ID-token med det implicita flödet kan du inte använda `query` som anges i [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du bara begär koden kan du använda `query`, `fragment`eller `form_post`. `form_post` kör ett inlägg som innehåller koden för omdirigerings-URI: n. Mer information finns i [OpenID Connect-protokollet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | rekommenderas | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med innehåll som du vill. Ett slumpmässigt genererat unikt värde används vanligt vis för [att förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Värdet kan också koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
-| `prompt`  | valfritt    | Anger vilken typ av användar interaktion som krävs. De enda giltiga värdena för tillfället är `login`, `none`och `consent`.<br/><br/>- `prompt=login` tvingar användaren att ange sina autentiseringsuppgifter för den begäran, vilket negerar enkel inloggning.<br/>- `prompt=none` är motsatt – det ser till att användaren inte visas med någon interaktiv prompt alls. Om begäran inte kan slutföras i tyst läge via enkel inloggning, returnerar slut punkten för Microsoft Identity Platform ett `interaction_required` fel.<br/>- `prompt=consent` utlöser dialog rutan OAuth-medgivande när användaren loggar in och ber användaren att bevilja behörighet till appen. |
-| `login_hint`  | valfritt    | Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med `preferred_username`-anspråket.   |
-| `domain_hint`  | valfritt    | Kan vara en av `consumers` eller `organizations`.<br/><br/>Om den är inkluderad hoppar den e-postbaserad identifierings processen som användaren går igenom på inloggnings sidan, vilket leder till en något mer strömlinjeformad användar upplevelse. Appar använder ofta den här parametern vid omautentisering genom att extrahera `tid` från en tidigare inloggning. Om värdet `tid` anspråk är `9188040d-6c67-4c5b-b112-36a304b66dad`bör du använda `domain_hint=consumers`. Annars använder du `domain_hint=organizations`.  |
-| `code_challenge_method` | valfritt    | Den metod som används för att koda `code_verifier` för `code_challenge`-parametern. Kan vara något av följande värden:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Om det utesluts, antas `code_challenge` vara oformaterad text om `code_challenge` ingår. Microsoft Identity Platform stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| `code_challenge`  | valfritt | Används för att skydda auktoriseringskod-bidrag via bevis nyckel för Code Exchange (PKCE) från en intern klient. Krävs om `code_challenge_method` ingår. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `prompt`  | valfri    | Anger vilken typ av användar interaktion som krävs. De enda giltiga värdena för tillfället är `login`, `none`och `consent`.<br/><br/>- `prompt=login` tvingar användaren att ange sina autentiseringsuppgifter för den begäran, vilket negerar enkel inloggning.<br/>- `prompt=none` är motsatt – det ser till att användaren inte visas med någon interaktiv prompt alls. Om begäran inte kan slutföras i tyst läge via enkel inloggning, returnerar slut punkten för Microsoft Identity Platform ett `interaction_required` fel.<br/>- `prompt=consent` utlöser dialog rutan OAuth-medgivande när användaren loggar in och ber användaren att bevilja behörighet till appen. |
+| `login_hint`  | valfri    | Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med `preferred_username`-anspråket.   |
+| `domain_hint`  | valfri    | Kan vara en av `consumers` eller `organizations`.<br/><br/>Om den är inkluderad hoppar den e-postbaserad identifierings processen som användaren går igenom på inloggnings sidan, vilket leder till en något mer strömlinjeformad användar upplevelse. Appar använder ofta den här parametern vid omautentisering genom att extrahera `tid` från en tidigare inloggning. Om värdet `tid` anspråk är `9188040d-6c67-4c5b-b112-36a304b66dad`bör du använda `domain_hint=consumers`. Annars använder du `domain_hint=organizations`.  |
+| `code_challenge_method` | valfri    | Den metod som används för att koda `code_verifier` för `code_challenge`-parametern. Kan vara något av följande värden:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Om det utesluts, antas `code_challenge` vara oformaterad text om `code_challenge` ingår. Microsoft Identity Platform stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `code_challenge`  | valfri | Används för att skydda auktoriseringskod-bidrag via bevis nyckel för Code Exchange (PKCE) från en intern klient. Krävs om `code_challenge_method` ingår. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Användaren uppmanas att ange sina autentiseringsuppgifter och slutföra autentiseringen. Slut punkten för Microsoft Identity Platform ser också till att användaren har samtyckt till de behörigheter som anges i parametern `scope` fråga. Om användaren inte har samtyckt till någon av dessa behörigheter uppmanas användaren att godkänna de behörigheter som krävs. Information om [behörigheter, medgivande och appar för flera klient organisationer finns här](v2-permissions-and-consent.md).
 
@@ -153,14 +153,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter  | Obligatorisk/valfri | Beskrivning     |
 |------------|-------------------|----------------|
-| `tenant`   | kunna   | `{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | kunna  | Det program-ID (klient) som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan som har tilldelats till din app. |
-| `grant_type` | kunna   | Måste vara `authorization_code` för flödet för auktoriseringskod.   |
-| `scope`      | kunna   | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det första benet. Omfattningarna måste allt från en enda resurs, tillsammans med OIDC-scope (`profile`, `openid`, `email`). En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
-| `code`          | kunna  | Authorization_code som du har köpt i den första delen av flödet. |
-| `redirect_uri`  | kunna  | Samma redirect_uri värde som användes för att hämta authorization_code. |
+| `tenant`   | obligatorisk   | `{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).  |
+| `client_id` | obligatorisk  | Det program-ID (klient) som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan som har tilldelats till din app. |
+| `grant_type` | obligatorisk   | Måste vara `authorization_code` för flödet för auktoriseringskod.   |
+| `scope`      | obligatorisk   | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det första benet. Omfattningarna måste allt från en enda resurs, tillsammans med OIDC-scope (`profile`, `openid`, `email`). En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
+| `code`          | obligatorisk  | Authorization_code som du har köpt i den första delen av flödet. |
+| `redirect_uri`  | obligatorisk  | Samma redirect_uri värde som användes för att hämta authorization_code. |
 | `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Du bör inte använda program hemligheten i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan.  Klient hemligheten måste vara URL-kodad innan den kan skickas.  |
-| `code_verifier` | valfritt  | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `code_verifier` | valfri  | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Lyckat svar
 
@@ -266,11 +266,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter     |                | Beskrivning        |
 |---------------|----------------|--------------------|
-| `tenant`        | kunna     | `{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | kunna    | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
-| `grant_type`    | kunna    | Måste vara `refresh_token` för den här delen av Authorization Code Flow. |
-| `scope`         | kunna    | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det ursprungliga authorization_code begär ande benet. Om de omfattningar som anges i denna begäran sträcker sig över flera resurs servrar, returnerar Microsoft Identity Platform-slutpunkten en token för den resurs som anges i det första omfånget. En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
-| `refresh_token` | kunna    | Refresh_token som du har köpt i det andra benet i flödet. |
+| `tenant`        | obligatorisk     | `{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).   |
+| `client_id`     | obligatorisk    | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
+| `grant_type`    | obligatorisk    | Måste vara `refresh_token` för den här delen av Authorization Code Flow. |
+| `scope`         | obligatorisk    | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det ursprungliga authorization_code begär ande benet. Om de omfattningar som anges i denna begäran sträcker sig över flera resurs servrar, returnerar Microsoft Identity Platform-slutpunkten en token för den resurs som anges i det första omfånget. En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
+| `refresh_token` | obligatorisk    | Refresh_token som du har köpt i det andra benet i flödet. |
 | `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan. |
 
 #### <a name="successful-response"></a>Lyckat svar

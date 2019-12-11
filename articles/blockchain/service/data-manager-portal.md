@@ -4,12 +4,12 @@ description: Skapa och hantera blockchain-Data Manager för Azure blockchain-tj�
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
-ms.openlocfilehash: 9c682f449fbab823134d626870c7dcfe8a8f2847
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455807"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977035"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
@@ -20,7 +20,7 @@ Om du vill konfigurera en blockchain Data Manager instans:
 * Skapa en blockchain Data Manager instans för en Azure blockchain service Transaction-nod
 * Lägg till dina blockchain-program
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * Skapa ett [Event Grid ämne](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
@@ -42,7 +42,7 @@ En utgående anslutning skickar blockchain-data till Azure Event Grid. Du konfig
 
     Inställning | Beskrivning
     --------|------------
-    Name | Ange ett unikt namn för en ansluten blockchain Data Manager. Namnet på blockchain Data Manager får innehålla gemener och siffror och får innehålla högst 20 tecken.
+    Namn | Ange ett unikt namn för en ansluten blockchain Data Manager. Namnet på blockchain Data Manager får innehålla gemener och siffror och får innehålla högst 20 tecken.
     Transaction Node | Välj en Transaction-nod. Endast transaktionsloggfiler som du har Läs behörighet visas.
     Anslutningsnamn | Ange ett unikt namn på den utgående anslutningen där blockchain transaktions data skickas.
     Event Grid-slutpunkt | Välj ett event Grid-ämne i samma prenumeration som blockchain Data Manager-instansen.
@@ -78,13 +78,15 @@ ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hu
 
 1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *ABI. JSON*. Du använder filen i ett senare steg.
 
-Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan hämta den distribuerade bytekod-filen från den kompilerade kontraktets metadatafil.
+Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan använda Azure blockchain Development Kit-tillägget för att kopiera bytekod till Urklipp.
 
-1. Öppna den kontrakts ETA data fil som finns i mappen **build/kontrakt** i ditt projekt. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
-1. Hitta **deployedBytecode** -ELEMENTET i JSON-filen.
-1. Kopiera det hexadecimala värdet utan citat tecken.
+1. I fönstret Visual Studio Code Explorer expanderar du mappen **Bygg/kontrakt** i ditt projekt.
+1. Högerklicka på JSON-filen för kontraktets metadata. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
+1. Välj **Kopiera transaktions-bytekod**.
 
-    ![Visual Studio Code-fönstret med bytekod i metadata](./media/data-manager-portal/bytecode-metadata.png)
+    ![Fönstret Visual Studio Code med valet kopiera transaktions-bytekod](./media/data-manager-portal/bytecode-devkit.png)
+
+    Bytekod kopieras till Urklipp.
 
 1. Spara **bytekod** -värdet som en JSON-fil. Till exempel, *bytekod. JSON*. Du använder filen i ett senare steg.
 
@@ -108,14 +110,14 @@ Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås a
 
     | Fält | Beskrivning |
     |-------|-------------|
-    | Name  | Namnge behållaren. Till exempel *smartcontract* |
-    | Offentlig åtkomst nivå | Välj *privat (ingen anonym åtkomst)* |
+    | Namn  | Namnge behållaren. Till exempel *smartcontract* |
+    | Offentlig åtkomstnivå | Välj *privat (ingen anonym åtkomst)* |
 
 1. Klicka på **OK** för att skapa containern.
 1. Välj behållaren och välj sedan **Ladda upp**.
 1. Välj båda JSON-filerna som du skapade i avsnittet [Hämta kontrakt ABI och bytekod](#get-contract-abi-and-bytecode) .
 
-    ![Ladda upp BLOB](./media/data-manager-portal/upload-blobs.png)
+    ![Ladda upp blob](./media/data-manager-portal/upload-blobs.png)
 
     Välj **Överför**.
 
@@ -144,7 +146,7 @@ Generera en signatur för delad åtkomst för varje blob.
 
     Inställning | Beskrivning
     --------|------------
-    Name | Ange ett unikt namn för blockchain-programmet som ska spåras.
+    Namn | Ange ett unikt namn för blockchain-programmet som ska spåras.
     Kontrakt ABI | URL-sökväg till kontraktets ABI-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
     Kontraktets bytekod | URL-sökväg till bytekod-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
 

@@ -4,12 +4,12 @@ description: Lär dig hur Azure Backup ger dig möjlighet att skicka data från 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173289"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997368"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 
@@ -133,7 +133,7 @@ I det här avsnittet beskrivs arbets flödet för offline-säkerhetskopiering s�
 
 3. Ange enhets beteckningen utan avslutande kolon för den monterade disk som du vill förbereda för överföring till Azure.
 4. Ange en bekräftelse för enhetens formatering vid uppmaning.
-5. Du uppmanas att logga in på din Azure-prenumeration. Ange dina autentiseringsuppgifter.
+5. Du uppmanas att logga in på din Azure-prenumeration. Skriv in dina inloggningsuppgifter.
 
     ![Inmatade Azure disk Preparation-verktyg](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
@@ -206,4 +206,4 @@ När den första säkerhets kopieringen är klar kan du på ett säkert sätt ta
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du har frågor om Azures import/export-arbetsflöde läser du [Använd tjänsten Microsoft Azure import/export för att överföra data till Blob Storage](../storage/common/storage-import-export-service.md).
-* Se avsnittet offline-säkerhets kopiering i Azure Backup [vanliga frågor och svar](backup-azure-backup-faq.md) om arbets flödet.
+

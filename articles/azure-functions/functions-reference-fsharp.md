@@ -6,19 +6,19 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: cf080b841e5fb3bbf3b36a2629a619f77fe52ddd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226751"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975014"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referens F# för Azure Functions-utvecklare
 
 F#för Azure Functions är en lösning för att enkelt köra små delar av kod eller "Functions" i molnet. Data flödar in F# i funktionen via funktions argument. Argument namn anges i `function.json`och det finns fördefinierade namn för att komma åt saker som funktions loggar och avbrutna token. 
 
 >[!IMPORTANT]
->F#skript (. FSX) stöds endast av [version 1. x](functions-versions.md#creating-1x-apps) av Azure Functions Runtime. Om du vill använda F# med version 2. x-körningsmiljön måste du använda ett förkompilerat F# klass biblioteks projekt (. FS). Du kan skapa, hantera och publicera ett F# klass biblioteks projekt med Visual Studio som ett [ C# klass biblioteks projekt](functions-dotnet-class-library.md). Mer information om funktions versioner finns i [Översikt över Azure Functions körnings versioner](functions-versions.md).
+>F#skript (. FSX) stöds endast av [version 1. x](functions-versions.md#creating-1x-apps) av Azure Functions Runtime. Om du vill använda F# med version 2. x och senare versioner av körnings miljön måste du använda ett förkompilerat F# klass biblioteks projekt (. FS). Du kan skapa, hantera och publicera ett F# klass biblioteks projekt med Visual Studio som ett [ C# klass biblioteks projekt](functions-dotnet-class-library.md). Mer information om funktions versioner finns i [Översikt över Azure Functions körnings versioner](functions-versions.md).
 
 Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md).
 
@@ -48,10 +48,10 @@ FunctionsProject
 
 Det finns en delad [Host. JSON](functions-host-json.md) -fil som kan användas för att konfigurera Function-appen. Varje funktion har sin egen kod fil (. FSX) och bindnings konfigurations fil (Function. JSON).
 
-De bindnings tillägg som krävs i [version 2. x](functions-versions.md) av Functions-körningen definieras i `extensions.csproj`-filen, med de faktiska biblioteksfilerna i mappen `bin`. När du utvecklar lokalt måste du [Registrera bindnings tillägg](./functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
+De bindnings tillägg som krävs i [version 2. x och senare versioner](functions-versions.md) av Functions-körningen definieras i `extensions.csproj`-filen, med de faktiska biblioteksfilerna i mappen `bin`. När du utvecklar lokalt måste du [Registrera bindnings tillägg](./functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
 
 ## <a name="binding-to-arguments"></a>Bindning till argument
-Varje bindning stöder vissa argument, enligt beskrivningen i [Azure Functions utlösare och bindningar för Developer-referens](functions-triggers-bindings.md). Ett av argumenten som binder en BLOB-utlösare stöder till exempel är en POCO som kan uttryckas F# med hjälp av en post. Till exempel:
+Varje bindning stöder vissa argument, enligt beskrivningen i [Azure Functions utlösare och bindningar för Developer-referens](functions-triggers-bindings.md). Ett av argumenten som binder en BLOB-utlösare stöder till exempel är en POCO som kan uttryckas F# med hjälp av en post. Exempel:
 
 ```fsharp
 type Item = { Id: string }
@@ -65,7 +65,7 @@ Din F# Azure-funktion tar ett eller flera argument. När vi pratar om Azure Func
 
 I exemplet ovan är `blob` ett indataargumentet och `output` är ett argument för utdata. Observera att vi använde `byref<>` för `output` (du behöver inte lägga till `[<Out>]` anteckningen). Om du använder en `byref<>`s typ kan din funktion ändra vilken post eller vilket objekt argumentet refererar till.
 
-När en F# post används som indatatyp måste post definitionen markeras med `[<CLIMutable>]` för att Azure Functions Framework ska kunna ställa in fälten korrekt innan posten skickas till din funktion. Under huven skapar `[<CLIMutable>]` setter för post egenskaperna. Till exempel:
+När en F# post används som indatatyp måste post definitionen markeras med `[<CLIMutable>]` för att Azure Functions Framework ska kunna ställa in fälten korrekt innan posten skickas till din funktion. Under huven skapar `[<CLIMutable>]` setter för post egenskaperna. Exempel:
 
 ```fsharp
 [<CLIMutable>]
@@ -77,7 +77,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-En F# klass kan också användas för både in-och out-argument. För en klass behöver egenskaper vanligt vis get-och Set-inställningar. Till exempel:
+En F# klass kan också användas för både in-och out-argument. För en klass behöver egenskaper vanligt vis get-och Set-inställningar. Exempel:
 
 ```fsharp
 type Item() =
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Loggning
-Om du vill logga utdata till dina [strömmande loggar](../app-service/troubleshoot-diagnostic-logs.md) i F#ska funktionen ha ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). För konsekvens rekommenderar vi att argumentet heter `log`. Till exempel:
+Om du vill logga utdata till dina [strömmande loggar](../app-service/troubleshoot-diagnostic-logs.md) i F#ska funktionen ha ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). För konsekvens rekommenderar vi att argumentet heter `log`. Exempel:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -182,7 +182,7 @@ Dessutom är följande sammansättningar särskilda bokstäver och kan refereras
 Om du behöver referera till en privat sammansättning kan du överföra sammansättnings filen till en `bin` mapp i förhållande till din funktion och referera till den med hjälp av fil namnet (t. ex.  `#r "MyAssembly.dll"`). Information om hur du överför filer till mappen funktion finns i följande avsnitt om paket hantering.
 
 ## <a name="editor-prelude"></a>Redigeraren inledning
-En redigerare som stöder F# Compilation Services kommer inte att vara medveten om de namn områden och sammansättningar som Azure Functions automatiskt inkluderar. Det kan vara användbart att inkludera en inledning som hjälper redigeraren att hitta de sammansättningar som du använder och för att explicit öppna namn områden. Till exempel:
+En redigerare som stöder F# Compilation Services kommer inte att vara medveten om de namn områden och sammansättningar som Azure Functions automatiskt inkluderar. Det kan vara användbart att inkludera en inledning som hjälper redigeraren att hitta de sammansättningar som du använder och för att explicit öppna namn områden. Exempel:
 
 ```fsharp
 #if !COMPILED
@@ -258,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Återanvänder. FSX-kod
-Du kan använda kod från andra `.fsx` filer med hjälp av ett `#load`-direktiv. Till exempel:
+Du kan använda kod från andra `.fsx` filer med hjälp av ett `#load`-direktiv. Exempel:
 
 `run.fsx`
 

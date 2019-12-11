@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: c48bcab0a3d009b186832a6b728597f03788a7cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382996"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996739"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -38,7 +38,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * Du kan inte lägga till eller ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
 * AKS-klustret kan ha högst åtta noder i pooler.
-* AKS-klustret kan ha högst 400 noder i de åtta noderna i poolen.
+* AKS-klustret kan ha högst 800 noder i de åtta noderna i poolen.
 * Alla noder i pooler måste finnas i samma undernät.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster

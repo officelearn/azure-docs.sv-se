@@ -1,5 +1,5 @@
 ---
-title: Skapa Azure ML-arbetsytor i portalen
+title: Skapa Azure Machine Learning arbets ytor i portalen
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du skapar, visar och tar bort Azure Machine Learning arbets ytor i Azure Portal.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c7ff51c18d4ec41c706518631071e8feb3bafe59
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 80b554b7dd4f37e1a215892962d8ec5622d8ae5c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912462"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974044"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

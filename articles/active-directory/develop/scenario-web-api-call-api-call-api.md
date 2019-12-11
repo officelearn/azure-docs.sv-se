@@ -1,6 +1,6 @@
 ---
-title: 'Webb-API som anropar webb-API: er (anropa API: er) - Microsoft identity-plattformen'
-description: 'Lär dig hur du skapar ett webb-API som anrop underordnat webb API: er (anropa en webb-API).'
+title: 'Webb-API som anropar webb-API: er – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du skapar ett webb-API som anropar webb-API: er.'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,22 +15,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074732"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965219"
 ---
 # <a name="web-api-that-calls-web-apis---call-an-api"></a>Webb-API som anropar webb-API: er – anropa ett API
 
-När du har en token kan anropa du ett skyddat webb-API. Detta görs från styrenheten för din ASP.NET/ASP.NET Core webb-API.
+När du har en token kan du anropa ett skyddat webb-API. Detta görs från kontrollanten för ditt ASP.NET/ASP.NET Core-webbapi.
 
-## <a name="controller-code"></a>Kontrollantkoden
+## <a name="controller-code"></a>Kod för styrenhet
 
-Här är fortsättningen på kodexemplet i [skyddade webb-API-anrop webb-API: er – en token hämtades](scenario-web-api-call-api-acquire-token.md), kallas i åtgärderna för API-styrenheter, anropa en underordnad API (med namnet todolist).
+Här är en fortsättning på den exempel kod som visas i de [skyddade webb-API-anropen webb-API: er som hämtar en token](scenario-web-api-call-api-acquire-token.md)som anropas i API-styrenhetens åtgärder, vilket anropar ett underordnat API (med namnet ToDoList)
 
-När du har köpt token, använda en ägartoken för att anropa API: et som underordnade.
+När du har köpt token ska du använda den som en Bearer-token för att anropa det underordnade API: et.
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)

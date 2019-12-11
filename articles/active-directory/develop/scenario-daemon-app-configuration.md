@@ -1,6 +1,6 @@
 ---
-title: 'Daemon-app som anropar webb-API: er (app-konfiguration) – Microsoft Identity Platform'
-description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er (app-konfiguration)'
+title: 'Konfigurera daemon-appar som anropar webb-API: er – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du konfigurerar koden för daemon-programmet som anropar webb-API: er (app-konfiguration)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32fbd4af78e02dad2a8a74ee21f9cb8c6ef0a976
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175506"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962652"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
@@ -269,7 +269,7 @@ MSAL.NET har två metoder för att tillhandahålla signerade kontroller till app
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-När du använder `WithClientAssertion` måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
+När du använder `WithClientAssertion`måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
 
 ```CSharp
 string signedClientAssertion = ComputeAssertion();
@@ -278,7 +278,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-När du använder `WithClientClaims` kommer MSAL.NET att beräkna en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka.
+När du använder `WithClientClaims`kommer MSAL.NET att beräkna en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka.
 Här är ett kodfragment om hur du gör det:
 
 ```CSharp
@@ -295,7 +295,7 @@ Mer information finns i [klient kontroll](msal-net-client-assertions.md).
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-I MSAL python kan du ange klient anspråk med anspråken som ska signeras av den här `ConfidentialClientApplication` privata nyckeln.
+I MSAL python kan du ange klient anspråk med anspråken som ska signeras av den här `ConfidentialClientApplication`privata nyckeln.
 
 ```Python
 config = json.load(open(sys.argv[1]))

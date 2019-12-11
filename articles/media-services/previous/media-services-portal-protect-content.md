@@ -1,6 +1,6 @@
 ---
-title: Konfigurera innehållsskydd principer med hjälp av Azure portal | Microsoft Docs
-description: Den här artikeln visar hur du använder Azure-portalen för att konfigurera principer för innehållsskydd. Artikeln beskriver också hur du aktiverar dynamisk kryptering för dina tillgångar.
+title: Konfigurera principer för innehålls skydd med hjälp av Azure Portal | Microsoft Docs
+description: Den här artikeln visar hur du använder Azure Portal för att konfigurera principer för innehålls skydd. Artikeln visar också hur du aktiverar dynamisk kryptering för dina till gångar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,115 +14,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866970"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978210"
 ---
-# <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurera innehållsskydd principer med hjälp av Azure portal
+# <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurera principer för innehålls skydd med hjälp av Azure Portal
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner eller funktioner läggs till Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 >
 
- Med Azure Media Services kan skydda du dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Du kan använda Media Services för att leverera ditt innehåll krypteras dynamiskt med den Standard AES (Advanced Encryption) med hjälp av 128-bitars krypteringsnycklar. Du kan också använda den med gemensam kryptering (CENC) med PlayReady och/eller Widevine digital rights management (DRM) och Apple FairPlay. 
+ Med Azure Media Services kan du skydda dina medier från den tid det lämnar datorn genom lagring, bearbetning och leverans. Du kan använda Media Services för att leverera ditt innehåll krypterat dynamiskt med Advanced Encryption Standard (AES) med hjälp av 128-bitars krypterings nycklar. Du kan också använda den med common Encryption (CENC) med hjälp av PlayReady och/eller Widevine Digital Rights Management (DRM) och Apple FairPlay. 
 
-Media Services tillhandahåller en tjänst för att leverera DRM-licenser och klartextnyckel nycklar till auktoriserade klienter. Du kan använda Azure-portalen för att skapa en auktoriseringsprincip för nyckel/licens för alla typer av krypteringar.
+Media Services tillhandahåller en tjänst för att leverera DRM-licenser och AES-rensa nycklar till auktoriserade klienter. Du kan använda Azure Portal för att skapa en auktoriseringsprincip för nyckel/licens för alla typer av krypteringar.
 
-Den här artikeln visar hur du konfigurerar en princip för innehållsskydd med hjälp av portalen. Artikeln beskriver också hur du använder dynamisk kryptering för dina tillgångar.
+Den här artikeln visar hur du konfigurerar en innehålls skydds princip med hjälp av portalen. Artikeln visar också hur du använder dynamisk kryptering på till gångar.
 
-## <a name="start-to-configure-content-protection"></a>Börja konfigurera innehållsskydd
-Om du vill använda portalen för att konfigurera för globalt innehållsskydd med hjälp av Media Services-kontot, gör du följande:
+## <a name="start-to-configure-content-protection"></a>Börja konfigurera innehålls skydd
+Gör så här för att använda portalen för att konfigurera globalt innehålls skydd genom att använda ditt Media Services-konto:
 
-1. I den [portal](https://portal.azure.com/), Välj Media Services-kontot.
+1. I [portalen](https://portal.azure.com/)väljer du ditt Media Services-konto.
 
-1. Välj **inställningar** > **Content protection**.
+1. Välj **inställningar** > **innehålls skydd**.
 
     ![Innehållsskydd](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>Auktoriseringsprincip för nyckel/licens
-Media Services stöder flera olika sätt att auktorisera användare som begär eller licensinformation. Du måste konfigurera en auktoriseringsprincip för innehållsnyckeln. Klienten måste sedan uppfylla principen innan nyckel/licens kan levereras till den. Auktoriseringsprincipen för innehållsnyckeln kan ha en eller flera auktoriseringsbegränsningar: antingen öppen eller tokenbegränsning.
+Media Services stöder flera olika sätt att autentisera användare som gör nyckel-eller licens förfrågningar. Du måste konfigurera en auktoriseringsprincip för innehållsnyckeln. Klienten måste sedan uppfylla principen innan nyckeln/licensen kan skickas till den. Auktoriseringsprincipen för innehållsnyckeln kan ha en eller flera auktoriseringsbegränsningar: antingen öppen eller tokenbegränsning.
 
 Du kan använda portalen för att skapa en auktoriseringsprincip för nyckel/licens för alla typer av krypteringar.
 
-### <a name="open-authorization"></a>Öppna auktorisering
-Öppna begränsningen innebär att systemet ger nyckeln för alla som begär nycklar. Den här begränsningen kan vara användbart för testning. 
+### <a name="open-authorization"></a>Öppen auktorisering
+Öppen begränsning innebär att systemet levererar nyckeln till alla som gör en nyckel förfrågan. Den här begränsningen kan vara användbar i test syfte. 
 
-### <a name="token-authorization"></a>Token auktorisering
-Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i simple webbtoken (SWT) och format som JSON Web Token (JWT). Media Services tillhandahåller inte en STS. Du kan skapa en anpassad STS eller Använd Azure Access Control Service att problemet token. STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Om token är giltig och anspråken i token matchar de som konfigurerats för nyckeln (eller licens), returnerar Media Services-nyckelleveranstjänst begärda nyckeln (eller licens) till klienten.
+### <a name="token-authorization"></a>Token-auktorisering
+Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i formaten simple web token (SWT) och JSON Web Token (JWT). Media Services tillhandahåller inte en STS. Du kan skapa en anpassad STS eller använda Azure Access Control Service för att utfärda token. STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Om token är giltig och anspråk i token matchar de som kon figurer ATS för nyckeln (eller licensen), returnerar tjänsten Media Services Key Delivery den begärda nyckeln (eller licensen) till klienten.
 
-När du konfigurerar den tokenbegränsade principen måste du ange primär verifieringsnyckel, utfärdare och målgrupp parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med. Utfärdaren är den säkra tokentjänst som utfärdar en token. Målgruppen (kallas ibland för omfång) beskriver syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
+När du konfigurerar den token-begränsade principen måste du ange primär verifierings nyckel, utfärdare och mål grupps parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med. Utfärdaren är den säkra tokentjänst som utfärdar en token. Mål gruppen (kallas ibland omfång) beskriver syftet med den token eller resurs som token tillåter åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
 
 ![Auktoriseringsprincip för nyckel/licens](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## <a name="playready-license-template"></a>PlayReady-licensmall
-PlayReady-licensmall anger de funktioner som är aktiverad för din PlayReady-licens. Mer information om licensmallen för PlayReady finns i den [översikt över Media Services PlayReady-licensmallen](media-services-playready-license-template-overview.md).
+I licens mal len för PlayReady anges de funktioner som är aktiverade på din PlayReady-licens. Mer information om licens mal len för PlayReady finns i [Översikt över Media Services PlayReady-licens mal len](media-services-playready-license-template-overview.md).
 
 ### <a name="nonpersistent"></a>Ickebeständig
-Om du konfigurerar en licens som ickebeständig lagras det i minnet enbart vid spelaren används licensen.  
+Om du konfigurerar en licens som ej beständig är den lagrad i minnet endast när spelaren använder licensen.  
 
-![Ickebeständig innehållsskydd](./media/media-services-portal-content-protection/media-services-content-protection003.png)
+![Beständigt innehålls skydd](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
-### <a name="persistent"></a>Beständiga
-Om du konfigurerar en licens som beständig, sparas den i permanent lagring på klienten.
+### <a name="persistent"></a>Permanent
+Om du konfigurerar en licens som beständigt sparas den i beständig lagring på klienten.
 
-![Beständigt skydd för innehåll](./media/media-services-portal-content-protection/media-services-content-protection004.png)
+![Permanent innehålls skydd](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## <a name="widevine-license-template"></a>Widevine-licensmall
-Widevine-licensmall anger de funktioner som är aktiverad för Widevine-licenser.
+Widevine licens mal len anger de funktioner som är aktiverade för dina Widevine-licenser.
 
 ### <a name="basic"></a>Basic
-När du väljer **grundläggande**, mallen har skapats med alla standardvärden.
+När du väljer **Basic**skapas mallen med alla standardvärden.
 
-### <a name="advanced"></a>Avancerat
-Mer information om rättighetsmall för Widevine finns i den [översikt över Widevine-licensmallen](media-services-widevine-license-template-overview.md).
+### <a name="advanced"></a>Advanced
+Mer information om Widevine Rights-mall finns i [Översikt över Widevine-licens mal len](media-services-widevine-license-template-overview.md).
 
-![Avancerade innehållsskydd](./media/media-services-portal-content-protection/media-services-content-protection005.png)
+![Avancerat innehålls skydd](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>FairPlay-konfiguration
-Om du vill aktivera FairPlay-kryptering, Välj **FairPlay-konfiguration**. Välj sedan den **appcertifikat** och ange den **hemliga nyckeln**. Mer information om FairPlay-konfiguration och krav finns i [skydda ditt innehåll med Apple FairPlay eller Microsoft PlayReady HLS](media-services-protect-hls-with-FairPlay.md).
+Om du vill aktivera FairPlay-kryptering väljer du **Fairplay-konfiguration**. Välj sedan **appens certifikat** och ange den **hemliga nyckeln**. Mer information om konfiguration och krav för FairPlay finns i [skydda ditt HLS-innehåll med Apple Fairplay eller Microsoft PlayReady](media-services-protect-hls-with-FairPlay.md).
 
 ![FairPlay-konfiguration](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
-## <a name="apply-dynamic-encryption-to-your-asset"></a>Använda dynamisk kryptering för tillgången
-Om du vill dra nytta av dynamisk kryptering, koda din källfil till en uppsättning MP4-filer med anpassningsbar bithastighet.
+## <a name="apply-dynamic-encryption-to-your-asset"></a>Använd dynamisk kryptering på din till gång
+Om du vill dra nytta av dynamisk kryptering kodar du käll filen till en uppsättning MP4-filer med anpassningsbar bit hastighet.
 
-### <a name="select-an-asset-that-you-want-to-encrypt"></a>Välj en tillgång som du vill kryptera
-Om du vill se alla dina tillgångar, **inställningar** > **tillgångar**.
+### <a name="select-an-asset-that-you-want-to-encrypt"></a>Välj en till gång som du vill kryptera
+Om du vill se alla dina till gångar väljer du **inställningar** > **till gångar**.
 
-![Alternativ för tillgångar](./media/media-services-portal-content-protection/media-services-content-protection007.png)
+![Till gångar-alternativ](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### <a name="encrypt-with-aes-or-drm"></a>Kryptera med AES eller DRM
-När du väljer **Encrypt** för en tillgång, visas två alternativ: **AES** eller **DRM**. 
+När du väljer **kryptera** för en till gång visas två alternativ: **AES** eller **DRM**. 
 
 #### <a name="aes"></a>AES
-AES-klartextnyckelkryptering viktiga kryptering är aktiverat för alla Direktuppspelningsprotokoll: Smooth Streaming, HLS och MPEG-DASH.
+Kryptering med klar text nyckel för AES är aktiverat på alla strömnings protokoll: Smooth Streaming, HLS och MPEG-streck.
 
-![Krypteringskonfiguration](./media/media-services-portal-content-protection/media-services-content-protection008.png)
+![Krypterings konfiguration](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-1. När du har valt **DRM**, visas olika content protection-principer (som måste konfigureras med den här punkten) och en uppsättning protokoll för direktuppspelning:
+1. När du har valt **DRM**ser du olika innehålls skydds principer (som måste konfigureras av den här punkten) och en uppsättning strömnings protokoll:
 
-    a. **PlayReady och Widevine med MPEG-DASH** dynamiskt krypterar dina MPEG-DASH-strömmar med PlayReady och Widevine DRM: er.
+    a. **PlayReady och Widevine med MPEG-streck** krypterar dynamiskt din MPEG-Tanks-ström med PlayReady och Widevine DRM: er.
 
-    b. **PlayReady och Widevine med MPEG-DASH + FairPlay med HLS** dynamiskt kryptera din MPEG-DASH-strömmar med PlayReady och Widevine DRM: er. Det här alternativet krypterar även dina HLS-strömmar med FairPlay.
+    b. **PlayReady och Widevine med MPEG-streck + Fairplay med HLS** dynamiskt kryptera din MPEG-tank strecks ström med PlayReady och Widevine DRM: er. Med det här alternativet krypteras även dina HLS-strömmar med FairPlay.
 
-    c. **Enbart PlayReady med Smooth Streaming, HLS och MPEG-DASH** dynamiskt krypterar Smooth Streaming, HLS och MPEG-DASH-strömmar med PlayReady DRM.
+    c. **PlayReady med Smooth Streaming, HLS och MPEG-streck** dynamiskt krypterar Smooth Streaming-, HLS-och MPEG-streck-strömmar med PlayReady DRM.
 
-    d. **Widevine endast med MPEG-DASH** dynamiskt krypterar dina MPEG-DASH med Widevine DRM.
+    d. **Widevine endast med MPEG-streck** krypterar ditt MPEG-streck dynamiskt med Widevine DRM.
     
-    e. **FairPlay endast med HLS** dynamiskt krypterar HLS dataströmmen med FairPlay.
+    e. **Fairplay endast med HLS** KRYPTERAr HLS-dataströmmen dynamiskt med Fairplay.
 
-1. Att aktivera FairPlay-kryptering på den **Content Protection globala inställningar** bladet väljer **FairPlay-konfiguration**. Välj sedan den **appcertifikat**, och ange den **hemliga nyckeln**.
+1. Om du vill aktivera FairPlay-kryptering väljer du **Fairplay konfiguration**på bladet **Content Protection globala inställningar** . Välj sedan **appens certifikat**och ange den **hemliga nyckeln**.
 
-    ![Krypteringstyp](./media/media-services-portal-content-protection/media-services-content-protection009.png)
+    ![Krypterings typ](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-1. När du har gjort krypteringsvalet, väljer **tillämpa**.
+1. När du har gjort krypterings valet väljer du **tillämpa**.
 
 >[!NOTE] 
->Om du planerar att spela upp en AES-krypterad HLS i Safari, finns i bloggposten [krypterad HLS i Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Om du planerar att spela upp en AES-krypterad HLS i Safari, se blogg inlägget [krypterade HLS i Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

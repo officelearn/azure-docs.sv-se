@@ -1,22 +1,22 @@
 ---
-title: Hantera brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)
+title: Hantera brand Väggs regler – storskalig (citus)-Azure Database for PostgreSQL
 description: Skapa och hantera brand Väggs regler för Azure Database for PostgreSQL-storskalig (citus) med hjälp av Azure Portal
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 1b132eb168f3d873c8150bc33b581aa0f0f8d124
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 660c395e6cff81b0abcac07e66385f80a538695f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273709"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977547"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Hantera brand Väggs regler för Azure Database for PostgreSQL-storskalig (citus)
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en citus-koordinator (disscale) från en angiven IP-adress eller ett intervall med IP-adresser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att gå igenom den här instruktions guiden behöver du:
 - En Server grupp [skapar en Server grupp för Azure Database for PostgreSQL – storskalig (citus)](quickstart-create-hyperscale-portal.md).
 
@@ -24,7 +24,7 @@ För att gå igenom den här instruktions guiden behöver du:
 
 > [!NOTE]
 > De här inställningarna är också tillgängliga när du skapar en citus-servergrupp (Azure Database for PostgreSQL-storskalig). Klicka på **offentlig slut punkt**under fliken **nätverk** .
-> ![Fliken Azure Portal-nätverk](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
+> fliken ![Azure Portal-nätverk](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. Öppna brand Väggs reglerna genom att klicka på **nätverk** under säkerhets rubriken på sidan postgresql server Group.
 

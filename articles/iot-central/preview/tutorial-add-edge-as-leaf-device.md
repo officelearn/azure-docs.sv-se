@@ -3,18 +3,18 @@ title: Lägga till en Azure IoT Edge-enhet i Azure IoT Central | Microsoft Docs
 description: Som operatör lägger du till en Azure IoT Edge enhet till ditt Azure IoT Central-program
 author: rangv
 ms.author: rangv
-ms.date: 10/22/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f16db7ebff087b164228f2b23d6fa7ec302705bb
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e5d60c77e9bdc0733c12bca891eb6c3e33a1fceb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406329"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979078"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Självstudie: Lägg till en Azure IoT Edge enhet till ditt Azure IoT Central-program
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Skicka kommandon till en modul som körs på den IoT Edge enheten
 > * Ange egenskaper för en modul som körs på den IoT Edge enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver ett Azure IoT Central-program för att kunna genomföra den här självstudien. Följ [den här snabb starten för att skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).
 
@@ -122,7 +122,7 @@ Redigera filen IoT Edge config. yaml.
 
 Rulla nedåt och kommentera ut anslutnings sträng delen av yaml-filen. 
 
-**Framför**
+**Före**
 
 ![Skärm bild av konsolen](./media/tutorial-add-edge-as-leaf-device/cfmanualprovisioning.png)
 
@@ -132,11 +132,11 @@ Rulla nedåt och kommentera ut anslutnings sträng delen av yaml-filen.
 
 Ta bort kommentaren till den symmetriska nyckel delen av yaml-filen. 
 
-**Framför**
+**Före**
 
 ![Skärm bild av konsolen](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmcomments.png)
 
-**När**
+**Efter**
 
 ![Skärm bild av konsolen](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmuncomments.png)
 

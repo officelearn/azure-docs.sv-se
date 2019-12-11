@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Utföra en webbsökning med Node-js – REST API för webbsökning i Bing'
+title: 'Snabb start: utföra en Webbs ökning med Node. js – Webbsökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka begäranden till REST-API:et för webbsökning i Bing med hjälp av Node.js och få ett JSON-svar
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f45b6ce402a5f61faeabd1534d7e3562af81294c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60651074"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973874"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Snabbstart: Söka på webben med hjälp av REST-API för webbsökning i Bing och Node.js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API och Node. js
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Node.js-program skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten när du gör ditt första anrop till API:et för webbsökning i Bing och ta sedan emot JSON-svaret. Detta Node. js-program skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
@@ -44,7 +44,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Ange prenumerationsnyckeln
 
-I det här kodavsnittet används miljövariabeln `AZURE_SUBSCRIPTION_KEY` till att lagra din prenumerationsnyckel. Det här är en bra idé så att nyckeln inte exponeras oavsiktligt när du distribuerar koden. Gå till den [Your API: er sida](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) att leta upp din prenumerationsnyckel.
+I det här kodavsnittet används miljövariabeln `AZURE_SUBSCRIPTION_KEY` till att lagra din prenumerationsnyckel. Det här är en bra idé så att nyckeln inte exponeras oavsiktligt när du distribuerar koden. Gå till [sidan med API: er](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) för att leta upp din prenumerations nyckel.
 
 Om du inte är bekant med miljövariabler, eller om du vill köra den här appen så snabbt som möjligt, kan du ersätta `process.env['AZURE_SUBSCRIPTION_KEY']` med din prenumerationsnyckel angiven som en sträng.
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Skapa funktionen som ska göra begäran
 
-Den här funktionen gör en säker GET-förfrågan och sparar sökfrågan som en frågeparameter i sökvägen. `encodeURIComponent` används till att kommentera ut ogiltiga tecken och prenumerationsnyckeln skickas i en rubrik. Återanropet tar emot ett [svar](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) som prenumererar på händelsen `data` för att sammanställa JSON-texten, händelsen `error` för att logga eventuella problem och händelsen `end` för att veta när meddelandet ska betraktas som färdigt. När du är klar skriver appen ut relevanta intressanta rubriker och texter. Du kan experimentera med olika färger och vilket djup som passar dig bäst. Med djupet `1` får du en bra översikt över svaret.
+Den här funktionen gör en säker GET-förfrågan och sparar sökfrågan som en frågeparameter i sökvägen. `hostname` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.  `encodeURIComponent` används till att kommentera ut ogiltiga tecken och prenumerationsnyckeln skickas i en rubrik. Återanropet tar emot ett [svar](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) som prenumererar på händelsen `data` för att sammanställa JSON-texten, händelsen `error` för att logga eventuella problem och händelsen `end` för att veta när meddelandet ska betraktas som färdigt. När du är klar skriver appen ut relevanta intressanta rubriker och texter. Du kan experimentera med olika färger och vilket djup som passar dig bäst. Med djupet `1` får du en bra översikt över svaret.
 
 ```javascript
 function bingWebSearch(query) {

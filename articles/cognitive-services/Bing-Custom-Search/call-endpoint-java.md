@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Anropa slutpunkt för API för anpassad Bing-sökning med hjälp av Java | Microsoft Docs'
+title: 'Snabb start: anropa din Anpassad sökning i Bing-slutpunkt med Java | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att börja begära sökresultat från din instans av anpassad Bing-sökning i Java.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: afb804dd3fd0fecd676f04f18db577f87861a163
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6a470979ce4276d510f1a89bc9bc192d609c2083
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564681"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973517"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Snabbstart: Anropa slutpunkt för API för anpassad Bing-sökning med hjälp av Java
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt med Java
 
 Använd den här snabbstarten till att börja begära sökresultat från din instans av anpassad Bing-sökning. Även om det här programmet är skrivet i Java är API för anpassad Bing-sökning en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En instans av anpassad Bing-sökning. Gå till [Snabbstart: Skapa din första instans av Anpassad Bing-sökning](quick-start.md) om du vill få mer information.
+- En instans av anpassad Bing-sökning. Se [snabb start: skapa din första anpassad sökning i Bing-instans](quick-start.md) för mer information.
 
 - Senaste [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
 
@@ -50,7 +50,7 @@ Använd den här snabbstarten till att börja begära sökresultat från din ins
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa en klass med namnet `CustomSrchJava` och skapa variabler för din prenumerationsnyckel, slutpunkten för anpassad sökning samt anpassat konfigurations-ID för din sökningsinstans. 
+2. Skapa en klass med namnet `CustomSrchJava`och skapa variabler för din prenumerations nyckel, anpassad Sök slut punkt och din Sök instanss anpassade konfigurations-ID. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";

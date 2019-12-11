@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931494"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995923"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks
 
@@ -275,6 +275,10 @@ När du replikerar ett kluster måste du ange de tabeller som du vill replikera.
 
 Om du vill skapa en **kontakt** tabell och infoga data i tabellen, följer du anvisningarna i [själv studie kursen om Apache HBase: komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
+> [!NOTE]
+> Om du vill replikera tabeller från en anpassad namnrymd måste du också se till att lämpliga anpassade namn områden definieras i mål klustret.
+>
+
 ## <a name="enable-replication"></a>Aktivera replikering
 
 Följande steg beskriver hur du anropar skript åtgärds skriptet från Azure Portal. Information om hur du kör en skript åtgärd genom att använda Azure PowerShell och den klassiska Azure CLI finns i [Anpassa HDInsight-kluster med hjälp av skript åtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
@@ -395,6 +399,10 @@ Avsnittet `print_usage()` i [skriptet](https://raw.githubusercontent.com/Azure/h
 - **Inaktivera replikering för angivna tabeller (TABLE1, tabell2 och TABLE3)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> Om du tänker ta bort mål klustret, se till att du tar bort det från peer-listan i käll klustret. Detta kan göras genom att köra kommandot remove_peer 1 i HBase-gränssnittet i käll klustret. Det kan hända att det inte går att köra käll klustret på rätt sätt.
+>
 
 ## <a name="next-steps"></a>Nästa steg
 

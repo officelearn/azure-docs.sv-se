@@ -1,6 +1,6 @@
 ---
 title: Använda Azure IoT Hub Device Provisioning Service automatisk etablering för att registrera IoT-DevKit för MXChip med IoT Hub | Microsoft Docs
-description: Hur du använder Azure IoT Hub Device Provisioning Service automatisk etablering för att registrera MXChip IoT-DevKit med IoT Hub.
+description: Så här använder du automatisk etablering i Azure IoT Hub Device Provisioning Service (DPS) för att registrera MXChip IoT-DevKit med IoT Hub.
 author: liydu
 ms.author: liydu
 ms.date: 06/25/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 2731bbcd6a6b0c8f7d82334c022c017d5eae35f0
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677009"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975660"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT Hub Device Provisioning Service automatisk etablering för att registrera MXChip IoT-DevKit med IoT Hub
 
-Den här artikeln beskriver hur du använder Azure IoT Hub Device Provisioning Service [Automatisk etablering](concepts-auto-provisioning.md), för att registrera MXChip IoT-DevKit med Azure IoT Hub. I den här självstudiekursen får du lära du dig att:
+Den här artikeln beskriver hur du använder Azure IoT Hub Device Provisioning Service [Automatisk etablering](concepts-auto-provisioning.md), för att registrera MXChip IoT-DevKit med Azure IoT Hub. I den här guiden får du lära dig att:
 
 * Konfigurera den globala slut punkten för enhets etablerings tjänsten på en enhet.
 * Använd en unik enhets hemlighet (UDS) för att generera ett X. 509-certifikat.

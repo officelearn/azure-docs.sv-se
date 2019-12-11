@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 2f80ba319db6d6d7ce512aba8191584ea5bba86b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9e4ac74df269f2e3db2431a3f01490a5769c9aca
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73519451"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970252"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java
 
-Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Java för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa ditt eget Java-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
+Den här artikeln visar hur du kommer igång med Custom Vision Java SDK för att skapa en bild klassificerings modell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa en egen Java-app. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En valfri Java IDE
 - [JDK 7 eller 8](https://aka.ms/azure-jdks) installerat.
@@ -52,11 +52,11 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Hitta **runSample** -metoden och kommentera ut **ObjectDetection_Sample** -metod anropet&mdash;den här metoden kör scenariot för objekt identifiering, som inte beskrivs i den här hand boken. Metoden **ImageClassification_Sample** implementerar de primära funktionerna i det här exemplet. Gå till dess definition och granska koden.
+Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Hitta **runSample** -metoden och kommentera ut **ObjectDetection_Sample** metod anrop&mdash;den här metoden kör scenariot för objekt identifiering, som inte beskrivs i den här hand boken. Metoden **ImageClassification_Sample** implementerar de primära funktionerna i det här exemplet. Gå till dess definition och granska koden.
 
-### <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
+### <a name="create-a-custom-vision-service-project"></a>Skapa ett Custom Vision Service-projekt
 
-Den här första delen med kod skapar ett projekt för klassificering av bilder. Det skapade projektet visas på den [Custom Vision-webbplats](https://customvision.ai/) som du besökte tidigare. Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en klassificerings](getting-started-build-a-classifier.md) webb Portal).
+Den här första delen med kod skapar ett projekt för klassificering av bilder. Projektet som du har skapat visas på [Custom Vision-webbplatsen](https://customvision.ai/) som du tidigare besökt. Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en klassificerings](getting-started-build-a-classifier.md) webb Portal).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create)]
 
@@ -80,7 +80,7 @@ Den här koden skapar den första iterationen i projektet och publicerar sedan e
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train)]
 
-### <a name="use-the-prediction-endpoint"></a>Använda förutsägelseslutpunkten
+### <a name="use-the-prediction-endpoint"></a>Använda en förutsägelseslutpunkt
 
 Förutsägelseslutpunkten, som representeras av objektet `predictor` här, är den referens som du kan använda för att skicka en bild till den aktuella modellen och få en klassificeringsförutsägelse. I det här exemplet har `predictor` definierats någon annanstans med hjälp av miljövariabeln för förutsägelsenyckeln.
 
@@ -134,7 +134,7 @@ Du kan sedan kontrollera att testbildens förutsägelse (de sista raderna i utda
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i bildklassificeringsprocessen kan utföras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
+Nu har du sett hur varje steg i bildklassificeringsprocessen kan göras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](test-your-model.md)

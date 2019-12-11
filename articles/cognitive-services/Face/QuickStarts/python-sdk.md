@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 9728ff86de8561c463886847494ecc4c1c007851
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: cd797567b381fb89c568b06dc8b056648e5c734a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743192"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977819"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabb start: ansikts klient bibliotek för python
 
@@ -31,7 +31,7 @@ Använd ansikts klient biblioteket för python för att:
 
 [Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library Source Code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy) | -](https://pypi.org/project/azure-cognitiveservices-vision-face/) [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -53,7 +53,7 @@ Skapa ett nytt Python-skript&mdash;*QuickStart-File.py*, till exempel. Öppna de
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
-Skapa sedan variabler för resursens Azure-slutpunkt och nyckel. Du kan behöva ändra den första delen av slut punkten (`westus`) för att matcha din prenumeration.
+Skapa sedan variabler för resursens Azure-slutpunkt och nyckel. Du kan behöva ändra den första delen av slut punkten (`westus`) så att den matchar din prenumeration.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
@@ -82,7 +82,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |[PersonGroupOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongroupoperations?view=azure-python)| Den här klassen hanterar de **PersonGroup** -konstruktioner i molnet som lagrar en uppsättning med utvalda **person** objekt. |
 |[ShapshotOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.snapshotoperations?view=azure-python)|Den här klassen hanterar ögonblicks bilds funktionerna. Du kan använda den för att tillfälligt Spara alla dina molnbaserade ansikts data och migrera dessa data till en ny Azure-prenumeration. |
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du gör följande uppgifter med ansikts klient biblioteket för python:
 
@@ -246,7 +246,7 @@ Resten av ögonblicks bild åtgärderna sker i en asynkron funktion.
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
 
-    Den här koden använder funktionen `wait_for_operation`, som du bör definiera separat:
+    Den här koden använder funktionen `wait_for_operation` som du bör definiera separat:
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
 
@@ -272,7 +272,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [Portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den kör du följande kod i skriptet:

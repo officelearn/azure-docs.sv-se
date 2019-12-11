@@ -2,15 +2,15 @@
 title: Importera SQL BACPAC-filer med mallar
 description: Lär dig hur du använder SQL Database-tillägget för att importera SQL BACPAC-filer med Azure Resource Manager-mallar.
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 741521551335712400e5f61822d7dda31199d3df
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 9f5e2e402e13076dc538a9c9d55e5b67e0d86d4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422154"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978923"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar
 
@@ -44,17 +44,15 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 En BACPAC-fil delas i [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Om du vill skapa en egen läser du [Exportera en Azure SQL-databas till en BACPAC-fil](../sql-database/sql-database-export.md). Om du väljer att publicera filen till din egen plats måste du uppdatera mallen senare under självstudien.
 
-BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras med Resource Manager-mallen.
+BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras med Resource Manager-mallen. Följande PowerShell-skript förbereder BACPAC-filen med följande steg:
 
-1. Öppna [Cloud Shell](https://shell.azure.com).
-1. Välj **Ladda upp/ladda ned filer**och välj sedan **Ladda upp**.
-1. Ange följande URL och välj sedan **Öppna**.
+* Ladda ned BACPAC-filen.
+* skapa ett Azure Storage-konto
+* Skapa en blobcontainer för ett lagringskonto.
+* Ladda upp BACPAC-filen till containern.
+* Visa lagrings konto nyckeln och blob-URL: en.
 
-    ```url
-    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
-    ```
-
-1. Kopiera och klistra in följande PowerShell-skript i Shell-fönstret.
+1. Välj **prova** att öppna Cloud Shell och klistra sedan in följande PowerShell-skript i Shell-fönstret.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -63,10 +61,16 @@ BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras me
     $resourceGroupName = "${projectName}rg"
     $storageAccountName = "${projectName}store"
     $containerName = "bacpacfiles"
-    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
-    $blobName = "SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac"
+    $bacpacUrl = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
 
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacUrl -OutFile "$HOME/$bacpacFileName"
+
+    # Create a resource group
     New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
                                            -Name $storageAccountName `
                                            -SkuName Standard_LRS `
@@ -74,19 +78,21 @@ BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras me
     $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
                                                   -Name $storageAccountName).Value[0]
 
+    # Create a container
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-    Set-AzStorageBlobContent -File $bacpacFile `
+    # Upload the BACPAC file to the container
+    Set-AzStorageBlobContent -File $HOME/$bacpacFileName `
                              -Container $containerName `
-                             -Blob $blobName `
+                             -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
     Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Skriv ned lagrings konto nyckel och BACPAC-filens URL. Du behöver dessa värden när du distribuerar mallen.
+1. Skriv ned lagrings konto nyckeln och BACPAC-filens URL. Du behöver dessa värden när du distribuerar mallen.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -101,13 +107,12 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 
 3. Välj **Öppna** för att öppna filen.
 
-    Det finns tre resurser som definieras i mallen:
+    Det finns två definierade resurser i mallen:
 
    * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
    * `Microsoft.SQL.servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
-     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen
@@ -138,19 +143,21 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
     * Om du vill tillåta att SQL Database-tillägget importerar BACPAC-filer måste du tillåta trafik från Azure-tjänster. Lägg till följande regel definition för brand väggen under SQL Server-definitionen:
 
         ```json
-        {
-          "type": "firewallrules",
-          "apiVersion": "2015-05-01-preview",
-          "name": "AllowAllAzureIps",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
+        "resources": [
+          {
+            "type": "firewallrules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "AllowAllAzureIps",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+              "[parameters('databaseServerName')]"
+            ],
+            "properties": {
+              "startIpAddress": "0.0.0.0",
+              "endIpAddress": "0.0.0.0"
+            }
           }
-        }
+        ]
         ```
 
         Mallen bör se ut så här:
@@ -161,22 +168,22 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 
         ```json
         "resources": [
-            {
-              "type": "extensions",
-              "apiVersion": "2014-04-01",
-              "name": "Import",
-              "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-              ],
-              "properties": {
-                "storageKeyType": "StorageAccessKey",
-                "storageKey": "[parameters('storageAccountKey')]",
-                "storageUri": "[parameters('bacpacUrl')]",
-                "administratorLogin": "[variables('databaseServerAdminLogin')]",
-                "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import"
-              }
+          {
+            "type": "extensions",
+            "apiVersion": "2014-04-01",
+            "name": "Import",
+            "dependsOn": [
+              "[resourceId('Microsoft.Sql/servers/databases', parameters('databaseServerName'), parameters('databaseName'))]"
+            ],
+            "properties": {
+              "storageKeyType": "StorageAccessKey",
+              "storageKey": "[parameters('storageAccountKey')]",
+              "storageUri": "[parameters('bacpacUrl')]",
+              "administratorLogin": "[parameters('adminUser')]",
+              "administratorLoginPassword": "[parameters('adminPassword')]",
+              "operationMode": "Import"
             }
+          }
         ]
         ```
 
@@ -192,6 +199,10 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
         * **storageUri**: Ange URL: en för den BACPAC-fil som lagras i ett lagrings konto.
         * **administratorLoginPassword**: Lösenordet för SQL-administratören. Använd ett genererat lösenord. Se [Förutsättningar](#prerequisites).
 
+Den färdiga mallen ser ut så här:
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
+
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -199,7 +210,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 Mer information om distributionsproceduren finns i avsnittet [Distribuera mallen](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Använd följande PowerShell-distributionsskript i stället:
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
@@ -207,7 +218,7 @@ $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
 $bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
 $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `

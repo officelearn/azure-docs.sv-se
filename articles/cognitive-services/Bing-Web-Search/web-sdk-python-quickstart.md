@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d6758fc5434406e42acf65ff3b712227b5cec0f8
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991628"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977224"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Python
 
@@ -23,16 +23,14 @@ SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i
 
 Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) finns på GitHub.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 API för webbsökning i Bing är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6. Vi rekommenderar att du använder en virtuell miljö för den här snabbstarten.
 
 * Python 2.7, 3.3, 3.4, 3.5 eller 3.6
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) för Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) för Python 3.x
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-and-configure-your-virtual-environment"></a>Skapa och konfigurera den virtuella miljön
 
@@ -82,7 +80,7 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
 
 1. Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram.
 
-1. Kopiera den här exempelkoden till projektet:  
+1. Kopiera exempel koden till projektet. `endpoint` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.:  
 
     ```python
     # Import required modules.
@@ -166,13 +164,13 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
 
 1. Ersätt `SUBSCRIPTION_KEY` med en giltig prenumerationsnyckel.
 
-1. Ersätt `YOUR_ENDPOINT` med slutpunkts-url i portalen.
+1. Ersätt `YOUR_ENDPOINT` med slut punkts-URL: en i portalen.
 
 1. Kör programmet. Till exempel: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definiera funktioner och filtrera resultat
 
-Nu när du har gjort din första anropet till Bing Web Search API, vi titta på några funktioner. I följande avsnitt beskrivs SDK-funktioner för att förfina frågor och filtrera resultaten. Varje funktion kan läggas till Python-program som du skapade i föregående avsnitt.
+Nu när du har gjort ditt första anrop till API för webbsökning i Bing ska vi titta på några funktioner. I följande avsnitt markeras SDK-funktioner för att förfina frågor och filtrera resultat. Varje funktion kan läggas till i python-programmet som du skapade i föregående avsnitt.
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Begränsa antalet resultat som returneras av Bing
 

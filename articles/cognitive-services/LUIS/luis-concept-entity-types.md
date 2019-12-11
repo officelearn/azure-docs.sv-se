@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 808e110ccb45b0b4f7bf34a43597c1f7a7bc0fed
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422577"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976969"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entiteter och deras syfte i LUIS
 
@@ -37,7 +37,7 @@ Entiteter måste märkas konsekvent i alla utbildnings-yttranden för varje avsi
 
  Du kan definiera egna entiteter eller använda fördefinierade entiteter för att spara tid för vanliga koncept som [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordnings](luis-reference-prebuilt-ordinal.md)tal, [e-post](luis-reference-prebuilt-email.md)och [telefonnummer](luis-reference-prebuilt-phonenumber.md).
 
-|Yttrande|Entitet|Data|
+|Yttrande|Enhet|Data|
 |--|--|--|
 |Köpa 3 biljetter New York|Fördefinierade tal<br>Location.Destination|3<br>New York|
 |Köp en biljett från New York till London 5 mars|Location.Origin<br>Location.Destination<br>Fördefinierade datetimeV2|New York<br>London<br>5 mars 2018|
@@ -75,7 +75,7 @@ Enhets [**inlärda entiteter**](tutorial-machine-learned-entity.md) är den öve
 
 En dator som har lärt enhets utlösare baserat på den kontext som lärts genom utbildning yttranden. **Begränsningar** är valfria regler som tillämpas på en enhet som har registrerats av enheten och som ytterligare begränsar utlösare baserat på exakt text matchnings definitionen för en icke-känd entitet, till exempel en [lista](reference-entity-list.md) eller ett [regex](reference-entity-regular-expression.md). En `size` enhets medveten entitet kan till exempel ha en begränsning för en `sizeList` lista entitet som begränsar `size` entiteten så att den endast utlöses när värden som finns i `sizeList` entiteten påträffas.
 
-[**Beskrivningar**](luis-concept-feature.md) är funktioner som används för att förbättra relevansen hos ord eller fraser för förutsägelsen. De kallas *beskrivningar* eftersom de används för att *beskriva* ett avsikts-eller enhets namn. Beskrivningar beskriver särskiljande egenskaper eller attribut för data, till exempel viktiga ord eller fraser. den LUIS går igenom och lär sig genom.
+[**Beskrivningar**](luis-concept-feature.md) är funktioner som används för att förbättra relevansen hos ord eller fraser för förutsägelsen. De kallas *beskrivningar* eftersom de används för att *beskriva* ett avsikts-eller enhets namn. Beskrivningar beskriver särskiljande kännetecken eller dataattribut, t. ex. viktiga ord eller fraser som LUIS studerar och lär sig genom.
 
 När du skapar en Frass List funktion i LUIS-appen aktive ras den globalt som standard och tillämpas jämnt över alla syften och entiteter. Men om du använder fras listan som en beskrivning (funktion) för en enhet som har registrerats av enheten (eller *modellen*), så minskar dess omfattning så att den endast gäller för den modellen och inte längre används med alla andra modeller. Genom att använda en fras lista som en beskrivning av en modell får du en nedbrytning genom att hjälpa till med precisionen för den modell som den tillämpas på.
 
@@ -128,7 +128,7 @@ Om LUIS hittar `location` men inte bestämmer rollen, returneras fortfarande pla
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Om du behöver mer än det maximala antalet enheter
 
-Kontakta supporten om du behöver mer än gränsen. Det gör du genom att samla in detaljerad information om systemet, gå till [Luis](luis-reference-regions.md#luis-website) -webbplatsen och sedan välja **support**. Om din Azure-prenumeration innehåller support tjänster kontaktar du [teknisk support för Azure](https://azure.microsoft.com/support/options/).
+Kontakta supporten om du behöver mer än gränsen. Samla in detaljerad information om datorn för att göra det, går du till den [LUIS](luis-reference-regions.md#luis-website) webbplats och väljer sedan **Support**. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="entity-prediction-status"></a>Status för enhets förutsägelse
 
@@ -136,8 +136,9 @@ LUIS-portalen visar när entiteten, i ett exempel-uttryck, har en annan enhets f
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp om utmärkt [yttranden](luis-concept-utterance.md).
+Lär dig mer begrepp om bra [yttranden](luis-concept-utterance.md).
 
-Se [Lägg till entiteter](luis-how-to-add-entities.md) för att lära dig mer om hur du lägger till entiteter i Luis-appen.
+Se [Lägg till entiteter](luis-how-to-add-entities.md) mer information om hur du lägger till entiteter i din LUIS-app.
 
 Se [självstudie: extrahera strukturerade data från användare uttryck med enhets identifierade entiteter i language Understanding (Luis)](tutorial-machine-learned-entity.md) om du vill lära dig hur du extraherar strukturerade data från en uttryck med hjälp av den dator som har lärts.
+ 

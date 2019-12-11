@@ -7,40 +7,40 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0d7c8b2661ee3361b3a485b8cae4eef3a8225120
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688197"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975252"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Använd ett-Klicka för att mata in data i Azure Datautforskaren
 
-I den här artikeln beskrivs hur du använder ett enda klick för att snabbt mata in en ny tabell i JSON-eller CSV-format från lagrings plats eller lokal fil till en befintlig tabell eller en ny tabell i Azure Datautforskaren. Använd den intuitiva guiden och inom några minuter. dina data matas in, du kan redigera tabellen och köra frågor med hjälp av webb gränssnittet.
+I den här artikeln beskrivs hur du använder ett enda klick för att mata in en ny tabell i antingen JSON-eller CSV-format. Data kan matas in från lagring eller en lokal fil till en befintlig tabell eller en ny tabell. Använd den intuitiva guiden för enkel klickning och dina data inmatning inom några minuter. Sedan kan du redigera tabellen och köra frågor med hjälp av Azure Datautforskaren Web UI.
 
 ## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Logga in på [programmet](https://dataexplorer.azure.com/).
-* Skapa [ett Azure datautforskaren-kluster och-databas](create-cluster-database-portal.md)
-* Logga in på [webb gränssnittet](https://dataexplorer.azure.com/) och [Lägg till en anslutning till klustret](/azure/data-explorer/web-query-data#add-clusters)
-* Data källa i Azure Storage.
+* Skapa [ett Azure datautforskaren-kluster och-databas](create-cluster-database-portal.md).
+* Logga in på [webb gränssnittet](https://dataexplorer.azure.com/) och [Lägg till en anslutning till klustret](/azure/data-explorer/web-query-data#add-clusters).
+* Skapa en data källa i Azure Storage.
 
 ## <a name="ingest-new-data"></a>Mata in nya data
 
-1. Högerklicka på *databas* -eller *tabell* raden i den vänstra menyn i webb gränssnittet och välj Mata in **ny data (förhands granskning)**
+1. Högerklicka på *databasen* eller *tabell* raden i den vänstra menyn i webb gränssnittet och välj Mata in **nya data (för hands version)** .
 
-    ![Välj en klicknings inmatning i webb gränssnittet](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
+    ![Välj en inmatning i webb gränssnittet för ett klick.](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
-1. I fönstret för att mata in **nya data (förhands granskning)** går du till fliken **källa** och slutför **projekt informationen**:
+1. I fönstret mata in **nya data (för hands version)** väljer du fliken **källa** och slutför **projekt informationen**:
 
-    * **Tabell**: Välj befintligt tabell namn från listruta eller Välj **Skapa nytt** för att skapa en ny tabell.
-    * Välj inmatnings **typ** > **från lagring** eller **från fil**.
-        * Om du valde **från lagring**anger du **länk till lagring** för att lägga till URL: en i lagrings utrymmet. Använd [blobb-SAS-webbadress](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) för privata lagrings konton. 
-        * Om du har valt **från fil**väljer du **Bläddra** och drar filen till rutan.
+    * För **tabell**väljer du ett befintligt tabell namn från den nedrullningsbara menyn eller väljer **Skapa nytt** för att skapa en ny tabell.
+    * För inmatnings **typ**väljer du antingen **från lagring** eller **från fil**.
+        * Om du valde **från lagring**väljer du **länk till lagring** för att lägga till URL: en. Använd [blobb-SAS-webbadress](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) för privata lagrings konton. 
+            * Om du har valt **från fil**väljer du **Bläddra** och drar filen till rutan.
     * Välj **Redigera schema** för att visa och redigera din tabell kolumn konfiguration.
  
-    ![en klicknings käll information](media/ingest-data-one-click/one-click-ingestion-source.png) 
+    ![Käll information om ett klick.](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
     > [!TIP]
     > Om du väljer Hämta **nya data (för hands version)** på en *tabell* rad visas det valda tabell namnet i **projekt informationen**.
@@ -49,44 +49,44 @@ I den här artikeln beskrivs hur du använder ett enda klick för att snabbt mat
     * Använd **utelämna kolumn** för att ta bort en mål kolumn från tabellen. 
     * Använd **ny kolumn** för att lägga till en ny kolumn i tabellen. 
 
-    ![Fönstret kart kolumner](media/ingest-data-one-click/one-click-map-columns-window.png)
+    ![Fönstret kart kolumner.](media/ingest-data-one-click/one-click-map-columns-window.png)
 
 1. På fliken **schema** :
 
-    * Välj **komprimerings typ** från listruta > **okomprimerad** eller **gzip**.
-    * Välj **data format** i list rutan > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**eller **PSV**. 
-        * När du väljer **JSON** -format väljer du **JSON-nivåer**: 1-10. Nivåerna påverkar tabell kolumnens data-skildringar. 
-        * Om du väljer ett annat format än JSON: Markera kryss rutan **Inkludera kolumn namn** om du vill ignorera filens rubrik rad.    
+    * Välj **komprimerings typ** på den nedrullningsbara menyn och välj sedan antingen **okomprimerad** eller **gzip**.
+    * Välj **data format** på den nedrullningsbara menyn och välj sedan **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**eller **PSV**. 
+        * När du väljer **JSON** -formatet måste du också välja **JSON-nivåer**, från 1 till 10. Nivåerna påverkar tabell kolumnens data-skildringar. 
+        * Om du väljer ett annat format än JSON måste du markera kryss rutan **Inkludera kolumn namn** om du vill ignorera rubrik raden i filen.
     * **Mappnings namnet** anges automatiskt men kan redige ras.
-    * Om du har valt en befintlig tabell kan du välja knappen **kart kolumner** för att öppna fönstret **kart kolumner** .
+    * Om du har valt en befintlig tabell kan du välja **kart kolumner** för att öppna fönstret **kart kolumner** .
 
-    ![ett klick på att mata in CSV-format schema. png](media/ingest-data-one-click/one-click-csv-format.png)
+    ![Schema för CSV-format med ett klick.](media/ingest-data-one-click/one-click-csv-format.png)
 
-1. I **redigeraren**väljer du **V** till höger för att öppna redigeraren. I redigeraren kan du Visa och kopiera automatiska frågor som genereras från dina indata. 
+1. Välj **v** - **knappen i redigerings fönstret för** att öppna redigeraren. I redigeraren kan du Visa och kopiera automatiska frågor som genereras från dina indata. 
 
 1.  I tabell: 
-    * Högerklicka på nya kolumn rubriker för att **ändra datatyp**, **Byt namn på kolumn**, **ta bort kolumn**, **Sortera stigande**eller **Sortera fallande**. Endast data sortering är tillgänglig i befintliga kolumner. 
+    * Högerklicka på nya kolumn rubriker för att **ändra datatyp**, **Byt namn på kolumn**, **ta bort kolumn**, **Sortera stigande**eller **Sortera fallande**. I befintliga kolumner är endast data sortering tillgänglig. 
     * Dubbelklicka på det nya kolumn namnet för att redigera.
 
-1. Välj **Starta** inmatning för att skapa tabell, skapa mappning och data inmatning.
+1. Välj **börja** mata in för att skapa en tabell och mappning och för att börja använda data inmatning.
 
-    ![ett klicknings schema för JSON-format](media/ingest-data-one-click/one-click-json-format.png) 
+    ![Inmatnings-JSON-format med ett klick.](media/ingest-data-one-click/one-click-json-format.png) 
  
 ## <a name="query-data"></a>Söka i data
 
-1. I fönstret **data inmatning har slutförts** markeras alla tre stegen med gröna markeringar, om data inmatning har slutförts. 
+1. I fönstret **data inmatning har** alla tre steg marker ATS med gröna kryss markeringar om data inmatningen har slutförts.
  
-    ![ett klick för data inmatning har slutförts](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
+    ![Data inmatning med ett klick har slutförts.](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
 
-1. Välj **V** för att öppna frågan. Kopiera till webb gränssnittet för att redigera frågan.
+1. Välj **v** -knappen för att öppna frågan. Kopiera till webb gränssnittet för att redigera frågan.
 
-1. Menyn till höger innehåller **snabb frågor** och **verktyg**. 
+1. Menyn till höger innehåller **snabba frågor** och **verktyg** alternativ. 
 
-    * **Snabb frågor** innehåller länkar till webb gränssnitt med exempel frågor.
-    * **Verktygen** innehåller länkar till webb gränssnitt med **släpp-kommandon** som gör att du kan felsöka problem genom att köra det relevanta `.drop` kommandot.
+    * **Snabb frågor** innehåller länkar till webb gränssnittet med exempel frågor.
+    * **Verktygen** innehåller en länk för att **släppa kommandon** i webb gränssnittet, vilket gör att du kan felsöka problem genom att köra relevanta `.drop`-kommandon.
 
     > [!TIP]
-    > Data kan gå förlorade med `.drop`-kommandon. Använd dem noggrant.
+    > Data kan gå förlorade genom att använda `.drop`-kommandon. Använd dem noggrant.
 
 ## <a name="next-steps"></a>Nästa steg
 

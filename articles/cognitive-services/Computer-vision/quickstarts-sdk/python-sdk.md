@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Visuellt innehåll klient bibliotek för python | Microsoft Docs'
+title: 'Snabb start: Visuellt innehåll klient bibliotek för python | Microsoft Docs'
 description: Kom igång med Visuellt innehåll klient biblioteket för python.
 services: cognitive-services
 author: PatrickFarley
@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1e91b204401033c7c6c47484140720ab8076f9f9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719497"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971703"
 ---
-# <a name="quickstart-computer-vision-client-library-for-python"></a>Snabbstart: Visuellt innehåll klient bibliotek för python
+# <a name="quickstart-computer-vision-client-library-for-python"></a>Snabb start: Visuellt innehåll klient bibliotek för python
 
 Via tjänsten Visuellt innehåll har utvecklare tillgång till avancerade algoritmer för bearbetning av bilder och returnering av information. Algoritmer för visuellt innehåll kan analysera innehållet i en bild på olika sätt beroende på vilka visuella egenskaper som du är intresserad av.
 
@@ -28,9 +28,9 @@ Använd Visuellt innehåll klient bibliotek för python för att:
 > [!NOTE]
 > I scenarierna i den här snabb starten används URL: er för fjärravbildningen. Exempel kod som utför samma åtgärder på lokala avbildningar finns i koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [Library Source Code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [Package (PiPy) | -](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -44,11 +44,11 @@ Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på
 * Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Visa din resurs på [Azure Portal](https://portal.azure.com/)
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts `COMPUTER_VISION_ENDPOINT`-URL: en, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive.
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
  
 ### <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
-Skapa ett nytt python-&mdash;skript*QuickStart-File.py*, till exempel. Öppna den sedan i önskat redigerings program eller IDE och importera följande bibliotek.
+Skapa ett nytt Python-skript&mdash;*QuickStart-File.py*, till exempel. Öppna den sedan i önskat redigerings program eller IDE och importera följande bibliotek.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
 
@@ -71,13 +71,13 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll python SDK.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |[ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| Den här klassen hanterar alla avbildnings åtgärder direkt, till exempel bild analys, text identifiering och generering av miniatyrer.|
 | [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. Den implementerar **ComputerVisionClientOperationsMixin**.|
 |[VisualFeatureTypes](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning **VisualFeatureTypes** -värden beroende på dina behov. |
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 De här kodfragmenten visar hur du utför följande uppgifter med Visuellt innehåll klient biblioteket för python:
 
@@ -88,7 +88,7 @@ De här kodfragmenten visar hur du utför följande uppgifter med Visuellt inneh
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabb starten förutsätter att du har [skapat en miljö variabel](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din `COMPUTER_VISION_SUBSCRIPTION_KEY`visuellt innehåll nyckel, med namnet.
+> Den här snabb starten förutsätter att du har [skapat en miljö variabel](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY`.
 
 Instansiera en klient med din slut punkt och nyckel. Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) -objekt.
 
@@ -162,7 +162,7 @@ Följande kod tolkar data om identifierade landmärken i bilden.
 
 ### <a name="get-the-image-type"></a>Hämta avbildnings typen
 
-Följande kod skriver ut information om typen av bild&mdash;oavsett om den är en ClipArt-eller linje ritning.
+Följande kod skriver ut information om bildens typ&mdash;om den är ClipArt eller linje teckning.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_type)]
 
@@ -184,7 +184,7 @@ Hämta sedan det åtgärds-ID som returnerades från **batch_read_file** -anrope
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Kör programmet med `python` kommandot på snabb starts filen.
+Kör programmet med kommandot `python` på snabb starts filen.
 
 ```console
 python quickstart-file.py
@@ -194,7 +194,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [Portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 
@@ -206,5 +206,5 @@ I den här snabb starten har du lärt dig hur du använder Visuellt innehåll-bi
 > [!div class="nextstepaction"]
 >[API för visuellt innehåll referens (python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [Vad är API för visuellt innehåll?](../Home.md)
+* [Vad är Visuellt innehåll?](../Home.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

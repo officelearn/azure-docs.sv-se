@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Moderera videor och avskrifter i .NET – Content Moderator'
+title: 'Självstudie: Moderera videor och avskrifter i .NET – Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien visas hur du skapar en komplett modereringslösning för video och avskrift med maskinassisterad moderering och HITL-granskning (human-in-the-loop).
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564274"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976986"
 ---
-# <a name="tutorial-video-and-transcript-moderation"></a>Självstudier: Moderering av videor och avskrifter
+# <a name="tutorial-video-and-transcript-moderation"></a>Självstudie: Moderering av video och avskrift
 
-I den här självstudien får du lära dig hur du skapar en komplett video-och avskrifts redigerings lösning med hjälp av dator redigering och granskning med mänsklig granskning.
+I den här självstudien får du lära dig hur du skapar en komplett video-och avskrifts redigerings lösning med hjälp av dator redigering och granskning av mänsklig granskning.
 
 I den här självstudiekursen lär du dig att:
 
@@ -32,17 +32,17 @@ I den här självstudiekursen lär du dig att:
 > - Moderera avskriften med textändringstjänsten
 > - Lägga till den modererade avskriften i videogranskningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Registrera dig för webbplatsen för [Content moderator gransknings verktyg](https://contentmoderator.cognitive.microsoft.com/) och skapa anpassade taggar. Se [använda Taggar](Review-Tool-User-Guide/tags.md) om du behöver hjälp med det här steget.
 
     ![skärm bild av anpassade taggar för video moderator](images/video-tutorial-custom-tags.png)
-- Om du vill köra exempel programmet behöver du ett Azure-konto, en Azure Media Services resurs, en Azure Content Moderator-resurs och Azure Active Directory autentiseringsuppgifter. Instruktioner för hur du hämtar dessa resurser finns i [API](video-moderation-api.md) -guiden för videokontrollanter.
+- Om du vill köra exempel programmet behöver du ett Azure-konto, en Azure Media Services resurs, en Azure Content Moderator-resurs och Azure Active Directory autentiseringsuppgifter. Instruktioner för hur du hämtar dessa resurser finns i API-guiden för [Videokontrollanter](video-moderation-api.md) .
 - Hämta [video gransknings konsol programmet](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) från GitHub.
 
 ## <a name="enter-credentials"></a>Ange autentiseringsuppgifter
 
-Redigera filen och Lägg till Active Directory klient namn, tjänst slut punkter och prenumerations nycklar som anges av `#####`. `App.config` Du behöver följande information:
+Redigera `App.config`-filen och Lägg till Active Directory klient namn, tjänst slut punkter och prenumerations nycklar som anges av `#####`. Du behöver följande information:
 
 |Nyckel|Beskrivning|
 |-|-|
@@ -82,7 +82,7 @@ Klassen `Program` i `Program.cs` är den främsta startpunkten till videoändrin
 Om det inte finns några argument på kommandoraden anropar `Main()` `GetUserInputs()`. Den här metoden uppmanar användaren att ange sökvägen till en enskild videofil och att ange om en textavskrift ska genereras.
 
 > [!NOTE]
-> Konsolprogrammet använder [Azure Media Indexer-API:n](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) till att generera avskrifter från det uppladdade videoljudspåret. Resultaten visas i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> Konsol programmet använder [Azure Media INDEXER API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera avskrifter från den uppladdade videons ljud spår. Resultaten anges i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Metoderna Initialize och ProcessVideo
 
@@ -223,7 +223,7 @@ Resultatet från videoändringsjobbet (se [snabbstarten för videoändringar](vi
 En avskrift av ljudet från videon genereras också när `GenerateVTT`-flaggan har angetts.
 
 > [!NOTE]
-> Konsolprogrammet använder [Azure Media Indexer-API:n](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) till att generera avskrifter från det uppladdade videoljudspåret. Resultaten visas i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> Konsol programmet använder [Azure Media INDEXER API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera avskrifter från den uppladdade videons ljud spår. Resultaten anges i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ## <a name="create-a-human-review"></a>Skapa en mänsklig granskning
 
@@ -236,7 +236,7 @@ Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tills
 > [!NOTE]
 > Konsolprogrammet använder [FFmpeg](https://ffmpeg.org/)-biblioteket till att generera miniatyrer. Dessa miniatyr bilder (bilder) motsvarar de tidsstämplade ramarna i videoinspelningens utdata.
 
-|Uppgift|Metoder|Fil|
+|Aktivitet|Metoder|Fil|
 |-|-|-|
 |Extraherar nyckelbildrutorna från videon och skapar miniatyrbilder av dem|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
 |Genomsöker textavskriften, om det finns någon, för att hitta vuxet eller olämpligt ljud|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
@@ -252,7 +252,7 @@ Fram tills nu har koden som visas i den här självstudien fokuserat på visuell
 
 Programmet utför följande uppgifter:
 
-|Uppgift|Metoder|Fil|
+|Aktivitet|Metoder|Fil|
 |-|-|-|
 |Bestämmer om textavskrifter ska genereras|`Main()`<br>`GetUserInputs()`|`Program.cs`|
 |I dessa fall skickas ett avskriftsjobb som en del av modereringen|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
@@ -310,7 +310,7 @@ Därefter genomsöker vi de parsade bildtexterna med text-API:n i Content Modera
 > [!NOTE]
 > Din tjänstnyckel för Content Moderator har en hastighetsgräns för begäranden per sekund (RPS). Om du överskrider gränsen utlöser SDK:n ett undantag med felkoden 429.
 >
-> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
+> En nyckel på den kostnadsfria nivån har en hastighetsgräns på en RPS.
 
 [!code-csharp[TextScreen3](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=568-653)]
 
@@ -359,7 +359,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapar du ett program som förändrar&mdash;video innehåll,&mdash;inklusive avskrifts innehåll och skapar granskningar i gransknings verktyget. Nu ska du läsa mer om hur du kan få mer information om videoinspelning.
+I den här självstudien skapar du ett program som förändrar video innehåll&mdash;inklusive avskrifts innehåll&mdash;och skapar granskningar i gransknings verktyget. Nu ska du läsa mer om hur du kan få mer information om videoinspelning.
 
 > [!div class="nextstepaction"]
 > [Videomoderering](./video-moderation-human-review.md)

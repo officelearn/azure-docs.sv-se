@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871646"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968706"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline-FairPlay strömning för iOS 
 
@@ -123,18 +123,18 @@ Nu är ditt Media Services-konto konfigurerat för att leverera FairPlay-license
 ## <a name="sample-ios-player"></a>Exempel på iOS-spelare
 Stöd för offline-läge i FPS är bara tillgängligt på iOS 10 och senare. Server-SDK: n för FPS (version 3,0 eller senare) innehåller dokumentet och exemplet för offline-läge för FPS. Mer specifikt innehåller Server-SDK för FPS (version 3,0 eller senare) följande två objekt som är relaterade till offline-läge:
 
-* Handling "Uppspelning av frånkopplat läge med FairPlay streaming och HTTP Live Streaming". Apple, 14 september 2016. I FPS Server SDK version 4,0 är det här dokumentet sammanslaget i huvud-FPS-dokumentet.
-* Exempel kod: HLSCatalog-exempel för offline-läge för FPS i \FairPlay Streaming Server SDK version 3.1 \ Development\Client\HLSCatalog_With_FPS\HLSCatalog\. I HLSCatalog-exempel appen används följande kod för att implementera offline-läges funktioner:
+* Dokument: "offline-uppspelning med FairPlay streaming och HTTP Live Streaming". Apple, 14 september 2016. I FPS Server SDK version 4,0 är det här dokumentet sammanslaget i huvud-FPS-dokumentet.
+* Exempel kod: HLSCatalog-exempel för offline-läge för FPS i \FairPlay Streaming Server SDK version 3.1 \ Development\Client\ HLSCatalog_With_FPS \HLSCatalog\. I HLSCatalog-exempel appen används följande kod för att implementera offline-läges funktioner:
 
     - AssetPersistenceManager. SWIFT-kod fil: AssetPersistenceManager är huvud klassen i det här exemplet som visar hur du:
 
         - Hantera nedladdning av HLS-strömmar, till exempel de API: er som används för att starta och avbryta hämtningar och ta bort befintliga till gångar från enheter.
         - Övervaka hämtnings förloppet.
-    - AssetListTableViewController. SWIFT-och AssetListTableViewCell. SWIFT-Koda filer: AssetListTableViewController är huvud gränssnittet för det här exemplet. Den innehåller en lista över till gångar som exemplet kan använda för att spela upp, Hämta, ta bort eller avbryta en nedladdning. 
+    - AssetListTableViewController. SWIFT och AssetListTableViewCell. SWIFT-Koda filer: AssetListTableViewController är huvud gränssnittet i det här exemplet. Den innehåller en lista över till gångar som exemplet kan använda för att spela upp, Hämta, ta bort eller avbryta en nedladdning. 
 
 De här stegen visar hur du konfigurerar en iOS-spelare som körs. Förutsatt att du börjar med HLSCatalog-exemplet i FPS Server SDK-version 4.0.1 gör du följande kod ändringar:
 
-Implementera metoden `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` med hjälp av följande kod i HLSCatalog\Shared\Managers\ContentKeyDelegate.Swift. Låt "drmUr" vara en variabel som tilldelats HLS-URL: en.
+I HLSCatalog\Shared\Managers\ContentKeyDelegate.swift implementerar du metoden `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` med hjälp av följande kod. Låt "drmUr" vara en variabel som tilldelats HLS-URL: en.
 
 ```swift
     var ckcData: Data? = nil
@@ -167,7 +167,7 @@ Implementera metoden `requestContentKeyFromKeySecurityModule(spcData: Data, asse
     return ckcData
 ```
 
-Implementera metoden `requestApplicationCertificate()`i HLSCatalog\Shared\Managers\ContentKeyDelegate.Swift. Den här implementeringen beror på om du bäddar in certifikatet (endast offentlig nyckel) med enheten eller är värd för certifikatet på webben. Följande implementering använder det värdbaserade program certifikatet som används i test exemplen. Låt "certUrl" vara en variabel som innehåller URL: en för applikations certifikatet.
+Implementera metoden `requestApplicationCertificate()`i HLSCatalog\Shared\Managers\ContentKeyDelegate.swift. Den här implementeringen beror på om du bäddar in certifikatet (endast offentlig nyckel) med enheten eller är värd för certifikatet på webben. Följande implementering använder det värdbaserade program certifikatet som används i test exemplen. Låt "certUrl" vara en variabel som innehåller URL: en för applikations certifikatet.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {
@@ -201,7 +201,7 @@ Tre test exempel i Media Services som tar upp följande tre scenarier:
 Du hittar dessa exempel på [den här demo webbplatsen](https://aka.ms/poc#22), med motsvarande program certifikat som finns i en Azure-webbapp.
 Med version 3 eller version 4-exemplet på Server-SDK: n för FPS, om en Master-spelnings lista innehåller alternativ ljud, i offlineläge spelar den bara ljud. Därför måste du randig det alternativa ljudet. De andra och tredje exemplen som listas tidigare fungerar med andra ord i onlineläge och offline-läge. Exemplet som visas först spelar bara ljud i offlineläge, medan direkt uppspelningen fungerar som den ska.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 Följande vanliga frågor ger hjälp med fel sökning:
 
 - **Varför spelas bara ljud upp men inte video i offlineläge?** Det här beteendet verkar vara avsiktligt av exempel appen. När ett alternativt ljud spår finns (vilket är fallet för HLS) under offlineläge, är både iOS 10 och iOS 11 standardvärdet för det alternativa ljud spåret. För att kompensera det här beteendet för offline-läge för FPS tar du bort det alternativa ljud spåret från data strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifest filtret "ljud-Only = false". Med andra ord slutar en HLS-URL med. ISM/manifest (format = M3U8-AAPL, endast ljud = falskt). 
@@ -212,7 +212,7 @@ Följande vanliga frågor ger hjälp med fel sökning:
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Dokumentationen för detta API finns i [metoden FairPlayConfiguration. CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametern representerar varaktigheten för offline-uthyrningen, med timmen som enhet.
-- **Vad är den nedladdade/offline-filstrukturen på iOS-enheter?** Den nedladdade fil strukturen på en iOS-enhet ser ut som på följande skärm bild. `_keys` Mappen lagrar hämtade fps-licenser med en lagrings fil för varje licens tjänst värd. `.movpkg` Mappen lagrar ljud-och video innehåll. Den första mappen med ett namn som slutar med ett streck följt av ett numeriskt objekt innehåller video innehåll. Det numeriska värdet är PeakBandwidth för video åter givningarna. Den andra mappen med ett namn som slutar med ett bindestreck följt av 0 innehåller ljud innehåll. Den tredje mappen med namnet "data" innehåller huvud spelnings listan för innehållet i FPS. Slutligen innehåller Boot. XML en fullständig beskrivning av innehållet i `.movpkg` mappen. 
+- **Vad är den nedladdade/offline-filstrukturen på iOS-enheter?** Den nedladdade fil strukturen på en iOS-enhet ser ut som på följande skärm bild. Mappen `_keys` lagrar hämtade FPS-licenser, med en lagrings fil för varje värd tjänst värd. Mappen `.movpkg` lagrar ljud-och video innehåll. Den första mappen med ett namn som slutar med ett streck följt av ett numeriskt objekt innehåller video innehåll. Det numeriska värdet är PeakBandwidth för video åter givningarna. Den andra mappen med ett namn som slutar med ett bindestreck följt av 0 innehåller ljud innehåll. Den tredje mappen med namnet "data" innehåller huvud spelnings listan för innehållet i FPS. Slutligen innehåller Boot. XML en fullständig beskrivning av innehållet i den `.movpkg` mappen. 
 
 ![FairPlay iOS-exempel fil struktur](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
 
@@ -245,6 +245,10 @@ En exempel-Boot. XML-fil:
 </HLSMoviePackage>
 ```
 
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
+
 ## <a name="summary"></a>Sammanfattning
 Det här dokumentet innehåller följande steg och information som du kan använda för att implementera offline-läge för FPS:
 
@@ -252,3 +256,7 @@ Det här dokumentet innehåller följande steg och information som du kan använ
 * En iOS-spelare baserad på exemplet från Server-SDK: n för FPS ställer in en iOS-spelare som kan spela upp FPS-innehåll i direkt uppspelnings läge eller offline-läge.
 * Videoklipp med exempel FPS används för att testa offline-läge och direkt uppspelning.
 * Vanliga frågor och svar om offline-läge för FPS.
+
+## <a name="next-steps"></a>Nästa steg
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

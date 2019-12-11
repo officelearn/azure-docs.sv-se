@@ -11,19 +11,19 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10a150a64a058a4bf346f07e2ef298c974641256
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4ef1249a601334cc198662b90da95623247190e7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901307"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978193"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> Azure Machine Learning övervaknings-SDK kommer snart att dras tillbaka. SDK är fortfarande lämpligt för utvecklare som övervakar data drift i modeller. Men de flesta utvecklare bör använda den förenklade [data övervakningen med Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
+> Azure Machine Learning övervaknings-SDK kommer snart att dras tillbaka. SDK är fortfarande lämpligt för utvecklare som för närvarande använder SDK: n för att övervaka data drift i modeller. Men för nya kunder rekommenderar vi att du använder den förenklade [data övervakningen med Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
 
 Den här artikeln visar hur du samlar in indata från Azure Machine Learning. Det visar också hur du distribuerar indata till ett AKS-kluster (Azure Kubernetes service) och lagrar utdata i Azure Blob Storage.
 

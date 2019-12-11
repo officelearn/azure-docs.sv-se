@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
-ms.openlocfilehash: d0734763ca1dd5ab3162ca00748361bee29cefc1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/05/2019
+ms.openlocfilehash: 986dbc48bae6cd133e74648ad6e900ba7e515f91
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378747"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970507"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Snabb start: skapa ett objekt identifierings projekt med Custom Vision go SDK
 
@@ -111,7 +111,7 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 
 När du taggar bilder i objektidentifieringsprojekt måste du bestämma region för varje taggat objekt med hjälp av normaliserade koordinater.
 
-För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Observera att regionerna för den här självstudien är hårdkodade i linje med koden. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd.
+För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Observera att regionerna i den här självstudien är hårdkodade infogade. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd.
 
 ```Go
 forkImageRegions := map[string][4]float64{
@@ -244,7 +244,7 @@ trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
 
-Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av filen:
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
 ```go
     fmt.Println("Predicting...")

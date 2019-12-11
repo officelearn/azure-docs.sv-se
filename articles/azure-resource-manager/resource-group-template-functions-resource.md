@@ -2,13 +2,13 @@
 title: Mall funktioner – resurser
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/09/2019
+ms.openlocfilehash: ee88e939030650111acafec6c3b9906507176f48
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150676"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978857"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -18,7 +18,7 @@ Resource Manager tillhandahåller följande funktioner för att hämta resurs-v�
 * [lista *](#list)
 * [Providers](#providers)
 * [Referens](#reference)
-* [ResourceGroup](#resourcegroup)
+* [resourceGroup](#resourcegroup)
 * [Resurs-ID](#resourceid)
 * [prenumeration](#subscription)
 * [subscriptionResourceId](#subscriptionresourceid)
@@ -130,7 +130,7 @@ List funktionerna kan bara användas i egenskaperna för en resurs definition oc
 
 Den möjliga användningen av List * visas i följande tabell.
 
-| Resurstyp | Funktions namn |
+| Resurstyp | Funktionsnamn |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
 | Microsoft. AppConfiguration/configurationStores | Listnycklar |
@@ -672,21 +672,20 @@ Egenskapen **managedBy** returneras bara för resurs grupper som innehåller res
 
 Det går inte att använda funktionen `resourceGroup()` i en mall som har [distribuerats på prenumerations nivån](deploy-to-subscription.md). Den kan bara användas i mallar som har distribuerats till en resurs grupp.
 
-Ett vanligt användningsområde för resourceGroup-funktionen är att skapa resurser på samma plats som resursgruppen. I följande exempel använder resursgruppens plats för att tilldela en plats för en webbplats.
+Ett vanligt användningsområde för resourceGroup-funktionen är att skapa resurser på samma plats som resursgruppen. I följande exempel används resurs grupps platsen för ett standard parameter värde.
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+"parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+}
 ```
 
 Du kan också använda funktionen resourceGroup för att lägga till taggar från resurs gruppen till en resurs. Mer information finns i [använda taggar från resurs gruppen](resource-group-using-tags.md#apply-tags-from-resource-group).
+
+När du använder kapslade mallar för att distribuera till flera resurs grupper kan du ange omfånget för att utvärdera funktionen resourceGroup. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](resource-manager-cross-resource-group-deployment.md).
 
 ### <a name="resource-group-example"></a>Exempel på resurs grupp
 
@@ -891,6 +890,10 @@ Funktionen returnerar följande format:
     "displayName": "{name-of-subscription}"
 }
 ```
+
+### <a name="remarks"></a>Kommentarer
+
+När du använder kapslade mallar för att distribuera till flera prenumerationer kan du ange omfattningen för utvärdering av prenumerations funktionen. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](resource-manager-cross-resource-group-deployment.md).
 
 ### <a name="subscription-example"></a>Exempel på prenumeration
 

@@ -1,27 +1,27 @@
 ---
 title: 'Självstudie: skapa metadata för Azure-avbildningar'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien får du lära dig hur du integrerar Azure-tjänsten Visuellt innehåll i en webbapp för att generera metadata för bilder.
+description: I den här självstudien får du lära dig hur du integrerar Azure Visuellt innehåll-tjänsten i en webbapp för att generera metadata för avbildningar.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7c83350dbecaf20e9b35f159b2c01824777bc665
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604662"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973721"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudie: Använd Visuellt innehåll för att skapa metadata för bilder i Azure Storage
 
 I den här självstudien får du lära dig hur du integrerar Azure Visuellt innehåll-tjänsten i en webbapp för att generera metadata för överförda avbildningar. Detta är användbart för scenarier med [Digital Asset Management (damm)](../Home.md#computer-vision-for-digital-asset-management) , till exempel om ett företag vill skapa beskrivande under texter eller sökbara nyckelord för alla sina avbildningar.
 
-En fullständig appguide finns i [labbet för Azure Storage och Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) på GitHub, och den här självstudien omfattar i stort sett Övning 5 i labben. Du vill kanske skapa slutpunkt till slutpunkt-programmet genom att följa varje steg, men om du bara vill se hur Visuellt innehåll kan integreras i en befintlig webbapp läser du vidare här.
+En fullständig appguide finns i [labbet för Azure Storage och Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) på GitHub, och den här självstudien omfattar i stort sett Övning 5 i labben. Du kanske vill skapa hela programmet genom att följa alla steg, men om du bara vill lära dig hur du integrerar Visuellt innehåll i en befintlig webbapp läser du här.
 
 I den här självstudiekursen lär du dig att:
 
@@ -33,16 +33,16 @@ I den här självstudiekursen lär du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) eller senare med arbetsbelastningarna ”ASP.NET and web development” (ASP.NET och webbutveckling) och ”Azure development” (Azure-utveckling) installerade.
-- Ett Azure Storage-konto med en blob-container som allokerats för bilder (följ [övningar 1 i Azure Storage-labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) om du behöver hjälp med det här steget).
+- Ett Azure Storage konto med en BLOB-behållare som kon figurer ATS för avbildnings lagring (Följ [Övning 1 i Azure Storage labb](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) om du behöver hjälp med det här steget).
 - Verktyget Azure Storage Explorer (följ [övning 2 i Azure Storage-labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) om du behöver hjälp med det här steget).
 - En ASP.NET-webbapp med åtkomst till Azure Storage (följ [övning 3 i Azure Storage-labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) för att snabbt skapa en sådan app).
 
 ## <a name="create-a-computer-vision-resource"></a>Skapa en resurs för Visuellt innehåll
 
-Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den här resursen hanterar din åtkomst till Azure-tjänsten Visuellt innehåll. 
+Du måste skapa en Visuellt innehåll resurs för ditt Azure-konto. den här resursen hanterar din åtkomst till Azures Visuellt innehåll-tjänst. 
 
 1. Skapa en Visuellt innehåll resurs genom att följa anvisningarna i [skapa en Azure Cognitive Services-resurs](../../cognitive-services-apis-create-account.md) .
 
@@ -59,9 +59,9 @@ Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den h
 
 ## <a name="add-computer-vision-credentials"></a>Lägg till autentiseringsuppgifter för Visuellt innehåll
 
-Därefter lägger du till autentiseringsuppgifter i appen så att den kan komma åt resurser för Visuellt innehåll
+Därefter lägger du till de autentiseringsuppgifter som krävs för din app så att den kan komma åt Visuellt innehåll resurser
 
-Öppna ASP.NET-webbappen i Visual Studio och navigera till filen **Web.config** i roten av projektet. Lägg till följande instruktioner i avsnittet `<appSettings>` i filen. Ersätt `VISION_KEY` med den nyckel som du kopierade i föregående steg och `VISION_ENDPOINT` med den URL som du sparade i steget före det.
+Öppna ASP.NET-webbappen i Visual Studio och navigera till filen **Web.config** i roten av projektet. Lägg till följande-instruktioner i `<appSettings>`-avsnittet i filen, Ersätt `VISION_KEY` med nyckeln som du kopierade i föregående steg och `VISION_ENDPOINT` med URL: en som du sparade i steget innan.
 
 ```xml
 <add key="SubscriptionKey" value="VISION_KEY" />
@@ -72,7 +72,7 @@ I Solution Explorer högerklickar du sedan på projektet och använder kommandot
 
 ## <a name="add-metadata-generation-code"></a>Lägg till kod för generering av metadata
 
-Därefter lägger du till den kod som faktiskt utnyttjar tjänsten Visuellt innehåll för att skapa metadata för bilder. De här stegen gäller för ASP.NET-app i labbet, men du kan anpassa dem efter dina egna appar. Det är viktiga att du nu har en ASP.NET-webbapp som kan ladda upp bilder till en Azure Storage-container, läsa bilder från den och visa dem i vyn. Om du är osäker på det här är det bäst att följa [övning 3 i Azure Storage-labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
+Sedan lägger du till den kod som faktiskt använder Visuellt innehåll tjänsten för att skapa metadata för avbildningar. De här stegen gäller för ASP.NET-app i labbet, men du kan anpassa dem efter dina egna appar. Det är viktiga att du nu har en ASP.NET-webbapp som kan ladda upp bilder till en Azure Storage-container, läsa bilder från den och visa dem i vyn. Om du är osäker på det här steget, är det bäst att följa [Övning 3 i Azure Storage labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
 
 1. Öppna filen *HomeController.cs* i projektets **Controllers**-mapp och lägg till följande `using`-instruktioner överst i filen:
 
@@ -105,7 +105,7 @@ Därefter lägger du till den kod som faktiskt utnyttjar tjänsten Visuellt inne
     await photo.SetMetadataAsync();
     ```
 
-1. Gå sedan till **Index**-metoden i samma fil. Den här metoden räknar upp de lagrade bildblobarna i den riktade blob-containern (som **IListBlobItem**-instanser) och skickar dem till programvyn. Ersätt blocket `foreach` i den här metoden med följande kod. Den här koden anropar **CloudBlockBlob.FetchAttributes** för att hämta varje blobs kopplade metadata. Den extraherar den datorgenererade beskrivningen (`caption`) från metadata och lägger till den i objektet **BlobInfo**, som skickas till vyn.
+1. Gå sedan till **index** -metoden i samma fil. Den här metoden räknar upp lagrade avbildnings-blobar i den riktade BLOB-behållaren (som **IListBlobItem** -instanser) och skickar dem till programvyn. Ersätt blocket `foreach` i den här metoden med följande kod. Den här koden anropar **CloudBlockBlob.FetchAttributes** för att hämta varje blobs kopplade metadata. Den extraherar den datorgenererade beskrivningen (`caption`) från metadata och lägger till den i objektet **BlobInfo**, som skickas till vyn.
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
@@ -139,13 +139,13 @@ Om du vill visa alla kopplade metadata kan använda Azure Storage Explorer för 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta att arbeta med webbappen läser du avsnittet [Nästa steg](#next-steps). Om du inte planerar att fortsätta använda det här programmet bör du ta bort alla appspecifika resurser. Det gör du genom att helt enkelt ta bort den resursgrupp som innehåller din Azure Storage-prenumeration och resurs för Visuellt innehåll. Detta tar bort lagringskontot, de blobar som laddades upp till det samt den App Service-resurs som krävs för att ansluta med ASP.NET-webbappen. 
+Om du vill fortsätta att arbeta med webbappen läser du avsnittet [Nästa steg](#next-steps). Om du inte planerar att fortsätta använda det här programmet bör du ta bort alla appspecifika resurser. Om du vill ta bort resurser kan du ta bort resurs gruppen som innehåller din Azure Storage prenumeration och Visuellt innehåll resurs. Detta tar bort lagringskontot, de blobar som laddades upp till det samt den App Service-resurs som krävs för att ansluta med ASP.NET-webbappen. 
 
-Ta bort resursgruppen genom att öppna bladet **Resursgrupper** i portalen, navigera till den resursgrupp som du använde för det här projektet och klicka på **Ta bort resursgrupp** överst i vyn. Du blir ombedd att ange resursgruppens namn för att bekräfta att du vill ta bort den, eftersom när en resursgrupp väl har tagits bort kan den inte återställas.
+Om du vill ta bort resurs gruppen öppnar du fliken **resurs grupper** i portalen, navigerar till den resurs grupp som du använde för projektet och klickar på **ta bort resurs grupp** överst i vyn. Du uppmanas att ange resurs gruppens namn för att bekräfta att du vill ta bort det, eftersom en resurs grupp inte kan återställas när den har tagits bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien integrerade du Azure-tjänsten Visuellt innehåll i en befintlig webbapp för att automatiskt generera bildtexter och nyckelord för blob-bilder när de laddades upp. Gå nu till Azure Storage-labbet, övning 6, för att lära dig hur du lägger till sökfunktioner till webbappen. Detta drar nytta av de sökord som tjänsten Visuellt innehåll genererar.
+I den här självstudien ställer du in Azures Visuellt innehåll-tjänst i en befintlig webbapp för att automatiskt generera under texter och nyckelord för BLOB-avbildningar när de laddas upp. Gå nu till Azure Storage-labbet, övning 6, för att lära dig hur du lägger till sökfunktioner till webbappen. Detta drar nytta av de sökord som tjänsten Visuellt innehåll genererar.
 
 > [!div class="nextstepaction"]
 > [Lägga till sökning i din app](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)

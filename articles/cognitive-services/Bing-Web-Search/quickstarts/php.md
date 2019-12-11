@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf3cf1f69f7b45dd90070f4074e85fa21359837d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648575"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961494"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snabbstart: Använd PHP för att anropa API för webbsökning i Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snabbstart: Använda PHP för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Node.js-program skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten när du gör ditt första anrop till API:et för webbsökning i Bing och ta sedan emot JSON-svaret. Detta Node. js-program skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
@@ -43,7 +43,7 @@ Innan vi sätter igång letar du upp `php.ini` och avkommenterar den här raden:
 
 Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram. Glöm inte att lägga till de inledande och avslutande taggarna `<?php` och `?>`.
 
-Några variabler måste anges innan vi kan fortsätta. Bekräfta att `$endpoint` är korrekt och ersätt värdet `$accesskey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `$term`.
+Några variabler måste anges innan vi kan fortsätta. `$endpoint` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen. Bekräfta att `$endpoint` är korrekt och ersätt värdet `$accesskey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `$term`.
 
 ```php
 $accessKey = 'enter key here';

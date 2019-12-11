@@ -1,16 +1,16 @@
 ---
-title: Support mat ris för säkerhets kopiering av virtuella Azure-datorer
+title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 85a32dd9ea875bdfc73d7e4a9515e5cfe0e2da42
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559031"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996178"
 ---
-# <a name="support-matrix-for-azure-vm-backup"></a>Support mat ris för säkerhets kopiering av virtuella Azure-datorer
+# <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
 Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhetskopiera lokala datorer och arbets belastningar och virtuella datorer i Azure. Den här artikeln sammanfattar support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
 
@@ -44,7 +44,7 @@ Säkerhetskopiera hanterade diskar efter aktivering av resurs grupps lås | Stö
 Ändra säkerhets kopierings princip för en virtuell dator | Stöds.<br/><br/> Den virtuella datorn kommer att säkerhets kopie ras med hjälp av inställningarna för schema och kvarhållning i ny princip. Om inställningarna för kvarhållning utökas, markeras befintliga återställnings punkter. Om de är reducerade rensas befintliga återställnings punkter i nästa rensnings jobb och slutligen tas bort.
 Avbryta ett säkerhets kopierings jobb| Stöds under ögonblicks bild processen.<br/><br/> Stöds inte när ögonblicks bilden överförs till valvet.
 Säkerhetskopiera den virtuella datorn till en annan region eller prenumeration |Stöds ej.
-Säkerhets kopior per dag (via Azure VM-tillägget) | En schemalagd säkerhets kopiering per dag.<br/><br/> Tjänsten tillåter upp till nio säkerhets kopieringar på begäran per dag, men Microsoft rekommenderar endast och stöder upp till fyra dagliga säkerhets kopieringar på begäran.
+Säkerhets kopior per dag (via Azure VM-tillägget) | En schemalagd säkerhets kopiering per dag.<br/><br/>Azure Backups tjänsten har stöd för upp till nio säkerhets kopieringar på begäran per dag, men Microsoft rekommenderar högst fyra dagliga säkerhets kopieringar på begäran för att säkerställa bästa prestanda.
 Säkerhets kopior per dag (via MARS-agenten) | Tre schemalagda säkerhets kopieringar per dag.
 Säkerhets kopior per dag (via DPM/MABS) | Två schemalagda säkerhets kopieringar per dag.
 Månatlig/årlig säkerhets kopiering| Stöds inte vid säkerhets kopiering med Azure VM-tillägg. Endast daglig och veckovis stöds.<br/><br/> Du kan ställa in principen för att behålla dagliga/veckovis säkerhets kopieringar för månatlig/årlig kvarhållningsperiod.
@@ -146,7 +146,7 @@ Säkerhetskopiera virtuella datorer som distribueras från [Azure Marketplace](h
 Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system).
 Säkerhetskopiera virtuella datorer som migreras till Azure| Stöds.<br/><br/> För att säkerhetskopiera den virtuella datorn måste den virtuella dator agenten vara installerad på den migrerade datorn.
 Säkerhetskopiera konsekvens för flera virtuella datorer | Azure Backup tillhandahåller inte data-och program konsekvens över flera virtuella datorer.
-Säkerhetskopiera med [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Som inte stöds. <br/><br/> Om återställningen av den virtuella Azure-datorn med diagnostiska inställningar utlöses med alternativet [Skapa nytt](backup-azure-arm-restore-vms.md#create-a-vm) , Miss lyckas återställningen.
+Säkerhetskopiera med [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Stöds inte. <br/><br/> Om återställningen av den virtuella Azure-datorn med diagnostiska inställningar utlöses med alternativet [Skapa nytt](backup-azure-arm-restore-vms.md#create-a-vm) , Miss lyckas återställningen.
 Återställa zoner-fästa virtuella datorer | Stöds (för VM som säkerhets kopie ras efter 2019 och där [tillgänglighets zon](https://azure.microsoft.com/global-infrastructure/availability-zones/) är tillgängliga).<br/><br/>Vi stöder för närvarande återställning till samma zon som är fäst i virtuella datorer. Men om zonen inte är tillgänglig, Miss lyckas återställningen.
 Virtuella Gen2-datorer | Stöds <br> Azure Backup stöder säkerhets kopiering och återställning av [virtuella Gen2-datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). När de här virtuella datorerna återställs från återställnings punkten återställs de som [virtuella Gen2-datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 

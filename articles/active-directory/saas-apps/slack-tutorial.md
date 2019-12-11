@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ac464593e14a712cf0f137b5f3522d018d5874d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0085db3f38fb8af014434f36893182e1682b05a7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884526"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972156"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med slack
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar slack med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -45,8 +45,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Slack har stöd för **SP**-initierad enkel inloggning
-* Slack stöder **just-in-time**-användaretablering
-* Slack har stöd för [**automatisk** användaretablering](slack-provisioning-tutorial.md)
+* Slacket stöder [ **automatiserad** användar etablering och avetablering](slack-provisioning-tutorial.md) (rekommenderas)
 
 > [!NOTE]
 > ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
@@ -92,7 +91,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://slack.com`
 
     > [!NOTE]
-    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -172,7 +171,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Slack-panelen i åtkomstpanelen bör du automatiskt loggas in på Slack som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Slack-panelen i åtkomstpanelen bör du automatiskt loggas in på Slack som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

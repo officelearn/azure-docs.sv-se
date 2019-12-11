@@ -1,18 +1,18 @@
 ---
 title: Principer för anpassad allokering med Azure IoT Hub Device Provisioning Service
-description: Använda anpassade principer för allokering med Azure-IoT Hub Device Provisioning Service
+description: Så här använder du principer för anpassad allokering med Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2a17cc6c9f2211de31d4551bd12e6c832d4eee38
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b6b7d4614d3c63fe93e213fb830b85d0b7f9c474
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228740"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974878"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Använda anpassade principer för allokering
 
@@ -96,7 +96,7 @@ I det här avsnittet använder du Azure Cloud Shell för att skapa en etablering
 
 I det här avsnittet skapar du en Azure-funktion som implementerar din anpassade resursallokeringsprincip. Den här funktionen bestämmer vilken avdelnings IoT-hubb en enhet ska registreras på baserat på om dess registrerings-ID innehåller strängen **-contoso-tstrsd-007** eller **-contoso-hpsd-088**. Den anger också den ursprungliga statusen för enheten, baserat på om enheten är en toaster eller en värme pump.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Från start sidan väljer du **+ skapa en resurs**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Från start sidan väljer du **+ skapa en resurs**.
 
 2. Skriv "Funktionsapp" i Sök rutan *Sök i Marketplace* . Välj **Funktionsapp**i list rutan och välj sedan **skapa**.
 
@@ -342,8 +342,8 @@ Om du vill generera enhets nyckeln använder du den **primära nyckeln** som du 
 
 I exemplet i den här artikeln använder du följande två enhets registrerings-ID: n och beräknar en enhets nyckel för båda enheterna. Båda registrerings-ID: n har ett giltigt suffix för att fungera med exempel koden för den anpassade allokeringsregeln:
 
-* **breakroom499 – contoso-tstrsd-007**
-* **mainbuilding167 – contoso-hpsd-088**
+* **breakroom499-contoso-tstrsd-007**
+* **mainbuilding167-contoso-hpsd-088**
 
 ### <a name="linux-workstations"></a>Linux-arbetsstationer
 

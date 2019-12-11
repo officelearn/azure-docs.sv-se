@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 3b56747d9bc8c8ae5884d4fb654c20d49527fed5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186080"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974180"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Självstudie: kryptera video med AES-128 och Använd Key Delivery Service
 
@@ -73,7 +73,7 @@ Exemplet "Kryptera med AES-128" finns i mappen [EncryptWithAES](https://github.c
 > [!NOTE]
 > Exemplet skapar unika resurser varje gång du kör appen. Normalt återanvänder du befintliga resurser som transformeringar och principer (om den befintliga resursen har obligatoriska konfigurationer).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Börja använda API:er för Media Services med .NET SDK
+## <a name="start-using-media-services-apis-with-net-sdk"></a>Börja med att använda Media Services-API:er med .NET SDK
 
 Du börjar använda Media Services API: er med .NET genom att skapa ett **AzureMediaServicesClient** -objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapade funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen.
 
@@ -166,6 +166,10 @@ az group delete --name amsResourceGroup
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
 Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,17 +1,17 @@
 ---
-title: Konfigurera mått varningar för Azure Database for PostgreSQL-storskalig (citus)
+title: Konfigurera aviseringar – storskalig (citus) – Azure Database for PostgreSQL
 description: Den här artikeln beskriver hur du konfigurerar och får åtkomst till mått aviseringar för Azure Database for PostgreSQL-storskalig (citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5f45df16ac294f50e99cc7e05ab6eba43c0ae85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a830f344023967f07ab809d67833f99e4e2958
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516024"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977615"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-storskalig skalning (citus)
 
@@ -25,9 +25,9 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 * Anropa en webhook.
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en varnings regel för ett mått från Azure Portal
 1. I [Azure Portal](https://portal.azure.com/)väljer du den Azure Database for PostgreSQLs server som du vill övervaka.

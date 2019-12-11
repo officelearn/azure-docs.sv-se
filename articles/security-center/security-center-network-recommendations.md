@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766794"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997147"
 ---
 # <a name="protect-your-network-resources"></a>Skydda dina nätverks resurser
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
@@ -27,7 +27,7 @@ I den här artikeln beskrivs sidan **nätverk** i avsnittet resurs säkerhet i A
 
 En fullständig lista över rekommendationerna för nätverk finns i [nätverks rekommendationer](recommendations-network.md).
 
-Den här artikeln beskriver rekommendationer som gäller för dina Azure-resurser från ett nätverks säkerhets perspektiv. Nätverks rekommendationer Center kring nästa generations brand väggar, nätverks säkerhets grupper, JIT VM-åtkomst för att tillåta inkommande trafik regler med mera. En lista över nätverks rekommendationer och reparations åtgärder finns [i hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
+Den här artikeln beskriver rekommendationer som gäller för dina Azure-resurser från ett nätverks säkerhets perspektiv. Nätverks rekommendationer Center kring nästa generations brand väggar, nätverks säkerhets grupper, JIT VM-åtkomst, över tillåta inkommande trafik regler med mera. En lista över nätverks rekommendationer och reparations åtgärder finns [i hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
 
 > [!NOTE]
 > På sidan **nätverk** kan du ta en djupare insikt i din Azure-resurs hälsa från ett nätverks perspektiv. Kontrollerna nätverks karta och adaptiva nätverk är bara tillgängliga för den Azure Security Center standard nivån. [Om du använder den kostnads fria nivån kan du klicka på knappen för att **Visa tidigare nätverk** och få rekommendationer för nätverks resurser](#legacy-networking).
@@ -136,7 +136,7 @@ I den här Topology-vyn visar den första nivån virtuella nätverk. Den andra v
 På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ovan. Du kan klicka på en resurs för att lära dig mer eller använda den säkerhets kontroll eller konfiguration som krävs.
 
 ## <a name="see-also"></a>Se också
-Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande avsnitt:
+Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 * [Skydda din Azure SQL-tjänst i Azure Security Center](security-center-sql-service-recommendations.md)

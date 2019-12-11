@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 6d13ca5b3657f1deac9e6b4218decf8fe57eb1d9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113751"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969114"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
@@ -56,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>Krypterade 
+### <a name="encrypted"></a>Krypterad 
 
 Om du behöver Kryptera ditt innehåll med CENC-kryptering ställer du in principen på "Predefined_MultiDrmCencStreaming". Widevine-krypteringen tillämpas på en STRECKs ström och PlayReady som är smidigare. Nyckeln skickas till en uppspelnings klient baserat på de konfigurerade DRM-licenserna.
 
@@ -74,6 +74,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 ```
 
 Om du också vill kryptera din HLS-ström med CBCS (FairPlay) använder du Predefined_MultiDrmStreaming.
+
+> [!NOTE]
+> Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="associate-filters-with-streaming-locators"></a>Associera filter med strömmande positionerare
 

@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 5e435d1169d5f148bfa2910174bf1f2835806c8b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928250"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996280"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -29,7 +29,6 @@ Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd elle
   - För virtuella Windows-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) för att starta om gäst agenten.<br>
   - För virtuella Linux-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) för att starta om gäst agenten.
 
-
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-det gick inte att kommunicera med VM-agenten för ögonblicks bild status
 
 **Felkod**: GuestAgentSnapshotTaskStatusError<br>
@@ -44,6 +43,8 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Orsak 3: [ögonblicks bilds status kan inte hämtas eller så går det inte att hämta ögonblicks bilder](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Orsak 4: [säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**
+
+**Orsak 5: [konfigurations alternativ för virtuella dator agenter har inte ställts in (för virtuella Linux-datorer)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-den virtuella datorn är i ett misslyckat etablerings tillstånd
 
@@ -196,6 +197,11 @@ Följ dessa steg om du behöver utförlig loggning för waagent:
 1. Leta upp följande rad i/etc/waagent.conf-filen: **Aktivera utförlig loggning (y | n)**
 2. Ändra **loggarna. Verbose** -värdet från *n* till *y*.
 3. Spara ändringen och starta sedan om waagent genom att följa stegen som beskrivs tidigare i det här avsnittet.
+
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Konfigurations alternativen för VM-agenten har inte angetts (för virtuella Linux-datorer)
+
+En konfigurations fil (/etc/waagent.conf) styr åtgärder för waagent. Alternativ för konfigurations fil **tillägg. Aktivera** och **etablering. agenten** måste anges till **y** för att säkerhets kopieringen ska fungera.
+Fullständig lista över alternativ för konfigurations filen för virtuella datorer finns <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Det går inte att hämta ögonblicks bild status, eller så kan en ögonblicks bild inte tas
 

@@ -1,5 +1,5 @@
 ---
-title: 'Skriv bords app som anropar webb-API: er (app-registrering) – Microsoft Identity Platform'
+title: 'Registrera en app för skriv bord som anropar webb-API: er – Microsoft Identity Platform | Azure'
 description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (app-registrering)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,16 +17,16 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 94f7f2dfdbf404a092773857a0f7727618cd429a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268394"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965542"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Stationär app som anropar webb-API: er – app-registrering
 
-Den här artikeln innehåller appens registrerings information för ett Skriv bords program.
+Den här artikeln beskriver app-registreringen av specifika program för ett Skriv bords program.
 
 ## <a name="supported-accounts-types"></a>Typer av konton som stöds
 
@@ -49,11 +49,11 @@ Omdirigerings-URI: erna som ska användas i Skriv bords program beror på det fl
 - Om du använder den **interaktiva autentiseringen** eller **enhets kod flödet**ska du använda `https://login.microsoftonline.com/common/oauth2/nativeclient`. Du uppnår den här konfigurationen genom att klicka på motsvarande URL i avsnittet **autentisering** för ditt program.
   
   > [!IMPORTANT]
-  > I dag MSAL.NET används en annan omdirigerings-URI som standard i Skriv`urn:ietf:wg:oauth:2.0:oob`bords program som körs på Windows (). I framtiden ska vi ändra den här standardinställningen och därför rekommenderar vi att du använder`https://login.microsoftonline.com/common/oauth2/nativeclient`
+  > I dag MSAL.NET används en annan omdirigerings-URI som standard i Skriv bords program som körs på Windows (`urn:ietf:wg:oauth:2.0:oob`). I framtiden kommer vi att vilja ändra denna standardinställning och vi rekommenderar därför att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- Om du skapar en intern mål-C-eller Swift-app för macOS vill du registrera redirectUri baserat på programmets paket-ID i följande format: **msauth. <. app. bundle. id >://auth** (Ersätt < ditt. app. bundle. ID > med programmets paket identifierare)
+- Om du skapar en intern mål-C-eller Swift-app för macOS vill du registrera redirectUri baserat på programmets paket-ID i följande format: **msauth. <. app. bundle. id >://auth** (Ersätt < filen. app. bundle. ID > med programmets paket identifierare)
 - Om din app endast använder integrerad Windows-autentisering eller användar namn/lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. De här flödena gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten och programmet kommer inte att anropas tillbaka på någon specifik URI.
-- För att skilja enhets kod flödet, integrerad Windows-autentisering och användar namn/lösen ord från ett konfidentiellt klient program flöde som inte har omdirigerings-URI: er, antingen (det flöde för klientautentisering som används i daemon-program), måste du uttrycka att ditt programmet är ett offentligt klient program. För att uppnå den här konfigurationen går du till avsnittet **autentisering** för ditt program. I underavsnittet **Avancerade inställningar** i stycket **standard klient typ** väljer du sedan **Ja** för frågan **behandla programmet som en offentlig klient**.
+- Om du vill särskilja enhets kod flödet, integrerad Windows-autentisering och användar namn/lösen ord från ett konfidentiellt klient program flöde som inte har omdirigerings-URI: er (det flöde för klientautentisering som används i daemon-program), måste du uttrycka att ditt program är ett offentligt klient program. För att uppnå den här konfigurationen går du till avsnittet **autentisering** för ditt program. I underavsnittet **Avancerade inställningar** i stycket **standard klient typ** väljer du sedan **Ja** för frågan **behandla programmet som en offentlig klient**.
 
   ![Tillåt offentlig klient](media/scenarios/default-client-type.png)
 

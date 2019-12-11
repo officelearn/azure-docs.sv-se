@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en första instans för anpassad sökning i Bing | Microsoft Docs'
+title: 'Snabb start: skapa en första Anpassad sökning i Bing-instans | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Använd den här artikeln för att skapa en anpassad Bing-instans som kan söka i domäner och webbplatser som du definierar.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 2806ca6f7079ffac3d2222363cd5b3839ef8f97d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 2c98395e2671c245d9349a72ed6a964b2ebd28ca
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405027"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978551"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Snabbstart: Skapa din första instans för anpassad sökning i Bing
 
@@ -25,7 +25,7 @@ Använd [portalen för anpassad sökning i Bing](https://customsearch.ai) för a
 
 ![En bild av portalen för anpassad sökning i Bing](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
@@ -52,4 +52,4 @@ Så här skapar du en instans för anpassad sökning i Bing:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Anropa slutpunkt för anpassad Bing-sökning](./call-endpoint-csharp.md)
+> [Snabb start: anropa din Anpassad sökning i Bing-slutpunkt](./call-endpoint-csharp.md)

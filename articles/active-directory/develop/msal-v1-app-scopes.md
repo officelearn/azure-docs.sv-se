@@ -1,5 +1,5 @@
 ---
-title: Omfattningar för ett v 1.0-program (Microsoft Authentication Library) | Azure
+title: MSAL-omfång för ett v 1.0-program | Azure
 description: Läs om omfattningarna för ett v 1.0-program med hjälp av Microsoft Authentication Library (MSAL).
 services: active-directory
 author: TylerMSFT
@@ -13,12 +13,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395b5105fdb067977f8414fe5675170032262fe0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921406"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963264"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Omfattningar för ett webb-API som accepterar v 1.0-token
 
@@ -26,7 +26,7 @@ OAuth2-behörigheter är behörighets omfattningar som en Azure Active Directory
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Omfattningar för att begära åtkomst till specifika OAuth2-behörigheter för ett v 1.0-program
 
-Om du vill hämta token för specifika omfång av ett v 1.0-program (till exempel Azure AD-grafen, som är https:\//graph.windows.net), måste du skapa omfattningar genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
+Om du vill hämta tokens för specifika omfång av ett v 1.0-program (till exempel Azure AD-grafen, som är https://graph.windows.net), skapar du omfång genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
 
 Till exempel för att komma åt användaren för en v 1.0 webb-API där app-ID-URI: n är `ResourceId`:
 

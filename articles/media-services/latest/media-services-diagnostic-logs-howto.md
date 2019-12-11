@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887959"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977717"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
 
@@ -173,6 +173,10 @@ Du kan behöva vänta upp till fem minuter innan händelsen visas på lagringsko
   }
 }
 ```
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="see-also"></a>Se också
 

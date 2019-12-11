@@ -1,5 +1,5 @@
 ---
-title: 'Mobilapp som anropar webb-API: er – översikt'
+title: 'Bygg en mobilapp som anropar webb-API: er | Azure'
 titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (översikt)'
 services: active-directory
@@ -17,16 +17,16 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c6ebeed4a7806c013205d01621107ef65655e753
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803759"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965474"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: mobil program som anropar webb-API: er
 
-Lär dig allt du behöver veta för att bygga en mobilapp som anropar webb-API: er.
+Lär dig hur du skapar en mobilapp som anropar webb-API: er.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -34,7 +34,7 @@ Lär dig allt du behöver veta för att bygga en mobilapp som anropar webb-API: 
 
 ## <a name="getting-started"></a>Komma igång
 
-Skapa ditt första mobil program och testa en snabb start!
+Skapa ditt första mobil program och prova en snabb start.
 
 > [!div class="nextstepaction"]
 > [Snabb start: Hämta en token och anropa Microsoft Graph API från en Android-app](./quickstart-v2-android.md)

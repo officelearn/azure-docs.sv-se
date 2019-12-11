@@ -1,18 +1,18 @@
 ---
 title: Så här etablerar du enheter för flera organisationer i Azure IoT Hub Device Provisioning Service
-description: Så här etablerar du enheter för flera innehavare med din enhets etablerings tjänst instans
+description: Så här etablerar du enheter för flera innehavare med din tjänst för enhets etablering (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228794"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974980"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera innehavare 
 
@@ -146,7 +146,7 @@ För att göra rensningen enklare kommer de virtuella datorerna att läggas till
     --authentication-type password
     ```
 
-    Det här kommandot tar några minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region i USA.
+    Kommandot tar fem minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region i USA.
 
 1. I Azure Cloud Shell kör du kommandot för att skapa en region för **västra USA** -regionen när du har gjort följande parameter ändringar i kommandot:
 
@@ -167,7 +167,7 @@ För att göra rensningen enklare kommer de virtuella datorerna att läggas till
     --authentication-type password
     ```
 
-    Det här kommandot tar några minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region, västra.
+    Kommandot tar fem minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region, västra.
 
 1. Öppna två kommando rads gränssnitt. Anslut till en av de regionala virtuella datorerna i varje gränssnitt med SSH. 
 

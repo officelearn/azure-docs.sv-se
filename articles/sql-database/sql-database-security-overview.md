@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: b318d4b5076ff24612d5b5ce0ba619f0b38ac280
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483844"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997334"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över Azure SQL Database säkerhets funktioner
 
@@ -65,7 +65,7 @@ Autentisering är en process för att bevisa att användaren är den som han ell
 > [!IMPORTANT]
 > Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/overview.md). Kontroll av åtkomst med brand Väggs regler gäller *inte* för **en hanterad instans**. I följande artikel om hur [du ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md) finns mer information om nätverks konfigurationen som behövs.
 
-## <a name="authorization"></a>Auktorisering
+## <a name="authorization"></a>Autentisering
 
 Auktorisering syftar på de behörigheter som tilldelats en användare inom en Azure SQL Database och avgör vad användaren får göra. Behörigheter styrs genom att lägga till användar konton till [databas roller](/sql/relational-databases/security/authentication-access/database-level-roles) och tilldela behörigheter på databas nivå till dessa roller eller genom att bevilja användaren vissa [behörigheter på objekt nivå](/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](sql-database-manage-logins.md)
 
@@ -124,7 +124,7 @@ I Azure krypteras alla nyligen skapade SQL-databaser som standard och databas kr
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) är en funktion som har utformats för att skydda känsliga data som lagras i vissa databas kolumner från åtkomst (till exempel kreditkorts nummer, nationella identifierings nummer eller data på ett _behov av att känna till_ grunden). Detta inkluderar databas administratörer eller andra privilegierade användare som har behörighet att komma åt databasen för att utföra hanterings uppgifter, men inte ha någon verksamhet som behöver komma åt specifika data i de krypterade kolumnerna. Data krypteras alltid, vilket innebär att krypterade data endast dekrypteras för bearbetning av klient program med åtkomst till krypterings nyckeln.  Krypterings nyckeln exponeras aldrig för SQL och kan lagras antingen i [Windows certifikat Arkiv](sql-database-always-encrypted.md) eller i [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
+### <a name="dynamic-data-masking"></a>Dynamisk datamaskering
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
@@ -138,11 +138,11 @@ SQL Database dynamisk data maskning begränsar känslig data exponering genom at
 
 ### <a name="data-discovery--classification"></a>Dataidentifiering och -klassificering
 
-Data identifierings & klassificering (för närvarande i för hands version) innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Att upptäcka och klassificera dina ytterst känsliga data (företag/ekonomi, sjukvård, personliga data osv.) kan spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
+Data identifierings & klassificering (för närvarande i för hands version) innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Att upptäcka och klassificera dina ytterst känsliga data (företag/ekonomi, sjukvård, personliga data osv.) kan spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Tjänsten kan fungera som infrastruktur inom följande områden:
 
 - Olika säkerhets scenarier, till exempel övervakning (granskning) och aviseringar om avvikande åtkomst till känsliga data.
 - Kontroll av åtkomst till och härdning av säkerheten för databaser som innehåller mycket känsliga data.
-- Hjälpa till att uppfylla data sekretess standarder och regler för efterlevnad av efterlevnad.
+- Hjälp med att uppfylla standarder för datasekretess och efterlevnadsregler.
 
 Mer information finns i [Kom igång med data identifiering & klassificering](sql-database-data-discovery-and-classification.md).
 

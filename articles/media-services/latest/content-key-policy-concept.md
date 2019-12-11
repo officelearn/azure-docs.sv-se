@@ -12,23 +12,20 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8809bf25c3bcfb26fb0ad251a2b09dfdca2a3e04
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679195"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969912"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
-Med Media Services kan du leverera direktsänd och innehåll på begäran som krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. 
+Med medietjänster kan du leverera live och på begäran innehåll dynamiskt krypterad med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady och Google Widevine Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. 
 
 Om du vill ange krypterings alternativ för data strömmen måste du skapa en [strömmande princip](streaming-policy-concept.md) och koppla den till din [strömmande positionerare](streaming-locators-concept.md). Du skapar en [innehålls nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) för att konfigurera hur innehålls nyckeln (som ger säker åtkomst till [till gångar](assets-concept.md)) levereras till slut klienter. Du måste ange kraven (begränsningar) för den innehålls nyckel princip som måste uppfyllas för att nycklar med den angivna konfigurationen ska skickas till klienter. Innehålls nyckel principen behövs inte för att rensa strömma eller ladda ned. 
 
-Vanligt vis associerar du din innehålls nyckel princip med din [streaming Locator](streaming-locators-concept.md). Du kan också ange innehålls nyckel principen i en strömmande [princip](streaming-policy-concept.md) (när du skapar en anpassad strömnings princip för avancerade scenarier). 
-
-> [!NOTE]
-> Egenskaperna för de innehålls nyckel principer som är av `Datetime` typen är alltid i UTC-format.
+Vanligt vis associerar du din innehålls nyckel princip med din [streaming Locator](streaming-locators-concept.md). Du kan också ange innehålls nyckel principen i en [strömmande princip](streaming-policy-concept.md) (när du skapar en anpassad strömnings princip för avancerade scenarier). 
 
 ## <a name="best-practices-and-considerations"></a>Metod tips och överväganden
 
@@ -50,14 +47,19 @@ Vanligt vis associerar du din innehålls nyckel princip med din [streaming Locat
 
 ## <a name="example"></a>Exempel
 
-För att komma till nyckeln använder `GetPolicyPropertiesWithSecretsAsync`du, som du ser i [Hämta en signerings nyckel från den befintliga princip](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemplet.
+Använd `GetPolicyPropertiesWithSecretsAsync`, som du ser i [Hämta en signerings nyckel från den befintliga princip](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemplet, för att komma till nyckeln.
 
 ## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
 
 Se [filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md).
 
+## <a name="additional-notes"></a>Ytterligare information
+
+* Egenskaperna för de innehålls nyckel principer som är av `Datetime` typen är alltid i UTC-format.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
+
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst](protect-with-aes128.md)
-* [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)
+* [Använda dynamisk AES-128-kryptering och tjänsten för nyckelleverans](protect-with-aes128.md)
+* [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)
 * [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

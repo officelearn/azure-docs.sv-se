@@ -1,5 +1,5 @@
 ---
-title: Skyddad Web API – app-registrering
+title: Skyddad webb-API-app-registrering | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du skapar ett skyddat webb-API och den information som du behöver för att registrera appen.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c905dfd86fd80b9e55aa7bd5a9b9b03f277570c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 86c36661dd8b5d43417ca1d845eef5cdb146f1e9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802539"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962533"
 ---
 # <a name="protected-web-api-app-registration"></a>Skyddat webb-API: registrera appar
 
@@ -50,7 +50,7 @@ När du har skapat programmet kan du fastställa eller ändra den godkända toke
 
 Webb-API: er behöver inte registrera en omdirigerings-URI eftersom ingen användare har loggat in interaktivt.
 
-## <a name="expose-an-api"></a>Exponera ett API
+## <a name="expose-an-api"></a>Gör ett API tillgängligt
 
 En annan inställning som är speciell för webb-API: er är det exponerade API: et och exponerade omfång.
 
@@ -75,7 +75,7 @@ Omfattningarna visas också på skärmen för medgivande som visas för slutanv�
 1. Välj **Lägg till omfång**.
 1. Om du uppmanas att godkänna den föreslagna program-ID-URI: n (`api://{clientId}`) genom att välja **Spara och fortsätt**.
 1. Ange följande parametrar:
-      - Använd **access_as_user**för **områdes namn**.
+      - Använd **access_as_user**för **omfattnings namn**.
       - För **vem som kan**godkänna, se till att **Administratörer och användare** är markerade.
       - I **visnings namn för administratörs medgivande**anger du **åtkomst TodoListService som en användare**.
       - I **Administratörs medgivande Beskrivning**anger **du åtkomst till TODOLISTSERVICE webb-API som en användare**.

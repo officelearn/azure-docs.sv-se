@@ -1,18 +1,18 @@
 ---
-title: Server koncept i Azure Database for PostgreSQL
-description: Den här artikeln innehåller överväganden och rikt linjer för att konfigurera och hantera Azure Database for PostgreSQL-servrar.
+title: Citus (Table-interlocation-Scale) – Azure Database for PostgreSQL
+description: Så här lagrar du relaterad information tillsammans för snabbare frågor
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482753"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967345"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Tabell-samplacering i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -132,7 +132,7 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-På grund av filter och sammanfogning på tenant_id vet citus () att hela frågan kan besvaras med hjälp av uppsättningen samplacerade Shards som innehåller data för den aktuella klienten. En enskild PostgreSQL-nod kan besvara frågan i ett enda steg.
+På grund av filter och koppling på tenant_id vet citus (disscale) att hela frågan kan besvaras med hjälp av uppsättningen samplacerade Shards som innehåller data för den aktuella klienten. En enskild PostgreSQL-nod kan besvara frågan i ett enda steg.
 
 ![Bättre fråga](media/concepts-hyperscale-colocation/colocation-better-query.png)
 

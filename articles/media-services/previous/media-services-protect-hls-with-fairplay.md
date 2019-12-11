@@ -1,6 +1,6 @@
 ---
-title: Skydda HLS-innehåll med Microsoft PlayReady- eller Apple FairPlay - Azure | Microsoft Docs
-description: Det här avsnittet ger en översikt och visar hur du använder Azure Media Services för att kryptera dynamiskt innehåll med Apple FairPlay HTTP Live Streaming (HLS). Den visar även hur du använder av Media Services licensleveranstjänst för att leverera FairPlay-licenser till klienter.
+title: Skydda HLS-innehåll med Microsoft PlayReady eller Apple FairPlay – Azure | Microsoft Docs
+description: Det här avsnittet ger en översikt och visar hur du använder Azure Media Services för att dynamiskt Kryptera ditt HTTP Live Streaming (HLS)-innehåll med Apple FairPlay. Det visar också hur du använder leverans tjänsten Media Services licens för att leverera FairPlay-licenser till klienter.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,55 +13,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8d5683cb060b63aebad7c68672c78f5b350a25d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073589"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968773"
 ---
-# <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Skydda ditt innehåll med Apple FairPlay eller Microsoft PlayReady för HLS
+# <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Skydda ditt HLS-innehåll med Apple FairPlay eller Microsoft PlayReady
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner eller funktioner läggs till Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 >
 
-Azure Media Services kan du dynamiskt kryptera ditt innehåll med HTTP Live Streaming (HLS) med hjälp av följande format:  
+Med Azure Media Services kan du dynamiskt Kryptera ditt HTTP Live Streaming-innehåll (HLS) med hjälp av följande format:  
 
-* **Klartextnyckeln AES-128-kuvert**
+* **Klar text nyckel för AES-128-kuvert**
 
-    Det hela segmentet krypteras med hjälp av den **AES-128 CBC** läge. Dekryptering av strömmen stöds internt av iOS och OS X-spelare. Mer information finns i [dynamisk med hjälp av AES-128-kryptering och nyckelleveranstjänst](media-services-protect-with-aes128.md).
-* **Apple FairPlay**
+    Hela segmentet krypteras med **AES-128 CBC** -läget. Dekrypteringen av data strömmen stöds av iOS och OS X Player internt. Mer information finns i [använda AES-128 dynamisk kryptering och nyckel leverans tjänst](media-services-protect-with-aes128.md).
+* **Apple-FairPlay**
 
-    Enskilda video och ljud exemplen krypteras med hjälp av den **AES-128 CBC** läge. **FairPlay Streaming** (FPS) är integrerad i enhetens operativsystem, med inbyggt stöd på iOS- och Apple TV. Safari på OS X kan FPS med stöd för tillägg EME (Encrypted Media) användargränssnitt.
+    De enskilda video-och ljud exemplen krypteras med **AES-128 CBC** -läget. **FairPlay Streaming** (FPS) är integrerad i enhetens operativsystem, med inbyggt stöd på iOS- och Apple TV. Safari på OS X kan FPS med stöd för tillägg EME (Encrypted Media) användargränssnitt.
 * **Microsoft PlayReady**
 
-Följande bild visar den **HLS + FairPlay eller PlayReady dynamisk kryptering** arbetsflöde.
+Följande bild visar arbets flödet **HLS + Fairplay eller PlayReady Dynamic Encryption** .
 
-![Diagram över arbetsflödet för dynamisk kryptering](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
+![Diagram över dynamiskt krypterings arbets flöde](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Den här artikeln visar hur du använder Media Services för att kryptera dynamiskt HLS-innehåll med Apple FairPlay. Den visar även hur du använder av Media Services licensleveranstjänst för att leverera FairPlay-licenser till klienter.
+Den här artikeln visar hur du använder Media Services för att dynamiskt Kryptera ditt HLS-innehåll med Apple FairPlay. Det visar också hur du använder leverans tjänsten Media Services licens för att leverera FairPlay-licenser till klienter.
 
 > [!NOTE]
-> Om du vill kryptera ditt HLS-innehåll med PlayReady, måste du skapa en gemensam innehållsnyckel och associera den med din tillgång. Du måste också konfigurera innehållsnyckelns auktoriseringsprincip, enligt beskrivningen i [med PlayReady-kryptering för dynamisk vanliga](media-services-protect-with-playready-widevine.md).
+> Om du också vill kryptera ditt HLS-innehåll med PlayReady måste du skapa en gemensam innehålls nyckel och associera den med din till gång. Du måste också konfigurera innehålls nyckelns auktoriseringsprincip enligt beskrivningen i [använda PlayReady Dynamic common Encryption](media-services-protect-with-playready-widevine.md).
 >
 >
 
 ## <a name="requirements-and-considerations"></a>Krav och överväganden
 
-Följande krävs när du använder Media Services att leverera HLS som krypterats med FairPlay och leverera FairPlay-licenser:
+Följande krävs när du använder Media Services för att leverera HLS-krypterade med FairPlay och leverera FairPlay-licenser:
 
-  * Ett Azure-konto. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-  * Ett Media Services-konto. Om du vill skapa en [skapar ett Azure Media Services-konto med Azure-portalen](media-services-portal-create-account.md).
+  * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+  * Ett Media Services-konto. För att skapa ett, se [skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
   * Registrera dig med [Apples Program för utveckling](https://developer.apple.com/).
   * Apple kräver innehållets ägare att hämta den [distributionspaketet](https://developer.apple.com/contact/fps/). Tillstånd att du redan implementerat nyckel Security modulen (KSM) med Media Services och att du begär slutpaketet FPS. Det finns instruktioner i slutpaketet FPS att generera certifiering och få programmet hemlig nyckel (ASK). Du kan använda fråga för att konfigurera FairPlay.
-  * Azure Media Services .NET SDK-versionen **3.6.0** eller senare.
+  * Azure Media Services .NET SDK-version **3.6.0** eller senare.
 
-Följande måste anges på sidan för viktiga leverans av Media Services:
+Följande saker måste anges på sidan för Media Services nyckel leverans:
 
-  * **App-certifikat (AC)** : Det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord.
+  * **App (Appcertifikat – AC)** : det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord.
 
-       När du konfigurerar en viktiga leveransprincip måste du ange lösenordet och PFX-filen i Base64-format.
+       När du konfigurerar en nyckel leverans princip måste du ange lösen ordet och. pfx-filen i base64-format.
 
       Följande steg beskriver hur du skapar en PFX-fil för FairPlay:
 
@@ -74,15 +74,15 @@ Följande måste anges på sidan för viktiga leverans av Media Services:
     3. Kör följande kommando från kommandoraden. Detta omvandlar PEM-filen till en .pfx-fil med den privata nyckeln. OpenSSL uppmanas sedan lösenordet för PFX-filen.
 
         ”C:\OpenSSL-Win32\bin\openssl.exe” pkcs12-export - ut FairPlay-out.pfx-inkey privatekey.pem-i FairPlay-out.pem - passin file:privatekey-pem-pass.txt
-  * **Lösenord för App-Cert**: Lösenordet för att skapa .pfx-filen.
-  * **Lösenords-ID för App-Cert**: Du måste överföra lösenord, liknar hur överför de andra Media Services-nycklar. Använd den **ContentKeyType.FairPlayPfxPassword** uppräkningsvärde för att hämta ID för Media Services. Det här är vad de ska användas i alternativet viktiga leverans.
-  * **iv**: Det här är ett slumpmässigt värde med 16 byte. Det måste matcha iv i principen för tillgångsleverans. Du skapar iv och placera den på båda platserna: tillgångsleveransprincip och alternativet viktiga leverans.
-  * **ASK**: Den här nyckeln tas emot när du skapar certifieringen via Apple Developer-portalen. Varje Utvecklingsteamet tar emot en unik be. Spara en kopia av fråga och lagra den på en säker plats. Du måste konfigurera be som FairPlayAsk till Media Services senare.
-  * **BE ID**: Det här ID: T hämtas när du överför be till Media Services. Du måste överföra fråga med hjälp av den **ContentKeyType.FairPlayAsk** enum-värde. Media Services-ID returneras som ett resultat, och det här är vad ska användas när du ställer in alternativet viktiga leverans.
+  * **Lösenord för App-Cert**: lösenordet för att skapa .pfx-filen.
+  * **Lösen ord för app-certifikat**: du måste överföra lösen ordet, på samma sätt som du överför andra Media Services nycklar. Använd Enum-värdet **ContentKeyType. FairPlayPfxPassword** för att hämta Media Services-ID: t. Detta är vad de behöver använda i alternativet för nyckel leverans princip.
+  * **IV**: Detta är ett slumpmässigt värde på 16 byte. Den måste matcha IV i till gångs leverans principen. Du genererar IV och placerar det på båda platserna: till gångs leverans principen och alternativet för nyckel leverans princip.
+  * **Be**: den här nyckeln tas emot när du skapar certifieringen via Apple Developer-portalen. Varje Utvecklingsteamet tar emot en unik be. Spara en kopia av fråga och lagra den på en säker plats. Du måste konfigurera fråga som FairPlayAsk om du vill Media Services senare.
+  * Fråge **-ID**: det här ID: t hämtas när du överför frågan till Media Services. Du måste ladda upp fråga med hjälp av uppräkning svärdet **ContentKeyType. FairPlayAsk** . Resultatet blir att Media Services-ID: t returneras, och det är vad som ska användas när du anger alternativ för nyckel leverans princip.
 
 Följande måste anges av klientsidan FPS:
 
-  * **App-certifikat (AC)** : Det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
+  * **App (Appcertifikat – AC)** : det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
 
 Få en verklig be första om du vill spela upp en krypterad FairPlay-dataström, och sedan generera ett verkligt certifikat. Den här processen skapar alla tre delar:
 
@@ -90,62 +90,62 @@ Få en verklig be första om du vill spela upp en krypterad FairPlay-dataström,
   * .pfx-fil
   * lösenordet för PFX
 
-Följande klienter har stöd för HLS med **AES-128 CBC** kryptering: Safari på OS X-, Apple TV iOS.
+Följande klienter stöder HLS med **AES-128 CBC** -kryptering: Safari på OS X, Apple TV och iOS.
 
-## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Konfigurera FairPlay dynamisk kryptering och licens tjänster för programleverans
-Nedan följer allmänna steg för att skydda dina tillgångar med FairPlay med hjälp av Media Services licensleveranstjänst och även använder dynamisk kryptering.
+## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Konfigurera FairPlay Dynamic Encryption and License Delivery Services
+Följande är allmänna steg för att skydda dina till gångar med FairPlay med hjälp av Media Services licens leverans tjänst och även med dynamisk kryptering.
 
 1. Skapa en tillgång och överföra filer till tillgången.
 2. Koda den tillgång som innehåller filen för MP4-uppsättningen med anpassad bithastighet.
 3. Skapa en innehållsnyckel och associera den med den kodade tillgången.  
 4. Konfigurera innehållsnyckelns auktoriseringsprincip. Ange följande:
 
-   * Leveransmetod (i det här fallet FairPlay).
-   * FairPlay alternativkonfiguration. Mer information om hur du konfigurerar FairPlay finns i den **ConfigureFairPlayPolicyOptions()** -metod i exemplet nedan.
+   * Leverans metoden (i det här fallet FairPlay).
+   * Konfiguration av princip alternativ för FairPlay. Mer information om hur du konfigurerar FairPlay finns i **ConfigureFairPlayPolicyOptions ()-** metoden i exemplet nedan.
 
      > [!NOTE]
      > Vanligtvis vill du konfigurera alternativ för FairPlay endast en gång, eftersom du bara har en uppsättning av en certifikatutfärdare och en fråga.
      >
      >
-   * Begränsningar (öppen eller token).
-   * Information som är specifik för nyckelleveranstypen som definierar hur nyckeln levereras till klienten.
-5. Konfigurera i principen för tillgångsleverans. Konfigurationen för leveransprincipen omfattar:
+   * Begränsningar (öppna eller token).
+   * Information som är unik för den viktiga leverans typen som definierar hur nyckeln levereras till klienten.
+5. Konfigurera till gångs leverans principen. Konfigurationen för leverans principen omfattar:
 
-   * Leveransprotokoll (HLS).
-   * Typ av dynamisk kryptering (common CBC encryption).
-   * URL för anskaffning av licens.
+   * Leverans protokoll (HLS).
+   * Typen av dynamisk kryptering (common CBC Encryption).
+   * URL för licens hämtning.
 
      > [!NOTE]
-     > Om du vill leverera en dataström som är krypterad med FairPlay och ett annat system för Digital Rights Management (DRM) kan behöva du konfigurera separata leveransprinciper:
+     > Om du vill leverera en ström som är krypterad med FairPlay och ett annat DRM-system (Digital Rights Management) måste du konfigurera separata leverans principer:
      >
-     > * En IAssetDeliveryPolicy konfigurera Dynamic Adaptive Streaming över HTTP (DASH) med gemensam kryptering (CENC) (PlayReady och Widevine) och Smooth med PlayReady
-     > * En annan IAssetDeliveryPolicy konfigurera FairPlay för HLS
+     > * En IAssetDeliveryPolicy för att konfigurera dynamisk anpassningsbar strömning via HTTP (bindestreck) med Common Encryption (CENC) (PlayReady + Widevine) och smidigt med PlayReady
+     > * En annan IAssetDeliveryPolicy för att konfigurera FairPlay för HLS
      >
      >
 6. Skapa en OnDemand-lokaliserare för att få en strömnings-URL.
 
-## <a name="use-fairplay-key-delivery-by-player-apps"></a>Använd FairPlay viktiga leverans av player-appar
-Du kan utveckla player appar med hjälp av iOS SDK. Om du vill kunna spela upp innehåll med FairPlay som du behöver implementera licens för exchange-protokollet. Det här protokollet har inte angetts av Apple. Det är upp till varje app hur du skickar begäranden om leverans av nyckel. Media Services FairPlay-nyckelleveranstjänst förväntar sig SPC kommer som ett www-form-url kodad post-meddelande, i följande format:
+## <a name="use-fairplay-key-delivery-by-player-apps"></a>Använd FairPlay Key Delivery från Player-appar
+Du kan utveckla spelarens appar med hjälp av iOS SDK. Om du vill kunna spela upp innehåll med FairPlay som du behöver implementera licens för exchange-protokollet. Det här protokollet har inte angetts av Apple. Det är upp till varje app hur du skickar begäranden om leverans av nyckel. Media Services FairPlay-nyckelleveranstjänst förväntar sig SPC kommer som ett www-form-url kodad post-meddelande, i följande format:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player stöder FairPlay uppspelning. Se [dokumentation för Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) för ytterligare information.
+> Azure Media Player stöder uppspelning av FairPlay. Mer information finns i [Azure Media Player-dokumentationen](https://amp.azure.net/libs/amp/latest/docs/index.html) .
 >
 >
 
 ## <a name="streaming-urls"></a>Strömmande URL: er
-Om din tillgång har krypterats med mer än en DRM, bör du använda en kryptering-tagg i strömnings-URL: (format = 'm3u8-aapl' kryptering = ”xxx”).
+Om din till gång har krypterats med fler än ett DRM, bör du använda en krypterings tagg i streaming-URL: en: (format = ' 3u8-AAPL ', Encryption = ' xxx ').
 
 Följande gäller:
 
-* Du kan ange endast noll eller en krypteringstyp.
-* Typ av enhetskryptering har inte anges i URL: en om det bara en kryptering har tillämpats på tillgången.
-* Att krypteringstypen är skiftlägeskänsligt.
-* Du kan ange följande krypteringstyper av:  
-  * **cenc**:  Gemensam kryptering (PlayReady eller Widevine)
-  * **cbcs-aapl**: FairPlay
-  * **cbc**: AES-kryptering för kuvert
+* Endast noll eller en krypterings typ kan anges.
+* Krypterings typen behöver inte anges i URL: en om bara en kryptering tillämpades på till gången.
+* Krypterings typen är Skift läges okänslig.
+* Följande krypterings typer kan anges:  
+  * **Cenc**: common Encryption (PlayReady eller Widevine)
+  * **CBCS-AAPL**: Fairplay
+  * **CBC**: kryptering med AES-kuvert
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -159,12 +159,12 @@ Följande gäller:
 
 ## <a name="example"></a>Exempel
 
-I följande exempel visar möjligheten att använda Media Services kan leverera ditt innehåll med FairPlay krypteras. Den här funktionen introducerades i Azure Media Services SDK för .NET version 3.6.0. 
+Följande exempel visar möjligheten att använda Media Services för att leverera ditt innehåll som krypteras med FairPlay. Den här funktionen introducerades i Azure Media Services SDK för .NET version 3.6.0. 
 
 Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
 Se till att uppdatera variablerna så att de pekar på mappar där dina indatafiler finns.
 
@@ -555,7 +555,11 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Sökvägar för Media Services-utbildning
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
+
+## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

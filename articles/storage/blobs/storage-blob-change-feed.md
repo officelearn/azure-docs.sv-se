@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 19a65e688d66738db0b6e4dcca383c6e4abed262
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112837"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974417"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
 
@@ -36,61 +36,42 @@ Stöd för ändring av feed passar bra för scenarier som bearbetar data baserat
   - Skapa anslutna program pipelines som reagerar på ändrings händelser eller schema körningar baserat på skapade eller ändrade objekt.
 
 > [!NOTE]
-> [Blob Storage-händelser](storage-blob-event-overview.md) tillhandahåller engångs händelser i real tid som gör det möjligt för dina Azure Functions eller program att reagera på ändringar som görs i en blob. Ändrings flödet tillhandahåller en hållbar, ordnad logg modell av ändringarna. Ändringar i din ändrings flöde görs tillgängliga i ändrings flödet i en ordning med några minuter av ändringen. Om ditt program måste reagera på händelser mycket snabbare än så kan du överväga att använda [Blob Storage händelser](storage-blob-event-overview.md) i stället. Blob Storage händelser gör det möjligt för dina Azure Functions eller program att reagera på enskilda händelser i real tid.
+> Ändra feed tillhandahåller en varaktig, ordnad logg modell av de ändringar som görs i en blob. Ändringar skrivs och görs tillgängliga i din Change feed-logg inom en ordning med några minuter av ändringen. Om ditt program måste reagera på händelser mycket snabbare än så kan du överväga att använda [Blob Storage händelser](storage-blob-event-overview.md) i stället. [Blob Storage-händelser](storage-blob-event-overview.md) tillhandahåller engångs händelser i real tid som gör det möjligt för dina Azure Functions eller program att snabbt reagera på ändringar som görs i en blob. 
 
 ## <a name="enable-and-disable-the-change-feed"></a>Aktivera och inaktivera ändrings flödet
 
-Du måste aktivera ändrings flödet på ditt lagrings konto för att kunna börja samla in ändringar. Inaktivera ändrings flödet om du vill stoppa insamlingen av ändringar. Du kan aktivera och inaktivera ändringar med Azure Resource Manager mallar på portalen eller PowerShell.
+Du måste aktivera ändrings flödet på ditt lagrings konto för att kunna börja samla in och registrera ändringar. Inaktivera ändrings flödet om du vill stoppa insamlingen av ändringar. Du kan aktivera och inaktivera ändringar med Azure Resource Manager mallar på portalen eller PowerShell.
 
 Här är några saker att tänka på när du aktiverar ändrings flödet.
 
-- Det finns bara en ändra feed för Blob-tjänsten i varje lagrings konto som lagras i **$blobchangefeed** containern.
+- Det finns bara en ändra feed för Blob-tjänsten i varje lagrings konto och lagras i **$blobchangefeed** containern.
 
-- Ändringarna registreras endast på BLOB Service-nivån.
+- Skapa, uppdatera och ta bort ändringar registreras bara på BLOB Service-nivån.
 
 - Ändrings matningen fångar *alla* ändringar för alla tillgängliga händelser som inträffar på kontot. Klient program kan filtrera ut händelse typer efter behov. (Se [villkoren](#conditions) för den aktuella versionen).
 
-- Endast GPv2-och Blob Storage-konton kan aktivera ändrings flöde. GPv1 lagrings konton, Premium BlockBlobStorage-konton och hierarkiska namn områdes aktiverade konton stöds inte för närvarande.
+- Endast GPv2-och Blob Storage-konton kan aktivera ändrings flöde. Premium BlockBlobStorage-konton och aktiverade konton för hierarkiskt namn område stöds inte för närvarande. GPv1 lagrings konton stöds inte, men kan uppgraderas till GPv2 utan avbrott, se [Uppgradera till ett GPv2 Storage-konto](../common/storage-account-upgrade.md) för mer information.
 
 > [!IMPORTANT]
 > Ändrings flödet finns i en offentlig för hands version och är tillgängligt i regionerna **westcentralus** och **westus2** . Se avsnittet [villkor](#conditions) i den här artikeln. Information om hur du registrerar i för hands versionen finns i avsnittet [Registrera prenumerationen](#register) i den här artikeln. Du måste registrera din prenumeration innan du kan aktivera ändra feed på dina lagrings konton.
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
-Distribuera mallen med hjälp av Azure Portal:
+Aktivera ändra feed på ditt lagrings konto genom att använda Azure Portal:
 
-1. I Azure Portal väljer du **skapa en resurs**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto. 
 
-2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
+2. Navigera till alternativet för **data skydd** under **BLOB service**.
 
-3. Välj **malldistribution**, Välj **skapa**och välj sedan **skapa en egen mall i redigeraren**.
+3. Klicka på **aktive rad** under **BLOB Change feed**
 
-4. I redigeraren för mallar klistrar du in följande JSON. Ersätt platshållaren `<accountName>` med namnet på ditt lagringskonto.
+4. Välj knappen **Spara** för att bekräfta dina data skydds inställningar
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "variables": {},
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts/blobServices",
-           "apiVersion": "2019-04-01",
-           "name": "<accountName>/default",
-           "properties": {
-               "changeFeed": {
-                   "enabled": true
-               }
-           } 
-        }]
-   }
-   ```
-    
-5. Välj knappen **Spara** , ange resurs grupp för kontot och välj sedan knappen **köp** för att distribuera mallen och aktivera ändrings flödet.
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Distribuera mallen med hjälp av PowerShell:
+Aktivera ändrings flöde med hjälp av PowerShell:
 
 1. Installera den senaste PowershellGet.
 
@@ -118,7 +99,50 @@ Distribuera mallen med hjälp av PowerShell:
    Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
    ```
 
+### <a name="templatetabtemplate"></a>[Mall](#tab/template)
+Använd en Azure Resource Manager-mall för att aktivera ändra feed för ditt befintliga lagrings konto via Azure Portal:
+
+1. I Azure Portal väljer du **skapa en resurs**.
+
+2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
+
+3. Välj **[distribuera en anpassad mall](https://portal.azure.com/#create/Microsoft.Template)** och välj sedan **Bygg en egen mall i redigeraren**.
+
+4. I redigeraren för mallar klistrar du in följande JSON. Ersätt platshållaren `<accountName>` med namnet på ditt lagringskonto.
+
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. Välj knappen **Spara** , ange resurs grupp för kontot och välj sedan knappen **köp** för att distribuera mallen och aktivera ändrings flödet.
+
 ---
+
+## <a name="consume-the-change-feed"></a>Använda ändrings flödet
+
+Ändrings flödet genererar flera metadata och loggfiler. De här filerna finns i **$blobchangefeed** behållare för lagrings kontot. 
+
+> [!NOTE]
+> I den aktuella versionen visas inte **$blobchangefeed** containern i Azure Storage Explorer eller Azure Portal. Du kan för närvarande inte se $blobchangefeed-behållaren när du anropar ListContainers API, men du kan anropa ListBlobs-API: et direkt på behållaren för att se blobarna.
+
+Dina klient program kan använda ändrings flödet med hjälp av processor biblioteket för BLOB Change-bearbetning som tillhandahålls med Change feed-SDK: n. 
+
+Se [processen ändra flödes loggar i Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 ## <a name="understand-change-feed-organization"></a>Förstå organisation för ändrings flöde
 
@@ -173,7 +197,7 @@ Segment manifest filen (`meta.json`) visar sökvägen till filerna för ändring
 ```
 
 > [!NOTE]
-> Om du listar behållarna i ditt lagrings konto visas `$blobchangefeed` containern först när du har aktiverat funktionen ändra feed på ditt konto. Du måste vänta några minuter efter att du aktiverat ändra feed innan du kan se behållaren.
+> `$blobchangefeed` containern visas bara när du har aktiverat funktionen ändra feed på ditt konto. Du måste vänta några minuter efter att du aktiverat ändra feed innan du kan lista blobarna i behållaren. 
 
 <a id="log-files"></a>
 
@@ -217,17 +241,6 @@ En beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för
 > [!NOTE]
 > Filerna för att ändra feeds för ett segment visas inte direkt efter att ett segment har skapats. Fördröjnings tiden ligger inom det normala intervallet för publicerings fördröjningen för ändrings flödet som är inom några minuter från ändringen.
 
-## <a name="consume-the-change-feed"></a>Använda ändrings flödet
-
-Ändrings flödet genererar flera metadata och loggfiler. De här filerna finns i **$blobchangefeed** behållare för lagrings kontot. 
-
-> [!NOTE]
-> I den aktuella versionen visas inte **$blobchangefeed** containern i Azure Storage Explorer eller Azure Portal. Du kan för närvarande inte se $blobchangefeed-behållaren när du anropar ListContainers API, men du kan anropa ListBlobs-API: et direkt på behållaren för att se blobarna.
-
-Dina klient program kan använda ändrings flödet med hjälp av processor biblioteket för BLOB Change-bearbetning som tillhandahålls med Change feed-SDK: n. 
-
-Se [processen ändra flödes loggar i Azure Blob Storage](storage-blob-change-feed-how-to.md).
-
 <a id="specifications"></a>
 
 ## <a name="specifications"></a>Specifikationer
@@ -246,7 +259,7 @@ Se [processen ändra flödes loggar i Azure Blob Storage](storage-blob-change-fe
 
 - Tiden som segmentet representerar är **Ungefärlig** med gränser på 15 minuter. För att se till att förbrukningen av alla poster inom en angiven tid används, förbrukar du föregående och nästa Tim segment.
 
-- Varje segment kan ha olika antal `chunkFilePaths`. Detta beror på intern partitionering av logg strömmen för att hantera publicerings data flödet. Loggfilerna i varje `chunkFilePath` garanterar att de innehåller ömsesidigt uteslutande blobbar och kan förbrukas och bearbetas parallellt utan att det bryter mot sortering av ändringar per BLOB under iterationen.
+- Varje segment kan ha olika antal `chunkFilePaths` på grund av intern partitionering av logg strömmen för att hantera publicerings data flödet. Loggfilerna i varje `chunkFilePath` garanterar att de innehåller ömsesidigt uteslutande blobbar och kan förbrukas och bearbetas parallellt utan att det bryter mot sortering av ändringar per BLOB under iterationen.
 
 - Segmenten börjar `Publishing` status. När tillägget av posterna i segmentet har slutförts kommer det att `Finalized`. Loggfiler i alla segment som är daterade efter datumet för egenskapen `LastConsumable` i `$blobchangefeed/meta/Segments.json`-filen, bör inte användas av ditt program. Här är ett exempel på egenskapen `LastConsumable`i en `$blobchangefeed/meta/Segments.json`-fil:
 
@@ -294,21 +307,25 @@ az provider register --namespace 'Microsoft.Storage'
 
 ## <a name="conditions-and-known-issues-preview"></a>Villkor och kända problem (förhands granskning)
 
-I det här avsnittet beskrivs kända problem och villkor i den aktuella offentliga för hands versionen av ändrings flödet.
+I det här avsnittet beskrivs kända problem och villkor i den aktuella offentliga för hands versionen av ändrings flödet. 
 - För för hands versionen måste du först [Registrera din prenumeration](#register) innan du kan aktivera ändra feed för ditt lagrings konto i westcentralus-eller westus2-regionerna. 
 - För avbildningar av ändrings flöden skapas endast åtgärder för att skapa, uppdatera, ta bort och kopiera. Metadata-uppdateringar registreras för närvarande inte i för hands versionen.
 - Ändrings händelse poster för en enskild ändring kan visas mer än en gång i din ändrings feed.
-- Du kan ännu inte hantera livs längden för loggfiler för ändrings flöden genom att ange en tidsbaserad bevarande princip för dem.
-- Logg filens `url` egenskap är alltid tom.
+- Du kan ännu inte hantera livs längden för loggfiler för ändrings flöden genom att ange en tidsbaserad bevarande princip för dem och du kan inte ta bort Blobbarna 
+- Logg filens `url` egenskap är för närvarande tom.
 - Egenskapen `LastConsumable` för segment. JSON-filen listar inte det allra första segmentet som ändrings flödet Slutför. Det här problemet uppstår först när det första segmentet har slutförts. Alla efterföljande segment efter den första timmen registreras korrekt i `LastConsumable`-egenskapen.
+- Du kan för närvarande inte se **$blobchangefeed** -behållaren när du anropar ListContainers API och behållaren inte visas på Azure Portal eller Storage Explorer
+- Lagrings konton som tidigare har initierat en [konto redundansväxling](../common/storage-disaster-recovery-guidance.md) kan ha problem med logg filen som inte visas. Eventuella framtida fel i kontot kan också påverka logg filen under för hands versionen.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Vad är skillnaden mellan ändrings flöde och Lagringsanalys loggning?
-Ändrings flödet är optimerat för program utveckling eftersom endast lyckade BLOB-skapande, ändring och borttagnings händelser registreras i ändrings flödes loggen. Analytics-loggning registrerar alla lyckade och misslyckade förfrågningar för alla åtgärder, inklusive Läs-och list åtgärder. Genom att använda ändrings flöden behöver du inte bekymra dig om att filtrera bort logg bruset på en transaktion med ett tungt konto och bara fokusera på BLOB Change-händelser.
+Analys loggar innehåller poster med alla Läs-, Skriv-, list-och borttagnings åtgärder med lyckade och misslyckade förfrågningar för alla åtgärder. Analys loggar är bästa möjliga och ingen beställning är garanterat.
+
+Change feed är en lösning som ger transaktions logg över lyckade mutationer eller ändringar av ditt konto, till exempel skapande av BLOB, ändring och borttagning. Ändra feed garanterar att alla händelser registreras och visas i ordningen för lyckade ändringar per BLOB, så du behöver inte filtrera bort brus från en enorm volym Läs åtgärder eller misslyckade förfrågningar. Ändrings flödet är grundläggande utformat och optimerat för program utveckling som kräver vissa garantier.
 
 ### <a name="should-i-use-change-feed-or-storage-events"></a>Ska jag använda ändra feed eller lagrings händelser?
-Du kan använda båda funktionerna som ändrings-och [Blob Storage-händelser](storage-blob-event-overview.md) på samma sätt, med den största skillnaden är svars tid, beställning och lagring av händelse poster. Ändra feed skriver poster till byte-loggen i bulk med några minuters mellanrum samtidigt som du garanterar ordningen på BLOB-ändringar. Lagrings händelser överförs i real tid och kanske inte beställs. Ändra flödes händelser lagras varaktigt i ditt lagrings konto medan lagrings händelser är tillfälliga och används av händelse hanteraren, om du inte uttryckligen lagrar dem.
+Du kan använda båda funktionerna som ändrings flöde och [Blob Storage-händelser](storage-blob-event-overview.md) ger samma information med samma leverans Tillförlitlighets garanti, och den största skillnaden är svars tid, beställning och lagring av händelse poster. Ändra feed publicerar poster till loggen inom några minuter efter ändringen och garanterar även ordningen för ändrings åtgärder per blob. Lagrings händelser överförs i real tid och kanske inte beställs. Ändra flödes händelser lagras varaktigt i ditt lagrings konto som skrivskyddade, stabila loggar med en egen definierad kvarhållning, medan lagrings händelser är tillfälliga att konsumeras av händelse hanteraren, om du inte uttryckligen lagrar dem. Med ändrings flöden kan valfritt antal program använda loggarna i sin egen bekvämlighet med hjälp av BLOB-API: er eller SDK: er. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,20 +8,20 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: b922073df468ca2d92e319e4e59cae098734c13c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 648a9d43f911ffb7f4d6bc97fd63c2ea97ec84e9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73518992"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977445"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Snabb start: skapa ett objekt identifierings projekt med Custom Vision Node. js SDK
 
-Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision SDK med Node.js för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Node.js-program.
+Den här artikeln visar hur du kommer igång med Custom Vision SDK med Node. js för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Node.js-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Node.js 8](https://www.nodejs.org/en/download/) eller senare installerat.
 - [npm](https://www.npmjs.com/) installerat.
@@ -208,7 +208,7 @@ await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIt
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
 
-Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av filen:
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
 ```javascript
     const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);

@@ -1,5 +1,5 @@
 ---
-title: Komma igång med iOS och macOS – Microsoft Identity Platform | Azure
+title: Kom igång med iOS & macOS – Microsoft Identity Platform | Azure
 description: Hur iOS-och macOS-program (SWIFT) kan anropa ett API som kräver åtkomsttoken med hjälp av Microsoft Identity Platform
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3892a03ffe097a51f294e698168f00e1359f92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960670"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964676"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
 
@@ -111,7 +111,7 @@ iOS:
 carthage update --platform iOS
 ```
 
-MacOS
+macOS:
 
 ```bash
 carthage update --platform macOS
@@ -500,7 +500,7 @@ När du har en token kan appen använda den i HTTP-huvudet för att skapa en auk
 
 | rubrik nyckel    | värde                 |
 | ------------- | --------------------- |
-| Auktorisering | \<åtkomst-token för innehavare > |
+| Autentisering | \<åtkomst-token för innehavare > |
 
 Lägg till följande kod i `ViewController`-klassen:
 

@@ -1,22 +1,22 @@
 ---
 title: Hantera IoT Hub Device Provisioning Service med Azure CLI & IoT-tillägget
-description: Lär dig hur du använder Azure CLI och IoT-tillägget för att hantera IoT Hub Device Provisioning Service
+description: Lär dig hur du använder Azure CLI och IoT-tillägget för att hantera IoT Hub Device Provisioning Service (DPS)
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0e276ca32d7cd02f9668b33b3729757404b13b00
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ba92279632a7283ea6ede423e808e3c7be82cff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229745"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975167"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Så här använder du Azure CLI och IoT-tillägget för att hantera IoT Hub Device Provisioning Service
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg med öppen källkod, plattforms oberoende för hantering av Azure-resurser som IoT Edge. Azure CLI är tillgängligt på Windows, Linux och MacOS. Med Azure CLI kan du hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade nav i rutan.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är en öppen källkod för flera plattformar kommandoradsverktyget för att hantera Azure-resurser som IoT Edge. Azure CLI är tillgängligt på Windows, Linux och MacOS. Med Azure CLI kan du hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade nav i rutan.
 
 IoT-tillägget berikar Azure CLI med funktioner som enhets hantering och fullständig IoT Edge funktion.
 

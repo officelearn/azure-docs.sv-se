@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Anropa slutpunkten för anpassad Bing-sökning med hjälp av C# | Microsoft Docs'
+title: 'Snabb start: anropa din Anpassad sökning i Bing- C# slutpunkt med | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att börja begära sökresultat från instansen av anpassad Bing-sökning i C#.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 12/09/2019
 ms.author: maheshb
-ms.openlocfilehash: c1b118ec08e00705ad3eab9141d116fb9e6ef257
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 88a8cc0dbedeb9398637ab9a02323e9b2a6b8627
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405186"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975269"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Snabbstart: Anropa slutpunkten för anpassad Bing-sökning med hjälp av C# 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt medC# 
 
-Använd den här snabbstarten till att börja begära sökresultat från instansen av anpassad Bing-sökning. Även om det här programmet är skrivet i C#, är API:et för anpassad Bing-sökning en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
+Använd den här snabbstarten till att börja begära sökresultat från din instans av anpassad Bing-sökning. Även om det här programmet är skrivet i C#, är API:et för anpassad Bing-sökning en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En instans av anpassad Bing-sökning. Gå till [Snabbstart: Skapa din första instans av anpassad Bing-sökning](quick-start.md) för mer information.
+- En instans av anpassad Bing-sökning. Se [snabb start: skapa din första anpassad sökning i Bing-instans](quick-start.md) för mer information.
 - Microsoft [.net Core](https://www.microsoft.com/net/download/core)
 - Valfri version av [Visual Studio 2019 eller senare](https://www.visualstudio.com/downloads/)
 - Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
@@ -78,7 +78,7 @@ Använd den här snabbstarten till att börja begära sökresultat från instans
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Konstruera en begäran-URL genom att lägga till söktermen i `q=`-frågeparametern och sökinstansens ID för anpassad konfiguration i `customconfig=`. Avgränsa parametrarna med ett `&`-tecken. 
+4. Konstruera en begäran-URL genom att lägga till söktermen i `q=`-frågeparametern och sökinstansens ID för anpassad konfiguration i `customconfig=`. Avgränsa parametrarna med ett `&`-tecken. `url` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +

@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Application insikter med Azure Func
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 5f7f6c130226080cba635f89280f655498e5db27
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226900"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978091"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -92,7 +92,7 @@ Information om hur du använder Application Insights finns i Application Insight
 
 Följande områden i Application Insights kan vara användbara när du ska utvärdera beteende, prestanda och fel i dina funktioner:
 
-| Tabbtecken | Beskrivning |
+| Tab | Beskrivning |
 | ---- | ----------- |
 | **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar baserat på funktions fel och Server undantag. **Åtgärds namnet** är funktions namnet. Felen i beroenden visas inte om du inte implementerar anpassad telemetri för beroenden. |
 | **[Historik](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem. |
@@ -151,29 +151,29 @@ Funktions körningen skapar loggar med en kategori som börjar med "värd". I ve
 
 Om du skriver loggar i funktions koden är kategorin `Function` i version 1. x i functions-körningen. Kategorin är `Function.<YOUR_FUNCTION_NAME>.User`i version 2. x.
 
-### <a name="log-levels"></a>Logg nivåer
+### <a name="log-levels"></a>Loggnivåer
 
 Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) är en uppräkning och heltals koden indikerar relativ prioritet:
 
-|logLevel    |Kod|
+|Loggnivå    |Programmera|
 |------------|---|
 |Spårning       | 0 |
-|Felsökning       | 1 |
+|Felsöka       | 1 |
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|Kritisk    | 5 |
-|Ingen        | 6 |
+|Kritiskt    | 5 |
+|Inget        | 6 |
 
 `None` på loggnings nivå förklaras i nästa avsnitt. 
 
 ### <a name="log-configuration-in-hostjson"></a>Logg konfiguration i Host. JSON
 
-[Host. JSON] -filen konfigurerar hur mycket loggning av en Function-app som skickar till Application Insights. För varje kategori anger du den lägsta logg nivå som ska skickas. Det finns två exempel: det första exemplet är riktat till [funktionerna version 2. x runtime](functions-versions.md#version-2x) (.net Core) och det andra exemplet är för version 1. x-körningsmiljön.
+[Host. JSON] -filen konfigurerar hur mycket loggning av en Function-app som skickar till Application Insights. För varje kategori anger du den lägsta logg nivå som ska skickas. Det finns två exempel: det första exemplet riktar sig till [version 2. x och senare](functions-versions.md#version-2x) av Functions-körningen (med .net Core) och det andra exemplet är för version 1. x-körningsmiljön.
 
-### <a name="version-2x"></a>Version 2.x
+### <a name="version-2x-and-higher"></a>Version 2. x och högre
 
-V2. x-körningsmiljön använder [.net Core Logging filter-hierarkin](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+Version v2. x och senare versioner av Functions-körningen använder [.net Core Logging filter-hierarkin](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 
 ```json
 {
@@ -216,7 +216,7 @@ Kategori värdet i [Host. JSON] kontrollerar loggningen för alla kategorier som
 
 Om [Host. JSON] innehåller flera kategorier som börjar med samma sträng matchas de längre först. Anta att du vill ha allt från körnings miljön förutom `Host.Aggregator` att logga på `Error` nivå, men du vill `Host.Aggregator` logga in på `Information`s nivå:
 
-### <a name="version-2x"></a>Version 2.x 
+### <a name="version-2x-and-later"></a>Version 2. x och senare
 
 ```json
 {
@@ -298,7 +298,7 @@ Enligt vad som anges i föregående avsnitt sammanställer körnings miljön dat
 
 Application Insights har en [samplings](../azure-monitor/app/sampling.md) funktion som kan skydda dig från att skapa för mycket telemetri-data vid slutförda körningar vid tider med hög belastning. När antalet inkommande körningar överskrider ett angivet tröskelvärde börjar Application Insights att ignorera några av de inkommande körningarna slumpmässigt. Standardvärdet för maximalt antal körningar per sekund är 20 (fem i version 1. x). Du kan konfigurera sampling i [Host. JSON].  Här är ett exempel:
 
-### <a name="version-2x"></a>Version 2.x 
+### <a name="version-2x-and-later"></a>Version 2. x och senare
 
 ```json
 {
@@ -396,7 +396,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="custom-metrics-logging"></a>Anpassad mått loggning
 
-När du kör på [version 1. x](functions-versions.md#creating-1x-apps) av Functions-körningen kan Node. js-funktioner använda metoden `context.log.metric` för att skapa anpassade mått i Application Insights. Den här metoden stöds inte för närvarande i version 2. x. Här är ett exempel på metod anrop:
+När du kör på [version 1. x](functions-versions.md#creating-1x-apps) av Functions-körningen kan Node. js-funktioner använda metoden `context.log.metric` för att skapa anpassade mått i Application Insights. Den här metoden stöds inte för närvarande i version 2. x och senare. Här är ett exempel på metod anrop:
 
 ```javascript
 context.log.metric("TestMetric", 1234);
@@ -408,9 +408,9 @@ Den här koden är ett alternativ till att anropa `trackMetric` med hjälp av No
 
 Du kan använda [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet-paketet för att skicka anpassade telemetridata till Application Insights. I följande C# exempel används [API för anpassad telemetri](../azure-monitor/app/api-custom-events-metrics.md). Exemplet är för ett .NET-klass bibliotek, men Application Insights koden är samma för C# skript.
 
-### <a name="version-2x"></a>Version 2.x
+### <a name="version-2x-and-later"></a>Version 2. x och senare
 
-Version 2. x-körningsmiljön använder nyare funktioner i Application Insights för att automatiskt korrelera telemetri med den aktuella åtgärden. Du behöver inte ange åtgärds `Id`, `ParentId`eller `Name` fält manuellt.
+Version 2. x och senare versioner av körningen använder nyare funktioner i Application Insights för att automatiskt korrelera telemetri med den aktuella åtgärden. Du behöver inte ange åtgärds `Id`, `ParentId`eller `Name` fält manuellt.
 
 ```cs
 using System;
@@ -612,7 +612,7 @@ Det finns två sätt att visa en ström med loggfiler som genereras av dina funk
 
 Logg strömmar kan visas både i portalen och i de flesta lokala utvecklings miljöer. 
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
 
 Du kan visa båda typerna av logg strömmar i portalen.
 
@@ -634,7 +634,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visual Studio-kod
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 

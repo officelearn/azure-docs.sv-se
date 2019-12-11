@@ -1,6 +1,6 @@
 ---
 title: Azure-IoT Hub Device Provisioning Service – symmetrisk nyckel attestering
-description: Den här artikeln innehåller en översikt över symmetrisk nyckel attestering med IoT Device Provisioning-tjänsten.
+description: Den här artikeln innehåller en översikt över symmetrisk nyckel attestering med IoT Device Provisioning-tjänsten (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348353"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975303"
 ---
 # <a name="symmetric-key-attestation"></a>Symmetrisk nyckelattestering
 
@@ -36,7 +36,7 @@ Du kan också ange egna symmetriska nycklar för registrering genom att inaktive
 
 ## <a name="detailed-attestation-process"></a>Detaljerad attesterings process
 
-Symmetrisk nyckel attestering med enhets etablerings tjänsten utförs med samma [säkerhetstoken](../iot-hub/iot-hub-devguide-security.md#security-token-structure) som stöds av IoT Hub för att identifiera enheter. Dessa säkerhetstoken är token för [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md). 
+Symmetrisk nyckel attestering med enhets etablerings tjänsten utförs med samma [säkerhetstoken](../iot-hub/iot-hub-devguide-security.md#security-token-structure) som stöds av IoT Hub för att identifiera enheter. Dessa säkerhetstoken är [token för signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md). 
 
 SAS-token har en hash- *signatur* som skapas med den symmetriska nyckeln. Signaturen återskapas av enhets etablerings tjänsten för att kontrol lera om en säkerhetstoken som visas under attesteringen är äkta eller inte.
 
@@ -48,11 +48,11 @@ Här är komponenterna i varje token:
 
 | Värde | Beskrivning |
 | --- | --- |
-| signatur |En HMAC-SHA256-signatur sträng. För enskilda registreringar skapas den här signaturen med hjälp av den symmetriska nyckeln (primär eller sekundär) för att utföra hashen. För registrerings grupper används en nyckel som härletts från registrerings grupp nyckeln för att utföra hashen. Hashen utförs på ett meddelande med formatet: `URL-encoded-resourceURI + "\n" + expiry`. **Viktigt**: Nyckeln måste avkodas från base64 innan den används för att utföra HMAC-SHA256-beräkningen. Dessutom måste resultatet av signaturen vara URL-kodat. |
+| signatur |En HMAC-SHA256-signatur sträng. För enskilda registreringar skapas den här signaturen med hjälp av den symmetriska nyckeln (primär eller sekundär) för att utföra hashen. För registrerings grupper används en nyckel som härletts från registrerings grupp nyckeln för att utföra hashen. Hashen utförs på ett meddelande med formatet: `URL-encoded-resourceURI + "\n" + expiry`. **Viktigt**: nyckeln måste avkodas från base64 innan den används för att utföra HMAC-SHA256-beräkningen. Dessutom måste resultatet av signaturen vara URL-kodat. |
 | {resourceURI} |URI för den registrerings slut punkt som kan nås med denna token, med start med scope-ID för enhets etablerings tjänst instansen. Till exempel, `{Scope ID}/registrations/{Registration ID}` |
 | förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
 | {URL-encoded-resourceURI} |Gemen URL – kodning för den nedre fall resurs-URI: n |
-| {policyName} |Namnet på den princip för delad åtkomst som denna token refererar till. Princip namnet som används när etableringen med symmetrisk nyckel attestering **registreras.** |
+| {policyName} |Namnet på den princip för delad åtkomst som denna token refererar till. Princip **namnet som används**när etableringen med symmetrisk nyckel attestering registreras. |
 
 När en enhet besvaras med en enskild registrering använder enheten den symmetriska nyckel som definierats i den enskilda registrerings posten för att skapa den hashade signaturen för SAS-token.
 
@@ -114,6 +114,6 @@ Om enhets nycklarna inte är installerade i fabriken, ska en [modul för maskin 
 
 Nu när du har en förståelse för symmetrisk nyckel attestering kan du läsa mer i följande artiklar:
 
-* [Snabbstart: Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md)
+* [Snabb start: etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md)
 * [Lär dig mer om begreppen i automatisk etablering](./concepts-auto-provisioning.md)
 * [Kom igång med automatisk etablering](./quick-setup-auto-provision.md) 

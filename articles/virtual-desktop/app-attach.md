@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: 54f2c39260ecaf643b0f2add8758ceb866e71afe
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561124"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972396"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -149,7 +149,7 @@ Därefter måste du expandera MSIX-avbildningen genom att packa upp den. Packa u
 
 3. Navigera till den monterade virtuella hård disken och öppna mappen app och bekräfta att paket innehållet finns.
 
-4. Demontera den virtuella hård disken.
+4. Demontera den virtuella hårddisken.
 
 ## <a name="configure-windows-virtual-desktop-infrastructure"></a>Konfigurera infrastrukturen för virtuella Windows-datorer
 
@@ -337,7 +337,7 @@ $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
 
 #region register
 
-Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
+Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 #endregion
 ```

@@ -1,18 +1,18 @@
 ---
 title: 'Hantera enhets registreringar med hjälp av Azure DPS SDK: er'
-description: 'Hantera enhets registreringar i IoT Hub Device Provisioning Service med hjälp av tjänst-SDK: er'
+description: 'Hantera enhets registreringar i IoT Hub Device Provisioning Service (DPS) med hjälp av tjänst-SDK: er'
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228805"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975082"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Hantera enhets registreringar med SDK: er för Azure Device Provisioning-tjänsten
 En *enhets registrering* skapar en post för en enskild enhet eller en grupp av enheter som kan komma att registreras med enhets etablerings tjänsten. Registrerings posten innehåller den initiala önskade konfigurationen för enheten eller enheterna som en del av registreringen, inklusive önskad IoT-hubb. Den här artikeln visar hur du hanterar enhets registreringar för din etablerings tjänst program mässigt med hjälp av SDK: er för Azure IoT Provisioning-tjänsten.  SDK: er är tillgängliga på GitHub i samma databas som Azure IoT SDK: er.
@@ -23,7 +23,7 @@ En *enhets registrering* skapar en post för en enskild enhet eller en grupp av 
     * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Individuell registrering: registrerings-ID och TPM-bekräftelse nyckel från en fysisk enhet eller från TPM-simulatorn.
         * Registrerings gruppen gäller inte för TPM-attestering.
-    * [**X. 509**](/azure/iot-dps/concepts-security):
+    * [**X.509**](/azure/iot-dps/concepts-security):
         * Individuell registrering: [löv certifikatet](/azure/iot-dps/concepts-security) från fysisk enhet eller från SDK [tärning](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) -emulatorn.
         * Registrerings grupp: [certifikat utfärdare/rot certifikat](/azure/iot-dps/concepts-security#root-certificate) eller [mellanliggande certifikat](/azure/iot-dps/concepts-security#intermediate-certificate)som används för att skapa enhets certifikat på en fysisk enhet.  Det kan också genereras från SDK tärning-emulatorn.
 * Exakta API-anrop kan vara olika på grund av skillnader i språket. Mer information hittar du i exemplen som tillhandahålls på GitHub:

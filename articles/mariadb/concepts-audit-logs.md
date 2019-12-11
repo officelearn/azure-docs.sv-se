@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9c5f6aa2900570aa00ddbc50ec8be4dbb0d16a34
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773086"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978057"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Gransknings loggar i Azure Database for MariaDB
 
@@ -27,6 +27,9 @@ Som standard är gransknings loggen inaktive rad. Ange `audit_log_enabled` till 
 Andra parametrar som du kan justera är:
 
 - `audit_log_events`: styr vilka händelser som ska loggas. Se nedanstående tabell för vissa gransknings händelser.
+- `audit_log_include_users`: MariaDB-användare ska inkluderas för loggning. Standardvärdet för den här parametern är tomt, som innehåller alla användare som ska loggas. Detta har högre prioritet jämfört med `audit_log_exclude_users`. Parameterns max längd är 512 tecken.
+> [!Note]
+> `audit_log_include_users` har högre prioritet än `audit_log_exclude_users`. Om till exempel `audit_log_include_users` = `demouser` och `audit_log_exclude_users` = `demouser`, tas användaren med i gransknings loggarna eftersom `audit_log_include_users` har högre prioritet.
 - `audit_log_exclude_users`: MariaDB-användare undantas från loggning. Tillåter för högst fyra användare. Parameterns max längd är 256 tecken.
 
 | **Händelse** | **Beskrivning** |
@@ -55,10 +58,10 @@ I följande avsnitt beskrivs vad som är utdata från MariaDB gransknings loggar
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. `AzureDiagnostics` alltid |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMARIADB` alltid |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -82,10 +85,10 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. `AzureDiagnostics` alltid |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMARIADB` alltid |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -110,10 +113,10 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. `AzureDiagnostics` alltid |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMARIADB` alltid |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -121,7 +124,7 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`eller `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` eller `DELETE` |
 | `connection_id_d` | Unikt anslutnings-ID genererat av MariaDB |
 | `db_s` | Namnet på databasen som används |
 | `table_s` | Namnet på tabellen har öppnats |

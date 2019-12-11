@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a2d978a68f6f654e3bdeea07c931cd7103f5850c
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 386b49698ca6b8ded2972aba14c1968620fcbb08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015536"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974503"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamisk kryptering: Konfigurera en auktoriseringsprincip för innehålls nycklar
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -50,7 +50,7 @@ Mer information finns i följande artiklar:
 * Nyckel leverans tjänsten cachelagrar ContentKeyAuthorizationPolicy och dess relaterade objekt (princip alternativ och begränsningar) i 15 minuter. Du kan skapa ContentKeyAuthorizationPolicy och ange om du vill använda en begränsning för token, testa den och sedan uppdatera principen till den öppna begränsningen. Den här processen tar ungefär 15 minuter innan principen växlar till den öppna versionen av principen.
 * Om du lägger till eller uppdaterar din tillgångs leveransprincip måste du ta bort eventuella befintliga lokaliserare och skapa en ny.
 * För närvarande kan du inte kryptera Progressive hämtningar.
-* En Media Services strömnings slut punkt anger värdet för CORS-rubriken "Access-Control-Allow-Origin" i preflight-svar som jokertecknet\*"". Det här värdet fungerar bra med de flesta spelare, inklusive Azure Media Player, Roku och JWPlayer och andra. Men vissa spelare som använder dashjs fungerar inte eftersom, med läget för autentiseringsuppgifter inställt på "inkludera", XMLHttpRequest i deras dashjs inte tillåter jokertecknet\*"" som värde för "Access-Control-Allow-Origin". Som en lösning på den här begränsningen i dashjs, om du är värd för din klient från en enda domän, kan Media Services ange domänen i svars huvudet för preflight. Om du behöver hjälp öppnar du ett support ärende via Azure Portal.
+* En Media Services strömnings slut punkt anger värdet för CORS-rubriken "Access-Control-Allow-Origin" i preflight-svar som jokertecknet "\*". Det här värdet fungerar bra med de flesta spelare, inklusive Azure Media Player, Roku och JWPlayer och andra. Men vissa spelare som använder dashjs fungerar inte eftersom, med läget för autentiseringsuppgifter inställt på "inkludera", XMLHttpRequest i deras dashjs inte tillåter jokertecknet "\*" som värdet för "Access-Control-Allow-Origin". Som en lösning på den här begränsningen i dashjs, om du är värd för din klient från en enda domän, kan Media Services ange domänen i svars huvudet för preflight. Om du behöver hjälp öppnar du ett support ärende via Azure Portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 dynamisk kryptering
 ### <a name="open-restriction"></a>Öppna begränsning
@@ -232,7 +232,7 @@ Du kan använda Media Services för att konfigurera de rättigheter och begräns
 
 När du skyddar ditt innehåll med PlayReady är ett av de saker du behöver ange i auktoriseringsprincipen en XML-sträng som definierar [licens mal len PlayReady](media-services-playready-license-template-overview.md). I Media Services SDK för .NET hjälper PlayReadyLicenseResponseTemplate-och PlayReadyLicenseTemplate-klasserna dig att definiera PlayReady-licens mal len.
 
-Information om hur du krypterar ditt innehåll med PlayReady och Widevine finns i [använda PlayReady och/eller Widevine Dynamic common](media-services-protect-with-playready-widevine.md)Encryption.
+Information om hur du krypterar ditt innehåll med PlayReady och Widevine finns i [använda PlayReady och/eller Widevine Dynamic common Encryption](media-services-protect-with-playready-widevine.md).
 
 ### <a name="open-restriction"></a>Öppna begränsning
 Öppen begränsning innebär att systemet levererar nyckeln till alla som gör en nyckel förfrågan. Den här begränsningen kan vara användbar i test syfte.
@@ -389,7 +389,7 @@ Om du vill konfigurera begränsnings alternativet för token måste du använda 
     }
 ```
 
-Information om hur du hämtar en testtoken baserat på den token-begränsning som användes för auktoriseringsprincipen finns i[](#test-token)avsnittet "testtoken". 
+Information om hur du hämtar en testtoken baserat på den token-begränsning som användes för auktoriseringsprincipen finns i avsnittet "[testtoken](#test-token)". 
 
 ## <a id="types"></a>Typer som används när du definierar ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
@@ -425,6 +425,10 @@ Information om hur du hämtar en testtoken baserat på den token-begränsning so
         JWT = 2,
     }
 ```
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

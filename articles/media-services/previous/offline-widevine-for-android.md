@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 694cdf054f74db50bcf1781e60df0f93810ae60c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5137f35a4707aa68adfbf3f326ca9e4bfb40f0f4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875193"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970337"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline-Widevine strömning för Android  
 
@@ -53,7 +53,7 @@ Innan du implementerar offline DRM för Widevine på Android-enheter bör du fö
 
 - Bekanta dig med de begrepp som introducerades för innehålls skydd online med Widevine DRM. Detta beskrivs i detalj i följande dokument/exempel:
     - [Använda Azure Media Services för att leverera DRM-licenser eller AES-nycklar](media-services-deliver-keys-and-licenses.md)
-    - [CENC med multi-DRM och Access Control: En referens design och implementering i Azure och Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+    - [CENC med Multi-DRM och Access Control: En referensdesign och implementering i Azure och Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
     - [Använda PlayReady och/eller Widevine Dynamic Common Encryption med .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/)
     - [Använd Azure Media Services för att leverera PlayReady-och/eller Widevine-licenser med .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/)
 - Bekanta dig med Google ExoPlayer SDK för Android, en Video Player SDK med öppen källkod som stöder offline-uppspelning av Widevine. 
@@ -69,7 +69,7 @@ När du konfigurerar Widevine-skydd för en till gång i Media Services måste d
 2. ContentKeyAuthorizationPolicyRestriction som anger hur innehålls nyckel leverans tillåts i licens leverans tjänsten (öppen eller token Authorization)
 3. DRM (Widevine)-licens mal len
 
-Om du vill aktivera **offline** -läge för Widevine-licenser måste du konfigurera [licens mal len för Widevine](media-services-widevine-license-template-overview.md). I **policy_overrides** -objektet anger du egenskapen **can_persist** till **True** (Standardvärdet är falskt). 
+Om du vill aktivera **offline** -läge för Widevine-licenser måste du konfigurera [licens mal len för Widevine](media-services-widevine-license-template-overview.md). I **policy_overrides** -objektet anger du egenskapen **can_persist** till **Sant** (Standardvärdet är falskt). 
 
 I följande kod exempel används .NET för att aktivera **offline** -läge för Widevine-licenser. Koden baseras på [med hjälp av PlayReady och/eller Widevine Dynamic common Encryption med .net](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) -exempel. 
 
@@ -129,11 +129,11 @@ Utvecklare bör referera till [ExoPlayer Developer-guiden](https://google.github
 
 ### <a name="working-with-older-android-devices"></a>Arbeta med äldre Android-enheter
 
-För vissa äldre Android-enheter måste du ange värden för följande **policy_overrides** -egenskaper (definieras i [Widevine-licens mal len](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**och **license_ duration_seconds**. Du kan också ställa in dem på noll, vilket innebär oändlig/obegränsad varaktighet.  
+För vissa äldre Android-enheter måste du ange värden för följande **policy_overrides** egenskaper (definieras i [Widevine-licens mal len](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**och **license_duration_seconds**. Du kan också ställa in dem på noll, vilket innebär oändlig/obegränsad varaktighet.  
 
-Värdena måste anges för att undvika en heltals spill bugg. Mer information om problemet finns i https://github.com/google/ExoPlayer/issues/3150 och. https://github.com/google/ExoPlayer/issues/3112 <br/>Om du inte anger värdena explicit, tilldelas mycket stora värden för **PlaybackDurationRemaining** och **LicenseDurationRemaining** (till exempel 9223372036854775807, vilket är det högsta positiva värdet för ett 64-bitars heltal). Det innebär att Widevine-licensen har upphört att gälla och därför att dekrypteringen inte sker. 
+Värdena måste anges för att undvika en heltals spill bugg. Mer information om problemet finns i https://github.com/google/ExoPlayer/issues/3150 och https://github.com/google/ExoPlayer/issues/3112. <br/>Om du inte anger värdena explicit, tilldelas mycket stora värden för **PlaybackDurationRemaining** och **LicenseDurationRemaining** (till exempel 9223372036854775807, vilket är det högsta positiva värdet för ett 64-bitars heltal). Det innebär att Widevine-licensen har upphört att gälla och därför att dekrypteringen inte sker. 
 
-Det här problemet uppstår inte på Android 5,0 Lollipop eller senare eftersom Android 5,0 är den första Android-versionen, som har utformats för att fullständigt stödja ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) och 64-bitarsplattformar, medan Android 4,4 KitKat ursprungligen utformats för att stöd för ARMv7-och 32-bitars plattformar som med andra äldre Android-versioner.
+Det här problemet uppstår inte på Android 5,0 Lollipop eller senare eftersom Android 5,0 är den första Android-versionen, som har utformats för att fullständigt stödja ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) och 64-bitarsplattformar, medan Android 4,4 KitKat ursprungligen har utformats för att stödja ARMv7-och 32-bitarsplattformar som med andra äldre Android-versioner.
 
 ## <a name="using-xamarin-to-build-an-android-playback-app"></a>Använda Xamarin för att bygga en Android-uppspelnings-app
 
@@ -142,11 +142,11 @@ Du kan hitta Xamarin-bindningar för ExoPlayer med hjälp av följande länkar:
 - [Bibliotek för Xamarin-bindningar för Google ExoPlayer-biblioteket](https://github.com/martijn00/ExoPlayerXamarin)
 - [Xamarin-bindningar för ExoPlayer-NuGet](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
 
-Se även följande tråd: [Xamarin-bindning](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
+Se även följande tråd: Xamarin- [bindning](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
 
 ## <a name="chrome-player-apps-for-android"></a>Chrome Player-appar för Android
 
-Från och med lanseringen av [Chrome för Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates), beständig licens i EME stöds. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) stöds nu också i Chrome för Android. På så sätt kan du skapa offline-uppspelnings program i Chrome om slutanvändarna har den här (eller högre) versionen av Chrome. 
+Från och med lanseringen av [Chrome för Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates)stöds beständig licens i EME. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) stöds nu också i Chrome för Android. På så sätt kan du skapa offline-uppspelnings program i Chrome om slutanvändarna har den här (eller högre) versionen av Chrome. 
 
 Dessutom har Google skapat ett PWA-exempel (PWA) med öppen källkod: 
 
@@ -157,13 +157,13 @@ Om du uppgraderar din mobila Chrome-webbläsare till V62 (eller högre) på en A
 
 Den här PWA-appen med öppen källkod är skapad i Node. js. Om du vill vara värd för din egen version på en Ubuntu-Server bör du tänka på följande vanliga påträffade problem som kan förhindra uppspelning:
 
-1. CORS-problem: Exempel videon i exempel appen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har konfigurerat CORS för alla test exempel som finns i Google Cloud Storage Bucket. De hanteras med CORS-rubriker och anger explicit CORS-posten: https://biograf-155113.appspot.com (den domän där Google-värdarna i sitt exempel) förhindrar åtkomst av andra platser. Om du försöker visas följande HTTP-fel: Det gick inte https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: att läsa in det finns ingen "Access-Control-Allow-Origin"-rubrik för den begärda resursen. Ursprung "https:\//13.85.80.81:8080" är därför inte tillåten åtkomst. Om ett ogenomskinligt svar hanterar dina behov ställer du in begärans läge på No CORS för att hämta resursen med CORS inaktive rad.
-2. Certifikat problem: Från och med Chrome v 58 krävs HTTPS för EME för Widevine. Därför måste du vara värd för exempel appen via HTTPS med ett X509-certifikat. Ett vanligt test certifikat fungerar inte på grund av följande krav: Du måste skaffa ett certifikat som uppfyller följande minimi krav:
+1. CORS-problem: exempel videon i exempel appen finns https://storage.googleapis.com/biograf-video-files/videos/. Google har konfigurerat CORS för alla test exempel som finns i Google Cloud Storage Bucket. De hanteras med CORS-rubriker och anger explicit CORS-posten: https://biograf-155113.appspot.com (den domän där Google-värdarna i sitt exempel) förhindrar åtkomst av andra platser. Om du försöker visas följande HTTP-fel: det gick inte att läsa in https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: det finns inte någon "Access-Control-Allow-Origin"-rubrik för den begärda resursen. Ursprung "https:\//13.85.80.81:8080" är därför inte tillåten åtkomst. Om ett ogenomskinligt svar hanterar dina behov ställer du in begärans läge på No CORS för att hämta resursen med CORS inaktive rad.
+2. Certifikat problem: från och med Chrome v 58 krävs HTTPS för EME för Widevine. Därför måste du vara värd för exempel appen via HTTPS med ett X509-certifikat. Ett vanligt test certifikat fungerar inte på grund av följande krav: du måste skaffa ett certifikat som uppfyller följande minimi krav:
     - Chrome och Firefox kräver SAN – alternativa namn på certifikat mottagare som ska finnas i certifikatet
     - Certifikatet måste ha en betrodd certifikat utfärdare och ett självsignerat utvecklings certifikat fungerar inte
     - Certifikatet måste ha ett CN-namn som matchar DNS-namnet på webb servern eller gatewayen
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="question"></a>Fråga
 
@@ -175,7 +175,7 @@ Du behöver inte duplicera innehållet. Du kan bara använda en enda kopia av in
 1. IContentKeyAuthorizationPolicyOption 1: använder beständiga licenser och ContentKeyAuthorizationPolicyRestriction 1 som innehåller ett anspråk som license_type = "persistent"
 2. IContentKeyAuthorizationPolicyOption 2: använder icke-beständig licens och ContentKeyAuthorizationPolicyRestriction 2 som innehåller ett anspråk som license_type = "icke-beständig"
 
-Det innebär att när en licens förfrågan kommer från klient appen, är det ingen skillnad mellan licens förfrågningar. För en annan slutanvändare/enhet bör STS dock ha affärs logiken för att utfärda olika JWT-token som innehåller olika anspråk (ett av ovanstående två license_type's). Anspråks värdet i JWT-token kommer att användas för att bestämma vilken typ av licens som ska utfärdas av licens tjänsten: beständigt eller icke-permanent.
+Det innebär att när en licens förfrågan kommer från klient appen, är det ingen skillnad mellan licens förfrågningar. För en annan slutanvändare/enhet bör STS dock ha affärs logiken för att utfärda olika JWT-token som innehåller olika anspråk (ett av de två license_type). Anspråks värdet i JWT-token kommer att användas för att bestämma vilken typ av licens som ska utfärdas av licens tjänsten: beständigt eller icke-permanent.
 
 Det innebär att STS (Secure token service) måste ha information om affärs logiken och klienten/enheten för att lägga till motsvarande anspråks värde i en token.
 
@@ -187,11 +187,11 @@ För Widevine säkerhets nivåer, i Googles [Widevine översikt över dokument](
 
 I Googles [Översikt över WIDEVINE DRM-arkitektur](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf)definieras följande tre säkerhets nivåer:
 
-1.  Säkerhets nivå 1: All innehålls bearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementerings modeller kan säkerhets bearbetningen utföras i olika kretsar.
+1.  Säkerhets nivå 1: all innehålls bearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementerings modeller kan säkerhets bearbetningen utföras i olika kretsar.
 2.  Säkerhets nivå 2: Utför kryptografi (men inte video bearbetning) i TEE: dekrypterade buffertar returneras till program domänen och bearbetas via separat video maskin vara eller program vara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.
 3.  Säkerhets nivå 3 har inte någon TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll på värd operativ system. En nivå 3-implementering kan också innehålla en kryptografisk motor för maskin vara, men den förbättrar bara prestanda, inte säkerhet.
 
-Vid samma tidpunkt kan security_level-egenskapen för content_key_specs ha följande fem olika värden (krav för Widevine för uppspelning) i [Azure Media Services dokumentation om licens mal len för](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview):
+På samma tid kan security_level egenskapen för content_key_specs ha följande fem olika värden (krav för Widevine för uppspelning) i [Azure Media Services dokumentation om licens mal len](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)för:
 
 1.  Programvarubaserad-baserad kryptografisk kryptering krävs.
 2.  Program varu kryptering och en fördunklade-avkodare måste anges.
@@ -199,13 +199,13 @@ Vid samma tidpunkt kan security_level-egenskapen för content_key_specs ha följ
 4.  Kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad TEE.
 5.  Krypteringen, avkodningen och all hantering av mediet (komprimerade och okomprimerade) måste hanteras inom en maskinvarubaserad TEE.
 
-Båda säkerhets nivåerna definieras av Google Widevine. Skillnaden är i användnings nivån: arkitektur nivå eller API-nivå. De fem säkerhets nivåerna används i Widevine-API: et. Content_key_specs-objektet som innehåller security_level deserialiseras och skickas till den globala leverans tjänsten Widevine genom att Azure Media Services Widevine licens service. Tabellen nedan visar mappningen mellan de två uppsättningarna med säkerhets nivåer.
+Båda säkerhets nivåerna definieras av Google Widevine. Skillnaden är i användnings nivån: arkitektur nivå eller API-nivå. De fem säkerhets nivåerna används i Widevine-API: et. Content_key_specs-objektet som innehåller security_level deserialiseras och skickas till den globala Widevine-leverans tjänsten av Azure Media Services Widevine licens service. Tabellen nedan visar mappningen mellan de två uppsättningarna med säkerhets nivåer.
 
 | **Säkerhets nivåer som definieras i Widevine-arkitekturen** |**Säkerhets nivåer som används i Widevine-API**|
 |---|---| 
-| **Säkerhets nivå 1**: All innehålls bearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementerings modeller kan säkerhets bearbetningen utföras i olika kretsar.|**security_level = 5**: Krypteringen, avkodningen och all hantering av mediet (komprimerade och okomprimerade) måste hanteras inom en maskinvarubaserad TEE.<br/><br/>**security_level = 4**: Kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad TEE.|
-**Säkerhets nivå 2**: Utför kryptografi (men inte video bearbetning) i TEE: dekrypterade buffertar returneras till program domänen och bearbetas via separat video maskin vara eller program vara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.| **security_level = 3**: Nyckel material-och krypterings åtgärder måste utföras inom en maskinvarubaserad TEE. |
-| **Säkerhets nivå 3**: Har ingen TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll på värd operativ system. En nivå 3-implementering kan också innehålla en kryptografisk motor för maskin vara, men den förbättrar bara prestanda, inte säkerhet. | **security_level = 2**: Program varu kryptering och en fördunklade-avkodare måste anges.<br/><br/>**security_level = 1**: Programvarubaserad-baserad kryptografisk kryptering krävs.|
+| **Säkerhets nivå 1**: all innehålls bearbetning, kryptografi och kontroll utförs i tee (Trusted Execution Environment). I vissa implementerings modeller kan säkerhets bearbetningen utföras i olika kretsar.|**security_level = 5**: kryptering, avkodning och all hantering av mediet (komprimerade och okomprimerade) måste hanteras inom en maskinvarubaserad tee.<br/><br/>**security_level = 4**: kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad tee.|
+**Säkerhets nivå 2**: Utför kryptografi (men inte video bearbetning) i tee: dekrypterade buffertar returneras till program domänen och bearbetas via separat video maskin vara eller program vara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.| **security_level = 3**: nyckel material-och krypterings åtgärder måste utföras inom en maskinvarubaserad tee. |
+| **Säkerhets nivå 3**: har inte någon tee på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll på värd operativ system. En nivå 3-implementering kan också innehålla en kryptografisk motor för maskin vara, men den förbättrar bara prestanda, inte säkerhet. | **security_level = 2**: program varu kryptering och en fördunklade-avkodare krävs.<br/><br/>**security_level = 1**: programvarubaserad kryptografiskt kryptografiskt krypterings utrymme krävs.|
 
 ### <a name="question"></a>Fråga
 
@@ -219,6 +219,10 @@ Det finns två sätt att förbättra nedladdnings hastigheten:
 2.  Ge slutanvändarna möjlighet att selektivt Hämta video kvalitets lager och ljud spår i stället för allt innehåll. För offline-läge finns det ingen punkt för att ladda ned alla kvalitets lager. Det finns två sätt att åstadkomma detta:
     1.  Kontrollerad av klienten: antingen väljer Player-appen automatiskt eller så kan användaren välja video kvalitets lager och ljud spår för att ladda ned.
     2.  Tjänsten kontrollerad: en kan använda funktionen dynamisk manifest i Azure Media Services för att skapa ett (Globalt) filter, vilket begränsar HLS-spelnings lista eller streck-MPD till ett enda video kvalitets lager och valda ljud spår. Hämtnings-URL: en som visas för slutanvändarna inkluderar det här filtret.
+
+## <a name="additional-notes"></a>Ytterligare information
+
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="summary"></a>Sammanfattning
 

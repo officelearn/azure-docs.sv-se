@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Anropa slutpunkten för Anpassad Bing-sökning med hjälp av C# SDK | Microsoft Docs'
+title: 'Snabb start: anropa din Anpassad sökning i Bing-slutpunkt C# med SDK | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabb starten för att börja begära Sök Resultat från Anpassad sökning i Bing- C# instansen med hjälp av SDK.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: scottwhi
-ms.openlocfilehash: c7ac6d051c8333a6329a3c2ed238d78fb9da4a30
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 21b192d29f30d66e3d5f0ce6e04317d3ca7c860e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565714"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977156"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Snabbstart: Anropa slutpunkten för Anpassad Bing-sökning med hjälp av C# SDK 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt C# med SDK 
 
 Använd den här snabbstarten till att börja begära sökresultat från din instans av Anpassad Bing-sökning med hjälp av C# SDK. Även om Anpassad Bing-sökning har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK för Anpassad Bing-sökning ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En instans av anpassad Bing-sökning. Gå till [Snabbstart: Skapa din första instans av anpassad Bing-sökning](quick-start.md) för mer information.
+- En instans av anpassad Bing-sökning. Se [snabb start: skapa din första anpassad sökning i Bing-instans](quick-start.md) för mer information.
 - Microsoft [.net Core](https://www.microsoft.com/net/download/core)
 - Valfri version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/)
 - Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).

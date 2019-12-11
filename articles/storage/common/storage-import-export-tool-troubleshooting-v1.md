@@ -1,39 +1,39 @@
 ---
-title: Felsökning av verktyget Azure Import/Export | Microsoft Docs
+title: Felsöka Azure import/export-verktyget | Microsoft Docs
 description: Lär dig mer om några vanliga problem som visas när du använder verktyget Azure Import/Export och hur du hanterar dem.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e463e1cdd340f852af46e39cca0dd9bfce7b8da
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320456"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978942"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Felsökning av Azures import-/exportverktyg
-Microsoft Azure Import/Export-verktyget returnerar felmeddelanden om den körs i problem. Det här avsnittet innehåller några vanliga problem som användarna kan köra i.  
+Microsoft Azure Import/Export-verktyget returnerar fel meddelanden om det körs i problem. Det här avsnittet innehåller några vanliga problem som användarna kan köra.  
   
-## <a name="a-copy-session-fails-what-i-should-do"></a>En kopia session misslyckas, vad jag ska göra?  
- När en session för kopiering inte, finns det två alternativ:  
+## <a name="a-copy-session-fails-what-i-should-do"></a>Går det inte att kopiera sessionen? vad jag ska göra?  
+ När en kopierings session Miss lyckas finns det två alternativ:  
   
- Om felet är återförsökbart, till exempel om nätverksresursen var offline under en kort period och nu är online igen kan återuppta du session för kopiering. Om felet inte är återförsökbart, till exempel om du har angett fel filen källkatalogen i parametrarna för kommandoraden, måste du avbryta kopia sessionen. Se [förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md) för mer information om att återuppta och avbryts kopia sessioner.  
+ Om felet går att försöka igen, till exempel om nätverks resursen var offline under en kort period och nu är online igen, kan du återuppta kopierings sessionen. Om felet inte går att försöka igen, till exempel om du har angett fel käll fils katalog i kommando rads parametrarna, måste du avbryta kopierings sessionen. Se [förbereda hård diskar för ett import jobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md) för mer information om att återuppta och avbryta kopiering av sessioner.  
   
-## <a name="i-cant-resume-or-abort-a-copy-session"></a>Jag kan inte återuppta eller avbryta en kopia-session.  
- Om sessionen kopia är den första kopia sessionen för en enhet, ska felmeddelandet ange: ”Den första kopia sessionen inte kan återupptas eller avbröts”. I det här fallet kan du ta bort den gamla journalfilen och kör kommandot igen.  
+## <a name="i-cant-resume-or-abort-a-copy-session"></a>Jag kan inte återuppta eller avbryta en kopierings session.  
+ Om kopierings sessionen är den första redigeringssessionen för en enhet bör fel meddelandet tillstånd: "den första kopierings sessionen kan inte återupptas eller avbrytas." I så fall kan du ta bort den gamla Journal filen och köra kommandot igen.  
   
- Om en kopia session inte är den första mallen för en enhet kan det alltid återupptas eller avbröts.  
+ Om en Copy-session inte är den första för en enhet, kan den alltid återupptas eller avbrytas.  
   
-## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Försvann journal-fil, kan jag fortfarande skapa jobbet?  
- Journalfil för en enhet innehåller fullständig information om att kopiera data till den här enheten och det behövs för att lägga till fler filer till enheten och används för att skapa ett importjobb. Om journalfilen tappas bort, behöver du göra om alla kopia sessioner för enheten.  
+## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Jag förlorade Journal filen, kan jag ändå skapa jobbet?  
+ Journal filen för en enhet innehåller all information om att kopiera data till den här enheten och det behövs för att lägga till fler filer på enheten och används för att skapa ett import jobb. Om journal filen förloras måste du göra om alla kopierings sessioner för enheten.  
   
 ## <a name="next-steps"></a>Nästa steg
  
-* [Konfigurera azure import/export-verktyget](../storage-import-export-tool-setup-v1.md)   
+* [Konfigurera verktyget Azure import/export](../storage-import-export-tool-setup-v1.md)   
 * [Förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Granska jobbstatus med kopiera loggfiler](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparera ett importjobb](../storage-import-export-tool-repairing-an-import-job-v1.md)   

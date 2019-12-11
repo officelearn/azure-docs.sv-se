@@ -3,17 +3,17 @@ title: Använda enhets grupper i ditt Azure IoT Central-program | Microsoft Docs
 description: Som operatör lär du dig hur du använder enhets grupper för att analysera telemetri från enheter i ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/29/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 281806999b08c3babbb753459835850ad9d733eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 981046f9417876a68c215c6d01a63c7f0a634464
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895441"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976221"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry-preview-features"></a>Självstudie: Använd enhets grupper för att analysera telemetri för enheter (för hands versions funktioner)
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Skapa en enhetsgrupp.
 > * Använda en enhets grupp för att analysera telemetri för enheter
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du fylla i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägga till en simulerad enhet i IoT Central](./quick-create-pnp-device.md) snabb starter för att skapa **miljösensorns** enhets mall att fungera med.
 
@@ -67,7 +67,7 @@ Så här skapar du en enhets grupp:
 > [!NOTE]
 > För Azure IoT Edge enheter väljer du Azure IoT Edge mallar för att skapa en enhets grupp.
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analyser
 
 Du kan använda **Analytics** med en enhets grupp för att analysera Telemetrin från enheterna i gruppen. Du kan till exempel rita den genomsnittliga temperatur som rapporteras av alla Contosos miljö sensorer.
 

@@ -1,5 +1,5 @@
 ---
-title: Självstudie – skydda en Linux-webbserver med SSL-certifikat i Azure
+title: 'Självstudie: skydda en Linux-webbserver med SSL-certifikat i Azure'
 description: I den här självstudien får du lära dig hur du använder Azure CLI till att skydda en virtuell Linux-dator som kör webbservern NGINX med SSL-certifikat som lagras i Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc327abae7210d5432896fe1f0688cc405ddade6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aaa3f32cc48c6d051a2ff2a959372886435e5dcb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034336"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976170"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Självstudie: Skydda en webbserver på en virtuell Linux-dator i Azure med SSL-certifikat som lagras i Key Vault
-När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Linux-datorer i Azure. I den här guiden får du lära dig hur man:
+När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Linux-datorer i Azure. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
@@ -33,7 +33,7 @@ När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure S
 
 I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
-Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## <a name="overview"></a>Översikt

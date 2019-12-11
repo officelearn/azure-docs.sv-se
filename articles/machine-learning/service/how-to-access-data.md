@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee6ab1ada540f4f664e6782a1fffc63cc7df95e4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 94cdf683bc8524786e1f32607ef18f976990ba07
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928585"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979129"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -204,7 +204,7 @@ Om du vill referera till en mapp eller fil i ditt data lager och göra den tillg
 #to mount the full contents in your storage to the compute target
 datastore.as_mount()
 
-#to download the contents of the `./bar` directory in your storage to the compute target
+#to download the contents of only the `./bar` directory in your storage to the compute target
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
@@ -212,9 +212,9 @@ datastore.path('./bar').as_download()
 
 ### <a name="examples"></a>Exempel 
 
-Följande kod exempel är speciella för [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen för åtkomst till data under träning.
+Vi rekommenderar att du använder [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen för att få åtkomst till data under utbildningen. 
 
-`script_params` är en ord lista som innehåller parametrar till entry_script. Använd den för att skicka in ett data lager och beskriva hur data görs tillgängliga på beräknings målet. Läs mer i vår [självstudier](tutorial-train-models-with-aml.md)från slut punkt till slut punkt.
+Variabeln `script_params` är en ord lista som innehåller parametrar för entry_script. Använd den för att skicka in ett data lager och beskriva hur data görs tillgängliga på beräknings målet. Läs mer i vår [självstudier](tutorial-train-models-with-aml.md)från slut punkt till slut punkt.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -241,6 +241,24 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
+```
+Om du föredrar att använda ett RunConfig-objekt för utbildning måste du konfigurera ett [DataReference](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) -objekt. 
+
+Följande kod visar hur du arbetar med ett DataReference-objekt i en uppskattnings pipeline. Det fullständiga exemplet finns i den här [antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb).
+
+```Python
+from azureml.core import Datastore
+from azureml.data.data_reference import DataReference
+from azureml.pipeline.core import PipelineData
+
+def_blob_store = Datastore(ws, "workspaceblobstore")
+
+input_data = DataReference(
+       datastore=def_blob_store,
+       data_reference_name="input_data",
+       path_on_datastore="20newsgroups/20news.pkl")
+
+   output = PipelineData("output", datastore=def_blob_store)
 ```
 <a name="matrix"></a>
 

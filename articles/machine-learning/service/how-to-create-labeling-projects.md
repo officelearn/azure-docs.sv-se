@@ -1,20 +1,20 @@
 ---
-title: Hämta etiketter för data
+title: Skapa ett data etiketts projekt
 titleSuffix: Azure Machine Learning
-description: Den här artikeln visar hur du skapar och kör etiketter för projekt för att tagga data för Machine Learning.
+description: Lär dig Hô för att skapa och köra märknings projekt för att tagga data för Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: c171310fd1c9caf78288fa156b353ecdd517d602
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bdedc3ee0c76eafc4b4bc95116fb5be846f4bee5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894694"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978244"
 ---
-# <a name="get-labels-for-data"></a>Hämta etiketter för data
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
 Att märka Voluminous-data i Machine Learning-projekt är ofta ett problem. Projekt som har en dator vision komponent, till exempel bild klassificering eller objekt identifiering, kräver vanligt vis etiketter för tusentals avbildningar.
  

@@ -1,26 +1,26 @@
 ---
 title: Använda Azure Image Builder med ett bild galleri för virtuella Windows-datorer (för hands version)
-description: Skapa Windows-avbildningar med Azure Image Builder och delade avbildnings galleriet.
+description: Skapa avbildningar av virtuella Windows-datorer med Azure Image Builder och delade avbildnings galleriet.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 33f13c09a06885523298bd7c23744e79f68e5301
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 1d9763ccc5f5967b9fc9932a11fff655e6120fd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698675"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976085"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Förhandsversion: Skapa en Windows-avbildning och distribuera den till ett delat avbildnings Galleri 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>För hands version: skapa en Windows-avbildning och distribuera den till ett delat avbildnings Galleri 
 
 Den här artikeln visar hur du kan använda Azure Image Builder för att skapa en avbildnings version i ett [delat avbildnings Galleri](shared-image-galleries.md)och sedan distribuera avbildningen globalt.
 
 Vi kommer att använda en. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateforWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json). 
 
-För att distribuera avbildningen till ett delat bild galleri använder mallen [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) som värde för `distribute` avsnittet i mallen.
+För att distribuera avbildningen till ett delat avbildnings Galleri använder mallen [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) som värde för avsnittet `distribute` i mallen.
 
 > [!IMPORTANT]
 > Azure Image Builder är för närvarande en offentlig för hands version.
@@ -57,7 +57,7 @@ az provider register -n Microsoft.Compute
 
 ## <a name="set-variables-and-permissions"></a>Ange variabler och behörigheter 
 
-Vi kommer att använda vissa delar av informationen flera gånger, så vi skapar några variabler för att lagra informationen. Ersätt värdena för variablerna, till exempel `username` och `vmpassword`, med din egen information.
+Vi kommer att använda vissa delar av informationen flera gånger, så vi skapar några variabler för att lagra informationen. Ersätt värdena för variablerna, t. ex. `username` och `vmpassword`, med din egen information.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -77,7 +77,7 @@ username="azureuser"
 vmpassword="passwordfortheVM"
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`hjälp av.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID="Subscription ID"
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Ge Azure Image Builder behörighet att skapa resurser i den resurs gruppen. `--assignee` Värdet är appens registrerings-ID för tjänsten Image Builder. 
+Ge Azure Image Builder behörighet att skapa resurser i den resurs gruppen. `--assignee`-värdet är appens registrerings-ID för tjänsten Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -191,7 +191,7 @@ Skapa en fjärr skrivbords anslutning till den virtuella datorn med det använda
 dir c:\
 ```
 
-Du bör se en katalog med `buildActions` namnet som skapades under bild anpassningen.
+Du bör se en katalog med namnet `buildActions` som skapades under bild anpassningen.
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -211,7 +211,7 @@ az resource delete \
     -n helloImageTemplateforWinSIG01
 ```
 
-Hämta avbildnings versionen som skapats av Image Builder, detta börjar alltid `0.`med och tar sedan bort avbildnings versionen
+Hämta avbildnings versionen som skapats av Image Builder, detta börjar alltid med `0.`och ta sedan bort avbildnings versionen
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

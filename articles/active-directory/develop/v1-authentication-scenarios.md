@@ -1,5 +1,5 @@
 ---
-title: Autentisering i Microsoft Identity Platform (v 1.0) | Azure
+title: Microsoft Identity Platform-autentisering (v 1.0) | Azure
 description: Lär dig grunderna om autentisering i Microsoft Identity Platform – appens modell, API, etablering och de vanligaste autentiserings scenarier som stöds av Microsoft Identity Platform.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c7bf80c0471853008573bbcbb918fb33c6c43cd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 445f301e2a526dc8f9e2c261e897fe8b1abe2f1e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149190"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966783"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 
@@ -62,15 +62,15 @@ I exempelscenariot ovan kan du klassificera apparna enligt dessa två roller:
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Hur varje flöde avger tokens och koder
 
-Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika token (id_tokens, Refresh tokens, åtkomsttoken) samt auktoriseringsregler och kräver olika token för att de ska fungera. Det här diagrammet innehåller en översikt:
+Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika tokens (id_tokens, uppdatera tokens, åtkomsttoken) och auktoriseringsregler, och kräver olika token för att de ska fungera. Det här diagrammet innehåller en översikt:
 
-|Flow | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flow | Kräver | id_token | Åtkomsttoken | uppdatera token | auktoriseringskod | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flöde för auktoriseringskod](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Implicit flöde](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Hybrid OIDC-flöde](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
 |[Uppdatera token-inlösen](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | uppdatera token | x | x | x| |
-|[On-Behalf-Of-flöde](v1-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
+|[On-Behalf-Of-flöde](v1-oauth2-on-behalf-of-flow.md) | Åtkomsttoken| x| x| x| |
 |[Klientautentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
 
 Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL: en (där `response_mode` är `query` eller `fragment`).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Dessa tokens har därför inte `groups`-eller `wids`-anspråk. 

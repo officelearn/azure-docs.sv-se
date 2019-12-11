@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271497"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997011"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
 
@@ -98,7 +98,10 @@ Om en app utför inloggning genom att använda [OpenID Connect](active-directory
 
 [`offline_access` omfattning](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) ger din app åtkomst till resurser för användarens räkning under en längre tid. På sidan medgivande visas denna omfattning som "Behåll åtkomst till data som du har gett dem behörighet till". När en användare godkänner `offline_access`s omfånget kan din app ta emot uppdateringstoken från slut punkten för Microsoft Identity Platform-token. Uppdateringstoken är lång. Din app kan hämta nya åtkomsttoken när äldre upphör att gälla.
 
-Om din app inte uttryckligen begär `offline_access` omfattningen får den inte några uppdaterade tokens. Det innebär att när du löser in en auktoriseringskod i [OAuth 2,0-auktoriseringskod](active-directory-v2-protocols.md), får du bara en åtkomsttoken från `/token` slut punkten. Åtkomsttoken är giltig under en kort tid. Åtkomsttoken går vanligt vis ut om en timme. Då måste appen omdirigera användaren tillbaka till `/authorize` slut punkten för att få en ny auktoriseringskod. Under omdirigeringen, beroende på typ av app, kan användaren behöva ange sina autentiseringsuppgifter igen eller ge tillstånd igen till behörigheter. När den `offline_access` omfattning begärs automatiskt av servern, måste klienten fortfarande begära det för att kunna ta emot uppdaterade tokens.
+> [!NOTE]
+> Den här behörigheten visas på alla godkännande skärmar idag, även för flöden som inte tillhandahåller en uppdateringstoken (det [implicita flödet](v2-oauth2-implicit-grant-flow.md)).  Detta avser scenarier där en klient kan börja i det implicita flödet och sedan övergå till det kod flöde där en uppdateringstoken förväntas.
+
+På Microsoft Identity Platform (begär Anden som gjorts till v 2.0-slutpunkten) måste appen uttryckligen begära `offline_access` omfattning för att kunna ta emot uppdateringstoken. Det innebär att när du löser in en auktoriseringskod i [OAuth 2,0-auktoriseringskod](active-directory-v2-protocols.md), får du bara en åtkomsttoken från `/token` slut punkten. Åtkomsttoken är giltig under en kort tid. Åtkomsttoken går vanligt vis ut om en timme. Då måste appen omdirigera användaren tillbaka till `/authorize` slut punkten för att få en ny auktoriseringskod. Under omdirigeringen, beroende på typ av app, kan användaren behöva ange sina autentiseringsuppgifter igen eller ge tillstånd igen till behörigheter. 
 
 Mer information om hur du hämtar och använder uppdaterade token finns i referens för [Microsoft Identity Platform-protokollet](active-directory-v2-protocols.md).
 
@@ -123,7 +126,7 @@ Parametern `scope` är en blankstegsavgränsad lista med delegerade behörighete
 När användaren har angett sina autentiseringsuppgifter söker Microsoft Identity Platform-slutpunkten efter en matchande post för *användar medgivande*. Om användaren inte har samtyckt till någon av de begärda behörigheterna tidigare, eller om en administratör har samtyckt till dessa behörigheter åt hela organisationen, ber Microsoft Identity Platform-slutpunkten användaren att bevilja de begärda behörigheterna.
 
 > [!NOTE]
-> För tillfället inkluderas den `offline_access` ("upprätthålla åtkomsten till data som du har fått åtkomst till") och `user.read` ("logga in och läsa din profil") behörigheter automatiskt i det första medgivande till ett program.  De här behörigheterna krävs vanligt vis för korrekt AppData – `offline_access` ger appen åtkomst till att uppdatera tokens, kritiskt för interna och webbappar, medan `user.read` ger åtkomst till `sub`-anspråk, så att klienten eller appen kan identifiera användaren korrekt över tid och komma åt elementära användar information.  
+> För tillfället inkluderas den `offline_access` ("upprätthålla åtkomsten till data som du har fått åtkomst till") och `user.read` ("logga in och läsa din profil") behörigheter automatiskt i det första medgivande till ett program.  De här behörigheterna krävs vanligt vis för korrekt programfunktion – `offline_access` ger appen åtkomst till att uppdatera tokens, kritiskt för interna och webbappar, medan `user.read` ger åtkomst till `sub`-anspråk, så att klienten eller appen kan identifiera användaren över tid och komma åt elementära användar information.  
 
 ![Exempel skärm bild som visar godkännande av arbets konto](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -202,7 +205,7 @@ När du är redo att begära behörigheter från din organisations administratö
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Kan anges i GUID eller eget namn format eller allmänt refereras till `common` som visas i exemplet. |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
 | `redirect_uri` | Krävs |Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i registrerings portalen för appen. |
-| `state` | Rekommenderas | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Använd tillstånd för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
+| `state` | Rekommenderad | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Använd tillstånd för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
 |`scope`        | Krävs      | Definierar den uppsättning behörigheter som begärs av programmet. Detta kan vara antingen statiskt (med/.default) eller dynamiska omfång.  Detta kan inkludera OIDC-omfången (`openid`, `profile`, `email`). | 
 
 

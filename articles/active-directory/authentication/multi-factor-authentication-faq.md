@@ -11,18 +11,24 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b15389f25b54a377f75baca7993565b41e65462
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 86cce0ee2a4966e2c2c8d74ad63a50976c199eb6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847124"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967310"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
 I det här avsnittet besvaras vanliga frågor om Azure Multi-Factor Authentication och tjänsten Multi-Factor Authentication. Den är uppdelad i frågor om tjänsten i allmänhet, fakturerings modeller, användar upplevelser och fel sökning.
 
 ## <a name="general"></a>Allmänt
+
+> [!IMPORTANT]
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> [!NOTE]
+> Informationen som delas nedan för Azure-Multi-Factor Authentication-server gäller bara för användare som redan har MFA-servern igång.
+
 
 **F: Hur hanterar Azure Multi-Factor Authentication-server användar data?**
 

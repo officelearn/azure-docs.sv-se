@@ -1,5 +1,5 @@
 ---
-title: Skapa delade virtuella Azure-dator avbildningar för Windows med hjälp av portalen
+title: Skapa ett galleri för Azure-delad avbildning med hjälp av portalen
 description: Lär dig hur du använder Azure Portal för att skapa och dela avbildningar av virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065537"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975507"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Skapa ett galleri för delad avbildning med hjälp av Azure Portal
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Skapa ett galleri för Azure-delad avbildning med hjälp av portalen
 
 Ett [delat bild galleri](shared-image-galleries.md) fören klar en anpassad bild delning i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för att starta distributions åtgärder som till exempel för att läsa in program, programkonfigurationer och andra OS-konfigurationer. 
 
@@ -58,7 +58,7 @@ När du arbetar med den här artikeln ersätter du resurs gruppen och VM-namnen 
 
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
  
-## <a name="create-vms"></a>Skapa VM:ar
+## <a name="create-vms"></a>Skapa virtuella datorer
 
 Nu kan du skapa en eller flera nya virtuella datorer. I det här exemplet skapas en virtuell dator med namnet *myVM*i *myResourceGroup*i data centret *USA, östra* .
 

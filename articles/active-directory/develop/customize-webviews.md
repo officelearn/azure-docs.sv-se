@@ -1,7 +1,7 @@
 ---
-title: Anpassa webbläsare och webbvyer
+title: Anpassa webbläsare & webbvyer | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du anpassar webb läsar miljön som används av MSAL för iOS och macOS för att logga in användare
+description: Lär dig hur du anpassar MSAL iOS/macOS Browser-upplevelse för att logga in användare.
 services: active-directory
 author: tylermsft
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b1e217bfa64ad08136e2763716d455332c5ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843333"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963723"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
 

@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576405"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997198"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera åtkomst till virtuella datorer med just-in-Time
 
-Just-in-Time (JIT)-åtkomst till virtuell dator (VM) kan användas för att låsa inkommande trafik till dina virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs.
+JIT-åtkomst (just-in-time) till virtuella datorer kan användas till att låsa inkommande trafik till dina virtuella Azure-datorer. Det här minskar exponeringen för attacker samtidigt som du enkelt kan ansluta till virtuella datorer när du behöver.
 
 > [!NOTE]
 > Just-in-Time-funktionen finns på standard nivån för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
@@ -93,7 +93,7 @@ Från Security Center kan du konfigurera en JIT-princip och begära åtkomst til
 
 5. Klicka på **Aktivera JIT på virtuella datorer**.
    -. Det här bladet visar standard portarna som rekommenderas av Azure Security Center:
-      - 22 – SSH
+      - 22 - SSH
       - 3389 – RDP
       - 5985 – WinRM 
       - 5986 – WinRM
@@ -106,9 +106,9 @@ Från Security Center kan du konfigurera en JIT-princip och begära åtkomst til
     - **Tillåtna käll-IP-adresser**– de IP-intervall som tillåts på den här porten när en begäran har godkänts.
     - **Maximal begär ande tid**– maximalt tids period då en bestämd port kan öppnas.
 
-     3. Klicka på **OK**.
+     3. Klicka på **OK**
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 > [!NOTE]
 >När JIT VM-åtkomst är aktive rad för en virtuell dator skapar Azure Security Center "neka all inkommande trafik" för de valda portarna i de nätverks säkerhets grupper som är kopplade till och Azure-brandväggen med den. Om andra regler har skapats för de valda portarna, prioriteras de befintliga reglerna för den nya regeln "neka all inkommande trafik". Om det inte finns några befintliga regler på de valda portarna, har den nya regeln "neka all inkommande trafik" företräde överst i nätverks säkerhets grupperna och Azure-brandväggen.
@@ -176,10 +176,10 @@ För din bekvämlighet kan du ansluta till en virtuell dator med JIT direkt frå
 
 För att göra det enkelt att distribuera just-in-Time-åtkomst över dina virtuella datorer kan du ställa in en virtuell dator så att endast just-in-Time-åtkomst direkt inifrån den virtuella datorn.
 
-1. I Azure Portal väljer du **virtuella datorer**.
-2. Klicka på den virtuella dator som du vill begränsa till just-in-Time-åtkomst.
-3. I menyn klickar du på **konfiguration**.
-4. Under **just-in-Time-Access** klickar du på **Aktivera just-in-Time-princip**. 
+1. Sök efter och välj **virtuella datorer**från [Azure Portal](https://ms.portal.azure.com). 
+2. Välj den virtuella dator som du vill begränsa till just-in-Time-åtkomst.
+3. I menyn väljer du **konfiguration**.
+4. Under **just-in-Time-Access**väljer du **Aktivera just-in-Time-princip**. 
 
 Detta möjliggör just-in-Time-åtkomst för den virtuella datorn med följande inställningar:
 

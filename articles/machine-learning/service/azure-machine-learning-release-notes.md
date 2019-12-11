@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82db94dd201676b769f1ea151b23fa1b149f609c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: eea58c700b370531247a51630af478c56f2b551a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807110"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973687"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -23,6 +23,27 @@ I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
 
+## <a name="2019-12-09"></a>2019-12-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1079"></a>Azure Machine Learning SDK för python v-1.0.79
+
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-Core**
+    + Borttagna featurizationConfig för att loggas
+      + Loggningen har uppdaterats till loggen "Auto"/"off"/"customized".
+  + **azureml-automl-runtime**
+    + Stöd har lagts till för Pandas. Serie-och Pandas. Kategoriska för att identifiera kolumn data typ. Tidigare stödde endast numpy. ndarray som stöds
+      + Tillagda relaterade kod ändringar för hantering av kategoriska-dtype på rätt sätt.
+    + Prognos funktions gränssnittet har förbättrats: parametern y_pred gjordes valfri. -Docstrings har förbättrats.
+  + **azureml-contrib-dataset**
+    + Ett fel har åtgärd ATS där det inte gick att montera etiketterade data uppsättningar.
+  + **azureml-core**
+    + Fel korrigering för `Environment.from_existing_conda_environment(name, conda_environment_name)`. Användaren kan skapa en miljö instans som är en exakt replik av den lokala miljön
+    + Ändrade Time Series-relaterade data uppsättnings metoder som ska `include_boundary=True` som standard.
+  + **azureml-träna-automl-client**
+    + Ett problem har åtgärd ATS där verifierings resultaten inte skrivs ut när Visa utdata är inställt på falskt.
+
+  
 ## <a name="2019-11-25"></a>2019-11-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK för python v-1.0.76
@@ -78,7 +99,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
     + **azureml-contrib-dataset**
       + När du har importerat azureml-contrib-dataset kan du anropa `Dataset.Labeled.from_json_lines` i stället för `._Labeled` för att skapa en etikettad data uppsättning.
       + När du anropar `to_pandas_dataframe` på en etikettad data uppsättning med alternativet Hämta kan du nu ange om du vill skriva över befintliga filer eller inte.
-      + När du anropar `keep_columns` eller `drop_columns` som resulterar i att en timeseries, en etikett eller en bild kolumn släpps, tas även motsvarande funktioner bort för data uppsättningen.
+      + När du anropar `keep_columns` eller `drop_columns` som resulterar i en tids serie, etikett eller bild kolumn som släpps, tas även motsvarande funktioner bort för data uppsättningen.
       + Korrigerade problem med PyTorch-inläsaren vid anrop till `dataset.to_torchvision()`.
 
 + **Fel korrigeringar och förbättringar**
@@ -88,7 +109,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
     + Load Balancer typ har lagts till i MLC för AKS-typer
   + **azureml-automl-Core**
     + Korrigerade problemet med identifiering av maximal Horisont i tids serien, med saknade värden och flera kärnor.
-    + Åtgärdade problemet med fel diring generering av kors validerings delningar.
+    + Löst problemet med fel under genereringen av kors validerings delningar.
     + Ersätt det här avsnittet med ett meddelande i markdown-format som visas i viktig information: – förbättrad hantering av korta kärnor i prognos data uppsättningar.
     + Har åtgärdat problemet med maskering av viss användar information under loggningen. – Förbättrad loggning av felen under prognos körningar.
     + Lägga till psutil som ett Conda-beroende till den automatiskt genererade YML-distributions filen.
@@ -101,7 +122,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
     + Load Balancer typ har lagts till i MLC för AKS-typer.
     + Parametern append_prefix bool har lagts till för att download_files i run.py och download_artifacts_from_prefix i artifacts_client. Den här flaggan används för att selektivt förenkla den ursprungliga sökvägen så att bara fil-eller mappnamnet läggs till i output_directory
     + Åtgärda deserialiserings problem för `run_config.yml` med data uppsättnings användning.
-    + När du anropar `keep_columns` eller `drop_columns` som leder till att en timeseries-kolumn släpps, tas även motsvarande funktioner bort för data uppsättningen.
+    + När du anropar `keep_columns` eller `drop_columns` som resulterar i att en Time Series-kolumn släpps, tas även motsvarande funktioner bort för data uppsättningen.
   + **azureml – tolka**
     + Uppdaterad tolkning – community-version till 0.1.0.3
   + **azureml-train-automl**
@@ -159,8 +180,8 @@ Fullständig dokumentation finns på [webbplatsen för paket](https://azure.gith
 ### <a name="azure-machine-learning-sdk-for-python-v1072"></a>Azure Machine Learning SDK för python v-1.0.72
 
 + **Nya funktioner**
-  + Data uppsättningen har lagts till genom [**azureml-datadrift-** ](https://docs.microsoft.com/python/api/azureml-datadrift) paketet, så att du kan övervaka timeseries data uppsättningar för data drift eller andra statistiska förändringar över tid. Aviseringar och händelser kan utlösas om avvikelser upptäcks eller andra villkor för data är uppfyllda. Se [vår dokumentation](https://aka.ms/datadrift) för mer information. 
-  + Vi presenterar två nya versioner (kallas även SKU: er utbytbara) i Azure Machine Learning. Med den här versionen kan du nu skapa en Basic-eller Enterprise Azure ML-arbetsyta. Alla befintliga arbets ytor är standard versionen och du kan gå till Azure Portal eller Studio för att uppgradera arbets ytan när som helst. Du kan skapa antingen en Basic-eller Enterprise-arbetsyta från Azure-portalen. Mer information finns i [vår dokumentation](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) . Från SDK kan du bestämma vilken version av din arbets yta som ska användas med hjälp av egenskapen "SKU" för ditt arbets objekt.
+  + Data uppsättningen har lagts till genom [**azureml-datadrift-** ](https://docs.microsoft.com/python/api/azureml-datadrift) paketet, vilket möjliggör övervakning av Time Series-datauppsättningar för data drift eller andra statistiska förändringar över tid. Aviseringar och händelser kan utlösas om avvikelser upptäcks eller andra villkor för data är uppfyllda. Se [vår dokumentation](https://aka.ms/datadrift) för mer information. 
+  + Vi presenterar två nya versioner (kallas även SKU: er utbytbara) i Azure Machine Learning. Med den här versionen kan du nu skapa en standard-eller Enterprise Azure Machine Learning-arbetsyta. Alla befintliga arbets ytor är standard versionen och du kan gå till Azure Portal eller Studio för att uppgradera arbets ytan när som helst. Du kan skapa antingen en Basic-eller Enterprise-arbetsyta från Azure Portal. Mer information finns i [vår dokumentation](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) . Från SDK kan du bestämma vilken version av din arbets yta som ska användas med hjälp av egenskapen "SKU" för ditt arbets objekt.
   + Vi har också gjort förbättringar för Azure Machine Learning beräkning – nu kan du visa mått för dina kluster (som till exempel totala antalet noder, köra noder, total kärn kvot) i Azure Monitor, förutom att Visa diagnostikloggar för fel sökning. Dessutom kan du också visa för tillfället pågående eller köade körningar i klustret och information, till exempel IP-adresser för de olika noderna i klustret. Du kan visa dessa antingen i portalen eller genom att använda motsvarande funktioner i SDK eller CLI. 
   
   + **För hands versions funktioner**
@@ -202,7 +223,7 @@ Fullständig dokumentation finns på [webbplatsen för paket](https://azure.gith
     + En guardrail för prognos aktiviteter har lagts till för att kontrol lera om en angiven max_horizon kommer att orsaka minnes problem på den angivna datorn eller inte. Om det kommer visas ett guardrail-meddelande.
     + Stöd har lagts till för komplexa frekvenser som 2 år och 1 månad. – Extra förståeligt fel meddelande om frekvensen inte kan fastställas.
     + Lägg till azureml – standardvärdet för automatiskt skapade Conda-kuvert för att lösa modell distributions problemet
-    + Tillåt att mellanliggande data i Azure Machine Learning pipeline konverteras till data uppsättning i tabell format och används i `AutoMLStep`.
+    + Tillåt att mellanliggande data i Azure Machine Learning pPipeline konverteras till data uppsättning i tabell format och används i `AutoMLStep`.
     + Implementerad uppdatering av kolumn syfte för strömning.
     + Implementerad transformator parameter uppdatering för imputerade och HashOneHotEncoder för strömning.
     + Den aktuella data storleken och den minsta data storlek som krävs för verifierings fel meddelandena har lagts till.
@@ -230,7 +251,7 @@ Fullständig dokumentation finns på [webbplatsen för paket](https://azure.gith
     + Överskriven flagga för tjänst distribution (ACI och AKS) har lagts till i SDK och CLI. Om det här alternativet anges skrivs den befintliga tjänsten över om det redan finns en tjänst med namnet. Om tjänsten inte finns, skapas en ny tjänst.
   + [**azureml – datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
     + Har flyttats från `azureml-contrib-datadrift` till `azureml-datadrift`
-    + Stöd för övervakning av timeseries-datauppsättningar för drift och andra statistiska åtgärder har lagts till 
+    + Stöd har lagts till för övervakning av tids serie uppsättningar för drift och andra statistiska åtgärder 
     + Nya metoder `create_from_model()` och `create_from_dataset()` till [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) -klassen. Metoden `create()` är föråldrad. 
     + Justeringar av visualiseringar i python och UI i Azure Machine Learning Studio.
     + Stöd för schemaläggning per vecka och månatlig övervakning, förutom dagligen för data uppsättnings övervakare.
@@ -344,7 +365,7 @@ Fullständig dokumentation finns på [webbplatsen för paket](https://azure.gith
     + Stöd för hämtning av data uppsättningar-baserade datautdata.
   + **[azureml – förklara-modell](https://docs.microsoft.com/python/api/azureml-explain-model)**
     + Byter namn på AzureML-förklara-Model-paket till AzureML-tolka, och behåller det gamla paketet för bakåtkompatibilitet.
-    + fast automl-bugg med obehandlade förklaringar har angetts till klassificerings uppgift i stället för regression som standard vid hämtning från ExplanationClient.
+    + fast AutoML-bugg med obehandlade förklaringar har angetts till klassificerings uppgift i stället för regression som standard vid hämtning från ExplanationClient.
     + Lägg till stöd för [ScoringExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.scoring.scoring_explainer.scoringexplainer) som ska skapas direkt med [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
   + **[azureml – pipeline – kärna](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Bättre prestanda för att skapa stora pipeliner.
@@ -426,8 +447,8 @@ Fliken experiment i den [nya arbets ytans Portal](https://ml.azure.com) har uppd
   + **azureml-pipeline-core**
     + En antecknings bok har lagts till för att beskriva modulen, ModuleVersion och ModuleStep
   + **azureml-pipeline-steps**
-    + RScriptStep har lagts till för R-skript som körs via AML-pipeline
-    + Parametrar för fast metadata parsas i AzureBatchStep som orsakade fel meddelandet "tilldelningen av parametern SubscriptionId har inte angetts"
+    + RScriptStep har lagts till för R-skript som körs via AML-pipeline.
+    + Parametrar för fast metadata parsas i AzureBatchStep som orsakade fel meddelandet "tilldelningen av parametern SubscriptionId har inte angetts".
   + **azureml-train-automl**
     + Stöd för training_data, validation_data, label_column_name weight_column_name som indata-utdataformat
     + Ett utfasnings meddelande har lagts till för explain_model () och retrieve_model_explanations ()
@@ -517,7 +538,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
 1. Kan inte ta bort eller byta namn på filen i antecknings böcker och filer. Under den offentliga för hands versionen kan du använda Jupyter UI eller terminalen i Notebook VM för att utföra uppdaterings fil åtgärder. Eftersom det är ett monterat nätverks fil system visas alla ändringar du gör på den virtuella datorn för bärbara datorer direkt i arbets ytan Notebook. 
 
 1. För SSH till den virtuella Notebook-datorn:
-   1. Hitta de SSH-nycklar som skapades under installationen av den virtuella datorn. Eller Sök efter nycklarna i Azure ML-Azure Portal > Öppna fliken Compute > Leta upp den virtuella Notebook-datorn i listan > öppna dess egenskaper: kopiera nycklarna från dialog rutan.
+   1. Hitta de SSH-nycklar som skapades under installationen av den virtuella datorn. Eller Sök efter nycklarna i Azure Machine Learning arbets ytan > Öppna fliken Compute > Leta upp den virtuella Notebook-datorn i listan > öppna dess egenskaper: kopiera nycklarna från dialog rutan.
    1. Importera dessa offentliga och privata SSH-nycklar till den lokala datorn.
    1. Använd dem för SSH i den virtuella Notebook-datorn. 
 
@@ -555,7 +576,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Introducera `partition_format` som argument för `Dataset.Tabular.from_delimited_files` och `Dataset.Tabular.from_parquet.files`. Partitionsinformation för varje data Sök väg extraheras till kolumner baserat på det angivna formatet. {column_name} skapar en sträng kolumn och {column_name: ÅÅÅÅ/MM/dd/HH/mm/SS} skapar kolumnen DateTime, där ÅÅÅÅ, MM, DD, HH, mm och SS används för att extrahera år, månad, dag, timme, minut och sekund för datum/tid-typen. Partition_format bör starta från positionen för den första partitionen tills fil Sök vägen är slut. Till exempel, med sökvägen ".. /USA/2019/01/01/data.csv ' där partitionen är per land och tid, partition_format = '/{Country}/{PartitionDate: ÅÅÅÅ/MM/DD}/data. csv ' skapar sträng kolumnen land med värdet "USA" och datetime-kolumnen "PartitionDate" med värdet "2019-01-01".
     + `to_csv_files`-och `to_parquet_files`s metoder har lagts till i `TabularDataset`. Dessa metoder möjliggör konvertering mellan en `TabularDataset` och en `FileDataset` genom att konvertera data till filer med det angivna formatet.
     + Logga automatiskt in i bas avbildnings registret när du sparar en Dockerfile som genereras av Model. Package ().
-    + gpu_support är inte längre nödvändigt. AzureML identifierar och använder nu NVIDIA Docker-tillägget när det är tillgängligt. Den kommer att tas bort i en framtida version.
+    + gpu_support är inte längre nödvändigt. AML identifierar och använder nu NVIDIA Docker-tillägget när det är tillgängligt. Den kommer att tas bort i en framtida version.
     + Stöd har lagts till för att skapa, uppdatera och använda PipelineDrafts.
     + Den här versionen förbättrar körnings prestandan för automatiserade lokala Machine Learning-körningar.
     + Användare kan fråga mått från körnings historik efter namn.
@@ -737,7 +758,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Modell beskrivningen kan nu uppdateras efter registreringen
   + **azureml-automl-Core**
     + Uppdatera NimbusML-beroendet till 1.2.0-versionen (aktuell senaste).
-    + Lägga till stöd för Nimbus ML-uppskattningar & pipelines som ska användas inom AutoML-uppskattningar.
+    + Lägga till stöd för NimbusML-uppskattningar & pipelines som ska användas inom AutoML-uppskattningar.
     + Åtgärda ett fel i urvals proceduren för ensemblen som inte nödvändigt vis växer till den resulterande ensemblen även om poängen var konstant.
     + Aktivera åter användning av vissa featurizations över ka-delningar för prognos uppgifter. Detta påskyndar körningen av installations programmet på ungefär samma sätt som n_cross_validations för dyra featurizations som lags och rullande fönster.
     + Åtgärda ett problem om tiden ligger utanför Pandas-tidsintervallet som stöds. Vi höjer nu en DataException om tiden är mindre än PD. Timestamp. min eller större än PD. Timestamp. Max
@@ -752,7 +773,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     +  Förbättringar av exempel på bärbara datorer, inklusive växla till azureml-OpenData uppsättningar i stället för azureml-contrib-OpenData uppsättningar och prestanda förbättringar när data berikas
   + **azureml-contrib-förklara-modell**
     + Argument för fasta omvandlingar för LIME-förklaringar för rå funktions prioritet i azureml-contrib-Restore-Model-paket
-    + tillagda segment till bild förklaringar i bild förklaring för AzureML-contrib-deklarning-modell paket
+    + Du har lagt till segment till bild förklaringar i bild förklaring för paketet AzureML-contrib-re-Model
     + Lägg till scipy-sparse-stöd för LimeExplainer
     + `batch_size` till efterlikna förklaringar när `include_local=False`, för att strömma globala förklaringar i batchar för att förbättra körnings tiden för DecisionTreeExplainableModel
   + **azureml-contrib-featureengineering**
@@ -794,13 +815,17 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Korrigerings fel där mlflow. log_artifacts ("my_dir") sparar artefakter under "my_dir/< artefakt sökvägar >" i stället för "< artefakt-sökvägar >"
   + **azureml-opendatasets**
     + PIN-`pyarrow` för `opendatasets` till gamla versioner (< 0.14.0) på grund av ett minnes problem som nyligen har introducerats där.
-    +  Flytta azureml-contrib-opendataset till azureml-opendataset. – Tillåt att öppna data uppsättnings klasser registreras på AML-arbetsytan och utnyttja AML-datauppsättnings funktionerna sömlöst. -Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
+    + Flytta azureml-contrib-opendataset till azureml-opendataset.
+    + Tillåt att öppna data uppsättnings klasser registreras på Azure Machine Learning arbets yta och utnyttja funktionerna för AML-datauppsättning sömlöst.
+    + Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
   + **azureml-pipeline-steps**
     + DBFS data lager stöds nu för indata och utdata i DatabricksStep.
     + Uppdaterad dokumentation för Azure Batch steg med avseende på indata/utdata.
     + I AzureBatchStep ändrades *delete_batch_job_after_finish* standardvärdet till *Sant*.
   + **azureml – telemetri**
-    +  Flytta azureml-contrib-opendataset till azureml-opendataset. – Tillåt att öppna data uppsättnings klasser registreras på AML-arbetsytan och utnyttja AML-datauppsättnings funktionerna sömlöst. -Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
+    +  Flytta azureml-contrib-opendataset till azureml-opendataset.
+    + Tillåt att öppna data uppsättnings klasser registreras på Azure Machine Learning arbets yta och utnyttja funktionerna för AML-datauppsättning sömlöst.
+    + Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
   + **azureml-train-automl**
     + Uppdaterad dokumentation på get_output som visar den faktiska retur typen och ger ytterligare information om hur du hämtar nyckel egenskaper.
     + Uppdatera NimbusML-beroendet till 1.2.0-versionen (aktuell senaste).
@@ -829,7 +854,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
 + **Nya funktioner**
   + **azureml-opendatasets**
     + **azureml-contrib-OpenData uppsättningar** är nu tillgängliga som **azureml-opendataset**. Det gamla paketet kan fortfarande fungera, men vi rekommenderar att du använder **azureml-OpenData uppsättningar** för att flytta framåt för bättre funktioner och förbättringar.
-    + Med det nya paketet kan du registrera öppna data uppsättningar som data uppsättning i AML-arbetsytan och utnyttja de funktioner som data uppsättningen erbjuder.
+    + Med det nya paketet kan du registrera öppna data uppsättningar som data uppsättning i Azure Machine Learning arbets ytan och utnyttja de funktioner som data uppsättningen erbjuder.
     + Den innehåller också befintliga funktioner som att använda öppna data uppsättningar som Pandas/SPARK-dataframes och plats anslutningar för en viss data uppsättning som väder.
 
 + **För hands versions funktioner**
@@ -844,7 +869,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Ett problem har åtgärd ATS som förhindrade användningen av för bearbetning när AutoML skulle ha använts i samband med Azure ML-pipelines.
   + **azureml-opendatasets**
     + Flyttade azureml-contrib-opendataset till azureml-opendataset.
-    + Tillåtna öppna data uppsättnings klasser kan registreras på AML-arbetsytan och utnyttja AML-datauppsättnings funktionerna sömlöst.
+    + Tillåtna öppna data uppsättnings klasser som ska registreras på Azure Machine Learning arbets ytan och utnyttja AML-datauppsättnings funktionerna sömlöst.
     + Förbättrad NoaaIsdWeather-prestanda i en icke-SPARK-version nämnvärt.
   + **azureml-explain-model**
     + Uppdaterad online-dokumentation för tolknings objekt.
@@ -1029,7 +1054,7 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
 I Azure Portal kan du nu:
 + Skapa och kör automatiserade ML-experiment 
 + Skapa en Notebook VM för att testa Jupyter-anteckningsböcker eller dina egna.
-+ Anpassa avsnittet nytt redigering (förhands granskning) på arbets ytan Machine Learning tjänst, som innehåller automatiserade Machine Learning, visuellt gränssnitt och virtuella datorer som är värdar för bärbara datorer
++ Anpassa det nya redigerings avsnittet (förhands granskning) på arbets ytan Azure Machine Learning, som inkluderar automatiserade Machine Learning, visuellt gränssnitt och virtuella datorer som är värdar för bärbara datorer
     + Skapa automatiskt en modell med automatisk maskin inlärning 
     + Använd ett dra och släpp-visuellt gränssnitt för att köra experiment
     + Skapa en Notebook VM för att utforska data, skapa modeller och distribuera tjänster.
@@ -1037,7 +1062,7 @@ I Azure Portal kan du nu:
 + Uppdaterad fil visare för loggar, utdata och ögonblicks bilder på sidan körnings information.
 + Ny och förbättrad upplevelse för att skapa rapporter på fliken experiment. 
 + Möjlighet att hämta config. JSON-filen från sidan Översikt i arbets ytan Azure Machine Learning har lagts till.
-+ Stöd Machine Learning tjänst arbets yta skapas från Azure Databricks arbets yta 
++ Stöd Azure Machine Learning arbets ytan skapas från arbets ytan Azure Databricks.
 
 ## <a name="2019-04-26"></a>2019-04-26
 
@@ -1236,7 +1261,7 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
   + Azure Machine Learning pipelines har lagt till möjlighet att utlösa en pipeline-körning baserat på data lager ändringar. [Antecknings boken](https://aka.ms/pl-schedule) för pipeline-schemat uppdateras för att visa den här funktionen.
 
 + **Fel korrigeringar och förbättringar**
-  + Vi har lagt till stöd Azure Machine Learning pipelines för att ställa in source_directory_data_store-egenskapen till ett önskat data lager (till exempel en blob-lagring) på [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som anges i [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder Azure File Store som lagrings data lager, som kan köra begränsnings problem när ett stort antal steg körs samtidigt.
+  + Vi har lagt till stöd i Azure Machine Learning pipelines för att ställa in source_directory_data_store-egenskapen till ett önskat data lager (till exempel en blob-lagring) på [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som anges i [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder Azure File Store som lagrings data lager, som kan köra begränsnings problem när ett stort antal steg körs samtidigt.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -1395,7 +1420,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
   * `SummaryFunction.N` har bytt namn till `SummaryFunction.Count`.
   
 + **Felkorrigeringar**
-  * Använd senaste AML kör Token vid läsning från och skriva till datalager på fjärranslutna körs. Tidigare, om den AML kör Token uppdateras i Python, Data Prep-runtime kommer inte att uppdateras med den uppdaterade AML kör Token.
+  * Använd den senaste AML kör token vid läsning från och skrivning till data lager på fjärrkörningar. Tidigare, om den AML kör Token uppdateras i Python, Data Prep-runtime kommer inte att uppdateras med den uppdaterade AML kör Token.
   * Ytterligare tydligare felmeddelanden
   * to_spark_dataframe () kraschar inte längre när Spark använder `Kryo` serialisering
   * Antal värden Inspector kan nu visa fler än 1000 unika värden
@@ -1455,7 +1480,7 @@ Läs mer om Data Prep SDK genom att läsa [referera till docs](https://aka.ms/da
    * Fasta och/eller uttryck liknar hur `pandas` hanterar dem
    * Fast läsning från antingen path
    * Gjort det lättare att förstå felmeddelanden 
-   * Nu inte längre misslyckas vid läsning på fjärranslutna beräkningsmål med AML-token
+   * Miss lyckas nu inte längre vid läsning på fjärrberäknings mål med en AML-token
    * Nu inte längre på Linux DSVM
    * Nu kraschar inte längre när icke-sträng värden är i strängen predikat
    * Hanterar nu assertion fel när dataflöde inte bör fungera korrekt

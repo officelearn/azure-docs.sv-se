@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 19dba88bf04ee84459ebd9ef0279f125724d7522
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: f4bb399e24b2c480023eba6bf5b71990f6d39c8c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406441"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978381"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ I den här artikeln får du lära dig hur du samlar in data från och övervakar
 
 ## <a name="web-service-input-and-response-data"></a>Data för data-och svars data för webb tjänsten
 
-Indata och svar på tjänsten – som motsvarar indata till ML-modellen och dess förutsägelse – loggas till Azure Application Insights-spår under meddelande `"model_data_collection"`. Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure ML-tjänsten för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
+Indata och svar på tjänsten – som motsvarar indata till ML-modellen och dess förutsägelse – loggas till Azure Application Insights-spår under meddelande `"model_data_collection"`. Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
 
 ## <a name="use-the-azure-portal-to-configure"></a>Använd Azure Portal för att konfigurera
 
@@ -49,15 +49,15 @@ Du kan aktivera och inaktivera Azure Application insikter i Azure Portal.
 
 1. På fliken **distributioner** väljer du den tjänst där du vill aktivera Azure Application insikter
 
-   [![lista över tjänster på fliken distributioner](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Lista över tjänster på fliken distributioner](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Välj **Redigera**
 
-   [![knappen Redigera](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Knappen Redigera](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. I **Avancerade inställningar**markerar du kryss rutan **Aktivera AppInsights-diagnostik**
 
-   [![markerad kryss ruta för att aktivera diagnostik](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Markerad kryssruta för att aktivera diagnostik](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Välj **Uppdatera** längst ned på skärmen för att tillämpa ändringarna
 
@@ -66,11 +66,11 @@ Du kan aktivera och inaktivera Azure Application insikter i Azure Portal.
 1. Öppna arbets ytan i [Azure Portal](https://portal.azure.com)
 1. Välj **distributioner**, Välj tjänsten och välj sedan **Redigera**
 
-   [![Använd knappen Redigera](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Använd redigeringsknappen](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. I **Avancerade inställningar**avmarkerar du kryss rutan **Aktivera AppInsights-diagnostik**
 
-   [![avmarkerad kryss ruta för aktivering av diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Avmarkerad kryssruta för att aktivera diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Välj **Uppdatera** längst ned på skärmen för att tillämpa ändringarna
  
@@ -92,7 +92,7 @@ Du kan aktivera och inaktivera Azure Application insikter i Azure Portal.
 
 ### <a name="log-custom-traces-in-your-service"></a>Anpassade loggspårningar i din tjänst
 
-Om du vill logga anpassade spår följer du standard distributions processen för AKS eller ACI i avsnittet [så här distribuerar och var](how-to-deploy-and-where.md) dokumentet. Använd sedan följande steg:
+Om du vill logga anpassade spårningar följer standard distributionsprocessen för AKS eller ACI i den [hur du distribuerar och var](how-to-deploy-and-where.md) dokumentet. Använd sedan följande steg:
 
 1. Uppdatera bedömnings filen genom att lägga till utskrifts uttryck
     
@@ -121,13 +121,13 @@ Om du vill inaktivera Azure Application insikter använder du följande kod:
 Din tjänsts data lagras i ditt Azure Application Insights-konto inom samma resurs grupp som Azure Machine Learning.
 Visa den:
 
-1. Gå till din Machine Learning service-arbetsyta i [Azure Machine Learning Studio](https://ml.azure.com) och klicka på Application Insights länk
+1. Gå till arbets ytan Azure Machine Learning i [Azure Machine Learning Studio](https://ml.azure.com) och klicka på Application Insights länk
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
 1. Välj fliken **Översikt** om du vill se en grundläggande uppsättning mått för din tjänst
 
-   [Översikt över ![](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Översikt över](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 1. Om du vill titta på dina nytto laster och svar för dina webb tjänster väljer du **analys**
 1. I avsnittet schema väljer du **spår** och filtrerar ned spår med meddelandet `"model_data_collection"`. I de anpassade dimensionerna kan du se indata, förutsägelser och annan relevant information
@@ -136,9 +136,9 @@ Visa den:
 
 
 3. Om du vill titta på dina anpassade spår väljer du **analys**
-4. I avsnittet schema väljer du **spår**. Välj **Kör** för att köra frågan. Data ska visas i tabell format och bör mappas till dina anpassade anrop i din bedömnings fil
+4. Markera under schemat **spårningar**. Välj sedan **kör** att köra frågan. Data ska visas i tabell format och bör mappas till dina anpassade anrop i din bedömnings fil
 
-   [![anpassade spår](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Anpassade spårningar](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Mer information om hur du använder Azure Application Insights finns i [Application Insights?](../../azure-monitor/app/app-insights-overview.md).
 

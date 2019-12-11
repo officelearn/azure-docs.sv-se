@@ -1,6 +1,6 @@
 ---
 title: Uppdatera Machine Learning modeller med Azure Data Factory
-description: Beskriver hur du skapar skapa förutsägande pipelines med hjälp av Azure Data Factory och Azure Machine Learning
+description: Beskriver hur du skapar förutsägbara pipelines med hjälp av Azure Data Factory och Azure Machine Learning
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 190a4e704b002a4d6d4876d048c693a5fffe0114
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683128"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978721"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Uppdatera Azure Machine Learning modeller med uppdatering av resurs aktivitet
 
@@ -41,8 +41,8 @@ Den här artikeln kompletterar den huvudsakliga Azure Data Factory-Azure Machine
 ## <a name="overview"></a>Översikt
 Med tiden måste de förutsägande modellerna i test experimentet i Azure ML återanvändas med nya data uppsättningar. När du är färdig med omträningen vill du uppdatera bedömnings-webbtjänsten med den retränade ML-modellen. Vanliga steg för att aktivera omskolning och uppdatering av Azure ML-modeller via webb tjänster är:
 
-1. Skapa ett experiment i [Azure ml Studio](https://studio.azureml.net).
-2. När du är nöjd med modellen använder du Azure ML Studio för att publicera webb tjänster för både **utbildnings experimentet** och poängsättningen/**förutsägande experiment**.
+1. Skapa ett experiment i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net).
+2. När du är nöjd med modellen använder du Azure Machine Learning Studio (klassisk) för att publicera webb tjänster för både **utbildnings experimentet** och poängsättningen/**förutsägande experiment**.
 
 I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i [omträna Machine Learning modeller program mässigt](../../machine-learning/machine-learning-retrain-models-programmatically.md) .
 
@@ -88,7 +88,7 @@ Om webb tjänsten är den nya typen av webb tjänst som exponerar en Azure Resou
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Du kan hämta värden för plats hållare i URL: en när du frågar webb tjänsten på [Azure Machine Learning Web Services-portalen](https://services.azureml.net/). Den nya typen av uppdaterings resurs slut punkt kräver en AAD-token (Azure Active Directory). Ange **servicePrincipalId** och **servicePrincipalKey**i den länkade tjänsten azureml. Se [hur du skapar tjänstens huvud namn och tilldelar behörigheter för att hantera Azure-resurser](../../active-directory/develop/howto-create-service-principal-portal.md). Här är ett exempel på en AzureML länkad tjänst definition: 
+Du kan hämta värden för plats hållare i URL: en när du frågar webb tjänsten på [Azure Machine Learning Web Services-portalen](https://services.azureml.net/). Den nya typen av uppdaterings resurs slut punkt kräver en AAD-token (Azure Active Directory). Ange **servicePrincipalId** och **servicePrincipalKey** i den länkade tjänsten Azure Machine Learning. Se [hur du skapar tjänstens huvud namn och tilldelar behörigheter för att hantera Azure-resurser](../../active-directory/develop/howto-create-service-principal-portal.md). Här är ett exempel på en AzureML länkad tjänst definition: 
 
 ```json
 {
@@ -138,7 +138,7 @@ Här är exempel-JSON-definitionen för den länkade tjänsten:
 ```
 
 ### <a name="training-input-dataset"></a>Data uppsättning för utbildning:
-Följande data uppsättning representerar indata för träning för Azure ML-webbtjänsten. Körnings aktiviteten i Azure ML batch använder den här data uppsättningen som indata.
+Följande data uppsättning representerar indata för tränings data för webb tjänsten för Azure Machine Learning utbildning. Azure Machine Learning batch-körningen använder den här data uppsättningen som indata.
 
 ```JSON
 {
@@ -192,7 +192,7 @@ Följande data uppsättning representerar den utgående iLearner-filen från Azu
 }
 ```
 
-### <a name="linked-service-for-azure-ml-training-endpoint"></a>Länkad tjänst för Azure ML Training-slutpunkt
+### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Länkad tjänst för Azure Machine Learning utbildnings slut punkt
 Följande JSON-kodfragment definierar en Azure Machine Learning länkad tjänst som pekar på standard slut punkten för utbildnings webb tjänsten.
 
 ```JSON
@@ -208,12 +208,12 @@ Följande JSON-kodfragment definierar en Azure Machine Learning länkad tjänst 
 }
 ```
 
-I **Azure ml Studio**gör du följande för att hämta värden för **mlEndpoint** och **apiKey**:
+I **Azure Machine Learning Studio (klassisk)** gör du följande för att hämta värden för **mlEndpoint** och **apiKey**:
 
 1. Klicka på **webb tjänster** på den vänstra menyn.
 2. Klicka på **webb tjänsten utbildning** i listan med webb tjänster.
 3. Klicka på Kopiera bredvid text rutan **API-nyckel** . Klistra in nyckeln i Urklipp i Data Factory JSON-redigeraren.
-4. I **Azure ml Studio**klickar du på **batch-körning** länk.
+4. I **Azure Machine Learning Studio (klassisk)** klickar du på länken för **batch-körning** .
 5. Kopiera **begärd URI** från avsnittet **begäran** och klistra in den i Data Factory JSON-redigeraren.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Länkad tjänst för Azure ML-uppdatering av resultat slut punkt:

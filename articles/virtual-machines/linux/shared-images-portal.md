@@ -1,5 +1,5 @@
 ---
-title: Skapa delade virtuella Azure-dator avbildningar för Linux med hjälp av portalen
+title: Skapa delade Azure VM-avbildningar för Linux med hjälp av portalen
 description: Lär dig hur du använder Azure Portal för att skapa och dela avbildningar av virtuella datorer.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 9dff10848c42fd730f0bc77fd325f00cec554c9d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 44df85a94ad26d3abcd48f01c31e7aa093c1123f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892880"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978704"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Skapa ett galleri för delad avbildning med hjälp av Azure Portal
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Skapa ett galleri för Azure-delad avbildning med hjälp av portalen
 
 Ett [delat bild galleri](shared-image-galleries.md) fören klar en anpassad bild delning i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för att starta distributions åtgärder som till exempel för att läsa in program, programkonfigurationer och andra OS-konfigurationer. 
 

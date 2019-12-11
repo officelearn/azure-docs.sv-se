@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63cc4b902c0bd0281228e23076be6e0a18461597
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241421"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970065"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Salesforce
 
@@ -46,9 +46,9 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Salesforce har stöd för **SP**-initierad enkel inloggning
 
-* Salesforce stöder **just-in-time**-användaretablering
+* Salesforce stöder [ **automatiserad** användar etablering och avetablering](salesforce-provisioning-tutorial.md) (rekommenderas)
 
-* Salesforce har stöd för [**automatisk** användaretablering](salesforce-provisioning-tutorial.md)
+* Salesforce stöder **just-in-time**-användaretablering
 
 * Salesforce-mobilappen kan nu konfigureras med Azure AD för att aktivera SSO. I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
@@ -206,7 +206,7 @@ I det här avsnittet skapas en användare som heter B. Simon i Salesforce. Sales
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Salesforce-panelen i åtkomstpanelen bör du automatiskt loggas in på Salesforce som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Salesforce-panelen i åtkomstpanelen bör du automatiskt loggas in på Salesforce som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Testa SSO för Salesforce (mobil)
 

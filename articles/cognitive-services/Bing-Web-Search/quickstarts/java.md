@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använd Java för att anropa Webbsökning i Bing REST API'
+title: 'Snabb start: Använd Java för att anropa Webbsökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka begäranden till REST API för webbsökning i Bing med hjälp av Java och få ett JSON-svar
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f8a827cf19bec0796fc0e9743d1a2599071468af
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 8bdc6acb17cde29b99bad20a45f41d6bfc174363
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899683"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976357"
 ---
-# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Snabbstart: Använd Java för att söka på webben med Webbsökning i Bing REST API, en Azure-tjänst för inlärning
+# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Snabb start: Använd Java för att söka på webben med Webbsökning i Bing REST API, en Azure-tjänst för inlärning
 
 I den här snabb starten ska du använda ett Java-program för att göra ditt första anrop till API för webbsökning i Bing och ta emot JSON-svaret. Java-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
@@ -73,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Den här koden ställer in `subscriptionKey`, `host`, `path` och `searchTerm`. Bekräfta att slutpunkten är korrekt och ersätt värdet `subscriptionKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till den här `BingWebSearch` koden i klassen som anges ovan.
+Den här koden ställer in `subscriptionKey`, `host`, `path` och `searchTerm`. `host` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen. Ersätt värdet `subscriptionKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till den här koden i `BingWebSearch`-klassen som anges ovan.
 
 ```java
 // Enter a valid subscription key.

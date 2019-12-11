@@ -1,5 +1,5 @@
 ---
-title: Utforma en instrument panel i real tid med Azure Database for PostgreSQL – citus-självstudie
+title: 'Självstudie: utforma en real tids instrument panel – storskalig skalning (citus) – Azure Database for PostgreSQL'
 description: Den här självstudien visar hur du skapar, fyller i och frågar distribuerade tabeller på Azure Database for PostgreSQL citus.
 author: jonels-msft
 ms.author: jonels
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482882"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978108"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en instrument panel med real tids analys med Azure Database for PostgreSQL – storskalig (citus)
 
@@ -28,7 +28,7 @@ I den här självstudien använder du Azure Database for PostgreSQL-storskalig s
 > * Fråga rå data och sammanställda data
 > * Förfaller data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -128,7 +128,7 @@ Frågan infogar ungefär åtta rader varje sekund. Raderna lagras på olika arbe
    > Lämna frågan för generering av data som körs och öppna en andra psql-anslutning för de återstående kommandona i den här självstudien.
    >
 
-## <a name="query"></a>Fråga
+## <a name="query"></a>Söka i data
 
 Med alternativet för skalnings värd kan flera noder bearbeta frågor parallellt för hastighet. Databasen beräknar till exempel agg regeringar som SUM och COUNT på arbetsnoder och kombinerar resultaten till ett slutligt svar.
 

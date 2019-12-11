@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 79f0630c65aa438ac5d831b03842cc74b609cd3b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 059862255ca2cf0ce435496bf22d866a37c8be71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132733"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977173"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Node.js
 
@@ -23,17 +23,16 @@ SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i
 
 Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) finns på GitHub.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
 * En prenumerationsnyckel  
 
-## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+
+
+## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
 
 Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
 
@@ -109,6 +108,6 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Azure Node SDK-referens](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)

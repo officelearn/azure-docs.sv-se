@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e38cc954213e79a72fbff3c406830781fe50111e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 701a0dc363f69d1d700dec707a13b379436a2365
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647620"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975235"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-c"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API ochC#
 
-I den här snabb starten ska du extrahera tryckt och/eller handskriven text från en bild genom att använda Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
+I den här snabb starten ska du extrahera tryckt och/eller handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
 
 > [!IMPORTANT]
-> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Read en URI i fältet `Operation-Location`-svars huvud. Du kan sedan använda den här URI: n, som representerar [resultat metoden Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Read en URI i fältet `Operation-Location` svars huvud. Du kan sedan använda den här URI: n, som representerar [resultat metoden Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Visual Studio 2015 eller senare](https://visualstudio.microsoft.com/downloads/).
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.

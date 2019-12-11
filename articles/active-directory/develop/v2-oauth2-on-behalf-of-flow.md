@@ -1,5 +1,5 @@
 ---
-title: Microsoft Identity Platform och OAuth 2.0 på uppdrag av Flow | Azure
+title: Microsoft Identity Platform & OAuth 2.0 på uppdrag av Flow | Azure
 description: I den här artikeln beskrivs hur du använder HTTP-meddelanden för att implementera tjänst-till-tjänst-autentisering med hjälp av flödes data för OAuth 2.0.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09d851572731ad9c83093b7076279df112585703
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fa58f63e70c09e17328b849e7728604a65cb7ae1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207499"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964328"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow
 

@@ -1,6 +1,6 @@
 ---
-title: 'Webbapp som anropar webb-API: er (kod konfiguration) – Microsoft Identity Platform'
-description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (appens kod konfiguration)'
+title: 'Konfigurera webb program som anropar webb-API: er – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du konfigurerar koden för en webbapp som anropar webb-API: er'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231ecdb6afae1fc36d11b2c12aa82c7e860bb708
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 83523fd12700789fb5c34230d529e06c0b284147
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175315"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964993"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Webbapp som anropar webb-API: er – kod konfiguration
 
@@ -86,7 +86,7 @@ Exemplet tillåter för närvarande MSAL. Python skapar auktoriseringskod-URL: e
 
 ### <a name="startupcs"></a>Startup.cs
 
-I ASP.NET Core är principen i `Startup.cs`s filen. Du vill prenumerera på `OnAuthorizationCodeReceived` öppna ID Connect-händelsen och anropa MSAL från den här händelsen. NET-metoden `AcquireTokenFromAuthorizationCode`, som har att lagra i token cache, åtkomsttoken för den begärda `scopes`och en uppdateringstoken som ska användas för att uppdatera åtkomsttoken när den upphör att gälla, eller för att få en token åt samma användare , men för en annan resurs.
+I ASP.NET Core är principen i `Startup.cs`s filen. Du vill prenumerera på `OnAuthorizationCodeReceived` öppna ID Connect-händelsen och anropa MSAL från den här händelsen. NET-metoden `AcquireTokenFromAuthorizationCode`, som har att lagra i token cache, åtkomsttoken för den begärda `scopes`och en uppdateringstoken som ska användas för att uppdatera åtkomsttoken när den upphör att gälla, eller för att få en token åt samma användare, men för en annan resurs.
 
 I övningen försöker [ASP.net Core Web App-självstudie](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) att ge dig en återanvändbar kod för dina webb program.
 
@@ -320,7 +320,7 @@ För att summera, kommer `AcquireTokenByAuthorizationCode` faktiskt lösa in den
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-Hur ASP.NET hanterar saker liknar ASP.NET Core, förutom att konfigurationen av OpenIdConnect och prenumerationen på `OnAuthorizationCodeReceived`-händelsen inträffar i [App_Start\Startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) -filen. Du hittar liknande koncept som i ASP.NET Core, förutom att i ASP.NET måste du ange RedirectUri i [Web. config # L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Den här konfigurationen är mindre stabil än vad som görs i ASP.NET Core, eftersom du behöver ändra den när du distribuerar programmet.
+Hur ASP.NET hanterar saker liknar ASP.NET Core, förutom att konfigurationen av OpenIdConnect och prenumerationen på `OnAuthorizationCodeReceived`-händelsen inträffar i [App_Start \STARTUP.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) -filen. Du hittar liknande koncept som i ASP.NET Core, förutom att i ASP.NET måste du ange RedirectUri i [Web. config # L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Den här konfigurationen är mindre stabil än vad som görs i ASP.NET Core, eftersom du behöver ändra den när du distribuerar programmet.
 
 ```CSharp
 public partial class Startup

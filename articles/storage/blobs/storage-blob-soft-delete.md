@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113724"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978125"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage blobbar
 
@@ -75,14 +75,14 @@ Följande tabell information förväntas när mjuk borttagning är aktiverat:
 | REST API åtgärd | Resurstyp | Beskrivning | Funktions förändring |
 |--------------------|---------------|-------------|--------------------|
 | [Ta bort](/rest/api/storagerp/StorageAccounts/Delete) | Konto | Tar bort lagrings kontot, inklusive alla behållare och blobbar som det innehåller.                           | Ingen ändring. Behållare och blobbar i det borttagna kontot går inte att återskapa. |
-| [Ta bort behållare](/rest/api/storageservices/delete-container) | Container | Tar bort behållaren, inklusive alla blobbar som den innehåller. | Ingen ändring. Blobbar i den borttagna behållaren går inte att återskapa. |
-| [Lägg till BLOB](/rest/api/storageservices/put-blob) | Blockera, lägga till och Page blobbar | Skapar en ny BLOB eller ersätter en befintlig BLOB i en behållare | Om den används för att ersätta en befintlig BLOB genereras en ögonblicks bild av blobens tillstånd före anropet automatiskt. Detta gäller även för en tidigare mjuk borttagen BLOB om den ersätts av en blob av samma typ (block, tillägg eller sida). Om den ersätts av en blob av en annan typ, kommer alla befintliga data för mjuk borttagning att upphöra att gälla permanent. |
-| [Ta bort BLOB](/rest/api/storageservices/delete-blob) | Blockera, lägga till och Page blobbar | Markerar en BLOB-eller BLOB-ögonblicksbild för borttagning. Blobben eller ögonblicks bilden raderas senare under skräp insamlingen | Om den används för att ta bort en BLOB-ögonblicksbild, markeras den ögonblicks bilden som mjuk borttagen. Om den används för att ta bort en BLOB markeras denna blob som mjuk borttagning. |
-| [Kopiera BLOB](/rest/api/storageservices/copy-blob) | Blockera, lägga till och Page blobbar | Kopierar en käll-blob till en mål-BLOB i samma lagrings konto eller i ett annat lagrings konto. | Om den används för att ersätta en befintlig BLOB genereras en ögonblicks bild av blobens tillstånd före anropet automatiskt. Detta gäller även för en tidigare mjuk borttagen BLOB om den ersätts av en blob av samma typ (block, tillägg eller sida). Om den ersätts av en blob av en annan typ, kommer alla befintliga data för mjuk borttagning att upphöra att gälla permanent. |
+| [Ta bort container](/rest/api/storageservices/delete-container) | Container | Tar bort behållaren, inklusive alla blobbar som den innehåller. | Ingen ändring. Blobbar i den borttagna behållaren går inte att återskapa. |
+| [Placera blob](/rest/api/storageservices/put-blob) | Blockera, lägga till och Page blobbar | Skapar en ny BLOB eller ersätter en befintlig BLOB i en behållare | Om den används för att ersätta en befintlig BLOB genereras en ögonblicks bild av blobens tillstånd före anropet automatiskt. Detta gäller även för en tidigare mjuk borttagen BLOB om den ersätts av en blob av samma typ (block, tillägg eller sida). Om den ersätts av en blob av en annan typ, kommer alla befintliga data för mjuk borttagning att upphöra att gälla permanent. |
+| [Ta bort blob](/rest/api/storageservices/delete-blob) | Blockera, lägga till och Page blobbar | Markerar en BLOB-eller BLOB-ögonblicksbild för borttagning. Blobben eller ögonblicks bilden raderas senare under skräp insamlingen | Om den används för att ta bort en BLOB-ögonblicksbild, markeras den ögonblicks bilden som mjuk borttagen. Om den används för att ta bort en BLOB markeras denna blob som mjuk borttagning. |
+| [Kopiera blob](/rest/api/storageservices/copy-blob) | Blockera, lägga till och Page blobbar | Kopierar en käll-blob till en mål-BLOB i samma lagrings konto eller i ett annat lagrings konto. | Om den används för att ersätta en befintlig BLOB genereras en ögonblicks bild av blobens tillstånd före anropet automatiskt. Detta gäller även för en tidigare mjuk borttagen BLOB om den ersätts av en blob av samma typ (block, tillägg eller sida). Om den ersätts av en blob av en annan typ, kommer alla befintliga data för mjuk borttagning att upphöra att gälla permanent. |
 | [Spärra block](/rest/api/storageservices/put-block) | Blockblob-objekt | Skapar ett nytt block som ska allokeras som en del av en Block-Blob. | Om det används för att genomföra ett block till en blob som är aktiv, sker ingen ändring. Om den används för att genomföra ett block till en blob som är mjuk borttagning, skapas en ny blob och en ögonblicks bild skapas automatiskt för att avbilda statusen för den mjuka borttagna blobben. |
 | [Lista över blockerade](/rest/api/storageservices/put-block-list) | Blockblob-objekt | Genomför en BLOB genom att ange den uppsättning block-ID: n som utgör block-bloben. | Om den används för att ersätta en befintlig BLOB genereras en ögonblicks bild av blobens tillstånd före anropet automatiskt. Detta gäller även för en tidigare mjuk borttagen BLOB om det är en Block-Blob. Om den ersätts av en blob av en annan typ, kommer alla befintliga data för mjuk borttagning att upphöra att gälla permanent. |
 | [Placerings sida](/rest/api/storageservices/put-page) | Sidblob-objekt | Skriver ett intervall med sidor till en sid-blob. | Ingen ändring. Sid-BLOB-data som skrivs över eller rensas med den här åtgärden sparas inte och går inte att återskapa. |
-| [Lägg till block](/rest/api/storageservices/append-block) | Bifoga blobbar | Skriver ett data block till slutet av en tilläggs-BLOB | Ingen ändring. |
+| [Lägg till block](/rest/api/storageservices/append-block) | Tilläggsblobar | Skriver ett data block till slutet av en tilläggs-BLOB | Ingen ändring. |
 | [Ange BLOB-egenskaper](/rest/api/storageservices/set-blob-properties) | Blockera, lägga till och Page blobbar | Anger värden för system egenskaper som definierats för en blob. | Ingen ändring. Det går inte att återskapa de överskrivna BLOB-egenskaperna. |
 | [Ange BLOB-metadata](/rest/api/storageservices/set-blob-metadata) | Blockera, lägga till och Page blobbar | Anger användardefinierade metadata för angiven blob som ett eller flera namn/värde-par. | Ingen ändring. Överskrivna BLOB-metadata går inte att återskapa. |
 
@@ -146,13 +146,23 @@ Mer information om priser för Azure Blob Storage i allmänhet finns på [sidan 
 
 När du först aktiverar mjuk borttagning rekommenderar vi att du använder en liten kvarhållningsperiod för att bättre förstå hur funktionen kommer att påverka din faktura.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Följande steg visar hur du kommer igång med mjuk borttagning.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
-Om du vill aktivera mjuk borttagning navigerar du till alternativet **mjuk borttagning** under **BLOB service**. Klicka sedan på **aktive rad** och ange antalet dagar som du vill behålla mjuka borttagna data.
+Aktivera mjuk borttagning för blobbar på ditt lagrings konto med hjälp av Azure Portal:
+
+1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto. 
+
+2. Navigera till alternativet för **data skydd** under **BLOB service**.
+
+3. Klicka på **aktive rad** under **BLOB Soft Delete**
+
+4. Ange antalet dagar som du vill *behålla för* **bevarande principer**
+
+5. Välj knappen **Spara** för att bekräfta dina data skydds inställningar
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
@@ -297,7 +307,7 @@ blockBlob.StartCopy(copySource);
 
 Om det finns en chans att dina data ändras eller tas bort av misstag av ett program eller en annan lagrings konto användare rekommenderas du att aktivera mjuk borttagning. Om du aktiverar mjuk borttagning för ofta överskrivna data kan det leda till ökade kapacitets kostnader för lagring och ökad fördröjning vid registrering av blobbar. Du kan minimera denna ytterligare kostnad och svars tid genom att lagra ofta skrivna data i ett separat lagrings konto där mjuk borttagning har inaktiverats. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>För vilka lagrings tjänster kan jag använda mjuk borttagning?
 
@@ -356,7 +366,7 @@ Det är möjligt att dra nytta av mjuk borttagning oavsett vilken API-version du
 ## <a name="next-steps"></a>Nästa steg
 
 * [.NET-exempel kod](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
-* [BLOB service-REST API](/rest/api/storageservices/blob-service-rest-api)
+* [Blob-tjänstens REST-API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage replikering](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Utforma hög tillgängliga program med RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

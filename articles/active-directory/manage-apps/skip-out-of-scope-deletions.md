@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958636"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997079"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Hoppa över borttagning av användar konton som ingår i omfånget
 
@@ -30,7 +30,7 @@ I den här guiden beskrivs hur du använder Microsoft Graph API och Microsoft Gr
 * Om ***SkipOutOfScopeDeletions*** är inställt på 0 (falskt) inaktive ras konton som omfattas av omfånget i målet
 * Om ***SkipOutOfScopeDeletions*** är inställt på 1 (sant) inaktive ras inte konton som omfattas av omfånget i målet som den här flaggan anges på *etablerings appens* nivå och kan konfigureras med hjälp av Graph API. 
 
-Eftersom den här konfigurationen ofta används med *arbets dagen för att Active Directory användar etablerings* appen, innehåller stegen nedan skärm bilder av programmet Workday. Detta kan dock också användas med andra etablerings appar.
+Eftersom den här konfigurationen ofta används med *arbets dagen för att Active Directory användar etablerings* appen, innehåller stegen nedan skärm bilder av programmet Workday. Detta kan dock också användas med **alla andra appar** (ServiceNow, Salesforce, Dropbox osv.).
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Steg 1: Hämta etablerings App Serviceens huvud-ID (objekt-ID)
 
@@ -39,7 +39,7 @@ Eftersom den här konfigurationen ofta används med *arbets dagen för att Activ
 
    ![Workday App Service huvud-ID](./media/export-import-provisioning-mappings/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Steg 2: Logga in i Microsoft Graph Explorer
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Steg 2: Logga in på Microsoft Graph Explorer
 
 1. Starta [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Klicka på knappen "logga in med Microsoft" och logga in med Azure AD global admin-eller app admin-autentiseringsuppgifter.
@@ -48,7 +48,7 @@ Eftersom den här konfigurationen ofta används med *arbets dagen för att Activ
 
 1. Vid lyckad inloggning visas användar konto informationen i den vänstra rutan.
 
-## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>Steg 3: Hämta befintliga autentiseringsuppgifter och anslutnings information för appen
+## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>Steg 3: Hämta befintliga autentiseringsuppgifter för appar och anslutnings information
 
 Kör följande GET-fråga i Microsoft Graph Explorer och Ersätt [servicePrincipalId] med **servicePrincipalId** som extraherats från [steg 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
@@ -71,7 +71,7 @@ Här är JSON-blocket som ska läggas till i mappningen.
         }
 ```
 
-## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Steg 4: Uppdatera hemligheter-slutpunkten med flaggan SkipOutOfScopeDeletions
+## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Steg 4: uppdatera hemligheter-slutpunkten med flaggan SkipOutOfScopeDeletions
 
 I Graph Explorer kör du kommandot nedan för att uppdatera hemligheter-slutpunkten med flaggan ***SkipOutOfScopeDeletions*** . 
 
@@ -90,7 +90,7 @@ Du bör få utdata som "lyckades – status kod 204".
 
    ![Skicka svar](./media/skip-out-of-scope-deletions/skip-06.png)
 
-## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Steg 5: Kontrol lera att användare utanför räckvidden inte är inaktiverade
+## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Steg 5: kontrol lera att användare utanför räckvidden inte är inaktiverade
 
 Du kan testa den här flaggan i förväntat beteende genom att uppdatera dina omfångs regler för att hoppa över en särskild användare. I exemplet nedan utesluter vi medarbetaren med ID 21173 (som tidigare var i området) genom att lägga till en ny omfattnings regel: 
 

@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/25/2019
+ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485432"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981554"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
 
@@ -32,9 +32,9 @@ ms.locfileid: "74485432"
 | Privata IP-adresser per virtuell dator |256 |
 | Offentliga IP-adresser per nätverks gränssnitt |256 |
 | Offentliga IP-adresser per virtuell dator |256 |
-| Samtidiga TCP-eller UDP-flöden per nätverkskort för en virtuell dator eller roll instans |500,000 |
-| Nätverks gränssnitts kort |65 536 |
-| Nätverkssäkerhetsgrupper |5 000 |
+| [Samtidiga TCP-eller UDP-flöden per nätverkskort för en virtuell dator eller roll instans](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500,000 |
+| Nätverkskort |65 536 |
+| Nätverkssäkerhetsgrupper |5 000 |
 | NSG-regler per NSG |1,000 |
 | IP-adresser och intervall som har angetts för källa eller mål i en säkerhets grupp |4,000 |
 | Programsäkerhetsgrupper |3 000 |

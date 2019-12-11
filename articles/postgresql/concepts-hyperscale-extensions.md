@@ -1,18 +1,18 @@
 ---
-title: PostgreSQL-tillägg i Azure Database for PostgreSQL – storskalig (citus)
-description: Beskriver möjligheten att utöka funktionaliteten i databasen med hjälp av tillägg i Azure Database for PostgreSQL.
+title: Tillägg – storskalig (citus) – Azure Database for PostgreSQL
+description: Beskriver möjligheten att utöka funktionaliteten i databasen med hjälp av tillägg i Azure Database for PostgreSQL-storskalig (citus)
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 41edcc40bae7915e321a278592dd2f73621aae05
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f7a961b04290bd17657949877c0b81bc281da50
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482417"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975558"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL – storskalig (citus)
 

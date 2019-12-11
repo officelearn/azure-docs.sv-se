@@ -1,17 +1,17 @@
 ---
-title: Brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)
+title: Brand Väggs regler – storskalig (citus)-Azure Database for PostgreSQL
 description: I den här artikeln beskrivs brand Väggs regler för Azure Database for PostgreSQL-storskalig (citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 567fb27ed942a24ab7d031d791e18fa487956fad
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273728"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975575"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)
 Azure Database for PostgreSQL-serverns brand vägg förhindrar all åtkomst till din citus-Coordinator-nod tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -31,7 +31,7 @@ En citus-kontroll för Server grupps brand väggar som kan ansluta till gruppens
 
 När brand väggen blockerar anslutningar kan det orsaka program fel. Genom att använda PostgreSQL JDBC-drivrutinen, till exempel, genererar vi ett fel som detta:
 
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: Oåterkalleligt: ingen\_PG HBA. conf-post för värden "123.45.67.890", användare "citus", databas "citus", SSL
+> Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: allvarligt: ingen PG\_HBA. conf-posten för värden "123.45.67.890", användare "citus", databas "citus", SSL
 
 Se [skapa och hantera brand Väggs regler](howto-hyperscale-manage-firewall-using-portal.md) för att lära dig hur reglerna definieras.
 
@@ -43,9 +43,9 @@ När åtkomst till Microsoft Azure-databasen för PostgreSQL-tjänsten (citus) i
 * **Användaren är inte auktoriserad eller ett felaktigt lösen ord användes:** Om en användare inte har behörighet på servern eller om lösen ordet som används är felaktigt nekas anslutningen till servern. Att skapa en brand Väggs inställning ger bara klienter möjlighet att försöka ansluta till servern. varje klient måste ändå ange nödvändiga säkerhets uppgifter.
 
 Om du till exempel använder en JDBC-klient kan följande fel uppstå.
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: OÅTERKALLELIGt fel: lösenordsautentisering misslyckades för användaren "YOURUSERNAME"
+> Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: OÅTERKALLELIG: lösenordsautentisering misslyckades för användaren "YOURUSERNAME"
 
-* **Dynamisk IP-adress:** Om du har en Internet anslutning med dynamisk IP-adressering och du har problem med att komma åt brand väggen kan du prova någon av följande lösningar:
+* **Dynamisk IP-adress:** Om du har en Internetanslutning med dynamisk IP-adressering och du har problem med att passera brandväggen kan du prova någon av följande lösningar:
 
 * Be Internet leverantören (ISP) om IP-adressintervallet som har tilldelats till de klient datorer som har åtkomst till noden för citus-koordinatorn () och Lägg sedan till IP-adressintervallet som en brand Väggs regel.
 

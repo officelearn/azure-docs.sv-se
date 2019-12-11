@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/26/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850167"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996518"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
@@ -30,7 +30,7 @@ Azure Automation stöder tre typer av käll kontroll:
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
-* Se till att du har de [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto
+* Se till att du har de [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto, inklusive modulen **AzureRM. Profile** . 
 
 > [!NOTE]
 > Synkroniseringsjobb för käll kontroll körs under användarnas Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.

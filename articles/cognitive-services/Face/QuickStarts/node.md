@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 7035689f3813a94c7e24e4c6138016b11c1a4ef3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2a3deff1d6220d21c3796b22dc7c39ea284cb36b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859126"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977955"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med Ansikts-REST API och Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och Node.js
 
 I den här snabbstarten ska du använda Azure ansikts-REST API med Node.js för att identifiera mänskliga ansikten i en bild.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
-- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
+- En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-the-node-environment"></a>Konfigurera nodmiljön
 
@@ -38,7 +38,7 @@ npm install request --save
 
 ## <a name="write-the-nodejs-script"></a>Skriv Node.js-skriptet
 
-Klistra in följande kod i *facedetection.js*. Dessa fält anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar dess indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du måste `uriBase` ändra strängen så att den innehåller rätt slut punkts sträng. Du kanske vill ändra fältet `imageUrl` så att det pekar på din egen inmatade bild.
+Klistra in följande kod i *facedetection.js*. Dessa fält anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar dess indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du måste ändra `uriBase` strängen så att den innehåller rätt slut punkts sträng. Du kanske vill ändra fältet `imageUrl` så att det pekar på din egen inmatade bild.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

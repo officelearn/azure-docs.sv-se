@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 65775a9c7a6d66a088eccdfdb22ce7d6b01829d2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d6a17322c360040b8fa77ac243a1b568f0d10c1f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925410"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996501"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob Storage-bindningar för Azure Functions
 
@@ -463,7 +463,7 @@ Java Script och Java Functions läser in hela blobben i minnet C# och fungerar o
 
 ## <a name="trigger---polling"></a>Utlös vid avsökning
 
-Om den BLOB-behållare som övervakas innehåller fler än 10 000 blobbar (över alla behållare) genomsöker Functions-körningen loggfilerna för att se om det finns nya eller ändrade blobbar. Den här processen kan resultera i fördröjningar. En funktion kanske inte utlöses förrän flera minuter eller längre efter att blobben har skapats.
+Avsökning fungerar som en hybrid mellan att inspektera loggar och köra regelbundna behållar genomsökningar. Blobbar genomsöks i grupper om 10 000 i taget med en fortsättnings-token som används mellan intervall.
 
 > [!WARNING]
 > Dessutom [skapas lagrings loggar på grund av "bästa prestanda"](/rest/api/storageservices/About-Storage-Analytics-Logging) . Det finns ingen garanti för att alla händelser har registrerats. Under vissa omständigheter kan loggarna missas.

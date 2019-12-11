@@ -1,7 +1,7 @@
 ---
 title: Vad är ML-pipelines
 titleSuffix: Azure Machine Learning
-description: I den här artikeln får du lära dig fördelarna med den maskin inlärnings pipeliner som du kan bygga med Azure Machine Learning SDK för python. Machine learning (ML) pipelines som används av datatekniker att bygga, optimera och hantera sina arbetsflöden för maskininlärning.
+description: I den här artikeln får du lära dig fördelarna med dator inlärnings-pipelinen (ML) som du kan bygga med Azure Machine Learning SDK för python. Maskin inlärnings pipeliner används av data forskare för att bygga, optimera och hantera sina Machine Learning-arbetsflöden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 84a01597570a488652e3db2345bdf68b52d4bf5b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112396"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973585"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -26,7 +26,7 @@ Med Azure Machine Learning pipelines kan du skapa arbets flöden i dina Machine 
 + Flexibilitet
 + Versions hantering och spårning
 + Modulariteten 
-+ Kvalitets garanti
++ Kvalitetssäkring
 + Kostnads kontroll
 
 Dessa förmåner blir viktiga så snart ditt Machine Learning-projekt flyttas bortom ren utforskning och till iteration. Det kan vara värdefullt att använda pipeliner med en enda steg. Machine Learning-projekt är ofta i komplext tillstånd, och det kan vara en avsättning för att göra den exakta processen för ett enskilt arbets flöde en trivial process.
@@ -40,7 +40,7 @@ Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.m
 
 Azure-molnet tillhandahåller flera andra pipelines, var och en med olika ändamål. I följande tabell visas de olika pipelinen och vad de används för:
 
-| Pipeline | Vad läget gör | Kanoniskt rör |
+| Pipeline | Vad verktyget gör | Kanoniskt rör |
 | ---- | ---- | ---- |
 | Azure Machine Learning pipelines | Definierar återanvändbara Machine Learning-arbetsflöden som kan användas som en mall för dina maskin inlärnings scenarier. | Data > modell |
 | [Azure Data Factory-pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Grupperar data flyttnings-, omvandlings-och kontroll aktiviteter som krävs för att utföra en uppgift.  | Data-> data |
@@ -185,7 +185,7 @@ Det är enkelt att bli entusiastisk om återanvändandet av cachelagrade resulta
 
 * Tung koppling mellan pipeline-steg. Om omberäkningen av ett beroende steg ofta kräver att du ändrar utdata i ett föregående steg, är det troligt att separata steg är för närvarande mer av en kostnad än en förmån. En annan uppfattning om att stegen är överkopplade är argument till ett steg som inte är data utan flaggor för att styra bearbetningen. 
 
-* Optimering av beräknings resurser för tidigt. Det finns ofta flera steg för förberedelse av data och en kan ofta se "man, här är en plats där jag kan använda en `MpiStep` för parallell programmering, men här är en plats där jag kan använda en `PythonScriptStep` med ett mindre kraftfullt beräknings mål , och så vidare. Och kanske i lång sikt skapa detaljerade steg som kan vara ett bra resultat, särskilt om det finns en möjlighet att använda cachelagrade resultat i stället för att alltid omberäkna. Men pipelines är inte avsedda att ersätta `multiprocessing`-modulen. 
+* Optimering av beräknings resurser för tidigt. Det finns ofta flera steg för förberedelse av data och en kan ofta se "man, här är en plats där jag kan använda en `MpiStep` för parallell programmering, men här är en plats där jag kan använda en `PythonScriptStep` med ett mindre kraftfullt beräknings mål," och så vidare. Och kanske i lång sikt skapa detaljerade steg som kan vara ett bra resultat, särskilt om det finns en möjlighet att använda cachelagrade resultat i stället för att alltid omberäkna. Men pipelines är inte avsedda att ersätta `multiprocessing`-modulen. 
 
 Innan ett projekt får stor eller nära distribution bör pipelinen vara coarser i stället för detaljerade. Om du tänker på ditt ML-projekt i takt med att det rör sig om _steg_ och en pipeline som ett komplett arbets flöde för att flytta dig genom ett visst steg är du på rätt väg. 
 

@@ -1,27 +1,27 @@
 ---
 title: Använda Azure Image Builder med ett bild galleri för virtuella Linux-datorer (för hands version)
-description: Skapa Linux-avbildningar med Azure Image Builder och delade avbildnings galleriet.
+description: Skapa virtuella Linux-avbildningar med Azure Image Builder och delade avbildnings galleriet.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9fc624ab24cd98d0025fe2a34bf48c29b47c50e9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 09dceb84a20ef49b3e9d5264b94bb5e74180cd2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695411"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976136"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Förhandsversion: Skapa en Linux-avbildning och distribuera den till ett delat avbildnings Galleri 
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>För hands version: skapa en Linux-avbildning och distribuera den till ett delat avbildnings Galleri 
 
 Den här artikeln visar hur du kan använda Azure Image Builder för att skapa en avbildnings version i ett [delat avbildnings Galleri](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)och sedan distribuera avbildningen globalt.
 
 
 Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateforSIG. JSON](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-För att distribuera avbildningen till ett delat bild galleri använder mallen [sharedImage](image-builder-json.md#distribute-sharedimage) som värde för `distribute` avsnittet i mallen.
+För att distribuera avbildningen till ett delat avbildnings Galleri använder mallen [sharedImage](image-builder-json.md#distribute-sharedimage) som värde för avsnittet `distribute` i mallen.
 
 > [!IMPORTANT]
 > Azure Image Builder är för närvarande en offentlig för hands version.
@@ -77,7 +77,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`hjälp av.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Ge Azure Image Builder behörighet att skapa resurser i den resurs gruppen. `--assignee` Värdet är appens registrerings-ID för tjänsten Image Builder. 
+Ge Azure Image Builder behörighet att skapa resurser i den resurs gruppen. `--assignee`-värdet är appens registrerings-ID för tjänsten Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -220,7 +220,7 @@ az resource delete \
     -n helloImageTemplateforSIG01
 ```
 
-Hämta avbildnings versionen som skapats av Image Builder, detta börjar alltid `0.`med och tar sedan bort avbildnings versionen
+Hämta avbildnings versionen som skapats av Image Builder, detta börjar alltid med `0.`och ta sedan bort avbildnings versionen
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

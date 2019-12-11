@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 956962503dcb3a6355d455ff96744143c5965d1e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794307"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997130"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Azure AD Connect ny konfiguration för moln etablering
 
@@ -32,8 +32,7 @@ Använd följande steg för att konfigurera etablering:
 
 4.  Klicka på **ny konfiguration**.
 5.  På konfigurations skärmen fylls den lokala domänen i förväg
-6. Ange ett **e-postmeddelande för avisering**. E-postmeddelandet kommer att meddelas 
-7. När etableringen inte är felfri.  
+6. Ange ett **e-postmeddelande för avisering**. Det här e-postmeddelandet kommer att meddelas när etableringen inte är felfri.  
 8. Flytta väljaren för att **Aktivera** och klicka på **Spara**.
 ![](media/tutorial-single-forest/configure2.png)
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/20/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 2b095f76eb2c2c9ca420e0049ced3e7af1e742c4
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 5602e26e2e1b327d65d411f8e92f264f1bf9fb91
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405904"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977870"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Snabb start: ansikts klient bibliotek för .NET
 
@@ -31,7 +31,7 @@ Använd ansikts klient biblioteket för .NET för att:
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet) | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -95,7 +95,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Face .NET SDK:
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
@@ -105,7 +105,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |[PersonGroupOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)| Den här klassen hanterar de **PersonGroup** -konstruktioner i molnet som lagrar en uppsättning med utvalda **person** objekt. |
 |[ShapshotOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)|Den här klassen hanterar ögonblicks bild funktionen. Du kan använda den för att tillfälligt Spara alla dina molnbaserade ansikts data och migrera dessa data till en ny Azure-prenumeration. |
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 Kodfragmenten nedan visar hur du gör följande uppgifter med ansikts klient biblioteket för .NET:
 

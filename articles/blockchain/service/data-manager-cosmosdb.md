@@ -4,12 +4,12 @@ description: Använd blockchain Data Manager för Azure blockchain-tjänsten fö
 ms.date: 12/04/2019
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 642e8b4d9d2492c0d7119f0a5469176765565159
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 79c39d9883b5ba618e368b0ff6d3e95f1af5bd96
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849993"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977410"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Självstudie: Använd blockchain Data Manager för att skicka data till Azure Cosmos DB
 
@@ -78,13 +78,15 @@ ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hu
 
 1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *ABI. JSON*. Du använder filen i ett senare steg.
 
-Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan hämta den distribuerade bytekod-filen från den kompilerade kontraktets metadatafil.
+Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan använda Azure blockchain Development Kit-tillägget för att kopiera bytekod till Urklipp.
 
-1. Öppna den kontrakts ETA data fil som finns i mappen **build/kontrakt** i ditt projekt. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
-1. Hitta **deployedBytecode** -ELEMENTET i JSON-filen.
-1. Kopiera det hexadecimala värdet utan citat tecken.
+1. I fönstret Visual Studio Code Explorer expanderar du mappen **Bygg/kontrakt** i ditt projekt.
+1. Högerklicka på JSON-filen för kontraktets metadata. Fil namnet är det smarta kontrakt namnet följt av **. JSON** -tillägget.
+1. Välj **Kopiera transaktions-bytekod**.
 
-    ![Visual Studio Code-fönstret med bytekod i metadata](./media/data-manager-portal/bytecode-metadata.png)
+    ![Fönstret Visual Studio Code med valet kopiera transaktions-bytekod](./media/data-manager-cosmosdb/bytecode-devkit.png)
+
+    Bytekod kopieras till Urklipp.
 
 1. Spara **bytekod** -värdet som en JSON-fil. Till exempel, *bytekod. JSON*. Du använder filen i ett senare steg.
 

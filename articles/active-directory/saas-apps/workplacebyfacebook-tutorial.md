@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787618"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969742"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med arbets ytan efter Facebook
 
@@ -48,8 +48,8 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Workplace by Facebook har stöd för **SP**-initierad enkel inloggning
+* Arbets ytan efter Facebook stöder  **[Automatisk användar etablering och avetablering (rekommenderas)](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook har stöd för **just-in-time-etablering**
-* Workplace by Facebook har stöd för **[automatisk användarförsörjning](workplacebyfacebook-provisioning-tutorial.md)**
 * Arbets platsen av Facebook Mobile Application kan nu konfigureras med Azure AD för att aktivera SSO. I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Lägga till Workplace by Facebook från galleriet

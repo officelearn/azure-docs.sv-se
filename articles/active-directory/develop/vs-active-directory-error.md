@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera fel med Azure Active Directory anslutna tjänsten
+title: Diagnostisera fel med Azure AD Connected service
 description: Den Active Directory-anslutna tjänsten upptäckte en inkompatibel autentiseringstyp
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6a7528bafd9183ae917370a6de35d1d94c3783e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271253"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966460"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostisera fel med den Azure Active Directory anslutna tjänsten
 

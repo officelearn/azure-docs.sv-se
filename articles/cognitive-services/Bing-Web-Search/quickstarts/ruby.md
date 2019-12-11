@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Utföra en webbsökning med Ruby – API för webbsökning i Bing'
+title: 'Snabb start: utföra en Webbs ökning med ruby-API för webbsökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka begäranden till REST API för webbsökning i Bing med hjälp av Ruby och få ett JSON-svar
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa8fc4c6b27c2a2c7d11a95ddb2ecca347ec0e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a902e869ed9fd2ae9274f0ad8eee11e43b8edc6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646843"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974333"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Ruby för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Ruby-programmet skickar en sökbegäran till API: et och visas svaret. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten när du gör ditt första anrop till API:et för webbsökning i Bing och ta sedan emot JSON-svaret. Detta ruby-program skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
@@ -43,7 +43,7 @@ require 'json'
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Några variabler måste anges innan vi kan fortsätta. Bekräfta att `$uri` och `path` är giltiga och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `term`.
+Några variabler måste anges innan vi kan fortsätta. `uri` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen. Bekräfta att `uri` och `path` är giltiga och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"

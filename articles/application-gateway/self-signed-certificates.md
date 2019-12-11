@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075075"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975065"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
 
@@ -106,7 +106,7 @@ CSR är en offentlig nyckel som tilldelas en certifikat utfärdare när ett cert
 1. Använd följande kommando för att skapa certifikatet:
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### <a name="verify-the-newly-created-certificate"></a>Verifiera det nyligen skapade certifikatet
 
@@ -159,7 +159,7 @@ Följande konfiguration är ett exempel på [nginx Server block](https://nginx.o
 
 1. Lägg till rot certifikatet i datorns betrodda rot arkiv. När du ansluter till webbplatsen kontrollerar du att hela certifikat kedjan visas i webbläsaren.
 
-   ![Betrodda rot certifikat](media/self-signed-certificates/trusted-root-cert.png)
+   ![Betrodda rotcertifikat](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
    > Det förutsätts att DNS har kon figurer ATS för att peka på webb serverns namn (i det här exemplet www.fabrikam.com) till din webb servers IP-adress. Om inte, kan du redigera [hosts-filen](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) för att matcha namnet.
@@ -179,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Om du vill överföra certifikatet i Application Gateway måste du exportera. CRT-certifikatet till ett. cer-format Base-64-kodat. Eftersom. CRT redan innehåller den offentliga nyckeln i formatet Base-64-kodat byter du bara namn på fil namns tillägget från. CRT till. cer. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Om du vill ladda upp det betrodda rot certifikatet från portalen väljer du **http-inställningar** och sedan **https** -protokollet.
 

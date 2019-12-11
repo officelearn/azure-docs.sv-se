@@ -3,23 +3,23 @@ title: Host. JSON-referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions Host. JSON-fil med v2-körningsmiljön.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323084"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975456"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Host. JSON-referens för Azure Functions 2. x och senare 
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-*Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga för v2-körningen.  
+*Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga från och med version 2. x i Azure Functions Runtime.  
 
 > [!NOTE]
-> Den här artikeln är för Azure Functions 2. x.  En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
+> Den här artikeln gäller Azure Functions 2. x och senare versioner.  En referens för host.json i Functions 1.x, se [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
 
 Andra konfigurations alternativ för Function-appar hanteras i dina [app-inställningar](functions-app-settings.md).
 
@@ -113,11 +113,11 @@ Styr [samplings funktionen i Application Insights](./functions-monitoring.md#con
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|isEnabled|true|Aktiverar eller inaktiverar sampling.| 
+|isEnabled|sant|Aktiverar eller inaktiverar sampling.| 
 |maxTelemetryItemsPerSecond|20|Tröskelvärdet då samplingen börjar.| 
-|EnableLiveMetrics |true|Aktiverar insamling av Live-mått.|
-|EnableDependencyTracking|true|Aktiverar beroende spårning.|
-|EnablePerformanceCountersCollection|true|Aktiverar insamling av kudu prestanda räknare.|
+|EnableLiveMetrics |sant|Aktiverar insamling av Live-mått.|
+|EnableDependencyTracking|sant|Aktiverar beroende spårning.|
+|EnablePerformanceCountersCollection|sant|Aktiverar insamling av kudu prestanda räknare.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -183,7 +183,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|enabled|true|Anger om funktionen är aktive rad. | 
+|enabled|sant|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
 |healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold`-inställningen.| 
 |healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
@@ -193,7 +193,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 Konfigurations inställningar kan hittas i [http-utlösare och bindningar](functions-bindings-http-webhook.md#hostjson-settings).
 
-## <a name="logging"></a>Logging
+## <a name="logging"></a>loggning
 
 Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 
@@ -216,9 +216,9 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never`, `always``debugOnly`. |
-|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
-|konsol|Saknas| Loggnings inställningen för [konsolen](#console) . |
-|applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
+|logLevel|Ej tillämpligt|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
+|konsol|Ej tillämpligt| Den [console](#console) inställning för aktivitetsloggning. |
+|applicationInsights|Ej tillämpligt| Inställningen [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>konsol
 
@@ -286,7 +286,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|Ej tillämpligt|Intervallet mellan lås försök.| 
 
 ## <a name="version"></a>version
 

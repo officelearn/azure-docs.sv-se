@@ -1,6 +1,6 @@
 ---
-title: Komma igång med Android – Microsoft Identity Platform | Azure
-description: 'Hur en Android-app kan få en åtkomsttoken och anropa Microsoft Graph API eller API: er som kräver åtkomsttoken från Microsoft Identity Platform.'
+title: Logga in användare & Call Microsoft Graph (Android)-Microsoft Identity Platform | Azure
+description: 'Hämta en åtkomsttoken och anropa Microsoft Graph eller API: er som kräver åtkomsttoken från Microsoft Identity Platform (Android)'
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 7feefc368815b1bfe57b67db2cd94702db799d78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242219"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961565"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Självstudie: Logga in användare och anropa Microsoft Graph från en Android-app
 
@@ -543,7 +543,7 @@ Bygg och distribuera appen till en test enhet eller emulator. Du bör kunna logg
 
 När du har loggat in visar appen de data som returneras från Microsoft Graph `/me`-slutpunkten.
 
-### <a name="consent"></a>Givit
+### <a name="consent"></a>givit
 
 Första gången användaren loggar in i din app uppmanas de av Microsoft-identiteten att godkänna de behörigheter som begärs.  Även om de flesta användare kan samtycka har vissa Azure AD-klienter inaktiverat användar medgivande som kräver att administratörer samtycker till alla användares räkning. För att stödja det här scenariot registrerar du appens scope i Azure Portal.
 

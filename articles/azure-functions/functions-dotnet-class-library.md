@@ -3,12 +3,12 @@ title: Referens C# för Azure Functions-utvecklare
 description: Lär dig hur du utvecklar Azure Functions C#med hjälp av.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 9ecaff438eb30e6a05a7e744e17d2d713eef21cd
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665584"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975490"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens C# för Azure Functions-utvecklare
 
@@ -25,7 +25,15 @@ Den här artikeln förutsätter att du redan har läst följande artiklar:
 
 ## <a name="supported-versions"></a>Versioner som stöds
 
-Azure Functions 2. x runtime använder .NET Core 2,2. Funktions koden kan använda .NET Core 2,2-API: er genom att uppdatera Visual Studio-projektets inställningar. Funktions mallarna är inte standard för .NET Core 2,2 för att undvika att kunder som inte har .NET Core 2,2 installerat påverkas negativt.
+Versioner av Functions runtime fungerar med vissa versioner av .NET. I följande tabell visas den högsta nivån av .NET Core och .NET Framework och .NET Core som kan användas med en speciell version av Functions i projektet. 
+
+| Functions runtime-version | Högsta .NET-version |
+| ---- | ---- |
+| Functions 3. x | .NET Core 3,1 |
+| Functions 2.x | .NET Core 2.2 |
+| Functions 1.x | .NET Framework 4.6 |
+
+Mer information finns i [Översikt över Azure Functions körnings versioner](functions-versions.md)
 
 ## <a name="functions-class-library-project"></a>Funktions klass biblioteks projekt
 
@@ -49,7 +57,7 @@ När du skapar projektet genereras en mappstruktur som ser ut som i följande ex
 Den här katalogen är vad som distribueras till din Function-app i Azure. De bindnings tillägg som krävs i [version 2. x](functions-versions.md) i functions-körningen [läggs till i projektet som NuGet-paket](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
-> Build-processen skapar en *Function. JSON* -fil för varje funktion. Den här *funktionen. JSON* -filen är inte avsedd att redige ras direkt. Du kan inte ändra bindnings konfigurationen eller inaktivera funktionen genom att redigera den här filen. Information om hur du inaktiverar en funktion finns i [så här inaktiverar du funktioner](disable-function.md#functions-2x---c-class-libraries).
+> Build-processen skapar en *Function. JSON* -fil för varje funktion. Den här *funktionen. JSON* -filen är inte avsedd att redige ras direkt. Du kan inte ändra bindnings konfigurationen eller inaktivera funktionen genom att redigera den här filen. Information om hur du inaktiverar en funktion finns i [så här inaktiverar du funktioner](disable-function.md).
 
 
 ## <a name="methods-recognized-as-functions"></a>Metoder som identifieras som funktioner

@@ -4,12 +4,12 @@ description: Med Azure Backup kan du skicka data från nätverket med tjänsten 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173237"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996331"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server
 
@@ -218,4 +218,4 @@ Vid nästa schemalagda säkerhets kopiering Azure Backup utföra stegvis säkerh
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du har frågor om Azures import/export-arbetsflöde läser du [Använd tjänsten Microsoft Azure import/export för att överföra data till Blob Storage](../storage/common/storage-import-export-service.md).
-* Se avsnittet offline-säkerhets kopiering i Azure Backup [vanliga frågor och svar](backup-azure-backup-faq.md) om arbets flödet.
+

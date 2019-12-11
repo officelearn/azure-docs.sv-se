@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177793"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970235"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -49,7 +49,7 @@ Logga in på [Custom Visions webbplats](https://customvision.ai/) och skapa ett 
 
 ## <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
-I nästa steg tränar du algoritmen för logotypidentifiering genom att ladda upp bilder på Azure-tjänstens logotyper och tagga dem manuellt. AIVisualProvision-lagringsplatsen innehåller en uppsättning inlärningsbilder som du kan använda. På webbplatsen väljer du knappen **Lägg till avbildningar** på fliken **träna bilder** . Gå sedan till mappen **Documents/images/Training_DataSet** för lagrings platsen. Du måste manuellt tagga logotyperna i varje bild, så om du bara testar det här projektet kan det vara bra att ladda upp endast en delmängd av bilderna. Ladda upp minst 15 instanser av varje tagg som du tänker använda.
+I nästa steg tränar du algoritmen för logotypidentifiering genom att ladda upp bilder på Azure-tjänstens logotyper och tagga dem manuellt. AIVisualProvision-lagringsplatsen innehåller en uppsättning inlärningsbilder som du kan använda. På webbplatsen väljer du knappen **Lägg till avbildningar** på fliken **träna bilder** . Gå sedan till mappen **dokument/bilder/Training_DataSet** i lagrings platsen. Du måste manuellt tagga logotyperna i varje bild, så om du bara testar det här projektet kan det vara bra att ladda upp endast en delmängd av bilderna. Ladda upp minst 15 instanser av varje tagg som du tänker använda.
 
 När du har laddat upp träningsbilderna väljer du den första på skärmen. Taggnings fönstret visas. Rita rutor och tilldela taggar för en logotyp i varje bild. 
 

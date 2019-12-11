@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 553234410a7b8b798d26f0e2fee6132a2602b1cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 3fed615a767fee2fff1700f996b2103f411db825
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770517"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973483"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Hantera en Azure Database for MySQL-server med hjälp av Azure Portal
-Den här artikeln visar hur du hanterar din Afire-databas för MySQL-servrar. Hanterings uppgifter omfattar skalning av beräknings-och lagrings utrymme, återställning av administratörs lösen ord och visning av Server information.
+Den här artikeln visar hur du hanterar dina Azure Database for MySQL-servrar. Hanterings uppgifter omfattar skalning av beräknings-och lagrings utrymme, återställning av administratörs lösen ord och visning av Server information.
 
 ## <a name="sign-in"></a>Logga in
 Logga in på [Azure-portalen](https://portal.azure.com).
@@ -79,7 +79,7 @@ Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
 
 2. Ange ett nytt lösen ord och bekräfta lösen ordet. I text rutan visas ett varnings krav för lösen ords komplexitet.
 
-   ![Återställ lösen ord](./media/howto-create-manage-server-portal/reset-password.png)
+   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Välj **OK** för att spara det nya lösen ordet.
 

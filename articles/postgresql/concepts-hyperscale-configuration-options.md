@@ -1,5 +1,5 @@
 ---
-title: Prestanda alternativ för Azure Database for PostgreSQL – citus)
+title: Prestanda alternativ – storskalig (citus) – Azure Database for PostgreSQL
 description: Alternativ för en citus-Server (), inklusive Node Compute, Storage och regions.
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 2b848827d3d2017e5e787989553c0bf1e26d48e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ee3e661d6c01aa2e4f37ac9a70e00be5da5f794
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482644"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975643"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Prestanda alternativ för Azure Database for PostgreSQL – citus)
 
@@ -37,18 +37,18 @@ Citus-Server grupper är tillgängliga i följande Azure-regioner:
     * USA, östra
     * USA, östra 2
     * Norra centrala USA *
-    * Västra USA 2
+    * USA, västra 2
 * Asien och stillahavsområdet:
     * Östra Australien *
-    * Sydostasien
+    * Asien, sydöstra
 * Östeuropa
-    * Norra Europa
+    * Europa, norra
     * Storbritannien, södra
-    * Västra Europa
+    * Europa, västra
 
 Regioner med en asterisk (\*) har ännu inte stöd för [hög tillgänglighet](concepts-hyperscale-high-availability.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 Den senaste pris informationen finns på [sidan med pris](https://azure.microsoft.com/pricing/details/postgresql/)information för tjänsten.
 Om du vill se kostnaden för den konfiguration du vill använda visar [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) månads kostnaden på fliken **Konfigurera** baserat på de alternativ du väljer. Om du inte har någon Azure-prenumeration kan du använda pris Kalkylatorn för Azure för att få ett uppskattat pris. På webbplatsen för [Azures pris kalkylator](https://azure.microsoft.com/pricing/calculator/) väljer du **Lägg till objekt**, expanderar kategorin **databaser** och väljer **Azure Database for PostgreSQL – citus)** för att anpassa alternativen.
  

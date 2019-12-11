@@ -1,5 +1,5 @@
 ---
-title: Autentiseringsuppgifter för certifikat i Azure AD
+title: Autentiseringsuppgifter för Azure AD-certifikat
 titleSuffix: Microsoft identity platform
 description: I den här artikeln beskrivs registreringen och användningen av autentiseringsuppgifter för programautentisering
 services: active-directory
@@ -15,20 +15,21 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0dd42aeaa8a7a5d9f1cc28b409a8d8dbf92304
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845373"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963876"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för program-autentisering
+# <a name="azure-ad-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för Azure AD Application Authentication-certifikat
 
 Azure Active Directory (Azure AD) gör det möjligt för ett program att använda sina egna autentiseringsuppgifter för autentisering, t. ex. i OAuth 2,0-klientens autentiseringsuppgifter för tilldelnings flöde ([v 1.0](v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)) och flöde på uppdrags nivå ([v 1.0](v1-oauth2-on-behalf-of-flow.md), [v 2.0](v2-oauth2-on-behalf-of-flow.md)).
 
 En typ av autentiseringsuppgift som ett program kan använda för autentisering är en JSON Web Token (JWT) som är signerad med ett certifikat som programmet äger.
 
 ## <a name="assertion-format"></a>Intygs format
+
 Om du vill beräkna försäkran kan du använda ett av de många [JSON Web token](https://jwt.ms/) biblioteken på valfritt språk. Informationen som utförs av token är följande:
 
 ### <a name="header"></a>Huvud

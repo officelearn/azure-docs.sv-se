@@ -9,18 +9,21 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9301da884e26a65b198c885000159c383655b2d5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 616e5dc5ac6416d2efe1d9338b99c2b400fe572a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771470"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977122"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB data med hjälp av en indexerare i Azure Kognitiv sökning 
 
 > [!IMPORTANT] 
 > SQL API är allmänt tillgängligt.
 > MongoDB API, Gremlin API och API för Cassandra support finns för närvarande i offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Du kan begära åtkomst till för hands versionerna genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
+
+> [!WARNING]
+> Endast Cosmos DB samlingar med en [indexerings princip](https://docs.microsoft.com/azure/cosmos-db/index-policy) inställd på [konsekvent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) stöds av Azure kognitiv sökning. Indexering av samlingar med en Lazy-indexerings princip rekommenderas inte och kan leda till att data saknas. Samlingar med inaktiverade index stöds inte.
 
 Den här artikeln visar hur du konfigurerar en Azure Cosmos DB [indexerare](search-indexer-overview.md) för att extrahera innehåll och göra den sökbar i Azure kognitiv sökning. Det här arbets flödet skapar ett Azure Kognitiv sökning-index och läser in det med befintlig text som extraherats från Azure Cosmos DB. 
 
@@ -251,12 +254,12 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Kognitiv sökning data typer
 | Data typen JSON | Kompatibla fält typer för mål index |
 | --- | --- |
-| Booleska |EDM. Boolean, EDM. String |
-| Siffror som ser ut som heltal |EDM. Int32, EDM. Int64, EDM. String |
-| Siffror som ser ut som svävande punkter |EDM. Double, EDM. String |
+| Bool |Edm.Boolean, Edm.String |
+| Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
+| Siffror som ser ut som svävande punkter |Edm.Double, Edm.String |
 | Sträng |Edm.String |
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
-| Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
+| Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
 | Andra JSON-objekt |Gäller inte |
 
@@ -285,10 +288,10 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt tillgängliga REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
 

@@ -1,22 +1,22 @@
 ---
-title: Använda verktyget Azure Machine Learning data etiketting
+title: Tagga bilder i ett etikett projekt
 title.suffix: Azure Machine Learning
-description: Den här artikeln lär dig hur du använder verktygen för data märkning i ett Azure Machine Learning etiketting-projekt.
+description: Lär dig hur du använder verktygen för data märkning i ett Azure Machine Learning etiketting-projekt.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688219"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978142"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt
 
-När projekt administratören har skapat ett etikett projekt i Azure Machine Learning kan du använda etikett verktyget för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
+När projekt administratören har skapat ett etikett projekt i Azure Machine Learning kan du använda etikett verktyget för att snabbt förbereda data för ett Machine Learning-projekt. Den här artikeln beskrivs:
 
 > [!div class="checklist"]
 > * Få åtkomst till dina etikett projekt
@@ -108,7 +108,7 @@ När du har skapat markerings rutorna för en bild väljer du **Skicka** för at
 
 ## <a name="finish-up"></a>Slutför
 
-När du skickar en sida med taggade data får Azure nya omärkta data från en arbetskö. Om det inte finns några fler omärkta data tillgängliga får du ett meddelande som anger detta tillsammans med en länk till portalens start sida.
+När du skickar en sida med taggade data tilldelar Azure nya omärkta data till dig från en arbetskö. Om det inte finns några fler omärkta data tillgängliga får du ett meddelande som anger detta tillsammans med en länk till portalens start sida.
 
 När du är klar med etiketter väljer du ditt namn i det övre högra hörnet i etikett portalen och väljer sedan **utloggning**. Om du inte loggar ut så kommer Azure att "tid ut" och tilldela dina data till en annan Labeler.
 

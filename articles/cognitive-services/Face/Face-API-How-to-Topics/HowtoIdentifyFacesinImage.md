@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 10ab11669569b16293ccf9b8777190cf271e5795
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ec209eb2c60efcb1363c177aad0fe5a72ad2a239
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744314"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977190"
 ---
 # <a name="example-identify-faces-in-images"></a>Exempel: identifiera ansikten i bilder
 
@@ -33,7 +33,7 @@ För att genomföra demonstrationen av det här exemplet förbereder du:
 - Några foton med personens ansikte. [Hämta exempel foton](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) för Anna, Bill och Clare.
 - En serie test foton. Fotona kan vara eller inte innehålla ansikten för Anna, Bill eller Clare. De används för att testa identifiering. Välj också några exempel bilder från föregående länk.
 
-## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anrop
+## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anropet
 
 Varje anrop till ett ansikts-API för visuellt innehåll kräver en prenumerationsnyckel. Den här nyckeln kan antingen skickas via en frågesträngparametern eller anges i begär ande huvudet. Om du vill skicka prenumerations nyckeln via en frågesträng, se URL: en för frågan [identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) som exempel:
 ```
@@ -42,7 +42,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 ```
 
 Alternativt kan du ange prenumerations nyckeln i HTTP-begärans huvud **OCP-APIM-Subscription-Key: &lt;prenumerations nyckel&gt;** .
-När du använder ett klient bibliotek skickas prenumerations nyckeln genom FaceClient-klassens konstruktor. Till exempel:
+När du använder ett klient bibliotek skickas prenumerations nyckeln genom FaceClient-klassens konstruktor. Exempel:
  
 ```csharp 
 private readonly IFaceClient faceClient = new FaceClient(
@@ -143,7 +143,7 @@ string testImageFile = @"D:\Pictures\test_img1.jpg";
 using (Stream s = File.OpenRead(testImageFile))
 {
     var faces = await faceClient.Face.DetectWithStreamAsync(s);
-    var faceIds = faces.Select(face => face.FaceId).ToArray();
+    var faceIds = faces.Select(face => face.FaceId.Value).ToArray();
  
     var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
     foreach (var identifyResult in results)

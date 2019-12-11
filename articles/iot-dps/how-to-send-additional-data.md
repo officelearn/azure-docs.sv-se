@@ -1,18 +1,18 @@
 ---
 title: Så här överför du ytterligare data mellan enhets-och Azure Device Provisioning-tjänsten
-description: Det här dokumentet beskriver hur du överför ytterligare data mellan enhet och DPS
+description: Det här dokumentet beskriver hur du överför ytterligare data mellan enhets-och enhets etablerings tjänsten (DPS)
 author: menchi
 ms.author: menchi
 ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 90402dd6fbe19811b5bb6d5ac0fbdd984b71fd33
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e9482f7069616d61efb98f66590ce33cfe3cf350
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123177"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974861"
 ---
 # <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Så här överför du ytterligare data mellan enhet och DPS
 Ibland behöver DPS mer data från enheter för att kunna etablera dem till rätt IoT Hub, och dessa data måste skickas från enheten. Vice versa kan DPS returnera data till enheten för att under lätta klient sidans logik. 
@@ -54,7 +54,7 @@ Om webhooken för den anpassade allokeringsregeln vill returnera data till enhet
     } 
    ```
 
-## <a name="sdk-support"></a>SDK-stöd
+## <a name="sdk-support"></a>SDK-support
 Den här funktionen är tillgänglig i klient C#- [SDK](https://docs.microsoft.com/azure/iot-dps/): er för C, Java och Node. js.  
 
 ## <a name="next-steps"></a>Nästa steg

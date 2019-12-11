@@ -1,17 +1,17 @@
 ---
-title: Skapa användare i Azure Database for PostgreSQL-storskalig (citus)
+title: Skapa användare – storskalig (citus) – Azure Database for PostgreSQL
 description: I den här artikeln beskrivs hur du kan skapa nya användar konton för att interagera med en Azure Database for PostgreSQL-storskalig (citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7187135b29f0a9a790c032330c73bcb1ae27229b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515946"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977581"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Skapa användare i Azure Database for PostgreSQL-storskalig (citus)
 
@@ -26,21 +26,19 @@ En nyligen skapad citus-servergrupp () har flera roller som definierats:
 * *postgres*
 * *citus*
 
-Din server administratörs användare, *citus*, är medlem i *azure_pg_admin* -rollen.
-Det är dock inte en del av rollen *postgres* (Super User).  Eftersom den här storleken är en hanterad PaaS-tjänst ingår endast Microsoft i superanvändarens roll.
-
 PostgreSQL-motorn använder behörigheter för att kontrol lera åtkomsten till databas objekt, enligt beskrivningen i [produkt dokumentationen för postgresql](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-I Azure Database for PostgreSQL beviljas Server administratörs användaren följande behörigheter: inloggning, superanvändare, Ärv, CREATEDB, CREATEROLE, noreplikering
+Din server administratörs användare, *citus*, är medlem i *azure_pg_admin* -rollen.
+Det är dock inte en del av rollen *postgres* (Super User).  Eftersom den här storleken är en hanterad PaaS-tjänst ingår endast Microsoft i superanvändarens roll. *Citus* -användaren har begränsad behörighet och kan t. ex. skapa nya databaser.
 
 ## <a name="how-to-create-additional-users"></a>Så här skapar du ytterligare användare
 
-Administratörs kontot *citus* saknar behörighet att skapa ytterligare användare. Om du vill lägga till en användare använder du i stället Azure Portal.
+Administratörs kontot *citus* saknar behörighet att skapa ytterligare användare. Använd Azure Portal-gränssnittet om du vill lägga till en användare.
 
 1. Gå till sidan **roller** för din skalnings Server grupp och klicka på **+ Lägg till**:
 
    ![Sidan roller](media/howto-hyperscale-create-users/1-role-page.png)
 
-2. Ange roll namn och lösen ord. Klicka på **Spara**.
+2. Ange roll namn och lösen ord. Klicka på **Save** (Spara).
 
    ![Lägg till roll](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
@@ -58,7 +56,7 @@ Gå till sidan **roller** för din skalnings Server grupp och klicka på ellipse
 
 Nya roller används ofta för att ge åtkomst till databasen med begränsade privilegier. Om du vill ändra användar behörigheter använder du standard PostgreSQL-kommandon med ett verktyg som PgAdmin eller psql. (Se [ansluta med psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) i snabb starten av citus ().)
 
-Om du till exempel vill att *db_user* ska kunna läsa *tabellen*ger du behörigheten:
+Om du till exempel vill tillåta *db_user* att läsa *tabellen i tabellen*ger du behörigheten:
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
@@ -84,4 +82,4 @@ Mer information om hantering av databas användar konton finns i produkt dokumen
 
 * [Databas roller och behörigheter](https://www.postgresql.org/docs/current/static/user-manag.html)
 * [GRANT-syntax](https://www.postgresql.org/docs/current/static/sql-grant.html)
-* [Höjd](https://www.postgresql.org/docs/current/static/ddl-priv.html)
+* [Privilegier](https://www.postgresql.org/docs/current/static/ddl-priv.html)

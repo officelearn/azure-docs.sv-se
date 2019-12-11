@@ -8,14 +8,14 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d1c709beb225dff0ae616a23eb67eb57f4643ac9
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 50132593ce3301094ea39546f5661df06a716503
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812758"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976595"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)
 
@@ -37,7 +37,7 @@ I den här artikeln kommer vi att utöka det här programmet med parametrar så 
    | Inställning            | Föreslaget värde | Beskrivning                                                                                               |
    | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
    | Namn               | Mikrofonen           | Ett beskrivande namn för din parameter                                                                     |
-   | Är global          | avmarkerat       | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
+   | Är global          | Avmarkerat       | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
    | Krävs           | analysera         | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
    | Svarsmall  | På eller av?      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
    | Typ               | Sträng          | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |
@@ -49,7 +49,7 @@ I den här artikeln kommer vi att utöka det här programmet med parametrar så 
    | Inställning            | Föreslaget värde   | Beskrivning                                                                                               |
    | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
    | Namn               | SubjectDevice     | Ett beskrivande namn för din parameter                                                                     |
-   | Är global          | avmarkerat         | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
+   | Är global          | Avmarkerat         | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
    | Krävs           | analysera           | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
    | Svarsmall  | Vilken enhet?     | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
    | Typ               | Sträng            | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |

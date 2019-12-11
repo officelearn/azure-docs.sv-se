@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7d7744aab6d83b3415f32ca9e311940836c6f93c
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123222"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997249"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
@@ -505,7 +505,7 @@ Om du vill göra ändringar i filerna i avbildningen kan du ansluta till den på
     docker exec -it debug /bin/bash
     ```
 
-1. Om du vill hitta filerna som används av tjänsten använder du följande kommando från bash-gränssnittet i behållaren:
+1. Om du vill hitta filerna som används av tjänsten använder du följande kommando från bash-gränssnittet i behållaren om standard katalogen skiljer sig från `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app
@@ -526,7 +526,7 @@ Om du vill göra ändringar i filerna i avbildningen kan du ansluta till den på
 
 1. Se till att spara ändringarna som du gör i filerna i behållaren synkroniseras med de lokala filer som VS-koden använder. Annars fungerar inte fel söknings upplevelsen som förväntat.
 
-### <a name="stop-the-container"></a>Stoppa behållaren
+### <a name="stop-the-container"></a>Stoppa containern
 
 Om du vill stoppa behållaren använder du följande kommando:
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca0f64fe67865e18c47009779cf8bd307a21c961
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581531"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978738"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Självstudie: träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,9 +39,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 >[!NOTE]
 > Koden i den här artikeln har testats med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -version 1.0.65.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Slutför [självstudien: kom igång med att skapa ditt första ml-experiment](tutorial-1st-experiment-sdk-setup.md) för att:
+* Slutför [självstudien: kom igång med att skapa ditt första Azure ml-experiment](tutorial-1st-experiment-sdk-setup.md) för att:
     * Skapa en arbetsyta
     * Klona självstudiernas antecknings böcker till din mapp i arbets ytan.
     * Skapa en molnbaserad Notebook-baserad virtuell dator.
@@ -179,9 +179,9 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
                                                  create_new_version=True)
 ```
 
-### <a name="display-some-sample-images"></a>Visa några exempelbilder
+### <a name="display-some-sample-images"></a>Se några exempelbilder
 
-Läs in de komprimerade filerna i `numpy`-matriser. Använd därefter `matplotlib` till att rita 30 slumpmässiga bilder från datauppsättningen med sina etiketter ovanför dem. Det här steget kräver en `load_data`-funktion som ingår i en `util.py`-fil. Den här filen finns med i exempelmappen. Kontrollera att den finns i samma mapp som den här anteckningsboken. Funktionen `load_data` parsar enkelt de komprimerade filerna till numpy-matriser.
+Läs in de komprimerade filerna i `numpy`-matriser. Använd sedan `matplotlib` för att rita 30 slumpmässiga bilder från datauppsättningen med tillhörande etiketter ovanför dem. Det här steget kräver en `load_data`-funktion som ingår i en `util.py`-fil. Den här filen finns med i exempelmappen. Kontrollera att den finns i samma mapp som den här anteckningsboken. Funktionen `load_data` parsar enkelt de komprimerade filerna till numpy-matriser.
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -430,7 +430,7 @@ print(model.name, model.id, model.version, sep='\t')
 Du kan också ta bort bara Azure Machine Learning-beräkningsklustret. Autoskalning är dock aktiverat och det minsta antalet kluster är noll. Så den här resursen debiteras inte ytterligare beräkningsavgifter när den inte används:
 
 ```python
-# optionally, delete the Azure Machine Learning Compute cluster
+# Optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 

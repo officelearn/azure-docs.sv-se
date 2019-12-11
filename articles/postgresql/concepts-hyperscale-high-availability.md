@@ -1,5 +1,5 @@
 ---
-title: Hög tillgänglighet i Azure Database for PostgreSQL – storskalig (citus)
+title: Hög tillgänglighet – storskalig (citus) – Azure Database for PostgreSQL
 description: Koncept för hög tillgänglighet och haveri beredskap
 author: jonels-msft
 ms.author: jonels
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 616b5bff735f52d137c12c58ac6023c38a2d4044
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10679ab02826fb606af65c72621f2afb609bc81b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514750"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975541"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--hyperscale-citus"></a>Hög tillgänglighet i Azure Database for PostgreSQL – storskalig (citus)
 
-Hög tillgänglighet (HA) förhindrar databas stillestånd genom att underhålla vänte repliker för varje nod i en Server grupp. Om en nod kraschar växlar storskaligt inkommande anslutningar från den felande noden till vänte läge. Redundansväxlingen sker inom några minuter och de upphöjda noderna har alltid nya data genom PostgreSQL synkron strömmande replikering.
+Hög tillgänglighet (HA) förhindrar avbrottstid i databaser genom att upprätthålla standbyrepliker för varje nod i en servergrupp. Om en nod slutar fungera växlar Hyperskala inkommande anslutningar från den felaktiga noden till dess standbyreplik. Redundansväxling sker inom ett par minuter, och upphöjda noder har alltid uppdaterade data via synkron strömmande replikering i PostgreSQL.
 
 För att kunna dra nytta av HA på koordinator-noden måste databas programmen identifiera och försöka ta bort anslutningar på nytt och misslyckade transaktioner. Den nyligen framhävda koordinatorn kommer att vara tillgänglig med samma anslutnings sträng.
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a56096ffa760bcddd6bd423d1262e57dc1db3e3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420082"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973568"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -112,14 +112,13 @@ Du kan använda modeller med IoT-enheter via **Azure IoT Edge moduler**. IoT Edg
 
 Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analyser
 
 Microsoft Power BI stöder användning av Machine Learning-modeller för data analys. Mer information finns i [Azure Machine Learning integration i Power BI (för hands version)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Avbilda de styrnings data som krävs för att samla in den slutliga ML-livs cykeln
 
-Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Mer specifikt:
+Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Närmare bestämt:
 
 - Azure ML [integreras med git](how-to-set-up-training-targets.md#gitintegration) för att spåra information om vilken lagrings plats/Branch/bekräfta din kod kommer från.
 - Med [Azure ml-datauppsättningar](how-to-create-register-datasets.md) kan du spåra, profilera och versions data. 
@@ -129,6 +128,7 @@ Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt t
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Meddela, automatisera och Avisera händelser i ML-livscykel
 Azure ML publicerar viktiga händelser till Azure-EventGrid, som kan användas för att meddela och automatisera händelser i ML-livscykel. Mer information finns i [det här dokumentet](how-to-use-event-grid.md).
 
+
 ## <a name="monitor-for-operational--ml-issues"></a>Övervakare för drift & ML-problem
 
 Med övervakning kan du förstå vilka data som skickas till din modell och vilka förutsägelser som returneras.
@@ -136,7 +136,6 @@ Med övervakning kan du förstå vilka data som skickas till din modell och vilk
 Den här informationen hjälper dig att förstå hur modellen används. Insamlade indata kan också vara användbara i träna framtida versioner av modellen.
 
 Mer information finns i [så här aktiverar du modell data insamling](how-to-enable-data-collection.md).
-
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatisera ML-livscykeln 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Skriv bords app som anropar webb-API: er (översikt) – Microsoft Identity Platform'
+title: 'Bygg en stationär app som anropar webb-API: er – Microsoft Identity Platform | Azure'
 description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (översikt)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d56a07b46c4cd54577bcb3d81f2c45c03433fc31
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 545012629686e1fe3ece8a48ed852542e09e54fe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268353"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965525"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Datorprogram som anropar webb-API:er
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Skriv bords program som anropar webb-API: er
 
 Lär dig allt du behöver för att bygga en stationär app som anropar webb-API: er
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -35,14 +35,14 @@ Lär dig allt du behöver för att bygga en stationär app som anropar webb-API:
 Om du inte redan har gjort det kan du skapa ditt första program genom att följa snabb starten för .NET Desktop, UWP snabb start eller den virtuella macOS-appen snabb start:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows Desktop-app](./quickstart-v2-windows-desktop.md)
+> [Snabb start: Hämta en token och anropa Microsoft Graph API från en Windows Desktop-app](./quickstart-v2-windows-desktop.md)
 
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en UWP-app](./quickstart-v2-uwp.md)
+> [Snabb start: Hämta en token och anropa Microsoft Graph API från en UWP-app](./quickstart-v2-uwp.md)
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en macOS-inbyggd app](./quickstart-v2-ios.md)
+> [Snabb start: Hämta en token och anropa Microsoft Graph API från en macOS-inbyggd app](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Översikt
 

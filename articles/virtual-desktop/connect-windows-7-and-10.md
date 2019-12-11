@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 420978e79da99847f16e5c85b2d2510083ca97a7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 745b33efe46c82e3b9358c9c5a2ed13292242db1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006239"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997351"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ansluta med Windows-skrivbordsklienten
 
-> Gäller för: Windows 7 och Windows 10
+> Gäller för: Windows 7, Windows 10 och Windows 10 IoT Enterprise
 
-Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Windows 7 eller Windows 10 med hjälp av Windows Skriv bords klienten.
+Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Windows 7, Windows 10 och Windows 10 IoT Enterprise med Windows Skriv bords klienten.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).

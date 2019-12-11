@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: d146c264ebc2d36f0842f464f4547520546fd363
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888280"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978040"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudie: använda Custom Vision med en IoT-enhet för att rapportera visuella tillstånd
 
@@ -33,7 +33,7 @@ De här självstudierna visar hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
@@ -116,7 +116,7 @@ Upprepa den här processen med ditt eget scenario:
 
 När appen har laddat ned den tränade modellen, kommer den att växla till **bedömnings** läget och börja poängs bilder från kameran i en kontinuerlig slinga.
 
-Appen kommer att visa den översta taggen på skärmen för varje avbildnings avbildning. Om det inte går att identifiera det visuella läget visas **inga matchningar**. Appen skickar även dessa meddelanden till IoT Hub, och om det finns en klass som identifieras, innehåller meddelandet etiketten, förtroende poängen och en egenskap som kallas `detectedClassAlert`, som kan användas av IoT Hub klienter som vill använda snabb meddelanderoutning baserat på prop rties.
+Appen kommer att visa den översta taggen på skärmen för varje avbildnings avbildning. Om det inte går att identifiera det visuella läget visas **inga matchningar**. Appen skickar även dessa meddelanden till IoT Hub, och om det finns en klass som identifieras innehåller meddelandet etiketten, förtroende poängen och en egenskap som kallas `detectedClassAlert`, som kan användas av IoT Hub klienter som vill använda snabb meddelanderoutning baserat på egenskaper.
 
 Exemplet använder dessutom ett [Sense hat-bibliotek](https://github.com/emmellsoft/RPi.SenseHat) för att identifiera när den körs på en Raspberry Pi med en Sense hat-enhet, så att den kan använda den som en utmatnings visning genom att ställa in alla visnings lampor till röd när den identifierar en klass och är tom när den inte identifierar något.
 

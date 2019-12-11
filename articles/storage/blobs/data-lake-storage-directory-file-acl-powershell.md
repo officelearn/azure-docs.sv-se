@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 360845d75c27fab0151c3a64846ff788f9f56b95
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2a2eaa3224fff117a30dfb742b4f8a35196dba4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931245"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973908"
 ---
 # <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Använda PowerShell för filer & ACL: er i Azure Data Lake Storage Gen2 (förhands granskning)
 
@@ -378,6 +378,7 @@ I följande tabell visas hur cmdletarna som används för Data Lake Storage Gen1
 |Get-AzDataLakeStoreItemContent|Get-AzDataLakeGen2FileContent|Cmdlet: en get-AzDataLakeGen2FileContent hämtar fil innehållet till en lokal fil.|
 |Move-AzDataLakeStoreItem|Move-AzDataLakeGen2Item||
 |New-AzDataLakeStoreItem|New-AzDataLakeGen2Item|Denna cmdlet överför det nya fil innehållet från en lokal fil.|
+|Remove-AzDataLakeStoreItem|Remove-AzDataLakeGen2Item||
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Uppdatera – AzDataLakeGen2Item|Cmdlet: en Update-AzDataLakeGen2Item uppdaterar endast ett enskilt objekt och inte rekursivt. Om du vill uppdatera rekursivt, list objekt med hjälp av cmdleten Get-AzDataLakeStoreChildItem, går du sedan till cmdleten Update-AzDataLakeGen2Item.|
 |Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|Get-AzDataLakeGen2Item-cmdlet: en rapporterar ett fel om objektet inte finns.|
 

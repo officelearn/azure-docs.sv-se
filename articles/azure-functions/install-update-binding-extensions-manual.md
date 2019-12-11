@@ -3,16 +3,16 @@ title: Installera eller uppdatera Azure Functions bindnings tillägg manuellt
 description: Lär dig hur du installerar eller uppdaterar Azure Functions bindnings tillägg för distribuerade funktions appar.
 ms.topic: reference
 ms.date: 09/26/2018
-ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 83ae2cdd16bce0b0a5b11b8c24e996306453a7a9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226509"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977496"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installera eller uppdatera Azure Functions bindnings tillägg manuellt från portalen
 
-Azure Functions version 2. x runtime använder bindnings tillägg för att implementera kod för utlösare och bindningar. Bindnings tillägg finns i NuGet-paket. För att registrera ett tillägg installerar du i princip ett paket. När du utvecklar funktioner beror det på hur du installerar bindnings tillägg i utvecklings miljön. Mer information finns i avsnittet [Registrera bindnings tillägg](./functions-bindings-register.md) i artikeln utlösare och bindningar.
+Från och med version 2. x använder Azure Functions runtime binding Extensions för att implementera kod för utlösare och bindningar. Bindnings tillägg finns i NuGet-paket. För att registrera ett tillägg installerar du i princip ett paket. När du utvecklar funktioner beror det på hur du installerar bindnings tillägg i utvecklings miljön. Mer information finns i avsnittet [Registrera bindnings tillägg](./functions-bindings-register.md) i artikeln utlösare och bindningar.
 
 Ibland måste du manuellt installera eller uppdatera dina bindnings tillägg i Azure Portal. Du kan till exempel behöva uppdatera en registrerad bindning till en nyare version. Du kan också behöva registrera en bindning som stöds och som inte kan installeras på fliken **integrera** i portalen.
 
@@ -43,4 +43,4 @@ Använd följande steg för att manuellt installera eller uppdatera tillägg fr�
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942230"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971153"
 ---
 # <a name="application-gateway-components"></a>Komponenter för Application Gateway
 
@@ -53,7 +53,7 @@ Application Gateway stöder fyra protokoll: HTTP, HTTPS, HTTP/2 och WebSocket:
 >Protokoll stöd för HTTP/2 är endast tillgängligt för klienter som ansluter till Application Gateway-lyssnare. Kommunikationen till backend-serverns pooler är alltid över HTTP/1.1. Stöd för HTTP/2 är inaktiverat som standard. Du kan välja att aktivera det.
 
 - Ange mellan HTTP-och HTTPS-protokollen i lyssnar konfigurationen.
-- Stöd för [WebSockets-och http/2-protokoll](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) anges internt och [WebSocket-stöd](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) är aktiverat som standard. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Använd WebSockets med både HTTP-och HTTPS-lyssnare.
+- Stöd för [WebSockets-och http/2-protokoll](overview.md#websocket-and-http2-traffic) anges internt och [WebSocket-stöd](application-gateway-websocket.md) är aktiverat som standard. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Använd WebSockets med både HTTP-och HTTPS-lyssnare.
 
 Använd en HTTPS-lyssnare för SSL-avslutning. En HTTPS-lyssnare avlastar krypterings-och dekrypterings arbetet till din Application Gateway, så dina webb servrar är inte inaktuella vid omkostnaderna.
 
@@ -61,7 +61,7 @@ Använd en HTTPS-lyssnare för SSL-avslutning. En HTTPS-lyssnare avlastar krypte
 
 Med Application Gateway kan du skapa anpassade felsidor istället för att Visa standard fel sidor. Du kan använda din egen varumärkesanpassning och layout med hjälp av en anpassad felsida. Application Gateway visar en anpassad felsida när en förfrågan inte kan komma åt Server delen.
 
-Mer information finns i [anpassade felsidor för Application Gateway](https://docs.microsoft.com/azure/application-gateway/custom-error).
+Mer information finns i [anpassade felsidor för Application Gateway](custom-error.md).
 
 ### <a name="types-of-listeners"></a>Typer av lyssnare
 
@@ -71,11 +71,11 @@ Det finns två typer av lyssnare:
 
 - **Flera platser**. Den här lyssnar konfigurationen krävs när du konfigurerar fler än ett webb program på samma Application Gateway-instans. Det gör att du kan konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway. Varje webbplats kan dirigeras till en egen serverdelspool. Till exempel, tre under domäner, abc.contoso.com, xyz.contoso.com och pqr.contoso.com, pekar du på IP-adressen för programgatewayen. Du skapar tre lyssnare för flera platser och konfigurerar varje lyssnare för respektive port-och protokoll inställning.
 
-    Mer information finns i [värd för flera platser](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+    Mer information finns i [värd för flera platser](application-gateway-web-app-overview.md).
 
 När du har skapat en lyssnare associerar du den med en regel för anslutningsbegäran. Den här regeln avgör hur begäran som tagits emot på lyssnaren ska dirigeras till Server delen.
 
-Application Gateway bearbetar lyssnare i den [ordning som visas](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners).
+Application Gateway bearbetar lyssnare i den [ordning som visas](configuration-overview.md#order-of-processing-listeners).
 
 ## <a name="request-routing-rules"></a>Regler för routning av begäran
 
@@ -89,7 +89,7 @@ Det finns två typer av regler för routning av förfrågningar:
 
 - **Sökväg-baserad**. Med den här regeln kan du dirigera begär Anden på den associerade lyssnaren till en viss backend-pool, baserat på URL: en i begäran. Om sökvägen till URL: en i en begäran matchar Sök vägs mönstret i en Sök vägs-baserad regel dirigerar regeln den begäran. Sök vägs mönstret tillämpas bara på URL-sökvägen, inte dess frågeparametrar. Om URL-sökvägen på en lyssnare-begäran inte matchar någon av Sök vägs reglerna dirigerar den begäran till standard server delen och HTTP-inställningarna.
 
-Mer information finns i [URL-baserad routning](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
+Mer information finns i [URL-baserad routning](url-route-overview.md).
 
 ### <a name="redirection-support"></a>Stöd för omdirigering
 
@@ -97,7 +97,7 @@ Med regeln för routning av begär Anden kan du också dirigera om trafik på pr
 
 Du kan välja det omdirigerings mål som ska vara en annan lyssnare (som kan hjälpa dig att aktivera automatisk HTTP till HTTPS-omdirigering) eller en extern plats. Du kan också välja att omdirigeringen ska vara tillfällig eller permanent, eller lägga till URI-sökvägen och frågesträngen till den omdirigerade URL: en.
 
-Mer information finns i [omdirigera trafik på din Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Mer information finns i [omdirigera trafik på din Application Gateway](redirect-overview.md).
 
 ### <a name="rewrite-http-headers"></a>Återskapa HTTP-huvuden
 
@@ -105,7 +105,7 @@ Genom att använda regler för routning av begär Anden kan du lägga till, ta b
 
 Rubrikerna kan anges till statiska värden eller till andra huvuden och servervariabler. Detta hjälper till med viktiga användnings fall, till exempel att extrahera klientens IP-adresser, ta bort känslig information om Server delen, lägga till mer säkerhet och så vidare.
 
-Mer information finns i [skriva om HTTP-huvuden på din Application Gateway](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Mer information finns i [skriva om HTTP-huvuden på din Application Gateway](rewrite-http-headers.md).
 
 ## <a name="http-settings"></a>HTTP-inställningar
 
@@ -115,9 +115,9 @@ Porten och protokollet som används i HTTP-inställningarna avgör om trafiken m
 
 Den här komponenten används också för att:
 
-- Ta reda på om en användarsession ska behållas på samma server med hjälp av [cookie-baserad session tillhörighet](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
+- Ta reda på om en användarsession ska behållas på samma server med hjälp av [cookie-baserad session tillhörighet](overview.md#session-affinity).
 
-- Ta bort medlemmar i Server delens medlemmar genom att använda [anslutnings tömning](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
+- Ta bort medlemmar i Server delens medlemmar genom att använda [anslutnings tömning](overview.md#connection-draining).
 
 - Associera en anpassad avsökning för att övervaka Server dels hälsan, ange tids gräns intervallet för begäran, Åsidosätt värdnamn och sökväg i begäran och ge enkel klickning för att ange inställningar för den App Service server delen.
 
@@ -134,7 +134,7 @@ En backend-pool dirigerar begäran till backend-servrar, som servar begäran. Ba
 
 Application Gateway medlemmar i Server delen inte är knutna till en tillgänglighets uppsättning. En Application Gateway kan kommunicera med instanser utanför det virtuella nätverk där den finns. Därför kan medlemmarna i backend-pooler vara mellan kluster, i flera data Center eller utanför Azure, så länge det finns en IP-anslutning.
 
-Om du använder interna IP-adresser som medlemmar i backend-poolen måste du använda [peering för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) eller en [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Peering av virtuella nätverk stöds och är ett bra alternativ för belastnings Utjämnings trafik i andra virtuella nätverk.
+Om du använder interna IP-adresser som medlemmar i backend-poolen måste du använda [peering för virtuella nätverk](../virtual-network/virtual-network-peering-overview.md) eller en [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Peering av virtuella nätverk stöds och är ett bra alternativ för belastnings Utjämnings trafik i andra virtuella nätverk.
 
 En Programgateway kan också kommunicera med lokala servrar när de är anslutna via Azure ExpressRoute eller VPN-tunnlar om trafik tillåts.
 
@@ -146,7 +146,7 @@ Som standard övervakar en Programgateway hälsan för alla resurser i sin backe
 
 Förutom att använda övervakning av standard hälso avsökning kan du också anpassa hälso avsökningen så att den passar ditt programs krav. Anpassade avsökningar ger mer detaljerad kontroll över hälso övervakningen. När du använder anpassade avsökningar kan du konfigurera avsöknings intervallet, URL: en och sökvägen som ska testas och hur många misslyckade svar som ska accepteras innan instansen av backend-poolen markeras som ohälsosam. Vi rekommenderar att du konfigurerar anpassade avsökningar för att övervaka hälso tillståndet för varje backend-pool.
 
-Mer information finns i [övervaka hälso tillståndet för din Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+Mer information finns i [övervaka hälso tillståndet för din Application Gateway](../application-gateway/application-gateway-probe-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,16 +4,16 @@ description: Så här exporterar du data från ditt Azure IoT Central-program ti
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 10/15/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 35415fd1a552328faa8d1ad5812f44d8f4b6d5e4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1aac5af916e414178676a1caf42fead41109de68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894869"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974469"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>Exportera dina Azure IoT Central-data (för hands versions funktioner)
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder funktionen för kontinuerlig data e
 > [!Note]
 > När du aktiverar kontinuerlig data export får du bara data från det här tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du måste vara administratör i IoT Centrals programmet
 
@@ -37,7 +37,7 @@ Du måste vara administratör i IoT Centrals programmet
 
 Export målet måste finnas innan du konfigurerar din kontinuerliga data export.
 
-### <a name="create-event-hubs-namespace"></a>Skapa Event Hubs namn område
+### <a name="create-event-hubs-namespace"></a>Skapa en namnrymd för Event Hubs
 
 Följ dessa steg om du inte har ett befintligt Event Hubs namn område att exportera till:
 
@@ -195,7 +195,7 @@ Varje meddelande eller post i en ögonblicks bild representerar en eller flera �
 - enhetens `name`
 - `deviceId` från [enhets etablerings tjänsten](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
 - Information om enhets mal len
-- Egenskaps värden
+- Egenskapsvärden
 
 Enhets mal len som varje enhet tillhör representeras av `instanceOf`. För att hämta namn och ytterligare information om enhets mal len, se till att exportera enhetens mall data också.
 
@@ -310,7 +310,7 @@ Det här är ett exempel på en ögonblicks bild som innehåller enheter och ege
 }
 ```
 
-## <a name="device-templates"></a>Enhets mallar
+## <a name="device-templates"></a>Enhetsmallar
 
 Varje meddelande-eller ögonblicks bild post representerar en eller flera ändringar i en enhets mall sedan det senaste exporterade meddelandet. Information som skickas i varje meddelande eller post innehåller:
 

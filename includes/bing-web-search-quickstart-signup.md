@@ -1,14 +1,28 @@
 ---
-author: erhopf
-ms.author: erhopf
+author: aahill
+ms.author: aahi
 ms.service: cognitiveservices
 ms.topic: include
-ms.date: 08/16/2018
-ms.openlocfilehash: d0c46c6a315166df0c72642675f01c4726fc0e8c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 12/09/2019
+ms.openlocfilehash: e68a61e570ae878432089bb93235e08c3b71225f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187625"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961495"
 ---
-Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för att hämta en prenumerationsnyckel.
+## <a name="create-an-azure-resource"></a>Skapa en Azure-resurs
+
+Börja använda API för webbsökning i Bing genom att skapa en av Azure-resurserna nedan.
+
+* [Skapa en utvärderings resurs](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * Ingen Azure-prenumeration krävs.
+    * Gäller i sju dagar utan kostnad. Efter registreringen kommer en utvärderings nyckel och slut punkt att vara tillgängliga på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Skapa en Bing-sökning v7-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
+    * Tillgängligt via Azure Portal tills du tar bort resursen.
+    * Använd den kostnads fria pris nivån för att testa tjänsten och uppgradera senare till en betald nivå för produktion.
+
+* [Skapa en resurs för flera tjänster](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * Tillgängligt via Azure Portal tills du tar bort resursen.  
+    * Använd samma nyckel och slut punkt för dina program i flera Cognitive Services.

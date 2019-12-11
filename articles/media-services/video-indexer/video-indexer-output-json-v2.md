@@ -8,18 +8,23 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: bf4acf70b2937b3cb6b2552bf2d2ef9c2422743a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892727"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978312"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer utdata som skapats av API
 
 När du anropar API: et för att **Hämta video index** och svars statusen är OK får du ett detaljerat JSON-utdata som svars innehåll. JSON-innehållet innehåller information om de angivna video insikterna. Insikterna innehåller dimensioner som: avskrifter, OCRs, ansikten, ämnen, block osv. Dimensionerna har instanser av tidsintervall som visas när varje dimension visas i videon.  
+
+1. Hämta JSON-filen genom att anropa [Get video index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
+1. Om du också är intresse rad av vissa artefakter anropar du [Hämta video artefakt hämtning URL-API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+
+    I API-anropet anger du den begärda artefakt typen (OCR, ansikten, nyckel ramar osv.)
 
 Du kan också visuellt undersöka videoklippets sammanfattade insikter genom att trycka på **uppspelnings** knappen på videon på [video Indexer](https://www.videoindexer.ai/) webbplats. Mer information finns i [Visa och redigera video insikter](video-indexer-view-edit.md).
 

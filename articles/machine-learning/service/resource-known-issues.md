@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bff3547456c03ae313e7465238872670965765f1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ed67981a79e2bc998d0f1f64858206243c0a7070
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927686"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997215"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -105,7 +105,7 @@ Om du inte tar med det inledande snedstrecket "/" måste du ange ett prefix till
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Det gick inte att läsa Parquet-filen från HTTP eller ADLS gen 2
 
-Det finns ett känt problem i AzureML nu SDK version 1.1.25 som orsakar ett fel när du skapar en data uppsättning genom att läsa Parquet-filer från HTTP eller ADLS gen 2. Det går inte att `Cannot seek once reading started.`. Åtgärda problemet genom att uppgradera `azureml-dataprep` till en högre version än 1.1.26 eller nedgradera till en lägre version än 1.1.24.
+Det finns ett känt problem i AzureML nu SDK-1.1.25 som orsakar ett fel när du skapar en data uppsättning genom att läsa Parquet-filer från HTTP eller ADLS gen 2. Det går inte att `Cannot seek once reading started.`. Åtgärda problemet genom att uppgradera `azureml-dataprep` till en högre version än 1.1.26 eller nedgradera till en lägre version än 1.1.24.
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -141,7 +141,7 @@ När du använder automatiserade maskin inlärnings funktioner på Azure Databri
 
 I automatiska inställningar för maskin inlärning, om du har fler än 10 iterationer, ställer du in `show_output` till `False` när du skickar körningen.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget för Azure Machine Learning SDK/Automatisk maskin inlärning
+### <a name="widget-for-the-azure-machine-learning-sdk-and-automated-machine-learning"></a>Widget för Azure Machine Learning SDK och automatisk maskin inlärning
 
 Widgeten Azure Machine Learning SDK stöds inte i en Databricks Notebook eftersom antecknings böckerna inte kan parsa HTML-widgetar. Du kan visa widgeten i portalen genom att använda den här python-koden i din Azure Databricks Notebook-cell:
 
@@ -261,6 +261,16 @@ kubectl get secret/azuremlfessl -o yaml
 ## <a name="recommendations-for-error-fix"></a>Rekommendationer för fel korrigering
 Här följer Azure ML-rekommendationer för att åtgärda några av de vanliga felen i Azure ML, baserat på allmän observation.
 
+### <a name="metric-document-is-too-large"></a>Mått dokumentet är för stort
+Azure Machine Learnings tjänsten har interna gränser för storleken på mått objekt som kan loggas samtidigt från en utbildnings körning. Om du stöter på "Metric-dokumentet är för stort"-fel vid loggning av ett List värdes mått kan du försöka dela listan i mindre delar, till exempel:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+ Internt sammanfogar tjänsten kör historik alla block med samma mått namn till en sammanhängande lista.
+
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ingen modul med namnet)
 Om du kör i ModuleErrors när du skickar experiment i Azure ML, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet kommer Azure ML att installera paketet i den miljö som används för din utbildning. 
 
@@ -268,10 +278,11 @@ Om du använder [uppskattningar](concept-azure-machine-learning-architecture.md#
 
 Azure ML tillhandahåller också branschspecifika uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att Ramverks beroenden är installerade på din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
  
- Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
+Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
 De Ramverks-/regionsspecifika beroendena visas i respektive Framework-dokumentation – [kedjar](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
->[OBS!] Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
+> [!Note]
+> Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (namn har inte definierats), AttributeError (objektet har inget attribut)
 Detta undantag bör komma från dina utbildnings skript. Du kan titta på loggfilerna från Azure Portal för att få mer information om det angivna namnet inte är definierat eller ett attributvärde. Från SDK kan du använda `run.get_details()` för att titta på fel meddelandet. Detta visar även alla loggfiler som genererats för din körning. Se till att ta en titt på ditt utbildnings skript och åtgärda felet innan du försöker igen. 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ec87146c721222702073eae067a259aa9848d0f7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048994"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977139"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -41,10 +41,10 @@ Innehållet BDM förväntar sig inte läsaren ha kännedom tidigare data science
 
 ## <a name="business-case-for-predictive-maintenance"></a>Affärsfall för förutsägande Underhåll
 
-Företag kräver kritiska utrustning att köras på högsta effektivitet och användning för att upptäcka deras avkastningen på investeringar. Dessa tillgångar kan vara allt från flygplansmotorer, turbiner eller industriella kylaggregat – som kostar flera miljoner – till vardagsapparater som kopiatorer, kaffebryggare eller vattenkylare.
+Företag kräver att kritisk utrustning ska kunna köras med högsta effektivitet och utnyttjande för att realisera avkastningen på kapitalinvesteringar. Dessa tillgångar kan vara allt från flygplansmotorer, turbiner eller industriella kylaggregat – som kostar flera miljoner – till vardagsapparater som kopiatorer, kaffebryggare eller vattenkylare.
 - Som standard är de flesta företag förlitar sig på _korrigerande Underhåll_, där delar ersätts som och när de misslyckas. Korrigerande underhåll ser till att delar används helt (och därför inte slösar med komponenters livslängd) men kostar företaget i stilleståndstid, arbete och krav på oplanerat underhåll (utanför arbetstid eller obekväma platser).
 - På nästa nivå, företag Övning _förebyggande underhåll_, där de fastställa användbara livslängden för en del och underhålla och Ersätt det innan ett fel. Förebyggande underhåll undviker oplanerade och katastrofala fel. Men de höga kostnaderna för schemalagd stilleståndstid under användning av komponenten innan dess fullständiga livslängd för användning och arbete som fortfarande är kvar.
-- Målet med _förebyggande underhåll_ är att optimera balans mellan korrigerande och förebyggande underhåll genom att aktivera _just-in-time_ ersättning av komponenter. Den här metoden ersätter endast komponenterna när de ligger nära ett fel. Genom att utöka komponenten lifespans (jämfört med förebyggande underhåll) och minska oplanerat underhåll och arbetsbelastningen (över korrigerande underhåll), företag kan få kostnadsbesparingar och konkurrensmässiga fördelar.
+- Målet med _förebyggande underhåll_ är att optimera balans mellan korrigerande och förebyggande underhåll genom att aktivera _just-in-time_ ersättning av komponenter. Med den här metoden ersätts bara de komponenterna när felet är nära att uppstå. Genom att förlänga komponenters livslängd (jämfört med förebyggande underhåll) och minska oplanerat underhåll och arbetskostnader (överkorrigerande underhåll) kan företag spara pengar och få konkurrensfördelar.
 
 ## <a name="business-problems-in-pdm"></a>Affärsproblem i kontaktar
 Företag möter operativa högrisk på grund av oväntade fel och har begränsad insikt i de grundläggande orsakerna till problem i komplexa system. Några av de viktiga affärsfrågor är:
@@ -203,7 +203,9 @@ Affärskraven definierar hur långt modellen har att förutsäga i framtiden. I 
 #### <a name="rolling-aggregates"></a>Löpande aggregeringar
 För varje post för en tillgång väljs ett rullande tidsfönster storlek ”W” som antalet tidsenheter att beräkna aggregeringar. Lag funktioner beräknas sedan med W perioder _före datumet_ för den posten. I bild 1 visar blå raderna sensorvärdena registreras för en tillgång för varje enhet av time. De anger en rullande medelvärdet för funktionen värden över ett fönster med storleken W = 3. Det rullande medelvärdet beräknas över alla poster med tidsstämplar som är inom räckhåll t<sub>1</sub> (i orange) till t<sub>2</sub> (i grönt). Värdet för W är vanligtvis i minuter eller timmar beroende på typen av uppgift. Men för vissa problem, välja ett stort W (exempelvis 12 månader) kan tillhandahålla hela historiken för en tillgång tills posten.
 
-![Bild 1. Löpande aggregerade funktioner](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) bild 1. Löpande aggregerade funktioner
+![Figur 1. Löpande aggregerade funktioner](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+
+Figur 1. Löpande aggregerade funktioner
 
 Exempel på löpande aggregeringar via ett tidsfönster är antal, genomsnitt, CUMESUM (kumulativa summan) mått, min/max-värden. Dessutom används ofta avvikelse, standardavvikelse och antal extremvärden utöver N standardavvikelser. Exempel på aggregeringar som kan användas för den [användningsfall](#sample-pdm-use-cases) i den här handboken finns nedan. 
 - _Flight fördröjning_: antal felkoder över sista dag/vecka.
@@ -217,7 +219,9 @@ En annan användbar teknik i kontaktar är att samla in trend ändringar, toppar
 #### <a name="tumbling-aggregates"></a>Rullande aggregeringar
 För varje etikettad post för en till gång definieras ett fönster med storleken _w-<sub>k</sub>_  , där _k_ är antalet fönster i storlek _w_. Agg regeringar skapas sedan över _k_ _rullande Windows_ _W-k, w-<sub>(k-1)</sub>,..., w-<sub>2</sub>, w-<sub>1</sub>_  för perioderna före en posts tidstämpel. _k_ kan vara ett fåtal avbilda kortsiktig effekterna eller ett stort antal avbilda långsiktiga försämring mönster. (se bild 2).
 
-![Figur 2. Rullande aggregerade funktioner](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) bild 2. Rullande aggregerade funktioner
+![Figur 2. Rullande aggregerade funktioner](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+
+Figur 2. Rullande aggregerade funktioner
 
 Till exempel lag funktioner för användningsfall för vind syfte kan skapas med W = 1 och k = 3. De innebär fördröjning för var och en av de senaste tre månaderna med hjälp av övre och nedre extremvärden.
 
@@ -227,7 +231,7 @@ Tekniska specifikationer utrustning, till exempel datum till tillverkning, model
 
 På arbetet för förberedelse av data beskrivs hittills ska leda till de data som är ordnade enligt nedan. Utbildning, testning och validering data bör ha det här logiska schemat (det här exemplet visar tid i antal dagar).
 
-| Tillgångs-ID | Tid | \<funktions kolumner > | Label (Etikett) |
+| Tillgångs-ID | Tid | \<funktions kolumner > | Etikett |
 | ---- | ---- | --- | --- |
 | A123 |Dag 1 | . . . | . |
 | A123 |Dag 2 | . . . | . |
@@ -262,7 +266,9 @@ Två typer av utbildning exempel identifieras i den här tekniken. Ett positivt 
 #### <a name="label-construction-for-binary-classification"></a>Etikett-konstruktion för binär klassificering
 Den här frågan är ”: Vad är sannolikheten att tillgången inte fungerar i nästa X tidsenheter”? Besvara den här frågan, etikett X poster innan felet av en tillgång som ”om du kunde inte” (etikett = 1), och märka alla poster som är ”normal” (etikett = 0). (se bild 3).
 
-![Bild 3. Etiketter för binär klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png) bild 3. Etiketter för binär klassificering
+![Figur 3. Etiketter för binär klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+
+Figur 3. Etiketter för binär klassificering
 
 Exempel på märkning strategi för några av användningsfallen listas nedan.
 - _Flight fördröjningar_: X kan väljas som 1 dag att förutsäga fördröjningar i 24 timmar. Sedan alla flygningar som ligger inom ett dygn innan fel är märkta som 1.
@@ -277,7 +283,9 @@ Regressionsmodeller är vana vid _compute återstående livslängd (RUL) för en
 #### <a name="label-construction-for-regression"></a>Etikett-konstruktion för regression
 Den här frågan är: ”Vad är den återstående användbara livslängd (RUL)”? Beräkna etikett för att antalet tidsenheter kvar innan nästa fel för varje post innan felet. I den här metoden är etiketter kontinuerlig variabler. (Se bild 4)
 
-![Bild 4. Etiketter för regression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) bild 4. Etiketter för regression
+![Figur 4. Etiketter för regression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+
+Figur 4. Etiketter för regression
 
 För regression görs märkning med referens till en felpunkt. Beräkningen är inte möjligt utan att känna till hur lång tid tillgången texten, har överlevt innan ett fel uppstod. Så kan i kontrast till binär klassificering tillgångar utan några fel i data inte användas för modellering. Det här problemet är det bäst med en annan statistisk teknik som kallas [analys av fortsatt giltighet](https://en.wikipedia.org/wiki/Survival_analysis). Men potentiella problem kan uppstå när du använder den här tekniken till kontaktar problem som rör tidsvarierande data med regelbundet. Läs mer på analys av fortsatt giltighet [det här en personsökare](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
 
@@ -289,11 +297,15 @@ Flera klassificeringstekniker kan användas i kontaktar lösningar för två sce
 #### <a name="label-construction-for-multi-class-classification"></a>Etikett-konstruktion för flera klassificering
 Den här frågan är ”: Vad är sannolikheten att en tillgång misslyckas i nästa _nZ_ tidsenheter där _n_ är antalet perioder”? Besvara den här frågan, etikett nZ poster innan felet för en tillgång med buckets tid (3Z 2Z Z). Etikett för alla andra registrerar ”normal” (etikett = 0). I den här metoden en målvariabel innehåller _kategoriska_ värden. (Se bild 5).
 
-![Bild 5. Fel tid förutsägelse etiketter för multiklass-baserad klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) bild 5. Etiketter för flera klassificering för fel tid förutsägelse
+![Figur 5. Tids förutsägelse etiketter för klassificering av multiklass](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+
+Figur 5. Etiketter för flera klassificering för fel tid förutsägelse
 
 Den här frågan är ”: Vad är sannolikheten att tillgången inte fungerar i nästa X tidsenheter på grund av orsaken/rotproblemet _P<sub>jag</sub>_ ”? där _jag_ är antalet möjliga underliggande orsaker. Besvara den här frågan, etikett X poster innan felet av en tillgång som ”upphör snart att misslyckas på grund av orsaken _P<sub>jag</sub>_ ” (etikett = _P<sub>jag</sub>_ ). Etikettera alla poster som är ”normal” (etikett = 0). I den här metoden är etiketter dessutom kategoriska (se bild 6).
 
-![Bild 6. Rotorsak förutsägelse etiketter för multiklass-baserad klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) bild 6. Etiketter för flera klassificering för rot orsak förutsägelse
+![Figur 6. Rotor Saks förutsägelse etiketter för klassificering av multiklass](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+
+Figur 6. Etiketter för flera klassificering för rot orsak förutsägelse
 
 Modellen tilldelar en sannolikheten för fel på grund av var och en _P<sub>jag</sub>_  samt sannolikheten för fel. Dessa sannolikheter kan beställas storlek så att förutsägelse av de problem som är mest sannolikt kan förekomma i framtiden.
 
@@ -329,7 +341,9 @@ Anta att en dataström med tidsstämplad händelser, t.ex mått från olika sens
 
 Tidsberoende delning, Välj en _utbildning klara tiden T<sub>c</sub>_  då att träna en modell med hyperparametrar justerade med hjälp av historiska data upp till T<sub>c</sub>. Att förhindra läckage av framtida etiketter som ligger utanför T<sub>c</sub> till utbildningsdata, väljer du senaste tiden till etiketten utbildning exempel ska X enheter innan T<sub>c</sub>. I exemplet som visas på bild 7, representerar varje ruta en post i datauppsättningen där funktioner och etiketter beräknas enligt beskrivningen ovan. Bilden visar de poster som ska gå i utbildning och testningsuppsättningar för X = 2 och W = 3:
 
-![Bild 7. Tidsberoende dela upp för binär klassificering](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) bild 7. Tidsberoende dela upp för binär klassificering
+![Figur 7. Tidsberoende dela upp för binär klassificering](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+
+Figur 7. Tidsberoende dela upp för binär klassificering
 
 Grön rutor representerar poster som hör till enheterna som kan användas för utbildning. Varje exempel utbildning genereras av överväger tidigare perioderna för funktionen generation och två framtida perioder för etikettering innan T<sub>c</sub>. När någon del av de två framtida perioderna ligger utanför T<sub>c</sub>, undantas det exemplet från datauppsättningen utbildning eftersom ingen synlighet antas utöver T<sub>c</sub>.
 
@@ -411,11 +425,11 @@ Den sista delen av den här guiden innehåller en lista över kontaktar lösning
 
 | # | Rubrik | Beskrivning |
 |--:|:------|-------------|
-| 2 | [Lösningsmallen för azures förutsägande Underhåll](https://github.com/Azure/AI-PredictiveMaintenance) | En mall med öppen källkod som visar ML-modeller och en fullständig Azure-infrastrukturen kan stödja scenarier för förebyggande underhåll i samband med IoT fjärrövervakning. |
+| 2 | [Lösningsmallen för azures förutsägande Underhåll](https://github.com/Azure/AI-PredictiveMaintenance) | En lösnings mall med öppen källkod som visar Azure ML-modellering och en fullständig Azure-infrastruktur som kan stödja förebyggande underhålls scenarier i samband med IoT-fjärrövervakning. |
 | 3 | [Djupinlärning för förutsägande Underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure-anteckningsbok med en demo-lösning för att använda LSTM (lång kortvariga minne) nätverk (en klass på återkommande Neurala nätverk) för förutsägande underhåll, med en [blogginlägget på det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guide för Hotmodellering i förebyggande underhåll i R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide för hotmodellering i PdM med skript i R.|
 | 5 | [Azure Förutsägelseunderhåll för flygindustrin](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | En av de första PdM-lösningsmallar baserat på Azure ML v1.0 för flygplan underhåll. Den här guiden kommer från det här projektet. |
-| 6 | [Azure AI-verktyg för IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI i IoT edge med TensorFlow; Toolkit paket deep learning-modeller i Azure IoT Edge-kompatibel Docker-behållare och exponera dessa modeller som REST API: er.
+| 6 | [Azure AI-verktyg för IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI i IoT Edge med TensorFlow; Toolkit-paket djup inlärnings modeller i Azure IoT Edge-kompatibla Docker-behållare och exponera dessa modeller som REST-API: er.
 | 7 | [Förebyggande underhåll i Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite datorer - förkonfigurerade lösningen. Flygplan kontaktar mallen Underhåll med IoT Suite. [Ett annat dokument](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) och [genomgången](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relaterade till samma projekt. |
 | 8 | [Mallen för förebyggande underhåll med hjälp av SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstration av återstående livslängd scenariot utifrån R services. |
 | 9 | [Guide för Hotmodellering i förebyggande underhåll](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Flygplan Underhåll datauppsättning funktionen utformat med R med [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) och [datauppsättningar](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) och [Azure notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) och [experiment](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)i AzureML v1.0|

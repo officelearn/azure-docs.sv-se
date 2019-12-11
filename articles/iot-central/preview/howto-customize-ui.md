@@ -3,17 +3,17 @@ title: Anpassa Azure IoT Central-ANVÄNDARGRÄNSSNITTET | Microsoft Docs
 description: Anpassa temat och hjälp Länkar för ditt Azure IoT Central-program
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/25/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1c9f400c1712c4826044354ead27ecaf597ee311
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 3aed1b47e2bce2eda60b953e5a4c8d6d7ee5c59f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894947"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976272"
 ---
 # <a name="customize-the-azure-iot-central-ui-preview-features"></a>Anpassa Azure IoT Central UI (för hands versions funktioner)
 

@@ -8,27 +8,27 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: b6af171eafbaf1f4d31bad649fcb0c69d8bdc24d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 19414a6f09f4bc61cd9b1b09ae98ea070e577d7f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821713"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995889"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent data kryptering för SQL Database och informations lager
 
-Transparent data kryptering (TDE) hjälper till att skydda Azure SQL Database, Azure SQL-hanterad instans och Azure Data Warehouse mot hot från skadlig offline-aktivitet genom att kryptera data i vila. Den utför kryptering och dekryptering i real tid av databasen, tillhör ande säkerhets kopior och transaktionsloggfiler i vila utan att det krävs några ändringar i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser. TDE kan inte användas för att kryptera den logiska **huvud** databasen i SQL Database.  **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna.
+Transparent data kryptering (TDE) hjälper till att skydda Azure SQL Database, Azure SQL-hanterad instans och Azure Data Warehouse mot hot från skadlig offline-aktivitet genom att kryptera data i vila. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är transparent datakryptering aktiverat för alla nyligen distribuerade Azure SQL-databaser. TDE kan inte användas för att kryptera den logiska **huvud** databasen i SQL Database.  **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna.
 
 TDE måste aktive ras manuellt för äldre databaser av Azure SQL Database, Azure SQL-hanterad instans eller Azure SQL Data Warehouse.
 Hanterade instans databaser som skapats via återställning ärver krypterings status från käll databasen.
 
 Transparent data kryptering krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel. Den här databas krypterings nyckeln skyddas av transparent data krypterings skydd. Skydds komponenten är antingen ett tjänst hanterings certifikat (hanterad transparent data kryptering) eller en asymmetrisk nyckel som lagras i Azure Key Vault (Bring Your Own Key). Du ställer in transparent data krypterings skydd på server nivå för Azure SQL Database och informations lager och instans nivå för Azure SQL-hanterad instans. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
 
-Vid databas start dekrypteras krypterings nyckeln för krypterad databas och används sedan för dekryptering och Omkryptering av databasfilerna i processen för SQL Server databas motor. Transparent data kryptering utför I/O-kryptering i real tid och dekryptering av data på sidnivå. Varje sida dekrypteras när den läses in i minnet och sedan krypteras innan den skrivs till disk. En allmän beskrivning av transparent data kryptering finns i [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
+Vid databas start dekrypteras krypterings nyckeln för krypterad databas och används sedan för dekryptering och Omkryptering av databasfilerna i processen för SQL Server databas motor. Transparent data kryptering utför I/O-kryptering i real tid och dekryptering av data på sidnivå. Varje sida dekrypteras när de läses in i minnet och krypteras sedan innan de skrivs tillbaka till disken. En allmän beskrivning av transparent data kryptering finns i [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 
 SQL Server som körs på en virtuell Azure-dator kan också använda en asymmetrisk nyckel från Key Vault. Konfigurations stegen skiljer sig från att använda en asymmetrisk nyckel i SQL Database-och SQL-hanterad instans. Mer information finns i [utöknings bar nyckel hantering med hjälp av Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
 
@@ -72,7 +72,7 @@ Det enda undantaget är när du exporterar till och från en SQL-databas. Transp
 
 
 ## <a name="manage-transparent-data-encryption"></a>Hantera transparent data kryptering
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 Hantera transparent data kryptering i Azure Portal.
 
 Om du vill konfigurera transparent data kryptering via Azure Portal måste du vara ansluten som Azure-ägare, deltagare eller SQL Security Manager.
@@ -122,7 +122,7 @@ Anslut till databasen med en inloggning som är en administratör eller medlem a
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | Ange kryptering vid/från krypterar eller dekrypterar en databas |
 | [sys. dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returnerar information om krypterings tillstånd för en databas och dess tillhör ande databas krypterings nycklar |
-| [sys. dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypterings status för varje data lager nod och dess tillhör ande databas krypterings nycklar |
+| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypterings status för varje data lager nod och dess tillhör ande databas krypterings nycklar |
 |  | |
 
 Du kan inte byta transparent data krypterings skydd till en nyckel från Key Vault med hjälp av Transact-SQL. Använd PowerShell eller Azure Portal.

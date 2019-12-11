@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555048"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973976"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -37,7 +37,7 @@ Från och med API-versionen `2019-05-06`struktureras fel och varningar på objek
 | key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | namn | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName Projektion. KnowledgeStore. Table. myTableName |
 | meddelande | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
-| Information | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1-källa, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... rest av stack spårning... |
+| details | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1-källa, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... rest av stack spårning... |
 | documentationLink | En länk till relevant dokumentation med detaljerad information för att felsöka och lösa problemet. Den här länken pekar ofta på ett av nedanstående avsnitt på den här sidan. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -307,3 +307,9 @@ Mappningar av utdatakolumner som refererar till icke-existerande/null-data gener
 Om det inte finns någon byte ordnings markering antas texten vara kodad som UTF-8.
 
 Du kan undvika den här varningen genom att ta reda på vad text kodningen för denna BLOB är och lägga till rätt byte ordnings tecken.
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Varning: Cosmos DB samlingen "X" har en Lazy-indexerings princip. Vissa data kan gå förlorade
+
+Samlingar med [Lazy](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) indexerings principer kan inte frågas konsekvent, vilket leder till att indexeraren saknar data. Undvik den här varningen genom att ändra indexerings principen till konsekvent.

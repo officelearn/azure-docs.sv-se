@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure AD v 2.0 ASP.NET-webbserver
+title: Lägg till inloggning till Azure AD ASP.NET-webbapp
 titleSuffix: Microsoft identity platform
 description: Implementera Microsoft-inloggning på en ASP.NET-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect standard
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803716"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964743"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
 

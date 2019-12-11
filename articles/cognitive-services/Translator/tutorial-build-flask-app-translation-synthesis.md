@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 7b9f1cfeb6ebcbc693135d83ad167092e16f478d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 5e19e4247e58135c6a9bb7c6cc327cb566d294df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647337"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978466"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudie: Bygg en kolv-app med Azure Cognitive Services
 
@@ -44,7 +44,7 @@ För dem som vill ha djupet efter den här kursen är några användbara länkar
 * [Dokumentation om flaska](http://flask.pocoo.org/)
 * [Kolv för Dummies – en nybörjar guide till kolv](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Vi går igenom de program-och prenumerations nycklar som du behöver i den här kursen.
 
@@ -59,9 +59,9 @@ Vi går igenom de program-och prenumerations nycklar som du behöver i den här 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Skapa ett konto och prenumerera på resurser
 
 Som tidigare nämnts kommer du att behöva tre prenumerations nycklar för den här självstudien. Det innebär att du måste skapa en resurs i ditt Azure-konto för:
-* Translator Text
+* Translator för textöversättning
 * Textanalys
-* Speech Services
+* Taltjänster
 
 Använd [skapa ett Cognitive Services konto i Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för stegvisa instruktioner för att skapa resurser.
 
@@ -107,7 +107,7 @@ Nu ska vi skapa en virtuell miljö för vår mätkolv-app med hjälp av `virtual
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
    | Windows | bash | `source venv/Scripts/activate` |
-   | | Kommandorad | `venv\Scripts\activate.bat` |
+   | | Kommandoraden | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
    När du har kört det här kommandot bör du använda en kommando rad eller Terminal-session med `venv`.
@@ -146,7 +146,7 @@ Nu måste vi installera kolv. Kolv hanterar routningen för vår webbapp och gö
 
 2. Om du vill köra kolv-appen kan du antingen använda flaska-kommandot eller python: s-m-switch med kolv. Innan du kan göra det måste du tala om för terminalen vilken app du ska arbeta med genom att exportera `FLASK_APP`-miljövariabeln:
 
-   **MacOS/Linux**:
+   **macOS/Linux**:
    ```
    export FLASK_APP=app.py
    ```
@@ -182,7 +182,7 @@ Den här koden säkerställer att när en användare navigerar till `http://your
 
 De här exemplen illustrerar hur du återger HTML-sidor för en användare. vägar kan också användas för att anropa API: er när en knapp trycks ned, eller så kan du vidta ett antal åtgärder utan att behöva gå från start sidan. Du ser detta i åtgärd när du skapar vägar för översättning, sentiment och tal syntes.
 
-### <a name="get-started"></a>Kom igång
+### <a name="get-started"></a>Kom i gång
 
 1. Öppna projektet i IDE och skapa sedan en fil med namnet `app.py` i roten i din arbets katalog. Kopiera sedan koden till `app.py` och spara:
 

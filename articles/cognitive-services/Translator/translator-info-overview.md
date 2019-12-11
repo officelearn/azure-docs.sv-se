@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 06/04/2019
+ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 8cdd52963f89041ea97b018fd3756c925308e641
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f27e8e8693fc5d1d3e432b78f2877d71274f146
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443269"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978483"
 ---
 # <a name="what-is-the-translator-text-api"></a>Vad är Translator Text API?
 
@@ -28,9 +28,9 @@ Translator Text API är en del av Azure [Cognitive Services API](https://docs.mi
 
 Microsoft Translator är en molnbaserad maskinöversättningstjänst. Den viktigaste tjänsten är Translator Text API, som driver ett antal produkter och tjänster från Microsoft och används av tusentals företag över hela världen i program och arbetsflöden, vilket gör att deras innehåll kan nå en världsomspännande publik.
 
-Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktionen från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbara tjänst. Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
+Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst. Tal tjänsten ersätter Translator Speech API som tas ur bruk den 15 oktober 2019.
 
-## <a name="language-support"></a>Stöd för språk
+## <a name="language-support"></a>Språkstöd
 
 Microsoft Translator ger flerspråksstöd för översättning, translitteration, språkidentifiering och ordlistor. Se [språkstöd](language-support.md) för en fullständig lista, eller kom åt listan programmatiskt med [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 

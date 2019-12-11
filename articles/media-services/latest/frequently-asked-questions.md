@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338822"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977734"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
@@ -30,7 +30,7 @@ Se [rollbaserad åtkomst kontroll (RBAC) för Media Services-konton](rbac-overvi
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>Hur gör jag för att konfigurerar du reserverade enheter?
 
-För analys av ljud och Video Analysis jobb som utlöses av Media Services v3 eller Video Indexer kan rekommenderar vi starkt att etablera ditt konto med 10 S3 MRUs. Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
+För ljudanalys- och videoanalysjobb som utlöses av Media Services v3 eller Video Indexer rekommenderar vi starkt att du etablerar ditt konto med 10 S3-MRU:er. Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
 
 Mer information finns i [skala medie bearbetning med CLI](media-reserved-units-cli-how-to.md).
 
@@ -90,7 +90,7 @@ I STS, beroende på användar profil, lägger du till olika anspråk (till exemp
 
 Använd Azure Media Services-API: er för att konfigurera licens-/nyckel leverans och kryptera dina till gångar (som visas i [det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-Mer information finns i:
+Mer information finns här:
 
 - [Översikt över innehållsskydd](content-protection-overview.md)
 - [Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
@@ -118,6 +118,9 @@ Ofta kunder har investerat i en licens-servergrupp i sina egna Datacenter eller 
 
 * STS måste utfärda token som accepteras och kan verifieras av licens-servergruppen. Widevine-licens-servrar som tillhandahålls av Axinom kräver till exempel en specifik JWT som innehåller rätt meddelanden. Därför måste ha en STS att utfärda en sådan JWT. 
 * Du behöver inte längre konfigurera licensleveranstjänst i Media Services. Du måste ange licensen förvärv URL: er (för PlayReady, Widevine och FairPlay) när du konfigurerar ContentKeyPolicies.
+
+> [!NOTE]
+> Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 vs v3 
 

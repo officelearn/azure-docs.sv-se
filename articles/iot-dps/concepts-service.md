@@ -1,6 +1,6 @@
 ---
 title: Tjänst koncept i Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Beskriver tjänst etablerings begrepp som är speciella för enheter med enhets etablerings tjänsten och IoT Hub
+description: Beskriver tjänst etablerings begrepp som är relaterade till enheter med enhets etablerings tjänsten (DPS) och IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104363"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975609"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service begrepp
 
@@ -73,6 +73,6 @@ En enskild registrering är en post för en enskild enhet som kan registreras. E
 
 En registrering är en post i en enhet som har registrerats/tillhandahållits till en IoT Hub via enhets etablerings tjänsten. Registrerings poster skapas automatiskt. de kan tas bort, men de kan inte uppdateras.
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 Åtgärder är fakturerings enheten för enhets etablerings tjänsten. En åtgärd är slutförd slut för ande av en instruktion till tjänsten. Åtgärder är bland annat registreringar och omregistreringar av enheter. Åtgärder är även ändringar på tjänstsidan, till exempel tillägg och uppdatering av poster i registreringslistan.

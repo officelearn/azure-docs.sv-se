@@ -4,14 +4,14 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/06/2019
-ms.openlocfilehash: 7258e9b4b336a6e27db1577dafc99e6be380a3a0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b8a04dcda03de277ff9f2b291e798540846c1e49
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918872"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980929"
 ---
-## <a name="create-a-bing-web-search-resource"></a>Skapa en Webbsökning i Bing resurs
+## <a name="create-an-azure-resource"></a>Skapa en Azure-resurs
 
 Börja använda API för bildsökning i Bing genom att skapa en av Azure-resurserna nedan.
 

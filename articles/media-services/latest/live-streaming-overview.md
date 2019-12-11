@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186148"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977751"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -42,6 +42,9 @@ Med Media Services kan du dra nytta av [dynamisk paketering](dynamic-packaging-o
 ## <a name="dynamic-encryption"></a>Dynamisk kryptering
 
 Med dynamisk kryptering kan du dynamiskt kryptera din direktsända eller på begäran-innehåll med AES-128 eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. Mer information finns i [dynamisk kryptering](content-protection-overview.md).
+
+> [!NOTE]
+> Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="dynamic-manifest"></a>Dynamiskt manifest
 
@@ -75,7 +78,7 @@ Direkt avskrift är en funktion som du kan använda med Live-händelser som anti
 För att förstå Live streaming-arbetsflödet i Media Services v3 måste du först granska och förstå följande begrepp: 
 
 - [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
-- [Livehändelser och liveresultat](live-events-outputs-concept.md)
+- [Livehändelser och liveutdata](live-events-outputs-concept.md)
 - [Positionerare för direktuppspelning](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allmänna steg

@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/09/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1c00d0f4ba365442762df6e041f02ea0a39f099
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a14338e552250ac63c344365099a16f20616ea9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847311"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964044"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera lösen ords återställning utan att kräva slut användar registrering
 
-För att distribuera Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord (SSPR) måste autentiseringsdata vara tillgängligt. Vissa organisationer har sina användare inmatat sina autentiseringsdata själva. Men många organisationer föredrar att synkronisera med data som redan finns i Active Directory. Synkroniserade data görs tillgängliga för Azure AD och SSPR utan användar interaktion om du:
+För att distribuera Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord (SSPR) måste autentiseringsdata vara tillgängligt. Vissa organisationer har sina användare inmatat sina autentiseringsdata själva. Andra organisationer föredrar att synkronisera med data som redan finns i Active Directory. Dessa synkroniserade data görs tillgängliga för Azure AD och SSPR utan användar interaktion om du uppfyller följande krav:
 
 * Formatera data korrekt i din lokala katalog.
 * Konfigurera [Azure AD Connect med hjälp av inställningarna för Express](../hybrid/how-to-connect-install-express.md).
@@ -41,21 +41,18 @@ Om du använder standardinställningarna i Azure AD Connect görs följande mapp
 | telephoneNumber | Arbetstelefon |
 | mobila | Mobiltelefon |
 
-När en användare verifierar sitt mobiltelefon nummer fylls telefon fältet under information om kontakt information i Azure AD också i det numret.
+När en användare har verifierat mobiltelefon numret fylls *telefon* fältet under **information om kontakt information** i Azure AD också i det numret.
 
 ## <a name="authentication-contact-info"></a>Information om autentisering av kontakt
 
-En global administratör kan manuellt ange kontakt information för autentisering för en användare som visas på följande skärm bild.
+På sidan **autentiseringsmetoder** för en Azure AD-användare i Azure Portal kan en global administratör manuellt ange autentiseringens kontakt information, som du ser i följande exempel skärm bild:
 
 ![Kontakt information för autentisering på en användare i Azure AD][Contact]
 
-Om telefon fältet är ifyllt och mobil telefonen är aktiverat i SSPR-principen, kommer användaren att se det numret på registrerings sidan för lösen ords återställning och under arbets flödet för lösen ords återställning.
-
-Det alternativa telefon fältet används inte för lösen ords återställning.
-
-Om e-postfältet är ifyllt och e-postmeddelandet är aktiverat i SSPR-principen, kommer användaren att se e-postmeddelandet på registrerings sidan för lösen ords återställning och under arbets flödet för lösen ords återställning.
-
-Om det alternativa e-postfältet är ifyllt och e-postmeddelandet är aktiverat i SSPR-principen visas **inte** e-postmeddelandet på registrerings sidan för lösen ords återställning, men de visas under arbets flödet för lösen ords återställning.
+* Om **telefon** fältet är ifyllt och **mobil telefonen** är aktiverat i SSPR-principen, ser användaren det numret på registrerings sidan för lösen ords återställning och under arbets flödet för lösen ords återställning.
+* Det **alternativa telefon** fältet används inte för lösen ords återställning.
+* Om **e-** postfältet är ifyllt och **e-postmeddelandet** är aktiverat i SSPR-principen ser användaren den e-postadressen på registrerings sidan för lösen ords återställning och under arbets flödet för lösen ords återställning.
+* Om det **alternativa e-** postfältet är ifyllt och **e-postmeddelandet** är aktiverat i SSPR-principen visas **inte** e-postmeddelandet på registrerings sidan för lösen ords återställning, men de visas under arbets flödet för lösen ords återställning.
 
 ## <a name="security-questions-and-answers"></a>Säkerhets frågor och svar
 
@@ -69,7 +66,7 @@ När en användare registrerar, anger registrerings sidan följande fält:
 * **E-postautentisering**
 * **Säkerhets frågor och svar**
 
-Om du har angett ett värde för **mobil telefon** eller **alternativt e-postmeddelande**kan användarna omedelbart använda dessa värden för att återställa sina lösen ord, även om de inte har registrerats för tjänsten. Dessutom ser användarna dessa värden när de registreras för första gången och de kan ändra dem om de vill. När de har registrerats sparas de här värdena i fälten för **autentiserings** -och **e-postadresserna** .
+Om du har angett ett värde för **mobil telefon** eller **alternativt e-postmeddelande**kan användarna omedelbart använda dessa värden för att återställa sina lösen ord, även om de inte har registrerats för tjänsten. Dessutom ser användarna dessa värden när de registreras för första gången och de kan ändra dem om de vill. När de har registrerats sparas de här värdena i fälten för **autentiserings** **-och e-postadresserna** .
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Ange och läsa autentiseringsdata via PowerShell
 

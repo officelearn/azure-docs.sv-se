@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888673"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976306"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for MariaDB med hjälp av Azure Portal
 
@@ -37,21 +37,21 @@ Listan över stöds serverparametrar växer hela tiden. Använda fliken server p
 
 InnoDB Buffertpoolen och högsta antal anslutningar är inte kan konfigureras och bundet till din [prisnivån](concepts-pricing-tiers.md).
 
-|**Prisnivå**| **virtuella kärnor**|**InnoDB Buffertpoolen (MB)**| **Högsta antal anslutningar**|
-|---|---|---|---|
-|Basic| 1| 1024| 50|
-|Basic| 2| 2560| 100|
-|Generellt syfte| 2| 3584| 300|
-|Generellt syfte| 4| 7680| 625|
-|Generellt syfte| 8| 15360| 1250|
-|Generellt syfte| 16| 31232| 2500|
-|Generellt syfte| 32| 62976| 5000|
-|Generellt syfte| 64| 125952| 10000|
-|Minnesoptimerad| 2| 7168| 600|
-|Minnesoptimerad| 4| 15360| 1250|
-|Minnesoptimerad| 8| 30720| 2500|
-|Minnesoptimerad| 16| 62464| 5000|
-|Minnesoptimerad| 32| 125952| 10000|
+|**Prisnivå**| **virtuella kärnor**|**InnoDB Buffertpoolen (MB)**|
+|---|---|---|
+|Basic| 1| 1024|
+|Basic| 2| 2560|
+|Generellt syfte| 2| 3584|
+|Generellt syfte| 4| 7680|
+|Generellt syfte| 8| 15360|
+|Generellt syfte| 16| 31232|
+|Generellt syfte| 32| 62976|
+|Generellt syfte| 64| 125952|
+|Minnesoptimerad| 2| 7168|
+|Minnesoptimerad| 4| 15360|
+|Minnesoptimerad| 8| 30720|
+|Minnesoptimerad| 16| 62464|
+|Minnesoptimerad| 32| 125952|
 
 Dessa ytterligare server-parametrar kan inte konfigureras i systemet:
 

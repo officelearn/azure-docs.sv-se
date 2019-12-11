@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använda SDK för webbsökning i Bing för C#'
+title: 'Snabbstart: Använda SDK för Webbsökning i Bing för C#'
 titleSuffix: Azure Cognitive Services
 description: SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i C#-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 services: cognitive-services
@@ -8,24 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5e893fda5a0e71703eb867c045de19d391c012ed
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 2c55aaa0843574981a7643b11161700992ea0b09
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018217"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976459"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snabbstart: Använda SDK för webbsökning i Bing för C#
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snabbstart: Använda SDK för Webbsökning i Bing för C#
 
 SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i C#-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) eller
@@ -33,6 +29,8 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
   * [C# för Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [NuGet-pakethanteraren](https://github.com/jmrog/vscode-nuget-package-manager)
 * [.NET Core SDK](https://www.microsoft.com/net/download)
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-install-dependencies"></a>Skapa ett projekt och installera beroenden
 

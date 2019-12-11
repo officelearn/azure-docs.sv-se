@@ -1,5 +1,5 @@
 ---
-title: Azure AD tjänst-till-tjänst-autentisering OAuth 2.0 på uppdrag av utkast specifikation | Microsoft Docs
+title: Tjänst-till-tjänst-autentisering med OAuth 2.0 på uppdrag av Flow | Microsoft Docs
 description: Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänst-till-tjänst-autentisering med OAuth 2.0 on-of-Flow.
 services: active-directory
 documentationcenter: .net
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: accd14446ab8f4a70336e3bd6787cbd8c93ff21d
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: b22abde182437bfeb4a42e5c9a0d8e41a4643f8f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891506"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964454"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
 
@@ -32,13 +32,13 @@ ms.locfileid: "69891506"
 OAuth 2,0-flödet på OBO-nivå () gör det möjligt för ett program som anropar en tjänst eller ett webb-API för att skicka användarautentisering till en annan tjänst eller webb-API. OBO-flödet sprider den delegerade användar identiteten och behörigheterna via begär ande kedjan. För att mellanskikts tjänsten ska kunna göra autentiserade begär anden till den underordnade tjänsten måste den skydda en åtkomsttoken från Azure Active Directory (Azure AD) för användarens räkning.
 
 > [!IMPORTANT]
-> Från och med maj 2018 `id_token` kan inte användas för den här flödes Inräkningen.  Appar med en sida (SPAs) måste skicka en åtkomsttoken till en konfidentiell klient på mellan nivå för att utföra OBO-flöden. Mer information om klienter som kan utföra on-of-on-of-anrop finns i [begränsningar](#client-limitations).
+> Från maj till 2018 kan ett `id_token` inte användas för ett flöde på uppdrag.  Appar med en sida (SPAs) måste skicka en åtkomsttoken till en konfidentiell klient på mellan nivå för att utföra OBO-flöden. Mer information om klienter som kan utföra on-of-on-of-anrop finns i [begränsningar](#client-limitations).
 
 ## <a name="on-behalf-of-flow-diagram"></a>Flödes diagram på uppdrag
 
 OBO-flödet startar när användaren har autentiserats för ett program som använder [OAuth 2,0-auktoriseringskod](v1-protocols-oauth-code.md). Vid det här skedet skickar programmet en åtkomsttoken (token A) till den mellanliggande webb-API: n (API A) som innehåller användarens anspråk och medgivande för att komma åt API A. Sedan gör API A en autentiserad begäran till det underordnade webb-API: et (API B).
 
-De här stegen utgörs av flödet på olika sätt: ![Visar stegen i flödet för OAuth 2.0 på uppdrags Sidan](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+De här stegen utgörs av flödet på olika sätt: ![visar stegen i OAuth 2.0-flödet på uppdrags](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. Klient programmet skickar en begäran till API A med token A.
 1. API A autentiserar till slut punkten för utfärdande av Azure AD-token och begär en token för åtkomst till API B.
@@ -55,7 +55,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 
 ### <a name="register-the-middle-tier-service"></a>Registrera mellanskikts tjänsten
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar under **katalog** listan för att välja en Active Directory klient för ditt program.
 1. Välj **fler tjänster** i den vänstra rutan och välj **Azure Active Directory**.
 1. Välj **Appregistreringar** och sedan **ny registrering**.
@@ -73,7 +73,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 
 ### <a name="register-the-client-application"></a>Registrera klient programmet
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar under **katalog** listan för att välja en Active Directory klient för ditt program.
 1. Välj **fler tjänster** i den vänstra rutan och välj **Azure Active Directory**.
 1. Välj **Appregistreringar** och sedan **ny registrering**.
@@ -83,7 +83,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 1. Välj **Registrera** för att skapa programmet.
 1. Konfigurera behörigheter för ditt program. I **API-behörigheter**väljer du **Lägg till en behörighet** och sedan **Mina API: er**.
 1. Skriv namnet på mellan nivå tjänsten i textfältet.
-1. Välj **Välj behörigheter** och välj sedan **åtkomst \<till tjänst namn >** .
+1. Välj **Välj behörigheter** och välj sedan **åtkomst \<tjänst namn >** .
 
 ### <a name="configure-known-client-applications"></a>Konfigurera kända klient program
 
@@ -92,7 +92,7 @@ I det här scenariot måste mellanskikts tjänsten erhålla användarens medgiva
 Följ stegen nedan för att explicit binda klient appens registrering i Azure AD med tjänstens registrering på mellan nivå. Den här åtgärden sammanfogar godkännandet som krävs av både klienten och mellan nivån i en enda dialog ruta.
 
 1. Gå till tjänst registrerings tjänsten mellan nivå och välj **manifest** för att öppna manifest redigeraren.
-1. Leta upp `knownClientApplications` mat ris egenskapen och Lägg till klient-ID: t för klient programmet som ett-element.
+1. Leta upp egenskapen `knownClientApplications` array och Lägg till klient-ID: t för klient programmet som ett-element.
 1. Spara manifestet genom att välja **Spara**.
 
 ## <a name="service-to-service-access-token-request"></a>Begäran om tjänst-till-tjänst-åtkomsttoken
@@ -105,7 +105,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 Klient programmet skyddas antingen av en delad hemlighet eller av ett certifikat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: Åtkomstbegäran med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: begäran om åtkomsttoken med en delad hemlighet
 
 När du använder en delad hemlighet innehåller en begäran om tjänst-till-tjänst-åtkomsttoken följande parametrar:
 
@@ -116,12 +116,12 @@ När du använder en delad hemlighet innehåller en begäran om tjänst-till-tj�
 | client_id |obligatorisk | App-ID som tilldelats den anropande tjänsten under registreringen med Azure AD. Om du vill hitta app-ID: t i Azure Portal väljer du **Active Directory**, väljer katalogen och väljer sedan program namnet. |
 | client_secret |obligatorisk | Nyckeln som registrerats för den anropande tjänsten i Azure AD. Det här värdet bör ha noterats vid tidpunkten för registreringen. |
 | resource |obligatorisk | App-ID-URI för den mottagande tjänsten (skyddad resurs). Om du vill hitta app-ID-URI: n i Azure Portal väljer du **Active Directory** och väljer katalogen. Välj program namnet, Välj **alla inställningar**och välj sedan **Egenskaper**. |
-| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. I det här flödet måste värdet vara **on_behalf_of**. |
-| scope |obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. För OpenID Connect måste omfångs- **OpenID** anges.|
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. I flödets räkning måste värdet vara **on_behalf_of**. |
+| omfång |obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. För OpenID Connect måste omfångs- **OpenID** anges.|
 
 #### <a name="example"></a>Exempel
 
-Följande http post begär en åtkomsttoken för https://graph.windows.net webb-API: et. `client_id` Identifierar den tjänst som begär åtkomst-token.
+Följande HTTP POST begär en åtkomsttoken för https://graph.windows.net webb-API. `client_id` identifierar den tjänst som begär åtkomsttoken.
 
 ```
 // line breaks for legibility only
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: Begäran om åtkomsttoken med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: åtkomsttoken för begäran med ett certifikat
 
 En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåller följande parametrar:
 
@@ -148,17 +148,17 @@ En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåll
 | grant_type |obligatorisk | Typ av Tokenbegäran. En OBO-begäran använder en JWT-åtkomsttoken så att värdet måste vara **urn: IETF: params: OAuth: Granting-Type: JWT-Bearer**. |
 | assertion |obligatorisk | Värdet för den token som används i begäran. |
 | client_id |obligatorisk | App-ID som tilldelats den anropande tjänsten under registreringen med Azure AD. Om du vill hitta app-ID: t i Azure Portal väljer du **Active Directory**, väljer katalogen och väljer sedan program namnet. |
-| client_assertion_type |obligatorisk |Värdet måste vara`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |obligatorisk | En JSON Web Token som du skapar och signerar med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Se [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för att lära dig om intygs format och om hur du registrerar ditt certifikat.|
 | resource |obligatorisk | App-ID-URI för den mottagande tjänsten (skyddad resurs). Om du vill hitta app-ID-URI: n i Azure Portal väljer du **Active Directory** och väljer katalogen. Välj program namnet, Välj **alla inställningar**och välj sedan **Egenskaper**. |
-| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. I det här flödet måste värdet vara **on_behalf_of**. |
-| scope |obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. För OpenID Connect måste omfångs- **OpenID** anges.|
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. I flödets räkning måste värdet vara **on_behalf_of**. |
+| omfång |obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. För OpenID Connect måste omfångs- **OpenID** anges.|
 
-Dessa parametrar är nästan desamma som med begäran av delad hemlighet, förutom att `client_secret parameter` har ersatts av två parametrar: `client_assertion_type` och. `client_assertion`
+Dessa parametrar är nästan desamma som med begäran av delad hemlighet, förutom att `client_secret parameter` ersätts av två parametrar: `client_assertion_type` och `client_assertion`.
 
 #### <a name="example"></a>Exempel
 
-Följande http post begär en åtkomsttoken för https://graph.windows.net webb-API: et med ett certifikat. `client_id` Identifierar den tjänst som begär åtkomst-token.
+Följande HTTP POST begär en åtkomsttoken för https://graph.windows.net webb-API med ett certifikat. `client_id` identifierar den tjänst som begär åtkomsttoken.
 
 ```
 // line breaks for legibility only
@@ -183,8 +183,8 @@ Ett lyckat svar är ett JSON OAuth 2,0-svar med följande parametrar:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är **Bearer**. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Användning av Bearer-token (](https://www.rfc-editor.org/rfc/rfc6750.txt)RFC 6750). |
-| scope |Omfattningen av åtkomst som beviljats i token. |
+| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är **Bearer**. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| omfång |Omfattningen av åtkomst som beviljats i token. |
 | expires_in |Hur lång tid som åtkomsttoken är giltig (i sekunder). |
 | expires_on |Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token. |
 | resource |App-ID-URI för den mottagande tjänsten (skyddad resurs). |
@@ -194,7 +194,7 @@ Ett lyckat svar är ett JSON OAuth 2,0-svar med följande parametrar:
 
 ### <a name="success-response-example"></a>Exempel på slutfört svar
 
-I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken för https://graph.windows.net webb-API: et.
+I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken för https://graph.windows.net webb-API.
 
 ```json
 {
@@ -229,7 +229,7 @@ Slut punkten för Azure AD-token returnerar ett felsvar vid försök att hämta 
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>Använd åtkomsttoken för att få åtkomst till den skyddade resursen
 
-Den mellanliggande tjänsten kan använda den hämtade åtkomsttoken för att göra autentiserade begär anden till den underordnade webb-API: n genom att `Authorization` ange token i rubriken.
+Den mellanliggande tjänsten kan använda den hämtade åtkomsttoken för att göra autentiserade begär anden till den underordnade webb-API: n genom att ange token i `Authorization`s huvudet.
 
 ### <a name="example"></a>Exempel
 
@@ -260,40 +260,40 @@ En tjänst-till-tjänst-begäran för en SAML-kontroll innehåller följande par
 | client_id |obligatorisk | App-ID som tilldelats den anropande tjänsten under registreringen med Azure AD. Om du vill hitta app-ID: t i Azure Portal väljer du **Active Directory**, väljer katalogen och väljer sedan program namnet. |
 | client_secret |obligatorisk | Nyckeln som registrerats för den anropande tjänsten i Azure AD. Det här värdet bör ha noterats vid tidpunkten för registreringen. |
 | resource |obligatorisk | App-ID-URI för den mottagande tjänsten (skyddad resurs). Detta är den resurs som ska vara mål gruppen för SAML-token. Om du vill hitta app-ID-URI: n i Azure Portal väljer du **Active Directory** och väljer katalogen. Välj program namnet, Välj **alla inställningar**och välj sedan **Egenskaper**. |
-| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. I det här flödet måste värdet vara **on_behalf_of**. |
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. I flödets räkning måste värdet vara **on_behalf_of**. |
 | requested_token_type | obligatorisk | Anger vilken typ av token som begärdes. Värdet kan vara **urn: IETF: params: OAuth: token-Type: SAML2** eller **urn: IETF: params: OAuth: token-Type: saml1** beroende på kraven för den åtkomst resursen. |
 
 Svaret innehåller en SAML-token som är kodad i UTF8 och Base64url.
 
-- **SubjectConfirmationData för en SAML-kontrollerad källa från ett OBO-anrop**: Om mål programmet kräver ett mottagar värde i **SubjectConfirmationData**, måste värdet vara en svars-URL som inte är jokertecken i resurs programmets konfiguration.
-- **SubjectConfirmationData-noden**: Noden får inte innehålla något **InResponseTo** -attribut eftersom den inte är en del av ett SAML-svar. Programmet som tar emot SAML-token måste kunna acceptera SAML-kontrollen utan ett **InResponseTo** -attribut.
+- **SubjectConfirmationData för en SAML-kontroll från ett OBO-anrop**: om mål programmet kräver ett mottagar värde i **SubjectConfirmationData**måste värdet vara en svars-URL som inte är jokertecken i resurs programmets konfiguration.
+- **SubjectConfirmationData-noden**: noden får inte innehålla ett **InResponseTo** -attribut eftersom den inte är en del av ett SAML-svar. Programmet som tar emot SAML-token måste kunna acceptera SAML-kontrollen utan ett **InResponseTo** -attribut.
 
-- **Medgivande**: Medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användar data i ett OAuth-flöde. Information om behörigheter och hur du får administratörs tillstånd finns [i behörigheter och medgivande i Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)-slutpunkten.
+- **Medgivande**: medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användar data i ett OAuth-flöde. Information om behörigheter och hur du får administratörs tillstånd finns [i behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>Svar med SAML-kontroll
 
 | Parameter | Beskrivning |
 | --- | --- |
-| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är **Bearer**. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Användning av Bearer-token (](https://www.rfc-editor.org/rfc/rfc6750.txt)RFC 6750). |
-| scope |Omfattningen av åtkomst som beviljats i token. |
+| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är **Bearer**. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: syntax för användning av token (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| omfång |Omfattningen av åtkomst som beviljats i token. |
 | expires_in |Hur lång tid som åtkomsttoken är giltig (i sekunder). |
 | expires_on |Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token. |
 | resource |App-ID-URI för den mottagande tjänsten (skyddad resurs). |
 | access_token |Den parameter som returnerar SAML Assertion. |
 | refresh_token |Refresh-token. Anrops tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella SAML-kontrollen upphör att gälla. |
 
-- token_type: Ägar
+- token_type: Bearer
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
-- klusterresursen`https://api.contoso.com`
+- resurs: `https://api.contoso.com`
 - access_token: \<SAML-kontroll\>
 - issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
-- refresh_token: \<Uppdatera token\>
+- refresh_token: \<Refresh-token\>
 
 ## <a name="client-limitations"></a>Klient begränsningar
 
-Offentliga klienter med URL: er med jokertecken `id_token` kan inte använda ett for OBO-flöde. En konfidentiell klient kan dock fortfarande lösa in **åtkomsttoken** som erhållits via det implicita bidraget, även om den offentliga klienten har en omdirigerings-URI registrerad.
+Offentliga klienter med svars-URL: er med jokertecken kan inte använda en `id_token` för OBO-flöden. En konfidentiell klient kan dock fortfarande lösa in **åtkomsttoken** som erhållits via det implicita bidraget, även om den offentliga klienten har en omdirigerings-URI registrerad.
 
 ## <a name="next-steps"></a>Nästa steg
 

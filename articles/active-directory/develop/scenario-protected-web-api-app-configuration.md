@@ -1,5 +1,5 @@
 ---
-title: Skyddad Web API – kod konfiguration för app
+title: Konfigurera skyddade webb-API-appar | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du skapar ett skyddat webb-API och konfigurerar programmets kod.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882632"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965406"
 ---
 # <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
 
@@ -32,7 +32,7 @@ Om du vill konfigurera koden för ditt skyddade webb-API måste du förstå vad 
 
 Precis som Web Apps är webb-API: erna för ASP.NET/ASP.NET Core "skyddade" eftersom deras styrenhets åtgärder föregås av `[Authorize]`-attributet. Det innebär att kontroll åtgärder endast kan anropas om API: et anropas med en identitet som är auktoriserad.
 
-Tänk på följande frågor:
+Överväg följande frågor:
 
 - Hur känner webb-API: n till identiteten för den app som anropar den? (Endast en app kan anropa ett webb-API.)
 - Om appen kallas webb-API för en användares räkning, vad är användarens identitet?

@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: f7e1507289d3c21d51a0ec8529598e5eeb089d37
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9d903a7d2d7e0cfe899da1fbb8869805f1f4f857
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859006"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961258"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och C#
 
 I den här snabbstarten ska du använda Azure ansikts-REST API med C# för att identifiera mänskliga ansikten i en bild.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 1. Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio och ge det namnet **FaceDetection**. 
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
 
-## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsigenkänning
+## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsavkänning
 
 Öppna det nya projektets *Program.cs*-fil. Här lägger du till den kod som behövs för att läsa in bilder och identifiera ansikten.
 
@@ -51,7 +51,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-Lägg till **program** klassen som innehåller följande fält. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du kan behöva `uriBase` ändra strängen så att den innehåller din resurs slut punkts sträng.
+Lägg till **program** klassen som innehåller följande fält. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du kan behöva ändra `uriBase` strängen så att den innehåller din resurs slut punkt sträng.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -171,7 +171,7 @@ Lägg till följande metod i klassen **Program**. Den här metoden konverterar b
         }
 ```
 
-### <a name="parse-the-json-response"></a>Tolka JSON-svaret
+### <a name="parse-the-json-response"></a>Tolka JSON-svar
 
 Lägg till följande metod i klassen **Program**. Den här metoden formaterar JSON-ingången så att den blir lättare att läsa. Appen skriver dessa strängdata till konsolen. Sedan kan du stänga klassen och namn området.
 

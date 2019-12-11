@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub Device Provisioning Service – säkerhets koncept
-description: Beskriver säkerhets etablerings begrepp som är relaterade till enheter med enhets etablerings tjänsten och IoT Hub
+description: Beskriver säkerhets etablerings begrepp som är relaterade till enheter med enhets etablerings tjänsten (DPS) och IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228816"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973466"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service säkerhets koncept 
 
@@ -46,7 +46,7 @@ TPM kan referera till en standard för säker lagring av nycklar som används f�
 
 TPM-attestering baseras på en nonce-utmaning, som använder sig av bekräftelse-och lagrings rot nycklar för att presentera en signerad SAS-token (signatur för delad åtkomst).
 
-### <a name="endorsement-key"></a>Bekräftelse nyckel
+### <a name="endorsement-key"></a>Bekräftelsenyckel
 
 Bekräftelse nyckeln är en asymmetrisk nyckel som finns inuti TPM: en, som internt genererades eller injiceras vid tillverknings tillfället och är unik för varje TPM. Det går inte att ändra eller ta bort bekräftelse nyckeln. Den privata delen av bekräftelse nyckeln frigörs aldrig utanför TPM, medan den offentliga delen av bekräftelse nyckeln används för att identifiera en äkta TPM. Läs mer om [bekräftelse nyckeln](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 

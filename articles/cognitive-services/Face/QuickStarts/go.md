@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild med REST API och Go'
+title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och Go'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med Go.
 services: cognitive-services
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0bcd94c62ec0fe5d9e9ffec18c982e7a102f0ffc
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ed5df90ba4e88e2b6bd20ce2e559c89a552bbe0a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858960"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977836"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och Go
 
 I den här snabbstarten ska du använda Azures Ansikts-REST API med Go för att identifiera mänskliga ansikten i en bild.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
-- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
+- En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Skriva skriptet
 
@@ -108,11 +108,11 @@ func main() {
 }
 ```
 
-Du måste uppdatera `subscriptionKey` värdet med din prenumerations nyckel och `uriBase` ändra strängen så att den innehåller rätt slut punkts sträng.
+Du måste uppdatera `subscriptionKey`-värdet med din prenumerations nyckel och ändra `uriBase`s strängen så att den innehåller rätt slut punkts sträng.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-Du kanske också vill ändra fältet `imageUrl` så att det pekar på din egna inmatade bild. Du kanske också vill ändra `returnFaceAttributes` fältet som anger vilka ansikts attribut som ska hämtas.
+Du kanske också vill ändra fältet `imageUrl` så att det pekar på din egna inmatade bild. Du kanske också vill ändra `returnFaceAttributes` fältet som anger vilka ansikts-attribut som ska hämtas.
 
 ## <a name="run-the-script"></a>Kör skriptet
 

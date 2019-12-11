@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: ac198ed8eac6221831fbb280129b76e5fa4e3413
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815765"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997283"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replikering till SQL Database enkla databaser och databaser i pooler
 
@@ -32,14 +32,17 @@ SQL Server replikering kan konfigureras till enstaka databaser och databaser på
 
 ## <a name="versions"></a>Versioner  
 
-- Utgivaren och distributören måste vara minst en av följande versioner:  
-- SQL Server 2017 (14 x)
-- SQL Server 2016 (13. x)
-- SQL Server 2014 (12. x) SP1 CU3
-- SQL Server 2014 (12. x) RTM-CU10
-- SQL Server 2012 (11. x) SP2 CU8 eller SP3
-- Försök att konfigurera replikering med en äldre version kan resultera i fel nummer MSSQL_REPL20084 (processen kunde inte ansluta till prenumeranten.) och MSSQL_REPL40532 (det går inte att öppna Server \<namn > begärd av inloggningen. Inloggningen misslyckades.).  
-- Om du vill använda alla funktioner i Azure SQL Database måste du använda de senaste versionerna av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+Lokala SQL Server utgivare och distributörer måste använda (minst) en av följande versioner:  
+
+- SQL Server 2016 och senare
+- SQL Server 2014 [RTM-CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) eller [SP1-CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) eller [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
+
+> [!NOTE]
+> Försök att konfigurera replikering med en version som inte stöds kan resultera i fel nummer MSSQL_REPL20084 (processen kunde inte ansluta till prenumeranten.) och MSSQL_REPL40532 (det går inte att öppna Server \<namn > begärd av inloggningen. Inloggningen misslyckades.).  
+
+Om du vill använda alla funktioner i Azure SQL Database måste du använda de senaste versionerna av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+
   
 ## <a name="remarks"></a>Kommentarer
 
@@ -56,7 +59,7 @@ SQL Server replikering kan konfigureras till enstaka databaser och databaser på
 
 ## <a name="replication-architecture"></a>Arkitektur för replikering  
 
-![replikering till SQL-databas](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Scenarier  
 
@@ -103,10 +106,10 @@ Följande alternativ stöds inte för Azure SQL Database prenumerationer:
 
 ## <a name="examples"></a>Exempel
 
-Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns i:
+Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns här:
   
 - [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) med hjälp av Azure SQL Database Server namnet som prenumeranten (till exempel **N'azuresqldbdns. Database. Windows. net '** ) och Azure SQL Database-namnet som mål databas (till exempel **AdventureWorks** ).  
+- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) med hjälp av Azure SQL Database Server namnet som prenumeranten (till exempel **N'azuresqldbdns. Database. Windows. net '** ) och Azure SQL Database-namnet som mål databas (till exempel **AdventureWorks**).  
 
 ## <a name="see-also"></a>Se även  
 

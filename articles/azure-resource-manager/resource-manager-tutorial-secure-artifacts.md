@@ -2,19 +2,19 @@
 title: Säkra artefakter i mallar
 description: Lär dig hur du skyddar artefakter som används i Azure Resource Manager-mallar.
 author: mumian
-ms.date: 10/08/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b37f7e284b655a362c5a4231a7c1da3719762644
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1a9d209e843d8e9a1735a3c6907b00d85be6580b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326427"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971747"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Självstudie: säkra artefakter i Azure Resource Manager mallar distributioner
 
-Lär dig hur du skyddar artefakter som används i Azure Resource Manager-mallar med hjälp av Azure Storage-konto med signaturer för delad åtkomst (SAS). Distributionsartefakter är vilka filer som helst, utöver den huvudsakliga mallfilen, som behövs för att slutföra en distribution. I [själv studie kursen: importera SQL BACPAC-filer med Azure Resource Manager mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)skapar huvudmallen en Azure SQL Database. den anropar också en BACPAC-fil för att skapa tabeller och infoga data. BACPAC-filen är en artefakt. Artefakten lagras i ett Azure Storage-konto med offentlig åtkomst. I den här självstudien använder du SAS för att bevilja begränsad åtkomst till BACPAC-filen i ditt eget Azure Storage-konto. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Lär dig hur du skyddar artefakter som används i Azure Resource Manager-mallar med hjälp av Azure Storage-konto med signaturer för delad åtkomst (SAS). Distributionsartefakter är vilka filer som helst, utöver den huvudsakliga mallfilen, som behövs för att slutföra en distribution. I [själv studie kursen: importera SQL BACPAC-filer med Azure Resource Manager mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)skapar huvudmallen en Azure SQL Database. den anropar också en BACPAC-fil för att skapa tabeller och infoga data. BACPAC-filen är en artefakt som lagras i ett Azure Storage-konto. Lagrings konto nyckeln användes för att få åtkomst till artefakten. I den här självstudien använder du SAS för att bevilja begränsad åtkomst till BACPAC-filen i ditt eget Azure Storage-konto. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 Information om hur du skyddar länkade mallar finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](./resource-manager-tutorial-create-linked-templates.md).
 
@@ -40,6 +40,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="prepare-a-bacpac-file"></a>Förbereda en BACPAC-fil
@@ -52,77 +53,63 @@ I det här avsnittet förbereder du BACPAC-filen så att filen är tillgänglig 
 * Ladda upp BACPAC-filen till containern.
 * Hämta SAS-token för BACPAC-filen.
 
-Om du vill automatisera de här stegen med hjälp av ett PowerShell-skript kan du använda skriptet från [Ladda upp den länkade mallen](./resource-manager-tutorial-create-linked-templates.md#upload-the-linked-template).
+1. Välj **prova** att öppna Cloud Shell och klistra sedan in följande PowerShell-skript i Shell-fönstret.
 
-### <a name="download-the-bacpac-file"></a>Ladda ned BACPAC-filen
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name"   # This name is used to generate names for Azure resources, such as storage account name.
+    $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 
-Ladda ned [BACPAC-filen](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) och spara den på din lokala dator med samma namn, **SQLDatabaseExtension.bacpac**.
+    $resourceGroupName = $projectName + "rg"
+    $storageAccountName = $projectName + "store"
+    $containerName = "bacpacfile" # The name of the Blob container to be created.
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+    $bacpacURL = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac" # A file name used for downloading and uploading the BACPAC file.
 
-1. Välj följande bild för att öppna en Resource Manager-mall på Azure-portalen.
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacURL -OutFile "$home/$bacpacFileName"
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json" target="_blank"><img src="./media/resource-manager-tutorial-secure-artifacts/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Ange följande egenskaper:
+    # Create a resource group
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-    * **Prenumeration**: Välj din Azure-prenumeration.
-    * **Resurs grupp**: Välj **Skapa ny** och ge den ett namn. En resursgrupp är en container för Azure-resurser med hanteringssyfte. I den här självstudien kan du använda samma resursgrupp för lagringskontot och Azure SQL-databasen. Anteckna den här resursgruppens namn. Du behöver det när du skapar Azure SQL-databasen senare i självstudierna.
-    * **Plats**: Välj en region. Välj till exempel **USA, centrala**.
-    * **Typ av lagringskonto**: använd standardvärdet, vilket är **Standard_LRS**.
-    * **Plats**: Använd standardvärdet, som är **[resourceGroup (). location]** . Det innebär att du använder resursgrupplatsen för lagringskontot.
-    * **Jag godkänner villkoren ovan**: (valt)
-3. Välj **Köp**.
-4. Välj meddelandeikonen (klockikonen) i det övre högra hörnet av portalen för att se distributionsstatusen.
+    # Create a storage account
+    $storageAccount = New-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName `
+        -Location $location `
+        -SkuName "Standard_LRS"
 
-    ![Självstudie om Resource Manager, fönsterruta med portalmeddelanden](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
-5. När lagringskontot har distribuerats väljer du **Gå till resursgrupp** från meddelandefönstret för att öppna resursgruppen.
+    $context = $storageAccount.Context
 
-### <a name="create-a-blob-container"></a>Skapa en blobcontainer
+    # Create a container
+    New-AzStorageContainer -Name $containerName -Context $context
 
-En blobcontainer krävs innan du kan ladda upp filer.
+    # Upload the bacpac file
+    Set-AzStorageBlobContent `
+        -Container $containerName `
+        -File "$home/$bacpacFileName" `
+        -Blob $bacpacFileName `
+        -Context $context
 
-1. Välj lagringskontot för att öppna det. Du bör endast se ett lagringskonto som visas i resursgruppen. Namnet på ditt lagringskonto skiljer sig från den som visas på följande skärmbild.
+    # Generate a SAS token
+    $bacpacURI = New-AzStorageBlobSASToken `
+        -Context $context `
+        -Container $containerName `
+        -Blob $bacpacFileName `
+        -Permission r `
+        -ExpiryTime (Get-Date).AddHours(8.0) `
+        -FullUri
 
-    ![Självstudie om Resource Manager, lagringskonto](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
+    $str = $bacpacURI.split("?")
 
-2. Välj panelen **Blobar**.
+    Write-Host "You need the blob url and the SAS token later in the tutorial:"
+    Write-Host $str[0]
+    Write-Host (-join ("?", $str[1]))
 
-    ![Självstudie om Resource Manager, blobar](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
-3. Välj **+ Container** längst upp för att skapa en ny container.
-4. Ange följande värden:
+    Write-Host "Press [ENTER] to continue ..."
+    ```
 
-    * **Namn**: Ange **sqlbacpac**.
-    * **Offentlig åtkomstnivå**: Använd standardvärdet, **Privat (ingen anonym åtkomst)** .
-5. Välj **OK**.
-6. Välj **sqlbacpac** för att öppna den nyligen skapade containern.
-
-### <a name="upload-the-bacpac-file-to-the-container"></a>Ladda upp BACPAC-filen till containern
-
-1. Välj **Överför**.
-2. Ange följande värden:
-
-    * **Filer**: Följ anvisningarna för att välja den BACPAC-fil som du laddade ned tidigare. Standardnamnet är **SQLDatabaseExtension.bacpac**.
-    * **Autentiseringstyp**: Välj **SAS**.  *SAS* är standardvärdet.
-3. Välj **Överför**.  När filen har laddats upp bör filnamnet anges i containern.
-
-### <a name="a-namegenerate-a-sas-token-generate-a-sas-token"></a><a name="generate-a-sas-token" />Generera en SAS-token
-
-1. Högerklicka på **SQLDatabaseExtension.bacpac** från containern och välj sedan **Generera SAS**.
-2. Ange följande värden:
-
-    * **Behörighet**: Använd standard filen **Read**.
-    * **Start-och utgångs datum/tid**: standardvärdet ger dig åtta timmar att använda SAS-token. Om du behöver mer tid för att slutföra den här självstudien uppdaterar du **Förfallodatum**.
-    * **Tillåtna IP-adresser**: lämna fältet tomt.
-    * **Tillåtna protokoll**: Använd standardvärdet: **https**.
-    * **Signerings nyckel**: Använd standardvärdet: **Key 1**.
-3. Välj **Generera blob-SAS-token och URL**.
-4. Skapa en kopia av **Blob-SAS-URL**. I mitten av URL:en finns filnamnet **SQLDatabaseExtension.bacpac**.  Filnamnet delar in URL:en i tre delar:
-
-   - **Plats för artefakt**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Se till att platsen slutar med ett ”/”.
-   - **BACPAC-fil namn**: SQLDatabaseExtension. bacpac.
-   - **SAS-token för artefakt plats**: kontrol lera att token föregås av "?."
-
-     Du behöver dessa tre värden i [Distribuera mallen](#deploy-the-template).
+1. Skriv ner BACPAC-filens URL och SAS-token. Du behöver dessa värden när du distribuerar mallen.
 
 ## <a name="open-an-existing-template"></a>Öppna en befintlig mall
 
@@ -132,56 +119,47 @@ I den här sessionen ändrar du mallen som du skapade i [själv studie kursen: i
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy2.json
     ```
+
 3. Välj **Öppna** för att öppna filen.
 
-    Det finns fem resurser som definieras i mallen:
+    Det finns fyra resurser definierade i mallen:
 
    * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-   * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-   * `Microsoft.SQL/servers/filewallRules`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/firewallRules`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
    * `Microsoft.SQL/servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
    * `Microsoft.SQL/server/databases/extensions`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
-Lägg till följande ytterligare parametrar:
+1. Ersätt storageAccountKey-parameter definitionen med följande parameter definition:
 
-```json
-"_artifactsLocation": {
-    "type": "string",
-    "metadata": {
-        "description": "The base URI where artifacts required by this template are located."
-    }
-},
-"_artifactsLocationSasToken": {
-    "type": "securestring",
-    "metadata": {
-        "description": "The sasToken required to access _artifactsLocation."
+    ```json
+    "_artifactsLocationSasToken": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Specifies the SAS token required to access the artifact location."
+      }
     },
-    "defaultValue": ""
-},
-"bacpacFileName": {
-    "type": "string",
-    "defaultValue": "SQLDatabaseExtension.bacpac",
-    "metadata": {
-        "description": "The bacpac for configure the database and tables."
-    }
-}
-```
+    ```
 
-![Självstudie om Resource Manager, skydda artefaktparametrar](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
+    ![Självstudie om Resource Manager, skydda artefaktparametrar](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
-Uppdatera värdet för följande två element:
+2. Uppdatera värdet för följande tre element i SQL-tilläggs resursen:
 
-```json
-"storageKey": "[parameters('_artifactsLocationSasToken')]",
-"storageUri": "[uri(parameters('_artifactsLocation'), parameters('bacpacFileName'))]",
-```
+    ```json
+    "storageKeyType": "SharedAccessKey",
+    "storageKey": "[parameters('_artifactsLocationSasToken')]",
+    "storageUri": "[parameters('bacpacUrl')]",
+    ```
+
+Den färdiga mallen ser ut så här:
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy3.json?range=1-106&highlight=38-43,95-97)]
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -190,27 +168,29 @@ Uppdatera värdet för följande två element:
 Mer information om distributionsproceduren finns i avsnittet [Distribuera mallen](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template). Använd följande PowerShell-distributionsskript i stället:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+$projectName = Read-Host -Prompt "Enter the project name that is used earlier"   # This name is used to generate names for Azure resources, such as storage account name.
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+$adminUsername = Read-Host -Prompt "Enter the sql database admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$artifactsLocation = Read-Host -Prompt "Enter the artifacts location"
+$bacpacUrl = Read-Host -Prompt "Enter the BACPAC url"
 $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS token" -AsSecureString
-$bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+$resourceGroupName = $projectName + "rg"
+
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
-    -_artifactsLocation $artifactsLocation `
     -_artifactsLocationSasToken $artifactsLocationSasToken `
-    -bacpacFileName $bacpacFileName `
+    -bacpacUrl $bacpacUrl `
     -TemplateFile "$HOME/azuredeploy.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 Använd ett genererat lösenord. Se [Förutsättningar](#prerequisites).
-Information om värdena för _artifactsLocation, _artifactsLocationSasToken och bacpacFileName finns i [Generera en SAS-token](#generate-a-sas-token).
+För värdena för _artifactsLocation, _artifactsLocationSasToken och bacpacFileName, se [förbereda en BACPAC-fil](#prepare-a-bacpac-file).
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 

@@ -1,7 +1,7 @@
 ---
 title: Utbilda scikit – lär dig Machine Learning-modeller
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du kör dina scikit-utbildnings skript i företags skala med hjälp av Azure Machine Learning SKlearn-uppskattnings klass. Exempel skripten klassificerar Iris blomma-bilder för att bygga en maskin inlärnings modell baserad på scikit-data uppsättning.
+description: Lär dig hur du kör dina scikit-utbildnings skript i företags skala med hjälp av Azure Machine Learning SKlearns uppskattnings klass. Exempel skripten klassificerar Iris blomma-bilder för att bygga en maskin inlärnings modell baserad på scikit-data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,29 +10,29 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a85d33a804c8aaf3081439806bf69dab5263dcf2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b6cdf9350d95de901e8a0f1e875d90513b33f1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224848"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976119"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du kör dina scikit i företags skala med hjälp av Azure Machine Learning [SKlearn uppskattnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klass. 
+I den här artikeln får du lära dig hur du kör dina scikit i företags skala med hjälp av Azure Machine Learning [SKlearns uppskattnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klass. 
 
 Exempel skripten i den här artikeln används för att klassificera Iris blomma-bilder för att bygga en maskin inlärnings modell baserad på scikit- [data uppsättningen](https://archive.ics.uci.edu/ml/datasets/iris).
 
 Oavsett om du tränar en Machine Learning-scikit – lär dig modell från grunden eller om du använder en befintlig modell i molnet, kan du använda Azure Machine Learning för att skala ut utbildnings jobb med öppen källkod med elastiska moln beräknings resurser. Du kan bygga, distribuera, hantera och övervaka modeller av produktions klass med Azure Machine Learning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer:
  - Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
 
     - Slutför [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
-    - I mappen exempel inlärning på Notebook-servern hittar du en slutförd och utökad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > ml-framework > scikit-lär > utbildning > träna-sin parameter-Tune-Deploy-with-sklearn** mappen.
+    - I mappen exempel inlärning på Notebook-servern hittar du en slutförd och expanderad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > ml-framework > scikit-lär > utbildning > träna-den parameter-Tune-Deploy-with-sklearn** -mappen.
 
  - Din egen Jupyter Notebook Server
 
@@ -74,7 +74,7 @@ Skapa ett objekt i arbets ytan från `config.json`-filen som skapats i [avsnitte
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-machine-learning-experiment"></a>Skapa ett Machine Learning-experiment
+### <a name="create-a-machine-learning-experiment"></a>Skapa ett maskininlärningsexperiment
 
 Skapa ett experiment och en mapp för att lagra dina utbildnings skript. I det här exemplet skapar du ett experiment med namnet "sklearn-Iris".
 
@@ -89,7 +89,7 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 I den här självstudien har utbildnings skriptet **train_iris. py** redan angetts för dig. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
 
-Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  Övnings skriptet **train_iris. py** visar hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run`-objektet i skriptet.
+Om du vill använda funktionerna för Azure ML-spårning och-mått lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  Övnings skriptet **train_iris. py** visar hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run`-objektet i skriptet.
 
 Det tillhandahållna utbildnings skriptet använder exempel data från funktionen `iris = datasets.load_iris()`.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#data-upload) för att göra data tillgängliga under utbildningen.
 
@@ -218,6 +218,6 @@ Den fullständiga [instruktionen att](how-to-deploy-and-where.md) distribuera i 
 
 I den här artikeln har du tränat och registrerat en scikit-modell och lärt dig om distributions alternativ. Mer information om Azure Machine Learning finns i de här artiklarna.
 
-* [Spåra körnings mått under träning](how-to-track-experiments.md)
-* [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
+* [Spåra kör mått vid träning](how-to-track-experiments.md)
+* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
 * [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

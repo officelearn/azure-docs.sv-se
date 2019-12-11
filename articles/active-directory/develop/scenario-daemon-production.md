@@ -1,6 +1,6 @@
 ---
-title: 'Daemon-app som anropar webb-API: er (flytta till produktion) – Microsoft Identity Platform'
-description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er (flytta till produktion)'
+title: 'Flytta daemon-appen som anropar webb-API: er till produktion – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du flyttar en daemon-app som anropar webb-API: er till produktion'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175407"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962601"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon-app som anropar webb-API: er – flytta till produktion
 

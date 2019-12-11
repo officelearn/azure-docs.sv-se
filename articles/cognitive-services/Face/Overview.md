@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743701"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961547"
 ---
 # <a name="what-is-the-azure-face-api"></a>Vad är Azure Ansikts-API?
 
@@ -33,9 +33,9 @@ Ansikts-API identifierar människo ansikten i en bild och returnerar Rectangle-k
 
 Mer information om ansikts igenkänning finns i artikeln [ansikts identifierings](concepts/face-detection.md) begrepp. Se även dokumentationen om att [identifiera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) -referens.
 
-## <a name="face-verification"></a>Ansiktsverifiering
+## <a name="face-verification"></a>Ansiktsverifikation
 
-API:et för verifiering utför en autentisering mot två identifierade ansikten eller från ett identifierat ansikte till ett personobjektet. I praktiken utvärderar det om två ansikten tillhör samma person. Den här funktionen är eventuellt användbar i säkerhets scenarier. Mer information finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för [att kontrol lera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) .
+Verifierings-API: t utför en autentisering mot två identifierade ansikten eller från ett identifierat ansikte till ett person objekt. I praktiken utvärderar det om två ansikten tillhör samma person. Den här funktionen är eventuellt användbar i säkerhets scenarier. Mer information finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för [att kontrol lera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) .
 
 ## <a name="find-similar-faces"></a>Hitta liknande ansikten
 
@@ -45,11 +45,11 @@ I följande exempel visas målets ansikte:
 
 ![En leende kvinna](./Images/FaceFindSimilar.QueryFace.jpg)
 
-Och det här är kandidatansiktena:
+Och de här avbildningarna är kandidat ytorna:
 
 ![Fem bilder på leende människor. Bilder a och b visar samma person.](./Images/FaceFindSimilar.Candidates.jpg)
 
-För att hitta fyra liknande ansikten returnerar matchPerson-läget a och b, som visar samma person som mål ytan. MatchFace-läget returnerar a, b, c och d, exakt fyra kandidater, även om vissa inte är samma person som målet eller har låg likhet. Mer information finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för att [hitta liknande API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
+För att hitta fyra liknande ansikten returnerar matchPerson-läget a och b, som visar samma person som mål ytan. MatchFace-läget returnerar a, b, c och d&mdash;exakt fyra kandidater, även om vissa inte är samma person som målet eller har låg likhet. Mer information finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för att [hitta liknande API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
 
 ## <a name="face-grouping"></a>Ansiktsgruppering
 
@@ -63,7 +63,7 @@ Följande bild visar ett exempel på en databas med namnet `"myfriends"`. Varje 
 
 ![Ett rutnät med tre kolumner för olika personer, var och en med tre rader av ansikts bilder](./Images/person.group.clare.jpg)
 
-När du har skapat och tränat en databas kan du utföra identifiering mot gruppen med en ny identifierad ansikte. Om ansiktet identifieras som en person i gruppen, så returneras personobjektet.
+När du har skapat och tränat en databas kan du göra en identifiering mot gruppen med en ny identifierad ansikte. Om ansiktet identifieras som en person i gruppen, så returneras personobjektet.
 
 Mer information om person identifiering finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för att [identifiera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) .
 

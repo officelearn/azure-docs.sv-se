@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: bb4fc076d01c1108278cea0cebba958b4ea94660
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a641893fece37c759480ab31f505b1673f50e2b9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044057"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973619"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
-I den här snabb starten ska du använda verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i appen snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
+I den här snabb starten använder du verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i appen snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
 
 ## <a name="prerequisites"></a>Krav
 

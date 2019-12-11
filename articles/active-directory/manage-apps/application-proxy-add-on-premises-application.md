@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f812bb7d31319476e6b940443e067fac895f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420446"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970354"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -217,8 +217,9 @@ Lägga till en testanvändare:
 
 Så här testar du inloggningen i programmet:
 
-1. I webbläsaren navigerar du till den externa webbadressen som du konfigurerade under steget publicera. Du bör se startskärmen.
-1. Logga in som den användare som du skapade i föregående avsnitt.
+1. Välj **programproxy**från det program som du vill testa.
+2. Längst upp på sidan väljer du **testa program** för att köra ett test på programmet och kontrol lera eventuella konfigurations problem.
+3. Se till att först starta programmet för att testa att logga in på programmet och ladda ned den diagnostiska rapporten för att granska lösnings vägledningen för eventuella identifierade problem.
 
 Mer information om felsökning finns i [Felsöka problem med programproxyn och felmeddelanden](application-proxy-troubleshoot.md).
 

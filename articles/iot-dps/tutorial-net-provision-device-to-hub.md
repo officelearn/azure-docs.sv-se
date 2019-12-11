@@ -1,6 +1,6 @@
 ---
 title: Självstudie – etablera enhet med Azure IoT Hub Device Provisioning Service (.NET)
-description: Den här självstudien visar hur du kan etablera din enhet till en enda IoT-hubb med hjälp av Azure-IoT Hub Device Provisioning Service (.NET)
+description: Den här självstudien visar hur du kan etablera din enhet till en enda IoT-hubb med hjälp av Azure-IoT Hub Device Provisioning Service (DPS) med hjälp av .NET.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 98b2ef05a1abb6ebea8dac073fbf7671ed79c06e
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9d5b1511ffb48f587d4ee5c5a7d2b0ee9216018f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701996"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976782"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Självstudie: registrera enheten till en IoT-hubb med Azure IoT Hub Provisioning service-klienten (.NET)
 

@@ -4,12 +4,12 @@ description: Lär dig Azure Functions koncept och tekniker som du behöver för 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 4aa42e8aef2e2205523be0536cb5aceafd1aa829
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3ccfc28dc332d2ff90ec09256a43a9143e37c03b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226664"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974231"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide för Azure Functions utvecklare
 I Azure Functions delar specifika funktioner några viktiga tekniska koncept och komponenter, oavsett vilket språk eller vilken bindning du använder. Innan du hoppar till inlärnings information som är specifik för ett specifikt språk eller en bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -19,7 +19,7 @@ Den här artikeln förutsätter att du redan har läst [Översikt över Azure Fu
 ## <a name="function-code"></a>Funktions kod
 En *funktion* är det primära konceptet i Azure Functions. En funktion innehåller två viktiga delar – din kod, som kan skrivas på en rad olika språk och vissa config, function. JSON-filen. För kompilerade språk genereras den här konfigurations filen automatiskt från anteckningar i din kod. För skript språk måste du ange konfigurations filen själv.
 
-Function. JSON-filen definierar funktionens utlösare, bindningar och andra konfigurations inställningar. Varje funktion har en och endast en utlösare. Körningen använder den här konfigurations filen för att bestämma vilka händelser som ska övervakas och hur data ska skickas till och returnera data från en funktions körning. Följande är en exempel funktion. JSON-fil.
+Function. JSON-filen definierar funktionens utlösare, bindningar och andra konfigurations inställningar. Varje funktion har endast en utlösare. Körningen använder den här konfigurations filen för att bestämma vilka händelser som ska övervakas och hur data ska skickas till och returnera data från en funktions körning. Följande är en exempel funktion. JSON-fil.
 
 ```json
 {
@@ -73,7 +73,7 @@ När flera Utlös ande händelser inträffar snabbare än en process med en enke
 
 ## <a name="functions-runtime-versioning"></a>Functions runtime-versioner
 
-Du kan konfigurera versionen av Functions-körningen med hjälp av inställningen `FUNCTIONS_EXTENSION_VERSION` app. Värdet "~ 2" anger till exempel att Funktionsapp ska använda 2. x som huvud version. Function-appar uppgraderas till varje ny del version när de släpps. Mer information, inklusive hur du visar den exakta versionen av din Function-app finns i [så här riktar du Azure Functions runtime-versioner](set-runtime-version.md).
+Du kan konfigurera versionen av Functions-körningen med hjälp av inställningen `FUNCTIONS_EXTENSION_VERSION` app. Värdet "~ 3" anger till exempel att Funktionsapp ska använda 3. x som huvud version. Function-appar uppgraderas till varje ny del version när de släpps. Mer information, inklusive hur du visar den exakta versionen av din Function-app finns i [så här riktar du Azure Functions runtime-versioner](set-runtime-version.md).
 
 ## <a name="repositories"></a>Centrallager
 Koden för Azure Functions är öppen källkod och lagras i GitHub-databaser:

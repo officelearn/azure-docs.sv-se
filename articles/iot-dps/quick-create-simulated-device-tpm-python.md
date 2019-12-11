@@ -1,6 +1,6 @@
 ---
 title: Snabb start – etablera en simulerad TPM-enhet till Azure IoT Hub med python
-description: Snabb start – skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för IoT Hub Device Provisioning Service. Den här snabbstarten använder enskilda registreringar.
+description: Snabb start – skapa och etablera en simulerad TPM-enhet med hjälp av Java-enhets-SDK för IoT Hub Device Provisioning Service (DPS). Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: e878245d5329edfe31d402d03fc7e1aef0b6637e
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 157754c00f9d2b940a3c71401f4e033e914b511a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555117"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976544"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad TPM-enhet med python-enhets-SDK för IoT Hub Device Provisioning Service
 

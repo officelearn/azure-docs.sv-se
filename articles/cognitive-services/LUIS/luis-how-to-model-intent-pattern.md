@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 39b56c5e73c8ce85a020402dafb622b90c536a1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143844"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968926"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Så här lägger du till mönster för att förbättra förutsägelse noggrannhet
 När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis-concept-patterns.md) för att förbättra förutsägelse noggrannheten för yttranden som visar ett mönster i Word-ordning och Word-val. Mönster använder en speciell [syntax](luis-concept-patterns.md#pattern-syntax) för att ange platsen för: [entiteter](luis-concept-entity-types.md), entitets [roller](luis-concept-roles.md)och valfri text.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+
+> [!CAUTION]
+> Mönster innehåller bara de datorer som har lärt sin föräldrar, inte del komponenter.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall-uttryck för att skapa mönstret
 
@@ -30,14 +33,14 @@ När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis
     > [!div class="mx-imgBorder"]
     > ![skärm bild av mönster listan](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-1. Välj rätt avsikten för mönstret. 
+1. Välj rätt avsikten för mönstret.
 
-1. Ange mall-uttryck i textrutan mallen och välj RETUR. Använda rätt mönstret entitet syntax när du vill ange enhetens namn. Börja med entiteten syntax för `{`. Lista över entiteter visas. Välj rätt entitet. 
+1. Ange mall-uttryck i textrutan mallen och välj RETUR. Använda rätt mönstret entitet syntax när du vill ange enhetens namn. Börja med entiteten syntax för `{`. Lista över entiteter visas. Välj rätt entitet.
 
     > [!div class="mx-imgBorder"]
     > ![skärm bild av en entitet för mönster](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Om entiteten innehåller en [roll](luis-concept-roles.md), anger du rollen med ett enda kolon `:`efter entitetsnamnet, till exempel `{Location:Origin}`. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR. 
+    Om entiteten innehåller en [roll](luis-concept-roles.md), anger du rollen med ett enda kolon `:`efter entitetsnamnet, till exempel `{Location:Origin}`. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR.
 
     > [!div class="mx-imgBorder"]
     > ![skärm bild av entiteten med roll](./media/luis-how-to-model-intent-pattern/patterns-4.png)
@@ -48,7 +51,7 @@ När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis
     > ![skärm bild av det angivna mönstret med båda typerna av entiteter](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Träna din app när du har ändrat modell med mönster
-När du lägger till, redigera, ta bort eller omtilldela ett mönster [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app för ändringarna att påverka endpoint frågor. 
+När du lägger till, redigera, ta bort eller omtilldela ett mönster [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app för ändringarna att påverka endpoint frågor.
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>

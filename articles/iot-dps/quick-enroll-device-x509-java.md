@@ -1,6 +1,6 @@
 ---
 title: Registrera X. 509-enheter på Azure Device Provisioning-tjänsten med Java
-description: Den här snabbstarten använder både gruppregistreringar och enskilda registreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Java.
+description: Den här snabbstarten använder både gruppregistreringar och enskilda registreringar. I den här snabb starten registrerar du X. 509-enheter i Azure-IoT Hub Device Provisioning Service (DPS) med Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 983e410c6f6298c6b251fdc2a4aff5c677d26906
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 4be7dc3e93b61f036a4167347a45725eff185f04
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423045"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969719"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Java
 

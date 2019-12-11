@@ -1,6 +1,6 @@
 ---
 title: Registrera TPM-enhet på Azure Device Provisioning-tjänsten med Java
-description: Snabb start – registrera TPM-enhet på Azure IoT Hub Device Provisioning Service med Java-tjänst-SDK. Den här snabbstarten använder enskilda registreringar.
+description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med Java-tjänst-SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 4e6e5eb876bbf93c8228c2440a90aad608a24af9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: cadee1b72c15ded7c29d1eea341c1ea21b346a37
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422920"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976833"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med Java-tjänst-SDK
 

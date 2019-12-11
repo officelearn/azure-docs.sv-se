@@ -1,5 +1,5 @@
 ---
-title: Anropa ett ASP.NET-webb-API som skyddas av Azure AD – Microsoft Identity
+title: Anropa Azure AD Protected ASP.NET Web API-Microsoft Identity Platform
 description: 'I den här snabb starten lär du dig att anropa ett ASP.NET webb-API som skyddas av Azure Active Directory från ett Windows Desktop-program (WPF). WPF-klienten autentiserar en användare, begär en åtkomsttoken och anropar webb-API: et.'
 services: active-directory
 author: jmprieur
@@ -12,12 +12,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1d9e402bff9d333957d51982dd917822d2c24d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963315"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Snabb start: anropa ett ASP.NET-webb-API som skyddas av Azure AD
 

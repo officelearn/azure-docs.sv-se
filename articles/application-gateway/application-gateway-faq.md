@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 68ce0dca3bc7c5d408bd6e8f267d238ac812a84d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130581"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996671"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -128,7 +128,7 @@ Nej. Instanser distribueras mellan uppgraderings domäner och fel domäner.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Har Application Gateway stöd för anslutning som töms?
 
-Ja. Du kan konfigurera anslutnings tömning för att ändra medlemmar i en backend-pool utan avbrott. Med den här installationen kan du fortsätta att skicka befintliga anslutningar till deras tidigare mål tills antingen anslutningen stängs eller en konfigurerbar tids gräns upphör att gälla. Anslutnings tömning väntar på att endast aktuella anslutningar i flygningen ska slutföras. Application Gateway är inte medvetna om appens sessionstillstånd.
+Ja. Du kan konfigurera anslutnings tömning för att ändra medlemmar i en backend-pool utan avbrott. Mer information finns i [avsnittet om tömning av anslutningar i Application Gateway](overview.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan jag ändra instans storleken från medel till stor utan avbrott?
 

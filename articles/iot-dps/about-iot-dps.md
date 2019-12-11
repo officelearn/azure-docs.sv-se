@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Beskriver enhetsetablering i Azure med Device Provisioning Service och IoT Hub
+description: Beskriver enhets etablering i Azure med enhets etablerings tjänsten (DPS) och IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: e02f0de685dc1f67633e13fed1f4114c399afdea
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c29e687a787e59a03bb6825493d808ba036a1d68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280540"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975371"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service är en hjälptjänst för IoT Hub som möjliggör zero-touch och just-in-time-etablering till rätt IoT-hubb utan mänsklig interaktion, vilket gör att kunder kan etablera miljontals enheter på ett säkert och skalbart sätt.
@@ -85,7 +85,7 @@ Device Provisioning Service innehåller många funktion, vilket gör den utmärk
 
 Du kan lära dig mer om de begrepp och funktioner som ingår i enhetsetablering i [enhetsbegrepp](concepts-device.md), [tjänstebegrepp](concepts-service.md) och [säkerhetsbegrepp](concepts-security.md).
 
-## <a name="cross-platform-support"></a>Stöd för alla plattformar
+## <a name="cross-platform-support"></a>Plattformsoberoende stöd
 Liksom alla Azure IoT-tjänster fungerar Device Provisioning Service plattformsoberoende med ett flertal olika operativsystem. Azure erbjuder SDK:er med öppen källkod i en mängd [språk](https://github.com/Azure/azure-iot-sdks), vilket underlättar anslutning av enheter och hantering av tjänsten. Device Provisioning Service stödjer följande protokoll för att ansluta enheter:
 
 * HTTPS

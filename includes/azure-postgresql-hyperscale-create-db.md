@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "74003921"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973430"
 ---
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -46,7 +46,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
    ![lade till klient-IP-](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
-   > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
+   > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till ditt citus-kluster om inte IT-avdelningen öppnar port 5432.
    >
 
 9. Klicka på **Granska + skapa** och sedan på **skapa** för att etablera servern. Etableringen tar några minuter.
@@ -57,10 +57,10 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 
 När du skapar din Azure Database for PostgreSQL-server skapas en standard databas som heter **citus** . Du behöver en anslutnings sträng och administratörs lösen ordet för att ansluta till databas servern.
 
-1. Hämta anslutnings strängen. På sidan Server grupp klickar du på meny alternativet **anslutnings strängar** . (Det är under **Inställningar**.) Hitta den sträng som marker ATS  **C++ (libpq)** . Formatet är:
+1. Hämta anslutnings strängen. På sidan Server grupp klickar du på meny alternativet **anslutnings strängar** . (Det är under **Inställningar**.) Hitta strängen som marker ATS som **psql**. Formatet är:
 
    ```
-   host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
+   psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
    Kopiera strängen. Du måste ersätta "{Your\_Password}" med det administrativa lösen ord som du valde tidigare. Systemet lagrar inte lösen ordet i klartext och kan därför inte Visa det åt dig i anslutnings strängen.
@@ -69,7 +69,7 @@ När du skapar din Azure Database for PostgreSQL-server skapas en standard datab
 
 3. I prompten ansluter du till Azure Database for PostgreSQL-servern med verktyget [psql](https://www.postgresql.org/docs/current/app-psql.html) . Skicka din anslutnings sträng i citat tecken och se till att den innehåller ditt lösen ord:
    ```bash
-   psql "{connection_string}"
+   psql "host=..."
    ```
 
    Följande kommando ansluter till exempel noden koordinator för Server gruppen **mydemoserver**:

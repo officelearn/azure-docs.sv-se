@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0463ffad87d00421c2fcb5c8357406d5f692144
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075340"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966290"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
@@ -26,7 +26,7 @@ Villkorlig åtkomst är det verktyg som används av Azure Active Directory för 
 
 ![Konceptuell villkorlig signal plus beslut för att få tillämpning](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-Principer för villkorlig åtkomst på enklaste sätt är if-then-satser, om en användare vill komma åt en resurs, måste de slutföra en åtgärd. Exempel: En löne hanterare vill ha åtkomst till löne programmet och krävs för att utföra Multi-Factor Authentication för att få åtkomst till det.
+Principer för villkorlig åtkomst på enklaste sätt är if-then-satser, om en användare vill komma åt en resurs, måste de slutföra en åtgärd. Exempel: en löne hanterare vill få åtkomst till löne programmet och krävs för att utföra Multi-Factor Authentication för att få åtkomst till den.
 
 Administratörer är riktade mot två primära mål:
 
@@ -80,6 +80,13 @@ Många organisationer har vanliga åtkomst frågor som principer för villkorlig
 - Blockera eller bevilja åtkomst från vissa platser
 - Blockera riskfyllda inloggnings beteenden
 - Kräva organisations hanterade enheter för vissa program
+
+## <a name="customer-case-studies"></a>Kundfallstudier
+
+Upptäck hur andra organisationer använder villkorlig åtkomst för Azure AD för att definiera och implementera beslut om automatisk åtkomst kontroll. Följande artiklar visar hur dessa kunder behöver uppfyllas.
+
+* [Wipro driver mobil produktivitet med Microsofts moln säkerhets verktyg för att förbättra kund engagemang.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) Principer för villkorlig åtkomst i Azure AD har aktiverat företaget för att dela dokument, resurser och program med betrodda utanför entiteter---som kan använda sina egna autentiseringsuppgifter---samtidigt som de behåller kontrollen över sina egna företags data.
+* [Aramex Delivery Limited-global logistik och transport företag skapar ett moln anslutet kontor med identitets-och åtkomst hanterings lösning](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Att säkerställa säker åtkomst var särskilt svårt med Aramex fjär anställda. Företaget använder nu villkorlig åtkomst för att ge dessa anställda till gång till sina SaaS-program utanför nätverket. Regeln för villkorlig åtkomst avgör om du vill genomdriva Multi-Factor Authentication, vilket ger endast rätt personer rätt åtkomst.
 
 ## <a name="license-requirements"></a>Licenskrav
 

@@ -4,16 +4,16 @@ description: Lär dig hur du skapar din första funktion på Linux i Azure med h
 ms.date: 03/12/2019
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 19abfee69db53c560dfa2696d85f8c1c3d770c09
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 57c1b4a0ef5e8f030360bca6d69f66e8752f3da1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230816"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964148"
 ---
 # <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>Snabb start: skapa din första funktion på Linux med hjälp av kommando rads verktyg
 
-Med Azure Functions kan du köra kod i en [serverfri](https://azure.com/serverless) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-värd kräver [funktioner 2. x-körning](functions-versions.md). Funktioner utan Server körs i [förbruknings planen](functions-scale.md#consumption-plan).
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.com/serverless) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-värd kräver [funktioner 2. x och senare körning](functions-versions.md). Funktioner utan Server körs i [förbruknings planen](functions-scale.md#consumption-plan).
 
 Den här snabbstartsartikeln går igenom hur du använder Azure CLI till att skapa din första funktionsapp som körs på Linux. Funktionskoden skapas lokalt och distribueras sedan till Azure med hjälp av [Azure Functions Core Tools](functions-run-local.md).
 

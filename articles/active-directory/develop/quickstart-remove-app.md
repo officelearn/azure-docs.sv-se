@@ -1,5 +1,5 @@
 ---
-title: Ta bort ett program som registrerats med Microsoft Identity Platform | Azure
+title: Ta bort appen som är registrerad hos Microsoft Identity Platform | Azure
 description: Lär dig hur du tar bort ett program som registrerats med Microsoft Identity Platform.
 services: active-directory
 author: rwike77
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e31d16ff98c1218e0dfdc89fa197c9dc2d41a586
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fff6d07bd0e353541dec23fd8c3edf7407ef6d68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921372"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963298"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Snabb start: ta bort ett program som är registrerat med Microsoft Identity Platform
 

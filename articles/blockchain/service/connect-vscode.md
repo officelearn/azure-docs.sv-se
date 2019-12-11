@@ -1,15 +1,15 @@
 ---
 title: Använd Visual Studio Code för att ansluta till Azure blockchain-tjänsten
 description: Ansluta till ett Azure blockchain service Consortium-nätverk med Azure blockchain Development Kit for Ethereum-tillägget i Visual Studio Code
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4d4625df1cb07818dcadb88e2c98bf9ae1da1b1f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455979"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977101"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk
 
@@ -17,7 +17,7 @@ I den här snabb starten installerar och använder du tillägget Azure blockchai
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * [Visual Studio-kod](https://code.visualstudio.com/Download)
@@ -59,12 +59,12 @@ Du kan ansluta till medlemmar i konsortiet med hjälp av tillägget Azure blockc
 Om du inte har åtkomst till en Azure blockchain service Consortium-medlem måste du slutföra den nödvändiga [snabb starten: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md).
 
 1. I fönstret VS Code-Utforskaren expanderar du tillägget **Azure blockchain** .
-1. Välj **Anslut till konsortiet**.
+1. Välj **Anslut till nätverk**.
 
-   ![Anslut till konsortiet](./media/connect-vscode/connect-consortium.png)
+   ![Anslut till nätverk](./media/connect-vscode/connect-consortium.png)
 
     Om du uppmanas att ange Azure-autentisering följer du anvisningarna för att autentisera med hjälp av en webbläsare.
-1. Välj **Anslut till Azure blockchain service Consortium** i list rutan kommando för palett.
+1. Välj **Azure blockchain-tjänsten** i list rutan kommando för palett.
 1. Välj den prenumeration och resurs grupp som är kopplad till din Azure blockchain service Consortium-medlem.
 1. Välj konsortiet i listan.
 

@@ -1,6 +1,6 @@
 ---
 title: Registrera TPM-enhet på Azure Device Provisioning-tjänsten med hjälp avC#
-description: Snabb start – registrera TPM-enhet på Azure C# IoT Hub Device Provisioning service med hjälp av service SDK. Den här snabbstarten använder enskilda registreringar.
+description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS C# ) med hjälp av service SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: a95a50e5931f42e442e11fe593a151dd273449e8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee1b803459e0c81b86021b617a29e0b29ee19909
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422996"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976850"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Snabb start: registrera TPM-enhet till C# IoT Hub Device Provisioning service med hjälp av service SDK
 

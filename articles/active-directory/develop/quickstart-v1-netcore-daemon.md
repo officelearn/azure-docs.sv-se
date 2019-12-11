@@ -1,6 +1,6 @@
 ---
-title: Hämta token och anropa Microsoft Graph API med konsol appens identitet (v 1.0) | Microsoft Docs
-description: 'Lär dig hur du skapar ett .NET daemon-program som integreras med Azure AD-anrop till Azure AD Protected API: er med OAuth 2,0'
+title: 'Hämta token & anropa Microsoft Graph API: er från konsol program (v 1.0) | Azure'
+description: 'Bygg ett .NET daemon-program som integreras med Azure AD & anropar Azure AD-skyddade API: er med OAuth 2,0'
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 384aa90fd4edb8f52224bdf2885208fde5789398
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920896"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965933"
 ---
 # <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>Snabb start: Hämta token och anropa Microsoft Graph API med konsol appens identitet (v 1.0) 
 

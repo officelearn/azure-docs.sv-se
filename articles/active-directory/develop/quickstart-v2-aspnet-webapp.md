@@ -1,5 +1,5 @@
 ---
-title: Snabb start för Microsoft Identity Platform ASP.NET-webbserver | Azure
+title: Lägga till Microsoft Identity Platform-inloggning i en ASP.NET-webbapp | Azure
 description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET-webbapp med OpenID Connect.
 services: active-directory
 author: jmprieur
@@ -13,12 +13,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46902d72c888713be62524ed4b609e2299a85c2b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ab2b3c1872de25c2d78198a0e23c0067ef0c9ea
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920726"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968093"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
 

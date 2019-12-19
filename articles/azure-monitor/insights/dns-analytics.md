@@ -58,7 +58,7 @@ Lösningen börjar samla in data utan att behöva ytterligare konfiguration. Du 
 
 På instrument panelen för lösningen klickar du på **konfiguration** för att öppna sidan DNS-analys konfiguration. Det finns två typer av konfigurations ändringar som du kan göra:
 
-- **Vit listas domän namn**. Lösningen bearbetar inte alla söknings frågor. Den innehåller en vitlista av domänsuffix. Sök frågor som matchar domän namn som matchar domänsuffix i denna vitlista bearbetas inte av lösningen. Om du inte bearbetar vit listas domän namn kan du optimera data som skickas till Azure Monitor. Standard-vitlista innehåller populära offentliga domän namn, till exempel www.google.com och www.facebook.com. Du kan visa den fullständiga standard listan genom att bläddra.
+- **Vit listas domän namn**. Lösningen bearbetar inte alla söknings frågor. Den innehåller en lista över tillåtna domänsuffix. Sök frågor som matchar domän namn som matchar domänsuffix i denna lista över tillåtna bearbetas inte av lösningen. Om du inte bearbetar vit listas domän namn kan du optimera data som skickas till Azure Monitor. Standardlista över tillåtna innehåller populära offentliga domän namn, till exempel www.google.com och www.facebook.com. Du kan visa den fullständiga standard listan genom att bläddra.
 
   Du kan ändra listan för att lägga till valfritt domänsuffix som du vill visa Sök insikter för. Du kan också ta bort alla domänsuffix som du inte vill visa Sök insikter för.
 

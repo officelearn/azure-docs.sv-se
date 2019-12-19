@@ -152,7 +152,7 @@ De tillfälliga och slutgiltiga SSPK-licenserna kan skicka tekniska frågor till
 * SmarDTV-och Sydamerika
 * SoftAtHome
 * Sony Corporation
-* TCL utrikes marknadsföring (Macao kommersiell offshore) begränsad
+* TCL utrikes marknadsföring (Macao SAR kommersiell offshore) begränsad
 * Technicolor-leverans tekniker, SAS
 * Tongfang global Ltd.
 * De främsta Victory-investeringarna, Ltd.

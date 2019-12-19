@@ -274,7 +274,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Qatar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Réunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Helena                                        |                 |                |              |      ✓     |          ✓         |
+| Sankta Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Saudiarabien                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Seychellerna                                          |                 |                |       ✓      |      ✓     |          ✓         |

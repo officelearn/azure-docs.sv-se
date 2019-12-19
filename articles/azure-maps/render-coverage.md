@@ -74,7 +74,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Nigeria                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
-| Saint Helena, Ascension och Tristan da Cunha | ✓ | Ø |
+| Sankta Helena, Ascension och Tristan da Cunha | ✓ | Ø |
 | São Tomé och Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |

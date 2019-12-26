@@ -1,5 +1,5 @@
 ---
-title: Konsekvensnivåer och API:er för Azure Cosmos DB
+title: Konsistensnivå och API:er för Azure Cosmos DB
 description: 'Förstå konsekvens nivå mappning mellan olika API: er i Azure Cosmos DB och Apache Cassandra, MongoDB'
 author: markjbrown
 ms.author: mjbrown
@@ -9,7 +9,7 @@ ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
 ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/05/2019
 ms.locfileid: "74872187"

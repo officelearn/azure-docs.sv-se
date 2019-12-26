@@ -1,30 +1,30 @@
 ---
-title: 'Snabbstart: Söka efter bilder – SDK för bildsökning i Bing för C#'
+title: 'Snabb start: Sök efter bilder – Bildsökning i Bing SDK förC#'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:t och innehåller samma funktioner. Den här enkla C#-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
+description: Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:et och innehåller samma funktioner. Den här enkla C#-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ef5fe57610d4e97b2e382c1a476cd6a70eb7b1ad
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 006f24c5b3bd3f30bc2e6fe48df08dd351d4a69c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034446"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930556"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Snabbstart: Söka efter bilder med SDK för bildsökning i Bing för C#
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och C#
 
-Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:t och innehåller samma funktioner. Den här enkla C#-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
+Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:et och innehåller samma funktioner. Den här enkla C#-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) tillsammans med ytterligare felhantering och kommentarer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/vs/whatsnew/).
 * [Cognitive Image Search NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
@@ -32,7 +32,7 @@ Om du vill installera Bildsökning i Bing SDK i Visual Studio använder du alter
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
@@ -73,7 +73,7 @@ imageResults = client.Images.SearchAsync(query: searchTerm).Result; //search que
 
 ## <a name="parse-and-view-the-first-image-result"></a>Parsa och visa det första avbildningresultatet
 
-Parsa bild esultatet som returneras i svaret.
+Parsa bildresultaten som returneras i svaret.
 Om svaret innehåller sökresultat ska du lagra och skriva ut information om det första resultatet, som en webbadress till miniatyrbilden, en webbadress till originalet och det totala antalet returnerade bilder.  
 
 ```csharp
@@ -101,4 +101,4 @@ if (imageResults != null)
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [.NET-exempel för Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

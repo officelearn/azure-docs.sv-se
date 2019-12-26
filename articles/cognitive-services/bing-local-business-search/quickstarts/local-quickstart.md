@@ -1,40 +1,40 @@
 ---
-title: Snabb start – skicka en fråga till API för lokal sökning i Bing iC#
+title: 'Snabb start – skicka en fråga till API: C# et för lokal sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln för att börja använda Bing-API för lokal C#sökning i.
+description: 'Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning.'
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: 163a85a7fb7521054ebec58fb9ac86373963f2b9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2265471001896652a4ce35dbf8bd84aca50000fb
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906318"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665688"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Snabbstart: Skicka en fråga till Bing Local Business Search API iC#
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Snabb start: skicka en fråga till Bing-API för lokal affärs sökning iC#
 
 Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet skrivs C#in är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
+Det här exempel programmet hämtar lokala svars data från API: et för Sök frågan `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten.  Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-the-request"></a>Skapa begäran 
 
 Följande kod skapar en `WebRequest`, ställer in åtkomst nyckel rubriken och lägger till en frågesträng för "restaurang i Bellevue".  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
-```
+```csharp
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -60,7 +60,7 @@ API: t för lokal sökning i Bing returnerar lokaliserade Sök Resultat från Bi
 3. Ersätt accessKey-värdet med en åtkomst nyckel som är giltig för din prenumeration.
 4. Kör programmet.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1051728377e3c40b2b9209653464948988cc4e84
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 97b05327b2de4daa43f5f1fa3e4a22ecd79a9085
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327026"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930723"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och ruby
 
@@ -44,7 +44,7 @@ Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https
     require 'json'
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord.
+2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. `uri` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -68,7 +68,7 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## <a name="process-and-print-the-json"></a>Bearbeta och skriva ut JSON
+## <a name="process-and-print-the-json"></a>Bearbeta och skriv ut JSON
 
 När du har fått svar kan du parsa JSON och hämta värden från den. Hämta till exempel det totala antalet returnerade sökresultat och miniatyr-URL:en till det första avbildningsresultatet.
 
@@ -142,10 +142,10 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 > [!div class="nextstepaction"]
 > [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

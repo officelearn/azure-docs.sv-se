@@ -1,39 +1,39 @@
 ---
-title: 'Snabb start – skicka en fråga till API: et för lokal sökning i Bing med Node. js'
+title: 'Snabb start – skicka en fråga till API: et med Node. js – Bing lokal företags sökning'
 titleSuffix: Azure Cognitive Services
-description: Börja använda Bing-API för lokal affärs sökning i noden.
+description: 'Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning.'
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: 02513d0596588b4e6ba05edf5342769e78c24242
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: beab594126ce292ea1fc47e399a12274dbb31aa3
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996663"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665703"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabbstart: Skicka en fråga till Bing Local Business Search API med Node. js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabb start: skicka en fråga till Bing Local Business Search API med Node. js
 
 Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet skrivs i Node. js är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
+Det här exempel programmet hämtar lokala svars data från API: et för Sök frågan `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
 * [Begäransbiblioteket för JavaScript](https://github.com/request/request)
 
-Du måste ha ett [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd den åtkomst nyckel som tillhandahålls av den kostnads fria utvärderings versionen.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Du måste ha ett [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd den åtkomst nyckel som tillhandahålls av den kostnads fria utvärderings versionen.  Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="code-scenario"></a>Kodscenario
 
-Följande kod definierar och skickar begäran. Den implementeras i följande steg:
+Följande kod definierar och skickar begäran. De implementeras i följande steg:
 
 1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
 2. Ange frågan och Lägg till Frågeparametern.
@@ -43,7 +43,7 @@ Följande kod definierar och skickar begäran. Den implementeras i följande ste
 
 Här följer den fullständiga koden för demon:
 
-```
+```javascript
 'use strict';
 
 let https = require('https');

@@ -9,19 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fe6289ce893f959ca958096db80f4b2295f6dd43
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 2aaed57c7e1d817cd892f45c441ab59d4ffba3d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327078"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930766"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Snabb start: Sök efter bilder med hjälp av Bildsökning i Bing REST API och Node. js
 
-Använd den här snabbstarten till att börja skicka sökbegäranden till API:et för bildsökning i Bing. Det här JavaScript-programmet skickar en sökfråga till API:et och visar URL:en till den första bilden i resultatet. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. Det här JavaScript-programmet skickar en sökfråga till API:et och visar URL:en till den första bilden i resultatet. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) tillsammans med ytterligare felhantering och kommentarer.
 
@@ -30,7 +30,8 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
 * [Begäransbiblioteket för JavaScript](https://github.com/request/request)  
-  [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -43,7 +44,8 @@ Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https
     let https = require('https');
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord.
+2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. `host` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
+
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';
@@ -154,11 +156,11 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 > [!div class="nextstepaction"]
 > [Skapa en ensidesapp](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
+* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) av API:er för Bing-sökning. 
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

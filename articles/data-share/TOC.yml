@@ -19,13 +19,15 @@
       href: terminology.md
     - name: Roller och krav
       href: concepts-roles-permissions.md
+    - name: Haveriberedskap
+      href: disaster-recovery.md
 - name: Exempel
   items:
     - name: Kodexempel
       href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure PowerShell
       href: samples-powershell.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Övervaka
       href: how-to-monitor.md

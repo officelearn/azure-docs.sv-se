@@ -32,7 +32,7 @@
       href: pim-azure-resource.md
     - name: Villkorlig åtkomst för hantering av Azure
       href: conditional-access-azure-management.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Visa lista över rolldefinitioner
       items:
@@ -99,7 +99,7 @@
     - name: Åtgärder för resursprovider
       href: resource-provider-operations.md
     - name: RBAC-begränsningar
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Azure CLI

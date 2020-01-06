@@ -48,7 +48,7 @@
       href: iot-visual-alerts-tutorial.md
     - name: Identifiera logotyper på mobila enheter
       href: logo-detector-mobile.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Testa din modell
       href: test-your-model.md
@@ -68,8 +68,6 @@
           href: export-model-python.md
     - name: Exportera eller ta bort kontodata
       href: ./export-delete-data.md
-    - name: Flytta projektet med den begränsade utvärderingsversionen till Azure
-      href: ./move-your-project-to-azure.md
     - name: Uppdatera din app till API-version 3.0
       href: ./update-application-to-3.0-sdk.md
 - name: Referens

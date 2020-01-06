@@ -22,11 +22,17 @@
       href: quickstarts/python.md
     - name: Ruby
       href: quickstarts/ruby.md
+- name: Klientbibliotek
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp-sdk.md
+    - name: Go
+      href: quickstarts/go-sdk.md
 - name: Självstudier
   items:
     - name: Enkelsidig webbapp
       href: tutorials/autosuggest.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Uppgradera från v5 till v7
       href: bing-autosuggest-upgrade-guide-v5-to-v7.md

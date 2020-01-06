@@ -12,3 +12,6 @@
         - name: Princip
           tocHref: /azure/azure-monitor
           topicHref: /azure/governance/policy
+        - name: Princip
+          tocHref: /azure/key-vault
+          topicHref: /azure/governance/policy

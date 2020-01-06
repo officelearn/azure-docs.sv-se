@@ -83,7 +83,7 @@
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Kvotinformation
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Bästa praxis

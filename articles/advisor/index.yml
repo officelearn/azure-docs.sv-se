@@ -4,18 +4,16 @@ summary: Azure Advisor söker igenom din Azure-konfiguration och rekommenderar �
 metadata:
   title: Dokumentation om Azure Advisor
   description: Azure Advisor är en anpassad molnkonsult som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Den analyserar din resurskonfiguration och användningstelemetri. Den rekommenderar sedan lösningar för att förbättra prestanda, säkerhet och hög tillgänglighet för dina resurser samtidigt som den söker efter möjligheter att minska de totala Azure-kostnaderna.
-  services: advisor
-  ms.service: advisor
   ms.topic: landing-page
   author: rboucher
   ms.author: robb
   ms.date: 10/16/2019
-  ms.openlocfilehash: d0a5dc66a752e49dd32cd742e3856d7edac0d879
-  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.openlocfilehash: 43e35c1d6afd96ff78ebd938fa76a503dd4e935d
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/27/2019
-  ms.locfileid: "72963985"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443024"
 landingContent:
 - title: Om Azure Advisor
   linkLists:
@@ -27,7 +25,7 @@ landingContent:
     links:
     - text: Azure Advisor-videor
       url: https://azure.microsoft.com/resources/videos/index/?services=advisor
-- title: Komma igång
+- title: Kom igång
   linkLists:
   - linkListType: get-started
     links:

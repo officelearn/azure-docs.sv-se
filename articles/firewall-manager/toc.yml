@@ -19,7 +19,7 @@
       href: trusted-security-partners.md
     - name: Regelbearbetningslogik
       href: rule-processing.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Distribuera betrodda säkerhetspartner
       href: deploy-trusted-security-partner.md
@@ -42,11 +42,11 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Resurser
   items:
     - name: Skapa mallar
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Community-mallar

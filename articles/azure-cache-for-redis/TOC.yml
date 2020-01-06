@@ -1,5 +1,5 @@
 - name: Dokumentation om Azure Cache for Redis
-  href: index.md
+  href: index.yml
 - name: Översikt
   items:
     - name: Om Azure Cache for Redis
@@ -39,7 +39,7 @@
       href: cache-best-practices.md
     - name: Metodtips för cachelagring på arkitektur
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Planera
       items:

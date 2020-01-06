@@ -4,8 +4,6 @@
   items:
     - name: Vad är Azure IoT Central?
       href: overview-iot-central.md
-    - name: IoT-lösningsalternativ
-      href: overview-iot-options.md
     - name: Genomgång av användargränssnittet
       href: overview-iot-central-tour.md
 - name: Snabbstarter
@@ -33,7 +31,7 @@
       href: concepts-connectivity.md
     - name: Vad är programmallar?
       href: concepts-app-templates.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ansluta enheter
       items:

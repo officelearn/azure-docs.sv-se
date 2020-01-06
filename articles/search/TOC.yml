@@ -13,9 +13,9 @@
       href: search-create-service-portal.md
     - name: Portalen
       items:
-        - name: Skapa ett sökindex
+        - name: Skapa ett index
           href: search-get-started-portal.md
-        - name: Skapa en app (förhandsversion)
+        - name: Skapa en app
           href: search-create-app-portal.md
         - name: Skapa en kognitiv kompetensuppsättning
           href: cognitive-search-quickstart-blob.md
@@ -95,7 +95,7 @@
       href: knowledge-store-projection-overview.md
     - name: Inkrementell indexering
       href: cognitive-search-incremental-indexing-conceptual.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Planering
       items:

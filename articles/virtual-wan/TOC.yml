@@ -24,7 +24,7 @@
           href: migrate-from-hub-spoke-topology.md
         - name: Global Transit Network-arkitektur
           href: virtual-wan-global-transit-network-architecture.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Anslut virtuell nätverksgateway till Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
@@ -73,7 +73,7 @@
     - name: Blogg
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Prenumerations- och tjänstbegränsningar
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Priskalkylator

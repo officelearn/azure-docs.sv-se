@@ -64,7 +64,7 @@
 - name: Begrepp
   items:
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: Regioner
       href: ../virtual-machines/windows/regions.md

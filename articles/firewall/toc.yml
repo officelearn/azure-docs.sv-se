@@ -35,7 +35,7 @@
       href: rule-processing.md
     - name: Tjänsttaggar
       href: service-tags.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Distribuera med hjälp av Azure PowerShell
       href: deploy-ps.md
@@ -70,13 +70,13 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Resurser
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: firewall-faq.md
     - name: Skapa mallar
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Community-mallar

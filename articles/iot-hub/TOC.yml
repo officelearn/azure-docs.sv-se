@@ -9,7 +9,7 @@
   items:
     - name: Skicka telemetri
       items:
-        - name: Komma igång
+        - name: Kom igång
           href: quickstart-send-telemetry-cli.md
         - name: C
           href: quickstart-send-telemetry-c.md
@@ -83,6 +83,8 @@
       href: tutorial-connectivity.md
 - name: Begrepp
   items:
+    - name: Tvingande TLS 1.2
+      href: tls-1.2-everywhere.md
     - name: Översikt över meddelandeberikanden
       href: iot-hub-message-enrichments-overview.md
     - name: Översikt över enhetshantering
@@ -182,7 +184,7 @@
           href: iot-hub-x509ca-overview.md
         - name: Koncept för certifikatsäkerhet med X.509 CA
           href: iot-hub-x509ca-concept.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Utveckla
       items:

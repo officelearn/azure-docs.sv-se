@@ -25,7 +25,7 @@
       href: quickstart-ruby.md
     - name: Köra en anpassad container
       href: quickstart-docker.md
-    - name: Skapa en app med flera behållare
+    - name: Skapa en app med flera container
       href: quickstart-multi-container.md
 - name: Självstudier
   items:
@@ -45,7 +45,7 @@
           href: tutorial-java-spring-cosmosdb.md
         - name: Java Enterprise med Postgres
           href: tutorial-java-enterprise-postgresql-app.md
-    - name: App med flera behållare
+    - name: App med flera container
       href: tutorial-multi-container-app.md
     - name: Köra en container från ACR
       href: tutorial-custom-docker-image.md
@@ -192,7 +192,7 @@
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Kvotinformation
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Vägledning för Migration Assistant

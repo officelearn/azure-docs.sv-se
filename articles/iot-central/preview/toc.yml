@@ -4,8 +4,6 @@
   items:
     - name: Vad är Azure IoT Central?
       href: overview-iot-central.md
-    - name: IoT-lösningsalternativ
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - name: Genomgång av användargränssnittet
       href: overview-iot-central-tour.md
     - name: Kom igång med anslutningen
@@ -53,7 +51,7 @@
       href: concepts-architecture.md
     - name: Vad är programmallar?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Kom igång med anslutningen
       items:

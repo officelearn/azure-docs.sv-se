@@ -4,16 +4,16 @@ description: I den här artikeln beskrivs de REST-API:er du använder med din Az
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841429"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644536"
 ---
 # <a name="azure-enterprise-rest-apis"></a>REST-API:er för Azure Enterprise
 
@@ -75,7 +75,7 @@ Exempel: bearer \&lt;APIKey\&gt; |
 
 ### <a name="swagger"></a>Swagger
 
-Det finns en Swagger-slutpunkt vid [Enterprise Reporting v3-API:erna](https://consumption.azure.com/swagger/ui/index)för följande API:er. Swagger hjälper dig att inspektera API:et. Använd Swagger till att generera klient-SDK:er med [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](http://swagger.io/swagger-codegen/). Du kommer åt data som är tillgängliga efter den 1 maj 2014 via API:et.
+Det finns en Swagger-slutpunkt vid [Enterprise Reporting v3-API:erna](https://consumption.azure.com/swagger/ui/index)för följande API:er. Swagger hjälper dig att inspektera API:et. Använd Swagger till att generera klient-SDK:er med [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](https://swagger.io/swagger-codegen/). Du kommer åt data som är tillgängliga efter den 1 maj 2014 via API:et.
 
 ### <a name="api-response-codes"></a>API-svarskoder
 
@@ -121,10 +121,10 @@ JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som 
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Prenumerationens namn | SubscriptionName | SubscriptionName |   |
-| Date | Date | Date | Visar datumet när tjänstkatalogsrapporten kördes. Formatet är en datumsträng utan tidstämpel. |
+| Datum | Datum | Datum | Visar datumet när tjänstkatalogsrapporten kördes. Formatet är en datumsträng utan tidstämpel. |
 | Month | Month | Month |   |
-| Day | Day | Day |   |
-| Year | Year | Year |   |
+| Day | Dag | Dag |   |
+| År | År | Year |   |
 | Produkt | BillableItemName | Produkt |   |
 | Mätar-ID | ResourceGUID | MeterId |   |
 | Mätarkategori | Tjänst | MeterCategory | Användbar när du ska hitta tjänster. Relevant för tjänster som har flera tjänsttyper. Ett exempel är virtuella datorer. |
@@ -156,10 +156,10 @@ JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som 
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Prenumerationens namn | SubscriptionName |  SubscriptionName |
-| Date | BillingCycle |  Datum (endast datum sträng, ingen tidsstämpel)
+| Datum | BillingCycle |  Datum (endast datum sträng, ingen tidsstämpel)
 | Month | Month |  Month |
-| Day | Day |  Day |
-| Year | Year |  Year |
+| Day | Dag |  Dag |
+| År | År |  År |
 | Mätar-ID | MeterResourceId |  MeterId |
 | Utgivarens namn | PublisherFriendlyName |  PublisherName |
 | Erbjudandets namn | OfferFriendlyName |  OfferName |

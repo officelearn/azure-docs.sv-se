@@ -51,6 +51,9 @@
           items:
             - name: Metodtips för erbjudandelistor
               href: ./gtm-offer-listing-best-practices.md
+              items:
+                - name: Kategorier
+                  href: ./gtm-offer-listing-best-practices-categories.md
             - name: Så här gör du för att sticka ut i mängden
               href: ./gtm-how-to-get-featured.md
             - name: Validering av Marketplace-innehåll

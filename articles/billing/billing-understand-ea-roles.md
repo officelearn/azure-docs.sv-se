@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 62a16a6a96fbfdfbb4ed2d70b74470e29efaa844
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 03464fca6d7e0694d9492de698c70d5caac89358
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849861"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644485"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Förstå administrativa roller för Azure Enterprise-avtal i Azure
 
@@ -48,7 +48,7 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Organisationsstruktur och behörigheter per roll
 
-|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad)|Kontoägare|
+|Aktiviteter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad)|Kontoägare|
 |---|---|---|---|---|---|
 |Visa företagsadministratörer|✔|✔|✘|✘|✘|
 |Lägga till eller ta bort företagsadministratörer|✔|✘|✘|✘|✘|
@@ -67,7 +67,7 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 
 ## <a name="usage-and-costs-access-by-role"></a>Åtkomst till användning och kostnader per roll
 
-|Uppgifter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad) |Kontoägare|
+|Aktiviteter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad) |Kontoägare|
 |---|---|---|---|---|---|
 |Visa kreditsaldo inklusive ekonomiska åtaganden|✔|✔|✘|✘|✘|
 |Visa avdelningens utgiftskvot|✔|✔|✘|✘|✘|

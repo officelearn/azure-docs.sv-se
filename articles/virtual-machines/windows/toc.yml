@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 – Säkerhetskopiera virtuella datorer
       href: tutorial-backup-vms.md
-    - name: 10 – Styra virtuella datorer
+    - name: 10 – Hantera virtuella datorer
       href: tutorial-govern-resources.md
       displayName: scope policy RBAC lock tag
     - name: 11 – Spåra och uppdatera virtuella datorer

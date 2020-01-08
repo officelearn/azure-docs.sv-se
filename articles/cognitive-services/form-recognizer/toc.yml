@@ -4,30 +4,60 @@
   items:
     - name: Vad är formigenkänning?
       href: overview.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   expaned: true
   items:
+    - name: Använda exempeletikettverktyget
+      items:
+        - name: Träna anpassad modell med etiketter
+          href: quickstarts/label-tool.md
     - name: Använda REST API
       items:
-        - name: Träna en anpassad modell och extrahera data
+        - name: Träna och använda anpassad modell utan etiketter
           items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract.md
+                - name: Python
+                  href: quickstarts/python-train-extract.md
+            - name: V1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract-v1.md
+                - name: Python
+                  href: quickstarts/python-train-extract-v1.md
+        - name: Träna och använda anpassad modell med etiketter
+          items:
             - name: Python
-              href: quickstarts/python-train-extract.md
+              href: quickstarts/python-labeled-data.md
         - name: Använda en inbyggd kvittomodell
           items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts.md
+                - name: Python
+                  href: quickstarts/python-receipts.md
+            - name: V1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts-v1.md
+                - name: Python
+                  href: quickstarts/python-receipts-v1.md
+        - name: Hämta information om layout
+          items:
             - name: Python
-              href: quickstarts/python-receipts.md
+              href: quickstarts/python-layout.md
     - name: Använda .NET SDK
       href: quickstarts/dotnet-sdk.md
 - name: Självstudier
   items:
     - name: Använda formigenkänning med Logic Apps
       href: tutorial-form-recognizer-with-logic-apps.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skapa en träningsdatauppsättning
       href: build-training-data-set.md
@@ -43,8 +73,10 @@
           href: deploy-form-recognizer-on-container-instances.md
 - name: Referens
   items:
-    - name: API för formigenkänning
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: API för Formigenkänning v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+    - name: API för Formigenkänning v1.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: 'SDK:er'
       items:
         - name: .NET

@@ -2,32 +2,26 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om tjänsten för IoT-enhetsetablering
+    - name: Vad är IoT Hub Device Provisioning-tjänsten?
       href: about-iot-dps.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Konfigurera automatisk etablering – Azure CLI
-      href: quick-setup-auto-provision-cli.md
-    - name: Konfigurera automatisk etablering – portal
-      href: quick-setup-auto-provision.md
-    - name: Konfigurera automatisk etablering – mall
-      href: quick-setup-auto-provision-rm.md
-    - name: Etablera en simulerad enhet automatiskt
+    - name: Konfigurera DPS
       items:
-        - name: TPM-attestering
+        - name: Azure Portal
+          href: quick-setup-auto-provision.md
+        - name: Azure CLI
+          href: quick-setup-auto-provision-cli.md
+        - name: Azure RM-mall
+          href: quick-setup-auto-provision-rm.md
+    - name: Etablera en enda simulerad enhet
+      items:
+        - name: Symmetrisk nyckelattestering
           items:
             - name: C
-              href: quick-create-simulated-device.md
-            - name: Java
-              href: quick-create-simulated-device-tpm-java.md
-            - name: 'C#'
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
-            - name: Python
-              href: quick-create-simulated-device-tpm-python.md
-        - name: X.509-attestering
+              href: quick-create-simulated-device-symm-key.md
+        - name: X.509-certifikatattestering
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,23 +33,21 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-        - name: Symmetrisk nyckelattestering
+        - name: Attestering för en simulerad TPM-enhet
           items:
             - name: C
-              href: quick-create-simulated-device-symm-key.md
-    - name: 'Registrera enheter med hjälp av API:er för etableringstjänster'
-      items:
-        - name: TPM-attestering
-          items:
+              href: quick-create-simulated-device.md
             - name: Java
-              href: quick-enroll-device-tpm-java.md
+              href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
-              href: quick-enroll-device-tpm-csharp.md
+              href: quick-create-simulated-device-tpm-csharp.md
             - name: Node.js
-              href: quick-enroll-device-tpm-node.md
+              href: quick-create-simulated-device-tpm-node.md
             - name: Python
-              href: quick-enroll-device-tpm-python.md
-        - name: X.509-attestering
+              href: quick-create-simulated-device-tpm-python.md
+    - name: 'Skapa enhetsregistreringar med hjälp av DPS-API:er'
+      items:
+        - name: Gruppregistrering med X.509-certifikatattestering
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -65,11 +57,21 @@
               href: quick-enroll-device-x509-node.md
             - name: Python
               href: quick-enroll-device-x509-python.md
+        - name: Individuell enhetsregistrering med TPM-attestering
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
 - name: Självstudier
   items:
     - name: 1 – Konfigurera molnresurser
       href: tutorial-set-up-cloud.md
-    - name: 2 – Konfigurera enhet
+    - name: 2 – Konfigurera en enhet
       href: tutorial-set-up-device.md
     - name: 3 - Etablera en enhet till en IoT-hubb
       items:
@@ -79,7 +81,7 @@
           href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Etablera enheter till flera hubbar
       href: tutorial-provision-multiple-hubs.md
-    - name: 5 – etablera gruppregistreringar
+    - name: 5 – Konfigurera gruppregistreringar
       href: tutorial-group-enrollments.md
 - name: Begrepp
   items:
@@ -97,7 +99,7 @@
       href: concepts-tpm-attestation.md
     - name: Symmetrisk nyckelattestering
       href: concepts-symmetric-key-attestation.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ansluta MXChip IoT DevKit till IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md

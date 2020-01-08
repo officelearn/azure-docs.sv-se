@@ -1,0 +1,30 @@
+- name: Benchmark för Azure-säkerhet
+  href: index.yml
+- name: Introduktion
+  href: introduction.md
+- name: Säkerhetskontroller
+  items:
+    - name: Översikt
+      href: overview.md
+    - name: Nätverkssäkerhet
+      href: security-control-network-security.md
+    - name: Loggning och övervakning
+      href: security-control-logging-monitoring.md
+    - name: Identitets- och åtkomstkontroll
+      href: security-control-identity-access-control.md
+    - name: Dataskydd
+      href: security-control-data-protection.md
+    - name: Sårbarhetshantering
+      href: security-control-vulnerability-management.md
+    - name: Inventerings- och tillgångshantering
+      href: security-control-inventory-asset-management.md
+    - name: Säker konfiguration
+      href: security-control-secure-configuration.md
+    - name: Skydd mot skadlig kod
+      href: security-control-malware-defense.md
+    - name: Dataåterställning
+      href: security-control-data-recovery.md
+    - name: Incidenthantering
+      href: security-control-incident-response.md
+    - name: Intrångstester och Red Team-övningar (rött lag)
+      href: security-control-penetration-tests-red-team-exercises.md

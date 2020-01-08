@@ -31,6 +31,16 @@
           href: tutorial-ev-routing.md
         - name: Analysera väderdata med Azure Notebooks (Python)
           href: weather-service-tutorial.md
+    - name: Migrera från Google Maps
+      items:
+        - name: Migrera från Google Maps
+          href: migrate-from-google-maps.md
+        - name: Migrera en webbapp
+          href: migrate-from-google-maps-web-app.md
+        - name: Migrera en Android-app
+          href: migrate-from-google-maps-android-app.md
+        - name: Migrera en webbtjänst
+          href: migrate-from-google-maps-web-services.md
 - name: Begrepp
   items:
     - name: Autentisering med Azure Maps
@@ -63,7 +73,7 @@
       href: mobility-service-data-structure.md
     - name: Begrepp för vädertjänster
       href: weather-services-concepts.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera Maps-konton
       items:
@@ -103,44 +113,48 @@
               href: create-data-source-web-sdk.md
             - name: Lägga till ett symbolskikt
               href: map-add-pin.md
+            - name: Lägg till ett popup-fönster
+              href: map-add-popup.md
             - name: Lägga till ett bubbelskikt
               href: map-add-bubble-layer.md
+            - name: Lägga till HTML-markeringar
+              href: map-add-custom-html.md
             - name: Lägg till ett linjeskikt
               href: map-add-line-layer.md
             - name: Lägg till ett polygonskikt
               href: map-add-shape.md
-            - name: Lägga till ett polygonskikt för extrudering
+            - name: Lägga till ett polygonprojektionslager
               href: map-extruded-polygon.md
             - name: Lägga till ett heatmapskikt
               href: map-add-heat-map-layer.md
-            - name: Lägg till ett popup-fönster
-              href: map-add-popup.md
+            - name: Lägga till ett avbildningsskikt
+              href: map-add-image-layer.md
+            - name: Lägga till panelskikt
+              href: map-add-tile-layer.md
+            - name: Visa trafik
+              href: map-show-traffic.md
             - name: Klusterpunktdata
               href: clustering-point-data-web-sdk.md
             - name: Använda datadrivna formatuttryck
               href: data-driven-style-expressions-web-sdk.md
             - name: Så här använder du avbildningsmallar
               href: how-to-use-image-templates-web-sdk.md
-            - name: Lägga till ett avbildningsskikt
-              href: map-add-image-layer.md
-            - name: Lägga till panelskikt
-              href: map-add-tile-layer.md
-            - name: HTML-markeringar
-              href: map-add-custom-html.md
-            - name: Visa trafik
-              href: map-show-traffic.md
             - name: Reagerar på händelser
               href: map-events.md
             - name: Göra programmet tillgängligt
               href: map-accessibility.md
         - name: Ritningsverktyg
           items:
-            - name: Lägga till verktygsfält för ritning
-              href: map-add-drawing-toolbar.md
-            - name: Ange ritningsalternativ
+            - name: Använda modulen för ritningsverktyg
               href: set-drawing-options.md
+            - name: Lägga till ett verktygsfält för ritning
+              href: map-add-drawing-toolbar.md
             - name: Hämta formdata
               href: map-get-shape-data.md
+            - name: Reagera på rithändelser
+              href: drawing-tools-events.md
+            - name: Interaktionstyper och kortkommandon
+              href: drawing-tools-interactions-keyboard-shortcuts.md
         - name: Tjänstmodul
           items:
             - name: Använda tjänstmodulen
@@ -231,6 +245,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Azure Maps-videor
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: Projekt med öppen källkod
+      href: open-source-projects.md
     - name: Azure Maps-fallstudier
       href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Azure Maps-ordlista

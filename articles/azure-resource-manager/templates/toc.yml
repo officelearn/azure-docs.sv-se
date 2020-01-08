@@ -1,0 +1,261 @@
+- name: Dokumentation om Azure Resource Manager-mallar
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure Resource Manager-mallar?
+      href: overview.md
+- name: Snabbstarter
+  items:
+    - name: Skapa mallar – portal
+      href: quickstart-create-templates-use-the-portal.md
+    - name: Skapa mallar – VS Code
+      href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Skapa mallar – Visual Studio
+      href: create-visual-studio-deployment-project.md
+    - name: Skapa mallar – IntelliJ IDEA
+      href: create-templates-use-intellij.md
+- name: Självstudier
+  items:
+    - name: Nybörjare
+      items:
+        - name: 1 – Skapa den första mallen
+          href: template-tutorial-create-first-template.md
+        - name: 2 – Lägga till en resurs
+          href: template-tutorial-add-resource.md
+        - name: 3 – Lägga till parametrar
+          href: template-tutorial-add-parameters.md
+        - name: 4 – Lägga till mallfunktioner
+          href: template-tutorial-add-functions.md
+        - name: 5 – Lägga till variabler
+          href: template-tutorial-add-variables.md
+        - name: 6 – Lägga till utdata
+          href: template-tutorial-add-outputs.md
+        - name: 7 – Använda en exporterad mall
+          href: template-tutorial-export-template.md
+        - name: 8 – Använda en snabbstartsmall
+          href: template-tutorial-quickstart-template.md
+        - name: 9 – Lägga till taggar
+          href: template-tutorial-add-tags.md
+        - name: 10 – Använda en parameterfil
+          href: template-tutorial-use-parameter-file.md
+    - name: Avancerat
+      items:
+        - name: Använda mallreferens
+          href: template-tutorial-create-encrypted-storage-accounts.md
+        - name: Skapa flera instanser
+          displayName: 'iteration,copy'
+          href: template-tutorial-create-multiple-instances.md
+        - name: Ange resursdistributionsordning
+          displayName: 'dependent resources, dependency'
+          href: template-tutorial-create-templates-with-dependent-resources.md
+        - name: Använda villkor
+          href: template-tutorial-use-conditions.md
+        - name: Integrera Key Vault
+          displayName: secrets
+          href: template-tutorial-use-key-vault.md
+        - name: Skapa länkade mallar
+          href: template-tutorial-create-linked-templates.md
+        - name: Distribuera VM-tillägg
+          displayName: virtual machine extensions
+          href: template-tutorial-deploy-vm-extensions.md
+        - name: Distribuera SQL-tillägg
+          href: template-tutorial-deploy-sql-extensions-bacpac.md
+        - name: Skydda artefakter
+          href: template-tutorial-secure-artifacts.md
+        - name: Kontinuerlig integrering med Azure Pipelines
+          displayName: DevOps
+          href: template-tutorial-use-azure-pipelines.md
+        - name: Uppdatera VS-distributionsskriptet till Az Powershell
+          href: update-visual-studio-deployment-script.md
+        - name: Använda säkra distributionsmetoder
+          displayName: adm
+          href: deployment-manager-tutorial.md
+        - name: Använda hälsokontrollen i Distributionshanteraren
+          displayName: adm
+          href: deployment-manager-tutorial-health-check.md
+        - name: Felsöka malldistribution
+          href: template-tutorial-troubleshoot.md
+- name: Exempel
+  items:
+    - name: Azure-snabbstartmallar
+      href: 'https://azure.microsoft.com/resources/templates/'
+    - name: Exempel på mallar
+      href: template-samples.md
+- name: Begrepp
+  items:
+    - name: Metodtips för mallar
+      href: template-best-practices.md
+    - name: Mallar för molnkonsekvens
+      href: templates-cloud-consistency.md
+    - name: Distributionsmodeller
+      href: deployment-modes.md
+    - name: Distributionshanteraren
+      items:
+        - name: Översikt
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: Hälsokontroll
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
+- name: Gör så här för att
+  items:
+    - name: Skapa mallar
+      items:
+        - name: Använda VS-kod
+          href: use-vs-code-to-create-template.md
+        - name: Skriva malluttryck
+          href: template-expressions.md
+        - name: Parametrar
+          href: template-parameters.md
+        - name: Variabler
+          href: template-variables.md
+        - name: Användardefinierade funktioner
+          href: template-user-defined-functions.md
+        - name: Resurser
+          items:
+            - name: Underordnat resursnamn och typ
+              href: child-resource-name-type.md
+            - name: Villkorlig distribution
+              href: conditional-resource-deployment.md
+            - name: Ange resursberoenden
+              href: define-resource-dependency.md
+            - name: Ange resursplats
+              href: resource-location.md
+            - name: Använda malltillägg
+              href: add-resource-extensions.md
+        - name: Utdata
+          href: template-outputs.md
+        - name: Modularisera mallar
+          displayName: 'linked templates, nested templates'
+          href: linked-templates.md
+        - name: Skapa flera instanser
+          href: create-multiple-instances.md
+        - name: Resurser på prenumerationsnivå
+          href: deploy-to-subscription.md
+        - name: Nivåresurser för hanteringsgrupp
+          href: deploy-to-management-group.md
+    - name: Distribuera mallar
+      items:
+        - name: Distribuera – portalen
+          displayName: deployment
+          href: deploy-portal.md
+        - name: Distribuera – CLI
+          displayName: deployment
+          href: deploy-cli.md
+        - name: Distribuera – PowerShell
+          displayName: deployment
+          href: deploy-powershell.md
+        - name: Distribuera – REST API
+          displayName: deployment
+          href: deploy-rest.md
+        - name: Konsekvensdistribution
+          href: template-deploy-what-if.md
+        - name: Omdistribuera vid fel
+          displayName: rollback
+          href: rollback-on-error.md
+        - name: Säker mall med SAS-token
+          href: secure-template-with-sas-token.md
+        - name: Distribuera till flera resursgrupper eller prenumerationer
+          href: cross-resource-group-deployment.md
+    - name: Ange parametrar
+      items:
+        - name: Skapa parameterfil
+          href: parameter-files.md
+        - name: Skicka känsliga värden
+          displayname: key vault
+          href: key-vault-parameter.md
+    - name: CI/CD
+      items:
+        - name: VS-projekt med pipelines
+          href: add-template-to-azure-pipelines.md
+    - name: Exportera mall
+      href: export-template-portal.md
+    - name: Visa distributionshistorik
+      href: deployment-history.md
+    - name: Felsöka distributioner
+      items:
+        - name: Felsöka vanliga distributionsfel
+          href: common-deployment-errors.md
+        - name: AccountNameInvalid
+          href: error-storage-account-name.md
+        - name: DeploymentQuotaExceeded
+          href: deployment-quota-exceeded.md
+        - name: InvalidTemplate
+          href: error-invalid-template.md
+        - name: Linux-distributionsproblem
+          href: ../../virtual-machines/linux/troubleshoot-deploy-vm.md
+        - name: NoRegisteredProviderFound
+          href: error-register-resource-provider.md
+        - name: NotFound
+          href: error-not-found.md
+        - name: ParentResourceNotFound
+          href: error-parent-resource.md
+        - name: Problem med etablering och allokering för Linux
+          href: ../../virtual-machines/linux/troubleshoot-deployment-new-vm.md
+        - name: Problem med etablering och allokering för Windows
+          href: ../../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+        - name: RequestDisallowedByPolicy
+          href: error-policy-requestdisallowedbypolicy.md
+        - name: ReservedResourceName
+          href: error-reserved-resource-name.md
+        - name: ResourceQuotaExceeded
+          href: error-resource-quota.md
+        - name: SkuNotAvailable
+          href: error-sku-not-available.md
+        - name: Windows-distributionsproblem
+          href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
+- name: Referens
+  items:
+    - name: Filstruktur för mallar
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: template-syntax.md
+    - name: Mallreferens
+      href: /azure/templates/
+    - name: Mallfunktioner
+      items:
+        - name: Alla funktioner
+          href: template-functions.md
+        - name: Funktioner för matris och objekt
+          href: template-functions-array.md
+        - name: Jämförelsefunktioner
+          href: template-functions-comparison.md
+        - name: Distributionsfunktioner
+          href: template-functions-deployment.md
+        - name: Logiska funktioner
+          href: template-functions-logical.md
+        - name: Numeriska funktioner
+          href: template-functions-numeric.md
+        - name: Resursfunktioner
+          href: template-functions-resource.md
+        - name: Strängfunktioner
+          href: template-functions-string.md
+    - name: Resursfunktioner
+      items:
+        - name: Borttagning i complete-läget
+          href: complete-mode-deletion.md
+        - name: Filnamnstillägg för resurstyper
+          href: extension-resource-types.md
+    - name: REST
+      href: /rest/api/resources/
+    - name: Azure PowerShell
+      href: /powershell/module/az.resources
+    - name: Azure CLI
+      href: /cli/azure/resource
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.resourcemanager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.resources
+    - name: Python
+      href: /python/api/overview/azure/resources?view=azure-python
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-resource-manager'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

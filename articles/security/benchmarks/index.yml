@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Dokumentation om benchmark-värden för Azure-säkerhet
+summary: Läs mer om hur du skyddar dina molnlösningar på Azure med våra metodtips och riktlinjer.
+metadata:
+  title: Benchmark för Azure-säkerhet
+  description: Prestandatest för Azures säkerhetskontroller innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data på Azure.
+  services: security
+  ms.service: security
+  ms.subservice: fundamentals
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 97f5463ee4348f8e17b8cf571262c361908d7265
+  ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75563870"
+landingContent:
+- title: Om benchmark för Azure-säkerhet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt
+      url: overview.md
+    - text: Introduktion till säkerhetskontroller
+      url: introduction.md
+    - text: Delat ansvar i molnet
+      url: ../fundamentals/shared-responsibility.md
+- title: Säkerhetskontroller
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nätverkssäkerhet
+      url: security-control-network-security.md
+    - text: Loggning och övervakning
+      url: security-control-logging-monitoring.md
+    - text: Identitets- och åtkomstkontroll
+      url: security-control-identity-access-control.md
+    - text: Dataskydd
+      url: security-control-data-protection.md
+    - text: Sårbarhetshantering
+      url: security-control-vulnerability-management.md
+    - text: Mer information
+      url: security-control-inventory-asset-management.md
+- title: Mer information om Azure-säkerhet
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Grunderna i Azure-säkerhet
+      url: ../fundamentals/index.yml
+    - text: Azure Security Center
+      url: ../../security-center/index.yml
+    - text: Azure Key Vault
+      url: ../../key-vault/index.yml

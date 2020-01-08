@@ -8,7 +8,17 @@
       href: terminology.md
 - name: Snabbstarter
   items:
-    - name: Program
+    - name: Övervaka Azure-resurs
+      href: learn/quick-monitor-azure-resource.md
+    - name: Övervakning av virtuella datorer
+      items:
+        - name: Samla in – virtuella Azure-datorer
+          href: learn/quick-collect-azurevm.md
+        - name: Samla in – Linux-dator
+          href: learn/quick-collect-linux-computer.md
+        - name: Samla in – Windows-dator
+          href: learn/quick-collect-windows-computer.md
+    - name: Övervakning av program
       items:
         - name: .NET-program
           href: learn/quick-monitor-portal.md
@@ -20,26 +30,20 @@
           href: learn/mobile-center-quickstart.md
         - name: Webbprogram
           href: app/website-monitoring.md
-    - name: Virtuella datorer
-      items:
-        - name: Samla in – virtuella Azure-datorer
-          href: learn/quick-collect-azurevm.md
-        - name: Samla in – Linux-dator
-          href: learn/quick-collect-linux-computer.md
-        - name: Samla in – Windows-dator
-          href: learn/quick-collect-windows-computer.md
 - name: Självstudier
   items:
-    - name: Loggar
-      items:
-        - name: Log Analytics
-          href: log-query/get-started-portal.md
-        - name: Loggfrågor
-          href: log-query/get-started-queries.md
-        - name: Instrumentpanel med loggdata
-          href: learn/tutorial-logs-dashboards.md
-        - name: Avisera om loggdata
-          href: learn/tutorial-response.md
+    - name: Skapa ett måttdiagram
+      href: learn/tutorial-metrics-explorer.md
+    - name: Samla in loggar från Azure-resurs
+      href: learn/tutorial-resource-logs.md
+    - name: Skriva loggfrågor
+      href: log-query/get-started-queries.md
+    - name: Skapa en instrumentpanel från en loggfråga
+      href: learn/tutorial-logs-dashboards.md
+    - name: Skapa en avisering från en loggfråga
+      href: learn/tutorial-response.md
+    - name: Skala automatiskt enligt prestanda och schema
+      href: learn/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
       items:
         - name: Hitta körningsundantag för program
@@ -52,10 +56,6 @@
           href: learn/tutorial-users.md
         - name: Instrumentpanel med programdata
           href: learn/tutorial-app-dashboards.md
-    - name: Arkivera plattformsmått och loggdata
-      href: learn/tutorial-archive-data.md
-    - name: Skala automatiskt enligt prestanda och schema
-      href: learn/tutorial-autoscale-performance-schedule.md
 - name: Exempel
   items:
     - name: Azure PowerShell
@@ -117,7 +117,7 @@
         - name: Application Insights
           displayName: FAQ
           href: app/troubleshoot-faq.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera Azure Monitor
       items:
@@ -479,50 +479,46 @@
           href: insights/monitor-azure-resource.md
         - name: Övervaka resursgrupper
           href: insights/resource-group-insights.md
-        - name: Översikt över plattformsloggar
-          href: platform/platform-logs-overview.md
-        - name: Resursloggar
+        - name: Plattformsloggar
           items:
             - name: Översikt
-              displayname: Resource logs
-              href: platform/resource-logs-overview.md
-            - name: Samla in i Azure Monitor-loggar
-              displayname: Resource logs
-              href: platform/resource-logs-collect-workspace.md
-            - name: Arkivera till lagring
-              displayname: Resource logs
-              href: platform/resource-logs-collect-storage.md
-            - name: Strömma till Event Hubs
-              displayname: Resource logs
-              href: platform/resource-logs-stream-event-hubs.md
-        - name: Aktivitetslogg
-          items:
-            - name: Översikt
-              displayname: Activity log
-              href: platform/activity-logs-overview.md
-            - name: Samla in med diagnostisk inställning
-              displayname: Activity log
-              href: platform/diagnostic-settings-subscription.md
-            - name: Visa och hämta
-              displayname: Activity log
+              displayName: 'Platform logs, Resource logs, Activity log'
+              href: platform/platform-logs-overview.md
+            - name: Visa aktivitetslogg
+              displayName: Platform logs
               href: platform/activity-log-view.md
-            - name: Samla in och analysera
-              displayname: Activity log
-              href: platform/activity-log-collect.md
-            - name: Samla in mellan klienter
-              displayname: Activity log
-              href: platform/activity-log-collect-tenants.md
-            - name: Exportera
-              displayname: Activity log
-              href: platform/activity-log-export.md
-            - name: Schema
-              displayname: Activity log
-              href: platform/activity-log-schema.md
+            - name: Skicka till destinationer
+              items:
+                - name: Log Analytics-arbetsyta
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-workspace.md
+                - name: Azure-lagring
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-storage.md
+                - name: Event Hubs
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-stream-event-hubs.md
+            - name: Föråldrad aktivetsloggsamling
+              items:
+                - name: Översikt
+                  displayName: Resource logs
+                  href: platform/diagnostic-settings-legacy.md
+                - name: Samla in och analysera
+                  displayname: Activity log
+                  href: platform/activity-log-collect.md
+                - name: Samla in mellan klienter
+                  displayname: Activity log
+                  href: platform/activity-log-collect-tenants.md
+                - name: Exportera
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
         - name: Diagnostikinställningar
           items:
             - name: Skapa diagnostiskinställning
+              displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings.md
-            - name: Skapa diagnostiskinställning med Resource Manager
+            - name: Skapa med Resource Manager
+              displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings-template.md
             - name: Ändra till bloblagringsformat
               displayname: Diagnostic settings
@@ -579,6 +575,8 @@
                   href: platform/log-analytics-agent.md
                 - name: Windows-agenter
                   href: platform/agent-windows.md
+                - name: Linux-agenter
+                  href: platform/agent-linux.md
                 - name: VM-tillägg för Windows
                   href: ../virtual-machines/windows/extensions-oms.md
                 - name: VM-tillägg för Linux
@@ -700,7 +698,7 @@
               items:
                 - name: Livedataöversikt (förhandsversion)
                   href: insights/container-insights-livedata-overview.md
-                - name: Konfiguration
+                - name: Installation
                   href: insights/container-insights-livedata-setup.md
                 - name: Visa klustermått
                   href: insights/container-insights-livedata-metrics.md
@@ -755,7 +753,7 @@
               items:
                 - name: Lösningsöversikt
                   href: insights/network-performance-monitor.md
-                - name: Prestandaövervakning
+                - name: Prestandaövervakaren
                   href: insights/network-performance-monitor-performance-monitor.md
                 - name: Övervakare av tjänstanslutning
                   href: insights/network-performance-monitor-service-connectivity.md
@@ -1161,10 +1159,16 @@
       items:
         - name: Mått som stöds
           href: platform/metrics-supported.md
+        - name: Mått som kan exporteras med diagnostikinställningar
+          href: platform/metrics-supported-export-diagnostic-settings.md
         - name: Mått som stöds för nyare aviseringar
           href: platform/alerts-metric-near-real-time.md
-    - name: 'Tjänster, kategorier och scheman för plattformloggar'
-      href: platform/diagnostic-logs-schema.md
+    - name: Plattformsloggar
+      items:
+        - name: 'Tjänster, kategorier och scheman för resursloggar'
+          href: platform/diagnostic-logs-schema.md
+        - name: Aktivitetsloggschema
+          href: platform/activity-log-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI – Application Insights (förhandsversion)

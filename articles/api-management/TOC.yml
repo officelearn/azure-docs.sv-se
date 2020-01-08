@@ -6,6 +6,8 @@
       href: api-management-key-concepts.md
     - name: Tillgänglighet för API Management-funktioner
       href: api-management-features.md
+    - name: Hantera mikrotjänster som distribueras i AKS
+      href: api-management-kubernetes.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -63,7 +65,7 @@
       href: api-management-api-import-restrictions.md
     - name: Översikt över gateway med egen värd
       href: self-hosted-gateway-overview.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: 'Definiera API: er'
       items:

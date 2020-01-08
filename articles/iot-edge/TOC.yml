@@ -107,7 +107,7 @@
       href: production-checklist.md
     - name: IoT Edge-ordlista
       href: iot-edge-glossary.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Registrera en IoT Edge-enhet
       href: how-to-register-device.md
@@ -125,6 +125,10 @@
           href: how-to-install-iot-edge-ubuntuvm.md
         - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: Installera produktionscertifikat
+          href: how-to-install-production-certificates.md
+        - name: Skapa testcertifikat
+          href: how-to-create-test-certificates.md
         - name: Uppdatera körningsversion
           href: how-to-update-iot-edge.md
     - name: Automatisk etablering med DPS

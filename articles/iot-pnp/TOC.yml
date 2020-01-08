@@ -7,18 +7,34 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en enhet – Windows
-      href: quickstart-create-pnp-device.md
-    - name: Skapa en enhet – Linux
-      href: quickstart-create-pnp-device-linux.md
-    - name: Ansluta en enhet till IoT Hub – Windows
-      href: quickstart-connect-pnp-device.md
-    - name: Ansluta en enhet till IoT Hub – Linux
-      href: quickstart-connect-pnp-device-linux.md
+    - name: Skapa en enhet
+      items:
+        - name: C Linux
+          href: quickstart-create-pnp-device-linux.md
+        - name: C Windows
+          href: quickstart-create-pnp-device-windows.md
+    - name: Ansluta en enhet till IoT Hub
+      items:
+        - name: C Linux
+          href: quickstart-connect-pnp-device-c-linux.md
+        - name: C Windows
+          href: quickstart-connect-pnp-device-c-windows.md
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-node.md
     - name: Ansluta en enhet till IoT Central
-      href: ../iot-central/preview/quick-create-pnp-device.md
+      href: ../iot-central/preview/tutorial-connect-pnp-device.md
     - name: Ansluta till en enhet i din lösning
-      href: quickstart-connect-pnp-device-solution.md
+      items:
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-solution-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-solution-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-solution-node.md
 - name: Självstudier
   items:
     - name: Skapa en enhet med hjälp av VS Code
@@ -39,7 +55,7 @@
       href: concepts-model-discovery.md
     - name: Begränsningar och kvoter
       href: concepts-limits-quotas.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Utveckla med Visual Studio och Visual Studio Code
       href: howto-develop-with-vs-vscode.md

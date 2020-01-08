@@ -43,7 +43,7 @@
           href: vmware-azure-tutorial.md
         - name: Köra ett programåterställningstest
           href: tutorial-dr-drill-azure.md
-        - name: Köra redundans och återställning efter fel
+        - name: Redundansväxla till Azure
           href: vmware-azure-tutorial-failover-failback.md
     - name: Haveriberedskap för virtuell Hyper-V-dator till Azure
       items:
@@ -57,7 +57,7 @@
           href: hyper-v-vmm-azure-tutorial.md
         - name: Köra ett programåterställningstest
           href: tutorial-dr-drill-azure.md
-        - name: Köra redundans och återställning efter fel
+        - name: Redundansväxla till Azure
           href: hyper-v-azure-failover-failback-tutorial.md
     - name: Migrera till Azure
       items:
@@ -73,7 +73,7 @@
   items:
     - name: Vanliga frågor om Site Recovery
       href: site-recovery-faq.md
-    - name: Om haveriberedskap för virtuella Azure-datorer
+    - name: Om haveriberedskap för virtuell Azure-dator
       items:
         - name: Arkitektur för Azure till Azure
           href: azure-to-azure-architecture.md
@@ -87,9 +87,9 @@
           href: azure-vm-disaster-recovery-with-accelerated-networking.md
         - name: ExpressRoute med Azure VM-haveriberedskap
           href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Om att flytta virtuella Azure-datorer
+    - name: Om att flytta virtuella Azure-datorer till en annan region
       href: azure-to-azure-move-overview.md
-    - name: Om haveriberedskap för virtuell VMware-dator till Azure
+    - name: Om haveriberedskap för virtuell VMware-dator
       items:
         - name: Översikt över haveriberedskap för VMware
           href: vmware-azure-about-disaster-recovery.md
@@ -103,6 +103,8 @@
           href: vmware-azure-configuration-server-requirements.md
         - name: Arkitektur för VMware till Azure
           href: vmware-azure-architecture.md
+        - name: Om att undanta diskar från replikering
+          href: exclude-disks-replication.md
         - name: Platsalternativ för återställning efter fel från Azure till VMware
           href: concepts-types-of-failback.md
         - name: Haveriberedskap för VMware med stöd för flera klienter
@@ -115,13 +117,17 @@
           href: hyper-v-azure-support-matrix.md
         - name: Arkitektur för Hyper-V till Azure
           href: hyper-v-azure-architecture.md
-    - name: Om haveriberedskap för fysisk server till Azure
+        - name: Om att undanta diskar från replikering
+          href: exclude-disks-replication.md
+    - name: Om haveriberedskap för fysisk server
       items:
         - name: Supportmatris för VMware/fysisk till Azure
           href: vmware-physical-azure-support-matrix.md
         - name: Arkitektur för fysisk server till Azure
           href: physical-azure-architecture.md
-    - name: Om nätverk för haveriberedskap till Azure
+        - name: Om att undanta diskar från replikering
+          href: exclude-disks-replication.md
+    - name: Om nätverk för haveriberedskap
       items:
         - name: Azure Traffic Manager med Site Recovery
           href: concepts-traffic-manager-with-site-recovery.md
@@ -131,7 +137,9 @@
           href: concepts-network-security-group-with-site-recovery.md
         - name: Använda offentliga IP-adresser med Site Recovery
           href: concepts-public-ip-address-with-site-recovery.md
-    - name: Om redundans- och återställningsplaner
+    - name: Om redundans och återställning efter fel
+      href: failover-failback-overview.md
+    - name: Om återställningsplaner
       href: recovery-plan-overview.md
     - name: Om migrering till Azure
       href: migrate-overview.md
@@ -231,13 +239,13 @@
               items:
                 - name: Mobilitetstjänsten – översikt och installation
                   href: vmware-physical-mobility-service-overview.md
-                - name: Förbereda för push-installation av mobilitetstjänsten
+                - name: Förbereda för push-installation
                   href: vmware-azure-install-mobility-service.md
-                - name: Distribuera mobilitetstjänsten med System Center Configuration Manager
+                - name: Automatisera tjänstdistribution med Mobility
                   href: vmware-azure-mobility-install-configuration-mgr.md
             - name: Aktivera replikering för virtuella VMware-datorer
               href: vmware-azure-enable-replication.md
-            - name: Uteslut diskar
+            - name: Undanta diskar från replikering
               href: vmware-azure-exclude-disk.md
             - name: Genomgång – Konfigurera replikering med flera klienter och CSP för virtuella VMWare-datorer
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
@@ -249,17 +257,19 @@
               href: site-recovery-test-failover-to-azure.md
             - name: Köra en redundans i Azure
               href: site-recovery-failover.md
-            - name: Återaktivera skydd från Azure till lokalt VMware
+            - name: Förbereda för återaktivering av skydd/återställning efter fel
+              href: vmware-azure-prepare-failback.md
+            - name: Skydda datorer igen från Azure till lokalt
               href: vmware-azure-reprotect.md
-            - name: Redundansväxla från Azure till VMware
+            - name: Redundansväxla från Azure till lokalt
               href: vmware-azure-failback.md
-            - name: Konfigurera och hantera en processerver för återställning efter fel i Azure
+            - name: Konfigurera en processerver för återställning efter fel i Azure
               href: vmware-azure-set-up-process-server-azure.md
             - name: Konfigurera en Linux-huvudmålserver för återställning efter fel
               href: vmware-azure-install-linux-master-target.md
         - name: Hantera
           items:
-            - name: Hantera mobilitetsagenten för VMware
+            - name: Hantera mobilitetsagenten
               href: vmware-physical-manage-mobility-service.md
             - name: Hantera konfigurationsservern för VMware
               href: vmware-azure-manage-configuration-server.md
@@ -303,9 +313,9 @@
           href: physical-to-azure-failover-failback.md
         - name: Hantera
           items:
-            - name: Hantera mobilitetsagenten för fysisk server
+            - name: Hantera mobilitetstjänsten
               href: vmware-physical-manage-mobility-service.md
-            - name: Hantera konfigurationsservern för fysisk serverreplikering
+            - name: Hantera konfigurationsservern
               href: physical-manage-configuration-server.md
             - name: Hantera processervrar
               href: vmware-azure-manage-process-server.md
@@ -345,7 +355,7 @@
           items:
             - name: Förbereda nätverksmappning för haveriberedskap för virtuella Hyper-V-datorer
               href: hyper-v-vmm-network-mapping.md
-            - name: Undanta diskar från replikering för Hyper-V till Azure
+            - name: Undanta diskar från replikering
               href: hyper-v-exclude-disk.md
         - name: Köra redundans och återställning efter fel
           items:

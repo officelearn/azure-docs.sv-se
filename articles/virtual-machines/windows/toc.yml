@@ -141,7 +141,7 @@
 - name: Begrepp
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regioner
       href: regions.md
     - name: Tillgänglighet och prestanda
@@ -186,6 +186,8 @@
               href: sizes-gpu.md
             - name: Konfigurera GPU-drivrutiner
               href: n-series-driver-setup.md
+            - name: Konfigurera AMD GPU-drivrutiner
+              href: n-series-amd-driver-setup.md
         - name: Databehandling med höga prestanda
           displayName: H-series
           href: sizes-hpc.md
@@ -262,7 +264,7 @@
       href: backup-recovery.md
     - name: Infrastrukturexempel
       href: infrastructure-example.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: 'Skapa VM:ar'
       items:
@@ -672,7 +674,7 @@
 - name: Resurser
   items:
     - name: Skapa mallar
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Azure-översikt

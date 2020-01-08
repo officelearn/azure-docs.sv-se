@@ -24,24 +24,24 @@
 - name: Begrepp
   items:
     - name: Ramverk för djupinlärning och AI
-      href: dsvm-deep-learning-ai-frameworks.md
+      href: dsvm-tools-deep-learning-frameworks.md
     - name: Programmeringsspråk
-      href: dsvm-languages.md
+      href: dsvm-tools-languages.md
     - name: Utvecklingsverktyg
       href: dsvm-tools-development.md
     - name: Verktyg för ML and datavetenskap
-      href: dsvm-ml-data-science-tools.md
+      href: dsvm-tools-data-science.md
     - name: Dataplattformar
-      href: dsvm-data-platforms.md
+      href: dsvm-tools-data-platforms.md
     - name: Verktyg för datainhämtning
       href: dsvm-tools-ingestion.md
-    - name: Verktyg för utforskning och visualisering av data
-      href: dsvm-tools-explore-and-visualize.md
+    - name: Produktivitetsverktyg
+      href: dsvm-tools-productivity.md
     - name: Företagssäkerhet och vägledning
       href: dsvm-enterprise-overview.md
 - name: Exempel
   href: dsvm-samples-and-walkthroughs.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Använda en Windows-DSVM
       href: vm-do-ten-things.md

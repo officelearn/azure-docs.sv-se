@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Azure Table Storage-dokumentation
+summary: Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet och som ger tillgång till ett nyckel-/attributlager med en schemalös design.
+metadata:
+  title: Azure Table Storage-dokumentation
+  description: Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet och som ger tillgång till ett nyckel-/attributlager med en schemalös design.
+  ms.service: storage
+  ms.subservice: tables
+  ms.topic: landing-page
+  ms.collection: collection
+  author: tamram
+  ms.author: tamram
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
+  ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75551904"
+landingContent:
+- title: Om Table Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Table Storage?
+      url: table-storage-overview.md
+    - text: Välj tabellagring eller tabell-API
+      url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+- title: Vägledning för tabelldesign
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Design för effektiva läsningar och skrivningar
+      url: table-storage-design-guidelines.md
+    - text: Utforma för frågor
+      url: table-storage-design-for-query.md
+    - text: Utforma för dataändring
+      url: table-storage-design-for-modification.md
+    - text: Mönster för tabelldesign
+      url: table-storage-design-patterns.md
+- title: Prestanda, skalning och kostnadsoptimering
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Prestandachecklista för Table Storage
+      url: storage-performance-checklist.md
+    - text: Design för optimala prestanda
+      url: table-storage-design.md
+  - linkListType: reference
+    links:
+    - text: Skalbarhetsmål för Table Storage
+      url: scalability-targets.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en tabell i Azure-portalen
+      url: table-storage-quickstart-portal.md

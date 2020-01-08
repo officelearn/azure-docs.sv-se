@@ -76,6 +76,8 @@
 - name: Partnerportalen i molnet
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
+    - name: Cloud Partner Portal-migrering till Partnercenter
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
     - name: Presentation av portalen
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -171,7 +173,7 @@
         - name: Erbjudande för Azure-program
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Skapa ett erbjudande för Azure-program
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -197,7 +199,7 @@
         - name: Konsulttjänster
           href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
             - name: Skapa ett konsulttjänsterbjudande
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
@@ -211,7 +213,7 @@
         - name: Containererbjudande
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal/containers/cpp-prerequisites.md
             - name: Erbjudande om att skapa containrar
               href: ./cloud-partner-portal/containers/cpp-create-offer.md
@@ -248,7 +250,7 @@
         - name: Erbjudande för Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Skapa Customer Engagement-erbjudande
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -270,7 +272,7 @@
         - name: Erbjudande för Dynamics 365 for Operations
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Så här publicerar du
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -287,7 +289,7 @@
         - name: Erbjudande för IoT Edge-moduler
           href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
             - name: Skapa erbjudande för IoT Edge-moduler
               href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
@@ -309,7 +311,7 @@
         - name: Erbjudande för Power BI-appen
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
             - name: Skapa erbjudande för Power BI-appen
               href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
@@ -333,7 +335,7 @@
         - name: Erbjudande på virtuella datorer
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Krav
               href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
             - name: Skapa erbjudande på virtuella datorer
               href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
@@ -397,7 +399,7 @@
       items:
         - name: Översikt
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Nödvändiga komponenter
+        - name: Krav
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Överväganden
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
@@ -449,6 +451,8 @@
               href: ./partner-center-portal/create-new-azure-apps-offer.md
             - name: Hantera feedback från granskning
               href: ./partner-center-portal/azure-apps-review-feedback.md
+            - name: API för registrering
+              href: ./partner-center-portal/azure-app-apis.md
         - name: Dynamics 365-erbjudanden
           items:
             - name: Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps
@@ -512,13 +516,33 @@
     - name: Supportalternativ
       href: ./partner-center-portal/support.md
     - name: Partnercenteranalys
-      href: ./partner-center-portal/analytics.md
+      items:
+        - name: Analys för Commercial Marketplace
+          href: ./partner-center-portal/analytics.md
+        - name: Instrumentpanel för sammanfattningar
+          href: ./partner-center-portal/summary-dashboard.md
+        - name: Orderinstrumentpanel
+          href: ./partner-center-portal/orders-dashboard.md
+        - name: Instrumentpanelen Användning
+          href: ./partner-center-portal/usage-dashboard.md
+        - name: Instrumentpanelen Kund
+          href: ./partner-center-portal/customer-dashboard.md
+        - name: Instrumentpanelen Marknadsplatsinsikter
+          href: ./partner-center-portal/insights-dashboard.md
+        - name: Ladda ned instrumentpanel
+          href: ./partner-center-portal/downloads-dashboard.md
+        - name: Instrumentpanel för omdömen och recensioner
+          href: ./partner-center-portal/ratings-reviews.md
+        - name: Vanliga frågor och terminologi
+          href: ./partner-center-portal/faq-terminology.md
     - name: Få betalt
       items:
         - name: Få betalt
           href: ./partner-center-portal/get-paid.md
         - name: Konfigurera utbetalningskonto och deklarationsblanketter
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+        - name: Faktureringsinformation
+          href: ./partner-center-portal/billing-details.md
         - name: 'Betalningströsklar, metoder och tidsramar'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
         - name: Utbetalningssammanfattning

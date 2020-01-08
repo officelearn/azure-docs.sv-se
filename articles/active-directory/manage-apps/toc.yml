@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Lägga till en lokal app med programproxy
       href: application-proxy-add-on-premises-application.md
+- name: Exempel
+  items:
+    - name: Azure PowerShell-exempel för Application Proxy
+      href: application-proxy-powershell-samples.md
 - name: Begrepp
   expanded: true
   items:
@@ -70,12 +74,10 @@
               href: end-user-experiences.md
     - name: Programetablering (SCIM)
       items:
+        - name: Så här fungerar etablering
+          href: how-provisioning-works.md
         - name: Planera en distribution med automatisk användaretablering
           href: plan-auto-user-provisioning.md
-        - name: Automatisk etablering för SCIM-aktiverade appar
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Manuell jämfört med automatisk etablering
-          href: application-provisioning-config-how-to.md
     - name: Etablering av HR Cloud
       items:
         - name: Planera en distribution med HR-användaretablering i molnet
@@ -98,7 +100,7 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Jämförelse mellan fjärråtkomstlösningar
           href: application-proxy-migration.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Molnappar och enkel inloggning
@@ -139,6 +141,8 @@
           items:
             - name: Konfigurera användarmedgivande
               href: configure-user-consent.md
+            - name: Bevilja administratörsmedgivande för hela klientorganisationen
+              href: grant-admin-consent.md
             - name: Konfigurera arbetsflöde för administratörsmedgivande (förhandsversion)
               href: configure-admin-consent-workflow.md
             - name: Metoder för tilldelning av användare och grupper i en app
@@ -233,28 +237,32 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Programetablering (SCIM)
       items:
-        - name: Konfigurera appetablering
+        - name: Konfigurera etablering för en galleriapp
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Skapa en SCIM-slutpunkt och konfigurera etablering
+          href: use-scim-to-provision-users-and-groups.md
+        - name: Redigera attributmappningarna
           items:
-            - name: Konfigurera automatisk användaretablering
-              href: configure-automatic-user-provisioning-portal.md
-            - name: Använda SCIM för automatisk etablering
-              href: use-scim-to-provision-users-and-groups.md
             - name: Anpassa attributmappningar
               href: Customize-application-attributes.md
             - name: Skriva uttryck för attributmappningar
               href: functions-for-customizing-application-data.md
+        - name: Inkludera eller exkludera användare och grupper från omfattningen
+          items:
             - name: Hitta användare och grupper som ska etableras
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Hoppa över borttagning av användare utanför omfattningen
               href: skip-out-of-scope-deletions.md
+        - name: Övervaka och rapportera etablering
+          items:
             - name: Övervaka etableringsstatus och prestanda
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Rapportera vid appetablering
               href: check-status-user-account-provisioning.md
-            - name: Exportera och importera konfigurationen
+            - name: Exportera och importera din konfiguration
               href: export-import-provisioning-configuration.md
-            - name: Automatisera konfiguration med MS Graph
-              href: application-provisioning-configure-api.md
+        - name: Automatisera konfiguration med MS Graph
+          href: application-provisioning-configure-api.md
         - name: Felsöka användaretablering
           items:
             - name: Felsöka appetablering

@@ -129,6 +129,8 @@
           href: set-throughput.md
         - name: Etablera dataflöde – autopilotläge
           href: provision-throughput-autopilot.md
+        - name: Vanliga frågor om AutoPilot
+          href: autopilot-faq.md
     - name: SQL-frågereferens
       items:
         - name: Komma igång
@@ -566,7 +568,7 @@
             - name: 4 – Migrera data
               displayName: import
               href: cassandra-import-data.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Ändringsfeed
               href: cassandra-change-feed.md
@@ -653,7 +655,7 @@
               href: tutorial-query-mongodb.md
             - name: 4 – Distribuera data lokalt
               href: tutorial-global-distribution-mongodb.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Guide före migrering
               href: mongodb-pre-migration.md
@@ -725,7 +727,7 @@
               href: gremlin-limits.md
             - name: Kompatibilitet
               href: gremlin-compatibility.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -796,7 +798,7 @@
             - name: 'F#'
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -828,7 +830,7 @@
           href: etcd-api-introduction.md
         - name: Azure Kubernetes med Azure Cosmos DB
           href: bootstrap-kubernetes-cluster.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Arbeta med ett Azure Cosmos-konto
       href: how-to-manage-database-account.md
@@ -982,6 +984,8 @@
       items:
         - name: Övervaka Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Övervaka med diagnostikloggar
+          href: cosmosdb-monitor-resource-logs.md
         - name: Azure Monitor för Cosmos (förhandsversion)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
         - name: Visa mått från Cosmos DB-kontot

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om Formigenkänning
-summary: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll.
+summary: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och fältdata utan data för manuell märkning eller intensiv kodning. Du kan också övervaka utbildning med manuellt märkta data. Modeller som är tränade med märkta data kan fungera bättre och kan arbeta med mer komplicerade dokument.
 metadata:
   title: Dokumentation om formigenkänning – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
-  description: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll.
+  description: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och fältdata utan data för manuell märkning eller intensiv kodning. Du kan också övervaka utbildning med manuellt märkta data. Modeller som är tränade med märkta data kan fungera bättre och kan arbeta med mer komplicerade dokument.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: form-recognizer
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 835eb7bece58e93375c09c51149381d7882702de
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931304"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75446515"
 landingContent:
 - title: Om Formigenkänning
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: Vad är formigenkänning?
       url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Vad är nytt i Formigenkänning?
+      url: whats-new.md
   - linkListType: video
     links:
     - text: AI-driven processautomation med Formigenkänning
@@ -38,18 +42,38 @@ landingContent:
       url: quickstarts/python-train-extract.md
     - text: Använda REST API (cURL)
       url: quickstarts/curl-train-extract.md
-- title: Extrahera data från kvitton
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Använda .NET SDK
-      url: quickstarts/dotnet-sdk.md
 - title: Skapa en träningsdatauppsättning
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Skapa en träningsdatauppsättning
       url: build-training-data-set.md
+- title: Träna en anpassad modell med etiketter
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Etiketterade data
+      url: overview.md#train-with-labels
+  - linkListType: quickstart
+    links:
+    - text: Träna med exempeletikettverktyget
+      url: quickstarts/label-tool.md
+    - text: Träna med etiketter med hjälp av REST API och Python
+      url: quickstarts/python-labeled-data.md
+- title: Extrahera data från kvitton
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använda REST API (Python)
+      url: quickstarts/python-receipts.md
+    - text: Använda REST API (cURL)
+      url: quickstarts/curl-receipts.md
+- title: Hämta information om layout
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använda REST API (Python)
+      url: quickstarts/python-layout.md
 - title: Använda containrar
   linkLists:
   - linkListType: get-started
@@ -68,8 +92,10 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: API för formigenkänning
-      url: https://aka.ms/form-recognizer/api
+    - text: API för Formigenkänning v2.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+    - text: API för Formigenkänning v1.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: .NET SDK
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
     - text: Azure PowerShell

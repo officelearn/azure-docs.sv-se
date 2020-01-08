@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Dokumentation om anpassade Azure-providrar
+summary: Definiera anpassade API:er som utökar Azure-upplevelsen
+metadata:
+  title: Dokumentation om anpassade Azure-providrar
+  description: Anpassade providrar för Azure är en utökningsbara plattform till Azure som gör att du kan definiera anpassade API:er
+  ms.service: azure-custom-providers
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: 4a778d56aa3d7440715cdd792827b9c4a2837e65
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75648352"
+landingContent:
+- title: Om anpassade providrar för Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är anpassade Azure-providrar?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Azure Policy för kundproviderassociationer
+      url: concepts-built-in-policy.md
+    - text: Översikt över registrering av resurser
+      url: concepts-resource-onboarding.md
+- title: Skapa anpassade providrar
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en anpassad resursprovider
+      url: create-custom-provider.md
+  - linkListType: tutorial
+    links:
+    - text: Komma igång med anpassade providrar
+      url: tutorial-get-started-with-custom-providers.md
+    - text: Konfigurera Azure Functions
+      url: tutorial-custom-providers-function-setup.md
+    - text: Skapa en RESTful-slutpunkt
+      url: tutorial-custom-providers-function-authoring.md
+    - text: Skapa och använda anpassade providrar
+      url: tutorial-custom-providers-create.md
+    - text: Utöka resurser
+      url: tutorial-resource-onboarding.md
+  - linkListType: how-to-guide
+    links:
+    - text: Lägga till anpassade åtgärder i Azure
+      url: custom-providers-action-endpoint-how-to.md
+    - text: Lägga till anpassade resurser i Azure
+      url: custom-providers-resources-endpoint-how-to.md
+- title: Exempel
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Skapa referens för resursproxy
+      url: proxy-resource-endpoint-reference.md
+    - text: Skapa referens för resurscache
+      url: proxy-cache-resource-endpoint-reference.md
+    - text: Referens för RESTful-slutpunkt för anpassade providrar
+      url: reference-custom-providers-csharp-endpoint.md

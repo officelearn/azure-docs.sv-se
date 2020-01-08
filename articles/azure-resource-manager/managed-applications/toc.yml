@@ -1,0 +1,136 @@
+- name: Dokumentation om Azure-hanterade program
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om hanterade program
+      href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Publicera programdefinition
+      href: publish-managed-app-definition-quickstart.md
+    - name: Distribuera tjänstkatalogapp
+      href: deploy-service-catalog-quickstart.md
+- name: Självstudier
+  items:
+    - name: Skapa definitionsfiler
+      href: publish-service-catalog-app.md
+    - name: Publicera marknadsplatsprogram
+      href: publish-marketplace-app.md
+    - name: Skapa hanterat program med anpassad provider
+      href: tutorial-create-managed-app-with-custom-provider.md
+- name: Exempel
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Hanterade programlösningar
+      href: sample-projects.md
+- name: Begrepp
+  items:
+    - name: Visa definitionsartefakt
+      href: concepts-view-definition.md
+    - name: Azure Policy för associationer
+      href: concepts-built-in-policy.md
+    - name: Rolldefinitionsartefakt
+      href: concepts-custom-role-definition.md
+- name: Anvisningar
+  items:
+    - name: Utgivare
+      items:
+        - name: Skapa portalgränssnitt
+          href: create-uidefinition-overview.md
+        - name: Testa portalgränssnitt
+          href: test-createuidefinition.md
+        - name: Begära just-in-time-åtkomst
+          href: request-just-in-time-access.md
+        - name: Uppdatera hanterade resurser
+          href: update-managed-resources.md
+        - name: Använd portalen och publicera definition av program
+          href: publish-portal.md
+        - name: Använda en hemlighet från Key Vault
+          href: key-vault-access.md
+        - name: Distribuera med hanterad identitet
+          href: publish-managed-identity.md
+        - name: Distribuera med aviseringar
+          href: publish-notifications.md
+    - name: Konsumenter
+      items:
+        - name: Övervaka hanterat program
+          href: monitor-managed-application-portal.md
+        - name: Godkänna just-in-time-åtkomst
+          href: approve-just-in-time-access.md
+- name: Referens
+  items:
+    - name: Programartefakter
+      items:
+        - name: Element för användargränssnitt
+          href: reference-createuidefinition-artifact.md
+        - name: Distributionsmall
+          href: reference-main-template-artifact.md
+        - name: Visa definition
+          href: reference-view-definition-artifact.md
+    - name: Azure CLI
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/az.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Funktioner för användargränssnitt
+      href: create-uidefinition-functions.md
+    - name: Element för användargränssnitt
+      href: create-uidefinition-elements.md
+      items:
+        - name: Common
+          items:
+            - name: DropDown
+              href: microsoft-common-dropdown.md
+            - name: FileUpload
+              href: microsoft-common-fileupload.md
+            - name: InfoBox
+              href: microsoft-common-infobox.md
+            - name: OptionsGroup
+              href: microsoft-common-optionsgroup.md
+            - name: PasswordBox
+              href: microsoft-common-passwordbox.md
+            - name: Section
+              href: microsoft-common-section.md
+            - name: TagsByResource
+              href: microsoft-common-tagsbyresource.md
+            - name: TextBlock
+              href: microsoft-common-textblock.md
+            - name: TextBox
+              href: microsoft-common-textbox.md
+        - name: Compute
+          items:
+            - name: CredentialsCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SizeSelector
+              href: microsoft-compute-sizeselector.md
+            - name: UserNameTextBox
+              href: microsoft-compute-usernametextbox.md
+        - name: Nätverk
+          items:
+            - name: PublicIPAddressCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtualNetworkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Storage
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Metodtips för Resource Manager-mall
+      href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

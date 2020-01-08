@@ -43,8 +43,10 @@
       href: tutorial-azure-security.md
     - name: 14 – Distribuera Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15 – CI/CD med Azure Pipelines
+    - name: 15a – Distribuera med Azure Pipelines
       href: tutorial-build-deploy-jenkins.md
+    - name: 15b – CI/CD med Azure Pipelines
+      href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a – Skapa LAMP-stack
       href: tutorial-lamp-stack.md
     - name: 16b – Skapa LEMP-stack
@@ -62,7 +64,7 @@
 - name: Begrepp
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regioner
       href: regions.md
     - name: Tillgänglighet och prestanda
@@ -178,7 +180,7 @@
       href: backup-recovery.md
     - name: Riktlinjer för infrastruktur
       href: infrastructure-example.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: 'Skapa VM:ar'
       items:

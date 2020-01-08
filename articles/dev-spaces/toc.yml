@@ -91,6 +91,8 @@
           href: how-to/run-dev-spaces-windows-containers.md
         - name: Använda traefik för anpassade inkommande data och HTTPS
           href: how-to/ingress-https-traefik.md
+        - name: Använda NGINX för anpassade inkommande data och HTTPS
+          href: how-to/ingress-https-nginx.md
         - name: Ansluta din utvecklingsdator till ett AKS-kluster (förhandsversion)
           href: how-to/connect.md
     - name: Felsökning

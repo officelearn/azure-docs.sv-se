@@ -1,133 +1,109 @@
-### YamlMime:Landing
+### YamlMime:Hub
 title: Dokumentation om Azure Resource Manager
-summary: En Resource Manager-mall är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt.
+summary: Azure Resource Manager är Azures tjänst för distribution och hantering. Använd infrastruktur som kod för att distribuera och hantera dina Azure-lösningar på ett tillförlitligt sätt.
+brand: azure
 metadata:
   title: Dokumentation om Azure Resource Manager
-  description: Lär dig hur du utvecklar Azure Resource Manager-mallar och använder dem för att distribuera Azure-resurser
-  services: azure-resource-manager
+  description: Azure Resource Manager är Azures tjänst för distribution och hantering.
   ms.service: azure-resource-manager
-  ms.subservice: na
-  ms.topic: landing-page
-  ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 09/25/2019
-  ms.openlocfilehash: 1d50556eb09a35857ed9db4ccbbba99397606f8b
-  ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+  ms.topic: hub-page
+  ms.collection: collection
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 2910576517be35652d8e1ed1e82687a56a10467e
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/25/2019
-  ms.locfileid: "74483426"
-landingContent:
-- title: Om Resource Manager
-  linkLists:
-  - linkListType: overview
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75642480"
+highlightedContent:
+  items:
+  - title: Vad är mallar?
+    itemType: overview
+    url: templates/overview.md
+  - title: Skapa din första mall
+    itemType: tutorial
+    url: templates/template-tutorial-create-first-template.md
+  - title: Vad är Resource Manager?
+    itemType: overview
+    url: management/overview.md
+conceptualContent:
+  items:
+  - title: Distribuera Resource Manager-mallar
     links:
-    - text: Vad är Resource Manager?
-      url: resource-group-overview.md
-    - text: Vad är en Resource Manager-mall?
-      url: template-deployment-overview.md
-  - linkListType: concept
+    - url: templates/overview.md
+      itemType: overview
+      text: Översikt
+    - url: templates/template-tutorial-create-first-template.md
+      itemType: tutorial
+      text: Självstudieserie för nybörjare
+    - url: templates/template-syntax.md
+      itemType: reference
+      text: Filstruktur för mallar
+    - url: templates/template-functions.md
+      itemType: reference
+      text: Mallfunktioner
+    - url: templates/deploy-powershell.md
+      itemType: how-to-guide
+      text: Distribuera
+    - url: templates/template-best-practices.md
+      itemType: concept
+      text: Bästa praxis
+    footerLink:
+      url: templates/index.yml
+      text: Mer information
+  - title: Hantera resurser
     links:
-    - text: Bästa praxis
-      url: template-best-practices.md
-    - text: Distributionsmodeller
-      url: deployment-modes.md
-    - text: Länkade mallar
-      url: resource-group-linked-templates.md
-    - text: Distribution på prenumerationsnivå
-      url: deploy-to-subscription.md
-    - text: Distributionshanteraren
-      url: deployment-manager-overview.md
-  - linkListType: video
+    - url: management/overview.md
+      itemType: overview
+      text: Översikt
+    - url: management/tag-resources.md
+      itemType: how-to-guide
+      text: Tagga resurser
+    - url: management/move-resource-group-and-subscription.md
+      itemType: concept
+      text: Flytta resurser
+    - url: management/lock-resources.md
+      itemType: how-to-guide
+      text: Lås resurser
+    - url: management/resource-providers-and-types.md
+      itemType: concept
+      text: Resursprovidrar och resurstyper
+    footerLink:
+      url: management/index.yml
+      text: Mer information
+  - title: Managed Applications
     links:
-    - text: Nyheter
-      url: https://youtu.be/3D-JIKShrws
-- title: Komma igång
-  linkLists:
-  - linkListType: quickstart
+    - url: managed-applications/overview.md
+      itemType: overview
+      text: Översikt
+    - url: managed-applications/publish-service-catalog-app.md
+      itemType: tutorial
+      text: Publicera tjänstkatalogapp
+    - url: managed-applications/create-uidefinition-overview.md
+      itemType: how-to-guide
+      text: Skapa användargränssnittsdefinition
+    - url: managed-applications/publish-marketplace-app.md
+      itemType: tutorial
+      text: Lägg till i Marketplace
+    footerLink:
+      url: managed-applications/index.yml
+      text: Mer information
+  - title: Anpassade providrar för Azure
     links:
-    - text: Skapa mallar – portal
-      url: resource-manager-quickstart-create-templates-use-the-portal.md
-    - text: skapa mallar – VS Code
-      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - text: skapa mallar – Visual Studio
-      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-  - linkListType: tutorial
-    links:
-    - text: Självstudier för nybörjare
-      url: template-tutorial-create-first-template.md
-    - text: Distribuera flera instanser
-      url: resource-manager-tutorial-create-multiple-instances.md
-    - text: Ange distributionsordning
-      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - text: Integrera nyckelvalv
-      url: resource-manager-tutorial-use-key-vault.md
-- title: Utveckla mallar
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Använda VS-kod
-      url: resource-manager-tools-vs-code.md
-    - text: Använda funktioner
-      url: resource-group-template-functions.md
-    - text: Definiera parametrar
-      url: template-parameters.md
-    - text: Definiera variabler
-      url: template-variables.md
-    - text: Definiera resurser
-      url: child-resource-name-type.md
-    - text: Definiera utmatningar
-      url: template-outputs.md
-  - linkListType: reference
-    links:
-    - text: Azure-snabbstartsmallar
-      url: template-deployment-overview.md
-- title: Distribuera mallar
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Med PowerShell
-      url: resource-group-template-deploy.md
-    - text: Med CLI
-      url: resource-group-template-deploy-cli.md
-    - text: Med portalen
-      url: resource-group-template-deploy-portal.md
-    - text: Med REST API
-      url: resource-group-template-deploy-rest.md
-- title: Hantera mallar
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Exportera mallar
-      url: export-template-portal.md
-    - text: CI/CD
-      url: vs-resource-groups-project-devops-pipelines.md
-- title: Hantera resurser
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Flytta resurser
-      url: resource-group-move-resources.md
-    - text: Tagga resurser
-      url: resource-group-using-tags.md
-    - text: Lås resurser
-      url: resource-group-lock-resources.md
-- title: Övervaka och felsök
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Visa aktivitetsloggar
-      url: resource-group-audit.md
-    - text: Visa distributionsåtgärd
-      url: resource-manager-deployment-operations.md
-    - text: Felsöka vanliga distributionsfel
-      url: resource-manager-common-deployment-errors.md
-- title: Utforska referensinnehåll
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Resursprovidrar och resurstyper
-      url: resource-manager-supported-services.md
-    - text: Mallreferens
-      url: /azure/templates/
+    - url: custom-providers/overview.md
+      itemType: overview
+      text: Översikt
+    - url: custom-providers/create-custom-provider.md
+      itemType: quickstart
+      text: Skapa anpassad provider
+    - url: custom-providers/tutorial-get-started-with-custom-providers.md
+      itemType: tutorial
+      text: Skapa anpassade åtgärder och resurser
+    - url: custom-providers/custom-providers-action-endpoint-how-to.md
+      itemType: how-to-guide
+      text: Lägga till anpassade åtgärder i Azure REST API
+    footerLink:
+      url: custom-providers/index.yml
+      text: Mer information

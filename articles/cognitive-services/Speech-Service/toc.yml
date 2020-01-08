@@ -1,13 +1,13 @@
-# displayName: additional text for filtering down the ToC in meaningful way.
 - name: Dokumentation om Speech Service
   href: index.md
 - name: Översikt
-  expanded: false
+  expanded: true
   items:
     - name: Vad är Speech Service?
       href: overview.md
     - name: Stöd för språk och region
       href: language-support.md
+      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code'
 - name: Tal till text
   expanded: false
   items:
@@ -23,7 +23,7 @@
           href: quickstarts/speech-to-text-from-microphone.md
         - name: Identifiera tal som lagras i bloblagring
           href: quickstarts/from-blob.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Byta källspråk för taligenkänning
           href: how-to-specify-source-language.md
@@ -51,30 +51,38 @@
           items:
             - name: C++
               href: 'https://aka.ms/csspeech/cppref'
+              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
             - name: 'C#'
               href: 'https://aka.ms/csspeech/csharpref'
+              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
+              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
             - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
+              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'
+              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
             - name: Python
               href: 'https://aka.ms/csspeech/pythonref'
+              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
             - name: Viktig information
               href: releasenotes.md
+              displayName: 'release notes,updates,what''s new,what is new,changes'
         - name: 'REST API:er'
           items:
             - name: REST API för tal-till-text
               href: rest-speech-to-text.md
-            - name: 'Batch-transkription (REST API:er)'
+            - name: Batch-transkription (REST API)
               href: batch-transcription.md
     - name: Resurser
       items:
         - name: Vanliga frågor och svar om tal-till-text
           href: faq-stt.md
+          displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
 - name: Text till tal
-  exanded: false
+  expanded: false
   items:
     - name: Översikt
       items:
@@ -88,7 +96,7 @@
           href: quickstarts/text-to-speech.md
         - name: Asynkron syntes för dikteringsljud
           href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Förbättra utdata med SSML
           href: speech-synthesis-markup.md
@@ -104,18 +112,25 @@
           items:
             - name: C++
               href: 'https://aka.ms/csspeech/cppref'
+              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
             - name: 'C#'
               href: 'https://aka.ms/csspeech/csharpref'
+              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
+              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
             - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
+              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'
+              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
             - name: Python
               href: 'https://aka.ms/csspeech/pythonref'
+              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
             - name: Viktig information
               href: releasenotes.md
+              displayName: 'release notes,updates,what''s new,what is new,changes'
         - name: 'REST API:er'
           items:
             - name: Text-till-tal (REST API)
@@ -124,14 +139,16 @@
       items:
         - name: Vanliga frågor och svar om text-till-tal
           href: faq-text-to-speech.md
+          displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
 - name: Avsiktsigenkänning
-  exanded: false
+  expanded: false
   items:
     - name: Snabbstarter
       items:
         - name: 'Känna igen tal, avsikter och entiteter'
           href: quickstarts/intent-recognition.md
-    - name: Instruktionsguider
+          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
+    - name: Anvisningar
       items:
         - name: 'Känna igen talavsikter med LUIS, C#'
           href: how-to-recognize-intents-from-speech-csharp.md
@@ -141,24 +158,31 @@
           items:
             - name: C++
               href: 'https://aka.ms/csspeech/cppref'
+              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
             - name: 'C#'
               href: 'https://aka.ms/csspeech/csharpref'
+              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
+              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
             - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
+              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'
+              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
             - name: Python
               href: 'https://aka.ms/csspeech/pythonref'
+              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
             - name: Viktig information
               href: releasenotes.md
+              displayName: 'release notes,updates,what''s new,what is new,changes'
         - name: LUIS-tjänst
           items:
             - name: LUIS-utvecklarresurser
               href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
 - name: Talöversättning
-  exanded: false
+  expanded: false
   items:
     - name: Översikt
       items:
@@ -182,18 +206,25 @@
           items:
             - name: C++
               href: 'https://aka.ms/csspeech/cppref'
+              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
             - name: 'C#'
               href: 'https://aka.ms/csspeech/csharpref'
+              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
+              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
             - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
+              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'
+              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
             - name: Python
               href: 'https://aka.ms/csspeech/pythonref'
+              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
             - name: Viktig information
               href: releasenotes.md
+              displayName: 'release notes,updates,what''s new,what is new,changes'
     - name: Resurser
       items:
         - name: Vanliga frågor och svar om talöversättning
@@ -205,7 +236,7 @@
       items:
         - name: Vad är samtalstranskription?
           href: conversation-transcription.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Samtalstranskription i realtid
           href: how-to-use-conversation-transcription.md
@@ -217,18 +248,25 @@
           items:
             - name: C++
               href: 'https://aka.ms/csspeech/cppref'
+              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
             - name: 'C#'
               href: 'https://aka.ms/csspeech/csharpref'
+              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
+              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
             - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
+              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'
+              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
             - name: Python
               href: 'https://aka.ms/csspeech/pythonref'
+              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
             - name: Viktig information
               href: releasenotes.md
+              displayName: 'release notes,updates,what''s new,what is new,changes'
         - name: 'REST API:er'
           items:
             - name: 'REST-API:er för samtalstranskription'
@@ -258,14 +296,20 @@
           href: quickstart-custom-speech-commands-create-new.md
         - name: Skapa ett anpassat kommando med parametrar (förhandsversion)
           href: quickstart-custom-speech-commands-create-parameters.md
+        - name: Använd anpassade kommandon med anpassad röst (förhandsversion)
+          href: quickstart-custom-speech-commands-select-custom-voice.md
         - name: Använda anpassade kommandon med Speech SDK (förhandsversion)
           href: quickstart-custom-speech-commands-speech-sdk.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Utföra anpassade kommandon med Speech SDK
           href: how-to-custom-speech-commands-fulfill-sdk.md
         - name: Lägga till parametervalidering till anpassade kommandon
           href: how-to-custom-speech-commands-validations.md
+        - name: Lägga till en bekräftelse till ett anpassat kommando
+          href: how-to-custom-speech-commands-confirmations.md
+        - name: Lägga till en korrigering i ett steg till ett anpassat kommando
+          href: how-to-custom-speech-commands-one-step-correction.md
     - name: Självstudier
       items:
         - name: Röstaktivera din robot med Speech SDK
@@ -275,7 +319,7 @@
         - name: Vanliga frågor och svar om röstassistenter
           href: faq-voice-assistants.md
 - name: Anpassning
-  exanded: false
+  expanded: false
   items:
     - name: Tal till text
       items:
@@ -329,6 +373,8 @@
           items:
             - name: 'Instruktioner: Skapa ljudinnehåll'
               href: how-to-audio-content-creation.md
+    - name: Riktlinjer för anpassad namngivning av nyckelord
+      href: speech-devices-sdk-kws-guidelines.md
     - name: Anpassad nyckelordsidentifiering
       href: speech-devices-sdk-create-kws.md
 - name: Tjänst för taligenkänning
@@ -339,23 +385,27 @@
         - name: Callcenter
           href: call-center-transcription.md
           displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Prova Speech-tjänsten kostnadsfritt
           href: get-started.md
         - name: Skapa en resurs för Speech-tjänsten
           href: 'get-started.md#create-a-speech-resource-in-azure'
         - name: Containrar
-          exanded: false
+          expanded: false
           items:
             - name: Installera och köra containrar
               href: speech-container-howto.md
+              displayName: 'containers,install container,run container'
             - name: Konfigurera containrar
               href: speech-container-configuration.md
+              displayName: 'containers,configure containers,container config,configuration'
             - name: Kubernetes och Helm
               href: speech-container-howto-on-premises.md
+              displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
             - name: Azure Container Instances
               href: deploy-speech-on-container-instances.md
+              displayName: 'ACI,azure container instances,container instances,containers'
     - name: Exempel
       items:
         - name: REST-exempel – text-till-tal
@@ -389,20 +439,16 @@
       items:
         - name: Skapa ett projekt
           href: quickstarts/create-project.md
-        - name: 'Konfigurera Speech SDK med C#'
-          href: quickstarts/setup-platform.md?pivots=programming-language-csharp
-        - name: Konfigurera Speech SDK med C++
-          href: quickstarts/setup-platform.md?pivots=programming-language-cpp
-        - name: Konfigurera Speech SDK med Java
-          href: quickstarts/setup-platform.md?pivots=programming-language-java
-        - name: Konfigurera Speech SDK med Python
-          href: quickstarts/setup-platform.md?pivots=programming-language-python
-        - name: Konfigurera Speech SDK med andra plattformar
-          href: quickstarts/setup-platform.md?pivots=programming-language-more
-    - name: Instruktionsguider
+        - name: Konfigurera Speech SDK
+          href: quickstarts/setup-platform.md
+          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+    - name: Anvisningar
       items:
-        - name: Aktivera loggning
+        - name: Så här aktiverar du loggning
           href: how-to-use-logging.md
+        - name: Så här spårar du minnesanvändning
+          href: how-to-track-speech-sdk-memory-usage.md
+          displayName: 'memory usage, memory consumption, object logging, object tracking, memory'
     - name: Exempel
       items:
         - name: Speech SDK-exempel (GitHub)
@@ -426,7 +472,7 @@
         - name: Viktig information om Speech SDK
           href: releasenotes.md
 - name: Enheter
-  exanded: false
+  expanded: false
   items:
     - name: Översikt
       items:
@@ -452,8 +498,12 @@
       items:
         - name: Felsöka Speech Devices SDK
           href: speech-devices-sdk-troubleshooting.md
+    - name: Referens
+      items:
+        - name: Viktig information om Speech Devices SDK
+          href: devices-sdk-release-notes.md
 - name: Migrering
-  exanded: false
+  expanded: false
   items:
     - name: Från Taligenkänning i Bing
       href: how-to-migrate-from-bing-speech.md
@@ -462,10 +512,11 @@
     - name: 'Från Translator Speech API:et'
       href: how-to-migrate-from-translator-speech-api.md
 - name: Resurser
-  exanded: false
+  expanded: false
   items:
     - name: Support
       href: support.md
+      displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
     - name: Regioner
       href: regions.md
     - name: Priser och begränsningar

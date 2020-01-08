@@ -49,6 +49,8 @@
           href: concept-mfa-authprovider.md
         - name: Säkerhetsvägledning
           href: multi-factor-authentication-security-best-practices.md
+        - name: Dataplacering
+          href: concept-mfa-data-residency.md
         - name: MFA för Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
         - name: VANLIGA FRÅGOR OCH SVAR OM MFA
@@ -61,7 +63,7 @@
           href: concept-password-ban-bad-on-premises.md
     - name: Motståndskraftiga åtkomstkontroller
       href: concept-resilient-controls.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Återställning av lösenord för självbetjäning
       items:

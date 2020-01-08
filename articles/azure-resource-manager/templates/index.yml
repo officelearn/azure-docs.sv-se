@@ -1,0 +1,125 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Resource Manager-mallar
+summary: En Resource Manager-mall är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt.
+metadata:
+  title: Dokumentation om Azure Resource Manager
+  description: Lär dig hur du utvecklar Azure Resource Manager-mallar och använder dem för att distribuera Azure-resurser
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: templates
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 43cd4dadc33ddc498106084ee26ef0819c14b973
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75469938"
+landingContent:
+- title: Om Azure Resource Manager-mallar
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är mallar?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Bästa praxis
+      url: template-best-practices.md
+    - text: Distributionsmodeller
+      url: deployment-modes.md
+    - text: Länkade mallar
+      url: linked-templates.md
+    - text: Distribution på prenumerationsnivå
+      url: deploy-to-subscription.md
+  - linkListType: video
+    links:
+    - text: Nyheter
+      url: https://youtu.be/3D-JIKShrws
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa mallar – portal
+      url: quickstart-create-templates-use-the-portal.md
+    - text: Skapa mallar – VS Code
+      url: quickstart-create-templates-use-visual-studio-code.md
+    - text: Skapa mallar – Visual Studio
+      url: create-visual-studio-deployment-project.md
+  - linkListType: tutorial
+    links:
+    - text: Självstudier för nybörjare
+      url: template-tutorial-create-first-template.md
+    - text: Distribuera flera instanser
+      url: template-tutorial-create-multiple-instances.md
+    - text: Ange distributionsordning
+      url: template-tutorial-create-templates-with-dependent-resources.md
+    - text: Integrera nyckelvalv
+      url: template-tutorial-use-key-vault.md
+- title: Utveckla mallar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda VS-kod
+      url: use-vs-code-to-create-template.md
+    - text: Använda funktioner
+      url: template-functions.md
+    - text: Definiera parametrar
+      url: template-parameters.md
+    - text: Definiera variabler
+      url: template-variables.md
+    - text: Definiera resurser
+      url: template-syntax.md#resources
+    - text: Definiera utmatningar
+      url: template-outputs.md
+  - linkListType: reference
+    links:
+    - text: Filsyntax för mallar
+      url: template-syntax.md
+    - text: Azure-snabbstartsmallar
+      url: https://azure.microsoft.com/resources/templates/
+- title: Distribuera mallar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Med PowerShell
+      url: deploy-powershell.md
+    - text: Med CLI
+      url: deploy-cli.md
+    - text: Med portalen
+      url: deploy-portal.md
+    - text: Med REST API
+      url: deploy-rest.md
+    - text: Konsekvensdistribution
+      url: template-deploy-what-if.md
+    - text: Visa distributionshistorik
+      url: deployment-history.md
+- title: Hantera mallar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportera mallar
+      url: export-template-portal.md
+    - text: CI/CD
+      url: add-template-to-azure-pipelines.md
+- title: Utforska referensinnehåll
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Mallreferens
+      url: /azure/templates/
+    - text: REST-API
+      url: /rest/api/resources/
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.resourcemanager
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.resources
+    - text: Python
+      url: /python/api/overview/azure/resources?view=azure-python

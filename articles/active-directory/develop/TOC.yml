@@ -35,6 +35,7 @@
               href: quickstart-v2-aspnet-core-webapp.md
             - name: NodeJS
               href: quickstart-v2-nodejs-webapp.md
+              displayName: OIDC
             - name: Java
               href: quickstart-v2-java-webapp.md
             - name: Python
@@ -135,7 +136,7 @@
                   href: scenario-web-app-call-api-app-registration.md
                 - name: Konfiguration av kod
                   href: scenario-web-app-call-api-app-configuration.md
-                - name: Logga in
+                - name: Global utloggning
                   href: scenario-web-app-call-api-sign-in.md
                 - name: Hämta token för appen
                   href: scenario-web-app-call-api-acquire-token.md
@@ -213,7 +214,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
-                    - name: Använda asynkrona meddelandeköer med Xamarin iOS och Android-appar
+                    - name: Använda asynkrona meddelandeköer med Xamarin iOS och Android
+                      displayName: Microsoft Authenticator Microsoft Intune
                       href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: Universell Windows-plattform
                       href: msal-net-uwp-considerations.md
@@ -241,13 +243,13 @@
                   href: msal-compare-msal-js-and-adal-js.md
                 - name: Migrera till MSAL.Android
                   href: migrate-android-adal-msal.md
-                - name: Migrera till MSAL.iOS och MacOS
+                - name: Migrera till MSAL.iOS/MacOS
                   href: migrate-objc-adal-msal.md
                 - name: Migrera till MSAL Python
                   href: migrate-python-adal-msal.md
                 - name: Migrera till MSAL för Java
                   href: migrate-adal-msal-java.md
-                - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer från ADAL.NET till MSAL.NET
+                - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer till MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: Autentiseringsflöden som stöds
               href: msal-authentication-flows.md
@@ -263,7 +265,7 @@
               items:
                 - name: Klientprogram
                   href: msal-client-applications.md
-                - name: Programkonfiguration (.NET)
+                - name: Tillämpningskonfiguration
                   href: msal-client-application-configuration.md
                 - name: Initiera program (.NET)
                   href: msal-net-initializing-client-applications.md
@@ -317,7 +319,7 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: Kända problem – Safari
                       href: msal-js-known-issues-safari-browser.md
-                - name: MSAL för iOS och macOS SSL-problem
+                - name: Felsöka SSL-problem (MSAL iOS/macOS)
                   href: ssl-issues.md
         - name: Autentiseringsprotokoll
           items:
@@ -384,7 +386,7 @@
               href: /azure/active-directory/manage-apps/user-provisioning
             - name: Skapa och integrera en SCIM-slutpunkt
               href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Autentisering
           items:
@@ -400,9 +402,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Tillämpningskonfiguration
           items:
-            - name: Övergå från Appregistreringar (föråldrad) till den nya Appregistreringar-miljön i Azure Portal
+            - name: Ny utbildningsguide för Azure-portalappsregistreringar
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: Övergå från programregistreringsportalen till den nya Appregistreringar-miljön i Azure Portal
+            - name: Ny registrering för Azure-portalappar
               href: app-registration-portal-training-guide.md
             - name: Konvertera en app för en enda klient till en app för flera klienter
               href: howto-convert-app-to-be-multi-tenant.md
@@ -418,7 +420,7 @@
               href: howto-add-app-roles-in-azure-ad-apps.md
             - name: Riktlinjer för anpassning
               href: howto-add-branding-in-azure-ad-apps.md
-            - name: Utgivardomän
+            - name: Konfigurera publisher-domän
               href: howto-configure-publisher-domain.md
             - name: Användningsvillkor och sekretesspolicy
               href: howto-add-terms-of-service-privacy-statement.md
@@ -432,7 +434,7 @@
                   href: msal-net-token-cache-serialization.md
                 - name: Rensa tokencache
                   href: msal-net-clear-token-cache.md
-                - name: Skapa en instans av en offentlig klient med alternativ
+                - name: Skapa en instans av en offentlig klientapp
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Skapa en instans av en konfidentiell klient med alternativ
                   href: msal-net-instantiate-confidential-client-config-options.md
@@ -462,13 +464,13 @@
                   href: redirect-uris-ios.md
             - name: MSAL för Python
               items:
-                - name: Serialisering för tokencache
+                - name: Anpassad serialisering för tokencache
                   href: msal-python-token-cache-serialization.md
             - name: MSAL för Java
               items:
-                - name: Serialisering för tokencache
+                - name: Anpassad serialisering för tokencache
                   href: msal-java-token-cache-serialization.md
-                - name: Lägga till och ta bort konton från tokencachen
+                - name: Hämta och ta bort konton från tokencachen
                   href: msal-java-get-remove-accounts-token-cache.md
         - name: Arbeta med Visual Studio
           items:
@@ -482,7 +484,7 @@
               href: vs-active-directory-webapi-getting-started.md
             - name: Vad hände med mitt WebAPI-projekt?
               href: vs-active-directory-webapi-what-happened.md
-            - name: Fel vid identifiering av autentisering
+            - name: Diagnostisera fel under autentisering
               href: vs-active-directory-error.md
     - name: Referenser
       items:
@@ -637,7 +639,7 @@
           href: conditional-access-dev-guide.md
         - name: Nationella moln
           href: authentication-national-cloud.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Autentisering
           items:

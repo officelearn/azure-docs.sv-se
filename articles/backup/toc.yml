@@ -36,6 +36,14 @@
       href: tutorial-backup-windows-server-to-azure.md
     - name: Återställa filer till Windows Server
       href: tutorial-backup-restore-files-windows-server.md
+    - name: SAP HANA-databaser på virtuella Azure-datorer – med CLI
+      items:
+        - name: Säkerhetskopiera SAP HANA-databaser – CLI
+          href: tutorial-sap-hana-backup-cli.md
+        - name: Återställa SAP HANA-databaser – CLI
+          href: tutorial-sap-hana-restore-cli.md
+        - name: Hantera säkerhetskopierade SAP HANA-databaser – CLI
+          href: tutorial-sap-hana-manage-cli.md
 - name: Exempel
   items:
     - name: Azure PowerShell
@@ -244,6 +252,8 @@
           href: manage-monitor-sql-database-backup.md
     - name: SAP HANA-databaser på virtuella Azure-datorer
       items:
+        - name: Om SAP HANA-säkerhetskopiering på virtuella Azure-datorer
+          href: sap-hana-db-about.md
         - name: Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer
           href: backup-azure-sap-hana-database.md
         - name: Återställa SAP HANA-databaser i virtuella Azure-datorer

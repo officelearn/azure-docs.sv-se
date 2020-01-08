@@ -2,18 +2,18 @@
 title: Dokumentation om Azure Database Migration Service
 summary: Med Azure Database Migration Service kan du migrera sömlöst från flera databaskällor till Azure-dataplattformar med minsta möjliga stilleståndstid. Tjänsten använder Data Migration Assistant för att skapa utvärderingsrapporter. Rapporterna ger rekommendationer som vägleder dig genom de ändringar som krävs innan du utför en migrering. När du är redo att påbörja migreringsprocessen utför Azure Database Migration Service alla nödvändiga steg.
 metadata:
-  description: " Lär dig hur du använder Azure Database Migration Service för att migrera sömlöst från flera databaskällor till Azures dataplattformar med minimal stilleståndstid."
+  description: Lär dig hur du använder Azure Database Migration Service för att migrera sömlöst från flera databaskällor till Azures dataplattformar med minimal stilleståndstid.
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/25/2019
+  ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 1d064144d040a45fbc655879a6869da4ceaa4b79
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 8ca7f2618c6415dd3dbe22cada35bccb56be50ee
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73583996"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75437887"
 landingContent:
 - title: Om Azure Database Migration Service
   linkLists:
@@ -33,6 +33,10 @@ landingContent:
       url: quickstart-create-data-migration-service-portal.md
     - text: Skapa tjänst i hybridläge – portalen
       url: quickstart-create-data-migration-service-hybrid-portal.md
+  - linkListType: reference
+    links:
+    - text: Kända problem – Använda hybridläge
+      url: known-issues-dms-hybrid-mode.md
   - linkListType: video
     links:
     - text: Introduktion till Azure Data Migration Service
@@ -65,6 +69,8 @@ landingContent:
     links:
     - text: 'Kända problem: Onlinemigrering till SQL Database – enkel databas'
       url: known-issues-azure-sql-online.md
+    - text: Kända problem – Onlinemigrering till SQL Database Managed Instance
+      url: known-issues-azure-sql-db-managed-instance-online.md
     - text: Nätverkstopologier för migrering av SQL Database – hanterad instans
       url: resource-network-topologies.md
     - text: Anpassade roller för online-migreringar från SQL Server till SQL Database hanterade instanser
@@ -105,7 +111,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Tjänst och verktyg baserat på datamigreringsscenario
+    - text: Tjänster och verktyg baserat på datamigreringsscenario
       url: dms-tools-matrix.md
     - text: Guide för databasmigrering
       url: https://datamigration.microsoft.com/

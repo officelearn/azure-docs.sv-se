@@ -25,6 +25,10 @@
   items:
     - name: Skapa en serverlös realtidsapp med autentisering
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Övervaka
+      items:
+        - name: Använda diagnostikloggar för att övervaka SignalR-tjänst
+          href: signalr-tutorial-diagnostic-logs.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -57,7 +61,7 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Händelsehantering
       href: signalr-concept-event-grid-integration.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skala
       items:
@@ -100,7 +104,7 @@
     - name: Vanliga frågor och svar
       href: signalr-resource-faq.md
     - name: Nivågränser för SignalR Service-prenumerationer
-      href: 'https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits'
+      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Videoklipp

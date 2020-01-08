@@ -12,12 +12,12 @@ metadata:
   author: mhopkins-msft
   ms.author: mhopkins
   ms.date: 08/27/2019
-  ms.openlocfilehash: 4dcf6ae4e9a5a65e060b647f02761b2c46238d13
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: 871447957b905157625ab487269b9ce1ca105935
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70277907"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75457297"
 landingContent:
 - title: Om Azure-köer
   linkLists:
@@ -25,16 +25,24 @@ landingContent:
     links:
     - text: Vad är Azure-köer?
       url: storage-queues-introduction.md
-- title: Komma igång
+- title: Kom igång
   linkLists:
   - linkListType: quickstart
     links:
     - text: Skapa en kö och lägga till ett meddelande med Azure-portalen
       url: storage-quickstart-queues-portal.md
-    - text: Använda .NET för att skapa en kö i Azure Storage
-      url: storage-quickstart-queues-dotnet.md
 - title: Utveckla med köer
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Queue Storage för .NET
+      url: storage-quickstart-queues-dotnet.md
+    - text: Azure Queue Storage för Java
+      url: storage-quickstart-queues-java.md
+    - text: Azure Queue Storage för Python
+      url: storage-quickstart-queues-python.md
+    - text: Azure Queue Storage för JavaScript
+      url: storage-quickstart-queues-nodejs.md
   - linkListType: how-to-guide
     links:
     - text: Komma igång med Azure Queue Storage med hjälp av .NET

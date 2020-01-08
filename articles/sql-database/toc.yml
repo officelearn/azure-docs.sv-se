@@ -69,6 +69,8 @@
         - name: Säkerhetsöversikt
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
+        - name: Metodtips för säkerhet
+          href: sql-database-security-best-practice.md
         - name: Åtkomsthantering
           items:
             - name: Åtkomstkontroll
@@ -292,7 +294,7 @@
               href: sql-database-elastic-scale-introduction.md
             - name: Ordlista
               href: sql-database-elastic-scale-glossary.md
-            - name: Elastiskt klientbibliotek – konsolidering
+            - name: Elastiskt klientbibliotek
               href: sql-database-elastic-database-client-library.md
             - name: Shardkartor
               href: sql-database-elastic-scale-shard-map-management.md
@@ -683,15 +685,16 @@
         - name: Kodexempel
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL-hanterad instans
+  href: sql-database-managed-instance-index.yml
   items:
-    - name: Dokumentation om hanterad instans
-      href: sql-database-managed-instance-index.yml
     - name: Översikt
-      href: sql-database-managed-instance.md
-    - name: Instanspooler
-      href: sql-database-instance-pools.md
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: sql-database-managed-instance-faq.md
+      items:
+        - name: Hanterad instans
+          href: sql-database-managed-instance.md
+        - name: Instanspooler
+          href: sql-database-instance-pools.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: sql-database-managed-instance-faq.md
     - name: Snabbstarter
       items:
         - name: Skapa
@@ -718,14 +721,18 @@
       items:
         - name: Migrera med DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-        - name: Konfigurera transaktionsreplikering
-          href: replication-with-sql-database-managed-instance.md
         - name: Konfigurera säkerhet
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: Lägga till en hanterad instans till en redundansgrupp
           href: sql-database-managed-instance-failover-group-tutorial.md
         - name: Migrera lokala användare och grupper
           href: tutorial-managed-instance-azure-active-directory-migration.md
+        - name: Transaktionsreplikering
+          items:
+            - name: MI-pub till MI-sub
+              href: replication-with-sql-database-managed-instance.md
+            - name: 'MI pub, MI dist, SQL Sub'
+              href: sql-database-managed-instance-configure-replication-tutorial.md
     - name: Begrepp
       items:
         - name: Referens för API för hantering

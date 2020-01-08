@@ -63,6 +63,17 @@
         - name: Distributionssteg
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
+    - name: HIPAA HITRUST
+      items:
+        - name: Översikt
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/index.md
+        - name: Kontrollmappning
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/control-mapping.md
+        - name: Distributionssteg
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/deploy.md
     - name: IRS 1075
       items:
         - name: Översikt
@@ -184,7 +195,7 @@
     - name: Resurslåsning i skisser
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera tilldelningar med PowerShell
       displayName: 'create, update, remove'

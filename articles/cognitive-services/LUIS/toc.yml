@@ -66,13 +66,8 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: Datauppsättningar för batch-test
           href: luis-tutorial-batch-testing.md
-        - name: Lägg till vanliga yttrandeformat
+        - name: Lägga till mönster för att förbättra förutsägelser
           href: luis-tutorial-pattern.md
-        - name: Extrahera sammanhangsbaserade mönster
-          href: luis-tutorial-pattern-roles.md
-          displayName: roles
-        - name: Extrahera friformsdata
-          href: luis-tutorial-pattern-any.md
     - name: Använda med robot
       items:
         - name: 'Med C#'
@@ -154,7 +149,7 @@
         - name: Utforma strategier
           href: luis-concept-enterprise.md
           displayName: import
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Starta en ny app
       href: luis-how-to-start-new-app.md
@@ -173,6 +168,8 @@
         - name: Lägg till beskrivning
           displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
+        - name: Migrera till V3-redigering
+          href: luis-migration-authoring-entities.md
         - name: 'Med REST API:er'
           items:
             - name: Skapa en app programmässigt med Node.js
@@ -319,7 +316,7 @@
       href: reference-pattern-syntax.md
     - name: Sentiment
       href: luis-reference-prebuilt-sentiment.md
-    - name: Utvecklarresurser
+    - name: Resurser för utvecklare
       href: developer-reference-resource.md
       displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
     - name: Azure CLI

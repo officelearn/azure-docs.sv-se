@@ -28,7 +28,7 @@
           href: expressroute-locations.md
     - name: Om virtuella nätverksgatewayer
       href: expressroute-about-virtual-network-gateways.md
-    - name: Nödvändiga komponenter
+    - name: Krav
       href: expressroute-prerequisites.md
     - name: Arbetsflöden
       href: expressroute-workflows.md
@@ -70,7 +70,7 @@
       items:
         - name: Privat peering
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skapa och ändra en krets
       items:
@@ -157,7 +157,7 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Konfigurera övervakare av nätverksprestanda för ExpressRoute
           href: how-to-npm.md
-    - name: Artiklar om den klassiska distributionsmodellen
+    - name: Klassiska och äldre artiklar
       items:
         - name: Ändra en krets
           href: expressroute-howto-circuit-classic.md
@@ -169,6 +169,8 @@
           href: expressroute-howto-coexist-classic.md
         - name: Lägg till en gateway till ett virtuellt nätverk
           href: expressroute-howto-add-gateway-classic.md
+        - name: Skapa och ändra offentlig peering
+          href: about-public-peering.md
     - name: Metodtips
       items:
         - name: Bästa metoder för nätverkssäkerhet och molntjänster
@@ -223,7 +225,7 @@
     - name: SLA
       href: 'https://azure.microsoft.com/support/legal/sla/'
     - name: Prenumerations- och tjänstbegränsningar
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: ExpressRoute för Cloud Solution Providers (CSP)
       href: expressroute-for-cloud-solution-providers.md
     - name: Videoklipp

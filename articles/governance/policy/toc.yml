@@ -277,7 +277,7 @@
     - name: Granska virtuella datorer med gästkonfiguration
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Azure Policy-tillägg för VS Code
       displayName: visual studio code
@@ -300,6 +300,11 @@
     - name: Åtgärda icke-kompatibla resurser
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Azure Key Vault-integrering
+      items:
+        - name: Integrera Key Vault med Azure Policy
+          displayName: 'key vault, certificate, key'
+          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Azure Lighthouse-integrering
       items:
         - name: Distribuera en skalanpassad princip

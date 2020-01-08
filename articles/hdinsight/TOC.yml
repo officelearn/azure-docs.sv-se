@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: Hantera HDInsight-kluster – PowerShell
           href: ./hdinsight-administer-use-powershell.md
+        - name: Skapa kluster med Runbooks
+          href: ./manage-clusters-runbooks.md
         - name: Skapa en ETL-pipeline
           href: ./hdinsight-sales-insights-etl.md
     - name: Exempel
@@ -73,14 +75,29 @@
               href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
             - name: Skapa kluster med hjälp av .NET
               href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        - name: Använda klusterlagring
-          items:
-            - name: Använda Azure Storage
-              href: hdinsight-hadoop-use-blob-storage.md
-            - name: Använda Azure Data Lake Storage Gen2
-              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Använda Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: Fel vid skapande av kluster
+              href: ./create-cluster-error-dictionary.md
+              title: null
+              summary: null
+              abstract: null
+              achievement: null
+              iconUrl: null
+              levels:
+                - null
+              roles:
+                - null
+              products:
+                - null
+              units:
+                - null
+                - name: Använda klusterlagring
+                  items:
+                    - name: Använda Azure Storage
+                      href: hdinsight-hadoop-use-blob-storage.md
+                    - name: Använda Azure Data Lake Storage Gen2
+                      href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+                    - name: Använda Azure Data Lake Storage Gen1
+                      href: hdinsight-hadoop-use-data-lake-store.md
         - name: Utöka kluster
           items:
             - name: Installera HDInsight-appar
@@ -533,6 +550,8 @@
           href: ./hdinsight-apache-kafka-spark-structured-streaming.md
     - name: Begrepp
       items:
+        - name: Migrera Kafka-arbetsbelastningar till 4.0
+          href: ./kafka/migrate-versions.md
         - name: Lagring och skalbarhet
           href: ./kafka/apache-kafka-scalability.md
         - name: Hög tillgänglighet för data
@@ -545,6 +564,8 @@
       items:
         - name: Utveckla
           items:
+            - name: Använda Kafka REST-proxy
+              href: ./kafka/rest-proxy.md
             - name: Aktivera funktionen för att skapa ämnen automatiskt
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: Använda Apache Kafka med IoT Hub
@@ -707,6 +728,8 @@
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: Långsam reducerare
               href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+            - name: Apache Hive Gateway-tidsgräns
+              href: ./interactive-query/troubleshoot-gateway-timeout.md
             - name: Tidsgräns för Apache Hive-vyn
               href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
             - name: Behörighetsfel när en tabell skapas
@@ -835,14 +858,14 @@
           href: ./hdinsight-service-tags.md
     - name: Gör så här för att
       items:
+        - name: Använda ID-Broker för hantering av autentiseringsuppgifter
+          href: ./domain-joined/identity-broker.md
         - name: Skapa ESP-kluster och synkronisera lokalt
           href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
         - name: Skapa virtuella nätverk för HDInsight
           href: ./hdinsight-create-virtual-network.md
         - name: Ansluta HDInsight till det lokala nätverket
           href: ./connect-on-premises-network.md
-        - name: Konfigurera företagssäkerhet i HDInsight
-          href: ./domain-joined/apache-domain-joined-configure.md
         - name: Konfigurera ESP-kluster med Azure AD DS
           href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
         - name: Synkronisera Azure AD-användare till ett HDInsight-kluster

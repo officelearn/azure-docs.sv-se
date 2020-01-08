@@ -14,8 +14,12 @@
       href: azure-portal-dashboard-share-access.md
     - name: Skapa Azure-instrumentpaneler programmässigt
       href: azure-portal-dashboards-create-programmatically.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
+    - name: Ange Azure-portalinställningar
+      href: set-preferences.md
+    - name: Ange inaktiva tidsgränsinställningar för alla användare
+      href: admin-timeout.md
     - name: Aktivera hög kontrast eller ändra tema
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Lägga till, ta bort och sortera favoriter'

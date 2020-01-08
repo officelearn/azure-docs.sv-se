@@ -28,6 +28,8 @@
     - name: Begrepp
       expanded: false
       items:
+        - name: B2B-metodtips
+          href: b2b-fundamentals.md
         - name: B2B-licensiering
           href: licensing-guidance.md
         - name: Extern delning av B2B och Office 365
@@ -48,7 +50,7 @@
           href: hybrid-organizations.md
         - name: Aktuella begränsningar
           href: current-limitations.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       expanded: true
       items:
         - name: Hantera B2B-delning

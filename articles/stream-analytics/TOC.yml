@@ -49,7 +49,7 @@
           href: stream-analytics-define-inputs.md
         - name: Inmatningar av referensdata
           href: stream-analytics-use-reference-data.md
-        - name: Ange anpassade .NET-deserialiserare
+        - name: Läsa indata i alla format med anpassade deserialiserare
           href: custom-deserializer-examples.md
     - name: Utdatatyper för ett jobb
       items:
@@ -174,9 +174,9 @@
       items:
         - name: Installera verktygen
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Testa med exempeldata
+        - name: Testa lokalt med exempeldata
           href: stream-analytics-vs-tools-local-run.md
-        - name: Testa med livedata
+        - name: Testa lokalt med livedata
           href: stream-analytics-live-data-local-testing.md
         - name: Visa jobb i Visual Studio
           href: stream-analytics-vs-tools.md
@@ -188,12 +188,14 @@
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio-koden
       items:
-        - name: Testa med exempeldata
-          href: vscode-local-run.md
+        - name: Testa lokalt med exempeldata
+          href: visual-studio-code-local-run.md
+        - name: Testa lokalt med realtidsdata
+          href: visual-studio-code-local-run-live-input.md
         - name: Konfigurera CI/CD-pipeliner
           href: setup-cicd-vs-code.md
         - name: Utforska jobb
-          href: vscode-explore-jobs.md
+          href: visual-studio-code-explore-jobs.md
     - name: Felsöka
       items:
         - name: Indata

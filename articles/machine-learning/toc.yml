@@ -1,6 +1,399 @@
-- name: Azure Machine Learning
-  href: service/overview-what-is-azure-ml.md
-- name: Azure Machine Learning Studio
-  href: studio/index.yml
-- name: Jämför maskininlärningsprodukter på Microsoft
-  href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
+- name: Dokumentation om Azure Machine Learning
+  href: index.yml
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är Azure Machine Learning?
+      displayName: 'AML, services, overview, introduction'
+      href: overview-what-is-azure-ml.md
+    - name: Azure Machine Learning vs Studio
+      displayName: 'AML, Studio, designer'
+      href: compare-azure-ml-to-studio-classic.md
+    - name: Arkitektur och villkor
+      displayName: 'architecture, concepts, definitions, glossary'
+      href: concept-azure-machine-learning-architecture.md
+- name: Självstudier
+  items:
+    - name: Studio & Designer
+      items:
+        - name: 'Designer: 1. Träna en regressionsmodell'
+          displayName: studio
+          href: tutorial-designer-automobile-price-train-score.md
+        - name: 'Designer: 2. Distribuera modellen'
+          displayName: studio
+          href: tutorial-designer-automobile-price-deploy.md
+        - name: Skapa ett automatiskt ML-experiment
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-first-experiment-automated-ml.md
+    - name: Python SDK
+      items:
+        - name: Skapa ett första ML-experiment
+          items:
+            - name: 1. Konfigurera arbetsyta och utvecklingsmiljö
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Träna din första modell
+              href: tutorial-1st-experiment-sdk-train.md
+        - name: Klassificering av avbildning (MNIST-data)
+          items:
+            - name: 1. Träna en modell
+              displayName: build modeling
+              href: tutorial-train-models-with-aml.md
+            - name: 2. Distribuera en modell
+              href: tutorial-deploy-models-with-aml.md
+        - name: Regression med automatiserad ML (data från taxibilar i New York)
+          items:
+            - name: Träna en maskininlärningsmodell automatiskt
+              displayName: 'automl, automated, auto ml,'
+              href: tutorial-auto-train-models.md
+        - name: Machine Learning-pipelines (avancerat)
+          items:
+            - name: Batchbedöma en klassificeringsmodell
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
+    - name: R SDK
+      items:
+        - name: Skapa ett första ML-experiment (R)
+          href: tutorial-1st-r-experiment.md
+    - name: Maskininlärning CLI
+      href: tutorial-train-deploy-model-cli.md
+- name: Exempel
+  items:
+    - name: Jupyter Notebook
+      displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
+      href: samples-notebooks.md
+    - name: Azure Open Datasets
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: MLOps-exempel från slutpunkt till slutpunkt
+      href: 'https://github.com/microsoft/MLOps'
+- name: Begrepp
+  items:
+    - name: Arbetsyta
+      href: concept-workspace.md
+    - name: Miljöer
+      href: concept-environments.md
+    - name: Data
+      href: concept-data.md
+    - name: Modellträning
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
+    - name: Modellhantering (MLOps)
+      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
+      href: concept-model-management-and-deployment.md
+    - name: Tolkning
+      displayName: explainability
+      href: how-to-machine-learning-interpretability.md
+    - name: 'Designer: ML utan kod'
+      displayName: studio
+      href: concept-designer.md
+    - name: Algoritmfacit
+      href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context
+    - name: Automatiserad maskininlärning
+      displayName: 'automl, auto ml'
+      href: concept-automated-ml.md
+    - name: Beräkninsinstans
+      displayName: 'resource, dsvm, Data Science Virtual Machine'
+      href: concept-compute-instance.md
+    - name: Beräkningsmål
+      displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
+      href: concept-compute-target.md
+    - name: ML-pipelines
+      href: concept-ml-pipelines.md
+    - name: ONNX
+      href: concept-onnx.md
+    - name: Företagsberedskap och säkerhet
+      items:
+        - name: Företagssäkerhet
+          items:
+            - name: Översikt över Enterprise Security
+              displayName: authorization authentication encryption aad azure active directory
+              href: concept-enterprise-security.md
+            - name: Hantera användare och roller
+              href: how-to-assign-roles.md
+            - name: Använda virtuella nätverk
+              displayName: 'vnet, blob'
+              href: how-to-enable-virtual-network.md
+            - name: Säkra webbtjänster med SSL
+              href: how-to-secure-web-service.md
+            - name: Återskapa åtkomstnycklar för lagring
+              href: how-to-change-storage-access-key.md
+        - name: Konfigurera autentisering
+          displayName: 'authentication, auth, oauth'
+          href: how-to-setup-authentication.md
+        - name: Övervaka Azure Machine Learning
+          href: monitor-azure-machine-learning.md
+        - name: Event Grid-integrering
+          href: concept-event-grid-integration.md
+    - name: Deep learning
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
+- name: Anvisningar
+  items:
+    - name: Skapa och hantera arbetsytor
+      items:
+        - name: Använda Azure-portalen
+          href: how-to-manage-workspace.md
+        - name: Använda Azure CLI
+          href: how-to-manage-workspace-cli.md
+        - name: Använda Resource Manager-mallar
+          displayName: arm
+          href: how-to-create-workspace-template.md
+    - name: Konfigurera din miljö
+      items:
+        - name: Konfigurera utvecklingsmiljöer
+          displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
+          href: how-to-configure-environment.md
+        - name: Konfigurera programvarumiljöer
+          displayName: 'pip, Conda, anaconda'
+          href: how-to-use-environments.md
+        - name: Aktivera loggning
+          displayName: 'troubleshoot, log, files, tracing'
+          href: how-to-enable-logging.md
+        - name: Ställa in kataloger med indata och utdata
+          displayName: 'large data, write, experiment files, size limit'
+          href: how-to-save-write-experiment-files.md
+        - name: Använda VS Code-tillägg
+          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
+          href: how-to-vscode-tools.md
+        - name: Interaktiv felsökning
+          displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
+          href: how-to-set-up-vs-code-remote.md
+        - name: Git-integrering
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
+    - name: Arbeta med data
+      items:
+        - name: Ansluta till data i Azure Storage
+          displayName: 'blob, get, fileshare, access storage, mount, download'
+          href: how-to-access-data.md
+        - name: Hämta data från ett datalager
+          displayName: 'data, data set, register, access data'
+          href: how-to-create-register-datasets.md
+        - name: Träna med datauppsättningar
+          displayName: 'data, dataset, mount'
+          href: how-to-train-with-datasets.md
+        - name: Identifiera avvikelse i datamängd
+          displayName: 'data, dataset'
+          href: how-to-monitor-datasets.md
+        - name: Versionera och spåra datamängder
+          displayName: 'data, data set'
+          href: how-to-version-track-datasets.md
+        - name: Hämta märkta data
+          displayName: 'data, dataset, labeling'
+          href: how-to-create-labeling-projects.md
+        - name: Etikettavbildningar
+          displayName: 'data, dataset, labeling'
+          href: how-to-label-images.md
+    - name: Inlärningsmodeller
+      items:
+        - name: Använda designern
+          displayName: sample designer experiments
+          items:
+            - name: Förutsäga pris
+              displayName: 'regression, studio'
+              href: how-to-designer-sample-regression-automobile-price-basic.md
+            - name: Förutsäga pris (avancerat)
+              displayName: 'regression, studio'
+              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
+            - name: Förutse inkomst
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-predict-income.md
+            - name: Förutsäga kreditrisk (avancerat)
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
+            - name: Förutsäga omsättning
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-churn.md
+            - name: Förutse flygförseningar
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-classification-flight-delay.md
+            - name: Textklassificering
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-text-classification.md
+        - name: Använda uppskattningar för ML
+          items:
+            - name: Skapa uppskattningar i utbildning
+              href: how-to-train-ml-models.md
+            - name: Konfigurera miljöer för utbildning
+              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+              href: how-to-set-up-training-targets.md
+            - name: Justering av hyperparametrar
+              displayName: parameter
+              href: how-to-tune-hyperparameters.md
+            - name: Använda Key Vault under träningen
+              displayName: secrets keyvault
+              href: how-to-use-secrets-in-runs.md
+        - name: Scikit-learn
+          href: how-to-train-scikit-learn.md
+        - name: TensorFlow
+          href: how-to-train-tensorflow.md
+        - name: Keras
+          href: how-to-train-keras.md
+        - name: PyTorch
+          href: how-to-train-pytorch.md
+        - name: Chainer
+          href: how-to-train-chainer.md
+    - name: Tolka modeller
+      displayName: interpretability
+      items:
+        - name: Tolka lokala modeller och fjärrmodeller
+          displayName: 'SDK, interpret'
+          href: how-to-machine-learning-interpretability-aml.md
+        - name: Tolka automatiska ML-modeller
+          displayName: 'SDK, interpret, automl'
+          href: how-to-machine-learning-interpretability-automl.md
+    - name: Azure-maskininlärning
+      displayName: 'automl, auto ml'
+      items:
+        - name: Använda automatiserad maskininlärning (Python)
+          displayName: SDK automl
+          href: how-to-configure-auto-train.md
+        - name: Använd automatiserad ML (gränssnitt)
+          href: how-to-create-portal-experiments.md
+        - name: Använd fjärrberäkningsmål
+          displayName: automl automated auto ml
+          href: how-to-auto-train-remote.md
+        - name: Definiera ML-aktiviteter
+          displayName: 'machine learning, task type'
+          href: how-to-define-task-type.md
+        - name: Träna prognosmodeller automatiskt
+          displayName: time series
+          href: how-to-auto-train-forecast.md
+        - name: Förstå diagram och mått
+          href: how-to-understand-automated-ml.md
+    - name: Spåra och övervaka experiment
+      items:
+        - name: 'Starta, övervaka eller avbryta körningar'
+          displayName: 'cancel, fail, status, child run'
+          href: how-to-manage-runs.md
+        - name: Loggmått för träningskörningar
+          href: how-to-track-experiments.md
+        - name: Spåra experiment med MLflow
+          displayName: 'log, monitor, metrics'
+          href: how-to-use-mlflow.md
+        - name: Visualisera körningar med TensorBoard
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
+    - name: Distribuera och hantera modeller
+      items:
+        - name: Var och hur du distribuerar
+          displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
+          href: how-to-deploy-and-where.md
+        - name: Azure Kubernetes Service
+          displayName: 'aks, aad, authentication, azure active directory'
+          href: how-to-deploy-azure-kubernetes-service.md
+        - name: Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: FPGA-inferens
+          href: how-to-deploy-fpga-web-service.md
+        - name: GPU-inferens
+          href: how-to-deploy-inferencing-gpus.md
+        - name: Azure App Service
+          displayName: web app
+          href: how-to-deploy-app-service.md
+        - name: Azure Functions
+          displayName: functions app
+          href: how-to-deploy-functions.md
+        - name: Beräkningsinstanser
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: Använda anpassad Docker-avbildning
+          href: how-to-deploy-custom-docker-image.md
+        - name: Använda befintliga modeller
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
+        - name: Felsöka
+          href: how-to-troubleshoot-deployment.md
+    - name: Konsumera webbtjänster
+      items:
+        - name: Använda i realtid
+          displayName: create client consume request response synchronous
+          href: how-to-consume-web-service.md
+        - name: Köra batch-förutsägelser
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-run-batch-predictions.md
+        - name: Batch-förutsägelser i Designer
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
+        - name: Felsöka batchförutsägelser
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-batch-predictions.md
+    - name: Övervaka modeller
+      items:
+        - name: Samla in och utvärdera modelldata
+          displayName: track production
+          href: how-to-enable-data-collection.md
+        - name: Identifiera dataavvikelser
+          href: how-to-monitor-data-drift.md
+        - name: Övervaka med Application Insights
+          href: how-to-enable-app-insights.md
+    - name: Skapa och använda ML-pipelines
+      displayName: pipelines
+      items:
+        - name: Skapa ML-pipelines (Python)
+          href: how-to-create-your-first-pipeline.md
+        - name: Schemalägga en pipeline (Python)
+          href: how-to-schedule-pipelines.md
+        - name: Felsöka pipelines
+          href: how-to-debug-pipelines.md
+        - name: Azure-pipelines för CI/CD
+          displayName: 'continuous, integration, delivery'
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: 'Designer: Omträna med publicerade pipelines'
+          displayName: 'retrain, designer, published pipeline'
+          href: how-to-retrain-designer.md
+    - name: Hantera resurskvoter
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Exportera och ta bort data
+      displayName: GDPR
+      href: how-to-export-delete-data.md
+    - name: Skapa händelsedrivna arbetsflöden
+      displayName: event grid
+      href: how-to-use-event-grid.md
+- name: Referens
+  items:
+    - name: Python SDK
+      displayName: 'api, core, package, python, class'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
+    - name: R SDK
+      displayName: 'api, core, package, R, class'
+      href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
+    - name: CLI
+      displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
+      href: reference-azure-machine-learning-cli.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/azureml/'
+    - name: Referens för designermodul
+      displayName: 'module, reference, algorithm, studio'
+      href: algorithm-module-reference/module-reference.md
+    - name: ML i skala
+      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+    - name: Övervaka datareferens
+      href: monitor-resource-reference.md
+    - name: YAML-referens för maskininlärningspipeline
+      href: reference-pipeline-yaml.md
+- name: Resurser
+  items:
+    - name: Viktig information
+      displayName: 'what''s, new, issues, bugs'
+      href: azure-machine-learning-release-notes.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Kända problem
+      displayName: 'bugs, errors, troubleshoot'
+      href: resource-known-issues.md
+    - name: Användarforum
+      href: 'https://aka.ms/aml-forum-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
+    - name: Jämför våra ML-produkter
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Vad har hänt med Workbench?
+      displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
+      href: overview-what-happened-to-workbench.md

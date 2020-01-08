@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2b83d09932aaa39e31d04f30bc660541efcbb50b
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 7ebb44ec1f3483b9bf3f29ddb6dc7a73266b8cea
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73882807"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443367"
 landingContent:
 - title: Om programhantering
   linkLists:
@@ -53,22 +53,22 @@ landingContent:
     links:
     - text: Vad är automatisk användaretablering?
       url: user-provisioning.md
-  - linkListType: concept
+    - text: Så här fungerar etablering
+      url: how-provisioning-works.md
+  - linkListType: tutorial
     links:
-    - text: Använda SCIM för att etablera användare och grupper
-      url: use-scim-to-provision-users-and-groups.md
+    - text: Självstudier om etablering av SaaS-appar
+      url: /azure/active-directory/saas-apps/
   - linkListType: how-to-guide
     links:
-    - text: Konfigurera automatisk användaretablering
+    - text: Skapar du en app? Använda SCIM för automatisk etablering
+      url: use-scim-to-provision-users-and-groups.md
+    - text: Lägger du till en galleriapp? Konfigurera etablering till appen
       url: configure-automatic-user-provisioning-portal.md
     - text: Anpassa attributmappningar
       url: customize-application-attributes.md
-    - text: Kontrollera etableringsstatus
-      url: application-provisioning-when-will-provisioning-finish-specific-user.md
-  - linkListType: reference
-    links:
-    - text: Skriva uttryck för attributmappningar
-      url: functions-for-customizing-application-data.md
+    - text: Använda omfångsfilter
+      url: define-conditional-rules-for-provisioning-user-accounts.md
 - title: Publicera lokala appar med programproxy
   linkLists:
   - linkListType: overview

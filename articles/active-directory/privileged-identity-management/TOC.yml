@@ -20,7 +20,7 @@
       href: pim-email-notifications.md
     - name: 'Microsoft Graph-API:er'
       href: pim-apis.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Distribuera PIM
@@ -45,6 +45,8 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Hantera Azure AD-roller
       items:
+        - name: Funktionsuppdatering
+          href: azure-ad-roles-features.md
         - name: Tilldela roller
           href: pim-how-to-add-role-to-user.md
         - name: Godkänn förfrågningar

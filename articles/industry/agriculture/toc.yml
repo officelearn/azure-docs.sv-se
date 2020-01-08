@@ -1,42 +1,42 @@
 - name: Översikt
   items:
-    - name: Vad är FarmBeats?
-      href: overview.md
+    - name: Vad är Azure FarmBeats?
+      href: overview-azure-farmbeats.md
 - name: Självstudier
   expanded: true
   items:
     - name: Generera karta över jordfuktighet
-      href: generate-soil-moisture-map.md
+      href: generate-soil-moisture-map-in-azure-farmbeats.md
     - name: Mata in historiska telemetridata
-      href: ingest-historical-telemetry-data.md
+      href: ingest-historical-telemetry-data-in-azure-farmbeats.md
 - name: Begrepp
   items:
     - name: Integreringsmönster
-      href: integration-patterns.md
+      href: integration-patterns-in-azure-farmbeats.md
     - name: Sensorpartnerintegration
-      href: sensor-partner-integration.md
+      href: sensor-partner-integration-in-azure-farmbeats.md
     - name: Bildpartnerintegration
-      href: imagery-partner-integration.md
+      href: imagery-partner-integration-in-azure-farmbeats.md
 - name: Instruktionsguider
   items:
-    - name: Distribuera FarmBeats
-      href: prepare-for-deployment.md
+    - name: Installera Azure FarmBeats
+      href: install-azure-farmbeats.md
     - name: Hantera användare
-      href: manage-users.md
+      href: manage-users-in-azure-farmbeats.md
     - name: Hantera lantbruk
-      href: manage-farms.md
+      href: manage-farms-in-azure-farmbeats.md
     - name: Hämta sensordata
       href: get-sensor-data-from-sensor-partner.md
     - name: Generera kartor
-      href: generate-maps.md
+      href: generate-maps-in-azure-farmbeats.md
     - name: Konfigurera regler och hantera aviseringar
-      href: configure-rules-alerts.md
+      href: configure-rules-alerts-in-azure-farmbeats.md
     - name: Hämta drönarbilder
-      href: get-drone-imagery.md
+      href: get-drone-imagery-in-azure-farmbeats.md
 - name: Felsöka
   items:
-    - name: Felsöka FarmBeats
-      href: troubleshoot-project-farmbeats.md
+    - name: Felsöka Azure FarmBeats
+      href: troubleshoot-azure-farmbeats.md
 - name: Referens
   items: null
-  href: references-for-farmbeats.md
+  href: references-for-azure-farmbeats.md

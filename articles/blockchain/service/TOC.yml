@@ -37,7 +37,7 @@
       href: limits.md
     - name: 'Korrigering, uppdatering, versionshantering'
       href: ledger-versions.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Konfigurera Azure AD-åtkomst
       href: configure-aad.md
@@ -61,23 +61,23 @@
       href: data-manager-cosmosdb.md
 - name: Resurser
   items:
+    - name: Azure Blockchain dev kit
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: Blockchain REST API
       href: 'https://docs.microsoft.com/rest/api/blockchain/'
-    - name: Blogg
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Visual Studio Code-tillägg för Azure Blockchain Service
-      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: Kodexempel
       href: 'https://github.com/Azure-Samples/blockchain'
-    - name: Community
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Forum
+    - name: Blogg
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: MSDN-supportforum
       href: 'https://aka.ms/workbenchforum'
+    - name: Community-support
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Stack Overflow-support
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: Produktfeedback
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

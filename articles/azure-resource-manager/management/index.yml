@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Hantera resursdokumentation
+summary: Förstå hur du hanterar och använder resurser.
+metadata:
+  title: Dokumentation om Azure Resource Manager
+  description: Lär dig hur du utvecklar Azure Resource Manager-mallar och använder dem för att distribuera Azure-resurser
+  ms.service: azure-resource-manager
+  ms.subservice: management
+  ms.topic: landing-page
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: ba00994808e50f10c7153535f442e03f85fe2202
+  ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 01/04/2020
+  ms.locfileid: "75657945"
+landingContent:
+- title: Om Azure Resource Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Resource Manager?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Resource Manager och klassisk distribution
+      url: deployment-models.md
+- title: Om Azure-tjänster
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Prenumerations- och tjänstbegränsningar
+      url: azure-subscription-service-limits.md
+    - text: Resursprovidrar och resurstyper
+      url: resource-providers-and-types.md
+    - text: Resursprovidrar för varje Azure-tjänst
+      url: azure-services-resource-providers.md
+- title: Hantera resurser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Flytta mellan resursgrupper och prenumerationer
+      url: move-resource-group-and-subscription.md
+    - text: Flytta mellan regioner
+      url: move-region.md
+    - text: Tagga resurser
+      url: tag-resources.md
+    - text: Lås resurser
+      url: lock-resources.md
+    - text: Ta bort resursgrupper
+      url: delete-resource-group.md
+  - linkListType: reference
+    links:
+    - text: Stöd för att flytta
+      url: move-support-resources.md
+    - text: Stöd för taggar
+      url: tag-support.md
+    - text: Resursinstansgränser
+      url: resources-without-resource-group-limit.md
+- title: SDK:er och verktyg
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.resourcemanager
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.resources
+    - text: Python
+      url: /python/api/overview/azure/resources?view=azure-python
+- title: Spåra åtgärder
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visa aktivitetsloggar
+      url: view-activity-logs.md
+    - text: Begärandebegränsningar och begränsningar
+      url: request-limits-and-throttling.md
+    - text: Asynkrona åtgärder
+      url: async-operations.md

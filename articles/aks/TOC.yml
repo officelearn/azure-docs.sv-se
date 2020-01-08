@@ -104,7 +104,7 @@
       href: security-hardened-vm-host-image.md
     - name: Översikt över Azure Kubernetes Service-diagnostik
       href: concepts-diagnostics.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Klusteråtgärder
       items:
@@ -218,6 +218,8 @@
           maintainContext: true
         - name: Rotera certifikat
           href: certificate-rotation.md
+        - name: Skapa ett privat kluster
+          href: private-clusters.md
     - name: Övervakning och loggning
       items:
         - name: Azure Monitor för containrar
@@ -308,6 +310,9 @@
           href: gpu-cluster.md
         - name: Använda Azure Database for PostgreSQL
           href: ../postgresql/concepts-aks.md
+          maintainContext: true
+        - name: Använda Azure API Management
+          href: ../api-management/api-management-kubernetes.md
           maintainContext: true
     - name: Välja och distribuera ett tjänstnät
       items:

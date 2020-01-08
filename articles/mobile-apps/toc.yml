@@ -4,7 +4,7 @@
   items:
     - name: Översikt
       href: stages-overview.md
-    - name: Välj ramverk för mobilutveckling
+    - name: Välja ett ramverk för mobilutveckling
       href: front-end-development-platform.md
     - name: Planera och utforma en mobilapp med serverdelstjänster
       items:
@@ -14,7 +14,7 @@
           href: data-storage.md
         - name: Serverlös databearbetning
           href: serverless-compute.md
-        - name: Azure-lagring
+        - name: Azure Storage
           href: azure-storage.md
         - name: Realtidsappar
           href: real-time.md
@@ -32,7 +32,7 @@
           href: continuous-delivery.md
     - name: Analysera användning och användarbeteenden
       href: analytics.md
-    - name: Kraschrapporter i realtid
+    - name: Rapportering vid realtidshaveri
       href: diagnostics.md
     - name: Push-meddelanden
       href: push-notifications.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Azure Maps
       href: azure-maps.md
-    - name: Azure CDN
+    - name: Azure Content Delivery Network
       href: azure-cdn.md
     - name: Azure Cognitive Search
       href: azure-search.md

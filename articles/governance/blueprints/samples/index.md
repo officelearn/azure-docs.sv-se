@@ -1,14 +1,14 @@
 ---
 title: Index för skissexempel
 description: Index över efterlevnads- och standardexempel för distribution av miljöer, principer och ramverket för molnimplementering med Azure Blueprints.
-ms.date: 11/22/2019
+ms.date: 12/05/2019
 ms.topic: sample
-ms.openlocfilehash: ea8759db0fde7d6686acd3c58006be3f59adf6fd
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404133"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436569"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-exempel
 
@@ -21,6 +21,7 @@ Följande tabell innehåller länkar till exempel för Azure Blueprints. Alla ex
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Tillhandahåller riktlinjer för överensstämmelse med Kanadas PBMM (Protected B, Medium Integrity, Medium Availability). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Innehåller en uppsättning principer som hjälper dig att följa CIS Microsoft Azure Foundations Benchmark-rekommendationerna. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Tillhandahåller en uppsättning principer som hjälper dig att följa FedRAMP Moderate. |
+| [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | Tillhandahåller en uppsättning principer som hjälper dig att följa HIPAA HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Tillhandahåller efterlevnadsriktlinjer för ISO 1075.|
 | [ISO 27001](./iso27001/index.md) | Tillhandahåller efterlevnadsriktlinjer för ISO 27001. |
 | [ISO 27001 Delade tjänster](./iso27001-shared/index.md) | Tillhandahåller en uppsättning kompatibla infrastrukturmönster och principriktlinjer som hjälper dig med attesteringen för ISO 27001. |

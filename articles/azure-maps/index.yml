@@ -1,59 +1,172 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation för Azure Maps
+summary: Microsoft Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner fullmatade med de senaste mappningsdata som är tillgängliga för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en Azure One API-kompatibel uppsättning med API:er för kartor, sökning, routning, trafik, mobilitet, väder, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder med SDK:er för både webben och Android som gör utvecklingen enkel, flexibel och portabel på olika plattformar.
 metadata:
-  document_id: null
   title: Dokumentation för Azure Maps | Microsoft Docs
-  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
-  author: philmea
-  manager: null
+  description: Ta reda på mer om Azure Maps och hur du använder det för att tillhandahålla rumsliga tjänster till webben eller din mobilapp.
   ms.service: azure-maps
-  services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/14/2019
+  author: philmea
   ms.author: philmea
-abstract:
-  description: 'Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner fullmatade med de senaste mappningsdata som är tillgängliga för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en Azure One API-kompatibel uppsättning med API:er för kartor, sökning, routning, trafik, mobilitet, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder med SDK:er för både webben och Android som gör utvecklingen enkel, flexibel och portabel på olika plattformar.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du skapar geospatiala program med Azure Maps.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
-            text: Skapa en webbapp
-            href: /azure/azure-maps/quick-demo-map-app
-  - title: Steg för steg-självstudier
-    items:
-      - html: <b>Självstudier om webb-SDK</b>
-      - type: paragraph
-        text: 'Skapa geospatiala webbprogram med webb-SDK:er för Azure Maps.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/azure-maps/tutorial-search-location">Sök efter orienteringspunkter</a>
-          - html: <a href="/azure/azure-maps/tutorial-route-location">Dirigera till en orienteringspunkt</a>
-          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Vägar efter färdsätt</a>
-          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Skapa en butikslokaliserare</a>
-      - html: <b>Självstudier om REST-API</b>
-      - type: paragraph
-        text: Skapa geospatiala program som anropar Azure Maps REST-tjänsterna.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/azure-maps/tutorial-geofence">Konfigurera geofence</a>
-          - html: <a href="/azure/azure-maps/tutorial-iot-hub-maps">Rumslig analys</a>
-          - html: <a href=/azure/azure-maps/tutorial-ev-routing">EV-routning med Azure Notebooks (Python)</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsW
-        items:
-          - title: JavaScript
-            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kartkontroll</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/">Modul för ritningsverktyg</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-rest/">Tjänstmodul</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Datatjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geoplatstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">Mobilitetstjänsten</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routningstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Söktjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Rumslig tjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tidszonstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Trafiktjänst</a></p>'
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 66721caadce09816368d673c217c9bf97daf1b6c
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75408654"
+landingContent:
+- title: Om Azure Maps
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Maps?
+      url: about-azure-maps.md
+  - linkListType: concept
+    links:
+    - text: Azure Maps-täckning
+      url: render-coverage.md
+    - text: Lokaliseringsstöd
+      url: supported-languages.md
+    - text: Mappningsformat som stöds
+      url: supported-map-styles.md
+  - linkListType: video
+    links:
+    - text: Introduktion till Azure Maps
+      url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en webbapp med Azure Maps
+      url: quick-demo-map-app.md
+  - linkListType: concept
+    links:
+    - text: Välja rätt prisnivå för Maps-konto
+      url: choose-pricing-tier.md
+    - text: Autentisering med Azure Maps
+      url: azure-maps-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera Azure Maps-konton
+      url: how-to-manage-account-keys.md
+    - text: Hantera autentisering med Azure Maps
+      url: how-to-manage-authentication.md
+    - text: Hantera prisnivå för Azure Maps-konto
+      url: how-to-manage-pricing-tier.md
+    - text: Visa användningsstatistik för Azure Maps API
+      url: how-to-view-api-usage.md
+- title: Utveckla med Web SDK
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Komma igång med webbkartkontroll
+      url: how-to-use-map-control.md
+    - text: Exempel på koder för Azure Maps-webb-SDK
+      url: https://azuremapscodesamples.azurewebsites.net/
+    - text: Webbläsare som stöds av webb-SDK
+      url: supported-browsers.md
+  - linkListType: tutorial
+    links:
+    - text: Söka efter plats av intresse
+      url: tutorial-search-location.md
+    - text: Dirigera till en plats av intresse
+      url: tutorial-route-location.md
+    - text: Skapa en butikslokaliserare
+      url: tutorial-create-store-locator.md
+  - linkListType: reference
+    links:
+    - text: Kartkontroll
+      url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+    - text: Modul för ritningsverktyg
+      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+    - text: Tjänstmodul
+      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+- title: Utveckla med Android SDK
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Komma igång med Android-kartkontroll
+      url: how-to-use-android-map-control-library.md
+    - text: Visa metadatainformation för en funktion
+      url: display-feature-information-android.md
+    - text: Lägga till ett panelskikt till en karta
+      url: how-to-add-tile-layer-android-map.md
+    - text: Lägga till former till en karta
+      url: how-to-add-shapes-to-android-map.md
+- title: Utveckla med Location Based Services
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Zoomningsnivåer och vanliga rutnät
+      url: zoom-levels-and-tile-grid.md
+  - linkListType: tutorial
+    links:
+    - text: EV-routning med Azure Notebooks (Python)
+      url: tutorial-ev-routing.md
+  - linkListType: how-to-guide
+    links:
+    - text: Söka efter en adress (geokodning)
+      url: how-to-search-for-address.md
+    - text: Metodtips för sökning
+      url: how-to-use-best-practices-for-search.md
+    - text: Rendera anpassade data på statisk karta
+      url: how-to-render-custom-data.md
+  - linkListType: reference
+    links:
+    - text: Söktjänst
+      url: https://docs.microsoft.com/rest/api/maps/search
+    - text: Routningstjänst
+      url: https://docs.microsoft.com/rest/api/maps/route
+    - text: Trafiktjänst
+      url: https://docs.microsoft.com/rest/api/maps/traffic
+    - text: Tjänst för tidszoner
+      url: https://docs.microsoft.com/rest/api/maps/timezone
+- title: Rumslig analys
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Event Grid-integrering för Azure Maps
+      url: azure-maps-event-grid-integration.md
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera en geofence med hjälp av Azure Maps
+      url: tutorial-geofence.md
+    - text: Implementera rumslig IoT-analys med Azure Maps
+      url: tutorial-iot-hub-maps.md
+  - linkListType: reference
+    links:
+    - text: Datatjänst
+      url: https://docs.microsoft.com/rest/api/maps/data
+    - text: Rumslig tjänst
+      url: https://docs.microsoft.com/rest/api/maps/spatial
+- title: Utveckla med mobilitetstjänster
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Mobility Service-datastruktur
+      url: mobility-service-data-structure.md
+  - linkListType: how-to-guide
+    links:
+    - text: Begära rutter för kollektivtrafik
+      url: how-to-request-transit-data.md
+    - text: Begära data om kollektivtrafik i realtid
+      url: how-to-request-real-time-data.md
+  - linkListType: reference
+    links:
+    - text: Mobilitetstjänst
+      url: https://docs.microsoft.com/rest/api/maps/mobility
+- title: Utveckla med vädertjänster
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Begrepp för vädertjänster
+      url: weather-services-concepts.md
+  - linkListType: tutorial
+    links:
+    - text: Analysera väderdata med Azure Notebooks (Python)
+      url: weather-service-tutorial.md
+  - linkListType: reference
+    links:
+    - text: Vädertjänst
+      url: https://docs.microsoft.com/rest/api/maps/weather

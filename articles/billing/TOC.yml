@@ -3,6 +3,12 @@
 - name: Förstå Azure-faktureringen
   expanded: true
   items:
+    - name: Faktureringskonton och omfång
+      href: billing-view-all-accounts.md
+    - name: Faktureringskonton för Microsoft-kundavtal
+      href: billing-mca-overview.md
+    - name: Faktureringskonton för Microsofts partneravtal
+      href: mpa-overview.md
     - name: Förstå fakturan
       href: billing-understand-your-bill.md
     - name: Förstå din faktura – Microsofts kundavtal
@@ -29,10 +35,6 @@
       href: billing-mpa-invoice-terms-explained.md
     - name: Så här betalar du din faktura – Microsofts kundavtal
       href: billing-how-to-pay-bill.md
-    - name: Faktureringskonton för Microsoft-kundavtal
-      href: billing-mca-overview.md
-    - name: Faktureringskonton för Microsofts partneravtal
-      href: mpa-overview.md
 - name: Hantera kostnader
   items:
     - name: Undvik oväntade kostnader
@@ -147,8 +149,6 @@
       href: billing-understand-mca-roles.md
     - name: Länka partner-ID
       href: billing-partner-admin-link-started.md
-    - name: Visa faktureringskonton
-      href: billing-view-all-accounts.md
     - name: Ordna kostnader med fakturaavsnitt
       href: billing-mca-section-invoice.md
     - name: EA-uppgifter i Microsoft-kundavtal
@@ -216,7 +216,7 @@
     - name: Länka Azure AD-klient
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Begränsningar och kvoter
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Felsöka
   items:
     - name: Inga prenumerationer hittades

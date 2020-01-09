@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: e12fc5d92cfc850e1d049bc11286c0c863e718b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459182"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>Exportera säkerhets aviseringar och rekommendationer (för hands version)
 
@@ -41,7 +41,7 @@ Med de här verktygen kan du:
 
 1. I området "Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="continuous-export-through-azure-event-hubs"></a>Kontinuerlig export via Azure Event Hubs  
 
@@ -50,6 +50,8 @@ Med de här verktygen kan du:
 
 > [!NOTE]
 > Om du tidigare har exporterat Security Center aviseringar till en SIEM med hjälp av Azure aktivitets logg ersätter proceduren nedan metoden.
+
+Om du vill visa händelse scheman för de exporterade data typerna kan du gå till händelse [scheman för Event Hub](https://aka.ms/ASCAutomationSchemas).
 
 ### <a name="to-integrate-with-a-siem"></a>Integrera med en SIEM 
 
@@ -66,13 +68,17 @@ Om du använder **Azure Sentinel**använder du den interna Azure Security Center
 Om du vill flytta de kontinuerligt exporterade data automatiskt från den konfigurerade Händelsehubben till Azure Datautforskaren, använder du anvisningarna i mata in [data från händelsehubben till azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub).
 
 
-## <a name="continuous-export-to-log-analytics-workspace"></a>Löpande export till Log Analytics arbets yta
+## <a name="continuous-export-to-a-log-analytics-workspace"></a>Löpande export till en Log Analytics-arbetsyta
 
-För att kunna exportera till Log Analytics arbets ytan måste du ha Security Center kostnads fri eller standard Log Analytics-nivå som är aktive rad på din arbets yta. Om du använder Azure Portal aktive ras lösningen för Security Center kostnads fri nivå automatiskt när du aktiverar kontinuerlig export. Men om du konfigurerar dina inställningar för kontinuerlig export program mässigt måste du manuellt välja den kostnads fria eller standard pris nivån för den nödvändiga arbets ytan från **pris & inställningar**.  
+För att du ska kunna exportera till en Log Analytics arbets yta måste du ha Security Center kostnads fri eller standard Log Analytics-nivå som är aktive rad på din arbets yta. Om du använder Azure Portal aktive ras lösningen för Security Center kostnads fri nivå automatiskt när du aktiverar kontinuerlig export. Men om du konfigurerar dina inställningar för kontinuerlig export program mässigt måste du manuellt välja den kostnads fria eller standard pris nivån för den nödvändiga arbets ytan från **pris & inställningar**.  
 
-Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* respektive *SecurityRecommendations* . Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du är på nivån kostnads fri eller standard (se [prissättning](security-center-pricing.md)): säkerhet eller SecurityCenterFree.
+### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabeller och scheman
+
+Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* respektive *SecurityRecommendations* . Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du är på nivån kostnads fri eller standard (se [prissättning](security-center-pricing.md)): säkerhet (' säkerhet och granskning ') eller SecurityCenterFree.
 
 ![\* SecurityAlert *-tabellen i Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+Om du vill visa händelse scheman för de exporterade data typerna går du till [Log Analytics tabell scheman](https://aka.ms/ASCAutomationSchemas).
 
 ###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Visa exporterade säkerhets aviseringar och rekommendationer i Azure Monitor
 
@@ -86,7 +92,7 @@ Om du vill visa aviseringar och rekommendationer från Security Center i Azure M
 
     ![Azure Monitor sidan aviseringar](./media/continuous-export/azure-monitor-alerts.png)
 
-1. På sidan Skapa regel konfigurerar du din nya regel (på samma sätt som du konfigurerar en [logg aviserings regel i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+1. På sidan Skapa regel konfigurerar du din nya regel (på samma sätt som du konfigurerar en [logg varnings regel i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)):
 
     * För **resurs**väljer du den Log Analytics arbets yta som du exporterade säkerhets aviseringar och rekommendationer till.
 
@@ -104,7 +110,7 @@ Om du vill ladda ned en CSV-rapport för aviseringar eller rekommendationer öpp
 [![Hämta aviserings data som en CSV-fil](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
-> Dessa rapporter innehåller aviseringar och rekommendationer för resurser från de valda prenumerationerna i katalog-och prenumerations filtret i Azure-portalen: ![filtret för att välja katalog + prenumeration](./media/continuous-export/filter-for-export-csv.png)
+> De här rapporterna innehåller aviseringar och rekommendationer för resurser från de för tillfället valda prenumerationerna.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -115,3 +121,4 @@ Information om relaterade material finns i följande dokumentation:
 - [Dokumentation om Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
 - [Dokumentation om Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Dokumentation om Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Scheman för arbets flödes automatisering och kontinuerlig export av data typer](https://aka.ms/ASCAutomationSchemas)

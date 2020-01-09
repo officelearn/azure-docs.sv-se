@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: c29e687a787e59a03bb6825493d808ba036a1d68
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b28e09b2d304dc392442d98fe39654bab2c8d09c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975371"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645063"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service är en hjälptjänst för IoT Hub som möjliggör zero-touch och just-in-time-etablering till rätt IoT-hubb utan mänsklig interaktion, vilket gör att kunder kan etablera miljontals enheter på ett säkert och skalbart sätt.
@@ -111,7 +111,7 @@ Varje Azure-prenumeration har standardkvotgränser som kan påverka IoT-lösning
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 Mer information om kvotgränser:
-* [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md)
+* [Tjänstbegränsningar för Azure-prenumeration](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Relaterade Azure-komponenter
 Device Provisioning Service automatiserar enhetsetablering med Azure IoT Hub. Läs mer om [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).

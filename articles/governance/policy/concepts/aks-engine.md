@@ -3,16 +3,16 @@ title: Lär dig Azure Policy för AKS-motorn
 description: Lär dig hur Azure Policy använder CustomResourceDefinitions och öppna Policy Agent från Gatekeeper v3 för att hantera kluster med AKS-motorn.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436430"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Förstå Azure Policy för AKS-motorn
 
-Azure Policy integreras med [AKS-motorn](https://github.com/Azure/aks-engine/blob/master/docs/README.md), ett system som ger bekväm verktyg för att snabbt kunna starta ett självhanterat Kubernetes-kluster på Azure. Den här integrationen möjliggör vid skalnings-och säkerhets åtgärder i AKS-motorns självhanterade kluster på ett centraliserat, konsekvent sätt. Genom att utöka användningen av OPA ( [Open Policy Agent](https://www.openpolicyagent.org/) ) [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3 (beta), en _webhook för Admission controller_ för Kubernetes, gör Azure policy det möjligt att hantera och rapportera efterlevnaden av dina Azure-resurser och AKS-motorn själv hanterade kluster från en plats.
+Azure Policy integreras med [AKS-motorn](https://github.com/Azure/aks-engine/blob/master/docs/README.md), ett system som ger bekväm verktyg för att snabbt kunna starta ett självhanterat Kubernetes-kluster på Azure. Den här integrationen möjliggör vid skalnings-och säkerhets åtgärder i AKS-motorns självhanterade kluster på ett centraliserat, konsekvent sätt. Genom att utöka användningen av OPA ( [Open Policy Agent](https://www.openpolicyagent.org/) ) [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3 (beta), en _webhook för Admission controller_ för Kubernetes, gör Azure policy det möjligt att hantera och rapportera om kompatibilitetstillstånd för dina Azure-resurser och AKS-motorns självhanterade kluster från en och samma plats.
 
 > [!NOTE]
 > Azure Policy för AKS-motorn är i offentlig för hands version och har inget service avtal. Gatekeeper v3 är i beta och stöds av communityn för öppen källkod. Tjänsten stöder bara inbyggda princip definitioner och ett enda AKS motor kluster för varje resurs grupp som kon figurer ATS med ett huvud namn för tjänsten.
@@ -29,11 +29,11 @@ Utför följande åtgärder för att aktivera och använda Azure Policy för AKS
 - [Tilldela en princip definition för AKS-motorn](#built-in-policies)
 - [Vänta på verifiering](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. PolicyInsights** Resource Provider och skapa en roll tilldelning för kluster tjänstens huvud namn. 
 
-1. Om du vill aktivera resurs leverantören följer du stegen i [resurs leverantörer och typer](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) eller kör antingen Azure CLI-eller Azure PowerShell-kommandot:
+1. Om du vill aktivera resurs leverantören följer du stegen i [resurs leverantörer och typer](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) eller kör antingen Azure CLI-eller Azure PowerShell-kommandot:
 
    - Azure CLI
 
@@ -233,7 +233,7 @@ Om du vill ta bort Azure Policy-tillägget och Gatekeeper från ditt AKS-motor k
 
   1. Ta bort gamla begränsningar
 
-     För närvarande tar avinstallations mekanismen bara bort Gatekeeper-systemet, det tar inte bort några _ConstraintTemplate_-, _begränsnings_-eller _konfigurations_ resurser som har skapats av användaren eller tar bort sina tillhör ande _CRDs_ .
+     För närvarande tar avinstallations mekanismen bara bort Gatekeeper-systemet, det tar inte bort några _ConstraintTemplate_-, _begränsnings_-eller _konfigurations_ resurser som har skapats av användaren eller tar bort sina tillhör ande _CRDs_.
 
      När Gatekeeper körs är det möjligt att ta bort oönskade begränsningar genom att:
 

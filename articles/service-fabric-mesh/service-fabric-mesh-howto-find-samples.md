@@ -1,20 +1,14 @@
 ---
-title: Hitta Azure Service Fabric Mesh-exempel | Microsoft Docs
+title: Hitta Azure Service Fabric nät-exempel
 description: Här är ett index över tillgängliga Service Fabric nät-exempel program. Källkoden i de här exemplen visar hur du uppnår ett visst scenario med hjälp av Service Fabric-resursmodellen.
-services: service-fabric-mesh
-keywords: ''
-author: athinanthny
-ms.author: atsenthi
 ms.date: 12/03/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chackdan
-ms.openlocfilehash: a300c06a6a18bf2e986b3736b78957daf3d7efd6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c944ddc26f2e2d099cf9552acb8287c363d0c768
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461902"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Hitta Service Fabric Mesh-exempel
 

@@ -2,17 +2,17 @@
 title: Vad är Azure Private Link service?
 description: Lär dig mer om Azure Private Link service.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912984"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647381"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -68,7 +68,7 @@ En privat länk-tjänst anger följande egenskaper:
  
 - En enda privat länk-tjänst kan nås från flera privata slut punkter som tillhör olika virtuella nätverk, prenumerationer och/eller Active Directory klienter. Anslutningen upprättas via ett anslutnings arbets flöde. 
  
-- Det går att skapa flera privata länk tjänster på samma Standard Load Balancer att använda olika klient dels-IP-konfigurationer. Det finns gränser för antalet privata länk tjänster som du kan skapa per Standard Load Balancer och per prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Det går att skapa flera privata länk tjänster på samma Standard Load Balancer att använda olika klient dels-IP-konfigurationer. Det finns gränser för antalet privata länk tjänster som du kan skapa per Standard Load Balancer och per prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
  
 - Privata länk tjänster kan ha mer än en länkad NAT-IP-konfiguration. Om du väljer fler än en NAT IP-konfiguration kan tjänst leverantörer skalas. Idag kan tjänst leverantörer tilldela upp till åtta NAT IP-adresser per privat länk tjänst. Med varje NAT-IP-adress kan du tilldela fler portar för dina TCP-anslutningar och därmed skala ut. När du har lagt till flera NAT IP-adresser i en privat länk-tjänst kan du inte ta bort NAT-IP-adresserna. Detta görs för att säkerställa att aktiva anslutningar inte påverkas när du tar bort NAT-IP-adresser.
 

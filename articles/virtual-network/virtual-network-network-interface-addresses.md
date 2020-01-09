@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 7df58c3f866ffd28348ecfa2e43bdccbd1d96001
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965702"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647262"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverks gränssnitt
 
@@ -43,7 +43,7 @@ Det konto som du loggar in på, eller ansluter till Azure med, måste tilldelas 
 
 ## <a name="add-ip-addresses"></a>Lägg till IP-adresser
 
-Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv4](#ipv4) -adresser som behövs för ett nätverks gränssnitt inom de gränser som anges i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . Du kan lägga till en privat IPv6-adress till en [sekundär IP-konfiguration](#secondary) (så länge det inte finns några befintliga sekundära IP-konfigurationer) för ett befintligt nätverks gränssnitt. Varje nätverks gränssnitt får ha högst en privat IPv6-adress. Du kan också lägga till en offentlig IPv6-adress till en IPv6-nätverks gränssnitts konfiguration. Se [IPv6](#ipv6) för information om hur du använder IPv6-adresser.
+Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv4](#ipv4) -adresser som behövs för ett nätverks gränssnitt inom de gränser som anges i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . Du kan lägga till en privat IPv6-adress till en [sekundär IP-konfiguration](#secondary) (så länge det inte finns några befintliga sekundära IP-konfigurationer) för ett befintligt nätverks gränssnitt. Varje nätverks gränssnitt får ha högst en privat IPv6-adress. Du kan också lägga till en offentlig IPv6-adress till en IPv6-nätverks gränssnitts konfiguration. Se [IPv6](#ipv6) för information om hur du använder IPv6-adresser.
 
 1. Skriv *nätverks gränssnitt*i rutan som innehåller text *Sök resurserna* överst i Azure Portal. När **nätverks gränssnitt** visas i Sök resultaten väljer du det.
 2. Välj det nätverks gränssnitt som du vill lägga till en IPv4-adress för från listan.
@@ -56,7 +56,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
    |Namn|Ja|Måste vara unikt för nätverks gränssnittet|
    |Typ|Ja|Eftersom du lägger till en IP-konfiguration i ett befintligt nätverks gränssnitt, och varje nätverks gränssnitt måste ha en [primär](#primary) IP-konfiguration, är ditt enda alternativ **sekundärt**.|
    |Tilldelnings metod för privat IP-adress|Ja|[**Dynamisk**](#dynamic): Azure tilldelar nästa tillgängliga adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i. [**Statisk**](#static): du tilldelar en oanvänd adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i.|
-   |Offentlig IP-adress|Nej|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
+   |Offentlig IP-adress|Inga|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
 6. Lägg till sekundära privata IP-adresser manuellt i operativ systemet för den virtuella datorn genom att följa anvisningarna i artikeln [tilldela flera IP-adresser till operativ systemen för virtuella datorer](virtual-network-multiple-ip-addresses-portal.md#os-config) . Se [privata](#private) IP-adresser för särskilda överväganden innan du manuellt lägger till IP-adresser i ett operativ system för virtuella datorer. Lägg inte till några offentliga IP-adresser i operativ systemet för den virtuella datorn.
 
 **Kommandon**
@@ -68,7 +68,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 
 ## <a name="change-ip-address-settings"></a>Ändra inställningar för IP-adress
 
-Du kan behöva ändra tilldelnings metoden för en IPv4-adress, ändra den statiska IPv4-adressen eller ändra den offentliga IP-adress som tilldelats till ett nätverks gränssnitt. Om du ändrar den privata IPv4-adressen för en sekundär IP-konfiguration som är kopplad till ett sekundärt nätverks gränssnitt på en virtuell dator (Läs mer om [primära och sekundära nätverks gränssnitt](virtual-network-network-interface-vm.md)) placerar du den virtuella datorn i stoppat ( friallokerat) tillstånd innan följande steg slutförs:
+Du kan behöva ändra tilldelnings metoden för en IPv4-adress, ändra den statiska IPv4-adressen eller ändra den offentliga IP-adress som tilldelats till ett nätverks gränssnitt. Om du ändrar den privata IPv4-adressen för en sekundär IP-konfiguration som är kopplad till ett sekundärt nätverks gränssnitt på en virtuell dator (Läs mer om [primära och sekundära nätverks gränssnitt](virtual-network-network-interface-vm.md)) placerar du den virtuella datorn i läget Stoppad (Frigjord) innan du slutför följande steg:
 
 1. Skriv *nätverks gränssnitt*i rutan som innehåller text *Sök resurserna* överst i Azure Portal. När **nätverks gränssnitt** visas i Sök resultaten väljer du det.
 2. Välj det nätverks gränssnitt som du vill visa eller ändra inställningar för IP-adress för i listan.
@@ -118,7 +118,7 @@ Varje nätverks gränssnitt tilldelas en primär IP-konfiguration. En primär IP
 
 Förutom en primär IP-konfiguration kan ett nätverks gränssnitt ha noll eller flera sekundära IP-konfigurationer kopplade till den. En sekundär IP-konfiguration:
 
-- Måste ha en privat IPv4-eller IPv6-adress tilldelad. Om adressen är IPv6 kan nätverks gränssnittet bara ha en sekundär IP-konfiguration. Om adressen är IPv4 kan nätverks gränssnittet ha flera sekundära IP-konfigurationer kopplade till den. Mer information om hur många privata och offentliga IPv4-adresser som kan tilldelas till ett nätverks gränssnitt finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) .
+- Måste ha en privat IPv4-eller IPv6-adress tilldelad. Om adressen är IPv6 kan nätverks gränssnittet bara ha en sekundär IP-konfiguration. Om adressen är IPv4 kan nätverks gränssnittet ha flera sekundära IP-konfigurationer kopplade till den. Mer information om hur många privata och offentliga IPv4-adresser som kan tilldelas till ett nätverks gränssnitt finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) .
 - Kan även ha tilldelats en offentlig IPv4-eller IPv6-adress. Att tilldela flera IPv4-adresser till ett nätverks gränssnitt är användbart i scenarier som:
   - Du kan hantera flera webbplatser eller tjänster med olika IP-adresser och SSL-certifikat på en enda server.
   - En virtuell dator som fungerar som en virtuell nätverks installation, till exempel en brand vägg eller belastningsutjämnare.
@@ -150,11 +150,11 @@ Genom att följa föregående steg, är den privata IP-adress som tilldelats nä
 
 Förutom att aktivera en virtuell dator för att kommunicera med andra resurser inom samma eller anslutna virtuella nätverk, kan en privat IP-adress också göra det möjligt för en virtuell dator att kommunicera utgående till Internet. Utgående anslutningar är käll nätverks adress som översätts av Azure till en oförutsägbar offentlig IP-adress. Läs mer om Azure utgående Internet-anslutning i artikeln om [Azure utgående Internet anslutning](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan inte kommunicera inkommande till den virtuella datorns privata IP-adress från Internet. Om dina utgående anslutningar kräver en förutsägbar offentlig IP-adress, associerar du en offentlig IP-adressresurs till ett nätverks gränssnitt.
 
-### <a name="public"></a>Offentligt
+### <a name="public"></a>Offentlig
 
 Offentliga IP-adresser som tilldelats via en offentlig IP-adressresurs möjliggör inkommande anslutning till en virtuell dator från Internet. Utgående anslutningar till Internet använder en förutsägbar IP-adress. Mer information finns i [förstå utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan tilldela en offentlig IP-adress till en IP-konfiguration, men krävs inte för. Om du inte tilldelar en offentlig IP-adress till en virtuell dator genom att associera en offentlig IP-adressresurs, kan den virtuella datorn fortfarande kommunicera utgående till Internet. I det här fallet är den privata IP-adressen käll nätverks adress översatt av Azure till en oförutsägbar offentlig IP-adress. Mer information om offentliga IP-adressresurser finns i [offentlig IP](virtual-network-public-ip-address.md)-adressresurs.
 
-Det finns gränser för antalet privata och offentliga IP-adresser som du kan tilldela till ett nätverks gränssnitt. Mer information finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) .
+Det finns gränser för antalet privata och offentliga IP-adresser som du kan tilldela till ett nätverks gränssnitt. Mer information finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) .
 
 > [!NOTE]
 > Azure översätter en virtuell dators privata IP-adress till en offentlig IP-adress. Därför är en virtuell dators operativ system inte medvetna om någon offentlig IP-adress som tilldelats den, så det finns inget behov av att manuellt tilldela en offentlig IP-adress i operativ systemet.
@@ -181,7 +181,7 @@ Du kan (valfritt) tilldela en offentlig eller privat statisk IPv4-eller IPv6-adr
 
 Du kan ange följande versioner när du tilldelar adresser:
 
-### <a name="ipv4"></a>IPv6
+### <a name="ipv4"></a>IPv4
 
 Varje nätverks gränssnitt måste ha en [primär](#primary) IP-konfiguration med en tilldelad [privat](#private) [IPv4](#ipv4) -adress. Du kan lägga till en eller flera [sekundära](#secondary) IP-konfigurationer som var och en har en IPv4-privat och (valfritt) en [offentlig](#public) IPv4-IP-adress.
 

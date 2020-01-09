@@ -6,18 +6,18 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499381"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660808"
 ---
 # <a name="what-is-azure-data-share"></a>Vad är Azure Data Share?
 
 I dagens värld visas data som en viktig strategisk till gång som många organisationer behöver för att enkelt och säkert dela med sina kunder och partners. Det finns många sätt för kunderna att göra detta idag, inklusive via FTP, e-post och API: er för att ge några. Organisationer kan enkelt förlora vem de har delat med sig av sina data med. Att dela data via FTP eller genom att skapa sin egen API-infrastruktur är ofta kostsamt att etablera och administrera. Det finns hanterings kostnader för att använda dessa metoder för delning i stor skala. 
 
-Många organisationer måste vara konto bara för de data som de har delat. Förutom ansvar skulle många organisationer vilja kunna styra, hantera och övervaka all sin data delning på ett enkelt sätt. I dagens värld, där data förväntas växa i en exponentiell takt, behöver organisationer ett enkelt sätt att dela Big data. Kunder efterfrågar de senaste data som krävs för att säkerställa att de kan komma i rätt tid.
+Många organisationer måste vara konto bara för de data som de har delat. Förutom ansvar skulle många organisationer vilja kunna styra, hantera och övervaka all sin data delning på ett enkelt sätt. I dagens värld, där data förväntas fortsätta att växa i en exponentiell takt, behöver organisationer ett enkelt sätt att dela Big data. Kunder efterfrågar de senaste data som krävs för att säkerställa att de kan komma i rätt tid.
 
 Azure Data Share gör det möjligt för organisationer att enkelt och säkert dela data med flera kunder och partner. Med bara några klick kan du etablera ett nytt data delnings konto, lägga till data uppsättningar och bjuda in kunder och partner till din data resurs. Data leverantörer har alltid kontroll över de data som de har delat. Azure Data Share gör det enkelt att hantera och övervaka vilka data som delades, när och av vem. 
 
@@ -47,7 +47,7 @@ Data leverantörer kan erbjuda sina data konsumenters stegvisa uppdateringar av 
 
 När en data konsument accepterar en data resurs kan de ta emot data i ett valfritt data lager. Om dataprovidern t. ex. delar data med Azure Blob Storage kan data konsumenten ta emot dessa data i Azure Data Lake Store. Om data leverantören delar data från en Azure SQL Data Warehouse kan data konsumenten välja om de vill ta emot data i en Azure Data Lake Store, en Azure SQL Database eller en Azure SQL Data Warehouse. Vid delning från SQL-baserade källor kan data konsumenten även välja om de ska ta emot data i Parquet eller CSV. 
 
-Delning på plats är för närvarande en begränsad för hands version för Azure Datautforskaren. Data leverantörer kan dela data där de finns, utan data förflyttning via en symbolisk länk. Registrera dig för den begränsade för hands versionen av delning på plats för Azure Datautforskaren [här](https://aka.ms/azuredatasharepreviewsignup). 
+Delning på plats är för närvarande en begränsad för hands version för Azure Datautforskaren. Data leverantörer kan dela data där de finns, utan data förflyttning via en symbolisk länk. Registrera dig för den begränsade för hands versionen av Azure Datautforskaren som du delar på plats [här](https://aka.ms/azuredatasharepreviewsignup). 
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 

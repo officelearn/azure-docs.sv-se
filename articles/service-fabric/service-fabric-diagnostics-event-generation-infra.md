@@ -1,102 +1,93 @@
 ---
-title: Azure Service Fabric-plattformen nivå övervakning | Microsoft Docs
-description: Läs mer om händelser på plattformsnivå och loggar som används för att övervaka och diagnostisera Azure Service Fabric-kluster.
-services: service-fabric
-documentationcenter: .net
+title: Övervakning av Azure Service Fabric-plattforms nivå
+description: Lär dig mer om händelser och loggar på plattforms nivå som används för att övervaka och diagnostisera Azure Service Fabric-kluster.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: cbdbedf32e8a3dad85262f287b27a03df780d95a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393069"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376944"
 ---
 # <a name="monitoring-the-cluster"></a>Övervaka klustret
 
-Det är viktigt att övervaka på klusternivå att avgöra om maskinvaran och klustret fungerar som förväntat. Även om Service Fabric kan hålla program som körs under ett maskinvarufel, men du fortfarande behöver diagnostisera om ett fel uppstår i ett program eller i den underliggande infrastrukturen. Även bör du övervaka dina kluster att bättre Planera kapaciteten, att hjälpa till att fatta beslut om att lägga till eller ta bort maskinvara.
+Det är viktigt att övervaka på kluster nivå för att avgöra om maskin varan och klustret fungerar som förväntat. Även om Service Fabric kan hålla program som körs under ett maskin varu fel, men du måste fortfarande diagnostisera om ett fel inträffar i ett program eller i den underliggande infrastrukturen. Du bör också övervaka dina kluster för att bättre planera för kapacitet och hjälpa till med beslut om att lägga till eller ta bort maskin vara.
 
-Service Fabric visar flera strukturerade plattformshändelser som [Service Fabric händelser](service-fabric-diagnostics-events.md), via EventStore och olika log kanaler out-of the box. 
+Service Fabric visar flera strukturerade plattforms händelser, som [Service Fabric händelser](service-fabric-diagnostics-events.md), via EventStore och olika logg kanaler direkt. 
 
-På Windows, Service Fabric-händelser är tillgängliga från en enda ETW-provider med en uppsättning relevanta `logLevelKeywordFilters` används för att välja mellan drift och Data & Messaging kanaler – detta är det sättet som vi skilja ut utgående Service Fabric-händelser som ska filtreras på efter behov.
+I Windows är Service Fabric-händelser tillgängliga från en enda ETW-Provider med en uppsättning relevanta `logLevelKeywordFilters` som används för att välja mellan drift-och data & meddelande kanaler – det här är hur vi avgränsar utgående Service Fabric händelser som ska filtreras efter behov.
 
-* **Operativa** övergripande åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som dyker upp, ett nytt program som ska distribueras eller en uppgradering återställning osv. Se en fullständig lista över händelser [här](service-fabric-diagnostics-event-generation-operational.md).  
+* **Drift** Hög nivå åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som kommer, ett nytt program som distribueras eller en uppgraderings återställning osv. Se den fullständiga listan med händelser [här](service-fabric-diagnostics-event-generation-operational.md).  
 
-* **Operativa – detaljerad**  
-Rapporter om hälsotillstånd och belastningsutjämning beslut.
+* **Drift – detaljerad**  
+Hälso rapporter och beslut om belastnings utjämning.
 
-Åtgärden kanalen kan nås via en mängd olika sätt, inklusive ETW/Windows-händelseloggar, den [EventStore](service-fabric-diagnostics-eventstore.md) (tillgänglig på Windows i versioner 6.2 och senare för Windows-kluster). EventStore får du tillgång till ditt kluster händelser på basis av per entitet (entiteter, inklusive kluster, noder, program, tjänster, partitioner, repliker och behållare) och visar dem via REST API: er och Service Fabric-klientbiblioteket. Använda EventStore för att övervaka dina kluster för utveckling/testning, och för att hämta en point-in-time-förståelse för tillståndet för din produktionskluster.
+Åtgärds kanalen kan nås via en mängd olika sätt, t. ex. ETW/Windows-händelseloggar, [EventStore](service-fabric-diagnostics-eventstore.md) (tillgängligt i Windows i version 6,2 och senare för Windows-kluster). EventStore ger dig åtkomst till klustrets händelser per entitet (entiteter, till exempel kluster, noder, program, tjänster, partitioner, repliker och behållare) och exponerar dem via REST-API: er och Service Fabric klient bibliotek. Använd EventStore för att övervaka dina dev/test-kluster och för att få en tidpunkts förståelse av statusen för dina produktions kluster.
 
 * **Data & meddelanden**  
-Kritiska loggar och händelser som genererats i meddelanden (för närvarande endast ReverseProxy) och datasökväg (tillförlitliga tjänster modeller).
+Kritiska loggar och händelser som genererats i meddelande tjänsten (för närvarande endast ReverseProxy) och data Sök väg (Reliable Services-modeller).
 
-* **Data & meddelanden - detaljerad**  
-Utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret (den här kanalen har ett mycket stort antal händelser).
+* **Data & meddelanden – detaljerat**  
+Utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret (denna kanal har en mycket hög mängd händelser).
 
-Förutom dessa kan finns det två strukturerade EventSource kanaler, samt loggar som vi samlar in för support.
+Förutom dessa finns det två strukturerade EventSource-kanaler, samt loggar som vi samlar in för support syfte.
 
 * [Reliable Services-händelser](service-fabric-reliable-services-diagnostics.md)  
-Programmering modellen specifika händelser.
+Programmerings modell för vissa händelser.
 
 * [Reliable Actors-händelser](service-fabric-reliable-actors-diagnostics.md)  
-Programmering modellen specifika händelser och prestandaräknare.
+Programmerings modell för vissa händelser och prestanda räknare.
 
-* Supportloggar  
-Systemloggar som genereras av Service Fabric endast ska användas av oss om att tillhandahålla support.
+* Support loggar  
+System loggar som genereras av Service Fabric bara användas av oss när de tillhandahåller support.
 
-Dessa olika kanaler täcker det mesta av plattform på loggning som rekommenderas. För att förbättra plattformen på loggning kan investera i bättre förstå hälsomodellen och lägger till anpassade hälsorapporter och lägga till anpassade **prestandaräknare** att skapa en i realtid förståelse om effekten av din tjänster och program i klustret.
+Dessa olika kanaler avser de flesta av plattforms nivå loggning som rekommenderas. För att förbättra plattforms nivå loggningen bör du överväga att investera i bättre förståelse för hälso modellen och lägga till anpassade hälso rapporter och lägga till anpassade **prestanda räknare** för att skapa en real tids förståelse av konsekvenserna av dina tjänster och program i klustret.
 
-För att kunna dra nytta av de här loggarna, rekommenderas att lämna ”diagnostik” aktiverat när klustret skapas i Azure Portal. Genom att aktivera diagnostik, när klustret distribueras kan Windows Azure-diagnostik kan bekräfta de drift, Reliable Services och Reliable actors-kanaler och lagra data som beskrivs ytterligare i [sammanfatta händelser med Azure Diagnostik](service-fabric-diagnostics-event-aggregation-wad.md).
+För att kunna använda dessa loggar, rekommenderar vi starkt att du lämnar "diagnostik" aktiverat när klustret skapas i Azure-portalen. Genom att aktivera diagnostik, när klustret har distribuerats, kan Windows Azure-diagnostik bekräfta de operativa, Reliable Services och pålitliga aktörernas kanaler, och lagra data som förklaras ytterligare i [mängd händelser med Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md).
 
-## <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabrics hälsa och load rapportering
+## <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric Health och inläsnings rapportering
 
-Service Fabric har sin egen hälsomodellen som beskrivs i detalj i de här artiklarna:
+Service Fabric har en egen hälso modell som beskrivs i detalj i de här artiklarna:
 
-- [Introduktion till Service Fabric-hälsoövervakning](service-fabric-health-introduction.md)
+- [Introduktion till Service Fabric Health Monitoring](service-fabric-health-introduction.md)
 - [Rapportera och kontrollera hälsan hos tjänster](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-- [Lägg till anpassade hälsorapporter i Service Fabric](service-fabric-report-health.md)
-- [Visa hälsorapporter i Service Fabric](service-fabric-view-entities-aggregated-health.md)
+- [Lägg till anpassade Service Fabric hälso rapporter](service-fabric-report-health.md)
+- [Visa Service Fabric hälso rapporter](service-fabric-view-entities-aggregated-health.md)
 
-Övervakning av hälsotillstånd är viktigt att flera aspekter av driften av en tjänst, särskilt under en uppgradering av programmet. När varje uppgraderingsdomän för tjänsten har uppgraderats måste uppgraderingsdomänen klara hälsokontroller innan distributionen går vidare till nästa uppgraderingsdomän. Om OK hälsostatus inte uppnås, återställs distributionen, så att programmet finns kvar i ett känt OK tillstånd. Även om vissa kunder kan påverkas innan tjänsterna återställs, drabbas de flesta kunder inte av problemet. Dessutom inträffar en upplösning relativt snabbt utan att behöva vänta tills åtgärden från en mänsklig operatör. De mer hälsokontroller av slutpunkter som ingår i din kod mer robust du din tjänst är att distributionsproblem.
+Hälso övervakning är avgörande för flera aspekter av driften av en tjänst, särskilt under en program uppgradering. När varje uppgraderings domän för tjänsten uppgraderas måste uppgraderings domänen klara hälso kontroller innan distributionen flyttas till nästa uppgraderings domän. Om OK-hälsostatus inte kan uppnås återställs distributionen, så att programmet förblir i ett känt OK-tillstånd. Även om vissa kunder kan påverkas innan tjänsterna återställs, kommer de flesta kunder inte att uppleva ett problem. Dessutom uppstår en lösning relativt snabbt utan att behöva vänta på åtgärd från en mänsklig operatör. De mer hälso kontroller som ingår i din kod, desto mer elastiska tjänsten är till distributions problem.
 
-En annan aspekt av tjänstehälsa rapporterar mått från tjänsten. Mått som är viktiga i Service Fabric eftersom de avser att balansera Resursanvändning. Mått kan också vara ett tecken på filsystemets hälsa. Exempelvis kan du kanske ett program som har många tjänster och varje instans rapporterar en begäranden per sekund (RPS)-mått. Om en tjänst använder fler resurser än en annan tjänst, flyttar Service Fabric-tjänstinstanser hela klustret, att underhålla även resursutnyttjande. En mer detaljerad förklaring av hur resursanvändningen fungerar, se [hantera resursförbrukning och läsa in i Service Fabric med mått](service-fabric-cluster-resource-manager-metrics.md).
+En annan aspekt av tjänste hälsan är rapporterings mått från tjänsten. Mått är viktiga i Service Fabric eftersom de används för att utjämna resursanvändningen. Mått kan också vara en indikator för system hälsan. Du kan till exempel ha ett program som har många tjänster och varje instans rapporterar ett RPS-mått (begär Anden per sekund). Om en tjänst använder fler resurser än en annan tjänst, Service Fabric flyttar tjänst instanser runt klustret, för att försöka upprätthålla även resursutnyttjande. En mer detaljerad förklaring av hur resursutnyttjande fungerar finns i [Hantera resursförbrukning och belastning i Service Fabric med mått](service-fabric-cluster-resource-manager-metrics.md).
 
-Mått också kan ge dig insyn i hur tjänsten fungerar. Du kan använda mått med tiden för att kontrollera att tjänsten fungerar inom förväntade parametrar. Till exempel om trender visar att genomsnittliga RPS kl. 9 måndag morgon är 1 000, kan sedan du konfigurera en hälsorapport som varnar dig om RPS är under 500 eller högre än 1 500. Allt kanske perfekt bra, men det kan vara värt att titta på att säkerställa att dina kunder vill ha en bra upplevelse. Din tjänst kan definiera en uppsättning mått som rapporteras för health kontrollen, men som inte påverkar resource fördelningen av klustret. Gör detta genom att ange tjänstmåttets vikt till noll. Vi rekommenderar att du börjar alla mått med en vikt på noll och inte ökar vikten tills du är säker på att du förstår hur viktning måtten påverkar resurser för klustret.
+Mått kan också hjälpa dig att ge dig insikter om hur tjänsten presterar. Med tiden kan du använda mått för att kontrol lera att tjänsten körs i förväntade parametrar. Om till exempel trender visar att kl. 9 AM på måndag morgon den genomsnittliga RPS är 1 000, kan du skapa en hälso rapport som varnar dig om RPS är lägre än 500 eller högre än 1 500. Allt kan vara helt fint, men det kan vara värt att se till att kunderna har en bra upplevelse. Tjänsten kan definiera en uppsättning mått som kan rapporteras för hälso kontroll, men som inte påverkar resurs utjämning av klustret. Det gör du genom att ställa in måttets vikt på noll. Vi rekommenderar att du startar alla mått med en vikt på noll och inte ökar vikten tills du är säker på att du förstår hur viktningen av måtten påverkar resurs utjämning för klustret.
 
 > [!TIP]
-> Använd inte för många viktad mått. Det kan vara svårt att förstå varför instanser av tjänsten flyttas för belastningsutjämning. Några mått kan vara till stor hjälp!
+> Använd inte för många viktade mått. Det kan vara svårt att förstå varför tjänst instanser flyttas runt för balansering. Några mått kan vara mycket bra!
 
-All information som kan tyda på hälsotillstånd och prestanda för ditt program är en kandidat för mått och hälsorapporter. **En CPU-prestandaräknare vet du hur noden används, men den säger inte du en viss tjänst är felfri, eftersom flera tjänster kan köras på en enda nod.** Men, mått som RPS, artiklar som ska bearbetas, och alla svarstid för begäran kan indikerar tillståndet för en specifik tjänst.
+All information som kan indikera hälso tillstånd och prestanda för ditt program är en kandidat för mått och hälso rapporter. **En processor prestanda räknare kan meddela dig hur noden används, men den meddelar inte om en viss tjänst är felfri, eftersom flera tjänster kan köras på en enda nod.** Men mått som RPS, objekt som bearbetas och svars tid alla kan ange hälso tillståndet för en speciell tjänst.
 
-## <a name="service-fabric-support-logs"></a>Loggar för Service Fabric-stöd
+## <a name="service-fabric-support-logs"></a>Service Fabric support loggar
 
-Om du behöver kontakta Microsoft-supporten om du behöver hjälp med ditt Azure Service Fabric-kluster är stöd loggarna nästan alltid krävs. Om klustret finns i Azure, support loggar konfigureras automatiskt och som samlas in som en del av ett kluster. Loggar lagras i ett dedikerat lagringskonto i resursgruppen för ditt kluster. Storage-konto inte har ett fast namn, men i kontot du se blob-behållare och tabeller med namn som inleds med *fabric*. Information om hur du konfigurerar loggsamlingar för ett fristående kluster finns i [skapa och hantera ett fristående Azure Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md) och [konfigurationsinställningarna för en fristående Windows-kluster](service-fabric-cluster-manifest.md). För fristående Service Fabric-instanser och skickas loggarna till en lokal filresurs. Du är **krävs** ha dessa loggar för support, men de är inte avsedda att användas av vem som helst utanför Microsoft customer support-teamet.
+Om du behöver kontakta Microsoft Support för att få hjälp med ditt Azure Service Fabric-kluster är support loggar nästan alltid obligatoriska. Om klustret finns i Azure konfigureras support loggar automatiskt och samlas in som en del av att skapa ett kluster. Loggarna lagras i ett dedikerat lagrings konto i klustrets resurs grupp. Lagrings kontot har inget fast namn, men i kontot visas BLOB-behållare och tabeller med namn som börjar med *infrastruktur resurser*. Information om hur du konfigurerar logg samlingar för ett fristående kluster finns i [skapa och hantera ett fristående Azure Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md) och [konfigurations inställningar för ett fristående Windows-kluster](service-fabric-cluster-manifest.md). För fristående Service Fabric-instanser ska loggarna skickas till en lokal fil resurs. Du **måste** ha dessa loggar för support, men de är inte avsedda att användas av någon utanför Microsofts kund support team.
 
 ## <a name="measuring-performance"></a>Mäta prestanda
 
-Måttet prestanda för ditt kluster hjälper dig att förstå hur det är kan hantera belastningen och drive beslut om skalning av klustret (Mer information om att skala ett kluster [på Azure](service-fabric-cluster-scale-up-down.md), eller [lokala](service-fabric-cluster-windows-server-add-remove-nodes.md)). Prestandadata är också användbart jämfört med åtgärder som du eller dina program och tjänster kan ha tagit, när du analyserar loggar i framtiden. 
+Genom att mäta prestanda för klustret får du hjälp att förstå hur det kan hantera belastnings-och enhets beslut kring skalning av klustret (mer information om skalning av ett kluster [i Azure](service-fabric-cluster-scale-up-down.md)eller [lokalt](service-fabric-cluster-windows-server-add-remove-nodes.md)). Prestanda data är också användbara vid jämförelse med åtgärder som du eller dina program och tjänster kan ha vidtagit när du analyserar loggar i framtiden. 
 
-En lista över prestandaräknare som samlar in när du använder Service Fabric finns i [prestandaräknare i Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
+En lista över prestanda räknare som ska samlas in när du använder Service Fabric finns i [prestanda räknare i Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 
-Här följer två vanliga sätt som du kan konfigurera insamling av prestandadata för klustret:
+Här följer två vanliga metoder som du kan använda för att samla in prestanda data för klustret:
 
-* **Med hjälp av en agent**  
-Detta är det bästa sättet för insamling av prestanda från en dator, eftersom agenter har vanligtvis en lista över möjliga prestandamått som kan samlas in och det är en relativt enkel process att välja de mått som du vill samla in eller ändra. Läs om Azure Monitor erbjuder Azure Monitor-loggar i Service Fabric [Azure Monitor loggar integration](service-fabric-diagnostics-event-analysis-oms.md) och [ställa in Log Analytics-agenten](../log-analytics/log-analytics-windows-agent.md) vill veta mer om Log Analytics-agenten som är en sådan övervakningsagenten som kan hämta prestandadata för virtuella datorer klustret och distribueras behållare.
+* **Använda en agent**  
+Detta är det bästa sättet att samla in prestanda från en dator eftersom agenter vanligt vis har en lista över möjliga prestanda mått som kan samlas in, och det är en relativt enkel process att välja de mått som du vill samla in eller ändra. Läs om Azure Monitor som erbjuder Azure Monitor loggar i Service Fabric s [Azure Monitor loggar integrering](service-fabric-diagnostics-event-analysis-oms.md) och [installation av Log Analytics agent](../log-analytics/log-analytics-windows-agent.md) för att lära dig mer om Log Analytics agent, vilket är en övervaknings agent som kan hämta prestanda data för virtuella kluster datorer och distribuerade behållare.
 
-* **Prestandaräknare som Azure Table Storage**  
-Du kan också skicka prestandamått till samma tabellagring som händelserna. Detta kräver ändra Azure Diagnostics-konfiguration och välj lämplig prestandaräknare från de virtuella datorerna i klustret och att avläsa docker statistik om du planerar att distribuera alla behållare. Läs om hur du konfigurerar [prestandaräknare i WAD](service-fabric-diagnostics-event-aggregation-wad.md) i Service Fabric att ställa in samling med prestandaräknare.
+* **Prestanda räknare för Azure Table Storage**  
+Du kan också skicka prestanda mått till samma tabell lagring som händelserna. Detta kräver att du ändrar Azure-diagnostik-konfigurationen för att hämta lämpliga prestanda räknare från de virtuella datorerna i klustret och att det ska kunna hämta Docker-statistik om du distribuerar alla behållare. Läs om hur du konfigurerar [prestanda räknare i wad](service-fabric-diagnostics-event-aggregation-wad.md) i Service Fabric att konfigurera prestanda räknar samlingen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Service Fabric [Azure Monitor loggar integration](service-fabric-diagnostics-event-analysis-oms.md) att samla in diagnostik för klustret och skapa egna förfrågningar och aviseringar
-* Lär dig mer om Service Fabric i inbyggda diagnostiska upplevelse, den [EventStore](service-fabric-diagnostics-eventstore.md)
-* Går igenom några [vanliga scenarier för diagnostiska](service-fabric-diagnostics-common-scenarios.md) i Service Fabric
+* Läs mer om Service Fabric [Azure Monitor loggar integration](service-fabric-diagnostics-event-analysis-oms.md) för att samla in kluster diagnoser och skapa anpassade frågor och aviseringar
+* Lär dig mer om Service Fabric i den integrerade diagnostiken, [EventStore](service-fabric-diagnostics-eventstore.md)
+* Gå igenom några [vanliga diagnostiska scenarier](service-fabric-diagnostics-common-scenarios.md) i Service Fabric

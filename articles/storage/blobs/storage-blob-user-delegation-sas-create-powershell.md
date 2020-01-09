@@ -1,33 +1,33 @@
 ---
 title: Använd PowerShell för att skapa en användar Delegerings-SAS för en behållare eller BLOB
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar en användar Delegerings-SAS (för hands version) med Azure Active Directory autentiseringsuppgifter med hjälp av PowerShell.
+description: Lär dig hur du skapar en användar Delegerings-SAS med Azure Active Directory autentiseringsuppgifter med hjälp av PowerShell.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371791"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell (för hands version)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure PowerShell (för hands version).
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-preview-module"></a>Installera Preview-modulen
+## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
-Om du vill använda PowerShell för att skapa en användar Delegerings-SAS måste du först installera modulen AZ. Storage 1.3.1-Preview. Följ de här stegen för att installera modulen:
+Om du vill skapa en användar Delegerings-SAS med PowerShell installerar du version 1.10.0 eller senare av modulen AZ. Storage. Följ de här stegen för att installera den senaste versionen av modulen:
 
 1. Avinstallera tidigare installationer av Azure PowerShell:
 
@@ -48,23 +48,18 @@ Om du vill använda PowerShell för att skapa en användar Delegerings-SAS måst
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installera en Azure Storage Preview-modul som stöder användar Delegerings-SAS:
+1. Kontrol lera att du har installerat Azure PowerShell version 3.2.0 eller senare. Kör följande kommando för att installera den senaste versionen av Azure Storage PowerShell-modulen:
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. Stäng PowerShell-fönstret och öppna det igen.
 
-Eftersom PowerShell läser in den senaste AZ. Storage-modulen som standard, kan du behöva läsa in modulen 1.3.1-Preview explicit när du startar-konsolen. Om du vill läsa in modulen för förhands granskning kör du kommandot [import-module](/powershell/module/microsoft.powershell.core/import-module) :
+Kör följande kommando för att kontrol lera vilken version av modulen AZ. Storage som är installerad:
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 Mer information om hur du installerar Azure PowerShell finns i [installera Azure PowerShell med PowerShellGet](/powershell/azure/install-az-ps).

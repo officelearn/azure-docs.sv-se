@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014996"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645114"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Skapa en väg tabell för virtuell hubb för att styra trafik till en virtuell nätverks installation
 
 Den här artikeln visar hur du styr trafik från en virtuell hubb till en virtuell nätverks installation. 
 
-![Virtual WAN-diagram](./media/virtual-wan-route-table/vwanroute.png)
+![Virtuellt WAN-diagram](./media/virtual-wan-route-table/vwanroute.png)
 
 I den här artikeln lär du dig hur du:
 
@@ -116,7 +116,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 Genomför ändringarna i den virtuella hubben.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
+Update-AzVirtualHub -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="next-steps"></a>Nästa steg

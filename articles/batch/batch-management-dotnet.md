@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f7554993e2e3d8d2f6bce71db57a746a4392ce1a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 32133fc5c01544250075ece2458babe2f0b6a62a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095079"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660706"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Hantera batch-konton och kvoter med klient biblioteket för batch-hantering för .NET
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](batch-account-create-portal.md)
+> * [Azure-portalen](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 
@@ -45,7 +45,7 @@ Du kan minska underhålls kostnader i Azure Batch-program genom att använda [ba
 ## <a name="create-and-delete-batch-accounts"></a>Skapa och ta bort batch-konton
 Som vi nämnt är en av de viktigaste funktionerna i batch Management-API: et att skapa och ta bort batch-konton i en Azure-region. Det gör du genom att använda [BatchManagementClient. account. CreateAsync][net_create] och [DeleteAsync][net_delete], eller deras synkrona motsvarigheter.
 
-Följande kodfragment skapar ett konto, hämtar det nyligen skapade kontot från batch-tjänsten och tar sedan bort det. I det här kodfragmentet och de andra i den `batchManagementClient` här artikeln är en fullständigt initierad instans av [BatchManagementClient][net_mgmt_client].
+Följande kodfragment skapar ett konto, hämtar det nyligen skapade kontot från batch-tjänsten och tar sedan bort det. I det här kodfragmentet och de andra i den här artikeln är `batchManagementClient` en fullständigt initierad instans av [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -95,7 +95,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 > 
 
 ## <a name="check-azure-subscription-and-batch-account-quotas"></a>Kontrol lera kvoter för Azure-prenumeration och batch-konto
-Azure-prenumerationer och enskilda Azure-tjänster som batch alla har standard kvoter som begränsar antalet vissa entiteter i dem. Standard kvoter för Azure-prenumerationer finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-subscription-service-limits.md). Standard kvoterna för batch-tjänsten finns i [kvoter och begränsningar för tjänsten Azure Batch](batch-quota-limit.md). Med hjälp av .NET-biblioteket för batch Management kan du kontrol lera kvoterna i dina program. På så sätt kan du fatta beslut om tilldelning innan du lägger till konton eller beräknings resurser som pooler och datornoder.
+Azure-prenumerationer och enskilda Azure-tjänster som batch alla har standard kvoter som begränsar antalet vissa entiteter i dem. Standard kvoter för Azure-prenumerationer finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md). Standard kvoterna för batch-tjänsten finns i [kvoter och begränsningar för tjänsten Azure Batch](batch-quota-limit.md). Med hjälp av .NET-biblioteket för batch Management kan du kontrol lera kvoterna i dina program. På så sätt kan du fatta beslut om tilldelning innan du lägger till konton eller beräknings resurser som pooler och datornoder.
 
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Kontrol lera en Azure-prenumeration för batch-konto kvoter
 Innan du skapar ett batch-konto i en region kan du kontrol lera din Azure-prenumeration för att se om du kan lägga till ett konto i den regionen.
@@ -124,7 +124,7 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-I kodfragmentet ovan `creds` är en instans av [TokenCloudCredentials][azure_tokencreds]. Om du vill se ett exempel på hur du skapar objektet, se kod exemplet [AccountManagement][acct_mgmt_sample] på GitHub.
+I kodfragmentet ovan är `creds` en instans av [TokenCloudCredentials][azure_tokencreds]. Om du vill se ett exempel på hur du skapar objektet, se kod exemplet [AccountManagement][acct_mgmt_sample] på GitHub.
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Kontrol lera ett batch-konto för beräknings resurs kvoter
 Innan du ökar beräknings resurserna i din batch-lösning kan du kontrol lera att de resurser som du vill allokera inte överskrider kontots kvoter. I kodfragmentet nedan skriver vi ut kvot informationen för batch-kontot med namnet `mybatchaccount`. I ditt eget program kan du använda sådan information för att avgöra om kontot kan hantera ytterligare resurser som ska skapas.
@@ -198,7 +198,7 @@ För att köra exempel programmet måste du först registrera det med din Azure 
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
-[resman_overview]: ../azure-resource-manager/resource-group-overview.md
+[resman_overview]: ../azure-resource-manager/management/overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png

@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433022"
 ---
 # <a name="clustering-point-data"></a>Kluster plats data
 
@@ -88,12 +88,12 @@ Se Penn <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>klustrets viktade vä
 
 När mus händelser inträffar i ett lager som innehåller klustrade data punkter, returneras den klustrade data punkten till händelsen som ett objekt av en punkt med ett interaktivt JSON-objekt. Den här punkt funktionen kommer att ha följande egenskaper:
 
-| Egenskapsnamn | Typ | Beskrivning |
-|---------------|------|-------------|
-| flernodskluster | boolesk | Anger om funktionen representerar ett kluster. |
-| cluster_id | sträng | Ett unikt ID för klustret som kan användas med data källan `getClusterExpansionZoom`, `getClusterChildren`och `getClusterLeaves` metoder. |
-| point_count | nummer | Antalet platser som klustret innehåller. |
-| point_count_abbreviated | sträng | En sträng som förkortar `point_count` svärdet om det är långt. (till exempel 4 000 blir 4K) |
+| Egenskapsnamn             | Typ    | Beskrivning   |
+|---------------------------|---------|---------------|
+| `cluster`                 | boolean | Anger om funktionen representerar ett kluster. |
+| `cluster_id`              | sträng  | Ett unikt ID för klustret som kan användas med data källan `getClusterExpansionZoom`, `getClusterChildren`och `getClusterLeaves` metoder. |
+| `point_count`             | nummer  | Antalet platser som klustret innehåller.  |
+| `point_count_abbreviated` | sträng  | En sträng som förkortar `point_count` svärdet om det är långt. (till exempel 4 000 blir 4K)  |
 
 I det här exemplet används ett bubbeldiagram som återger kluster punkter och lägger till en klicknings händelse som när den utlöses, beräknar och zoomar kartan till nästa zoomnings nivå där klustret kommer att delas upp med `getClusterExpansionZoom`-metoden i klassen `DataSource` och egenskapen `cluster_id` för den klickade klustrade data punkten. 
 

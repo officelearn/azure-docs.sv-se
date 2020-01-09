@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75d4c4e38069cb192917f275245d87bb4c63d502
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff01bd0d6586cf75dcfdb7277c34120c6ec22894
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078154"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647500"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Skapa en SAP NetWeaver multi-SID-konfiguration
 
@@ -33,7 +33,7 @@ ms.locfileid: "70078154"
 [sap-ha-guide-figure-6004]:./media/virtual-machines-shared-sap-high-availability-guide/6004-sap-multi-sid-dns.png
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-ha-guide-9.1.1]:sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
 [sap-ha-guide-8.8]:sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c
 [sap-ha-guide-8.12.3.3]:sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
@@ -55,7 +55,7 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du har redan konfigurerat ett WSFC-kluster som används för en SAP ASCS/SCS-instans, enligt beskrivningen i [hand boken för SAP-NetWeaver med hög tillgänglighet på virtuella Windows-datorer][sap-ha-guide] och som visas i det här diagrammet.
 
 ![Hög tillgänglighet SAP ASCS/SCS-instans][sap-ha-guide-figure-6001]
@@ -72,7 +72,7 @@ Målet är att installera flera SAP ABAP-ASCS eller SAP Java SCS-klustrade insta
 >Det maximala antalet SAP ASCS/SCS-instanser i ett WSFC-kluster är lika med det maximala antalet privata klient dels-IP-adresser för varje Azure intern belastningsutjämnare.
 >
 
-Mer information om gränser för belastnings utjämning finns i "privat klient del IP per belastningsutjämnare" i [nätverks gränser: Azure Resource Manager][networking-limits-azure-resource-manager].
+Mer information om gränser för belastnings utjämning finns i "privat klientens IP-adress per belastningsutjämnare" i [nätverks gränser: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Det fullständiga landskapet med två SAP-system med hög tillgänglighet skulle se ut så här:
 
@@ -88,7 +88,7 @@ Det fullständiga landskapet med två SAP-system med hög tillgänglighet skulle
 ## <a name="prepare-the-infrastructure"></a>Förbered infrastrukturen
 För att förbereda infrastrukturen kan du installera ytterligare en SAP ASCS/SCS-instans med följande parametrar:
 
-| Parameternamn | Value |
+| Parameternamn | Värde |
 | --- | --- |
 | SAP-ASCS/SCS-SID |PR1 – lb-ASCs |
 | Intern belastningsutjämnare för SAP-DBMS | PR5 |
@@ -241,10 +241,10 @@ Den fullständiga processen för att installera ett andra SAP SID2-system beskri
 
 Den övergripande proceduren är följande:
 
-1. [Installera den första SAP][sap-ha-guide-9.1.2]-klusternoden.  
+1. [Installera den första SAP-klusternoden][sap-ha-guide-9.1.2].  
  I det här steget installerar du SAP med en ASCS/SCS-instans med hög tillgänglighet på den **befintliga WSFC-klusternoden 1**.
 
-2. [Ändra SAP-profilen för ASCS/SCS-][sap-ha-guide-9.1.3]instansen.
+2. [Ändra SAP-profilen för ASCS/SCS-instansen][sap-ha-guide-9.1.3].
 
 3. [Konfigurera en avsöknings port][sap-ha-guide-9.1.4].  
  I det här steget konfigurerar du en SAP-kluster resurs SAP-SID2-IP-avsöknings port med hjälp av PowerShell. Kör den här konfigurationen på en av SAP ASCS/SCS-klusternoderna.
@@ -261,11 +261,11 @@ Den övergripande proceduren är följande:
 
 7. [Ändra starttyp för SAP ers Windows-][sap-ha-guide-9.4]tjänstinstans.
 
-8. [Installera den primära SAP][sap-ha-guide-9.5] -programservern på den nya dedikerade virtuella datorn.
+8. [Installera den primära SAP-programservern][sap-ha-guide-9.5] på den nya dedikerade virtuella datorn.
 
-9. [Installera den ytterligare SAP][sap-ha-guide-9.6] -programservern på den nya dedikerade virtuella datorn.
+9. [Installera den ytterligare SAP-programservern][sap-ha-guide-9.6] på den nya dedikerade virtuella datorn.
 
-10. [Testa replikeringen av SAP ASCS/SCS-instansen och SIOS][sap-ha-guide-10]-replikeringen.
+10. [Testa replikeringen av SAP ASCS/SCS-instansen och SIOS-replikeringen][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>Nästa steg
 

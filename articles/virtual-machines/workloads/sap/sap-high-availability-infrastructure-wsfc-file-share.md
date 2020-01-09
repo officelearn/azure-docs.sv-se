@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9b7ac97cb190073966f9be450e9f9e04014fbd7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078058"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647551"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
 
@@ -39,8 +39,8 @@ ms.locfileid: "70078058"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -203,17 +203,17 @@ ms.locfileid: "70078058"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Den här artikeln beskriver förberedelse stegen för Azure-infrastrukturen som behövs för att installera och konfigurera SAP-system med hög tillgänglighet på ett Windows Server-kluster för växling vid fel (WSFC) med skalbar fil resurs som ett alternativ för klustring av SAP ASCS/SCS pipe.
+Den här artikeln beskriver förberedelse stegen för Azure-infrastrukturen som behövs för att installera och konfigurera SAP-system med hög tillgänglighet på ett Windows Server-kluster för redundanskluster (WSFC), med skalbar fil resurs som ett alternativ för klustring av SAP ASCS/SCS-instanser.
 
 ## <a name="prerequisite"></a>Krav
 
 Läs följande artikel innan du påbörjar installationen:
 
-* [Arkitektur guide: Kluster-SAP ASCS/SCS-instanser på ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share]
+* [Arkitektur guide: kluster-SAP ASCS/SCS-instanser i ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Värdnamn och IP-adresser
@@ -222,17 +222,17 @@ Läs följande artikel innan du påbörjar installationen:
 | --- | --- | --- | --- |
 | Första klusternoden ASCS/SCS-kluster | ASCs-1 | 10.0.6.4 | ascs-as |
 | Andra klusternoden ASCS/SCS-kluster | ASCs-2 | 10.0.6.5 | ascs-as |
-| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | Saknas |
-| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | Saknas |
+| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | Ej tillämpligt |
+| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | Ej tillämpligt |
 
 
 **Tabell 1**: ASCS/SCS-kluster
 
-| SAP \<SID-> | Instans nummer för SAP ASCS/SCS |
+| SAP \<SID > | Instans nummer för SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabell 2**: Information om SAP ASCS/SCS-instans
+**Tabell 2**: information om SAP ASCS/SCS-instans
 
 
 | Roll för virtuellt värd namn | Namn på virtuell värd | Statisk IP-adress | Tillgänglighetsuppsättning |
@@ -240,10 +240,10 @@ Läs följande artikel innan du påbörjar installationen:
 | Första klusternoden | SOFS-1 | 10.0.6.10 | sofs-as |
 | Andra klusternoden | SOFS-2 | 10.0.6.11 | sofs-as |
 | Tredje klusternoden | SOFS-3 | 10.0.6.12 | sofs-as |
-| Kluster nätverks namn | sofs-cl | 10.0.6.13 | Saknas |
-| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | Saknas |
+| Kluster nätverks namn | sofs-cl | 10.0.6.13 | Ej tillämpligt |
+| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | Ej tillämpligt |
 
-**Tabell 3**: Skalbar filserver kluster
+**Tabell 3**: skalbar filserver kluster
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Distribuera virtuella datorer för ett SAP ASCS/SCS-kluster, ett databas hanterings system (DBMS)-kluster och SAP Application Server-instanser
@@ -266,9 +266,9 @@ Förbered Azure-infrastrukturen genom att slutföra följande:
 
 * [Lägg till virtuella Windows-datorer i domänen][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [Lägg till register poster på båda klusternoderna för SAP ASCS/SCS-][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]instansen.
+* [Lägg till register poster på båda klusternoderna för SAP ASCS/SCS-instansen][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* När du använder Windows Server 2016 rekommenderar vi att du konfigurerar [Azure Cloud][deploy-cloud-witness]-vittnet.
+* När du använder Windows Server 2016 rekommenderar vi att du konfigurerar [Azure Cloud-vittnet][deploy-cloud-witness].
 
 
 ## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuera Skalbar filserver klustret manuellt 
@@ -322,9 +322,9 @@ Azure Resource Manager-mallen för att distribuera Skalbar filserver med Lagring
 
 Vi rekommenderar att du använder Managed Disks.
 
-![Bild 1: GRÄNSSNITTs skärm för Skalbar filserver Resource Manager-mall med Managed disks][sap-ha-guide-figure-8010]
+![Bild 1: GRÄNSSNITTs skärmen för Skalbar filserver Resource Manager-mall med Managed disks][sap-ha-guide-figure-8010]
 
-_**Bild 1**: GRÄNSSNITTs skärm för Skalbar filserver Resource Manager-mall med Managed disks_
+_**Bild 1**: gränssnitts skärmen för skalbar filserver Resource Manager-mall med Managed disks_
 
 Gör följande i mallen:
 1. Ange det minsta antalet **2**i rutan **antal virtuella datorer** .
@@ -332,13 +332,13 @@ Gör följande i mallen:
 3. I rutan **SOFS Name (namn** ) anger du den globala SAP-värdens nätverks namn, **sapglobalhost**.
 4. I rutan **resurs namn** anger du fil resursens namn, **sapmnt**.
 
-### <a name="use-unmanaged-disks"></a>Använd ohanterade diskar
+### <a name="use-unmanaged-disks"></a>Använda ohanterade diskar
 
 Azure Resource Manager-mallen för att distribuera Skalbar filserver med Lagringsdirigering och ohanterade Azure-diskar finns på [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Bild 2: GRÄNSSNITTs skärm för Skalbar filserver Azure Resource Manager mal len utan Managed disks][sap-ha-guide-figure-8011]
+![Bild 2: GRÄNSSNITTs skärmen för Skalbar filserver Azure Resource Manager-mallen utan Managed disks][sap-ha-guide-figure-8011]
 
-_**Bild 2**: GRÄNSSNITTs skärm för Skalbar filserver Azure Resource Manager mal len utan Managed disks_
+_**Bild 2**: gränssnitts skärmen för skalbar filserver Azure Resource Manager-mallen utan Managed disks_
 
 I rutan **lagrings konto typ** väljer du **Premium Storage**. Alla andra inställningar är samma som inställningarna för Managed disks.
 

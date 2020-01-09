@@ -3,12 +3,12 @@ title: Använda parametrar för att skapa dynamiska modeller
 description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa säkra och dynamiska ritningar.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128929"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644978"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 
@@ -40,7 +40,7 @@ Om en **tilldelad hanterad identitet**används för skiss tilldelningen _måste_
 Om en **användardefinierad hanterad identitet**används för skiss tilldelningen _kan_ det finnas referenser till Key Vault i en centraliserad prenumeration. Den hanterade identiteten måste beviljas lämpliga rättigheter på Key Vault innan skiss tilldelningen.
 
 > [!IMPORTANT]
-> I båda fallen måste Key Vault ha **åtkomst till Azure Resource Manager för att mallar ska kunna distribueras** på sidan **åtkomst principer** . Instruktioner för hur du aktiverar den här funktionen finns i [Key Vault-aktivera mall distribution](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> I båda fallen måste Key Vault ha **åtkomst till Azure Resource Manager för att mallar ska kunna distribueras** på sidan **åtkomst principer** . Instruktioner för hur du aktiverar den här funktionen finns i [Key Vault-aktivera mall distribution](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 Mer information om Azure Key Vault finns i [Key Vault översikt](../../../key-vault/key-vault-overview.md).
 

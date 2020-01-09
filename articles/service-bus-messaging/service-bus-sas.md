@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus åtkomst kontroll med signaturer för delad åtkomst | Microsoft Docs
+title: Azure Service Bus åtkomst kontroll med signaturer för delad åtkomst
 description: 'Översikt över Service Bus åtkomst kontroll med signaturer för delad åtkomst: översikt, information om SAS-auktorisering med Azure Service Bus.'
 services: service-bus-messaging
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013054"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462074"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
@@ -37,15 +37,15 @@ SAS skyddar åtkomsten till Service Bus baserat på auktoriseringsregler. De kon
 
 Signaturer för delad åtkomst är en anspråksbaserad mekanism för auktorisering med enkla tokens. Med SAS skickas aldrig nycklar i kabeln. Nycklar används för att signera information kryptografiskt som senare kan verifieras av tjänsten. SAS kan användas på samma sätt som användar namn och lösen ord, där klienten har omedelbar till gång till ett namn för auktoriseringsregeln och en matchande nyckel. SAS kan också användas på samma sätt som en federerad säkerhets modell, där klienten får en tidsbegränsad och signerad åtkomsttoken från en säkerhetstokentjänst utan att någonsin ha fått till gång till signerings nyckeln.
 
-SAS-autentisering i Service Bus har kon figurer ATS med namngivna [regler för delad åtkomst](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) som har associerade åtkomst rättigheter och ett par med primära och sekundära kryptografiska nycklar. Nycklarna är 256-bitars värden i base64-representation. Du kan konfigurera regler på namn områdes nivå, på [](../service-bus-relay/relay-what-is-it.md)Service Bus reläer, [köer](service-bus-messaging-overview.md#queues)och [ämnen](service-bus-messaging-overview.md#topics).
+SAS-autentisering i Service Bus har kon figurer ATS med namngivna [regler för delad åtkomst](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) som har associerade åtkomst rättigheter och ett par med primära och sekundära kryptografiska nycklar. Nycklarna är 256-bitars värden i base64-representation. Du kan konfigurera regler på namn områdes nivå, på Service Bus [reläer](../service-bus-relay/relay-what-is-it.md), [köer](service-bus-messaging-overview.md#queues)och [ämnen](service-bus-messaging-overview.md#topics).
 
-Token för signaturen för [delad åtkomst](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) innehåller namnet på den valda AUKTORISERINGSREGELN, URI för den resurs som ska nås, ett upphör ande och en SHA256 kryptografisk signatur som beräknats över dessa fält med antingen den primära eller sekundär kryptografisk nyckel för den valda auktoriseringsregeln.
+Token för [signaturen för delad åtkomst](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) innehåller namnet på den valda AUKTORISERINGSREGELN, URI för den resurs som ska användas, ett upphör ande omedelbart och en SHA256 kryptografisk signatur som beräknas över dessa fält med antingen den primära eller sekundära kryptografiska nyckeln för den valda auktoriseringsregeln.
 
 ## <a name="shared-access-authorization-policies"></a>Auktoriseringsprinciper för delad åtkomst
 
 Varje Service Bus-namnrymd och varje Service Bus entitet har en princip för delad åtkomst som består av regler. Principen på namn områdes nivån gäller för alla entiteter i namn området, oavsett deras enskilda princip konfiguration.
 
-För varje auktoriseringsregel bestämmer du om tre delar av information: **namn**, **omfattning**och **rättigheter**. **Namnet** är bara det. ett unikt namn inom det omfånget. Omfånget är tillräckligt enkelt: det är URI: n för den aktuella resursen. För ett Service Bus-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till `https://<yournamespace>.servicebus.windows.net/`exempel.
+För varje auktoriseringsregel bestämmer du om tre delar av information: **namn**, **omfattning**och **rättigheter**. **Namnet** är bara det. ett unikt namn inom det omfånget. Omfånget är tillräckligt enkelt: det är URI: n för den aktuella resursen. För ett Service Bus-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till exempel `https://<yournamespace>.servicebus.windows.net/`.
 
 Rättigheterna som tilldelas av princip regeln kan vara en kombination av:
 
@@ -67,7 +67,7 @@ Du kan konfigurera [SharedAccessAuthorizationRule](/dotnet/api/microsoft.service
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-I den här bilden gäller *manageRuleNS*-, *SendRuleNS*-och *listenRuleNS* -auktoriseringsregler både för kön Q1 och ämnet T1, medan *ListenRuleQ* och *sendRuleQ* endast gäller för kön Q1 och *sendRuleT* gäller endast till ämne T1.
+I den här bilden gäller *manageRuleNS*-, *SendRuleNS*-och *listenRuleNS* -auktoriseringsregler både för kön Q1 och ämnet T1, medan *ListenRuleQ* och *sendRuleQ* endast gäller för kön Q1 och *sendRuleT* gäller endast ämne T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Generera en token för signatur för delad åtkomst
 
@@ -77,12 +77,12 @@ Alla klienter som har åtkomst till namnet på ett namn för auktoriseringsregel
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** -Token upphör att gälla omedelbart. Heltal som motsvarar sekunder sedan den `00:00:00 UTC` 1 januari 1970 (UNIX-epok) när token upphör att gälla.
-* **`skn`** – Namnet på auktoriseringsregeln.
-* **`sr`** -URI för resursen som används.
-* **`sig`** Signatur.
+* **`se`** -token upphör att gälla. Heltal som motsvarar sekunder sedan den epok `00:00:00 UTC` 1 januari 1970 (UNIX-epok) när token upphör att gälla.
+* **`skn`** -namnet på auktoriseringsregeln.
+* **`sr`** -URI för den resurs som används.
+* **`sig`** -signatur.
 
-Är SHA-256-hashen som beräknats över resurs-URI: n (omfånget enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med CRLF. `signature-string`
+`signature-string` är SHA-256-hashen som beräknats över resurs-URI: n **(enligt beskrivningen** i föregående avsnitt) och sträng representationen av token som upphör att gälla omedelbart, avgränsade med CRLF.
 
 Hash-beräkningen ser ut ungefär som följande pseudo-kod och returnerar ett hash-värde på 256 bitar/32 byte.
 
@@ -92,13 +92,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Token innehåller de värden som inte är hash-kodade, så att mottagaren kan beräkna hashen på samma parametrar och kontrol lera att utfärdaren har en giltig signerings nyckel.
 
-Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>`; det `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`vill säga. 
+Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>`; `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
 **URI: n måste vara i [procent kodad](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 Den auktoriseringsregler för delad åtkomst som används för signering måste konfigureras på den entitet som anges av denna URI, eller av en av dess hierarkiska överordnade. Till exempel `http://contoso.servicebus.windows.net/contosoTopics/T1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
-En SAS-token är giltig för alla resurser som har `<resourceURI>` prefixet som `signature-string`används i.
+En SAS-token är giltig för alla resurser som föregås av de `<resourceURI>` som används i `signature-string`.
 
 ## <a name="regenerating-keys"></a>Återskapar nycklar
 
@@ -110,7 +110,7 @@ Om du vet eller misstänker att en nyckel har komprometterats och du måste åte
 
 Scenarierna som beskrivs nedan omfattar konfiguration av auktoriseringsregler, generering av SAS-token och klient auktorisering.
 
-För ett komplett fungerande exempel på ett Service Bus program som illustrerar konfigurationen och använder SAS-auktorisering, se [signaturen för delad åtkomst-autentisering med Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ett relaterat exempel som illustrerar användningen av SAS-auktoriseringsregler som kon figurer ATS på namn områden eller ämnen för att skydda Service Bus prenumerationer finns här: [Använder autentisering med signatur för delad åtkomst (SAS) med Service Bus prenumerationer](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+För ett komplett fungerande exempel på ett Service Bus program som illustrerar konfigurationen och använder SAS-auktorisering, se [signaturen för delad åtkomst-autentisering med Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ett relaterat exempel som illustrerar användningen av SAS-auktoriseringsregler som kon figurer ATS på namn områden eller ämnen för att skydda Service Bus prenumerationer finns här: [använda autentisering med signatur för delad åtkomst (SAS) med Service Bus prenumerationer](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Åtkomst auktoriseringsregler för delad åtkomst på en entitet
 
@@ -191,7 +191,7 @@ I föregående avsnitt fick du lära dig hur du använder SAS-token med en HTTP 
 
 Innan du börjar skicka data till Service Bus måste utgivaren skicka SAS-token i ett AMQP-meddelande till en väldefinierad AMQP-nod med namnet **$CBS** (du kan se den som en "speciell" kö som används av tjänsten för att hämta och validera alla SAS-token). Utgivaren måste ange **ReplyTo** -fältet i AMQP-meddelandet. Detta är den nod där tjänsten svarar på utgivaren med resultatet av verifieringen av token (ett enkelt fråge-/svars mönster mellan utgivare och tjänst). Denna Reply-nod skapas "i farten", "tala om" dynamisk generering av fjärrnod "enligt beskrivningen i AMQP 1,0-specifikationen. När du har kontrollerat att SAS-token är giltig kan utgivaren gå framåt och börja skicka data till tjänsten.
 
-Följande steg visar hur du skickar SAS-token med AMQP-protokollet med hjälp av [AMQP.net lite](https://github.com/Azure/amqpnetlite) -biblioteket. Detta är användbart om du inte kan använda den officiella Service Bus SDK (till exempel på WinRT, .NET Compact Framework, .NET Micro Framework och mono) som utvecklas\#i C. Det här biblioteket är självklart användbart för att hjälpa dig att förstå hur anspråksbaserad säkerhet fungerar på AMQP nivå, eftersom du såg hur det fungerar på HTTP-nivå (med en HTTP POST-begäran och SAS-token som skickas i "Authorization"-rubriken). Om du inte behöver sådana djupgående kunskaper om AMQP kan du använda den officiella Service Bus SDK: n med .NET Framework program som gör det åt dig.
+Följande steg visar hur du skickar SAS-token med AMQP-protokollet med hjälp av [AMQP.net lite](https://github.com/Azure/amqpnetlite) -biblioteket. Detta är användbart om du inte kan använda den officiella Service Bus SDK (till exempel på WinRT, .NET Compact Framework, .NET Micro Framework och mono) som utvecklas i C\#. Det här biblioteket är självklart användbart för att hjälpa dig att förstå hur anspråksbaserad säkerhet fungerar på AMQP nivå, eftersom du såg hur det fungerar på HTTP-nivå (med en HTTP POST-begäran och SAS-token som skickas i "Authorization"-rubriken). Om du inte behöver sådana djupgående kunskaper om AMQP kan du använda den officiella Service Bus SDK: n med .NET Framework program som gör det åt dig.
 
 ### <a name="c35"></a>C&#35;
 
@@ -244,7 +244,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Metoden tar emot *anslutningen* (AMQP Connection Class-instansen som anges av [AMQP .net lite-biblioteket](https://github.com/Azure/amqpnetlite)) som representerar TCP-anslutningen till tjänsten och den sasToken-parameter som är den SAS-token som ska skickas. `PutCbsToken()`
+Metoden `PutCbsToken()` tar emot *anslutningen* (AMQP Connection Class-instansen som anges av [AMQP .net lite-biblioteket](https://github.com/Azure/amqpnetlite)) som representerar TCP-anslutningen till tjänsten och parametern *sasToken* som är den SAS-token som ska skickas.
 
 > [!NOTE]
 > Det är viktigt att anslutningen skapas med **sasl inställt på anonym** (och inte standardvärdet Plain med användar namn och lösen ord som används när du inte behöver skicka SAS-token).
@@ -253,7 +253,7 @@ Metoden tar emot *anslutningen* (AMQP Connection Class-instansen som anges av [A
 
 Sedan skapar utgivaren två AMQP-Länkar för att skicka SAS-token och ta emot svaret (verifierings resultatet för token) från tjänsten.
 
-AMQP-meddelandet innehåller en uppsättning egenskaper och mer information än ett enkelt meddelande. SAS-token är bröd texten i meddelandet (med hjälp av konstruktorn). Värdet **"ReplyTo"** är inställt på nodnamn för att ta emot verifierings resultatet på mottagar länken (du kan ändra dess namn om du vill och det kommer att skapas dynamiskt av tjänsten). De sista tre programmen/anpassade egenskaperna används av tjänsten för att ange vilken typ av åtgärd som ska utföras. Som det beskrivs i CBS-utkastet, måste de vara ett **Åtgärds namn** ("placering-token"), **typ av token** (i det `servicebus.windows.net:sastoken`här fallet a) och **"namn" för den mål grupp** som token gäller (hela entiteten).
+AMQP-meddelandet innehåller en uppsättning egenskaper och mer information än ett enkelt meddelande. SAS-token är bröd texten i meddelandet (med hjälp av konstruktorn). Värdet **"ReplyTo"** är inställt på nodnamn för att ta emot verifierings resultatet på mottagar länken (du kan ändra dess namn om du vill och det kommer att skapas dynamiskt av tjänsten). De sista tre programmen/anpassade egenskaperna används av tjänsten för att ange vilken typ av åtgärd som ska utföras. Som det beskrivs i CBS-utkastet måste de vara **Åtgärds namnet** ("beställa"), **typ av token** (i det här fallet en `servicebus.windows.net:sastoken`) och **"namn" för den mål grupp** som token gäller (hela entiteten).
 
 När du har skickat SAS-token på avsändaren måste utgivaren läsa svaret på mottagar länken. Svaret är ett enkelt AMQP-meddelande med en program egenskap med namnet **"status kod"** som kan innehålla samma värden som en HTTP-statuskod.
 
@@ -269,7 +269,7 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 | Räkna upp privata principer |Hantera |Alla namn områdes adresser |
 | Börja lyssna på ett namn område |Lyssna |Alla namn områdes adresser |
 | Skicka meddelanden till en lyssnare i ett namn område |Skicka |Alla namn områdes adresser |
-| **Köjobb** | | |
+| **Kö** | | |
 | Skapa en kö |Hantera |Alla namn områdes adresser |
 | Ta bort en kö |Hantera |En giltig Queue-adress |
 | Räkna upp köer |Hantera |/$Resources/Queues |
@@ -283,7 +283,7 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 | Hämta det tillstånd som är associerat med en Message Queue-session |Lyssna |En giltig Queue-adress |
 | Ange det tillstånd som är associerat med en Message Queue-session |Lyssna |En giltig Queue-adress |
 | Schemalägg ett meddelande för senare leverans. till exempel [ScheduleMessageAsync ()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Lyssna | En giltig Queue-adress
-| **Avsnittet** | | |
+| **Ämne** | | |
 | Skapa ett ämne |Hantera |Alla namn områdes adresser |
 | Ta bort ett ämne |Hantera |En giltig ämnes adress |
 | Räkna upp ämnen |Hantera |/$Resources/topics |

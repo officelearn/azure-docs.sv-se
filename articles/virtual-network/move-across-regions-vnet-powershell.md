@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 753c239f4bf4d6a8f31d4dc5ca771f312cd34578
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828983"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646718"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Flytta ett virtuellt Azure-nätverk till en annan region med hjälp av Azure PowerShell
 
@@ -20,7 +20,7 @@ Det finns olika scenarier för att flytta ett befintligt virtuellt Azure-nätver
 Du kan använda en Azure Resource Manager-mall för att slutföra flyttningen av det virtuella nätverket till en annan region. Du gör detta genom att exportera det virtuella nätverket till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager-mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att ditt virtuella nätverk finns i den Azure-region som du vill flytta från.
 
@@ -32,7 +32,7 @@ Du kan använda en Azure Resource Manager-mall för att slutföra flyttningen av
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa virtuella nätverk i mål regionen. Kontakta supporten om du vill aktivera den begärda kvoten.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till virtuella nätverk för den här processen. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till virtuella nätverk för den här processen. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Förbered för flytt
@@ -60,7 +60,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. Den hämtade filen har samma namn som resurs gruppen som resursen exporterades från. Leta upp filen *\<resource-Group-name >. JSON* som du exporterade med kommandot och öppna den i din redigerare:
+1. Den hämtade filen har samma namn som resurs gruppen som resursen exporterades från. Leta upp *\<resurs-grupp-namn >. JSON* -filen som du exporterade med kommandot och öppna den i redigerings programmet:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,9 +105,9 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
     Get-AzLocation | format-table
     ```
 
-1. Valfritt Du kan också ändra andra parametrar i filen *\<resource-Group-name >. JSON* , beroende på dina krav:
+1. Valfritt Du kan också ändra andra parametrar i *\<resurs-grupp-namn >. JSON* -fil, beroende på dina krav:
 
-    * **Adress utrymme**: Innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra **resurs** > **addressSpace** -avsnittet och ändra egenskapen **addressPrefixes** :
+    * **Adress utrymme**: innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra avsnittet **resurser** > **addressSpace** och ändra egenskapen **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -126,7 +126,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
                     },
         ```
 
-    * **Undernät**: Du kan ändra eller lägga till under nätets namn och under nätets adress utrymme genom att ändra filens **undernät** . Du kan ändra namnet på under nätet genom att ändra egenskapen **namn** . Och du kan ändra adress utrymmet för under nätet genom att ändra egenskapen **addressPrefix** :
+    * **Undernät**: du kan ändra eller lägga till i under nätets namn och under nätets adress utrymme genom att ändra filens **undernät** . Du kan ändra namnet på under nätet genom att ändra egenskapen **namn** . Och du kan ändra adress utrymmet för under nätet genom att ändra egenskapen **addressPrefix** :
 
         ```json
                 "subnets": [
@@ -193,7 +193,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
          ]
         ```
 
-1. Spara resurs  *gruppsnamnet>.JSON-fil.\<*
+1. Spara *\<resurs-grupp-namn >. JSON-* fil.
 
 1. Skapa en resurs grupp i mål regionen för det virtuella mål nätverket som ska distribueras med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +201,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Distribuera det redigerade *\<resource-Group->. JSON* -filen till resurs gruppen som du skapade i föregående steg genom att använda [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Distribuera den redigerade *\<resurs gruppens namn >. JSON-* fil till den resurs grupp som du skapade i föregående steg genom att använda [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

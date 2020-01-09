@@ -4,14 +4,14 @@ description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166677"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647242"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -33,6 +33,8 @@ Lägg till lagrings mål när du har skapat din cache. Proceduren skiljer sig n�
 
 Ett nytt Blob Storage-mål måste ha en tom BLOB-behållare eller en behållare som är ifylld med data i Azure HPC-cachens moln fil system format. Läs mer om att för hands läsa in en BLOB-behållare i [Flytta data till Azure Blob Storage](hpc-cache-ingest.md).
 
+Du kan skapa en ny behållare från den här sidan precis innan du lägger till den.
+
 Ange den här informationen för att definiera en Azure Blob-behållare.
 
 ![skärm bild av sidan Lägg till lagrings mål, ifylld med information för ett nytt Azure Blob Storage-mål](media/hpc-cache-add-blob.png)
@@ -41,13 +43,15 @@ Ange den här informationen för att definiera en Azure Blob-behållare.
 
 * **Lagrings mål namn** – ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
 * **Måltyp** – Välj **BLOB**.
-* **Lagrings konto** – Välj kontot med den behållare som du vill använda.
+* **Lagrings konto** – Välj det konto som du vill använda.
 
   Du måste auktorisera cache-instansen för att komma åt lagrings kontot enligt beskrivningen i [Lägg till åtkomst roller](#add-the-access-control-roles-to-your-account).
 
   Information om vilken typ av lagrings konto du kan använda finns i [krav för Blob Storage](hpc-cache-prereqs.md#blob-storage-requirements).
 
-* **Lagrings behållare** – Välj BLOB-behållaren för målet.
+* **Lagrings behållare** – Välj BLOB-behållaren för målet eller klicka på **Skapa ny**.
+
+  ![skärm bild av dialog rutan för att ange namn och åtkomst nivå (privat) för ny behållare](media/add-blob-new-container.png)
 
 * **Sökväg till virtuellt namn område** – ange sökvägen till klientens fil för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
@@ -146,9 +150,9 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 | ---- | ---- | ---- | ---- |
-| Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Ingen |
-| Större än 15% skrivningar | Läs/skriv | Aldrig | 1 timme |
-| Klienterna kringgår cachen | Läsa | 30 sekunder | Ingen |
+| Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Inget |
+| Större än 15% skrivningar | Läsa/skriva | Aldrig | 1 timme |
+| Klienterna kringgår cachen | Läsa | 30 sekunder | Inget |
 
 ## <a name="next-steps"></a>Nästa steg
 

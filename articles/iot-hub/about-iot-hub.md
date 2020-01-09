@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950468"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647415"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
 
@@ -49,7 +49,7 @@ IoT Hub ger dig en säker kommunikationskanal genom vilken dina enheter kan skic
 
 Den inbyggda funktionen för meddelandedirigering ger dig flexibla möjligheter att konfigurera automatisk regelbaserad meddelandeförgrening:
 
-* Använd [](iot-hub-devguide-messages-d2c.md) meddelanderoutning för att styra var hubben ska skicka enhets telemetri.
+* Använd [meddelanderoutning](iot-hub-devguide-messages-d2c.md) för att styra var hubben ska skicka enhets telemetri.
 
 * Det innebär inte någon extra kostnad att skicka meddelanden till flera slutpunkter.
 
@@ -111,7 +111,7 @@ Om din lösning inte kan använda något av de protokoll som stöds kan du utök
 
 Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen för en per prenumeration är 50 IoT Hub per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information finns i [IoT Hub kvoter och begränsning](iot-hub-devguide-quotas-throttling.md). Mer information om kvot gränser finns i någon av följande artiklar:
 
-* [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md)
+* [Tjänstbegränsningar för Azure-prenumeration](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub-begränsning och du](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -120,3 +120,7 @@ Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk 
 Om du vill testa en IoT-lösning för slutpunkt-till-slutpunkt så ta en titt på snabbstarterna för IoT Hub:
 
 * [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md)
+
+Om du vill veta mer om hur du kan bygga och distribuera IoT-lösningar med Azure IoT går du till:
+
+* [Grunderna: Azure IoT-tekniker och-lösningar](../iot-fundamentals/iot-services-and-technologies.md).

@@ -9,20 +9,20 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462408"
 ---
-# <a name="use-firewall-rules"></a>Använd brand Väggs regler
+# <a name="azure-service-bus---use-firewall-rules"></a>Azure Service Bus-Använd brand Väggs regler
 
 För scenarier där Azure Service Bus endast kan nås från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser i brand Väggs regler. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
-## <a name="when-to-use"></a>När du ska använda detta
+## <a name="when-to-use"></a>Används till att
 
 Om du vill konfigurera Service Bus så att den endast ska ta emot trafik från ett visst intervall med IP-adresser och neka allt annat, kan du använda en *brand vägg* för att blockera Service Bus slut punkter från andra IP-adresser. Du använder till exempel Service Bus med [Azure Express Route][express-route] för att skapa privata anslutningar till din lokala infrastruktur. 
 
@@ -52,7 +52,7 @@ IP-filter regler tillämpas i ordning och den första regeln som matchar IP-adre
 > - Azure IoT-Device Explorer
 >
 > De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
-> - Azure App Service
+> - Azure Apptjänst
 > - Azure Functions
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Skapa ett virtuellt nätverk och en brand Väggs regel med Azure Resource Manager mallar
@@ -70,7 +70,7 @@ Mallparametrar:
 > Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
 > När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
 > 
-> from
+> från
 > ```json
 > "defaultAction": "Allow"
 > ```

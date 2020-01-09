@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 69107052d84f28dfd08f59dec40ea66eca79ecaa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1ebb1ee5056d3b1e6e85bea43473de5918ddba5c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035782"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645182"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 De här stegen visar hur du använder kommando rads kommandon i Azure (CLI) för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell. Artikeln kräver den [klassiska Azure CLI](../../cli-install-nodejs.md). Eftersom Azure CLI bara är tillämpligt för Azure Resource Manager-resurser kan det inte användas för migreringen.
@@ -84,7 +84,7 @@ I det här steget måste du växla till `arm` läge. Gör detta med följande ko
 azure config mode arm
 ```
 
-Du kan använda följande CLI-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Om du vill veta mer om vCPU kvoter, se [gränser och Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
+Du kan använda följande CLI-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Om du vill veta mer om vCPU kvoter, se [gränser och Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

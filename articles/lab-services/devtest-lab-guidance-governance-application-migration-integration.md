@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560638"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644894"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av Azure DevTest Labs infrastruktur – migrering och integrering av program
 När din utvecklings-/test labb miljö har upprättats måste du tänka på följande frågor:
@@ -93,7 +93,7 @@ När ska jag skapa ett nytt virtuellt nätverk för min DevTest Labs-miljö jäm
 ### <a name="answer"></a>Svar
 Om dina virtuella datorer behöver interagera med en befintlig infrastruktur bör du överväga att använda ett befintligt virtuellt nätverk i din DevTest Labs-miljö. Om du använder ExpressRoute kan du dessutom behöva minimera mängden virtuella nätverk/undernät så att du inte fragmenterar ditt IP-adressutrymme som tilldelas för användning i prenumerationerna. Du bör också överväga att använda VNet-peering-mönstret här (hubb-eker modell). Den här metoden aktiverar VNet/undernät-kommunikation mellan prenumerationer inom en angiven region, även om peering mellan regioner är en funktion i Azure-nätverk.
 
-I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk. Observera dock att det finns [gränser](../azure-subscription-service-limits.md) för antalet virtuella nätverk per prenumeration. Standardvärdet är 50, men den här gränsen kan höjas till 100.
+I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk. Observera dock att det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md) för antalet virtuella nätverk per prenumeration. Standardvärdet är 50, men den här gränsen kan höjas till 100.
 
 ## <a name="shared-public-or-private-ip"></a>Delad, offentlig eller privat IP-adress
 
@@ -117,7 +117,7 @@ Finns det en regel vad gäller hur många virtuella datorer som jag ska ange per
 När du överväger antalet virtuella datorer per användare eller per labb finns det tre huvudsakliga problem:
 
 - Den **totala kostnaden** som teamet kan spendera på resurser i labbet. Det är enkelt att sätta upp många datorer. För att kontrol lera kostnaderna är en mekanism att begränsa antalet virtuella datorer per användare och/eller per labb
-- Det totala antalet virtuella datorer i ett labb påverkas av [prenumerations nivå kvoterna](../azure-subscription-service-limits.md) som är tillgängliga. En av de övre gränserna är 800 resurs grupper per prenumeration. DevTest Labs skapar för närvarande en ny resurs grupp för varje virtuell dator (såvida inte delade offentliga IP-adresser används). Om det finns 10 labb i en prenumeration kan labben passa cirka 79 virtuella datorer i varje labb (800 övre gräns – 10 resurs grupper för de 10 labben själva) = 79 Virtual Machines per labb.
+- Det totala antalet virtuella datorer i ett labb påverkas av [prenumerations nivå kvoterna](../azure-resource-manager/management/azure-subscription-service-limits.md) som är tillgängliga. En av de övre gränserna är 800 resurs grupper per prenumeration. DevTest Labs skapar för närvarande en ny resurs grupp för varje virtuell dator (såvida inte delade offentliga IP-adresser används). Om det finns 10 labb i en prenumeration kan labben passa cirka 79 virtuella datorer i varje labb (800 övre gräns – 10 resurs grupper för de 10 labben själva) = 79 Virtual Machines per labb.
 - Om labbet är anslutet till lokalt via Express Route (till exempel) finns det **definierade IP-** adressutrymme för VNet/under nätet. För att se till att det inte går att skapa virtuella datorer i labbet (fel: det går inte att hämta IP-adress) kan Lab-ägare ange maximalt antal virtuella datorer per labb med det tillgängliga IP-adressutrymmet.
 
 ## <a name="use-resource-manager-templates"></a>Använd mallar för resurshanteraren

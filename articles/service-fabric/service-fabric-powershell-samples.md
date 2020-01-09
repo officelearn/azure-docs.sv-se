@@ -1,28 +1,17 @@
 ---
-title: Azure PowerShell-exempel – Service Fabric | Microsoft Docs
-description: Azure PowerShell-exempel – Service Fabric
-services: service-fabric
-documentationcenter: service-fabric
-author: athinanthny
-manager: chackdan
-editor: ''
-tags: ''
-ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: service-fabric
+title: Azure PowerShell-exempel – Service Fabric
+description: Lär dig mer om att skapa och hantera Azure Service Fabric-kluster,-appar och-tjänster med hjälp av PowerShell.
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: service-fabric
 ms.date: 11/29/2018
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: cae88e142c3bca15e837db7f084eef68434a78ca
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f9ba1b4833b3aff13284a68c23f398ea47ef2ae2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903256"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645658"
 ---
-# <a name="azure-powershell-samples"></a>Azure PowerShell-exempel
+# <a name="azure-service-fabric-powershell-samples"></a>Azure Service Fabric PowerShell-exempel
 
 Följande tabell innehåller länkar till PowerShell-exempelskript för att hantera Service Fabric-kluster, appar och tjänster.
 
@@ -41,4 +30,4 @@ Följande tabell innehåller länkar till PowerShell-exempelskript för att hant
 | **Hantera program** ||
 | [Distribuera ett program](./scripts/service-fabric-powershell-deploy-application.md)| Distribuera ett program till ett kluster.|
 | [Uppgradera ett program](./scripts/service-fabric-powershell-upgrade-application.md)| Uppgraderar ett program.|
-| [Ta bort ett program](./scripts/service-fabric-powershell-remove-application.md)| Ta bort ett program från ett kluster.|
+| [Ta bort ett program](./scripts/service-fabric-powershell-remove-application.md)| Tar bort ett program från ett kluster.|

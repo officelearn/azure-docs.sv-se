@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: ef2db7f13ea5192634855b69a0d355e0f1e11ecb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d1dd8f749f6c3e991413628bd1e08baf76a02f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458671"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
 
@@ -122,7 +122,7 @@ Mer information om hur du förbereder Linux-avbildningar för Azure finns också
 > 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Resurs grupper sammanför logiskt alla Azure-resurser för att stödja dina virtuella datorer, till exempel virtuella nätverk och lagring. Mer information om resurs grupper finns i [Översikt över resurs grupper](../../azure-resource-manager/resource-group-overview.md). Innan du laddar upp den anpassade disken och skapar virtuella datorer måste du först skapa en resurs grupp med [AZ Group Create](/cli/azure/group).
+Resurs grupper sammanför logiskt alla Azure-resurser för att stödja dina virtuella datorer, till exempel virtuella nätverk och lagring. Mer information om resurs grupper finns i [Översikt över resurs grupper](../../azure-resource-manager/management/overview.md). Innan du laddar upp den anpassade disken och skapar virtuella datorer måste du först skapa en resurs grupp med [AZ Group Create](/cli/azure/group).
 
 I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
 
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Lista lagrings konto nycklar
-Azure genererar 2 512-bitars åtkomst nycklar för varje lagrings konto. Dessa åtkomst nycklar används vid autentisering till lagrings kontot, till exempel för att utföra Skriv åtgärder. Läs mer om hur [du hanterar åtkomst till lagring här](../../storage/common/storage-account-manage.md#access-keys). Du visar listan åtkomst nycklar med [AZ lagrings konto nycklar](/cli/azure/storage/account/keys).
+Azure genererar 2 512-bitars åtkomst nycklar för varje lagrings konto. Dessa åtkomst nycklar används vid autentisering till lagrings kontot, till exempel för att utföra Skriv åtgärder. Mer information om åtkomst nycklar för lagrings konton finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md). Du visar listan åtkomst nycklar med [AZ lagrings konto nycklar](/cli/azure/storage/account/keys).
 
 Visa åtkomst nycklar för det lagrings konto som du skapade:
 
@@ -204,7 +204,7 @@ Du måste fortfarande ange eller besvara svar för alla ytterligare parametrar s
 
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
-Azure Resource Manager mallar är JavaScript Object Notation-filer (JSON) som definierar den miljö som du vill skapa. Mallarna är uppdelade i olika resurs leverantörer, t. ex. beräkning eller nätverk. Du kan använda befintliga mallar eller skriva egna. Läs mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/resource-group-overview.md).
+Azure Resource Manager mallar är JavaScript Object Notation-filer (JSON) som definierar den miljö som du vill skapa. Mallarna är uppdelade i olika resurs leverantörer, t. ex. beräkning eller nätverk. Du kan använda befintliga mallar eller skriva egna. Läs mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/management/overview.md).
 
 I `Microsoft.Compute/virtualMachines`-providern för mallen har du en `storageProfile`-nod som innehåller konfigurations information för den virtuella datorn. De två huvud parametrarna som ska redige ras är `image` och `vhd` URI: er som pekar på din anpassade disk och den nya virtuella DATORns virtuella disk. Följande visar ett exempel på JSON för att använda en anpassad disk:
 
@@ -224,7 +224,7 @@ I `Microsoft.Compute/virtualMachines`-providern för mallen har du en `storagePr
           }
 ```
 
-Du kan använda [den här befintliga mallen för att skapa en virtuell dator från en anpassad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) eller läsa om hur [du skapar egna Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md). 
+Du kan använda [den här befintliga mallen för att skapa en virtuell dator från en anpassad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) eller läsa om hur [du skapar egna Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md). 
 
 När du har konfigurerat en mall använder du [AZ Group Deployment Create](/cli/azure/group/deployment) för att skapa dina virtuella datorer. Ange URI-mallen för din JSON-mall med parametern `--template-uri`:
 
@@ -242,5 +242,5 @@ az group deployment create --resource-group myNewResourceGroup \
 
 
 ## <a name="next-steps"></a>Nästa steg
-När du har för berett och överfört din anpassade virtuella disk kan du läsa mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/resource-group-overview.md). Du kanske också vill [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) till de nya virtuella datorerna. Om du har program som körs på dina virtuella datorer som du behöver åtkomst till, måste du [öppna portar och slut punkter](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+När du har för berett och överfört din anpassade virtuella disk kan du läsa mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/management/overview.md). Du kanske också vill [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) till de nya virtuella datorerna. Om du har program som körs på dina virtuella datorer som du behöver åtkomst till, måste du [öppna portar och slut punkter](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

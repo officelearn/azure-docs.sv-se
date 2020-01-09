@@ -1,18 +1,17 @@
 ---
 title: Exempel för Azure Cache for Redis
-description: Så här använder du Azure Cache for Redis
+description: 'Lär dig hur du använder Azure cache för Redis med dessa kod exempel: ansluta till en cache, läsa och skriva data i en cache, ASP.NET Azure cache för Redis-leverantörer.'
 author: yegu-ms
-ms.service: cache
-ms.devlang: multiple
-ms.topic: conceptual
-ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 9097a25c0223faebd91fe3c01ff3edea6c4e6f9f
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: sample
+ms.date: 01/23/2017
+ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433411"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exempel för Azure Cache for Redis
 Det här avsnittet innehåller en lista över Azure cache för Redis-exempel, som täcker scenarier som att ansluta till en cache, läsa och skriva data till och från en cache och använda ASP.NET Azure-cache för Redis-leverantörer. Några exempel är nedladdnings bara projekt och vissa innehåller stegvisa instruktioner och innehåller kodfragment, men länkar inte till ett nedladdnings Bart projekt.
@@ -62,4 +61,3 @@ Exemplet [åtkomst till Azure-cache för Redis övervaknings data](https://githu
 
 ## <a name="bandwidth-monitor"></a>Övervakaren bandbredd
 Exemplet på [bandbredds övervakaren](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) gör att du kan övervaka den bandbredd som används på klienten. Du kan mäta bandbredden genom att köra exemplet på cache-klientdatorn, ringa till cachen och observera bandbredden som rapporteras av exemplet på bandbredds övervakaren.
-

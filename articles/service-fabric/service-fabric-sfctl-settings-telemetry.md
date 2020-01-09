@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI – sfctl inställnings telemetri | Microsoft Docs
-description: Beskriver telemetri-kommandona för Service Fabric CLI-sfctl inställningar.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI – sfctl inställningar telemetri
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att konfigurera sfctl telemetri.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: d926c71ae8fd9e196b86c14c7fb96cc65b587b65
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cdb4a44c8f19b31c164e2ba3ea5e16b7a09e743e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900979"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645284"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 Konfigurera inställningar för telemetri lokalt till den här instansen av sfctl.

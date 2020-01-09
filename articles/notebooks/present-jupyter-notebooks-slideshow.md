@@ -1,24 +1,26 @@
 ---
-title: Presentera en Jupyter-anteckningsbok som ett bildspel på Azure
-description: Hur du konfigurerar cellerna för bildspel läge Jupyter notebook och sedan presentera bildspel med hjälp av upphov-tillägget.
-ms.topic: article
+title: Presentera en Jupyter Notebook som ett bild spel i Azure Notebooks för hands version
+description: Lär dig hur du konfigurerar celler för bild spels läge i en Jupyter Notebook och sedan presenterar bild spelet med ÖKNINGs tillägget.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277599"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647126"
 ---
-# <a name="run-a-notebook-slideshow"></a>Kör en notebook bildspel
+# <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Köra ett Notebook-bildspel i Azure Notebooks för hands version
 
 Azure-datorer är förkonfigurerad med Jupyter/IPython bildspel tillägget (ökar) som gör att du presentera en bärbar dator direkt som ett bildspel. I ett bildspel är celler vanligtvis visas en i taget med hjälp av en teckenstorlek som är lämplig för presentera stora skärmar och du kan fortfarande köra koden i stället för att växla till en separat demo-dator.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Följande bild visar vyn standard anteckningsboken, där du kan se Markdown och kod celler allt på samma plats:
 
 ![En anteckningsbok i standardvyn](media/slideshow/slideshow-notebook-view.png)
 
-När du startar ett bild spel förstoras den första cellen så att den fyller webbläsaren, där **X** i det övre vänstra hörnet avslutar bild spelet **?** i de nedre vänstra visar navigera kortkommandon och pilar längst ned till höger mellan bilder:
+När du startar ett bildspel, den första cellen förstoras så att den fyller webbläsaren, där den **X** avslutas bildspel, i det övre vänstra hörnet **?** i de nedre vänstra visar navigera kortkommandon och pilar längst ned till höger mellan bilder:
 
 ![En anteckningsbok i bildspel läge](media/slideshow/slideshow-slide-view.png)
 
@@ -32,11 +34,11 @@ Förbereda en bärbar dator för ett bildspel omfattar två primära aktiviteter
 
 Om du tar en slumpmässig notebook och använder det för ett bildspel, vara du normalt att alla celler är virrvarret tillsammans och mycket av innehållet döljs av längst ned i webbläsarfönstret. Om du vill göra en effektiv presentation måste, du tilldela en bildspel till cellerna med hjälp av verktygsfältet Bildspel cell:
 
-1. I menyn **Visa** väljer du **Cell-verktygsfältet** > **bild spel**:
+1. På den **visa** menyn och välj **Cell verktygsfältet** > **bildspel**:
 
     ![Aktivera verktygsfältet cell bildspel](media/slideshow/slideshow-view-cell-toolbar.png)
 
-1. En listruta för **bild typ** visas längst upp till höger i varje cell i antecknings boken:
+1. En **dra typ** listrutan visas längst upp till höger i varje cell i anteckningsboken:
 
     ![Cell bildspel verktygsfältet](media/slideshow/slideshow-cell-toolbar.png)
 
@@ -53,11 +55,11 @@ Om du tar en slumpmässig notebook och använder det för ett bildspel, vara du 
     | Hoppa över | Cell visas inte i bildspelet. |
     | Anteckningar | Cellen innehåller som stödanteckningar, inte visas i bildspelet. |
 
-1. I början är det bra att välja **bild** för varje cell. Du kan köra bildspelet och gör relevanta justeringar.
+1. Inledningsvis är det bra att välja **dra** för varje cell. Du kan köra bildspelet och gör relevanta justeringar.
 
 ### <a name="example-fragment-cells-for-bullet-items"></a>Exempel: fragment celler för punkter
 
-Om du vill göra punkter i en bild som visas en i taget, placerar du bild huvudet i en markdown-cell med **bild** typen och placerar sedan varje punkt i en separat markdown cell med **fragment** typen:
+Att göra punkter i en bild visas en ett, steg rubriken bild i en Markdown-cell med den **bild** Skriv och placera varje punkt i en separat Markdown cell med den **Fragment** typ:
 
 ![Exempel på att skapa flera celler i Markdown för punkter](media/slideshow/slideshow-fragments.png)
 
@@ -65,13 +67,13 @@ Eftersom bildspelet renderas fragment med mer lodrätt avstånd än när alla pu
 
 ## <a name="run-the-slideshow"></a>Kör bildspelet
 
-1. Om du har redigerat några markdown-celler, se till att köra dem för att återge deras HTML, annars visas de *som* markdown i bild spelet.
+1. Om du har redigerat Markdown celler, se till att köra dem för att återge HTML, annars visas de *som* Markdown i bildspelet.
 
-1. När du har konfigurerat **bild typen** för varje cell, markerar du den cell som du vill starta bild spelet i och väljer sedan knappen **Ange/avsluta öknings bild** i huvud verktygsfältet:
+1. När du har konfigurerat den **dra typ** för varje cell, väljer du cellen som du vill starta bildspelet och välj sedan den **RETUR/Avsluts öka bildspel** i verktygsfältet huvudsakliga:
 
     ![/ Avslutar öka bildspel knapp i verktygsfältet](media/slideshow/slideshow-start.png)
 
-1. Om du vill navigera mellan bilder samt fragment, med hjälp av vänster och höger pilarna i navigeringskontrollen. Texten i kontrollen visar ett tal som representerar *bild. sub-bild*.
+1. Om du vill navigera mellan bilder samt fragment, med hjälp av vänster och höger pilarna i navigeringskontrollen. Texten i kontrollen visar ett tal som representerar *slide.sub bild*.
 
     ![Bildspel-kontroll](media/slideshow/slideshow-navigation-control.png)
 
@@ -86,13 +88,13 @@ Eftersom bildspelet renderas fragment med mer lodrätt avstånd än när alla pu
     ![Kod cell utdata visas i bildspelet](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > Cell utdata anses vara en del av cell i ett bildspel. Om du kör en cell i anteckningsboken eller bildspelsvy, visas utdata i en annan vy samt. Om du vill rensa utdata använder du **cellen** > **aktuella utdata** > **Rensa** kommando (för den aktuella cellen) eller **cell** > **alla utdata** > **Rensa** (för alla celler).
+    > Cell utdata anses vara en del av cell i ett bildspel. Om du kör en cell i anteckningsboken eller bildspelsvy, visas utdata i en annan vy samt. Om du vill ta bort utdata, använda den **Cell** > **aktuella utdata** > **Rensa** kommandot (för den aktuella cellen) eller **Cell**  >  **Alla utdata** > **Rensa** (för alla celler).
 
-1. När du är klar med bild spelet använder du **X** för att återgå till vyn Anteckningsbokslayout.
+1. När du är klar med bildspelet kan använda den **X** att återgå till anteckningsboken vyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Gör så här: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Gör så här: installera paket inifrån en bärbar dator](install-packages-jupyter-notebook.md)
-- [Gör så här: arbeta med datafiler](work-with-project-data-files.md)
-- [Så här gör du: åtkomst till data resurser](access-data-resources-jupyter-notebooks.md)
+- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Så här: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+- [Så här: arbeta med filer](work-with-project-data-files.md)
+- [Så här: åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462607"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Skala databas resurser dynamiskt med minimal stillestånds tid
 
@@ -62,9 +62,9 @@ Att initiera åtgärden för att skala upp eller ned i någon av varianter start
 
 ## <a name="alternative-scale-methods"></a>Alternativa skalnings metoder
 
-Skalning av resurser är det enklaste och mest effektiva sättet att förbättra databasens prestanda utan att ändra antingen databas-eller program kod. I vissa fall kan även de högsta tjänst nivåerna, beräknings storlekarna och prestanda optimeringen inte hantera din arbets belastning på ett lyckat och kostnads effektivt sätt. I så fall har du följande ytterligare alternativ för att skala databasen:
+Skalning av resurser är det enklaste och mest effektiva sättet att förbättra databasens prestanda utan att ändra antingen databas-eller program koden. I vissa fall kan det hända att även de högsta tjänst nivåerna, beräknings storlekarna och prestanda optimeringen inte hanterar din arbets belastning på ett framgångs rika och kostnads effektivt sätt. I så fall har du följande ytterligare alternativ för att skala databasen:
 
-- [Läs skalning](sql-database-read-scale-out.md) är en funktion som är tillgänglig i där du får en skrivskyddad replik av dina data där du kan köra krävande skrivskyddade frågor som rapporter. Skrivskyddad replik hanterar din skrivskyddade arbets belastning utan att påverka resursanvändningen på din primära databas.
+- [Läs skalning](sql-database-read-scale-out.md) är en tillgänglig funktion där du får en skrivskyddad replik av dina data där du kan köra krävande skrivskyddade frågor som rapporter. Skrivskyddad replik hanterar din skrivskyddade arbets belastning utan att påverka resursanvändningen på din primära databas.
 - [Database horisontell partitionering](sql-database-elastic-scale-introduction.md) är en uppsättning tekniker som du kan använda för att dela upp data i flera databaser och skala dem oberoende av varandra.
 
 ## <a name="next-steps"></a>Nästa steg

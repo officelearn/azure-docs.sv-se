@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 0b977cb9fe2df1627ad9a2e07b00ffb0e749ed39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 39f22cc3cb026d4bed1dbe937e0e220b7bdceec7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498261"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435565"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -31,9 +31,9 @@ Ett Hadoop-kluster består av flera virtuella datorer (noder) som används för 
 
 I följande tabell visas de olika metoder som du kan använda för att skapa ett HDInsight-kluster.
 
-| Kluster som skapats med | Webbläsare | Kommandorad | REST-API | SDK |
+| Kluster som skapats med | Webbläsare | Kommandoraden | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure-portalen](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -57,7 +57,7 @@ Följ anvisningarna på skärmen. Mer information finns nedan:
 
 ## <a name="resource-group-name"></a>Namn på resursgrupp
 
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) hjälper dig att arbeta med resurserna i ditt program som en grupp, som kallas för en Azure-resurs grupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser för ditt program i en enda samordnad åtgärd.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) hjälper dig att arbeta med resurserna i ditt program som en grupp, som kallas för en Azure-resurs grupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser för ditt program i en enda samordnad åtgärd.
 
 ## <a name="cluster-types"></a>Kluster typer och konfiguration
 
@@ -254,20 +254,20 @@ Vissa inbyggda Java-komponenter, t. ex. apache Mahout och överlappande, kan kö
 
 Ibland vill du konfigurera följande konfigurationsfiler under skapande processen:
 
-* clusterIdentity. XML
+* clusterIdentity.xml
 * Site. XML
 * Gateway. XML
-* HBase-ENV. XML
-* HBase-site. XML
-* HDFS-site. XML
-* Hive-ENV. XML
-* Hive-site. XML
+* hbase-env.xml
+* hbase-site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred – plats
-* Oozie-site. XML
-* Oozie-ENV. XML
+* oozie-site.xml
+* oozie-env.xml
 * Storm-site. XML
-* Tez-site. XML
-* webhcat-site. XML
+* tez-site.xml
+* webhcat-site.xml
 * yarn-site. XML
 
 Mer information finns i [Anpassa HDInsight-kluster med hjälp av bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).

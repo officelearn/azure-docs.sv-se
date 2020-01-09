@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric CLI – sfctl, nät volym | Microsoft Docs
-description: Beskriver sfctl CLI-volym kommandon Service Fabric för masken.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI – sfctl nät volym
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hämta och ta bort volym resurser.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: cc26a0a3170f6cd75f5a1cbb3981044d28d9aba3
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e77c98bf384278b0bf27bb0f30f425375093ffab
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901135"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645318"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Hämta och ta bort volym resurser.

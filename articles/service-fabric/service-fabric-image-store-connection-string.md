@@ -1,56 +1,47 @@
 ---
-title: Azure Service Fabric bild store anslutningssträng | Microsoft Docs
-description: Förstå bild store-anslutningssträng
-services: service-fabric
-documentationcenter: .net
+title: Anslutnings sträng för Azure Service Fabric image Store
+description: Lär dig mer om anslutnings strängen för avbildnings lager, inklusive dess användning och program till ett Service Fabric kluster.
 author: alexwun
-manager: chackdan
-editor: ''
-ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4a56b48c0041e963b89312c59335b45cabacc1bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720203"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645675"
 ---
-# <a name="understand-the-imagestoreconnectionstring-setting"></a>Om inställningen ImageStoreConnectionString
+# <a name="understand-the-imagestoreconnectionstring-setting"></a>Förstå ImageStoreConnectionString-inställningen
 
-En del av vår dokumentation nämner vi kort förekomsten av en ”ImageStoreConnectionString”-parametern utan som beskriver vad det verkligen innebär. Och när du går igenom en artikel som [distribuera och ta bort program med hjälp av PowerShell][10], det ser ut som du är kopiera och klistra in värdet som visas i klustermanifestet på målklustret. Så måste vara kan konfigureras per kluster, men när du skapar ett kluster via den [Azure-portalen][11], det finns inget alternativ för att konfigurera den här inställningen och det är alltid ”fabric: ImageStore”. Vad är syftet med den här inställningen?
+I en del av vår dokumentation, nämner vi kortfattat förekomsten av en "ImageStoreConnectionString"-parameter utan att beskriva vad det innebär. När du har gått igenom en artikel som [distribuera och ta bort program med hjälp av PowerShell][10]ser det ut som allt du gör är att kopiera/klistra in värdet som visas i kluster manifestet för mål klustret. Inställningen måste därför kunna konfigureras per kluster, men när du skapar ett kluster via [Azure Portal][11], finns det inget alternativ för att konfigurera den här inställningen och det är alltid "Fabric: avbildnings Arkiv". Vad är syftet med den här inställningen?
 
-![Klustermanifestet][img_cm]
+![Kluster manifest][img_cm]
 
-Service Fabric startas som en plattform för interna Microsoft-användning av många olika team, så vissa aspekter av det är mycket anpassningsbara – ”bild Store” är en aspekt. Bild-Store är i princip en modulär lagringsplats för att lagra programpaket. När ditt program har distribuerats till en nod i klustret, hämtas noden innehållet i programpaketet från avbildningen Store. ImageStoreConnectionString är en inställning som innehåller all nödvändig information för både klienter och noder att hitta rätt avbildning Store för ett kluster.
+Service Fabric startades som en plattform för intern Microsoft-användning av många olika team, så vissa delar av den är mycket anpassningsbara – "Avbildningsarkiv" är en sådan aspekt. Avbildningsarkiv är i stort sett en lagrings Bart lagrings plats för att lagra programpaket. När programmet distribueras till en nod i klustret laddar den noden ned innehållet i programpaketet från Avbildningsarkiv. ImageStoreConnectionString är en inställning som innehåller all nödvändig information för både klienter och noder för att hitta rätt Avbildningsarkiv för ett angivet kluster.
 
-Det finns tre möjliga typer av avbildningen Store-providers och deras motsvarande anslutningssträngar är följande:
+Det finns för närvarande tre möjliga typer av Avbildningsarkiv leverantörer och deras motsvarande anslutnings strängar:
 
-1. Bild Store-tjänsten: ”fabric: ImageStore”
+1. Avbildningsarkiv tjänst: "Fabric: avbildnings Arkiv"
 
-2. Filsystem: ”file:[file systemsökväg”]
+2. Fil system: "fil: [sökväg till fil system]"
 
-3. Azure Storage ”: xstore:DefaultEndpointsProtocol = https; AccountName = [...]; AccountKey = [...]; Behållaren = [...] ”
+3. Azure Storage: "xstore: DefaultEndpointsProtocol = https; AccountName = [...]; AccountKey = [...]; Container = [...] "
 
-Providertyp som används i produktion är tjänsten bild Store, som är en tillståndskänslig beständiga systemtjänst som du ser i Service Fabric Explorer. 
+Den providertyp som används i produktion är Avbildningsarkiv tjänst, som är en tillstånds känslig system tjänst som du kan se från Service Fabric Explorer. 
 
-![Image Store Service][img_is]
+![Avbildningsarkiv tjänst][img_is]
 
-Som är värd för avbildningen Store i en systemtjänst i själva klustret eliminerar externa beroenden för paketdatabasen och ger oss mer kontroll över ort lagringsutrymme. Framtida förbättringar runt bilden Store är sannolikt att rikta bild Store-providern först, om inte exklusivt. Anslutningssträngen för avbildning Store tjänstleverantör har inte någon unik information eftersom klienten är redan ansluten till målklustret. Klienten behöver bara veta att protokoll som riktar in sig på system-tjänsten ska användas.
+Om du är värd för Avbildningsarkiv i en system tjänst i själva klustret eliminerar du externa beroenden för paketets lagrings plats och ger oss mer kontroll över lagrings platsen. Framtida förbättringar kring Avbildningsarkiv är sannolikt att Avbildningsarkiv leverantören först, om detta inte är exklusivt. Anslutnings strängen för Avbildningsarkiv tjänst leverantören har ingen unik information sedan klienten redan är ansluten till mål klustret. Klienten behöver bara känna till att protokoll som riktar sig mot system tjänsten ska användas.
 
-Filsystem-providern används istället för avbildning Store-tjänsten för lokala kluster i en ruta under utvecklingen ska kunna starta klustret lite snabbare. Skillnaden är normalt små, men det är en användbar optimering för de flesta dem under utvecklingen. Det är möjligt att distribuera ett lokalt kluster i en ruta med de andra providern lagringstyper samt, men det finns vanligtvis ingen anledning att göra det eftersom utveckla/testa arbetsflödet förblir detsamma oavsett providern. Azure Storage-providern finns bara för bakåtkompatibilitet gamla kluster distribueras innan avbildningen Store tjänstleverantören introducerades.
+Fil system leverantören används i stället för den Avbildningsarkiv tjänsten för lokala kluster i en ruta under utvecklingen för att starta klustret något snabbare. Skillnaden är vanligt vis liten, men det är en bra optimering för de flesta folk under utvecklingen. Det är möjligt att distribuera ett lokalt kluster med en enda värd med de andra typerna av lagringsprovider, men det är vanligt vis ingen anledning att göra det eftersom utveckla/testa arbets flödet förblir detsamma oavsett leverantör. Azure Storage providern finns bara för äldre stöd för gamla kluster som distribuerats innan Avbildningsarkiv tjänst leverantören introducerades.
 
-Dessutom inte av filsystemet-providern eller Azure Storage-provider som ska användas som en metod för att dela en avbildning Store mellan flera kluster – detta resulterar i skadade data för klusterkonfigurationen eftersom varje kluster kan skriva data som orsakar konflikter på avbildningen Store. Om du vill dela etablerade programpaket mellan flera kluster, använda [sfpkg] [ 12] filer i stället som kan överföras till någon extern lagring med en nedladdning URI.
+Dessutom bör inte fil system leverantören eller Azure Storage leverantören användas som metod för att dela en Avbildningsarkiv mellan flera kluster – detta leder till att kluster konfigurations data skadas eftersom varje kluster kan skriva motstridiga data till avbildningen Auktoriseringsarkiv. Om du vill dela etablerade programpaket mellan flera kluster använder du [sfpkg][12] -filer i stället, som kan överföras till en extern lagrings plats med en nedladdnings-URI.
 
-Så ImageStoreConnectionString kan konfigureras, men du bara använda standardinställningen. När du publicerar till Azure via Visual Studio, anges parametern automatiskt åt dig i enlighet med detta. Anslutningssträngen är alltid ”fabric: ImageStore” för programdistribution till ett kluster i Azure. Även om tveksamheter värdet alltid kan verifieras genom att hämta klustermanifestet av [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), eller [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Testa både lokalt och produktionskluster bör alltid konfigureras för att använda avbildningen Store tjänstleverantören samt.
+Så medan ImageStoreConnectionString kan konfigureras använder du bara standardinställningen. När du publicerar till Azure via Visual Studio, anges parametern automatiskt åt dig. För program mässig distribution till kluster som finns i Azure är anslutnings strängen alltid "Fabric: avbildnings Arkiv". Även om det är tveksamt kan värdet alltid verifieras genom att hämta kluster manifestet av [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.net](https://msdn.microsoft.com/library/azure/mt161375.aspx)eller [rest](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Både lokala test-och produktions kluster bör alltid konfigureras för användning av Avbildningsarkiv tjänst leverantören.
 
 ### <a name="next-steps"></a>Nästa steg
-[Distribuera och ta bort program med hjälp av PowerShell][10]
+[Distribuera och ta bort program med PowerShell][10]
 
 <!--Image references-->
 [img_is]: ./media/service-fabric-image-store-connection-string/image_store_service.png

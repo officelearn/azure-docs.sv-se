@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462466"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -41,7 +41,7 @@ Beroende på hur stor din organisation är och hur den är uppbyggd kan olika me
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Exempel:
+Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Ett exempel:
 
 **Jens (arbetsbelastningsägare)**
 
@@ -82,6 +82,10 @@ Med utgångspunkt i de fiktiva personer som beskrivs i diagrammet ovan krävs f�
 **Jens (arbetsbelastningsägare)**
 
 * Resurs grupp ägare/deltagare
+
+**Elisabeth (IT-chef)**
+
+* Prenumerationens ägare/deltagare eller säkerhets administratör
 
 **Daniel (IT-säkerhetsansvarig)**
 
@@ -130,7 +134,7 @@ Innan du börjar konfigurera säkerhetsprinciper går du igenom de olika [säker
 ## <a name="data-collection-and-storage"></a>Datainsamling och datalagring
 Azure Security Center använder Microsoft Monitoring Agent – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhets data från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten kommer att lagras i Log Analytics-arbetsytor.
 
-### <a name="agent"></a>agent
+### <a name="agent"></a>Agent
 
 När automatisk etablering är aktiverat i säkerhetsprincipen installeras Microsoft Monitoring Agent (för [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) eller [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) på alla virtuella Azure-datorer som stöds och alla nya som skapas. Om den virtuella datorn eller datorn redan har Microsoft Monitoring Agent installerad, kommer Azure Security Center att utnyttja den befintliga installerade agenten. Agentens process är avsedd att vara icke-inkräktande och har mycket minimal påverkan på den virtuella datorns prestanda.
 
@@ -150,8 +154,8 @@ Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center)
 
 Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusive alla som skapats av Azure Security Center i Azure-portalen. En relaterad resursgrupp skapas för nya arbetsytor. Både följer namnkonventionen:
 
-* Platsen *DefaultWorkspace-[subscription-ID]-[geo]*
-* Resursgrupp: *DefaultResourceGroup-[geo]*
+* Arbetsyta: *DefaultWorkspace-[prenumerations-ID]-[geo]*
+* Resurs grupp: *DefaultResourceGroup-[geo]*
 
 För arbetsytor som skapats av Azure Security Center sparas data i 30 dagar. För befintliga arbetsytor baseras kvarhållningen på arbetsytans prisnivå. Om du vill kan du även använda en befintlig arbetsyta.
 
@@ -195,7 +199,7 @@ När du lägger till nya resurser (virtuella datorer, SQL-databaser osv.) i Azur
 
 Du bör också regelbundet övervaka befintliga resurser för konfigurations ändringar som kan ha skapat säkerhets risker, avvikelse från rekommenderade bas linjer och säkerhets aviseringar. Starta på instrumentpanelen för Security Center. Därifrån finns det tre viktiga områden att granska konsekvent.
 
-![Åtgärder](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
+![Operations](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. I rutan **Förebyggande** kan du snabbt gå till dina viktigaste resurser. Använd det här alternativet om du vill övervaka beräkning, nätverk, lagring och data samt program.
 2. I rutan **Rekommendationer** ser du rekommendationerna från Security Center. Under den pågående övervakningen kanske du upptäcker att du inte har rekommendationer per dag, vilket är normalt eftersom du har åtgärdat alla rekommendationer på den inledande Security Center installationen. Så det finns kanske inte ny information här varje dag och du behöver bara gå hit ibland.

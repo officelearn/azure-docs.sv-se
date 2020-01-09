@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 207e728d25df9192f8a600b13d86330af8311700
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 7b197e1acf696c2ae6e919ee2eddacfb82ac3802
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058915"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646786"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adress typer och autentiseringsmetoder (klassisk) i Azure
 Du kan tilldela IP-adresser till Azure-resurser för att kommunicera med andra Azure-resurser, det lokala nätverket och Internet. Det finns två typer av IP-adresser som du kan använda i Azure: Public och private.
@@ -28,14 +28,14 @@ Offentliga IP-adresser används för kommunikation med Internet, inklusive offen
 Privata IP-adresser används för kommunikation inom ett virtuellt Azure-nätverk (VNet), en moln tjänst och ditt lokala nätverk när du använder en VPN-gateway eller ExpressRoute-krets för att utöka ditt nätverk till Azure.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager. Läs mer om IP-adresser i Resource Manager genom att läsa artikeln [IP-adresser](virtual-network-ip-addresses-overview-arm.md) .
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager. Läs mer om IP-adresser i Resource Manager genom att läsa artikeln [IP-adresser](virtual-network-ip-addresses-overview-arm.md) .
 
 ## <a name="public-ip-addresses"></a>Offentliga IP-adresser
 Offentliga IP-adresser gör att Azure-resurser kan kommunicera med Internet och Azures offentliga tjänster som [Azure cache för Redis](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL-databaser](../sql-database/sql-database-technical-overview.md)och [Azure Storage](../storage/common/storage-introduction.md).
 
 En offentlig IP-adress är associerad med följande resurs typer:
 
-* Molntjänster
+* Cloud services
 * IaaS Virtual Machines (VM)
 * PaaS roll instanser
 * VPN-gatewayer
@@ -52,7 +52,7 @@ När en offentlig IP-adress måste tilldelas en Azure-resurs, tilldelas den *dyn
 ### <a name="dns-hostname-resolution"></a>Matchning av DNS-värdnamn
 När du skapar en moln tjänst eller en virtuell IaaS-dator måste du ange ett DNS-namn för moln tjänsten som är unikt för alla resurser i Azure. Detta skapar en mappning i de Azure-hanterade DNS-servrarna för *dnsname*. cloudapp.net till resursens offentliga IP-adress. När du till exempel skapar en moln tjänst med DNS-namnet **contoso**i moln tjänsten kommer det fullständigt kvalificerade domän namnet (FQDN) **contoso.cloudapp.net** att matchas mot en offentlig IP-adress (VIP) för moln tjänsten. Du kan använda detta fullständiga domännamn för att skapa en anpassad CNAME-domänpost som pekar på den offentliga IP-adressen i Azure.
 
-### <a name="cloud-services"></a>Molntjänster
+### <a name="cloud-services"></a>Cloud services
 En moln tjänst har alltid en offentlig IP-adress som kallas virtuell IP-adress (VIP). Du kan skapa slut punkter i en moln tjänst för att associera olika portar i VIP till interna portar på virtuella datorer och roll instanser i moln tjänsten. 
 
 En moln tjänst kan innehålla flera virtuella IaaS-datorer, eller PaaS roll instanser, som alla exponeras via samma moln tjänst VIP. Du kan också tilldela flera VIP-adresser [till en moln tjänst](../load-balancer/load-balancer-multivip.md), vilket möjliggör flera VIP-scenarier som flera klient miljöer med SSL-baserade webbplatser.
@@ -85,15 +85,15 @@ En [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) kan användas 
 ### <a name="application-gateways"></a>Programgateways
 En Azure [Application Gateway](../application-gateway/application-gateway-introduction.md) kan användas för Layer7 belastnings utjämning för att dirigera nätverks trafik baserat på http. Application Gateway tilldelas en offentlig IP-adress *dynamiskt*, som fungerar som belastningsutjämnad VIP.
 
-### <a name="at-a-glance"></a>Snabbtitt
+### <a name="at-a-glance"></a>En snabbtitt
 Tabellen nedan visar varje resurs typ med möjliga fördelnings metoder (dynamisk/statisk) och möjlighet att tilldela flera offentliga IP-adresser.
 
-| Resource | Dynamisk | Statisk | Flera IP-adresser |
+| Resurs | Dynamisk | Statisk | Flera IP-adresser |
 | --- | --- | --- | --- |
 | Molntjänst |Ja |Ja |Ja |
-| IaaS VM eller PaaS roll instans |Ja |Nej |Nej |
-| VPN-gateway |Ja |Nej |Nej |
-| Programgateway |Ja |Nej |Nej |
+| IaaS VM eller PaaS roll instans |Ja |Inga |Inga |
+| VPN gateway |Ja |Inga |Inga |
+| Programgateway |Ja |Inga |Inga |
 
 ## <a name="private-ip-addresses"></a>Privata IP-adresser
 Privata IP-adresser gör att Azure-resurser kan kommunicera med andra resurser i en moln tjänst eller ett [virtuellt nätverk](virtual-networks-overview.md)(VNet) eller till ett lokalt nätverk (via en VPN-gateway eller ExpressRoute-krets) utan att använda en IP-adress som kan användas på Internet.
@@ -135,13 +135,13 @@ Om du använder en *fristående* moln tjänst kan du bara matcha värdnamn för 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Interna lastbalanserare (ILB) och programgateways
 Du kan tilldela en privat IP-adress till konfigurationen på **klientsidan** för en [intern lastbalanserare i Azure Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) eller till en [programgateway i Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Den här privata IP-adressen fungerar som en intern slutpunkt som bara kan nås av resurserna i dess virtuella nätverk (VNet) och fjärrnätverken som är anslutna till det virtuella nätverket. Du kan tilldela antingen en dynamisk eller privat IP-adress till konfigurationen på klientsidan. Du kan också tilldela flera privata IP-adresser för att aktivera flera VIP-scenarier.
 
-### <a name="at-a-glance"></a>Snabbtitt
+### <a name="at-a-glance"></a>En snabbtitt
 Tabellen nedan visar varje resurs typ med möjliga fördelnings metoder (dynamisk/statisk) och möjlighet att tilldela flera privata IP-adresser.
 
-| Resource | Dynamisk | Statisk | Flera IP-adresser |
+| Resurs | Dynamisk | Statisk | Flera IP-adresser |
 | --- | --- | --- | --- |
 | Virtuell dator (i en *fristående* moln tjänst eller ett virtuellt nätverk) |Ja |Ja |Ja |
-| PaaS roll instans (i en *fristående* moln tjänst eller ett virtuellt nätverk) |Ja |Nej |Nej |
+| PaaS roll instans (i en *fristående* moln tjänst eller ett virtuellt nätverk) |Ja |Inga |Inga |
 | Klient delen för intern belastningsutjämnare |Ja |Ja |Ja |
 | Klient delen för Application Gateway |Ja |Ja |Ja |
 
@@ -150,12 +150,12 @@ I tabellen nedan visas de begränsningar som gäller för IP-adresser i Azure pe
 
 |  | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Offentliga IP-adresser (dynamiska) |5 |Kontakta support |
-| Reserverade offentliga IP-adresser |20 |Kontakta support |
-| Offentlig VIP per distribution (moln tjänst) |5 |Kontakta support |
+| Offentliga IP-adresser (dynamiska) |5 |kontakta supporten |
+| Reserverade offentliga IP-adresser |20 |kontakta supporten |
+| Offentlig VIP per distribution (moln tjänst) |5 |kontakta supporten |
 | Privat VIP (ILB) per distribution (moln tjänst) |1 |1 |
 
-Se till att läsa den fullständiga uppsättningen [begränsningar för nätverk](../azure-subscription-service-limits.md#networking-limits) i Azure.
+Se till att läsa den fullständiga uppsättningen [begränsningar för nätverk](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) i Azure.
 
 ## <a name="pricing"></a>Prissättning
 I de flesta fall är offentliga IP-adresser kostnads fria. Det finns en nominell avgift för att använda ytterligare och/eller statiska offentliga IP-adresser. Se till att du förstår [pris strukturen för offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/).
@@ -163,14 +163,14 @@ I de flesta fall är offentliga IP-adresser kostnads fria. Det finns en nominell
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Skillnader mellan Resource Manager och klassiska distributioner
 Nedan visas en jämförelse av funktioner för IP-adresser i Resource Manager och den klassiska distributions modellen.
 
-|  | Resource | Klassisk | Resource Manager |
+|  | Resurs | Klassisk | Resurshanterare |
 | --- | --- | --- | --- |
-| **Offentlig IP-adress** |***DATORN*** |Kallas en ILPIP (endast dynamisk) |Kallas för offentlig IP (dynamisk eller statisk) |
+| **Offentlig IP-adress** |***VM*** |Kallas en ILPIP (endast dynamisk) |Kallas för offentlig IP (dynamisk eller statisk) |
 |  ||Tilldelad en virtuell IaaS-dator eller en PaaS-roll instans |Kopplad till den virtuella datorns nätverkskort |
 |  |***Belastningsutjämnare mot Internet*** |Kallas VIP (dynamisk) eller Reserverad IP (statisk) |Kallas för offentlig IP (dynamisk eller statisk) |
 |  ||Tilldelad till en moln tjänst |Associeras med Load Balancer-konfigurationen på klient Sidan |
 |  | | | |
-| **Privat IP-adress** |***DATORN*** |Kallas DIP |Kallas privat IP-adress |
+| **Privat IP-adress** |***VM*** |Kallas DIP |Kallas privat IP-adress |
 |  ||Tilldelad en virtuell IaaS-dator eller en PaaS-roll instans |Tilldelad till den virtuella datorns nätverkskort |
 |  |***Intern belastningsutjämnare (ILB)*** |Tilldelad ILB (dynamisk eller statisk) |Tilldelad till ILB konfiguration av klient delen (dynamisk eller statisk) |
 

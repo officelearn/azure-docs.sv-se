@@ -1,69 +1,72 @@
 ---
 title: Använda ett interaktivt Spark-gränssnitt i Azure HDInsight
 description: Ett interaktivt Spark-gränssnitt ger en Read-EXECUTE-utskrift för att köra Spark-kommandon en i taget och visa resultaten.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/09/2018
-ms.openlocfilehash: 7aac2812787a7c14d99377754a4f85e699ef3f09
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.custom: hdinsightactive
+ms.date: 12/12/2019
+ms.openlocfilehash: f088b8210b8170d22e84d131f0a72f5f8caa3b92
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435215"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Köra Apache Spark från Spark-gränssnittet
 
 Ett interaktivt [Apache Spark](https://spark.apache.org/) -gränssnitt ger en repl-miljö (Read-EXECUTE-Print) för att köra Spark-kommandon en i taget och visa resultaten. Den här processen är användbar för utveckling och fel sökning. Spark tillhandahåller ett gränssnitt för vart och ett av de språk som stöds: Scala, python och R.
 
-## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Gå till ett Apache Spark-gränssnitt med SSH
-
-Få åtkomst till ett Apache Spark-gränssnitt i HDInsight genom att ansluta till den primära huvudnoden i klustret med hjälp av SSH:
-
-     ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
-
-Du kan hämta det fullständiga SSH-kommandot för klustret från Azure Portal:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Navigera till fönstret för ditt HDInsight Spark-kluster.
-3. Välj Secure Shell (SSH).
-
-    ![HDInsight-fönstret i Azure Portal](./media/apache-spark-shell/hdinsight-spark-blade.png)
-
-4. Kopiera det visade SSH-kommandot och kör det i terminalen.
-
-    ![HDInsight SSH-fönstret i Azure Portal](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
-
-Mer information om hur du använder SSH för att ansluta till HDInsight finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
 ## <a name="run-an-apache-spark-shell"></a>Köra ett Apache Spark-gränssnitt
 
-Spark tillhandahåller gränssnitt för Scala (Spark-Shell), python (pyspark) och R (Spark). I SSH-sessionen på Head-noden i HDInsight-klustret anger du något av följande kommandon:
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
-    ./bin/spark-shell
-    ./bin/pyspark
-    ./bin/sparkR
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-Nu kan du ange Spark-kommandon på det aktuella språket.
+1. Spark tillhandahåller gränssnitt för Scala (Spark-Shell) och python (pyspark). I SSH-sessionen anger du något av följande kommandon:
+
+    ```bash
+    spark-shell
+    pyspark
+    ```
+
+    Nu kan du ange Spark-kommandon på det aktuella språket.
+
+1. Några grundläggande exempel kommandon:
+
+    ```scala
+    // Load data
+    var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+
+    // Show data
+    data.show()
+
+    // Select certain columns
+    data.select($"BuildingID", $"Country").show(10)
+
+    // exit shell
+    :q
+    ```
 
 ## <a name="sparksession-and-sparkcontext-instances"></a>SparkSession-och SparkContext-instanser
 
 Som standard när du kör Spark-gränssnittet instansieras instanser av SparkSession och SparkContext automatiskt åt dig.
 
-För att få åtkomst till SparkSession- `spark`instansen anger du. För att få åtkomst till SparkContext- `sc`instansen anger du.
+För att få åtkomst till SparkSession-instansen anger du `spark`. För att få åtkomst till SparkContext-instansen anger du `sc`.
 
 ## <a name="important-shell-parameters"></a>Viktiga Shell-parametrar
 
-Spark Shell-kommandot (`spark-shell`, `pyspark`eller `sparkR`) stöder många kommando rads parametrar. Om du vill se en fullständig lista över parametrar startar du Spark-gränssnittet med `--help`växeln. Observera att vissa av dessa parametrar endast kan tillämpas på `spark-submit`, vilket Spark-gränssnittet radbryts.
+Spark Shell-kommandot (`spark-shell`eller `pyspark`) stöder många kommando rads parametrar. Om du vill se en fullständig lista över parametrar startar du Spark-gränssnittet med växeln `--help`. En del av dessa parametrar kan endast tillämpas på `spark-submit`, vilket Spark-gränssnittet radbryts.
 
-| byta | description | Exempel |
+| växla | description | Exempel |
 | --- | --- | --- |
 | --huvud MASTER_URL | Anger huvud-URL: en. I HDInsight är det här värdet alltid `yarn`. | `--master yarn`|
 | --jar v7 JAR_LIST | Kommaavgränsad lista över lokala jar v7 som ska ingå i classpath-driv rutiner och utförar. I HDInsight består den här listan av sökvägar till standard fil systemet i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |
-| --paket MAVEN_COORDS | Kommaavgränsad lista över maven-koordinaterna för JAR v7 som ska ingå på driv rutins-och utförar-classpath. Söker i den lokala maven-lagrings platsen, sedan maven Central och sedan alla ytterligare fjärrdatabaser som anges med `--repositories`. Formatet för koordinaterna *är* *artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| – paket MAVEN_COORDS | Kommaavgränsad lista över maven-koordinaterna för JAR v7 som ska ingå på driv rutins-och utförar-classpath. Söker i den lokala maven-lagrings platsen, sedan maven Central och sedan alla ytterligare fjärrdatabaser som anges med `--repositories`. Formatet för koordinaterna är*artifactId* *:* *version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --PY-fillista | Endast för python, en kommaavgränsad lista med zip-,. ägg-eller. py-filer som ska placeras på PYTHONPATH. | `--pyfiles "samples.py"` |
 
 ## <a name="next-steps"></a>Nästa steg

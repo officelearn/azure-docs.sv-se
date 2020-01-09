@@ -1,25 +1,16 @@
 ---
-title: Återställa säkerhets kopia i Azure Service Fabric | Microsoft Docs
+title: Återställa säkerhets kopia i Azure Service Fabric
 description: Använd den periodiska säkerhets kopierings-och återställnings funktionen i Service Fabric för att återställa data från en säkerhets kopia av dina program data.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377913"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställa säkerhets kopia i Azure Service Fabric
 
@@ -32,7 +23,7 @@ Du kan till exempel konfigurera en tjänst för att säkerhetskopiera data för 
 - **Händelse av data förlust**: oavsiktlig borttagning eller skada på tjänsten. En administratör tar till exempel bort tjänsten felaktigt.
 - **Händelse av data skada**: fel i tjänsten orsakar skadade data. Data skada kan till exempel inträffa när en tjänst kods uppgradering skriver felaktiga data till en tillförlitlig samling. I sådana fall måste du kanske återställa både koden och data till ett tidigare tillstånd.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - För att utlösa en återställning måste _fel analys tjänsten (fas)_ vara aktive rad för klustret.
 - Säkerhets _kopieringen av BRS (Backup Restore service)_ skapade säkerhets kopian.
@@ -326,7 +317,7 @@ $restoreResponse | Format-List
 
 ## <a name="automatic-restore"></a>Automatisk återställning
 
-Du kan konfigurera pålitliga tillstånds känsliga tjänster och Reliable Actors partitioner i Service Fabric-klustret för _Automatisk återställning_. I säkerhets kopierings principen anger `AutoRestore` till _True_. Aktivering av _Automatisk återställning_ återställer automatiskt data från den senaste säkerhets kopian när data går förlorade. Mer information finns i:
+Du kan konfigurera pålitliga tillstånds känsliga tjänster och Reliable Actors partitioner i Service Fabric-klustret för _Automatisk återställning_. I säkerhets kopierings principen anger `AutoRestore` till _True_. Aktivering av _Automatisk återställning_ återställer automatiskt data från den senaste säkerhets kopian när data går förlorade. Mer information finns här:
 
 - [Automatisk återställnings aktivering i säkerhets kopierings princip](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [RestorePartition API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

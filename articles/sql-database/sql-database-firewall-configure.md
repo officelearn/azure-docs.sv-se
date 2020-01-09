@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461462"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg
 
@@ -101,7 +101,7 @@ När en dator försöker ansluta till din databas server från Internet kontroll
 
 ### <a name="connections-from-inside-azure"></a>Anslutningar inifrån Azure
 
-Om du vill att program som finns i Azure ska kunna ansluta till din SQL Server måste Azure-anslutningar vara aktiverade. När ett program från Azure försöker ansluta till din databas server, kontrollerar brand väggen att Azure-anslutningar är tillåtna. En brand Väggs inställning som har start-och slut-IP-adresser lika med *0.0.0.0* indikerar att Azure-anslutningar är tillåtna. Om anslutningen inte är tillåten når inte begäran SQL Database servern.
+Om du vill att program som finns i Azure ska kunna ansluta till din SQL Server måste Azure-anslutningar vara aktiverade. När ett program från Azure försöker ansluta till din databas server, kontrollerar brand väggen att Azure-anslutningar är tillåtna. En brand Väggs inställning som har start-och slut-IP-adresser lika med *0.0.0.0* indikerar att Azure-anslutningar är tillåtna. Detta kan aktive ras direkt från Azure Portal-bladet genom att ställa in brand Väggs regler, samt växla **över** **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern** i **brand väggar och inställningar för virtuella nätverk** . Om anslutningen inte är tillåten når inte begäran SQL Database servern.
 
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brand väggen så att den tillåter alla anslutningar från Azure, inklusive anslutningar från andra kunders prenumerationer. Om du väljer det här alternativet ser du till att dina inloggnings-och användar behörigheter begränsar åtkomsten till behöriga användare.

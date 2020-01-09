@@ -1,28 +1,24 @@
 ---
-title: Virtuella Windows-datorer Översikt – Azure
-description: Läs mer om hur du skapar och hanterar virtuella Windows-datorer i Azure.
+title: Översikt över virtuella Windows-datorer i Azure
+description: Översikt över virtuella Windows-datorer i Azure.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.topic: conceptual
-ms.date: 10/04/2018
+ms.topic: overview
+ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe62f67071b77c464d5b3b8649d16db597d9ab21
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b479717491c9bf4962ff633795b98e1d016ed288
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033041"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646939"
 ---
-# <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
+# <a name="windows-virtual-machines-in-azure"></a>Virtuella Windows-datorer i Azure
 
 Virtuella Azure-datorer (Virtual Machines, VM) är en av flera typer av [behovsbaserade och skalbara datorresurser](/azure/architecture/guide/technology-choices/compute-decision-tree) som Azure erbjuder. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
 
@@ -37,7 +33,7 @@ Virtuella datorer i Azure kan användas på olika sätt. Några exempel är:
 Antalet virtuella datorer som programmet använder kan skalas upp och ned beroende på vilka behov du har.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Vad behöver jag tänka på innan jag skapar en virtuell dator?
-Det finns alltid en rad [överväganden vid utformning](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
+Det finns alltid en rad [överväganden vid utformning](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
 
 * Programresursernas namn
 * Lagringsplatsen för resurserna
@@ -47,11 +43,6 @@ Det finns alltid en rad [överväganden vid utformning](/azure/architecture/refe
 * Konfigurationen av den virtuella datorn när den startats
 * Relaterade resurser som krävs för den virtuella datorn
 
-### <a name="naming"></a>Namngivning
-En virtuell dator har ett tilldelat [namn](/azure/architecture/best-practices/resource-naming) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
-
-Om du använder Azure för att skapa operativsystemsdisken är datornamnet och namnet på den virtuella datorn detsamma. Om du [laddar upp och använder en egen avbildning](upload-generalized-managed.md) som innehåller ett tidigare konfigurerat operativsystem, och du använder den för att skapa en virtuell dator, kan namnen bli olika. Vi rekommenderar att du ger datorn samma namn i operativsystemet som i den virtuella datorn när du laddar upp en egen avbildningsfil.
-
 ### <a name="locations"></a>Platser
 Alla resurser som skapats i Azure fördelas på flera [geografiska områden](https://azure.microsoft.com/regions/) runtom i världen. Vanligtvis kallas regionen **plats** när du skapar en virtuell dator. För en virtuell dator anger platsen var de virtuella hårddiskarna lagras.
 
@@ -59,18 +50,22 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 
 | Metod | Beskrivning |
 | --- | --- |
-| Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
+| Azure portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| REST-API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
+| REST API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
 | Azure CLI |Använd åtgärden [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
-### <a name="vm-size"></a>Storlek på virtuell dator
+## <a name="availability"></a>Tillgänglighet
+Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtuella datorer med en instans, förutsatt att du distribuerar den virtuella datorn med premiumlagring för alla diskar.  För att distributionen ska kunna omfattas av standardserviceavtalet på 99,95 % för virtuella datorer behöver du fortfarande distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en tillgänglighetsuppsättning. En tillgänglighetsuppsättning säkerställer att dina virtuella datorer distribueras via flera feldomäner i Azure-datacentren och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
+
+
+## <a name="vm-size"></a>VM-storlek
 [Storleken](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
 
 Azure debiterar ett [pris per timme](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) baserat på storleken och operativsystemet för den virtuella datorn. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
 
-### <a name="vm-limits"></a>Begränsningar för den virtuella datorn
-Prenumerationen har [standardkvotgränser](../../azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du [anmäler ett supportärende och begär en ökning](../../azure-supportability/resource-manager-core-quotas-request.md)
+## <a name="vm-limits"></a>Begränsningar för den virtuella datorn
+Prenumerationen har [standardkvotgränser](../../azure-resource-manager/management/azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du [anmäler ett supportärende och begär en ökning](../../azure-supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Operativsystemsdiskar och avbildningar
 Virtuella datorer använder [virtuella hårddiskar (VHD:ar)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att lagra sitt operativsystem (OS) och data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. 
@@ -81,12 +76,12 @@ I den här tabellen hittar du några olika sätt för att hitta informationen om
 
 | Metod | Beskrivning |
 | --- | --- |
-| Azure Portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
+| Azure portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
 
-Du kan välja att [ladda upp och använda en egen avbildning](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Om du gör det används inte utgivarnamn, erbjudande och sku.
+Du kan välja att [ladda upp och använda en egen avbildning](upload-generalized-managed.md). Om du gör det används inte utgivarnamn, erbjudande och sku.
 
 ### <a name="extensions"></a>Tillägg
 [Tillägg](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för virtuella datorer ger din virtuella dator fler funktioner genom konfiguration efter distribution och automatiserade uppgifter.
@@ -102,54 +97,18 @@ Resurserna i den här tabellen används av den virtuella datorn och måste finna
 
 | Resurs | Krävs | Beskrivning |
 | --- | --- | --- |
-| [Resursgrupp](../../azure-resource-manager/resource-group-overview.md) |Ja |Den virtuella datorn måste ingå i en resursgrupp. |
+| [Resursgrupp](../../azure-resource-manager/management/overview.md) |Ja |Den virtuella datorn måste ingå i en resursgrupp. |
 | [Lagringskonto](../../storage/common/storage-create-storage-account.md) |Ja |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
 | [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Ja |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
-| [Offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nej |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
+| [Offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Inga |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
 | [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Ja |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
-| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nej |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
-
-## <a name="how-do-i-create-my-first-vm"></a>Hur skapar jag min första virtuella dator?
-Du har flera valmöjligheter när du skapar en virtuell dator. Valen du gör beror på vilken miljö du använder. 
-
-Den här tabellen innehåller information som hjälper dig att komma igång med din virtuella dator.
-
-| Metod | Artikel |
-| --- | --- |
-| Azure Portal |[Skapa en virtuell dator som kör Windows med hjälp av portalen](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Mallar |[Skapa en virtuell Windows-dator med en Resource Manager-mall](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Azure PowerShell |[Skapa en virtuell Windows-dator med PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Klient-SDK: er |[Distribuera Azure-resurser med C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| REST API:er |[Skapa eller uppdatera en virtuell dator](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
-| Azure CLI |[Skapa en VM med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
-
-Man hoppas att det aldrig händer, men ibland går något fel. Om det händer kan du läsa informationen i [Felsöka distributionsproblem i Resource Manager när du skapar en virtuell Windows-dator i Azure](../troubleshooting/troubleshoot-deployment-new-vm-windows.md).
-
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>Hur hanterar jag den virtuella datorn som jag skapat?
-Virtuella datorer kan hanteras från en webbläsarbaserad portal, kommandoradsverktyg med skriptstöd eller direkt från API:erna. Några vanliga hanteringsuppgifter som du kan utföra är att få information om en virtuell dator, logga in på en virtuell dator, hantera tillgänglighet och göra säkerhetskopior.
-
-### <a name="get-information-about-a-vm"></a>Hämta information om en virtuell dator
-I den här tabellen visar vi några exempel på hur du kan få information om en virtuell dator.
-
-| Metod | Beskrivning |
-| --- | --- |
-| Azure Portal |På hubbmenyn klickar du på **Virtuella datorer** och sedan väljer du den virtuella datorn från listan. På bladet för den virtuella datorn har du åtkomst till översikter med information, inställning av värden och övervakning av mått. |
-| Azure PowerShell |Information om hur du använder PowerShell för att hantera virtuella datorer finns i [Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| REST-API |Använd åtgärden [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) (Hämta information om virtuell dator) för att få information om en virtuell dator. |
-| Klient-SDK: er |Information om hur du använder C# för att hantera virtuella datorer finns i [Hantera Azure Virtual Machines med hjälp av Azure Resource Manager och C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| Azure CLI |Information om hur du använder Azure CLI till att hantera virtuella datorer finns i [Azure CLI-referensen](https://docs.microsoft.com/cli/azure/vm). |
-
-### <a name="log-on-to-the-vm"></a>Logga in på den virtuella datorn
-Du använder knappen Anslut på Azure Portal för att [starta en fjärrskrivbordssession (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ibland kan det bli fel när någon försöker använda en fjärranslutning. Om det händer kan du läsa hjälpinformationen i [Felsöka Remote Desktop-anslutningar till en virtuell dator i Azure-dator som kör Windows](../troubleshooting/troubleshoot-rdp-connection.md).
-
-### <a name="manage-availability"></a>Hantera tillgänglighet
-Det är viktigt att förstå hur du [säkerställer hög tillgänglighet](manage-availability.md) för ditt program. I den här konfigurationen skapar du flera virtuella datorer för att försäkra dig om att minst en körs.
-
-För att distributionen ska kunna omfattas av vårt 99,95 VM-serviceavtal behöver du distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en [tillgänglighetsuppsättning](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här konfigurationen säkerställer att dina virtuella datorer distribueras via flera feldomäner och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
-
-### <a name="back-up-the-vm"></a>Säkerhetskopiera den virtuella datorn
-Ett [Recovery Services-valv](../../backup/backup-introduction-to-azure-backup.md) används för att skydda data och tillgångar i både Azure Backup- och Azure Site Recovery-tjänster. Du kan använda ett Recovery Services-valv till att [distribuera och hantera säkerhetskopior för Resource Manager-distribuerade virtuella datorer som använder PowerShell](../../backup/backup-azure-vms-automation.md). 
+| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Inga |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du har för avsikt att arbeta med virtuella datorer i Linux kan du läsa mer i [Azure och Linux](../linux/overview.md).
-* Ta reda på mer om riktlinjerna för konfiguration av infrastrukturen i [Genomgång av en exempelinfrastruktur i Azure](infrastructure-example.md).
+
+Skapa din första virtuella dator!
+
+- [Portalen](quick-create-portal.md)
+- [PowerShell](quick-create-powershell.md)
+- [Azure CLI](quick-create-cli.md)
+

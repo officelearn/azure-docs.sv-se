@@ -1,76 +1,67 @@
 ---
-title: Reliable Actors i Service Fabric | Microsoft Docs
-description: Beskriver hur Reliable Actors lager på Reliable Services och använder funktionerna i Service Fabric-plattformen.
-services: service-fabric
-documentationcenter: .net
+title: Reliable Actors i Service Fabric
+description: Beskriver hur Reliable Actors skiktas på Reliable Services och använder funktionerna i Service Fabric-plattformen.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: bc7569c9f230abb7677a8df9fc0cc0268e57296f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349235"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hur Reliable Actors använder Service Fabric-plattformen
-Den här artikeln förklarar hur Reliable Actors fungerar på Azure Service Fabric-plattformen. Reliable Actors som körs i ett ramverk som är värd för en implementering av en tillståndskänslig tillförlitlig tjänst kallas den *aktörstjänsten*. Aktörstjänsten innehåller alla komponenter som krävs för att hantera livscykel och skicka för din aktörer meddelande:
+I den här artikeln förklaras hur Reliable Actors fungerar på Azure Service Fabric-plattformen. Reliable Actors köras i ett ramverk som är värd för en implementering av en tillstånds känslig tillförlitlig tjänst som kallas *aktörs tjänst*. Aktörs tjänsten innehåller alla komponenter som krävs för att hantera livs cykeln och meddelande sändning för dina aktörer:
 
-* Actor Runtime hanterar livscykeln, skräpinsamling, och tillämpar entrådiga åtkomst.
-* En aktör service remoting lyssnare accepterar fjärråtkomst anrop till aktörer och skickar dem till en dispatcher att dirigera till lämplig aktör-instans.
-* Tillståndsprovider aktören omsluter tillstånd providers (till exempel tillståndsprovider för tillförlitliga samlingar) och tillhandahåller ett kort för aktören tillståndshantering.
+* Aktörens körning hanterar livs cykeln, skräp insamling och framtvingar åtkomst med enkel tråd.
+* En tjänst för kommunikation mellan en aktörs tjänst godkänner fjärråtkomst-anrop till aktörer och skickar dem till en dispatcher för att vidarebefordra till en lämplig aktörs instans.
+* Aktörs leverantörs leverantören omsluter tillstånds leverantörer (till exempel den tillförlitliga samlingens tillstånds leverantör) och tillhandahåller ett kort för hantering av aktörs tillstånd.
 
-De här komponenterna utgör tillsammans Reliable Actor-ramverket.
+Dessa komponenter utgör tillsammans de pålitliga aktörs ramverket.
 
-## <a name="service-layering"></a>Tjänsten lagren
-Eftersom aktörstjänsten själva är en tillförlitlig tjänst alla de [programmodell](service-fabric-application-model.md), livscykel, [paketering](service-fabric-package-apps.md), [distribution](service-fabric-deploy-remove-applications.md), uppgradera och skala begreppet pålitliga Tjänster gäller på samma sätt till aktörstjänster.
+## <a name="service-layering"></a>Tjänst skiktning
+Eftersom aktörs tjänsten själva är en tillförlitlig tjänst är alla [program modeller](service-fabric-application-model.md), livs cykel, [paketering](service-fabric-package-apps.md), [distribution](service-fabric-deploy-remove-applications.md), uppgradering och skalning av Reliable Services att använda samma sätt för aktörs tjänster.
 
-![Aktören service lagren][1]
+![Tjänst skiktning för skådespelare][1]
 
-Det föregående diagrammet visar relationen mellan Service Fabric-programramverk och användarkod. Blå element representerar Reliable Services application framework, orange representerar Reliable Actor-ramverket och grön är användarkod.
+Föregående diagram visar förhållandet mellan Service Fabric program ramverk och användar kod. Blå element representerar Reliable Services Application Framework, orange representerar det tillförlitliga aktörs ramverket och grönt representerar användar kod.
 
-Reliable Services tjänsten ärver den `StatefulService` klass. Den här klassen är själva härleds från `StatefulServiceBase` (eller `StatelessService` för tillståndslösa tjänster). I Reliable Actors använder aktörstjänsten. Aktörstjänsten är en annan implementering av den `StatefulServiceBase` klass som implementerar mönstret aktör där din aktörer kör. Eftersom aktörstjänsten själva är bara en implementering av `StatefulServiceBase`, kan du skriva din egen tjänst som härleds från `ActorService` och implementera funktioner på servicenivå på samma sätt som vid arv `StatefulService`, till exempel:
+I Reliable Services ärver tjänsten `StatefulService`s klass. Den här klassen härleds i sig själv från `StatefulServiceBase` (eller `StatelessService` för tillstånds lösa tjänster). I Reliable Actors använder du aktörs tjänsten. Aktörs tjänsten är en annan implementering av klassen `StatefulServiceBase` som implementerar aktörens mönster där dina aktörer körs. Eftersom aktörs tjänsten bara är en implementering av `StatefulServiceBase`kan du skriva en egen tjänst som är härledd från `ActorService` och implementera funktioner på service nivå på samma sätt som när du ärver `StatefulService`, till exempel:
 
-* Tjänsten säkerhetskopiering och återställning.
-* Delade funktioner för alla aktörer, till exempel en kretsbrytare.
-* RPC-anrop på aktörstjänsten själva och på varje enskild skådespelare.
+* Säkerhets kopiering och återställning av tjänsten.
+* Delade funktioner för alla aktörer, till exempel en krets brytare.
+* Fjärran rop i själva aktörs tjänsten och på varje enskild aktör.
 
-Mer information finns i [implementerar funktioner på servicenivå i din aktörstjänsten](service-fabric-reliable-actors-using.md).
+Mer information finns i [implementera service nivå funktioner i aktörs tjänsten](service-fabric-reliable-actors-using.md).
 
 ## <a name="application-model"></a>Programmodell
-Aktörstjänster är pålitliga tjänster så programmodellen är samma. Dock skapa genereringsverktyg för aktören framework vissa av modellen programfiler för dig.
+Aktörs tjänster är Reliable Services, så program modellen är densamma. Men med build-verktygen för aktörs ramverket genereras några av program modell filerna åt dig.
 
-### <a name="service-manifest"></a>Tjänstmanifestet
-Genereringsverktyg för aktören framework genererar automatiskt innehållet i din aktörstjänsten ServiceManifest.xml-filen. Den här filen innehåller:
+### <a name="service-manifest"></a>Tjänst manifest
+Verktyget för att skapa aktörs ramverk genererar automatiskt innehållet i din aktörs tjänsts ServiceManifest. XML-fil. Den här filen innehåller:
 
-* Typ av aktör tjänst. Namnet på genereras baserat på din aktörs projektnamn. Baserat på attributet persistence på aktören, anges flaggan HasPersistedState också i enlighet med detta.
-* Kodpaketet.
-* Konfigurationspaket.
-* Resurser och slutpunkter.
+* Aktörs tjänst typ. Typ namnet genereras baserat på din aktörs projekt namn. Baserat på det persistence attributet på din aktör anges även flaggan HasPersistedState.
+* Kod paket.
+* Konfigurations paket.
+* Resurser och slut punkter.
 
 ### <a name="application-manifest"></a>Programmanifest
-Genereringsverktyg för aktören framework skapar automatiskt en standard-tjänstdefinition för actor-tjänst. Build-verktyg anger egenskaperna för standard-tjänsten:
+Aktörs ramverkets build-verktyg skapar automatiskt en standard tjänst definition för din aktörs tjänst. Bygg verktygen fyller i standard tjänst egenskaperna:
 
-* Ange replikantal bestäms av attributet persistence för aktören. Varje gång persistence-attributet på aktören ändras återställs uppsättningen replikantal i tjänstdefinitionen standard därefter.
-* Partitionsschemat och intervallet är inställda på Uniform Int64 med det fullständiga viktiga Int64-intervallet.
+* Antalet replik uppsättningar bestäms av det persistence attributet på din aktör. Varje gången det beständiga attributet på din aktör ändras återställs antalet replik uppsättningar i standard tjänst definitionen.
+* Partitions schema och intervall anges till enhetligt Int64 med det fullständiga Int64-nyckelvärdet.
 
-## <a name="service-fabric-partition-concepts-for-actors"></a>Begrepp för Service Fabric-partition för aktörer
-Aktörstjänster är partitionerad tillståndskänsliga tjänster. Varje partition för en aktörstjänsten innehåller en uppsättning aktörer. Tjänstpartitioner fördelas automatiskt över flera noder i Service Fabric. Aktörsinstanser distribueras som ett resultat.
+## <a name="service-fabric-partition-concepts-for-actors"></a>Metoder för Service Fabric partition för aktörer
+Aktörs tjänster är partitionerade tillstånds känsliga tjänster. Varje partition i en aktörs tjänst innehåller en uppsättning aktörer. Tjänste partitioner distribueras automatiskt över flera noder i Service Fabric. Aktörs instanser distribueras som ett resultat.
 
-![Aktören partitionering och distribution][5]
+![Skådespelare partitionering och distribution][5]
 
-Reliable Services kan skapas med olika partitionsscheman och partition nyckelintervall. Aktörstjänsten använder Int64 partitioneringsschemat med viktiga Int64 med allt för att mappa aktörer till partitioner.
+Reliable Services kan skapas med olika partitioner och partitionerings nyckel intervall. Aktörs tjänsten använder Int64 partitionerings schema med det fullständiga Int64-nyckel intervallet för att mappa aktörer till partitioner.
 
-### <a name="actor-id"></a>Aktörs-ID
-Varje skådespelare som skapats i tjänsten har ett unikt ID som är associerade med det representeras av den `ActorId` klass. `ActorId` är en täckande ID-värde som kan användas för jämn fördelning av aktörer över tjänstpartitionerna genom att generera slumpmässiga ID: N:
+### <a name="actor-id"></a>Skådespelare-ID
+Varje aktör som skapas i tjänsten har ett unikt ID som är kopplat till den, som representeras av klassen `ActorId`. `ActorId` är ett ogenomskinligt ID-värde som kan användas för enhetlig distribution av aktörer över tjänstepartitioner genom att generera slumpmässiga ID: n:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -80,7 +71,7 @@ ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 
-Varje `ActorId` hash-kodas till en Int64. Det är därför aktörstjänsten måste använda en Int64 partitioneringsschemat med viktiga Int64 med allt. Dock anpassade ID-värden kan användas för en `ActorID`, inklusive GUID/UUID: N, strängar och Int64s.
+Varje `ActorId` hash-kodas till en Int64. Detta är anledningen till att aktörs tjänsten måste använda ett Int64-partitionerings schema med ett fullständigt Int64-nyckelpar. Anpassade ID-värden kan dock användas för en `ActorID`, inklusive GUID: er, UUID, strängar och Int64s.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -93,15 +84,15 @@ ActorProxyBase.create(MyActor.class, new ActorId("myActorId"));
 ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
-När du använder GUID/UUID: N och strängar värdena är hash-kodas till en Int64. Men när du uttryckligen etablerar Int64 till en `ActorId`, Int64 mappas direkt till en partition utan ytterligare hash. Du kan använda den här tekniken för att styra vilken partition aktörer placeras i.
+När du använder GUID/UUID: er och strängar, hashas värdena till en Int64. Men när du explicit anger en Int64 till en `ActorId`mappar Int64 direkt till en partition utan ytterligare hashing. Du kan använda den här metoden för att styra vilken partition som aktörerna placeras i.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktören tillståndshantering](service-fabric-reliable-actors-state-management.md)
-* [Aktör livscykel och skräpinsamling samling](service-fabric-reliable-actors-lifecycle.md)
-* [Aktörer API-referensdokumentation](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)
-* [.NET-exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempelkoden](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Hantering av aktörs tillstånd](service-fabric-reliable-actors-state-management.md)
+* [Aktörs livs cykel och skräp insamling](service-fabric-reliable-actors-lifecycle.md)
+* [Dokumentation om aktörers API-referens](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)
+* [.NET-exempel kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

@@ -4,15 +4,15 @@ description: Azure Monitor kan läsa loggar för Azure-tjänster som skriver dia
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/12/2017
-ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3e8968f544e347b7b4cfe6db484c2ce8bd404820
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395998"
 ---
 # <a name="collect-azure-resource-logs-from-azure-storage"></a>Samla in Azure-resurs loggar från Azure Storage
 
@@ -30,7 +30,7 @@ Azure-diagnostik är en Azure-tillägg som hjälper dig att samla in diagnostikd
 
 För att Azure Monitor ska kunna samla in dessa Azure-diagnostik loggar måste loggarna finnas på följande platser:
 
-| Loggtyp | Resurstyp | Plats |
+| Loggtyp | Resurstyp | Location |
 | --- | --- | --- |
 | IIS-loggar |Virtual Machines <br> Web-roller <br> Worker-roller |wad-iis-loggfiler (Blob Storage) |
 | Syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
@@ -65,7 +65,7 @@ Du kan använda följande procedur för att aktivera Azure-diagnostik i en virtu
    3. Klicka på **diagnostik**.
    4. Ange den **Status** till **på**.
    5. Välj varje diagnostiklogg som du vill samla in.
-   6. Klicka på **OK**
+   6. Klicka på **OK**.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Aktivera Azure-diagnostik i en webbroll för IIS-logg- och händelsedata samling
 

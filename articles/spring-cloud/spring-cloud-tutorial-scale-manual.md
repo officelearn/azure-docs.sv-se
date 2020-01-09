@@ -1,63 +1,67 @@
 ---
 title: 'Självstudie: skala ett program i Azure våren Cloud | Microsoft Docs'
-description: I den här självstudien får du lära dig hur du skalar ett program i Azure våren Cloud på Azure Portal
+description: I den här självstudien får du lära dig hur du skalar ett program med Azure våren Cloud i Azure Portal
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: cce7562c74577f6fd545bcaed3ee3e0968fd40b4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: eaf7e7ec39555e5b933020835f3bb96429e3aa81
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461431"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Självstudie: skala ett program i Azure våren Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Skala ett program i Azure våren Cloud
 
-Den här självstudien visar hur du skalar ett mikrotjänstprogram med hjälp av moln instrument panelen för Azure våren i Azure Portal. Skala ditt program uppåt och nedåt genom att ändra antalet virtuella processorer (virtuella processorer) och mängden minne. Skala ditt program i och ut genom att ändra antalet instanser av programmet. När du är klar vet du hur du ska göra snabba manuella ändringar i varje program i din tjänst. Skalningen börjar gälla om några sekunder och kräver inga kod ändringar eller omdistributioner.
+Den här självstudien visar hur du skalar ett mikrotjänstprogram med hjälp av moln instrument panelen för Azure våren i Azure Portal.
+
+Skala ditt program uppåt och nedåt genom att ändra antalet virtuella processorer (virtuella processorer) och mängden minne. Skala ditt program i och ut genom att ändra antalet program instanser.
+
+När du är klar vet du hur du ska göra snabba manuella ändringar i varje program i din tjänst. Skalningen börjar gälla om några sekunder och kräver inga kod ändringar eller omdistributioner.
 
 ## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
-* En distribuerad Azure våren Cloud Service-instans.  Följ vår [snabb start](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
-* Minst ett program som redan har skapats i den tjänst instansen.
 
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+* En distribuerad Azure våren Cloud Service-instans.  Följ vår [snabb start för att distribuera en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
+* Minst ett program som redan har skapats i din tjänst instans.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Gå till sidan skala i Azure Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Gå till **översikts** sidan för Azure våren-molnet.
 
 1. Välj den resurs grupp som innehåller din tjänst.
 
-1. Gå till fliken **appar** under rubriken **Inställningar** på menyn på vänster sida.
+1. Välj fliken **appar** under **Inställningar** på menyn på vänster sida av sidan.
 
-1. Välj det program som du vill skala. I det här exemplet ska vi skala programmet med namnet "Account-service". Detta bör gå till programmets **översikts** sida.
+1. Välj det program som du vill skala. I det här exemplet väljer du appen med namnet **Account-service**. Du bör sedan se programmets **översikts** sida.
 
-1. Gå till fliken **Scale (skala** ) under rubriken **Inställningar** på menyn på vänster sida. Du bör se alternativ för skalnings attribut som visas i följande avsnitt.
+1. Gå till fliken **Scale (skala** ) under **Inställningar** på menyn på vänster sida av sidan. Du bör se alternativ för skalning av de attribut som visas i följande avsnitt.
 
 ## <a name="scale-your-application"></a>Skala ditt program
 
-Du kan ändra skalnings attributen. Behåll följande anteckningar i åtanke.
+Tänk på följande när du ändrar skalnings attributen:
 
-* **Processorer**: det högsta antalet tillåtna processorer är 4 per program instans. Det totala antalet processorer för ett program blir det värde som anges här multiplicerat med antalet program instanser.
+* **Processorer**: det maximala antalet processorer per program instans är fyra. Det totala antalet processorer för ett program är det värde som anges här multiplicerat med antalet program instanser.
 
-* **Minne/GB**: den maximala mängd minne som tillåts är 8 GB per program instans.  Den totala mängden minne för ett program blir det värde som anges här multiplicerat med antalet program instanser.
+* **Minne/GB**: den maximala mängden minne per program instans är 8 GB. Den totala mängden minne för ett program är det värde som anges här multiplicerat med antalet program instanser.
 
-* **Antal**instanser av app: du kan skala upp till 20 instanser på standard nivån. Det här värdet ändrar antalet separata instanser av mikrotjänst programmet som körs.
+* **Antal instanser av app**: på standard-nivån kan du skala ut till maximalt 20 instanser. Det här värdet ändrar antalet separata instanser av mikrotjänst programmet som körs.
 
-Se till att klicka på knappen **Spara** för att tillämpa skalnings inställningarna.
+Se till att välja **Spara** för att tillämpa skalnings inställningarna.
 
-![Scale service i Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
+![Skalnings tjänsten i Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
-Efter några sekunder visas ändringarna du gjort på sidan **Översikt** med mer information på fliken **program instanser** . skalning kräver inga kod ändringar eller omdistributioner.
+Efter några sekunder visas ändringarna du gjort på sidan **Översikt** med mer information på fliken **program instanser** . skalning kräver inte kod ändringar eller omdistribution.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du manuellt skalar dina Azure våren Cloud-program.  Fortsätt till nästa självstudie om du vill veta mer om hur du övervakar ditt program.
+I den här självstudien har du lärt dig hur du manuellt skalar dina Azure våren Cloud-program. Fortsätt till nästa självstudie om du vill veta mer om hur du övervakar ditt program.
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du övervakar ditt program](spring-cloud-tutorial-distributed-tracing.md)
+> [Lär dig hur du övervakar ett program](spring-cloud-tutorial-distributed-tracing.md)

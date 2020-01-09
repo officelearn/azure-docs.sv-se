@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b8c2ca3bf919d70123b7b5b6d13c0301e0c1fd13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383586"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Snabb start: Sök efter nyheter med Nyhetssökning i Bing SDK för Java
 
@@ -57,7 +57,7 @@ import java.io.IOException;
 
 ## <a name="create-a-search-client-and-store-credentials"></a>Skapa en sökklient och lagra autentiseringsuppgifter
 
-1. Skapa en metod med namnet `getClient()` som returnerar en ny `NewsSearchAPIImpl`-sökklienten. Lägg till slutpunkten som den första parametern för det nya `NewsSearchAPIImpl`-objektet och ett nytt `ServiceClientCredentials`-objekt för att lagra autentiseringsuppgifterna.
+1. Skapa en metod med namnet `getClient()` som returnerar en ny `NewsSearchAPIImpl`-sökklienten. Lägg till slutpunkten som den första parametern för det nya `NewsSearchAPIImpl`-objektet och ett nytt `ServiceClientCredentials`-objekt för att lagra autentiseringsuppgifterna. 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {

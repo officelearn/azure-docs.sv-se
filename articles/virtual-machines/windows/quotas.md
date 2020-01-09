@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 29eaad9835b74e9867454dffb35799a01bbb03e1
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7721aca9187a0faee2254bc100bce03fe34232c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073426"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646922"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>vCPU-kvoter för virtuella datorer
 
@@ -85,4 +85,4 @@ Om en kvot ökning krävs för att köpa en enskild prenumeration i RI, kan du [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om fakturering och kvoter finns i Azure- [prenumerationer, tjänst gränser, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Mer information om fakturering och kvoter finns i Azure- [prenumerationer, tjänst gränser, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

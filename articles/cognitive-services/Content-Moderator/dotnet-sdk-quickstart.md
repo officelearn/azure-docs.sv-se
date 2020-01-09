@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Content Moderator klient bibliotek för .NET | Microsoft Docs'
+title: 'Snabb start: Content Moderator klient bibliotek för .NET'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med Content Moderator klient biblioteket för .NET.
+description: Kom igång med Content Moderator klient biblioteket för .NET med den här snabb starten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382063"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Snabb start: Content Moderator klient bibliotek för .NET
 
@@ -103,7 +103,7 @@ Följande klasser hanterar några av de viktigaste funktionerna i Content Modera
 |[TextModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|Den här klassen innehåller funktioner för att analysera text för språk, svordomar, fel och personlig information.|
 |[Review](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|Den här klassen innehåller funktionerna i gransknings-API: erna, inklusive metoder för att skapa jobb, anpassade arbets flöden och mänsklig granskning.|
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 
 De här kodfragmenten visar hur du gör följande uppgifter med Content Moderator-klient biblioteket för .NET:

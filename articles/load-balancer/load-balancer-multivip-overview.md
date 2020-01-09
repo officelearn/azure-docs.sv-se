@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075953"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644944"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klient delar för Azure Load Balancer
 
@@ -29,7 +29,7 @@ När du definierar en Azure Load Balancer är en klient del och en konfiguration
 
 Följande tabell innehåller några exempel på konfiguration av frontend:
 
-| Delen | IP-adress | protocol | port |
+| Klientdel | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -53,7 +53,7 @@ Vi utforskar dessa scenarier ytterligare genom att börja med standard beteendet
 
 I det här scenariot konfigureras klient dels inställningarna på följande sätt:
 
-| Delen | IP-adress | protocol | port |
+| Klientdel | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | ![grön frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![lila klient del](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -69,7 +69,7 @@ Vi definierar två regler:
 
 Den fullständiga mappningen i Azure Load Balancer är nu enligt följande:
 
-| Regel | IP-adress för klient del | protocol | port | Mål | port |
+| Regel | Klientdelens IP-adress | protocol | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP-IP-adress |80 |
 | ![lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP-IP-adress |81 |
@@ -103,21 +103,21 @@ För det här scenariot har varje virtuell dator i backend-poolen tre nätverks 
 
 Vi antar samma konfiguration för klient delen som i föregående scenario:
 
-| Delen | IP-adress | protocol | port |
+| Klientdel | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | ![grön frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![lila klient del](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
 
 Vi definierar två regler:
 
-| Regel | Delen | Mappa till backend-pool |
+| Regel | Klientdel | Mappa till backend-pool |
 | --- | --- | --- |
 | 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (i VM1 och VM2) |
 | 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (i VM1 och VM2) |
 
 I följande tabell visas en fullständig mappning i belastningsutjämnaren:
 
-| Regel | IP-adress för klient del | protocol | port | Mål | port |
+| Regel | Klientdelens IP-adress | protocol | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |samma som klient del (65.52.0.1) |samma som klient del (80) |
 | ![lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |samma som klient del (65.52.0.2) |samma som klient del (80) |
@@ -133,7 +133,7 @@ Typ av flytande IP-regel är grunden för flera konfigurations mönster för bel
 * Flera klient dels konfigurationer stöds endast med virtuella IaaS-datorer.
 * Med den flytande IP-regeln måste programmet använda den primära IP-konfigurationen för utgående SNAT-flöden. Om programmet binder till klient delens IP-adress som kon figurer ATS i loopback-gränssnittet i gäst operativ systemet, är Azures utgående SNAT inte tillgängligt för att skriva om det utgående flödet och flödet Miss lyckas.  Granska [utgående scenarier](load-balancer-outbound-connections.md).
 * Offentliga IP-adresser har en inverkan på faktureringen. Mer information finns i pris information för [IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Prenumerations begränsningar gäller. Mer information finns i [tjänst begränsningar](../azure-subscription-service-limits.md#networking-limits) för mer information.
+* Prenumerations begränsningar gäller. Mer information finns i [tjänst begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,24 +1,16 @@
 ---
-title: Diagnostik för Azure Service Fabric omvänd proxy | Microsoft Docs
-description: Lär dig hur du övervakar och diagnostiserar bearbetning av begär Anden på den omvända proxyn.
-services: service-fabric
-documentationcenter: .net
+title: Diagnostik för Azure Service Fabric omvänd proxy
+description: Lär dig hur du övervakar och diagnostiserar bearbetning av begär anden i den omvända proxyn för ett Azure Service Fabric-program.
 author: kavyako
-manager: vipulm
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933972"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645471"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Övervaka och diagnostisera bearbetning av begär anden i den omvända proxyn
 
@@ -104,7 +96,7 @@ Här följer några exempel på hur du tolkar de vanliga fel loggar som en kan s
      }
      }
      ```
-     Ett annat exempel där omvänd proxy kan returnera 404 hittades inte: ApplicationGateway\Http Configuration parameter **SecureOnlyMode** har angetts till true med omvänd proxy som lyssnar på **https**, men alla replik slut punkter är osäkra ( lyssnar på HTTP).
+     Ett annat exempel där omvänd proxy kan returnera 404 som inte hittas är: ApplicationGateway\Http Configuration parameter **SecureOnlyMode** har angetts till true med den omvända proxyn som lyssnar på **https**, men alla replik slut punkter är osäkra (lyssnar på http).
      Omvänd proxy returnerar 404 eftersom det inte går att hitta en slut punkt som lyssnar på HTTPS för att vidarebefordra begäran. Att analysera parametrarna i händelse nytto lasten hjälper till att begränsa problemet:
     
      ```
@@ -183,7 +175,7 @@ Här följer några exempel på hur du tolkar de vanliga fel loggar som en kan s
     ```
 5. Omvänd proxy returnerar 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
 
-    FABRIC_E_SERVICE_DOES_NOT_EXIST-fel returneras om URI-schemat inte har angetts för tjänst slut punkten i tjänst manifestet.
+    FABRIC_E_SERVICE_DOES_NOT_EXIST fel returneras om URI-schemat inte har angetts för tjänst slut punkten i tjänst manifestet.
 
     ```
     <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>

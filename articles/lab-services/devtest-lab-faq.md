@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565331"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644927"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
 
-## <a name="blog-post"></a>Blogginlägg
+## <a name="blog-post"></a>Blogg inlägg
 Vår team blogg för DevTest Labs har dragits tillbaka från och med 20 mars 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Var kan jag spåra funktions uppdateringar från nu?
@@ -40,7 +40,7 @@ Vi arbetar för närvarande med att migrera befintliga blogg inlägg (exklusive 
 Vi kommer att publicera avbrott-uppdateringar med vår Twitter-referens från och med nu. Följ oss på Twitter för att få de senaste uppdateringarna om avbrott och kända buggar.
 
 ### <a name="twitter"></a>Twitter
-Vår Twitter-referens:[@azlabservices](https://twitter.com/azlabservices)
+Vår Twitter-referens: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="general"></a>Allmänt
 ### <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
@@ -50,14 +50,14 @@ Om din fråga inte visas här kan vi berätta för oss, så vi kan hjälpa dig a
 - Om du vill få en större mål grupp kan du publicera en fråga i [Azure DEVTEST Labs MSDN-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engagera dig med Azure DevTest Labs-teamet och andra medlemmar i communityn.
 - Skicka dina förfrågningar och idéer till [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs)för funktions förfrågningar.
 
-### <a name="what-is-a-microsoft-account"></a>Vad är ett Microsoft-konto?
+### <a name="what-is-a-microsoft-account"></a>Vad är en Microsoft-konto?
 Ett Microsoft-konto är ett konto som du använder för nästan allt du gör med Microsoft-enheter och-tjänster. Det är en e-postadress och ett lösen ord som du använder för att logga in på Skype, Outlook.com, OneDrive, Windows Phone, Azure och Xbox Live. Ett enda konto innebär att dina filer, foton, kontakter och inställningar kan följa dig på vilken enhet som helst.
  
 > [!NOTE]
 > Ett Microsoft-konto som används för att anropa ett Windows Live ID.
 
 ### <a name="why-should-i-use-azure-devtest-labs"></a>Varför ska jag använda Azure DevTest Labs?
-Azure DevTest Labs kan spara tid och pengar till din grupp. Utvecklare kan skapa sina egna miljöer genom att använda flera olika baser. De kan också använda artefakter för att snabbt distribuera och konfigurera program. Genom att använda anpassade avbildningar och formler kan du spara virtuella datorer som mallar och enkelt återge dem i hela teamet. DevTest Labs erbjuder också flera konfigurerbara principer som labb administratörer kan använda för att minska avfall och hantera en grupps miljöer. Dessa principer omfattar automatisk avstängning, kostnads tröskel, maximalt antal virtuella datorer per användare och maximal VM-storlek. En mer ingående förklaring av DevTest Labs finns i översikten eller den [](devtest-lab-overview.md) [inledande videon](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
+Azure DevTest Labs kan spara tid och pengar till din grupp. Utvecklare kan skapa sina egna miljöer genom att använda flera olika baser. De kan också använda artefakter för att snabbt distribuera och konfigurera program. Genom att använda anpassade avbildningar och formler kan du spara virtuella datorer som mallar och enkelt återge dem i hela teamet. DevTest Labs erbjuder också flera konfigurerbara principer som labb administratörer kan använda för att minska avfall och hantera en grupps miljöer. Dessa principer omfattar automatisk avstängning, kostnads tröskel, maximalt antal virtuella datorer per användare och maximal VM-storlek. En mer ingående förklaring av DevTest Labs finns i [översikten](devtest-lab-overview.md) eller den [inledande videon](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
 
 ### <a name="what-does-worry-free-self-service-mean"></a>Vad innebär "bekymra dig fritt självbetjäning"?
 Kostnads fri självbetjäning innebär att utvecklare och testare skapar sina egna miljöer efter behov. Administratörer har trygghet att veta att DevTest Labs kan hjälpa dig att ange lämplig åtkomst, minimera avfalls-och kontroll kostnader. Administratörer kan ange vilka VM-storlekar som tillåts, det maximala antalet virtuella datorer och när virtuella datorer startas och stängs av. DevTest Labs gör det också enkelt att övervaka kostnader och ange aviseringar för att hjälpa dig att hålla koll på hur labb resurser används.
@@ -81,14 +81,14 @@ DevTest Labs är en kostnads fri tjänst. Det är kostnads fritt att skapa labb 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Vilka är de olika säkerhets nivåerna i DevTest Labs?
 Säkerhets åtkomst bestäms av rollbaserad Access Control (RBAC). För att lära dig hur Access fungerar, hjälper det till att lära sig skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
 
-- **Behörighet**: En behörighet är en definierad åtkomst till en viss åtgärd. Till exempel kan en behörighet ha Läs behörighet till alla virtuella datorer.
-- **Roll**: En roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Till exempel har en användare med rollen prenumerations ägare åtkomst till alla resurser i en prenumeration.
-- **Omfång**: Ett omfång är en nivå i hierarkin för en Azure-resurs. Ett omfång kan till exempel vara en resurs grupp, ett enda labb eller hela prenumerationen.
+- **Behörighet**: en behörighet är en definierad åtkomst till en viss åtgärd. Till exempel kan en behörighet ha Läs behörighet till alla virtuella datorer.
+- **Roll**: en roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Till exempel har en användare med rollen prenumerations ägare åtkomst till alla resurser i en prenumeration.
+- **Omfattning**: ett omfång är en nivå i hierarkin för en Azure-resurs. Ett omfång kan till exempel vara en resurs grupp, ett enda labb eller hela prenumerationen.
 
 Inom ramen för DevTest Labs finns det två typer av roller som definierar användar behörigheter:
 
-- **Labb ägare**: En labb ägare har åtkomst till alla resurser i labbet. En labb ägare kan ändra principer, läsa och skriva till alla virtuella datorer, ändra det virtuella nätverket och så vidare.
-- **Labb användare**: En labb användare kan visa alla labb resurser, till exempel virtuella datorer, principer och virtuella nätverk. En labb användare kan dock inte ändra principer eller virtuella datorer som har skapats av andra användare.
+- **Labb ägare**: en labb ägare har åtkomst till alla resurser i labbet. En labb ägare kan ändra principer, läsa och skriva till alla virtuella datorer, ändra det virtuella nätverket och så vidare.
+- **Labb användare**: en labb användare kan visa alla labb resurser, till exempel virtuella datorer, principer och virtuella nätverk. En labb användare kan dock inte ändra principer eller virtuella datorer som har skapats av andra användare.
 
 Du kan också skapa anpassade roller i DevTest Labs. Information om hur du skapar anpassade roller i DevTest Labs finns i [Granting User Permissions to Specific Lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -105,7 +105,7 @@ DevTest Labs-resursen bör ägas av ägare som är nära projekt-/program gruppe
 
 Projekt-/program grupp medlemmar ska läggas till i rollen **DevTest Labs-användare** . Dessa användare kan skapa virtuella datorer (i linje med principerna för labb och prenumerations nivå). De kan också hantera sina egna virtuella datorer. De kan inte hantera virtuella datorer som tillhör andra användare.
 
-Mer information finns i [Azure Enterprise-Autogenerera – dokumentation](/azure/architecture/cloud-adoption/appendix/azure-scaffold)om preskripts styrning av prenumerationer.
+Mer information finns i [Azure Enterprise-Autogenerera – dokumentation om preskripts styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 
 ### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>Hur gör jag för att skapa en roll för att tillåta användare att utföra en speciell uppgift?
@@ -162,11 +162,11 @@ Gemensamt resurs grupps scenario:
 Du kanske vill utöka de nuvarande konventionerna för företags namn till Azure-åtgärder och göra dem konsekventa i DevTest Labs-miljön. När du distribuerar DevTest Labs rekommenderar vi att du har vissa start principer. Du distribuerar dessa principer av ett centralt skript och JSON-mallar för att genomdriva konsekvens. Namngivnings principer kan implementeras via Azure-principer som tillämpas på prenumerations nivån. JSON-exempel för Azure Policy finns i [Azure policy exempel](../governance/policy/samples/index.md).
 
 ### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Hur många labb kan jag skapa under samma prenumeration?
-Det finns ingen viss gräns för antalet Labb som kan skapas per prenumeration. Den mängd resurser som används per prenumeration är dock begränsad. Du kan läsa om [gränser och kvoter för Azure](../azure-subscription-service-limits.md) -prenumerationer och [hur du ökar dessa gränser](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Det finns ingen viss gräns för antalet Labb som kan skapas per prenumeration. Den mängd resurser som används per prenumeration är dock begränsad. Du kan läsa om [gränser och kvoter för Azure-prenumerationer](../azure-resource-manager/management/azure-subscription-service-limits.md) och [hur du ökar dessa gränser](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>Hur många virtuella datorer kan jag skapa per labb?
-Det finns ingen viss gräns för antalet virtuella datorer som kan skapas per labb. Men de resurser (virtuella dator kärnor, offentliga IP-adresser och så vidare) som används är begränsade per prenumeration. Du kan läsa om [gränser och kvoter för Azure](../azure-subscription-service-limits.md) -prenumerationer och [hur du ökar dessa gränser](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Det finns ingen viss gräns för antalet virtuella datorer som kan skapas per labb. Men de resurser (virtuella dator kärnor, offentliga IP-adresser och så vidare) som används är begränsade per prenumeration. Du kan läsa om [gränser och kvoter för Azure-prenumerationer](../azure-resource-manager/management/azure-subscription-service-limits.md) och [hur du ökar dessa gränser](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>Hur gör jag för att fastställa förhållandet mellan användarna per labb och det totala antalet Labb som behövs i en organisation?
 Vi rekommenderar att affär senheter och utvecklings grupper som är associerade med samma utvecklings projekt är associerade med samma labb. Den tillåter samma typer av principer, avbildningar och avslutnings principer som tillämpas på båda grupperna.
@@ -186,7 +186,7 @@ Vi rekommenderar att du ställer in rätt behörigheter på labb nivån så att 
 > [!NOTE]
 > Om en labb användare är en extern användare som har en Microsoft-konto, men som inte är medlem i din organisations Active Directory instans, kan användaren se ett fel meddelande när de försöker få åtkomst till den delade länken. Om en extern användare ser ett fel meddelande ber du användaren att först välja sitt namn i det övre högra hörnet i Azure Portal. I avsnittet katalog på menyn kan användaren välja den katalog där labbet finns.
 
-## <a name="virtual-machines"></a>Virtuella datorer
+## <a name="virtual-machines"></a>Virtuella maskiner
 
 ### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Varför kan jag inte se virtuella datorer på sidan Virtual Machines som jag ser i DevTest Labs?
 När du skapar en virtuell dator i DevTest Labs får du behörighet att komma åt den virtuella datorn. Du kan visa den virtuella datorn på sidan labb och på sidan **Virtual Machines** . Användare som har tilldelats rollen **DevTest Labs-ägare** kan se alla virtuella datorer som har skapats i labbet på Labbets **alla Virtual Machines** sida. Användare som har **användar rollen DevTest Labs** beviljas dock inte automatiskt Läs behörighet till VM-resurser som andra användare har skapat. Dessa virtuella datorer visas därför inte på sidan **Virtual Machines** .
@@ -214,9 +214,9 @@ Ja, du kan koppla flera diskar till dina virtuella datorer.
 Gör något av följande om du vill använda Windows Client OS-avbildningar (Windows 7 eller en senare version) för utveckling eller testning i Azure:
 
 - [Köp en MSDN-prenumeration](https://www.visualstudio.com/products/how-to-buy-vs).
-- Om du har en Enterprise-avtal skapar du en Azure-prenumeration med [Enterprise dev/test-erbjudandet](https://azure.microsoft.com/offers/ms-azr-0148p).
+- Om du har en Enterprise-avtal skapar du en Azure-prenumeration med det [Enterprise dev/test erbjudandet](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-Mer information om Azure-krediterna för varje MSDN-erbjudande finns i [månatlig Azure-kredit för Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)-prenumeranter.
+Mer information om Azure-krediterna för varje MSDN-erbjudande finns i [månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Hur gör jag för att automatisera processen med att ta bort alla virtuella datorer i mitt labb?
@@ -304,7 +304,7 @@ Azure Marketplace bör användas som standard om du inte har särskilda problem 
 - Efterlevnads-eller reglerings villkor (till exempel säkerhets principer) som måste finnas på plats för alla datorer.
 - Att använda anpassade bilder bör inte anses vara lätt. De introducerar extra komplexitet eftersom du nu måste hantera VHD-filer för de underliggande bas avbildningarna. Du måste också regelbundet korrigera de grundläggande avbildningarna med program uppdateringar. Dessa uppdateringar omfattar nya operativ Systems uppdateringar och uppdateringar eller konfigurations ändringar som krävs för själva programpaketet.
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 
 ### <a name="what-are-artifacts"></a>Vad är artefakter?
 Artefakter är anpassningsbara element som du kan använda för att distribuera de senaste bitarna eller distribuera dina dev-verktyg till en virtuell dator. Bifoga artefakter till den virtuella datorn när du skapar den virtuella datorn. När den virtuella datorn har allokerats distribuerar artefakterna och konfigurerar den virtuella datorn. Olika befintliga artefakter är tillgängliga i vår [offentliga GitHub-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Du kan också [Redigera dina egna artefakter](devtest-lab-artifact-author.md).
@@ -324,7 +324,7 @@ Den [offentliga artefakt lagrings platsen](https://github.com/Azure/azure-devtes
 Som en del av din organisations övergripande styrnings-och konfigurations hanterings strategi rekommenderar vi att du använder en central lagrings plats. När du använder flera databaser kan de bli silor av ohanterad program vara under tiden. Med en central lagrings plats kan flera team använda artefakter från den här lagrings platsen för sina projekt. Den tillämpar standardisering, säkerhet, enkel hantering och eliminerar dubbleringen av insatser. Som en del av centralisering är följande åtgärder rekommenderade metoder för långsiktig hantering och hållbarhet:
 
 - Associera Azure-databaser med samma Azure Active Directory klient som Azure-prenumerationen använder för autentisering och auktorisering.
-- Skapa en grupp med `All DevTest Labs Developers` namnet i Azure Active Directory som hanteras centralt. Alla utvecklare som bidrar till artefakt utveckling bör placeras i den här gruppen.
+- Skapa en grupp med namnet `All DevTest Labs Developers` i Azure Active Directory som hanteras centralt. Alla utvecklare som bidrar till artefakt utveckling bör placeras i den här gruppen.
 - Samma Azure Active Directorys grupp kan användas för att ge åtkomst till Azure databaser-lagringsplatsen och till labbet.
 - I Azure databaser bör branchning eller förgreningar användas för att separera ett utvecklings lager från den primära produktions lagrings platsen. Innehåll läggs bara till i huvud grenen med en pull-begäran efter en korrekt kod granskning. När kod granskaren godkänner ändringen är en lead-utvecklare, som ansvarar för underhåll av huvud grenen, sammanslagning av den uppdaterade koden.
 
@@ -343,7 +343,7 @@ Följande blogg inlägg ger vägledning och information om hur du använder Azur
 - [Distribuera en ny virtuell dator i ett befintligt DevTest Labs labb från Azure DevOps Services](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 - [Använda versions hantering i Azure DevOps Services för kontinuerlig distribution till DevTest-labb](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-För andra verktygs kedjor (CI)/Continuous Delivery (CD) kan du uppnå samma scenarier genom att distribuera [Azure Resource Manager mallar](https://azure.microsoft.com/resources/templates/) genom att använda [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) -cmdlets och [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/): er. Du kan också använda [REST-API: er för DevTest Labs](https://aka.ms/dtlrestapis) för att integrera med din verktygskedjan.
+För andra verktygs kedjor (CI)/Continuous Delivery (CD) kan du uppnå samma scenarier genom att distribuera [Azure Resource Manager mallar](https://azure.microsoft.com/resources/templates/) genom att använda [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) och [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/): er. Du kan också använda [REST-API: er för DevTest Labs](https://aka.ms/dtlrestapis) för att integrera med din verktygskedjan.
 
 ## <a name="networking"></a>Nätverk
 
@@ -352,7 +352,7 @@ Om dina virtuella datorer behöver interagera med en befintlig infrastruktur kan
 
 Överväg att använda VNet-peering-mönstret här ([Hub-eker modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Den här metoden aktiverar VNet/Subnet-kommunikation mellan prenumerationer. I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk. 
 
-Det finns [gränser](../azure-subscription-service-limits.md) för antalet virtuella nätverk per prenumeration. Standardvärdet är 50, men den här gränsen kan höjas till 100.
+Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md) för antalet virtuella nätverk per prenumeration. Standardvärdet är 50, men den här gränsen kan höjas till 100.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>När ska jag använda en delad IP-adress eller offentlig IP-adress jämfört med privat IP?
  
@@ -375,7 +375,7 @@ Ja. Det finns två aspekter att överväga – inkommande och utgående trafik.
 
 Du kan också använda nätverks säkerhets grupper för virtuella datorer eller undernät. Det här steget lägger till ett extra skydds lager för att tillåta/blockera trafik.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Varför sparar inte mitt befintliga virtuella nätverk korrekt?
 En möjlighet är att det virtuella nätverks namnet innehåller punkter. I så fall kan du försöka ta bort perioderna eller ersätta dem med bindestreck. Försök sedan igen för att spara det virtuella nätverket.
@@ -388,7 +388,7 @@ Virtuella datorer är underordnade resurser under ett labb i en resurs grupp. N�
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Var kan jag hitta mer fel information om det inte går att distribuera en virtuell dator?
 Distributions fel för virtuella datorer samlas in i aktivitets loggarna. Du kan hitta aktivitets loggar för labb virtuella datorer under **gransknings loggar** eller **diagnostik för virtuella datorer** på resurs menyn på sidan för labbets virtuella dator (sidan visas när du har valt den virtuella datorn från listan Mina virtuella datorer).
 
-Ibland uppstår distributions felet innan distributionen av virtuella datorer påbörjas. Ett exempel är när prenumerations gränsen för en resurs som har skapats med den virtuella datorn har överskridits. I det här fallet registreras fel informationen i aktivitets loggarna på labb nivå. Aktivitets loggar finns längst ned i konfigurations- **och princip** inställningarna. Mer information om hur du använder aktivitets loggar i Azure finns i [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
+Ibland uppstår distributions felet innan distributionen av virtuella datorer påbörjas. Ett exempel är när prenumerations gränsen för en resurs som har skapats med den virtuella datorn har överskridits. I det här fallet registreras fel informationen i aktivitets loggarna på labb nivå. Aktivitets loggar finns längst ned i **konfigurations-och princip** inställningarna. Mer information om hur du använder aktivitets loggar i Azure finns i [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>Varför visas fel meddelandet "platsen är inte tillgänglig för resurs typen" när jag försöker skapa ett labb?
 Du kan se ett fel meddelande som liknar följande när du försöker skapa ett labb: 

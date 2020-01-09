@@ -9,20 +9,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459626"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i en enda databas inom Azure SQL Database med SSMS
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) för att:
 
 > [!div class="checklist"]
-> - Skapa en enskild databas med hjälp av Azure-portalen*
-> - Ställa in en IP-brandväggsregel på servernivå med hjälp av Azure-portalen
+> - Skapa en enkel databas med hjälp av Azure-portalen*
+> - Konfigurera en IP-brandväggsregel på servernivå med hjälp av Azure-portalen
 > - Ansluta till databasen med SSMS
 > - Skapa tabeller med SSMS
 > - Massinläsa data med BCP
@@ -33,9 +33,9 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > [!TIP]
 > Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
 > [!NOTE]
-> I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. För anslutning till en hanterad instans, se följande snabb starter för hanterade instanser: [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från lokal plats](sql-database-managed-instance-configure-p2s.md).
+> I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. För anslutning till en hanterad instans, se följande snabb starter för hanterade instanser: [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala](sql-database-managed-instance-configure-p2s.md)datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -44,15 +44,15 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
-En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning beräknings- och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
+En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning beräknings- och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
 
 Följ dessa steg för att skapa en enskild tom databas.
 
-1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
 2. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
 
    ![skapa tom databas](./media/sql-database-design-first-database/create-empty-database.png)
@@ -238,7 +238,7 @@ Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av ta
 
 Du har nu läst in exempeldata i de tabeller som du skapade tidigare.
 
-## <a name="query-data"></a>Frågedata
+## <a name="query-data"></a>Söka i data
 
 Kör följande frågor för att hämta information från databastabellerna. I [Skriva SQL-frågor](https://technet.microsoft.com/library/bb264565.aspx) kan du läsa mer om hur du skriver SQL-frågor. Den första frågan kopplar ihop alla fyra tabellerna och söker efter alla elever som undervisats av ”Dominick Pope” som har ett betyg som är högre än 75 %. Den andra frågan kopplar ihop alla fyra tabeller och söker efter kurserna som ”Noe Coleman” någonsin har registrerat sig på.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: kumud
 ms.reviewer: annahar
-ms.openlocfilehash: e9bad6ad614855c543ee6d75d4e6f4dc8e2255aa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876231"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647330"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med PowerShell
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver hur du skapar en virtuell dator (VM) via Azure Resou
 Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera IP-adresser, enligt beskrivningen i scenariot. Ändra de variabel värden som krävs för din implementering.
 
 1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enkel PowerShell-session. Om du inte redan har PowerShell installerat och konfigurerat slutför du stegen i artikeln [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) .
-2. Logga in på ditt konto med `Connect-AzAccount` kommandot.
+2. Logga in på ditt konto med kommandot `Connect-AzAccount`.
 3. Ersätt *myResourceGroup* och *väst* med ett namn och en plats där du väljer. Skapa en resursgrupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
    ```powershell
@@ -97,7 +97,7 @@ Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera
 
 6. Definiera NÄTVERKSKORTets primära IP-konfiguration. Ändra 10.0.0.4 till en giltig adress i under nätet som du skapade, om du inte använde värdet som definierades tidigare. Innan du tilldelar en statisk IP-adress rekommenderar vi att du först bekräftar att den inte redan används. Ange kommandot `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Om adressen är tillgänglig returnerar utdata *värdet True*. Om den inte är tillgänglig returnerar utdata *falskt* och en lista med adresser som är tillgängliga. 
 
-    I följande kommandon **ersätter \<du Ersätt – med-ditt unika namn > med det unika DNS-namnet som ska användas.** Namnet måste vara unikt för alla offentliga IP-adresser inom en Azure-region. Detta är en valfri parameter. Den kan tas bort om du bara vill ansluta till den virtuella datorn med hjälp av den offentliga IP-adressen.
+    I följande kommandon ersätter du **\<Ersätt – med-ditt unika namn > med det unika DNS-namnet som ska användas.** Namnet måste vara unikt för alla offentliga IP-adresser inom en Azure-region. Detta är en valfri parameter. Den kan tas bort om du bara vill ansluta till den virtuella datorn med hjälp av den offentliga IP-adressen.
 
     ```powershell
     
@@ -122,7 +122,7 @@ Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera
     När du tilldelar flera IP-konfigurationer till ett nätverkskort måste en konfiguration tilldelas som *-primär*.
 
     > [!NOTE]
-    > Offentliga IP-adresser har en nominell avgift. Läs mer om pris information om IP-adresser i [pris](https://azure.microsoft.com/pricing/details/ip-addresses) sidan för IP-adresser. Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
+    > Offentliga IP-adresser har en nominell avgift. Läs mer om pris information om IP-adresser i [pris](https://azure.microsoft.com/pricing/details/ip-addresses) sidan för IP-adresser. Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 7. Definiera de sekundära IP-konfigurationerna för NÄTVERKSKORTet. Du kan lägga till eller ta bort konfigurationer vid behov. Varje IP-konfiguration måste tilldelas en privat IP-adress. Varje konfiguration kan också ha en tilldelad offentlig IP-adress.
 
@@ -239,13 +239,13 @@ Du kan lägga till privata och offentliga IP-adresser i Azure-nätverks gränssn
    "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
    ```
 
-    I dessa utdata är *MyVnet* det *VNet och det* undernät som nätverkskortet är anslutet till.
+    I dessa utdata är *MyVnet* det *VNet och det undernät som* nätverkskortet är anslutet till.
 
 5. Slutför stegen i något av följande avsnitt, baserat på dina krav:
 
    **Lägg till en privat IP-adress**
 
-   Om du vill lägga till en privat IP-adress till ett nätverkskort måste du skapa en IP-konfiguration. Följande kommando skapar en konfiguration med en statisk IP-adress för 10.0.0.7. När du anger en statisk IP-adress måste den vara en oanvänd adress för under nätet. Vi rekommenderar att du först testar adressen för att se till att den är tillgänglig genom att `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` ange kommandot. Om IP-adressen är tillgänglig returnerar utdata *värdet True*. Om den inte är tillgänglig returnerar utdata *falskt*, och en lista över adresser som är tillgängliga.
+   Om du vill lägga till en privat IP-adress till ett nätverkskort måste du skapa en IP-konfiguration. Följande kommando skapar en konfiguration med en statisk IP-adress för 10.0.0.7. När du anger en statisk IP-adress måste den vara en oanvänd adress för under nätet. Vi rekommenderar att du först testar adressen för att se till att den är tillgänglig genom att ange kommandot `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet`. Om IP-adressen är tillgänglig returnerar utdata *värdet True*. Om den inte är tillgänglig returnerar utdata *falskt*, och en lista över adresser som är tillgängliga.
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -261,7 +261,7 @@ Du kan lägga till privata och offentliga IP-adresser i Azure-nätverks gränssn
    En offentlig IP-adress läggs till genom att associera en offentlig IP-adressresurs till antingen en ny IP-konfiguration eller en befintlig IP-konfiguration. Slutför stegen i något av de avsnitt som följer, efter behov.
 
    > [!NOTE]
-   > Offentliga IP-adresser har en nominell avgift. Läs mer om pris information om IP-adresser i [pris](https://azure.microsoft.com/pricing/details/ip-addresses) sidan för IP-adresser. Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
+   > Offentliga IP-adresser har en nominell avgift. Läs mer om pris information om IP-adresser i [pris](https://azure.microsoft.com/pricing/details/ip-addresses) sidan för IP-adresser. Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
    >
 
    **Associera den offentliga IP-adressresursen till en ny IP-konfiguration**

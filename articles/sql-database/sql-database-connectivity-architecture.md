@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707991"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647687"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -39,11 +39,11 @@ Följande steg beskriver hur en anslutning upprättas till en Azure SQL-databas:
 
 Azure SQL Database stöder följande tre alternativ för anslutnings princip inställningen för en SQL Database-Server:
 
-- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen, vilket leder till minskad svars tid och förbättras i hela. För att anslutningar ska kunna använda detta läge klienter måste
+- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen, vilket leder till minskad svars tid och bättre data flöde. För att anslutningar ska kunna använda detta läge klienter måste
    - Tillåt inkommande och utgående kommunikation från klienten till alla Azure IP-adresser i regionen på portarna i intervallet 11000 11999.  
    - Tillåt inkommande och utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
 
-- **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer, vilket leder till ökad latens och minskar i hela. För att anslutningar ska kunna använda detta läge måste klienterna tillåta inkommande och utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
+- **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer, vilket leder till ökad latens och minskat data flöde. För att anslutningar ska kunna använda detta läge måste klienterna tillåta inkommande och utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
 
 - **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect`. Standard principen är`Redirect` för alla klient anslutningar som har sitt ursprung i Azure (t. ex. från en virtuell Azure-dator) och `Proxy`för alla klient anslutningar som kommer från utsidan (t. ex. anslutningar från din lokala arbets Station).
 

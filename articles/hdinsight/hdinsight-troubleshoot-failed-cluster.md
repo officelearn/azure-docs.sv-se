@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22bf4dcd472cf2d7804b571e09093535f30b053f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498090"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647432"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
 
@@ -90,7 +90,7 @@ HDInsight förlitar sig på flera Azure-tjänster. Den kör virtuella servrar p�
 
 #### <a name="check-azure-service-usage-limits"></a>Kontrol lera användnings gränser för Azure-tjänsten
 
-Om du startar ett stort kluster eller har lanserat flera kluster samtidigt, kan ett kluster inte köras om du har överskridit en Azure-tjänstegräns. Tjänst gränserna varierar beroende på din Azure-prenumeration. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Om du startar ett stort kluster eller har lanserat flera kluster samtidigt, kan ett kluster inte köras om du har överskridit en Azure-tjänstegräns. Tjänst gränserna varierar beroende på din Azure-prenumeration. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 Du kan begära att Microsoft ökar antalet tillgängliga HDInsight-resurser (till exempel virtuella dator kärnor och VM-instanser) med en [bas kvot för Resource Manager-begäranden](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 #### <a name="check-the-release-version"></a>Kontrol lera slut versionen

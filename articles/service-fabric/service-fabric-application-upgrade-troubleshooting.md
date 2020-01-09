@@ -1,25 +1,14 @@
 ---
-title: Felsöka program uppgraderingar | Microsoft Docs
+title: Felsöka programuppgraderingar
 description: Den här artikeln beskriver några vanliga problem med att uppgradera ett Service Fabric program och hur du löser dem.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: f5df528c7e46a5cb2a5df98f0088a451eb08cd6a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377930"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Felsök programuppgraderingar
 
@@ -201,7 +190,7 @@ Uppgraderingen fortsätter från uppgraderings domänen där den senast pausades
 
 Möjlig orsak 1:
 
-Service Fabric översätter alla procent andelar till faktiska antal entiteter (till exempel repliker, partitioner och tjänster) för utvärdering av hälso tillstånd och avrundar alltid upp till hela entiteter. Om den maximala *MaxPercentUnhealthyReplicasPerPartition* är till exempel 21% och det finns fem repliker, kan Service Fabric upp till två felaktiga repliker (det vill säga `Math.Ceiling (5*0.21)`). Därför bör hälso principerna anges i enlighet med detta.
+Service Fabric översätter alla procent andelar till faktiska antal entiteter (till exempel repliker, partitioner och tjänster) för utvärdering av hälso tillstånd och avrundar alltid upp till hela entiteter. Om den maximala *MaxPercentUnhealthyReplicasPerPartition* är till exempel 21% och det finns fem repliker, kan Service Fabric upp till två felaktiga repliker (det vill säga`Math.Ceiling (5*0.21)`). Därför bör hälso principerna anges i enlighet med detta.
 
 Möjlig orsak 2:
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462101"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Självstudie: svara på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps
 I den här självstudien får du lära dig hur du svarar på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps. Du utför följande steg:
@@ -50,7 +50,7 @@ Du kan använda valfri metod för att skicka ett meddelande till ditt Service Bu
 3. Gå till projektet **MessageSender** och välj sedan **Program.cs**.
 4. Fyll i namnet på Service Bus ämnet och anslutnings strängen du fick från föregående steg:
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -65,11 +65,11 @@ Innan du går igenom hela scenariot ställer du in minst en liten test funktion 
 Utför sedan följande steg: 
 
 
-# <a name="azure-functions-v2tabv2"></a>[Azure Functions v2](#tab/v2)
+# <a name="azure-functions-v2tabv2"></a>[Azure Functions V2](#tab/v2)
 
 1. Expandera **funktioner** i trädvyn och välj din funktion. Ersätt koden för funktionen med följande kod: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -120,9 +120,9 @@ Utför sedan följande steg:
     ![Funktion för programmets utdata](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 3. Välj **Hämta funktions webb adress** och anteckna URL: en. 
 
-    ![Hämta funktions webb adress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Hämta funktions-URL:en](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[Azure Functions v1](#tab/v1)
+# <a name="azure-functions-v1tabv1"></a>[Azure Functions V1](#tab/v1)
 
 1. Konfigurera funktionen för att använda **v1** -version: 
     1. Välj din Function-app i trädvyn och välj **Function app-inställningar**. 
@@ -131,7 +131,7 @@ Utför sedan följande steg:
     2. Välj **~ 1** för **körnings version**. 
 2. Expandera **funktioner** i trädvyn och välj din funktion. Ersätt koden för funktionen med följande kod: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;
@@ -179,7 +179,7 @@ Utför sedan följande steg:
     ![Funktion för programmets utdata](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 4. Välj **Hämta funktions webb adress** och anteckna URL: en. 
 
-    ![Hämta funktions webb adress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Hämta funktions-URL:en](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 ---
 

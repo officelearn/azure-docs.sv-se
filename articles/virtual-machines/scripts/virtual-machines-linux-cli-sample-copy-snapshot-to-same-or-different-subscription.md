@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel för Azure CLI – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
-description: Skriptexempel för Azure CLI – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
+title: Kopiera ögonblicks bild av hanterade diskar till ett exempel på en prenumerations-CLI
+description: Skript exempel för Azure CLI – kopiera (eller flytta) ögonblicks bild av en hanterad disk till samma eller en annan prenumeration med CLI
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 23886256e405f57c5a581356b4212498779ae6e5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 19c791cf1f394f5aab6ad2fcd7f98c4b30497286
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458549"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Kopiera en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
 

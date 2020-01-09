@@ -1,23 +1,23 @@
 ---
-title: 'Självstudier: Skapa en enkelsidig app med videosökning i Bing'
+title: 'Självstudie: Skapa en enkelsidig app för videosökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Förklarar hur du använder API:et för videosökning i Bing i webbprogram med en enda sida.
+description: I den här självstudien beskrivs hur du använder API för videosökning i Bing i ett webb program med en enda sida.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d2cd3d37801fc1a42a9bcbd5f70a6a55e78aaf08
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382471"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Självstudier: Enkelsidig app med videosökning
+# <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -87,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-HTML-taggen `<form>` `onsubmit` anropar `bingWebSearch`-funktionen för att returnera sökresultat. `bingWebSearch` använder `getSubscriptionKey()` för att autentisera varje fråga. Som du ser i den föregående definitionen ber `getSubscriptionKey` användaren om nyckeln om nyckeln inte har registrerats. Nyckeln lagras sedan för fortlöpande användning av programmet.
+HTML-taggen `<form>``onsubmit` anropar `bingWebSearch`-funktionen för att returnera sökresultat. `bingWebSearch` använder `getSubscriptionKey()` för att autentisera varje fråga. Som du ser i den föregående definitionen ber `getSubscriptionKey` användaren om nyckeln om nyckeln inte har registrerats. Nyckeln lagras sedan för fortlöpande användning av programmet.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -102,7 +102,7 @@ HTML-formuläret innehåller element med följande namn:
 
 |Element|Beskrivning|
 |-|-|
-| `where` | En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen. |
+| `where` | En listruta för att välja marknad (plats och språk) som används för sökningen. |
 | `query` | Textfältet för att ange sökvillkor. |
 | `modules` | Kryssrutor för att främja vissa modulers resultat, alla resultat eller relaterade videor. |
 | `when` | Listruta för att valfritt begränsa sökningen till den senaste dagen, veckan eller månaden. |
@@ -141,7 +141,7 @@ function bingSearchOptions(form) {
 Till exempel kan parametern `SafeSearch` i ett faktiskt API-anrop vara `strict`, `moderate`, eller `off`, med `moderate` som standardvärde. Vårt formulär använder en kryssruta som bara har två tillstånd. JavaScript-koden konverterar den här inställningen till antingen `strict` eller `off` (`moderate` används inte).
 
 ## <a name="performing-the-request"></a>Utföra förfrågan
-Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till slutpunkten för Bing-sökningen.
+Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till slutpunkten för Bing-sökningen. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -261,7 +261,7 @@ En lyckad HTTP-begäran betyder *inte* nödvändigtvis att själva sökningen ly
 
 En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
 
-|Fas|Potentiella fel|Hanterat av|
+|Mellanlagra|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
 |Skapa begäran|Nätverksfel, avbrutna anslutningar|Händelsehanterare för `error` och `abort`|
@@ -369,14 +369,14 @@ Renderarfunktionen:
 > [!div class="checklist"]
 > * Skapar en styckestagg och tilldelar den till klassen `images` och skickar den till html-matrisen.
 > * Beräknar miniatyrbildstorlek (bredden är högst 60 bildpunkter, höjden beräknas proportionellt).
-> * Skapar HTML `<img>`-taggen för att visa miniatyrbilden. 
+> * Skapar HTML `<img>`-tagg för att visa miniatyrbilden. 
 > * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
 Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Bing kommer att returnera en [miniatyr bild](../bing-web-search/resize-and-crop-thumbnails.md) av exakt den storleken.
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
-Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing Search används ska samma klient-ID användas för dem om möjligt.
+Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 
@@ -389,7 +389,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers` huvud som tillåter svarshuvuden och gör dem tillgängliga för Java Script.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som tillåter svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
